@@ -1,0 +1,22 @@
+---
+title: "Notes on A Probability Path (Resnick)"
+author: "Zhanwen Peng"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+### Chap 1
+
+### Chap 2
+
+### Chap 3
+
+### Chap 4
+
+#### Ex 16
+* My idea:
+* Answer:
