@@ -2,21 +2,47 @@
 title: "Notes on A Probability Path (Resnick)"
 author: "Zhanwen Peng"
 date: "`r Sys.Date()`"
-output: html_document
+output:
+  html_document:
+    toc: true
+    toc_depth: 4
+    number_sections: true
+    css: styles.css
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-### Chap 1
+## Chap 1
 
-### Chap 2
+## Chap 2
 
-### Chap 3
+## Chap 3
 
-### Chap 4
+## Chap 4, Independence
 
-#### Ex 16
+### Summary
+Firstly, we defined the definition of independence (of 2 events)
+
+Then:
+
+* The independence of finite events
+* The independence of finite classes (collection of events)
+* The independence of arbitrary number of classes, by focusing of all the finite subset
+* Further, if the independent classes are $\pi$-system, then the $\sigma$-field then generated are also independent
+
+Then we go to the measurable function part, and for a R.V X, we focus on the $\sigma$-field it generates, $\sigma(X)$.
+
+Secondly, we have grouping on a collection of independent $\sigma$-field
+
+* If we divide an index set into mutually disjoint subsets, then the $\sigma$-fields generated associated to these subset index are independent.
+
+Thirdly, we have the 0-1 laws.
+
+* Borel: for independent events $\{A_n\}$,if we want to study its limsup, $[A_n\; i.o]$, we can try study $\sum_{n}P(A_n)$
+* Kolmogorov: for independent R.Vs $\{X_n\}$, the information from infinity is almost trivial, and independent to the information of all the $\{X_n\}$.
+
+### Ex 16
 * My idea:
 * Answer:
