@@ -14,6 +14,14 @@ output:
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
+## Pre
+This is some notes and record when I am learning the book *A Probability Path* by Resnick, After finishing chapter 1~3, I thought I should record it, for the record, here is the protocol about how I do exercises:
+
+  * I try to write down anything that I could, even if knowing that something is going wrong
+  * Compare to the answer, figure out what's going wrong
+  * Close the answer and do it again, untill I can do I **completely** on my own
+
+And I'll record the first idea and the right answer here.
 
 ## Chap 1
 
