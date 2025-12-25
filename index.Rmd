@@ -1,6 +1,6 @@
 ---
 title: "Notes on A Probability Path (Resnick)"
-author: "Zhanwen Peng"
+author: "Archimond"
 date: "`r Sys.Date()`"
 output:
   html_document:
@@ -15,13 +15,15 @@ output:
 knitr::opts_chunk$set(echo = TRUE)
 ```
 ## Pre
-This is some notes and record when I am learning the book *A Probability Path* by Resnick, After finishing chapter 1~3, I thought I should record it, for the record, here is the protocol about how I do exercises:
+These are my notes and exercise records while learning *A Probability Path* by Resnick.  
+After finishing Chapters 1–3, I decided to start writing things down more systematically.  
+Here is the protocol I follow for exercises:
 
-  * I try to write down anything that I could, even if knowing that something is going wrong
-  * Compare to the answer, figure out what's going wrong
-  * Close the answer and do it again, untill I can do I **completely** on my own
+- I write down anything I can, even if I know something may be wrong.
+- I compare with the official solution and locate what went wrong.
+- I close the solution and redo the exercise until I can complete it **entirely** on my own.
 
-And I'll record the first idea and the right answer here.
+I record both my first idea and the final correct solution here.
 
 ## Chap 1
 
@@ -49,9 +51,24 @@ Secondly, we have grouping on a collection of independent $\sigma$-field
 
 Thirdly, we have the 0-1 laws.
 
-* Borel: for independent events $\{A_n\}$,if we want to study its limsup, $[A_n\; i.o]$, we can try study $\sum_{n}P(A_n)$
+* Borel: for independent events $\{A_n\}$,if we want to study its limsup, $[A_n\; i.o.]$, we can try study $\sum_{n}P(A_n)$
 * Kolmogorov: for independent R.Vs $\{X_n\}$, the information from infinity is almost trivial, and independent to the information of all the $\{X_n\}$.
 
-### Ex 16
+### Ex 10
 * My idea:
+
+$\Rightarrow$: Suppose $\forall$ $m\in R^+$, we have $\sum_{n}P[X_n>m]=\infty$, that is, we have $P[X_n>m ,\: \text{i.o.}]=1$, also, $[X_n=\infty]=\bigcap_{m}[X_n>m]$, that is, $P[X_n=\infty,\:\text{i.o.}]=1$, which is contradicted to $\sum_n P[\sup_n X_n<\infty]=1$.
+
+$\Leftarrow$: now we have for some $M$, $\sum_{n}P[X_n>M]<\infty$, according to Borel 0-1 law, we have $P[X_n>M,\: \text{i.o.}]=0$, that is $P[\lim\inf[X_n\leq M]]=1$, so there $\exists N$, such that for $n\geq N$, we have $P[X_n\leq M]=1$ therefore we have $P[\sup X_n<\infty]=1$
+
 * Answer:
+
+$\Rightarrow$: Suppose $\forall m\in N^+$, we have $\sum_{n}P[X_n>m]=\infty$, that is, by Borel–Cantelli II (using independence), we have $P[X_n> m ,\: \text{i.o.}]=1$, that is, $P(\bigcap_{m=1}^\infty\{X_n> m,\:\text{i.o.}\})=1$ and $\bigcap_{m=1}[X_n> m,\:\text{i.o.}]\subset \{\omega,\:\sup X_n(\omega)=\infty\}$, since $\{\omega,\:\sup X_n(\omega)=\infty\}$ means: for any $m\geq0$, exists $n(\omega,m)>0$, such that $X_n(\omega)>m$, written in set form, it is: $\bigcap_m\bigcup_n[X_n>m]$, so we have $P(\{\omega,\:\sup X_n(\omega)=\infty\})=1$, which leads to contradiction.
+
+
+$\Leftarrow$: now we have for some $M$, $\sum_{n}P[X_n>M]<\infty$, according to Borel-contelli, $P[X_n>M,\:\text{i.o.}]=0$, that is $P(\lim\inf_n[X_n\leq M])=1$, that is, $P(\bigcup_{N\geq1}\bigcap_{n\geq N}\{\omega,\:X_n(\omega)\leq M\})=1$, so if $\omega\in\bigcup_{N\geq1}\bigcap_{n\geq N}\{\omega,\:X_n(\omega)\leq M\}$, then for this fixed $\omega$, exists a $N(\omega)$, such that for $n\geq N(\omega)$, we have $X_n(\omega)\leq M$, so for a.e $\omega$, we have $\sup_n X_n(\omega)=\max(\max_{1\leq n<N(\omega)}X_n(\omega),M)<\infty$.
+
+* Notes:
+  
+  1. in general, we don't swap the order of $\bigcap$ and $\bigcup$.
+  2. $\sup_n X_n=\infty$ in $\varepsilon-N$ language: for any $m>0$, exists an $n(\omega,m)$, such that $X_n>m$.
