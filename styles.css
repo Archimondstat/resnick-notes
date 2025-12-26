@@ -13,3 +13,11 @@ h3 {
   margin-top: 0.8em;
   margin-bottom: 0.3em;
 }
+
+.problem{
+  border: 2px solid #222;
+  border-radius: 10px;
+  padding: 0.9rem 1rem;
+  margin: 1rem 0;
+  background: #fbfbfb;
+}

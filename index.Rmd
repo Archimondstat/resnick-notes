@@ -55,6 +55,14 @@ Thirdly, we have the 0-1 laws.
 * Kolmogorov: for independent R.Vs $\{X_n\}$, the information from infinity is almost trivial, and independent to the information of all the $\{X_n\}$.
 
 ### Ex 10
+::: {.problem}
+Suppose $\{X_n,\ n\ge 1\}$ are independent random variables. Show that
+\[
+P\!\left(\sup_{n\ge 1} X_n < \infty\right)=1
+\quad\text{iff}\quad
+\sum_{n=1}^\infty P(X_n > M) < \infty \ \text{for some } M.
+\]
+:::
 * My idea: $\Rightarrow$: Suppose $\forall$ $m\in R^+$, we have $\sum_{n}P[X_n>m]=\infty$, that is, we have $P[X_n>m ,\: \text{i.o.}]=1$, also, $[X_n=\infty]=\bigcap_{m}[X_n>m]$, that is, $P[X_n=\infty,\:\text{i.o.}]=1$, which is contradicted to $\sum_n P[\sup_n X_n<\infty]=1$.
 $\Leftarrow$: now we have for some $M$, $\sum_{n}P[X_n>M]<\infty$, according to Borel 0-1 law, we have $P[X_n>M,\: \text{i.o.}]=0$, that is $P[\lim\inf[X_n\leq M]]=1$, so there $\exists N$, such that for $n\geq N$, we have $P[X_n\leq M]=1$ therefore we have $P[\sup X_n<\infty]=1$
 
@@ -67,6 +75,7 @@ $\Leftarrow$: now we have for some $M$, $\sum_{n}P[X_n>M]<\infty$, according to 
   2. $\sup_n X_n=\infty$ in $\varepsilon-N$ language: for any $m>0$, exists an $n(\omega,m)$, such that $X_n>m$.
   
 ### Ex 11 
+::: {.problem}
 Use the Borel--Cantelli Lemma to prove that, given any sequence of random
 variables $\{X_n,\ n\ge 1\}$ whose range is the real line, there exist constants $c_n\to\infty$
 such that
@@ -74,7 +83,7 @@ such that
 P\!\left(\lim_{n\to\infty}\frac{X_n}{c_n}=0\right)=1.
 \]
 Give a careful description of how you choose $c_n$.
-
+:::
 
 * My idea: 
 if we want to find $\{c_n\}$ that $P[\lim_{n\to\infty}\frac{X_n}{c_n}=0]$, think the opposite, that is, for any $a>0$, we must have $P[\frac{X_n}{c_n}>a,\ \text{i.o.}]=0$, because if such $\{c_n\}$ exists, $X_n$ would not exceed any positive number infintely many times, so we just need to fix some $a>0$, and construct $\{c_n\}$ such that make sure $\sum_{n=1}^{\infty} P[X_n>a\cdot c_n]<\infty$, so I try to make it shrink as $\frac{1}{2^n}$, then I may choose $c_n=\sup_n X_n\cdot2^n$.
