@@ -11,7 +11,7 @@
 
 <meta name="author" content="Archimond" />
 
-<meta name="date" content="2025-12-25" />
+<meta name="date" content="2025-12-26" />
 
 <title>Notes on A Probability Path (Resnick)</title>
 
@@ -353,26 +353,13 @@ display: none;
 
 <h1 class="title toc-ignore">Notes on A Probability Path (Resnick)</h1>
 <h4 class="author">Archimond</h4>
-<h4 class="date">2025-12-25</h4>
+<h4 class="date">2025-12-26</h4>
 
 </div>
 
-<div id="TOC">
-<ul>
-<li><a href="#pre" id="toc-pre"><span class="toc-section-number">1</span> Pre</a></li>
-<li><a href="#chap-1" id="toc-chap-1"><span class="toc-section-number">2</span> Chap 1</a></li>
-<li><a href="#chap-2" id="toc-chap-2"><span class="toc-section-number">3</span> Chap 2</a></li>
-<li><a href="#chap-3" id="toc-chap-3"><span class="toc-section-number">4</span> Chap 3</a></li>
-<li><a href="#chap-4-independence" id="toc-chap-4-independence"><span class="toc-section-number">5</span> Chap 4, Independence</a>
-<ul>
-<li><a href="#summary" id="toc-summary"><span class="toc-section-number">5.1</span> Summary</a></li>
-<li><a href="#ex-10" id="toc-ex-10"><span class="toc-section-number">5.2</span> Ex 10</a></li>
-</ul></li>
-</ul>
-</div>
 
-<div id="pre" class="section level2" number="1">
-<h2><span class="header-section-number">1</span> Pre</h2>
+<div id="pre" class="section level2" number="0.1">
+<h2><span class="header-section-number">0.1</span> Pre</h2>
 <p>These are my notes and exercise records while learning <em>A
 Probability Path</em> by Resnick.<br />
 After finishing Chapters 1–3, I decided to start writing things down
@@ -388,20 +375,20 @@ wrong.</li>
 </ul>
 <p>I record both my first idea and the final correct solution here.</p>
 </div>
-<div id="chap-1" class="section level2" number="2">
-<h2><span class="header-section-number">2</span> Chap 1</h2>
+<div id="chap-1" class="section level2" number="0.2">
+<h2><span class="header-section-number">0.2</span> Chap 1</h2>
 </div>
-<div id="chap-2" class="section level2" number="3">
-<h2><span class="header-section-number">3</span> Chap 2</h2>
+<div id="chap-2" class="section level2" number="0.3">
+<h2><span class="header-section-number">0.3</span> Chap 2</h2>
 </div>
-<div id="chap-3" class="section level2" number="4">
-<h2><span class="header-section-number">4</span> Chap 3</h2>
+<div id="chap-3" class="section level2" number="0.4">
+<h2><span class="header-section-number">0.4</span> Chap 3</h2>
 </div>
-<div id="chap-4-independence" class="section level2" number="5">
-<h2><span class="header-section-number">5</span> Chap 4,
+<div id="chap-4-independence" class="section level2" number="0.5">
+<h2><span class="header-section-number">0.5</span> Chap 4,
 Independence</h2>
-<div id="summary" class="section level3" number="5.1">
-<h3><span class="header-section-number">5.1</span> Summary</h3>
+<div id="summary" class="section level3" number="0.5.1">
+<h3><span class="header-section-number">0.5.1</span> Summary</h3>
 <p>Firstly, we defined the definition of independence (of 2 events)</p>
 <p>Then:</p>
 <ul>
@@ -430,26 +417,20 @@ to these subset index are independent.</li>
 almost trivial, and independent to the information of all the <span class="math inline">\(\{X_n\}\)</span>.</li>
 </ul>
 </div>
-<div id="ex-10" class="section level3" number="5.2">
-<h3><span class="header-section-number">5.2</span> Ex 10</h3>
+<div id="ex-10" class="section level3" number="0.5.2">
+<h3><span class="header-section-number">0.5.2</span> Ex 10</h3>
 <ul>
-<li>My idea:</li>
-</ul>
-<p><span class="math inline">\(\Rightarrow\)</span>: Suppose <span class="math inline">\(\forall\)</span> <span class="math inline">\(m\in
-R^+\)</span>, we have <span class="math inline">\(\sum_{n}P[X_n&gt;m]=\infty\)</span>, that is, we
+<li><p>My idea: <span class="math inline">\(\Rightarrow\)</span>:
+Suppose <span class="math inline">\(\forall\)</span> <span class="math inline">\(m\in R^+\)</span>, we have <span class="math inline">\(\sum_{n}P[X_n&gt;m]=\infty\)</span>, that is, we
 have <span class="math inline">\(P[X_n&gt;m ,\: \text{i.o.}]=1\)</span>,
 also, <span class="math inline">\([X_n=\infty]=\bigcap_{m}[X_n&gt;m]\)</span>, that
 is, <span class="math inline">\(P[X_n=\infty,\:\text{i.o.}]=1\)</span>,
 which is contradicted to <span class="math inline">\(\sum_n P[\sup_n
-X_n&lt;\infty]=1\)</span>.</p>
-<p><span class="math inline">\(\Leftarrow\)</span>: now we have for some
-<span class="math inline">\(M\)</span>, <span class="math inline">\(\sum_{n}P[X_n&gt;M]&lt;\infty\)</span>, according
+X_n&lt;\infty]=1\)</span>. <span class="math inline">\(\Leftarrow\)</span>: now we have for some <span class="math inline">\(M\)</span>, <span class="math inline">\(\sum_{n}P[X_n&gt;M]&lt;\infty\)</span>, according
 to Borel 0-1 law, we have <span class="math inline">\(P[X_n&gt;M,\:
-\text{i.o.}]=0\)</span>, that is <span class="math inline">\(P[\lim\inf[X_n\leq M]]=1\)</span>, so there <span class="math inline">\(\exists N\)</span>, such that for <span class="math inline">\(n\geq N\)</span>, we have <span class="math inline">\(P[X_n\leq M]=1\)</span> therefore we have <span class="math inline">\(P[\sup X_n&lt;\infty]=1\)</span></p>
-<ul>
-<li>Answer:</li>
-</ul>
-<p><span class="math inline">\(\Rightarrow\)</span>: Suppose <span class="math inline">\(\forall m\in N^+\)</span>, we have <span class="math inline">\(\sum_{n}P[X_n&gt;m]=\infty\)</span>, that is, by
+\text{i.o.}]=0\)</span>, that is <span class="math inline">\(P[\lim\inf[X_n\leq M]]=1\)</span>, so there <span class="math inline">\(\exists N\)</span>, such that for <span class="math inline">\(n\geq N\)</span>, we have <span class="math inline">\(P[X_n\leq M]=1\)</span> therefore we have <span class="math inline">\(P[\sup X_n&lt;\infty]=1\)</span></p></li>
+<li><p>Answer: <span class="math inline">\(\Rightarrow\)</span>: Suppose
+<span class="math inline">\(\forall m\in N^+\)</span>, we have <span class="math inline">\(\sum_{n}P[X_n&gt;m]=\infty\)</span>, that is, by
 Borel–Cantelli II (using independence), we have <span class="math inline">\(P[X_n&gt; m ,\: \text{i.o.}]=1\)</span>, that is,
 <span class="math inline">\(P(\bigcap_{m=1}^\infty\{X_n&gt;
 m,\:\text{i.o.}\})=1\)</span> and <span class="math inline">\(\bigcap_{m=1}[X_n&gt; m,\:\text{i.o.}]\subset
@@ -457,21 +438,48 @@ m,\:\text{i.o.}\})=1\)</span> and <span class="math inline">\(\bigcap_{m=1}[X_n&
 means: for any <span class="math inline">\(m\geq0\)</span>, exists <span class="math inline">\(n(\omega,m)&gt;0\)</span>, such that <span class="math inline">\(X_n(\omega)&gt;m\)</span>, written in set form, it
 is: <span class="math inline">\(\bigcap_m\bigcup_n[X_n&gt;m]\)</span>,
 so we have <span class="math inline">\(P(\{\omega,\:\sup
-X_n(\omega)=\infty\})=1\)</span>, which leads to contradiction.</p>
-<p><span class="math inline">\(\Leftarrow\)</span>: now we have for some
-<span class="math inline">\(M\)</span>, <span class="math inline">\(\sum_{n}P[X_n&gt;M]&lt;\infty\)</span>, according
+X_n(\omega)=\infty\})=1\)</span>, which leads to contradiction. <span class="math inline">\(\Leftarrow\)</span>: now we have for some <span class="math inline">\(M\)</span>, <span class="math inline">\(\sum_{n}P[X_n&gt;M]&lt;\infty\)</span>, according
 to Borel-contelli, <span class="math inline">\(P[X_n&gt;M,\:\text{i.o.}]=0\)</span>, that is
 <span class="math inline">\(P(\lim\inf_n[X_n\leq M])=1\)</span>, that
 is, <span class="math inline">\(P(\bigcup_{N\geq1}\bigcap_{n\geq
 N}\{\omega,\:X_n(\omega)\leq M\})=1\)</span>, so if <span class="math inline">\(\omega\in\bigcup_{N\geq1}\bigcap_{n\geq
 N}\{\omega,\:X_n(\omega)\leq M\}\)</span>, then for this fixed <span class="math inline">\(\omega\)</span>, exists a <span class="math inline">\(N(\omega)\)</span>, such that for <span class="math inline">\(n\geq N(\omega)\)</span>, we have <span class="math inline">\(X_n(\omega)\leq M\)</span>, so for a.e <span class="math inline">\(\omega\)</span>, we have <span class="math inline">\(\sup_n X_n(\omega)=\max(\max_{1\leq
-n&lt;N(\omega)}X_n(\omega),M)&lt;\infty\)</span>.</p>
-<ul>
+n&lt;N(\omega)}X_n(\omega),M)&lt;\infty\)</span>.</p></li>
 <li><p>Notes:</p>
 <ol style="list-style-type: decimal">
 <li>in general, we don’t swap the order of <span class="math inline">\(\bigcap\)</span> and <span class="math inline">\(\bigcup\)</span>.</li>
 <li><span class="math inline">\(\sup_n X_n=\infty\)</span> in <span class="math inline">\(\varepsilon-N\)</span> language: for any <span class="math inline">\(m&gt;0\)</span>, exists an <span class="math inline">\(n(\omega,m)\)</span>, such that <span class="math inline">\(X_n&gt;m\)</span>.</li>
 </ol></li>
+</ul>
+</div>
+<div id="ex-11" class="section level3" number="0.5.3">
+<h3><span class="header-section-number">0.5.3</span> Ex 11</h3>
+<p>Use the Borel–Cantelli Lemma to prove that, given any sequence of
+random variables <span class="math inline">\(\{X_n,\ n\ge 1\}\)</span>
+whose range is the real line, there exist constants <span class="math inline">\(c_n\to\infty\)</span> such that <span class="math display">\[
+P\!\left(\lim_{n\to\infty}\frac{X_n}{c_n}=0\right)=1.
+\]</span> Give a careful description of how you choose <span class="math inline">\(c_n\)</span>.</p>
+<ul>
+<li><p>My idea: if we want to find <span class="math inline">\(\{c_n\}\)</span> that <span class="math inline">\(P[\lim_{n\to\infty}\frac{X_n}{c_n}=0]\)</span>,
+think the opposite, that is, for any <span class="math inline">\(a&gt;0\)</span>, we must have <span class="math inline">\(P[\frac{X_n}{c_n}&gt;a,\ \text{i.o.}]=0\)</span>,
+because if such <span class="math inline">\(\{c_n\}\)</span> exists,
+<span class="math inline">\(X_n\)</span> would not exceed any positive
+number infintely many times, so we just need to fix some <span class="math inline">\(a&gt;0\)</span>, and construct <span class="math inline">\(\{c_n\}\)</span> such that make sure <span class="math inline">\(\sum_{n=1}^{\infty} P[X_n&gt;a\cdot
+c_n]&lt;\infty\)</span>, so I try to make it shrink as <span class="math inline">\(\frac{1}{2^n}\)</span>, then I may choose <span class="math inline">\(c_n=\sup_n X_n\cdot2^n\)</span>.</p></li>
+<li><p>Answer: We need to guarantee that for any <span class="math inline">\(k\in N^+\)</span>, <span class="math inline">\(P[\frac{X_n}{c_n}&gt;\frac{1}{k}\
+\text{i.o.}]=0\)</span> so that <span class="math inline">\(\frac{X_n}{c_n}\to0\ \text{a.s.}\)</span>, since
+<span class="math inline">\(\{\frac{X_n}{c_n}\not\to0\}=\bigcup_{k\geq1}\{\frac{X_n}{c_n}&gt;\frac{1}{k}\
+\text{i.o.}\}\)</span>, according to Borel-contelli I, we start from
+<span class="math inline">\(\sum_{n=1}^{\infty}
+P(|X_n|&gt;\frac{c_n}{k}&lt;\infty)\)</span>, since <span class="math inline">\(\{X_n\}\)</span> are r.v., so we have <span class="math inline">\(P(|X_n|&gt;t)\to0\ (t\to\infty)\)</span>, that is,
+for <span class="math inline">\(2^{-n}\)</span>, exists a <span class="math inline">\(t_n\)</span>, such that <span class="math inline">\(P(|X_n|&gt;t_n)\leq2^{-n}\)</span>, now if we want
+<span class="math inline">\(\frac{c_n}{k}\geq t_n\)</span> for any fixed
+<span class="math inline">\(k\in N^+\)</span>, we can set <span class="math inline">\(c_n=n\cdot t_n\)</span>, so <span class="math inline">\(\frac{c_n}{k}=\frac{n\cdot t_n}{k}\geq
+t_n\)</span>, so we have <span class="math inline">\(\sum_{n}P(|X_n|&gt;\frac{c_n}{k})&lt;\infty\)</span>,
+thus <span class="math inline">\(P[\lim_n\frac{X_n}{c_n}=0]=1\)</span>.</p></li>
+<li><p>Notes: The diagonal trick: we want for any <span class="math inline">\(k\)</span>, <span class="math inline">\(c_n\)</span> satisfies <span class="math inline">\(\frac{c_n}{k}&gt;t_n\)</span>, that is we have 2
+directions: <span class="math inline">\(n\)</span> and <span class="math inline">\(k\)</span> in a <span class="math inline">\(\infty\times\infty\)</span> matrix, then for each
+<span class="math inline">\(k\)</span>, our <span class="math inline">\(n\)</span> can move along in the triangle <span class="math inline">\(n\geq k\)</span>, to make sure that <span class="math inline">\(\frac{n\cdot t_n}{k}\geq t_n\)</span>.</p></li>
 </ul>
 </div>
 </div>
