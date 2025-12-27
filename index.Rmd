@@ -1,12 +1,12 @@
 ---
-title: "Notes on A Probability Path (Resnick)"
+title: "Notess on A Probability Path (Resnick)"
 author: "Archimond"
 date: "`r Sys.Date()`"
 output:
   html_document:
-    #toc: true
-    toc_depth: 4
-    number_sections: true
+    toc: true
+    toc_depth: 5
+    number_sections: false
     css: styles.css
     mathjax: default
 ---
@@ -15,7 +15,7 @@ output:
 knitr::opts_chunk$set(echo = TRUE)
 ```
 ## Pre
-These are my notes and exercise records while learning *A Probability Path* by Resnick.  
+These are my Notess and exercise records while learning *A Probability Path* by Resnick.  
 After finishing Chapters 1–3, I decided to start writing things down more systematically.  
 Here is the protocol I follow for exercises:
 
@@ -63,13 +63,13 @@ P\!\left(\sup_{n\ge 1} X_n < \infty\right)=1
 \sum_{n=1}^\infty P(X_n > M) < \infty \ \text{for some } M.
 \]
 :::
-* My idea: $\Rightarrow$: Suppose $\forall$ $m\in R^+$, we have $\sum_{n}P[X_n>m]=\infty$, that is, we have $P[X_n>m ,\: \text{i.o.}]=1$, also, $[X_n=\infty]=\bigcap_{m}[X_n>m]$, that is, $P[X_n=\infty,\:\text{i.o.}]=1$, which is contradicted to $\sum_n P[\sup_n X_n<\infty]=1$.
+$\textbf{My idea:}$ $\Rightarrow$: Suppose $\forall$ $m\in R^+$, we have $\sum_{n}P[X_n>m]=\infty$, that is, we have $P[X_n>m ,\: \text{i.o.}]=1$, also, $[X_n=\infty]=\bigcap_{m}[X_n>m]$, that is, $P[X_n=\infty,\:\text{i.o.}]=1$, which is contradicted to $\sum_n P[\sup_n X_n<\infty]=1$.
 $\Leftarrow$: now we have for some $M$, $\sum_{n}P[X_n>M]<\infty$, according to Borel 0-1 law, we have $P[X_n>M,\: \text{i.o.}]=0$, that is $P[\lim\inf[X_n\leq M]]=1$, so there $\exists N$, such that for $n\geq N$, we have $P[X_n\leq M]=1$ therefore we have $P[\sup X_n<\infty]=1$
 
-* Answer: $\Rightarrow$: Suppose $\forall m\in N^+$, we have $\sum_{n}P[X_n>m]=\infty$, that is, by Borel–Cantelli II (using independence), we have $P[X_n> m ,\: \text{i.o.}]=1$, that is, $P(\bigcap_{m=1}^\infty\{X_n> m,\:\text{i.o.}\})=1$ and $\bigcap_{m=1}[X_n> m,\:\text{i.o.}]\subset \{\omega,\:\sup X_n(\omega)=\infty\}$, since $\{\omega,\:\sup X_n(\omega)=\infty\}$ means: for any $m\geq0$, exists $n(\omega,m)>0$, such that $X_n(\omega)>m$, written in set form, it is: $\bigcap_m\bigcup_n[X_n>m]$, so we have $P(\{\omega,\:\sup X_n(\omega)=\infty\})=1$, which leads to contradiction.
+$\textbf{Answer:}$ $\Rightarrow$: Suppose $\forall m\in N^+$, we have $\sum_{n}P[X_n>m]=\infty$, that is, by Borel–Cantelli II (using independence), we have $P[X_n> m ,\: \text{i.o.}]=1$, that is, $P(\bigcap_{m=1}^\infty\{X_n> m,\:\text{i.o.}\})=1$ and $\bigcap_{m=1}[X_n> m,\:\text{i.o.}]\subset \{\omega,\:\sup X_n(\omega)=\infty\}$, since $\{\omega,\:\sup X_n(\omega)=\infty\}$ means: for any $m\geq0$, exists $n(\omega,m)>0$, such that $X_n(\omega)>m$, written in set form, it is: $\bigcap_m\bigcup_n[X_n>m]$, so we have $P(\{\omega,\:\sup X_n(\omega)=\infty\})=1$, which leads to contradiction.
 $\Leftarrow$: now we have for some $M$, $\sum_{n}P[X_n>M]<\infty$, according to Borel-contelli, $P[X_n>M,\:\text{i.o.}]=0$, that is $P(\lim\inf_n[X_n\leq M])=1$, that is, $P(\bigcup_{N\geq1}\bigcap_{n\geq N}\{\omega,\:X_n(\omega)\leq M\})=1$, so if $\omega\in\bigcup_{N\geq1}\bigcap_{n\geq N}\{\omega,\:X_n(\omega)\leq M\}$, then for this fixed $\omega$, exists a $N(\omega)$, such that for $n\geq N(\omega)$, we have $X_n(\omega)\leq M$, so for a.e $\omega$, we have $\sup_n X_n(\omega)=\max(\max_{1\leq n<N(\omega)}X_n(\omega),M)<\infty$.
 
-* Notes:
+$\textbf{Notes:}$
   
   1. in general, we don't swap the order of $\bigcap$ and $\bigcup$.
   2. $\sup_n X_n=\infty$ in $\varepsilon-N$ language: for any $m>0$, exists an $n(\omega,m)$, such that $X_n>m$.
@@ -85,13 +85,102 @@ P\!\left(\lim_{n\to\infty}\frac{X_n}{c_n}=0\right)=1.
 Give a careful description of how you choose $c_n$.
 :::
 
-* My idea: 
+$\textbf{My idea:}$ 
 if we want to find $\{c_n\}$ that $P[\lim_{n\to\infty}\frac{X_n}{c_n}=0]$, think the opposite, that is, for any $a>0$, we must have $P[\frac{X_n}{c_n}>a,\ \text{i.o.}]=0$, because if such $\{c_n\}$ exists, $X_n$ would not exceed any positive number infintely many times, so we just need to fix some $a>0$, and construct $\{c_n\}$ such that make sure $\sum_{n=1}^{\infty} P[X_n>a\cdot c_n]<\infty$, so I try to make it shrink as $\frac{1}{2^n}$, then I may choose $c_n=\sup_n X_n\cdot2^n$.
 
-* Answer:
+$\textbf{Answer:}$
 We need to guarantee that for any $k\in N^+$, $P[\frac{X_n}{c_n}>\frac{1}{k}\ \text{i.o.}]=0$ so that $\frac{X_n}{c_n}\to0\ \text{a.s.}$, since $\{\frac{X_n}{c_n}\not\to0\}=\bigcup_{k\geq1}\{\frac{X_n}{c_n}>\frac{1}{k}\ \text{i.o.}\}$, according to Borel-contelli I, we start from $\sum_{n=1}^{\infty} P(|X_n|>\frac{c_n}{k}<\infty)$, since $\{X_n\}$ are r.v., so we have $P(|X_n|>t)\to0\ (t\to\infty)$, that is, for $2^{-n}$, exists a $t_n$, such that $P(|X_n|>t_n)\leq2^{-n}$, now if we want $\frac{c_n}{k}\geq t_n$ for any fixed $k\in N^+$, we can set $c_n=n\cdot t_n$, so $\frac{c_n}{k}=\frac{n\cdot t_n}{k}\geq t_n$, so we have $\sum_{n}P(|X_n|>\frac{c_n}{k})<\infty$, thus $P[\lim_n\frac{X_n}{c_n}=0]=1$.
 
-* Notes:
+$\textbf{Notes:}$
   The diagonal trick: we want for any $k$, $c_n$ satisfies $\frac{c_n}{k}>t_n$, that is we have 2 directions: $n$ and $k$ in a $\infty\times\infty$ matrix, then for each $k$, our $n$ can move along in the triangle $n\geq k$, to make sure that $\frac{n\cdot t_n}{k}\geq t_n$.
+
+
+### Ex 12
+::: {.problem}
+Let $\{a_n\}$ and $\{b_n\}$ be nonnegative sequences such that
+\[
+\lim_{n\to\infty}\frac{a_n}{b_n}=1.
+\]
+Show that
+\[
+\sum_{n=1}^\infty a_n<\infty \quad\text{iff}\quad \sum_{n=1}^\infty b_n<\infty.
+\]
+:::
+$\textbf{My idea:}$
+In this problem, we can just discuss one direction ("$\Rightarrow$"), then we can use $\lim_{n\to\infty}\frac{b_n}{a_n}=1$ to prove another direction. Since we have $\lim_{n\to\infty}\frac{a_n}{b_n}=1$ and $\sum_{n}a_n<\infty$ and $\{a_n\}$, $\{b_n\}$ are non-negative sequences, without lost of generality, we can assume that $\{a_n\},\ \{b_n\}\in[0,1]$, otherwise we can discuss the terms after some big $N$. We can assign $\{a_n\}$ as probability to independent measurable set $\{A_n\}$ and $\{b_n\}$ to $\{B_n\}$, where $\{B_n\}$ also independent, then we have $\sum_{n}P(A_n)<\infty$, so $P[A_n,\ \text{i.o.}]=0$, since $\lim_{n\to\infty}\frac{a_n}{b_n}=1$, we know that $P[B_n,\ \text{i.o.}]=0$, so we get $\sum_{n}b_n=\sum_{n}P(B_n)<\infty$.
+
+$\textbf{Answer:}$
+Since $\lim_{n\to\infty}\frac{a_n}{b_n}=1$, then $\forall\varepsilon>0$, $\exists N>0$ such that when $n>N$, $(1-\varepsilon)b_n<a_n<(1+\varepsilon)b_n$, the sequences are non-negative, then we can choose $\varepsilon\in(0,1)$ to have $\sum_{n\geq N}b_n\leq\frac{\sum_{n\geq N}a_n}{1-\varepsilon}<\infty$ and $\sum_{n\geq N}a_n\leq(1+\varepsilon)\sum_{n\geq N}b_{n}<\infty$.
+
+$\textbf{What's wrong:}$ I focus too much on the 0-1 law, which is unnecessary, just use the classic analysis method, this exercise just want to tell us that, when facing complicated $\{A_n\}$ with prob $\{a_n\}$, we can choose {b_n} to discuss 0-1 law on it. And also, Constructing independent events is not a valid step.
+
+### Ex 13
+::: {.problem}
+ Let $\{X_n,\ n\ge 1\}$ be i.i.d.\ with
+\[
+P(X_1=1)=p=1-P(X_1=0).
+\]
+What is the probability that the pattern $1,0,1$ appears infinitely often?
+
+Hint: Let
+\[
+A_k=\{X_k=1,\ X_{k+1}=0,\ X_{k+2}=1\}
+\]
+and consider $A_1, A_4, A_7, \ldots$.
+:::
+$\textbf{My idea:}$
+Using the hint, let $A_k=[X_k=1,\ X_{k+1}=0,\ X_{k+2}=1]$, $\{A_k\}$ are not independent, but $A_{3k+1}$ are independent since $\{X_n\}$ iid, also, we have $P(A_{3k+1})=p^2(1-p)$, which is a constant, so $\sum_{k\geq0}P(A_{3k+1})=\infty$, that is, $P[A_{3k+1},\ \text{i.o.}]=1$, so the pattern 1,0,1 appears infinitely often with probability 1.
+
+$\textbf{Answer:}$
+Start from $P(A_{3k+1})=p^2(1-p)$, we need to check the edge case: $p\in (0,1)$ and $p\in\{0,1\}$, for the former, we have  $\sum_{k\geq0}P(A_{3k+1})=\infty$, but for the latter, we have $\sum_{k\geq0}P(A_{3k+1})=0$, so the pattern 1,0,1 appears infinitely often with probability 1 when $p\in (0,1)$, with probability 0 when $p\in\{0,1\}$.
+
+$\textbf{Notes:}$ Just remember to check the edge cases.
+
+### Ex 14
+::: {.problem}
+In a sequence of independent Bernoulli random variables $\{X_n,\ n\ge 1\}$ with
+\[
+P(X_n=1)=p=1-P(X_n=0),
+\]
+let $A_n$ be the event that a run of $n$ consecutive $1$'s occurs between the $2^n$
+and $2^{n+1}$st trial. If $p\ge \tfrac12$, then there is probability $1$ that
+infinitely many $A_n$ occur.
+
+\medskip
+Hint: Prove something like
+\[
+P(A_n)\ge 1-(1-p^n)^{2^n/2n} > 1-e^{-(2p)^n/2n}.
+\]
+:::
+
+$\textbf{My idea:}$ I figure out that, for each $n$, there will then $2^{n+1}-2^{n}=2^n$ elements from $2^{n+1}$ to $2^n$, if we exclude the left endpoint to make sure each interval are disjoint, and $P(A_n)=p^n(1-p)^{2^n-n}(2^n-n+1)$ since there will be $2^n-n+1$ consecutive sequences with length $n$.
+
+$\textbf{Answer:}$ For each $n$, there will then $2^{n+1}-2^{n}=2^n$ elements from $2^{n}$ to $2^{n+1}$, if we exclude the left endpoint to make sure each interval are disjoint, and there will be at least $\lfloor\frac{2^n}{n}\rfloor$ disjoint consecutive sequence for each $A_n$, to find the probability that these are 1's (and the rest can be 0 or 1), is to use 1 minus the probability that these sequences are not all 1's, that is $1-(1-p^n)^{\lfloor\frac{2^n}{n}\rfloor}$, using the hint, we have 
+$$
+P(A_n)\geq 1-(1-p^n)^{\lfloor\frac{2^n}{n}\rfloor}>1-\exp(-\frac{(2p)^n}{2n})
+$$
+For exponential part, it converges to $0$ when $p\geq1/2$, so $P(A_n)\geq 1/2$ when $n$ is large, therefore $\sum_nP(A_n)=\infty$ so there will be infinitely many $A_n$ occur by Borel-Cantelli II since each $A_n$ are independent.
+
+$\textbf{Note:}$
+How many disjoint sequences with length $n$ in each $A_n$ at least?
+$\left\lfloor\frac{2^n}{n}\right\rfloor$.
+For each length-$n$ sequence, $1-p^n$ is the probability that it is \emph{not} all $1$'s.
+Since these sequences are disjoint (hence independent),
+\[
+(1-p^n)^{\left\lfloor\frac{2^n}{n}\right\rfloor}
+\]
+is the probability that all these sequences are \emph{not} all $1$'s.
+Therefore,
+\[
+1-(1-p^n)^{\left\lfloor\frac{2^n}{n}\right\rfloor}
+\]
+is the probability that at least one of these sequences is all $1$'s.
+
+
+
+
+
+
+
 
 

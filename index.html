@@ -11,9 +11,9 @@
 
 <meta name="author" content="Archimond" />
 
-<meta name="date" content="2025-12-26" />
+<meta name="date" content="2025-12-28" />
 
-<title>Notes on A Probability Path (Resnick)</title>
+<title>Notess on A Probability Path (Resnick)</title>
 
 <script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
 // be compatible with the behavior of Pandoc < 2.8).
@@ -351,16 +351,34 @@ display: none;
 
 
 
-<h1 class="title toc-ignore">Notes on A Probability Path (Resnick)</h1>
+<h1 class="title toc-ignore">Notess on A Probability Path (Resnick)</h1>
 <h4 class="author">Archimond</h4>
-<h4 class="date">2025-12-26</h4>
+<h4 class="date">2025-12-28</h4>
 
 </div>
 
+<div id="TOC">
+<ul>
+<li><a href="#pre" id="toc-pre">Pre</a></li>
+<li><a href="#chap-1" id="toc-chap-1">Chap 1</a></li>
+<li><a href="#chap-2" id="toc-chap-2">Chap 2</a></li>
+<li><a href="#chap-3" id="toc-chap-3">Chap 3</a></li>
+<li><a href="#chap-4-independence" id="toc-chap-4-independence">Chap 4,
+Independence</a>
+<ul>
+<li><a href="#summary" id="toc-summary">Summary</a></li>
+<li><a href="#ex-10" id="toc-ex-10">Ex 10</a></li>
+<li><a href="#ex-11" id="toc-ex-11">Ex 11</a></li>
+<li><a href="#ex-12" id="toc-ex-12">Ex 12</a></li>
+<li><a href="#ex-13" id="toc-ex-13">Ex 13</a></li>
+<li><a href="#ex-14" id="toc-ex-14">Ex 14</a></li>
+</ul></li>
+</ul>
+</div>
 
-<div id="pre" class="section level2" number="1">
-<h2><span class="header-section-number">1</span> Pre</h2>
-<p>These are my notes and exercise records while learning <em>A
+<div id="pre" class="section level2">
+<h2>Pre</h2>
+<p>These are my Notess and exercise records while learning <em>A
 Probability Path</em> by Resnick.<br />
 After finishing Chapters 1–3, I decided to start writing things down
 more systematically.<br />
@@ -375,20 +393,19 @@ wrong.</li>
 </ul>
 <p>I record both my first idea and the final correct solution here.</p>
 </div>
-<div id="chap-1" class="section level2" number="2">
-<h2><span class="header-section-number">2</span> Chap 1</h2>
+<div id="chap-1" class="section level2">
+<h2>Chap 1</h2>
 </div>
-<div id="chap-2" class="section level2" number="3">
-<h2><span class="header-section-number">3</span> Chap 2</h2>
+<div id="chap-2" class="section level2">
+<h2>Chap 2</h2>
 </div>
-<div id="chap-3" class="section level2" number="4">
-<h2><span class="header-section-number">4</span> Chap 3</h2>
+<div id="chap-3" class="section level2">
+<h2>Chap 3</h2>
 </div>
-<div id="chap-4-independence" class="section level2" number="5">
-<h2><span class="header-section-number">5</span> Chap 4,
-Independence</h2>
-<div id="summary" class="section level3" number="5.1">
-<h3><span class="header-section-number">5.1</span> Summary</h3>
+<div id="chap-4-independence" class="section level2">
+<h2>Chap 4, Independence</h2>
+<div id="summary" class="section level3">
+<h3>Summary</h3>
 <p>Firstly, we defined the definition of independence (of 2 events)</p>
 <p>Then:</p>
 <ul>
@@ -417,8 +434,8 @@ to these subset index are independent.</li>
 almost trivial, and independent to the information of all the <span class="math inline">\(\{X_n\}\)</span>.</li>
 </ul>
 </div>
-<div id="ex-10" class="section level3" number="5.2">
-<h3><span class="header-section-number">5.2</span> Ex 10</h3>
+<div id="ex-10" class="section level3">
+<h3>Ex 10</h3>
 <div class="problem">
 <p>Suppose <span class="math inline">\(\{X_n,\ n\ge 1\}\)</span> are
 independent random variables. Show that <span class="math display">\[
@@ -427,18 +444,16 @@ P\!\left(\sup_{n\ge 1} X_n &lt; \infty\right)=1
 \sum_{n=1}^\infty P(X_n &gt; M) &lt; \infty \ \text{for some } M.
 \]</span></p>
 </div>
-<ul>
-<li><p>My idea: <span class="math inline">\(\Rightarrow\)</span>:
-Suppose <span class="math inline">\(\forall\)</span> <span class="math inline">\(m\in R^+\)</span>, we have <span class="math inline">\(\sum_{n}P[X_n&gt;m]=\infty\)</span>, that is, we
+<p><span class="math inline">\(\textbf{My idea:}\)</span> <span class="math inline">\(\Rightarrow\)</span>: Suppose <span class="math inline">\(\forall\)</span> <span class="math inline">\(m\in
+R^+\)</span>, we have <span class="math inline">\(\sum_{n}P[X_n&gt;m]=\infty\)</span>, that is, we
 have <span class="math inline">\(P[X_n&gt;m ,\: \text{i.o.}]=1\)</span>,
 also, <span class="math inline">\([X_n=\infty]=\bigcap_{m}[X_n&gt;m]\)</span>, that
 is, <span class="math inline">\(P[X_n=\infty,\:\text{i.o.}]=1\)</span>,
 which is contradicted to <span class="math inline">\(\sum_n P[\sup_n
 X_n&lt;\infty]=1\)</span>. <span class="math inline">\(\Leftarrow\)</span>: now we have for some <span class="math inline">\(M\)</span>, <span class="math inline">\(\sum_{n}P[X_n&gt;M]&lt;\infty\)</span>, according
 to Borel 0-1 law, we have <span class="math inline">\(P[X_n&gt;M,\:
-\text{i.o.}]=0\)</span>, that is <span class="math inline">\(P[\lim\inf[X_n\leq M]]=1\)</span>, so there <span class="math inline">\(\exists N\)</span>, such that for <span class="math inline">\(n\geq N\)</span>, we have <span class="math inline">\(P[X_n\leq M]=1\)</span> therefore we have <span class="math inline">\(P[\sup X_n&lt;\infty]=1\)</span></p></li>
-<li><p>Answer: <span class="math inline">\(\Rightarrow\)</span>: Suppose
-<span class="math inline">\(\forall m\in N^+\)</span>, we have <span class="math inline">\(\sum_{n}P[X_n&gt;m]=\infty\)</span>, that is, by
+\text{i.o.}]=0\)</span>, that is <span class="math inline">\(P[\lim\inf[X_n\leq M]]=1\)</span>, so there <span class="math inline">\(\exists N\)</span>, such that for <span class="math inline">\(n\geq N\)</span>, we have <span class="math inline">\(P[X_n\leq M]=1\)</span> therefore we have <span class="math inline">\(P[\sup X_n&lt;\infty]=1\)</span></p>
+<p><span class="math inline">\(\textbf{Answer:}\)</span> <span class="math inline">\(\Rightarrow\)</span>: Suppose <span class="math inline">\(\forall m\in N^+\)</span>, we have <span class="math inline">\(\sum_{n}P[X_n&gt;m]=\infty\)</span>, that is, by
 Borel–Cantelli II (using independence), we have <span class="math inline">\(P[X_n&gt; m ,\: \text{i.o.}]=1\)</span>, that is,
 <span class="math inline">\(P(\bigcap_{m=1}^\infty\{X_n&gt;
 m,\:\text{i.o.}\})=1\)</span> and <span class="math inline">\(\bigcap_{m=1}[X_n&gt; m,\:\text{i.o.}]\subset
@@ -452,16 +467,15 @@ to Borel-contelli, <span class="math inline">\(P[X_n&gt;M,\:\text{i.o.}]=0\)</sp
 is, <span class="math inline">\(P(\bigcup_{N\geq1}\bigcap_{n\geq
 N}\{\omega,\:X_n(\omega)\leq M\})=1\)</span>, so if <span class="math inline">\(\omega\in\bigcup_{N\geq1}\bigcap_{n\geq
 N}\{\omega,\:X_n(\omega)\leq M\}\)</span>, then for this fixed <span class="math inline">\(\omega\)</span>, exists a <span class="math inline">\(N(\omega)\)</span>, such that for <span class="math inline">\(n\geq N(\omega)\)</span>, we have <span class="math inline">\(X_n(\omega)\leq M\)</span>, so for a.e <span class="math inline">\(\omega\)</span>, we have <span class="math inline">\(\sup_n X_n(\omega)=\max(\max_{1\leq
-n&lt;N(\omega)}X_n(\omega),M)&lt;\infty\)</span>.</p></li>
-<li><p>Notes:</p>
+n&lt;N(\omega)}X_n(\omega),M)&lt;\infty\)</span>.</p>
+<p><span class="math inline">\(\textbf{Notes:}\)</span></p>
 <ol style="list-style-type: decimal">
 <li>in general, we don’t swap the order of <span class="math inline">\(\bigcap\)</span> and <span class="math inline">\(\bigcup\)</span>.</li>
 <li><span class="math inline">\(\sup_n X_n=\infty\)</span> in <span class="math inline">\(\varepsilon-N\)</span> language: for any <span class="math inline">\(m&gt;0\)</span>, exists an <span class="math inline">\(n(\omega,m)\)</span>, such that <span class="math inline">\(X_n&gt;m\)</span>.</li>
-</ol></li>
-</ul>
+</ol>
 </div>
-<div id="ex-11" class="section level3" number="5.3">
-<h3><span class="header-section-number">5.3</span> Ex 11</h3>
+<div id="ex-11" class="section level3">
+<h3>Ex 11</h3>
 <div class="problem">
 <p>Use the Borel–Cantelli Lemma to prove that, given any sequence of
 random variables <span class="math inline">\(\{X_n,\ n\ge 1\}\)</span>
@@ -469,14 +483,16 @@ whose range is the real line, there exist constants <span class="math inline">\(
 P\!\left(\lim_{n\to\infty}\frac{X_n}{c_n}=0\right)=1.
 \]</span> Give a careful description of how you choose <span class="math inline">\(c_n\)</span>.</p>
 </div>
-<ul>
-<li><p>My idea: if we want to find <span class="math inline">\(\{c_n\}\)</span> that <span class="math inline">\(P[\lim_{n\to\infty}\frac{X_n}{c_n}=0]\)</span>,
+<p><span class="math inline">\(\textbf{My idea:}\)</span> if we want to
+find <span class="math inline">\(\{c_n\}\)</span> that <span class="math inline">\(P[\lim_{n\to\infty}\frac{X_n}{c_n}=0]\)</span>,
 think the opposite, that is, for any <span class="math inline">\(a&gt;0\)</span>, we must have <span class="math inline">\(P[\frac{X_n}{c_n}&gt;a,\ \text{i.o.}]=0\)</span>,
 because if such <span class="math inline">\(\{c_n\}\)</span> exists,
 <span class="math inline">\(X_n\)</span> would not exceed any positive
 number infintely many times, so we just need to fix some <span class="math inline">\(a&gt;0\)</span>, and construct <span class="math inline">\(\{c_n\}\)</span> such that make sure <span class="math inline">\(\sum_{n=1}^{\infty} P[X_n&gt;a\cdot
-c_n]&lt;\infty\)</span>, so I try to make it shrink as <span class="math inline">\(\frac{1}{2^n}\)</span>, then I may choose <span class="math inline">\(c_n=\sup_n X_n\cdot2^n\)</span>.</p></li>
-<li><p>Answer: We need to guarantee that for any <span class="math inline">\(k\in N^+\)</span>, <span class="math inline">\(P[\frac{X_n}{c_n}&gt;\frac{1}{k}\
+c_n]&lt;\infty\)</span>, so I try to make it shrink as <span class="math inline">\(\frac{1}{2^n}\)</span>, then I may choose <span class="math inline">\(c_n=\sup_n X_n\cdot2^n\)</span>.</p>
+<p><span class="math inline">\(\textbf{Answer:}\)</span> We need to
+guarantee that for any <span class="math inline">\(k\in N^+\)</span>,
+<span class="math inline">\(P[\frac{X_n}{c_n}&gt;\frac{1}{k}\
 \text{i.o.}]=0\)</span> so that <span class="math inline">\(\frac{X_n}{c_n}\to0\ \text{a.s.}\)</span>, since
 <span class="math inline">\(\{\frac{X_n}{c_n}\not\to0\}=\bigcup_{k\geq1}\{\frac{X_n}{c_n}&gt;\frac{1}{k}\
 \text{i.o.}\}\)</span>, according to Borel-contelli I, we start from
@@ -486,11 +502,120 @@ for <span class="math inline">\(2^{-n}\)</span>, exists a <span class="math inli
 <span class="math inline">\(\frac{c_n}{k}\geq t_n\)</span> for any fixed
 <span class="math inline">\(k\in N^+\)</span>, we can set <span class="math inline">\(c_n=n\cdot t_n\)</span>, so <span class="math inline">\(\frac{c_n}{k}=\frac{n\cdot t_n}{k}\geq
 t_n\)</span>, so we have <span class="math inline">\(\sum_{n}P(|X_n|&gt;\frac{c_n}{k})&lt;\infty\)</span>,
-thus <span class="math inline">\(P[\lim_n\frac{X_n}{c_n}=0]=1\)</span>.</p></li>
-<li><p>Notes: The diagonal trick: we want for any <span class="math inline">\(k\)</span>, <span class="math inline">\(c_n\)</span> satisfies <span class="math inline">\(\frac{c_n}{k}&gt;t_n\)</span>, that is we have 2
+thus <span class="math inline">\(P[\lim_n\frac{X_n}{c_n}=0]=1\)</span>.</p>
+<p><span class="math inline">\(\textbf{Notes:}\)</span> The diagonal
+trick: we want for any <span class="math inline">\(k\)</span>, <span class="math inline">\(c_n\)</span> satisfies <span class="math inline">\(\frac{c_n}{k}&gt;t_n\)</span>, that is we have 2
 directions: <span class="math inline">\(n\)</span> and <span class="math inline">\(k\)</span> in a <span class="math inline">\(\infty\times\infty\)</span> matrix, then for each
-<span class="math inline">\(k\)</span>, our <span class="math inline">\(n\)</span> can move along in the triangle <span class="math inline">\(n\geq k\)</span>, to make sure that <span class="math inline">\(\frac{n\cdot t_n}{k}\geq t_n\)</span>.</p></li>
-</ul>
+<span class="math inline">\(k\)</span>, our <span class="math inline">\(n\)</span> can move along in the triangle <span class="math inline">\(n\geq k\)</span>, to make sure that <span class="math inline">\(\frac{n\cdot t_n}{k}\geq t_n\)</span>.</p>
+</div>
+<div id="ex-12" class="section level3">
+<h3>Ex 12</h3>
+<div class="problem">
+<p>Let <span class="math inline">\(\{a_n\}\)</span> and <span class="math inline">\(\{b_n\}\)</span> be nonnegative sequences such
+that <span class="math display">\[
+\lim_{n\to\infty}\frac{a_n}{b_n}=1.
+\]</span> Show that <span class="math display">\[
+\sum_{n=1}^\infty a_n&lt;\infty \quad\text{iff}\quad \sum_{n=1}^\infty
+b_n&lt;\infty.
+\]</span></p>
+</div>
+<p><span class="math inline">\(\textbf{My idea:}\)</span> In this
+problem, we can just discuss one direction (“<span class="math inline">\(\Rightarrow\)</span>”), then we can use <span class="math inline">\(\lim_{n\to\infty}\frac{b_n}{a_n}=1\)</span> to
+prove another direction. Since we have <span class="math inline">\(\lim_{n\to\infty}\frac{a_n}{b_n}=1\)</span> and
+<span class="math inline">\(\sum_{n}a_n&lt;\infty\)</span> and <span class="math inline">\(\{a_n\}\)</span>, <span class="math inline">\(\{b_n\}\)</span> are non-negative sequences,
+without lost of generality, we can assume that <span class="math inline">\(\{a_n\},\ \{b_n\}\in[0,1]\)</span>, otherwise we
+can discuss the terms after some big <span class="math inline">\(N\)</span>. We can assign <span class="math inline">\(\{a_n\}\)</span> as probability to independent
+measurable set <span class="math inline">\(\{A_n\}\)</span> and <span class="math inline">\(\{b_n\}\)</span> to <span class="math inline">\(\{B_n\}\)</span>, where <span class="math inline">\(\{B_n\}\)</span> also independent, then we have
+<span class="math inline">\(\sum_{n}P(A_n)&lt;\infty\)</span>, so <span class="math inline">\(P[A_n,\ \text{i.o.}]=0\)</span>, since <span class="math inline">\(\lim_{n\to\infty}\frac{a_n}{b_n}=1\)</span>, we
+know that <span class="math inline">\(P[B_n,\ \text{i.o.}]=0\)</span>,
+so we get <span class="math inline">\(\sum_{n}b_n=\sum_{n}P(B_n)&lt;\infty\)</span>.</p>
+<p><span class="math inline">\(\textbf{Answer:}\)</span> Since <span class="math inline">\(\lim_{n\to\infty}\frac{a_n}{b_n}=1\)</span>, then
+<span class="math inline">\(\forall\varepsilon&gt;0\)</span>, <span class="math inline">\(\exists N&gt;0\)</span> such that when <span class="math inline">\(n&gt;N\)</span>, <span class="math inline">\((1-\varepsilon)b_n&lt;a_n&lt;(1+\varepsilon)b_n\)</span>,
+the sequences are non-negative, then we can choose <span class="math inline">\(\varepsilon\in(0,1)\)</span> to have <span class="math inline">\(\sum_{n\geq N}b_n\leq\frac{\sum_{n\geq
+N}a_n}{1-\varepsilon}&lt;\infty\)</span> and <span class="math inline">\(\sum_{n\geq N}a_n\leq(1+\varepsilon)\sum_{n\geq
+N}b_{n}&lt;\infty\)</span>.</p>
+<p><span class="math inline">\(\textbf{What&#39;s wrong:}\)</span> I
+focus too much on the 0-1 law, which is unnecessary, just use the
+classic analysis method, this exercise just want to tell us that, when
+facing complicated <span class="math inline">\(\{A_n\}\)</span> with
+prob <span class="math inline">\(\{a_n\}\)</span>, we can choose {b_n}
+to discuss 0-1 law on it. And also, Constructing independent events is
+not a valid step.</p>
+</div>
+<div id="ex-13" class="section level3">
+<h3>Ex 13</h3>
+<div class="problem">
+<p>Let <span class="math inline">\(\{X_n,\ n\ge 1\}\)</span> be
+i.i.d. with <span class="math display">\[
+P(X_1=1)=p=1-P(X_1=0).
+\]</span> What is the probability that the pattern <span class="math inline">\(1,0,1\)</span> appears infinitely often?</p>
+<p>Hint: Let <span class="math display">\[
+A_k=\{X_k=1,\ X_{k+1}=0,\ X_{k+2}=1\}
+\]</span> and consider <span class="math inline">\(A_1, A_4, A_7,
+\ldots\)</span>.</p>
+</div>
+<p><span class="math inline">\(\textbf{My idea:}\)</span> Using the
+hint, let <span class="math inline">\(A_k=[X_k=1,\ X_{k+1}=0,\
+X_{k+2}=1]\)</span>, <span class="math inline">\(\{A_k\}\)</span> are
+not independent, but <span class="math inline">\(A_{3k+1}\)</span> are
+independent since <span class="math inline">\(\{X_n\}\)</span> iid,
+also, we have <span class="math inline">\(P(A_{3k+1})=p^2(1-p)\)</span>,
+which is a constant, so <span class="math inline">\(\sum_{k\geq0}P(A_{3k+1})=\infty\)</span>, that is,
+<span class="math inline">\(P[A_{3k+1},\ \text{i.o.}]=1\)</span>, so the
+pattern 1,0,1 appears infinitely often with probability 1.</p>
+<p><span class="math inline">\(\textbf{Answer:}\)</span> Start from
+<span class="math inline">\(P(A_{3k+1})=p^2(1-p)\)</span>, we need to
+check the edge case: <span class="math inline">\(p\in (0,1)\)</span> and
+<span class="math inline">\(p\in\{0,1\}\)</span>, for the former, we
+have <span class="math inline">\(\sum_{k\geq0}P(A_{3k+1})=\infty\)</span>, but for
+the latter, we have <span class="math inline">\(\sum_{k\geq0}P(A_{3k+1})=0\)</span>, so the
+pattern 1,0,1 appears infinitely often with probability 1 when <span class="math inline">\(p\in (0,1)\)</span>, with probability 0 when <span class="math inline">\(p\in\{0,1\}\)</span>.</p>
+<p><span class="math inline">\(\textbf{Notes:}\)</span> Just remember to
+check the edge cases.</p>
+</div>
+<div id="ex-14" class="section level3">
+<h3>Ex 14</h3>
+<div class="problem">
+<p>In a sequence of independent Bernoulli random variables <span class="math inline">\(\{X_n,\ n\ge 1\}\)</span> with <span class="math display">\[
+P(X_n=1)=p=1-P(X_n=0),
+\]</span> let <span class="math inline">\(A_n\)</span> be the event that
+a run of <span class="math inline">\(n\)</span> consecutive <span class="math inline">\(1\)</span>’s occurs between the <span class="math inline">\(2^n\)</span> and <span class="math inline">\(2^{n+1}\)</span>st trial. If <span class="math inline">\(p\ge \tfrac12\)</span>, then there is probability
+<span class="math inline">\(1\)</span> that infinitely many <span class="math inline">\(A_n\)</span> occur.</p>
+<p>Hint: Prove something like <span class="math display">\[
+P(A_n)\ge 1-(1-p^n)^{2^n/2n} &gt; 1-e^{-(2p)^n/2n}.
+\]</span></p>
+</div>
+<p><span class="math inline">\(\textbf{My idea:}\)</span> I figure out
+that, for each <span class="math inline">\(n\)</span>, there will then
+<span class="math inline">\(2^{n+1}-2^{n}=2^n\)</span> elements from
+<span class="math inline">\(2^{n+1}\)</span> to <span class="math inline">\(2^n\)</span>, if we exclude the left endpoint to
+make sure each interval are disjoint, and <span class="math inline">\(P(A_n)=p^n(1-p)^{2^n-n}(2^n-n+1)\)</span> since
+there will be <span class="math inline">\(2^n-n+1\)</span> consecutive
+sequences with length <span class="math inline">\(n\)</span>.</p>
+<p><span class="math inline">\(\textbf{Answer:}\)</span> For each <span class="math inline">\(n\)</span>, there will then <span class="math inline">\(2^{n+1}-2^{n}=2^n\)</span> elements from <span class="math inline">\(2^{n}\)</span> to <span class="math inline">\(2^{n+1}\)</span>, if we exclude the left endpoint
+to make sure each interval are disjoint, and there will be at least
+<span class="math inline">\(\lfloor\frac{2^n}{n}\rfloor\)</span>
+disjoint consecutive sequence for each <span class="math inline">\(A_n\)</span>, to find the probability that these
+are 1’s (and the rest can be 0 or 1), is to use 1 minus the probability
+that these sequences are not all 1’s, that is <span class="math inline">\(1-(1-p^n)^{\lfloor\frac{2^n}{n}\rfloor}\)</span>,
+using the hint, we have <span class="math display">\[
+P(A_n)\geq
+1-(1-p^n)^{\lfloor\frac{2^n}{n}\rfloor}&gt;1-\exp(-\frac{(2p)^n}{2n})
+\]</span> For exponential part, it converges to <span class="math inline">\(0\)</span> when <span class="math inline">\(p\geq1/2\)</span>, so <span class="math inline">\(P(A_n)\geq 1/2\)</span> when <span class="math inline">\(n\)</span> is large, therefore <span class="math inline">\(\sum_nP(A_n)=\infty\)</span> so there will be
+infinitely many <span class="math inline">\(A_n\)</span> occur by
+Borel-Cantelli II since each <span class="math inline">\(A_n\)</span>
+are independent.</p>
+<p><span class="math inline">\(\textbf{Note:}\)</span> How many disjoint
+sequences with length <span class="math inline">\(n\)</span> in each
+<span class="math inline">\(A_n\)</span> at least? <span class="math inline">\(\left\lfloor\frac{2^n}{n}\right\rfloor\)</span>.
+For each length-<span class="math inline">\(n\)</span> sequence, <span class="math inline">\(1-p^n\)</span> is the probability that it is all
+<span class="math inline">\(1\)</span>’s. Since these sequences are
+disjoint (hence independent), <span class="math display">\[
+(1-p^n)^{\left\lfloor\frac{2^n}{n}\right\rfloor}
+\]</span> is the probability that all these sequences are all <span class="math inline">\(1\)</span>’s. Therefore, <span class="math display">\[
+1-(1-p^n)^{\left\lfloor\frac{2^n}{n}\right\rfloor}
+\]</span> is the probability that at least one of these sequences is all
+<span class="math inline">\(1\)</span>’s.</p>
 </div>
 </div>
 
