@@ -11,7 +11,7 @@
 
 <meta name="author" content="Archimond" />
 
-<meta name="date" content="2025-12-28" />
+<meta name="date" content="2025-12-29" />
 
 <title>Notess on A Probability Path (Resnick)</title>
 
@@ -353,7 +353,7 @@ display: none;
 
 <h1 class="title toc-ignore">Notess on A Probability Path (Resnick)</h1>
 <h4 class="author">Archimond</h4>
-<h4 class="date">2025-12-28</h4>
+<h4 class="date">2025-12-29</h4>
 
 </div>
 
@@ -372,6 +372,11 @@ Independence</a>
 <li><a href="#ex-12" id="toc-ex-12">Ex 12</a></li>
 <li><a href="#ex-13" id="toc-ex-13">Ex 13</a></li>
 <li><a href="#ex-14" id="toc-ex-14">Ex 14</a></li>
+<li><a href="#ex-15" id="toc-ex-15">Ex 15</a>
+<ul>
+<li><a href="#a" id="toc-a">(a)</a></li>
+<li><a href="#b" id="toc-b">(b)</a></li>
+</ul></li>
 </ul></li>
 </ul>
 </div>
@@ -616,6 +621,115 @@ disjoint (hence independent), <span class="math display">\[
 1-(1-p^n)^{\left\lfloor\frac{2^n}{n}\right\rfloor}
 \]</span> is the probability that at least one of these sequences is all
 <span class="math inline">\(1\)</span>’s.</p>
+</div>
+<div id="ex-15" class="section level3">
+<h3>Ex 15</h3>
+<div class="problem">
+<p><span class="math inline">\(\textbf{(a)}\)</span> A finite family
+<span class="math inline">\(\{\mathcal{B}_i,\ i\in I\}\)</span> of <span class="math inline">\(\sigma\)</span>-algebras is independent iff for
+every choice of non-negative <span class="math inline">\(\mathcal{B}_i\)</span>-measurable random variables
+<span class="math inline">\(Y_i\)</span>, <span class="math inline">\(i\in I\)</span>, we have <span class="math display">\[
+E\!\left(\prod_{i\in I} Y_i\right)=\prod_{i\in I} E(Y_i).
+\]</span> (One direction is immediate. For the opposite direction, prove
+the result first for positive simple functions and then extend.)</p>
+<p><span class="math inline">\(\textbf{(b)}\)</span> If <span class="math inline">\(\{\mathcal{B}_t,\ t\in T\}\)</span> is an
+arbitrary independent family of <span class="math inline">\(\sigma\)</span>-algebras in <span class="math inline">\((\Omega,\mathcal{B},P)\)</span>, the family <span class="math inline">\(\{\mathcal{B}&#39;_t,\ t\in T\}\)</span> is again
+independent if <span class="math inline">\(\mathcal{B}_t \supset
+\mathcal{B}&#39;_t\)</span> <span class="math inline">\((t\in
+T)\)</span>. Deduce from this that <span class="math inline">\(\{f_t(X_t),\ t\in T\}\)</span> is a family of
+independent random variables if the family <span class="math inline">\(\{X_t,\ t\in T\}\)</span> is independent and the
+<span class="math inline">\(f_t\)</span> are measurable. In order for
+the family <span class="math inline">\(\{X_t,\ t\in T\}\)</span> of
+random variables to be independent, it is necessary and sufficient that
+<span class="math display">\[
+E\!\left(\prod_{j\in J} f_j(X_j)\right)=\prod_{j\in J}
+E\!\left(f_j(X_j)\right)
+\]</span> for every finite family <span class="math inline">\(\{f_j,\
+j\in J\}\)</span> of bounded measurable functions.</p>
+</div>
+<div id="a" class="section level4">
+<h4>(a)</h4>
+<p><span class="math inline">\(\textbf{My idea:}\)</span> In each <span class="math inline">\(\sigma\)</span>-algebra <span class="math inline">\(B_i\)</span>, we define a indicator function <span class="math inline">\(Y_i=1_{A_i}\)</span>, where <span class="math inline">\(A_i\in B_i\)</span>, so <span class="math inline">\(Y_i\)</span> is a <span class="math inline">\(B_i\)</span>-measurable R.V., <span class="math display">\[
+E(\prod_{i\in I}Y_i)=E(\prod_{i\in I} 1_{A_i})=E(1_{\bigcap_{i\in
+I}A_i})=\prod_{i\in I}\mu(A_i)=\prod_{i\in I}E(Y_i),
+\]</span> where <span class="math inline">\(\mu\)</span> is the measure
+for each <span class="math inline">\(\sigma\)</span>-algebra, if <span class="math inline">\(Y_i\)</span>’s are simple function, the
+expectation of their product is the product in measure of interception
+of measurable set, so we also have <span class="math inline">\(E(\prod_{i\in I}Y_i)=\prod_{i\in
+I}E(Y_i)\)</span>, since <span class="math inline">\(I\)</span> is
+finite, then for any <span class="math inline">\(B_i\)</span>-measurable
+function <span class="math inline">\(Y_i\)</span>, it can be
+approximated by <span class="math inline">\(B_i\)</span>-measurable
+simple function sequence, and if <span class="math inline">\(Y_i\)</span>’s are integrable, also <span class="math inline">\(\prod{i\in I}Y_i\)</span>, so the order of product
+and limitation can be changed. Conversely, if we have <span class="math inline">\(E(\prod_{i\in I}Y_i)=\prod_{i\in
+I}E(Y_i)\)</span>, then let each <span class="math inline">\(Y_i\)</span> be simple function, we can get the
+<span class="math inline">\(B_i\)</span> are independent.</p>
+<p><span class="math inline">\(\textbf{Answer:}\)</span> In each <span class="math inline">\(\sigma\)</span>-algebra <span class="math inline">\(B_i\)</span>, we define a indicator function <span class="math inline">\(Y_i=\mathbf{1}_{A_i}\)</span>, where <span class="math inline">\(A_i\in B_i\)</span>, so <span class="math inline">\(Y_i\)</span> is a <span class="math inline">\(B_i\)</span>-measurable R.V., <span class="math display">\[
+E(\prod_{i\in I}Y_i)=E(\prod_{i\in I}
+\mathbf{1}_{A_i})=E(1_{\bigcap_{i\in I}A_i})=\prod_{i\in
+I}P(A_i)=\prod_{i\in I}E(Y_i),
+\]</span> then we discuss the situation when <span class="math inline">\(Y_i\)</span>’s are simple function <span class="math inline">\(Y_i=\sum_{j=1}^{n_i}c_{ij}\mathbf{1}_{A_{ij}}\)</span>,
+where <span class="math inline">\(c_{ij}\geq0\)</span>, we can rewrite
+the product of <span class="math inline">\(Y_i\)</span> as <span class="math inline">\(\prod_{i\in I}Y_i=\prod_{i\in
+I}(\sum_{j=1}^{n_i}c_{ij}\mathbf{1}_{A_{ij}})=\sum_{j}(\prod_{i\in
+I}c_{ij})\mathbf{1}_{\bigcap_{i\in I}A_{ij}}\)</span>, so for simple
+funcion, we also have <span class="math inline">\(E(\prod_{i\in
+I}Y_i)=\prod_{i\in I}E(Y_i)\)</span>, then for any non-negative <span class="math inline">\(B_i\)</span>-measurable function <span class="math inline">\(Y_i\)</span>, for each <span class="math inline">\(i\)</span>, we can find a sequence of non-negative
+simple function <span class="math inline">\(Y_i^{(m)}\)</span> such that
+<span class="math inline">\(Y_i^{(m)}\uparrow Y_i\)</span>, and by using
+monotone convergence theorem, <span class="math inline">\(E(Y_i^{(m)})\uparrow E(Y_i)\)</span>, so for
+finitely many product of measurable function, we also have <span class="math inline">\(E(\prod_{i\in I}Y_i)=\prod_{i\in
+I}E(Y_i)\)</span>, Conversely, if we have <span class="math inline">\(E(\prod_{i\in I}Y_i)=\prod_{i\in
+I}E(Y_i)\)</span>, then let each <span class="math inline">\(Y_i\)</span> be indicator function, we can get the
+<span class="math inline">\(B_i\)</span> are independent.</p>
+</div>
+<div id="b" class="section level4">
+<h4>(b)</h4>
+<p><span class="math inline">\(\textbf{My idea:}\)</span> when <span class="math inline">\(f_j\)</span> is an indicator, such as <span class="math inline">\(f_j=\mathbf{1}_{A_j}\)</span> for some <span class="math inline">\(A_j\in\mathcal{B}_j\)</span>, then we have <span class="math inline">\(E(f_j(X_j))=E[\mathbf{1}_{A_j}(X_j)]=P[X_j\in
+A_j]\)</span>, so we have <span class="math display">\[
+E(\prod_J f_j(X_j))=\prod_{J}E(f_j(X_j)),
+\]</span> , using the same idea in (a), for any bounded measurable
+functions <span class="math inline">\(\{f_j,\ j\in J\}\)</span>, we have
+<span class="math inline">\(E(\prod_J
+f_j(X_j))=\prod_{J}E(f_j(X_j))\)</span>. Conversely, if we have <span class="math inline">\(E(\prod_J
+f_j(X_j))=\prod_{J}E(f_j(X_j))\)</span>,for any bounded measurable
+functions <span class="math inline">\(\{f_j,\ j\in J\}\)</span>, by
+letting <span class="math inline">\(f_j(x)=x\)</span>, and according to
+(a), we have for any finite index set <span class="math inline">\(J\)</span>, <span class="math inline">\(\{X_j,\
+j\in J\}\)</span> are independent, and therefore <span class="math inline">\(\{X_t,\ t\in T\}\)</span> are independent for
+arbitrary index set.</p>
+<p><span class="math inline">\(\textbf{Answer:}\)</span> Firstly, for
+<span class="math inline">\(\{\mathcal{B}_t,\ t\in T\}\)</span> when
+<span class="math inline">\(\mathcal{B&#39;}_t\subset\mathcal{B}_t\)</span>,
+then for any <span class="math inline">\(A_t\in\mathcal{B&#39;}_t\)</span>, it’s in <span class="math inline">\(\mathcal{B}_t\)</span>, so <span class="math inline">\(\{A_t,\ t\in T\}\)</span> are independent by the
+independence of <span class="math inline">\(\{\mathcal{B}_t,\ t\in
+T\}\)</span>, therefore <span class="math inline">\(\{\mathcal{B&#39;}_t,\ t\in T\}\)</span> are
+independent. When <span class="math inline">\(f_j\)</span> is an
+indicator, such as <span class="math inline">\(f_j=\mathbf{1}_{A_j}\)</span> for some <span class="math inline">\(A_j\in\mathcal{B}(\mathbb{R})\)</span>, then we
+have <span class="math inline">\(E(f_j(X_j))=E[\mathbf{1}_{A_j}(X_j)]=P[X_j\in
+A_j]\)</span>, so we have <span class="math display">\[
+E(\prod_J f_j(X_j))=\prod_{J}E(f_j(X_j)),
+\]</span> using the same idea in (a), for any bounded measurable
+functions <span class="math inline">\(\{f_j,\ j\in J\}\)</span>, we have
+<span class="math inline">\(E(\prod_J
+f_j(X_j))=\prod_{J}E(f_j(X_j))\)</span>, since <span class="math inline">\(\sigma(f_j(X_j))\subseteq\sigma(X_j)\)</span>, so
+<span class="math inline">\(\{\sigma(f_j(X_j)),\ j\in J\}\)</span> are
+independent . Conversely, if we have <span class="math inline">\(E(\prod_J
+f_j(X_j))=\prod_{J}E(f_j(X_j))\)</span>,for any bounded measurable
+functions <span class="math inline">\(\{f_j,\ j\in J\}\)</span>, by
+letting <span class="math inline">\(f_j(x)=\mathbf{1}_{A_j}\)</span>,
+for some <span class="math inline">\(A_j\in\mathcal{B}(\mathbb{R})\)</span>. then we
+have <span class="math inline">\(E(\prod_J f_j(X_j))=E(\prod_J
+\mathbf{1}_{\{X_j\in A_j\}})=\prod_J E(\mathbf{1}_{\{X_j\in
+A_j\}})\)</span>, then we have <span class="math inline">\(P(\bigcap_J
+\{X_j\in A_j\})=\prod_J P(\{X_j\in A_j\})\)</span>, which we get for any
+finite index set <span class="math inline">\(J\)</span>, <span class="math inline">\(\{X_j,\ j\in J\}\)</span> are independent, and
+therefore <span class="math inline">\(\{X_t,\ t\in T\}\)</span> are
+independent for arbitrary index set.</p>
+<p><span class="math inline">\(\textbf{Note:}\)</span> When we construct
+<span class="math inline">\(f_j\)</span> as indicator, <span class="math inline">\(A_j\)</span> is not in <span class="math inline">\(\mathcal{B}_j\)</span>, but in <span class="math inline">\(\mathcal{B}(\mathbb{R})\)</span> since <span class="math inline">\(X_j\)</span> is R.V. so its range is in <span class="math inline">\(\mathbb{R}\)</span>, it is because in this book,
+we only consider real-valued measurable function.</p>
+</div>
 </div>
 </div>
 

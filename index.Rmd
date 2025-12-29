@@ -176,10 +176,61 @@ Therefore,
 \]
 is the probability that at least one of these sequences is all $1$'s.
 
+### Ex 15
+::: {.problem}
+$\textbf{(a)}$ A finite family $\{\mathcal{B}_i,\ i\in I\}$ of $\sigma$-algebras is independent iff
+for every choice of non-negative $\mathcal{B}_i$-measurable random variables $Y_i$,
+$i\in I$, we have
+\[
+E\!\left(\prod_{i\in I} Y_i\right)=\prod_{i\in I} E(Y_i).
+\]
+(One direction is immediate. For the opposite direction, prove the result first for
+positive simple functions and then extend.)
+
+\medskip
+$\textbf{(b)}$ If $\{\mathcal{B}_t,\ t\in T\}$ is an arbitrary independent family of $\sigma$-algebras
+in $(\Omega,\mathcal{B},P)$, the family $\{\mathcal{B}'_t,\ t\in T\}$ is again independent if
+$\mathcal{B}_t \supset \mathcal{B}'_t$ $(t\in T)$. Deduce from this that $\{f_t(X_t),\ t\in T\}$
+is a family of independent random variables if the family $\{X_t,\ t\in T\}$ is independent
+and the $f_t$ are measurable. In order for the family $\{X_t,\ t\in T\}$ of random variables to be independent,
+it is necessary and sufficient that
+\[
+E\!\left(\prod_{j\in J} f_j(X_j)\right)=\prod_{j\in J} E\!\left(f_j(X_j)\right)
+\]
+for every finite family $\{f_j,\ j\in J\}$ of bounded measurable functions.
+:::
+
+#### (a)
+$\textbf{My idea:}$ 
+In each $\sigma$-algebra $B_i$, we define a indicator function $Y_i=1_{A_i}$, where $A_i\in B_i$, so  $Y_i$ is a $B_i$-measurable R.V., 
+$$
+E(\prod_{i\in I}Y_i)=E(\prod_{i\in I} 1_{A_i})=E(1_{\bigcap_{i\in I}A_i})=\prod_{i\in I}\mu(A_i)=\prod_{i\in I}E(Y_i),
+$$
+where $\mu$ is the measure for each $\sigma$-algebra, if $Y_i$'s are simple function, the expectation of their product is the product in measure of interception of measurable set, so we also have $E(\prod_{i\in I}Y_i)=\prod_{i\in I}E(Y_i)$, since $I$ is finite, then for any $B_i$-measurable function $Y_i$, it can be approximated by $B_i$-measurable simple function sequence, and if $Y_i$'s are integrable, also $\prod{i\in I}Y_i$, so the order of product and limitation can be changed. Conversely, if we have $E(\prod_{i\in I}Y_i)=\prod_{i\in I}E(Y_i)$, then let each $Y_i$ be simple function, we can get the $B_i$ are independent.
 
 
+$\textbf{Answer:}$ 
+In each $\sigma$-algebra $B_i$, we define a indicator function $Y_i=\mathbf{1}_{A_i}$, where $A_i\in B_i$, so  $Y_i$ is a $B_i$-measurable R.V., 
+$$
+E(\prod_{i\in I}Y_i)=E(\prod_{i\in I} \mathbf{1}_{A_i})=E(1_{\bigcap_{i\in I}A_i})=\prod_{i\in I}P(A_i)=\prod_{i\in I}E(Y_i),
+$$
+then we discuss the situation when $Y_i$'s are simple function $Y_i=\sum_{j=1}^{n_i}c_{ij}\mathbf{1}_{A_{ij}}$, where $c_{ij}\geq0$, we can rewrite the product of $Y_i$ as $\prod_{i\in I}Y_i=\prod_{i\in I}(\sum_{j=1}^{n_i}c_{ij}\mathbf{1}_{A_{ij}})=\sum_{j}(\prod_{i\in I}c_{ij})\mathbf{1}_{\bigcap_{i\in I}A_{ij}}$, so for simple funcion, we also have $E(\prod_{i\in I}Y_i)=\prod_{i\in I}E(Y_i)$, then for any non-negative $B_i$-measurable function $Y_i$, for each $i$, we can find a sequence of non-negative simple function $Y_i^{(m)}$ such that $Y_i^{(m)}\uparrow Y_i$, and by using monotone convergence theorem, $E(Y_i^{(m)})\uparrow E(Y_i)$, so for finitely many product of measurable function, we also have $E(\prod_{i\in I}Y_i)=\prod_{i\in I}E(Y_i)$, Conversely, if we have $E(\prod_{i\in I}Y_i)=\prod_{i\in I}E(Y_i)$, then let each $Y_i$ be indicator function, we can get the $B_i$ are independent.
+
+#### (b)
+$\textbf{My idea:}$ when $f_j$ is an indicator, such as $f_j=\mathbf{1}_{A_j}$ for some $A_j\in\mathcal{B}_j$, then we have $E(f_j(X_j))=E[\mathbf{1}_{A_j}(X_j)]=P[X_j\in A_j]$, so we have 
+$$
+E(\prod_J f_j(X_j))=\prod_{J}E(f_j(X_j)),
+$$
+, using the same idea in (a), for any bounded measurable functions $\{f_j,\ j\in J\}$, we have $E(\prod_J f_j(X_j))=\prod_{J}E(f_j(X_j))$. Conversely, if we have $E(\prod_J f_j(X_j))=\prod_{J}E(f_j(X_j))$,for any bounded measurable functions $\{f_j,\ j\in J\}$, by letting $f_j(x)=x$, and according to (a), we have for any finite index set $J$, $\{X_j,\ j\in J\}$ are independent, and therefore $\{X_t,\ t\in T\}$ are independent for arbitrary index set.
 
 
+$\textbf{Answer:}$ Firstly, for $\{\mathcal{B}_t,\ t\in T\}$ when $\mathcal{B'}_t\subset\mathcal{B}_t$, then for any $A_t\in\mathcal{B'}_t$, it's in $\mathcal{B}_t$, so $\{A_t,\ t\in T\}$ are independent by the independence of $\{\mathcal{B}_t,\ t\in T\}$, therefore $\{\mathcal{B'}_t,\ t\in T\}$  are independent. When $f_j$ is an indicator, such as $f_j=\mathbf{1}_{A_j}$ for some $A_j\in\mathcal{B}(\mathbb{R})$, then we have $E(f_j(X_j))=E[\mathbf{1}_{A_j}(X_j)]=P[X_j\in A_j]$, so we have 
+$$
+E(\prod_J f_j(X_j))=\prod_{J}E(f_j(X_j)),
+$$
+using the same idea in (a), for any bounded measurable functions $\{f_j,\ j\in J\}$, we have $E(\prod_J f_j(X_j))=\prod_{J}E(f_j(X_j))$, since $\sigma(f_j(X_j))\subseteq\sigma(X_j)$, so $\{\sigma(f_j(X_j)),\ j\in J\}$ are independent . Conversely, if we have $E(\prod_J f_j(X_j))=\prod_{J}E(f_j(X_j))$,for any bounded measurable functions $\{f_j,\ j\in J\}$, by letting $f_j(x)=\mathbf{1}_{A_j}$, for some $A_j\in\mathcal{B}(\mathbb{R})$. then we have $E(\prod_J f_j(X_j))=E(\prod_J \mathbf{1}_{\{X_j\in A_j\}})=\prod_J E(\mathbf{1}_{\{X_j\in A_j\}})$, then we have $P(\bigcap_J \{X_j\in A_j\})=\prod_J P(\{X_j\in A_j\})$, which we get for any finite index set $J$, $\{X_j,\ j\in J\}$ are independent, and therefore $\{X_t,\ t\in T\}$ are independent for arbitrary index set.
+
+$\textbf{Note:}$ When we construct $f_j$ as indicator, $A_j$ is not in $\mathcal{B}_j$, but in $\mathcal{B}(\mathbb{R})$ since $X_j$ is R.V. so its range is in $\mathbb{R}$, it is because in this book, we only consider real-valued measurable function.
 
 
 
