@@ -253,4 +253,11 @@ and $X$ is $\mathcal{G}$-measurable, then $X=c$ a.s.\ for some constant $c$.
 
 $\textbf{Note:}$ When we get $X_n\to c$ a.e, we need to prove that $X_n=c$ a.e using the iid statement.
 
+### Ex 17
+#### (a)
+$\textbf{My idea:}$ Let $A_n=[X_n>a_n]$, since $\{X_n,\ n\geq1\}$ are iid r.v's, then $A_n=[X_1>a_n]$, according to Borel-Cantelli II, we get what we want.
+
+$\textbf{Answer:}$ Let $A_n=[X_n>a_n]$, since $\{X_n,\ n\geq1\}$ are iid r.v's, then $P(A_n)=P(X_n>a_n)=P(X_1>a_n)$, and $\{A_n\}$ are independent, then according to Borel-Cantelli, $P[A_n,\ \text{i.o.}]=1$ iff $\sum_n P(X_1>a_n)=\infty$ and $P[A_n,\ \text{i.o.}]=0$ iff $\sum_n P(X_1>a_n)<\infty$.
+
+$\textbf{Note:}$ $A_n=[X_n>a_n]$, is not equal to $[X_1>a_n]$, but we only need to discuss it probability.
 
