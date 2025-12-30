@@ -15,7 +15,7 @@ output:
 knitr::opts_chunk$set(echo = TRUE)
 ```
 ## Pre
-These are my Notess and exercise records while learning *A Probability Path* by Resnick.  
+These are my Notes and exercise records while learning *A Probability Path* by Resnick.  
 After finishing Chapters 1–3, I decided to start writing things down more systematically.  
 Here is the protocol I follow for exercises:
 
@@ -233,5 +233,24 @@ using the same idea in (a), for any bounded measurable functions $\{f_j,\ j\in J
 $\textbf{Note:}$ When we construct $f_j$ as indicator, $A_j$ is not in $\mathcal{B}_j$, but in $\mathcal{B}(\mathbb{R})$ since $X_j$ is R.V. so its range is in $\mathbb{R}$, it is because in this book, we only consider real-valued measurable function.
 
 
+### Ex 16
+::: {.problem}
+The probability of convergence of a sequence of independent random variables is equal
+to $0$ or $1$. If the sequence $\{X_n\}$ is i.i.d., and not constant with probability $1$,
+then
+\[
+P[X_n\ \text{converges}]=0.
+\]
+:::
+
+$\textbf{My idea:}$ Suppose for iid, not a.e constant r.v. sequence $\{X_n\}$, we have $P[X_n\ \text{converges}]\neq0$, since the event $[X_n\ \text{converges}]\in\mathcal{T}$, so we have $P[X_n\ \text{converges}]=1$, that is, exist random variable $X$, such that $X_n\to X$ a.e, however, $X\in\mathcal{T}$ also, so there exists a constant $c$, such that $P[X=c]=1$, this is contradicted to the fact that $\{X_n\}$ is not constant with probability 1.
+
+$\textbf{Answer:}$ Suppose for iid, not a.e constant r.v. sequence $\{X_n\}$, we have $P[X_n\ \text{converges}]\neq0$, since the event $[X_n\ \text{converges}]\in\mathcal{T}$, so we have $P[X_n\ \text{converges}]=1$, that is, exist random variable $X$, such that $X_n\to X$ a.e, however, $X\in\mathcal{T}$ also, according to Lemma 4.5.1 so there exists a constant $c$, such that $P[X=c]=1$, that is, $X_n\to c$ a.e, therefore for any $\varepsilon>0$, $P(|X_n-c|>\varepsilon)\to0,\ (n\to\infty)$, and $\{X_n\}$ is iid, then the probability is the same for all $n$, that is to say, for any $\varepsilon>0$, we have $P(|X_n-c|>\varepsilon)=0$, this is contradicted to the fact that $\{X_n\}$ is not constant with probability 1.
+
+$\textbf{Lemma (Resnick Lemma 4.5.1).}$
+If $\mathcal{G}$ is almost trivial (i.e.\ $P(A)\in\{0,1\}$ for all $A\in\mathcal{G}$)
+and $X$ is $\mathcal{G}$-measurable, then $X=c$ a.s.\ for some constant $c$.
+
+$\textbf{Note:}$ When we get $X_n\to c$ a.e, we need to prove that $X_n=c$ a.e using the iid statement.
 
 
