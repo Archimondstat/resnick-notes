@@ -378,6 +378,10 @@ Independence</a>
 <li><a href="#b" id="toc-b">(b)</a></li>
 </ul></li>
 <li><a href="#ex-16" id="toc-ex-16">Ex 16</a></li>
+<li><a href="#ex-17" id="toc-ex-17">Ex 17</a>
+<ul>
+<li><a href="#a-1" id="toc-a-1">(a)</a></li>
+</ul></li>
 </ul></li>
 </ul>
 </div>
@@ -767,6 +771,25 @@ contradicted to the fact that <span class="math inline">\(\{X_n\}\)</span> is no
 almost trivial (i.e. <span class="math inline">\(P(A)\in\{0,1\}\)</span>
 for all <span class="math inline">\(A\in\mathcal{G}\)</span>) and <span class="math inline">\(X\)</span> is <span class="math inline">\(\mathcal{G}\)</span>-measurable, then <span class="math inline">\(X=c\)</span> a.s. for some constant <span class="math inline">\(c\)</span>.</p>
 <p><span class="math inline">\(\textbf{Note:}\)</span> When we get <span class="math inline">\(X_n\to c\)</span> a.e, we need to prove that <span class="math inline">\(X_n=c\)</span> a.e using the iid statement.</p>
+</div>
+<div id="ex-17" class="section level3">
+<h3>Ex 17</h3>
+<div id="a-1" class="section level4">
+<h4>(a)</h4>
+<p><span class="math inline">\(\textbf{My idea:}\)</span> Let <span class="math inline">\(A_n=[X_n&gt;a_n]\)</span>, since <span class="math inline">\(\{X_n,\ n\geq1\}\)</span> are iid r.v’s, then
+<span class="math inline">\(A_n=[X_1&gt;a_n]\)</span>, according to
+Borel-Cantelli II, we get what we want.</p>
+<p><span class="math inline">\(\textbf{Answer:}\)</span> Let <span class="math inline">\(A_n=[X_n&gt;a_n]\)</span>, since <span class="math inline">\(\{X_n,\ n\geq1\}\)</span> are iid r.v’s, then
+<span class="math inline">\(P(A_n)=P(X_n&gt;a_n)=P(X_1&gt;a_n)\)</span>,
+and <span class="math inline">\(\{A_n\}\)</span> are independent, then
+according to Borel-Cantelli, <span class="math inline">\(P[A_n,\
+\text{i.o.}]=1\)</span> iff <span class="math inline">\(\sum_n
+P(X_1&gt;a_n)=\infty\)</span> and <span class="math inline">\(P[A_n,\
+\text{i.o.}]=0\)</span> iff <span class="math inline">\(\sum_n
+P(X_1&gt;a_n)&lt;\infty\)</span>.</p>
+<p><span class="math inline">\(\textbf{Note:}\)</span> <span class="math inline">\(A_n=[X_n&gt;a_n]\)</span>, is not equal to <span class="math inline">\([X_1&gt;a_n]\)</span>, but we only need to discuss
+it probability.</p>
+</div>
 </div>
 </div>
 
