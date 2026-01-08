@@ -384,6 +384,7 @@ Independence</a>
 <li><a href="#b-1" id="toc-b-1">(b)</a></li>
 <li><a href="#c" id="toc-c">(c)</a></li>
 </ul></li>
+<li><a href="#ex-18" id="toc-ex-18">Ex 18</a></li>
 </ul></li>
 </ul>
 </div>
@@ -1043,6 +1044,23 @@ n!\sim\sqrt{2\pi}n^{n+\frac{1}{2}}\exp(-n).
 \]</span> My idea fails because the growth is dominated by <span class="math inline">\(m_n!\)</span>, where <span class="math inline">\(m_n=\lceil c\,\frac{\log
 n}{\log\log(n)}\rceil\)</span>.</p>
 </div>
+</div>
+<div id="ex-18" class="section level3">
+<h3>Ex 18</h3>
+<div class="problem">
+<p>If the event <span class="math inline">\(A\)</span> is independent of
+the <span class="math inline">\(\pi\)</span>-system <span class="math inline">\(\mathcal{P}\)</span> and <span class="math inline">\(A\in\sigma(\mathcal{P})\)</span>, then <span class="math inline">\(P(A)\)</span> is either <span class="math inline">\(0\)</span> or <span class="math inline">\(1\)</span>.</p>
+</div>
+<p><span class="math inline">\(\textbf{My idea:}\)</span> We know that
+<span class="math inline">\(\{A\}\)</span> is a <span class="math inline">\(\pi\)</span>-system, and since event <span class="math inline">\(A\)</span> is independent of <span class="math inline">\(\mathcal{P}\)</span>, then <span class="math inline">\(\{A\}\)</span> is independent of <span class="math inline">\(\mathcal{P}\)</span>, so <span class="math inline">\(\sigma(\{A\})\)</span> is independent of <span class="math inline">\(\sigma(\mathcal{P})\)</span>, and <span class="math inline">\(A\)</span> is in both of them, so <span class="math inline">\(A\)</span> is independent of itself, <span class="math inline">\(P(A)\)</span> is either <span class="math inline">\(0\)</span> or <span class="math inline">\(1\)</span>.</p>
+<p><span class="math inline">\(\textbf{Answer:}\)</span> We know that
+<span class="math inline">\(\{A\}\)</span> is a <span class="math inline">\(\pi\)</span>-system, and since event <span class="math inline">\(A\)</span> is independent of <span class="math inline">\(\mathcal{P}\)</span>, then <span class="math inline">\(\{A\}\)</span> is independent of <span class="math inline">\(\mathcal{P}\)</span>, so according to Theorem
+4.1.1, <span class="math inline">\(\sigma(\{A\})\)</span> and <span class="math inline">\(\sigma(\mathcal{P})\)</span> are independent, and
+<span class="math inline">\(A\)</span> is in both of them, so <span class="math inline">\(A\)</span> is independent of itself, <span class="math display">\[
+P(A)=P(A\cap A)=P(A)P(A)=P(A)^2,
+\]</span> <span class="math inline">\(P(A)\)</span> is either <span class="math inline">\(0\)</span> or <span class="math inline">\(1\)</span>.</p>
+<p><span class="math inline">\(\textbf{Note:}\)</span> My idea is right,
+but I should have cited Theorem 4.1.1.</p>
 </div>
 </div>
 

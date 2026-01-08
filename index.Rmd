@@ -661,5 +661,20 @@ n!\sim\sqrt{2\pi}n^{n+\frac{1}{2}}\exp(-n).
 $$
 My idea fails because the growth is dominated by $m_n!$, where $m_n=\lceil c\,\frac{\log n}{\log\log(n)}\rceil$.
 
+### Ex 18
+::: problem
+If the event $A$ is independent of the $\pi$-system $\mathcal{P}$ and $A\in\sigma(\mathcal{P})$, then $P(A)$ is either $0$ or $1$.
+:::
+
+
+$\textbf{My idea:}$ We know that $\{A\}$ is a $\pi$-system, and since event $A$ is independent of $\mathcal{P}$, then $\{A\}$ is independent of $\mathcal{P}$, so $\sigma(\{A\})$ is independent of $\sigma(\mathcal{P})$, and $A$ is in both of them, so $A$ is independent of itself, $P(A)$ is either $0$ or $1$.
+
+$\textbf{Answer:}$ We know that $\{A\}$ is a $\pi$-system, and since event $A$ is independent of $\mathcal{P}$, then $\{A\}$ is independent of $\mathcal{P}$, so according to Theorem 4.1.1, $\sigma(\{A\})$ and $\sigma(\mathcal{P})$ are independent, and $A$ is in both of them, so $A$ is independent of itself, 
+$$
+P(A)=P(A\cap A)=P(A)P(A)=P(A)^2,
+$$
+$P(A)$ is either $0$ or $1$.
+
+$\textbf{Note:}$ My idea is right, but I should have cited Theorem 4.1.1.
 
 
