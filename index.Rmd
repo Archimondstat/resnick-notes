@@ -678,3 +678,26 @@ $P(A)$ is either $0$ or $1$.
 $\textbf{Note:}$ My idea is right, but I should have cited Theorem 4.1.1.
 
 
+### Ex 19
+::: problem
+\ Give a simple example to show that 2 random variables may be independent according to one probability measure but dependent with respect to another.
+:::
+
+$\textbf{My idea:}$ For 2 fair coins, define $P[X=1]=P[X=0]=P[Y=1]=P[Y=0]=\frac{1}{2}$, then $X$, $Y$ are iid, however we can define the joint distribution as $P[X=1,Y=1]=P[X=0,Y=0]=\frac{1}{2}$, and $P[X=1,Y=0]=P[X=0,Y=1]=0$, so they are not independent with respect to another probability.
+
+$\textbf{Answer:}$ Rewrite the idea part in a clean way:
+Firstly, take the sample space $\Omega=\{0,1\}^2$ and $\mathcal{F}=2^\Omega$, then define random variables $X(\omega_1,\omega_2)=\omega_1, Y(\omega_1,\omega_2)=\omega_2$.
+After that, we define two probability measures:
+
+1. Probability measure P:
+$$
+P(\{(i,j)\})=\frac{1}{4},\qquad (i,j)\in\Omega.
+$$
+2. Diagonal measure Q:
+$$
+Q(\{(1,1)\})=Q(\{(0,0)\})=\frac{1}{2},\quad Q(\{(1,0)\})=Q(\{(0,1)\})=0.
+$$
+Then for measure $P$, we have $P(X=i)=P(Y=j)=\frac{1}{2},\ P(X=i,Y=j)=\frac{1}{4}$, so $P(X=i,Y=j)=P(X=i)P(Y=j)$ ,$(i,j)\in\Omega$. However, for measure $Q$, we have $Q(X=1)=Q(Y=1)=\frac{1}{2}$, and $Q(X=1,Y=1)=\frac{1}{2}\neq Q(X=1)Q(Y=1)$.
+
+
+$\textbf{Note:}$ 1. When we discuss random variables, we should clarify in what sample space, 2. We should use different notations to represent different probability measures. In this question, we are required to discuss 2 probability measures in 1 sample space.

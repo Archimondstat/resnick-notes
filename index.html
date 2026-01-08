@@ -385,6 +385,7 @@ Independence</a>
 <li><a href="#c" id="toc-c">(c)</a></li>
 </ul></li>
 <li><a href="#ex-18" id="toc-ex-18">Ex 18</a></li>
+<li><a href="#ex-19" id="toc-ex-19">Ex 19</a></li>
 </ul></li>
 </ul>
 </div>
@@ -1061,6 +1062,42 @@ P(A)=P(A\cap A)=P(A)P(A)=P(A)^2,
 \]</span> <span class="math inline">\(P(A)\)</span> is either <span class="math inline">\(0\)</span> or <span class="math inline">\(1\)</span>.</p>
 <p><span class="math inline">\(\textbf{Note:}\)</span> My idea is right,
 but I should have cited Theorem 4.1.1.</p>
+</div>
+<div id="ex-19" class="section level3">
+<h3>Ex 19</h3>
+<div class="problem">
+<p> Give a simple example to show that 2 random variables may be
+independent according to one probability measure but dependent with
+respect to another.</p>
+</div>
+<p><span class="math inline">\(\textbf{My idea:}\)</span> For 2 fair
+coins, define <span class="math inline">\(P[X=1]=P[X=0]=P[Y=1]=P[Y=0]=\frac{1}{2}\)</span>,
+then <span class="math inline">\(X\)</span>, <span class="math inline">\(Y\)</span> are iid, however we can define the
+joint distribution as <span class="math inline">\(P[X=1,Y=1]=P[X=0,Y=0]=\frac{1}{2}\)</span>, and
+<span class="math inline">\(P[X=1,Y=0]=P[X=0,Y=1]=0\)</span>, so they
+are not independent with respect to another probability.</p>
+<p><span class="math inline">\(\textbf{Answer:}\)</span> Rewrite the
+idea part in a clean way: Firstly, take the sample space <span class="math inline">\(\Omega=\{0,1\}^2\)</span> and <span class="math inline">\(\mathcal{F}=2^\Omega\)</span>, then define random
+variables <span class="math inline">\(X(\omega_1,\omega_2)=\omega_1,
+Y(\omega_1,\omega_2)=\omega_2\)</span>. After that, we define two
+probability measures:</p>
+<ol style="list-style-type: decimal">
+<li>Probability measure P: <span class="math display">\[
+P(\{(i,j)\})=\frac{1}{4},\qquad (i,j)\in\Omega.
+\]</span></li>
+<li>Diagonal measure Q: <span class="math display">\[
+Q(\{(1,1)\})=Q(\{(0,0)\})=\frac{1}{2},\quad Q(\{(1,0)\})=Q(\{(0,1)\})=0.
+\]</span> Then for measure <span class="math inline">\(P\)</span>, we
+have <span class="math inline">\(P(X=i)=P(Y=j)=\frac{1}{2},\
+P(X=i,Y=j)=\frac{1}{4}\)</span>, so <span class="math inline">\(P(X=i,Y=j)=P(X=i)P(Y=j)\)</span> ,<span class="math inline">\((i,j)\in\Omega\)</span>. However, for measure
+<span class="math inline">\(Q\)</span>, we have <span class="math inline">\(Q(X=1)=Q(Y=1)=\frac{1}{2}\)</span>, and <span class="math inline">\(Q(X=1,Y=1)=\frac{1}{2}\neq
+Q(X=1)Q(Y=1)\)</span>.</li>
+</ol>
+<p><span class="math inline">\(\textbf{Note:}\)</span> 1. When we
+discuss random variables, we should clarify in what sample space, 2. We
+should use different notations to represent different probability
+measures. In this question, we are required to discuss 2 probability
+measures in 1 sample space.</p>
 </div>
 </div>
 
