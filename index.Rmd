@@ -1,6 +1,6 @@
 ---
 title: "Notess on A Probability Path (Resnick)"
-author: "Archimond"
+author: "P"
 date: "`r Sys.Date()`"
 output:
   html_document:
@@ -9,19 +9,27 @@ output:
     number_sections: false
     css: styles.css
     mathjax: default
+editor_options: 
+  markdown: 
+    wrap: 72
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
+
 ## Pre
-These are my Notes and exercise records while learning *A Probability Path* by Resnick.  
-After finishing Chapters 1–3, I decided to start writing things down more systematically.  
+
+These are my Notes and exercise records while learning *A Probability
+Path* by Resnick.\
+After finishing Chapters 1–3, I decided to start writing things down
+more systematically.\
 Here is the protocol I follow for exercises:
 
-- I write down anything I can, even if I know something may be wrong.
-- I compare with the official solution and locate what went wrong.
-- I close the solution and redo the exercise until I can complete it **entirely** on my own.
+-   I write down anything I can, even if I know something may be wrong.
+-   I compare with the official solution and locate what went wrong.
+-   I close the solution and redo the exercise until I can complete it
+    **entirely** on my own.
 
 I record both my first idea and the final correct solution here.
 
@@ -34,230 +42,624 @@ I record both my first idea and the final correct solution here.
 ## Chap 4, Independence
 
 ### Summary
+
 Firstly, we defined the definition of independence (of 2 events)
 
 Then:
 
-* The independence of finite events
-* The independence of finite classes (collection of events)
-* The independence of arbitrary number of classes, by focusing of all the finite subset
-* Further, if the independent classes are $\pi$-system, then the $\sigma$-field then generated are also independent
+-   The independence of finite events
+-   The independence of finite classes (collection of events)
+-   The independence of arbitrary number of classes, by focusing of all
+    the finite subset
+-   Further, if the independent classes are $\pi$-system, then the
+    $\sigma$-field then generated are also independent
 
-Then we go to the measurable function part, and for a R.V X, we focus on the $\sigma$-field it generates, $\sigma(X)$.
+Then we go to the measurable function part, and for a R.V X, we focus on
+the $\sigma$-field it generates, $\sigma(X)$.
 
 Secondly, we have grouping on a collection of independent $\sigma$-field
 
-* If we divide an index set into mutually disjoint subsets, then the $\sigma$-fields generated associated to these subset index are independent.
+-   If we divide an index set into mutually disjoint subsets, then the
+    $\sigma$-fields generated associated to these subset index are
+    independent.
 
 Thirdly, we have the 0-1 laws.
 
-* Borel: for independent events $\{A_n\}$,if we want to study its limsup, $[A_n\; i.o.]$, we can try study $\sum_{n}P(A_n)$
-* Kolmogorov: for independent R.Vs $\{X_n\}$, the information from infinity is almost trivial, and independent to the information of all the $\{X_n\}$.
+-   Borel: for independent events $\{A_n\}$,if we want to study its
+    limsup, $[A_n\; i.o.]$, we can try study $\sum_{n}P(A_n)$
+-   Kolmogorov: for independent R.Vs $\{X_n\}$, the information from
+    infinity is almost trivial, and independent to the information of
+    all the $\{X_n\}$.
 
 ### Ex 10
-::: {.problem}
+
+::: problem
 Suppose $\{X_n,\ n\ge 1\}$ are independent random variables. Show that
-\[
+$$
 P\!\left(\sup_{n\ge 1} X_n < \infty\right)=1
 \quad\text{iff}\quad
 \sum_{n=1}^\infty P(X_n > M) < \infty \ \text{for some } M.
-\]
+$$
 :::
-$\textbf{My idea:}$ $\Rightarrow$: Suppose $\forall$ $m\in R^+$, we have $\sum_{n}P[X_n>m]=\infty$, that is, we have $P[X_n>m ,\: \text{i.o.}]=1$, also, $[X_n=\infty]=\bigcap_{m}[X_n>m]$, that is, $P[X_n=\infty,\:\text{i.o.}]=1$, which is contradicted to $\sum_n P[\sup_n X_n<\infty]=1$.
-$\Leftarrow$: now we have for some $M$, $\sum_{n}P[X_n>M]<\infty$, according to Borel 0-1 law, we have $P[X_n>M,\: \text{i.o.}]=0$, that is $P[\lim\inf[X_n\leq M]]=1$, so there $\exists N$, such that for $n\geq N$, we have $P[X_n\leq M]=1$ therefore we have $P[\sup X_n<\infty]=1$
 
-$\textbf{Answer:}$ $\Rightarrow$: Suppose $\forall m\in N^+$, we have $\sum_{n}P[X_n>m]=\infty$, that is, by Borel–Cantelli II (using independence), we have $P[X_n> m ,\: \text{i.o.}]=1$, that is, $P(\bigcap_{m=1}^\infty\{X_n> m,\:\text{i.o.}\})=1$ and $\bigcap_{m=1}[X_n> m,\:\text{i.o.}]\subset \{\omega,\:\sup X_n(\omega)=\infty\}$, since $\{\omega,\:\sup X_n(\omega)=\infty\}$ means: for any $m\geq0$, exists $n(\omega,m)>0$, such that $X_n(\omega)>m$, written in set form, it is: $\bigcap_m\bigcup_n[X_n>m]$, so we have $P(\{\omega,\:\sup X_n(\omega)=\infty\})=1$, which leads to contradiction.
-$\Leftarrow$: now we have for some $M$, $\sum_{n}P[X_n>M]<\infty$, according to Borel-contelli, $P[X_n>M,\:\text{i.o.}]=0$, that is $P(\lim\inf_n[X_n\leq M])=1$, that is, $P(\bigcup_{N\geq1}\bigcap_{n\geq N}\{\omega,\:X_n(\omega)\leq M\})=1$, so if $\omega\in\bigcup_{N\geq1}\bigcap_{n\geq N}\{\omega,\:X_n(\omega)\leq M\}$, then for this fixed $\omega$, exists a $N(\omega)$, such that for $n\geq N(\omega)$, we have $X_n(\omega)\leq M$, so for a.e $\omega$, we have $\sup_n X_n(\omega)=\max(\max_{1\leq n<N(\omega)}X_n(\omega),M)<\infty$.
+$\textbf{My idea:}$ $\Rightarrow$: Suppose $\forall$ $m\in R^+$, we have
+$\sum_{n}P[X_n>m]=\infty$, that is, we have
+$P[X_n>m ,\: \text{i.o.}]=1$, also, $[X_n=\infty]=\bigcap_{m}[X_n>m]$,
+that is, $P[X_n=\infty,\:\text{i.o.}]=1$, which is contradicted to
+$\sum_n P[\sup_n X_n<\infty]=1$. $\Leftarrow$: now we have for some $M$,
+$\sum_{n}P[X_n>M]<\infty$, according to Borel 0-1 law, we have
+$P[X_n>M,\: \text{i.o.}]=0$, that is $P[\lim\inf[X_n\leq M]]=1$, so
+there $\exists N$, such that for $n\geq N$, we have $P[X_n\leq M]=1$
+therefore we have $P[\sup X_n<\infty]=1$
+
+$\textbf{Answer:}$ $\Rightarrow$: Suppose $\forall m\in N^+$, we have
+$\sum_{n}P[X_n>m]=\infty$, that is, by Borel–Cantelli II (using
+independence), we have $P[X_n> m ,\: \text{i.o.}]=1$, that is,
+$P(\bigcap_{m=1}^\infty\{X_n> m,\:\text{i.o.}\})=1$ and
+$\bigcap_{m=1}[X_n> m,\:\text{i.o.}]\subset \{\omega,\:\sup X_n(\omega)=\infty\}$,
+since $\{\omega,\:\sup X_n(\omega)=\infty\}$ means: for any $m\geq0$,
+exists $n(\omega,m)>0$, such that $X_n(\omega)>m$, written in set form,
+it is: $\bigcap_m\bigcup_n[X_n>m]$, so we have
+$P(\{\omega,\:\sup X_n(\omega)=\infty\})=1$, which leads to
+contradiction. $\Leftarrow$: now we have for some $M$,
+$\sum_{n}P[X_n>M]<\infty$, according to Borel-contelli,
+$P[X_n>M,\:\text{i.o.}]=0$, that is $P(\lim\inf_n[X_n\leq M])=1$, that
+is,
+$P(\bigcup_{N\geq1}\bigcap_{n\geq N}\{\omega,\:X_n(\omega)\leq M\})=1$,
+so if
+$\omega\in\bigcup_{N\geq1}\bigcap_{n\geq N}\{\omega,\:X_n(\omega)\leq M\}$,
+then for this fixed $\omega$, exists a $N(\omega)$, such that for
+$n\geq N(\omega)$, we have $X_n(\omega)\leq M$, so for a.e $\omega$, we
+have
+$\sup_n X_n(\omega)=\max(\max_{1\leq n<N(\omega)}X_n(\omega),M)<\infty$.
 
 $\textbf{Notes:}$
-  
-  1. in general, we don't swap the order of $\bigcap$ and $\bigcup$.
-  2. $\sup_n X_n=\infty$ in $\varepsilon-N$ language: for any $m>0$, exists an $n(\omega,m)$, such that $X_n>m$.
-  
-### Ex 11 
-::: {.problem}
-Use the Borel--Cantelli Lemma to prove that, given any sequence of random
-variables $\{X_n,\ n\ge 1\}$ whose range is the real line, there exist constants $c_n\to\infty$
-such that
-\[
+
+1.  in general, we don't swap the order of $\bigcap$ and $\bigcup$.
+2.  $\sup_n X_n=\infty$ in $\varepsilon-N$ language: for any $m>0$,
+    exists an $n(\omega,m)$, such that $X_n>m$.
+
+### Ex 11
+
+::: problem
+Use the Borel--Cantelli Lemma to prove that, given any sequence of
+random variables $\{X_n,\ n\ge 1\}$ whose range is the real line, there
+exist constants $c_n\to\infty$ such that $$
 P\!\left(\lim_{n\to\infty}\frac{X_n}{c_n}=0\right)=1.
-\]
-Give a careful description of how you choose $c_n$.
+$$ Give a careful description of how you choose $c_n$.
 :::
 
-$\textbf{My idea:}$ 
-if we want to find $\{c_n\}$ that $P[\lim_{n\to\infty}\frac{X_n}{c_n}=0]$, think the opposite, that is, for any $a>0$, we must have $P[\frac{X_n}{c_n}>a,\ \text{i.o.}]=0$, because if such $\{c_n\}$ exists, $X_n$ would not exceed any positive number infintely many times, so we just need to fix some $a>0$, and construct $\{c_n\}$ such that make sure $\sum_{n=1}^{\infty} P[X_n>a\cdot c_n]<\infty$, so I try to make it shrink as $\frac{1}{2^n}$, then I may choose $c_n=\sup_n X_n\cdot2^n$.
+$\textbf{My idea:}$ if we want to find $\{c_n\}$ that
+$P[\lim_{n\to\infty}\frac{X_n}{c_n}=0]$, think the opposite, that is,
+for any $a>0$, we must have $P[\frac{X_n}{c_n}>a,\ \text{i.o.}]=0$,
+because if such $\{c_n\}$ exists, $X_n$ would not exceed any positive
+number infintely many times, so we just need to fix some $a>0$, and
+construct $\{c_n\}$ such that make sure
+$\sum_{n=1}^{\infty} P[X_n>a\cdot c_n]<\infty$, so I try to make it
+shrink as $\frac{1}{2^n}$, then I may choose $c_n=\sup_n X_n\cdot2^n$.
 
-$\textbf{Answer:}$
-We need to guarantee that for any $k\in N^+$, $P[\frac{X_n}{c_n}>\frac{1}{k}\ \text{i.o.}]=0$ so that $\frac{X_n}{c_n}\to0\ \text{a.s.}$, since $\{\frac{X_n}{c_n}\not\to0\}=\bigcup_{k\geq1}\{\frac{X_n}{c_n}>\frac{1}{k}\ \text{i.o.}\}$, according to Borel-contelli I, we start from $\sum_{n=1}^{\infty} P(|X_n|>\frac{c_n}{k}<\infty)$, since $\{X_n\}$ are r.v., so we have $P(|X_n|>t)\to0\ (t\to\infty)$, that is, for $2^{-n}$, exists a $t_n$, such that $P(|X_n|>t_n)\leq2^{-n}$, now if we want $\frac{c_n}{k}\geq t_n$ for any fixed $k\in N^+$, we can set $c_n=n\cdot t_n$, so $\frac{c_n}{k}=\frac{n\cdot t_n}{k}\geq t_n$, so we have $\sum_{n}P(|X_n|>\frac{c_n}{k})<\infty$, thus $P[\lim_n\frac{X_n}{c_n}=0]=1$.
+$\textbf{Answer:}$ We need to guarantee that for any $k\in N^+$,
+$P[\frac{X_n}{c_n}>\frac{1}{k}\ \text{i.o.}]=0$ so that
+$\frac{X_n}{c_n}\to0\ \text{a.s.}$, since
+$\{\frac{X_n}{c_n}\not\to0\}=\bigcup_{k\geq1}\{\frac{X_n}{c_n}>\frac{1}{k}\ \text{i.o.}\}$,
+according to Borel-contelli I, we start from
+$\sum_{n=1}^{\infty} P(|X_n|>\frac{c_n}{k}<\infty)$, since $\{X_n\}$ are
+r.v., so we have $P(|X_n|>t)\to0\ (t\to\infty)$, that is, for $2^{-n}$,
+exists a $t_n$, such that $P(|X_n|>t_n)\leq2^{-n}$, now if we want
+$\frac{c_n}{k}\geq t_n$ for any fixed $k\in N^+$, we can set
+$c_n=n\cdot t_n$, so $\frac{c_n}{k}=\frac{n\cdot t_n}{k}\geq t_n$, so we
+have $\sum_{n}P(|X_n|>\frac{c_n}{k})<\infty$, thus
+$P[\lim_n\frac{X_n}{c_n}=0]=1$.
 
-$\textbf{Notes:}$
-  The diagonal trick: we want for any $k$, $c_n$ satisfies $\frac{c_n}{k}>t_n$, that is we have 2 directions: $n$ and $k$ in a $\infty\times\infty$ matrix, then for each $k$, our $n$ can move along in the triangle $n\geq k$, to make sure that $\frac{n\cdot t_n}{k}\geq t_n$.
-
+$\textbf{Notes:}$ The diagonal trick: we want for any $k$, $c_n$
+satisfies $\frac{c_n}{k}>t_n$, that is we have 2 directions: $n$ and $k$
+in a $\infty\times\infty$ matrix, then for each $k$, our $n$ can move
+along in the triangle $n\geq k$, to make sure that
+$\frac{n\cdot t_n}{k}\geq t_n$.
 
 ### Ex 12
-::: {.problem}
-Let $\{a_n\}$ and $\{b_n\}$ be nonnegative sequences such that
-\[
+
+::: problem
+Let $\{a_n\}$ and $\{b_n\}$ be nonnegative sequences such that $$
 \lim_{n\to\infty}\frac{a_n}{b_n}=1.
-\]
-Show that
-\[
+$$ Show that $$
 \sum_{n=1}^\infty a_n<\infty \quad\text{iff}\quad \sum_{n=1}^\infty b_n<\infty.
-\]
+$$
 :::
-$\textbf{My idea:}$
-In this problem, we can just discuss one direction ("$\Rightarrow$"), then we can use $\lim_{n\to\infty}\frac{b_n}{a_n}=1$ to prove another direction. Since we have $\lim_{n\to\infty}\frac{a_n}{b_n}=1$ and $\sum_{n}a_n<\infty$ and $\{a_n\}$, $\{b_n\}$ are non-negative sequences, without lost of generality, we can assume that $\{a_n\},\ \{b_n\}\in[0,1]$, otherwise we can discuss the terms after some big $N$. We can assign $\{a_n\}$ as probability to independent measurable set $\{A_n\}$ and $\{b_n\}$ to $\{B_n\}$, where $\{B_n\}$ also independent, then we have $\sum_{n}P(A_n)<\infty$, so $P[A_n,\ \text{i.o.}]=0$, since $\lim_{n\to\infty}\frac{a_n}{b_n}=1$, we know that $P[B_n,\ \text{i.o.}]=0$, so we get $\sum_{n}b_n=\sum_{n}P(B_n)<\infty$.
 
-$\textbf{Answer:}$
-Since $\lim_{n\to\infty}\frac{a_n}{b_n}=1$, then $\forall\varepsilon>0$, $\exists N>0$ such that when $n>N$, $(1-\varepsilon)b_n<a_n<(1+\varepsilon)b_n$, the sequences are non-negative, then we can choose $\varepsilon\in(0,1)$ to have $\sum_{n\geq N}b_n\leq\frac{\sum_{n\geq N}a_n}{1-\varepsilon}<\infty$ and $\sum_{n\geq N}a_n\leq(1+\varepsilon)\sum_{n\geq N}b_{n}<\infty$.
+$\textbf{My idea:}$ In this problem, we can just discuss one direction
+("$\Rightarrow$"), then we can use $\lim_{n\to\infty}\frac{b_n}{a_n}=1$
+to prove another direction. Since we have
+$\lim_{n\to\infty}\frac{a_n}{b_n}=1$ and $\sum_{n}a_n<\infty$ and
+$\{a_n\}$, $\{b_n\}$ are non-negative sequences, without lost of
+generality, we can assume that $\{a_n\},\ \{b_n\}\in[0,1]$, otherwise we
+can discuss the terms after some big $N$. We can assign $\{a_n\}$ as
+probability to independent measurable set $\{A_n\}$ and $\{b_n\}$ to
+$\{B_n\}$, where $\{B_n\}$ also independent, then we have
+$\sum_{n}P(A_n)<\infty$, so $P[A_n,\ \text{i.o.}]=0$, since
+$\lim_{n\to\infty}\frac{a_n}{b_n}=1$, we know that
+$P[B_n,\ \text{i.o.}]=0$, so we get $\sum_{n}b_n=\sum_{n}P(B_n)<\infty$.
 
-$\textbf{What's wrong:}$ I focus too much on the 0-1 law, which is unnecessary, just use the classic analysis method, this exercise just want to tell us that, when facing complicated $\{A_n\}$ with prob $\{a_n\}$, we can choose {b_n} to discuss 0-1 law on it. And also, Constructing independent events is not a valid step.
+$\textbf{Answer:}$ Since $\lim_{n\to\infty}\frac{a_n}{b_n}=1$, then
+$\forall\varepsilon>0$, $\exists N>0$ such that when $n>N$,
+$(1-\varepsilon)b_n<a_n<(1+\varepsilon)b_n$, the sequences are
+non-negative, then we can choose $\varepsilon\in(0,1)$ to have
+$\sum_{n\geq N}b_n\leq\frac{\sum_{n\geq N}a_n}{1-\varepsilon}<\infty$
+and $\sum_{n\geq N}a_n\leq(1+\varepsilon)\sum_{n\geq N}b_{n}<\infty$.
+
+$\textbf{What's wrong:}$ I focus too much on the 0-1 law, which is
+unnecessary, just use the classic analysis method, this exercise just
+want to tell us that, when facing complicated $\{A_n\}$ with prob
+$\{a_n\}$, we can choose {b_n} to discuss 0-1 law on it. And also,
+Constructing independent events is not a valid step.
 
 ### Ex 13
-::: {.problem}
- Let $\{X_n,\ n\ge 1\}$ be i.i.d.\ with
-\[
+
+::: problem
+Let $\{X_n,\ n\ge 1\}$ be i.i.d. with $$
 P(X_1=1)=p=1-P(X_1=0).
-\]
-What is the probability that the pattern $1,0,1$ appears infinitely often?
+$$ What is the probability that the pattern $1,0,1$ appears infinitely
+often?
 
-Hint: Let
-\[
+Hint: Let $$
 A_k=\{X_k=1,\ X_{k+1}=0,\ X_{k+2}=1\}
-\]
-and consider $A_1, A_4, A_7, \ldots$.
+$$ and consider $A_1, A_4, A_7, \ldots$.
 :::
-$\textbf{My idea:}$
-Using the hint, let $A_k=[X_k=1,\ X_{k+1}=0,\ X_{k+2}=1]$, $\{A_k\}$ are not independent, but $A_{3k+1}$ are independent since $\{X_n\}$ iid, also, we have $P(A_{3k+1})=p^2(1-p)$, which is a constant, so $\sum_{k\geq0}P(A_{3k+1})=\infty$, that is, $P[A_{3k+1},\ \text{i.o.}]=1$, so the pattern 1,0,1 appears infinitely often with probability 1.
 
-$\textbf{Answer:}$
-Start from $P(A_{3k+1})=p^2(1-p)$, we need to check the edge case: $p\in (0,1)$ and $p\in\{0,1\}$, for the former, we have  $\sum_{k\geq0}P(A_{3k+1})=\infty$, but for the latter, we have $\sum_{k\geq0}P(A_{3k+1})=0$, so the pattern 1,0,1 appears infinitely often with probability 1 when $p\in (0,1)$, with probability 0 when $p\in\{0,1\}$.
+$\textbf{My idea:}$ Using the hint, let
+$A_k=[X_k=1,\ X_{k+1}=0,\ X_{k+2}=1]$, $\{A_k\}$ are not independent,
+but $A_{3k+1}$ are independent since $\{X_n\}$ iid, also, we have
+$P(A_{3k+1})=p^2(1-p)$, which is a constant, so
+$\sum_{k\geq0}P(A_{3k+1})=\infty$, that is,
+$P[A_{3k+1},\ \text{i.o.}]=1$, so the pattern 1,0,1 appears infinitely
+often with probability 1.
+
+$\textbf{Answer:}$ Start from $P(A_{3k+1})=p^2(1-p)$, we need to check
+the edge case: $p\in (0,1)$ and $p\in\{0,1\}$, for the former, we have
+$\sum_{k\geq0}P(A_{3k+1})=\infty$, but for the latter, we have
+$\sum_{k\geq0}P(A_{3k+1})=0$, so the pattern 1,0,1 appears infinitely
+often with probability 1 when $p\in (0,1)$, with probability 0 when
+$p\in\{0,1\}$.
 
 $\textbf{Notes:}$ Just remember to check the edge cases.
 
 ### Ex 14
-::: {.problem}
-In a sequence of independent Bernoulli random variables $\{X_n,\ n\ge 1\}$ with
-\[
+
+::: problem
+In a sequence of independent Bernoulli random variables
+$\{X_n,\ n\ge 1\}$ with $$
 P(X_n=1)=p=1-P(X_n=0),
-\]
-let $A_n$ be the event that a run of $n$ consecutive $1$'s occurs between the $2^n$
-and $2^{n+1}$st trial. If $p\ge \tfrac12$, then there is probability $1$ that
-infinitely many $A_n$ occur.
+$$ let $A_n$ be the event that a run of $n$ consecutive $1$'s occurs
+between the $2^n$ and $2^{n+1}$st trial. If $p\ge \tfrac12$, then there
+is probability $1$ that infinitely many $A_n$ occur.
 
 \medskip
-Hint: Prove something like
-\[
+
+Hint: Prove something like $$
 P(A_n)\ge 1-(1-p^n)^{2^n/2n} > 1-e^{-(2p)^n/2n}.
-\]
+$$
 :::
 
-$\textbf{My idea:}$ I figure out that, for each $n$, there will then $2^{n+1}-2^{n}=2^n$ elements from $2^{n+1}$ to $2^n$, if we exclude the left endpoint to make sure each interval are disjoint, and $P(A_n)=p^n(1-p)^{2^n-n}(2^n-n+1)$ since there will be $2^n-n+1$ consecutive sequences with length $n$.
+$\textbf{My idea:}$ I figure out that, for each $n$, there will then
+$2^{n+1}-2^{n}=2^n$ elements from $2^{n+1}$ to $2^n$, if we exclude the
+left endpoint to make sure each interval are disjoint, and
+$P(A_n)=p^n(1-p)^{2^n-n}(2^n-n+1)$ since there will be $2^n-n+1$
+consecutive sequences with length $n$.
 
-$\textbf{Answer:}$ For each $n$, there will then $2^{n+1}-2^{n}=2^n$ elements from $2^{n}$ to $2^{n+1}$, if we exclude the left endpoint to make sure each interval are disjoint, and there will be at least $\lfloor\frac{2^n}{n}\rfloor$ disjoint consecutive sequence for each $A_n$, to find the probability that these are 1's (and the rest can be 0 or 1), is to use 1 minus the probability that these sequences are not all 1's, that is $1-(1-p^n)^{\lfloor\frac{2^n}{n}\rfloor}$, using the hint, we have 
-$$
+$\textbf{Answer:}$ For each $n$, there will then $2^{n+1}-2^{n}=2^n$
+elements from $2^{n}$ to $2^{n+1}$, if we exclude the left endpoint to
+make sure each interval are disjoint, and there will be at least
+$\lfloor\frac{2^n}{n}\rfloor$ disjoint consecutive sequence for each
+$A_n$, to find the probability that these are 1's (and the rest can be 0
+or 1), is to use 1 minus the probability that these sequences are not
+all 1's, that is $1-(1-p^n)^{\lfloor\frac{2^n}{n}\rfloor}$, using the
+hint, we have $$
 P(A_n)\geq 1-(1-p^n)^{\lfloor\frac{2^n}{n}\rfloor}>1-\exp(-\frac{(2p)^n}{2n})
-$$
-For exponential part, it converges to $0$ when $p\geq1/2$, so $P(A_n)\geq 1/2$ when $n$ is large, therefore $\sum_nP(A_n)=\infty$ so there will be infinitely many $A_n$ occur by Borel-Cantelli II since each $A_n$ are independent.
+$$ For exponential part, it converges to $0$ when $p\geq1/2$, so
+$P(A_n)\geq 1/2$ when $n$ is large, therefore $\sum_nP(A_n)=\infty$ so
+there will be infinitely many $A_n$ occur by Borel-Cantelli II since
+each $A_n$ are independent.
 
-$\textbf{Note:}$
-How many disjoint sequences with length $n$ in each $A_n$ at least?
-$\left\lfloor\frac{2^n}{n}\right\rfloor$.
-For each length-$n$ sequence, $1-p^n$ is the probability that it is \emph{not} all $1$'s.
-Since these sequences are disjoint (hence independent),
-\[
+$\textbf{Note:}$ How many disjoint sequences with length $n$ in each
+$A_n$ at least? $\left\lfloor\frac{2^n}{n}\right\rfloor$. For each
+length-$n$ sequence, $1-p^n$ is the probability that it is \emph{not}
+all $1$'s. Since these sequences are disjoint (hence independent), $$
 (1-p^n)^{\left\lfloor\frac{2^n}{n}\right\rfloor}
-\]
-is the probability that all these sequences are \emph{not} all $1$'s.
-Therefore,
-\[
+$$ is the probability that all these sequences are \emph{not} all $1$'s.
+Therefore, $$
 1-(1-p^n)^{\left\lfloor\frac{2^n}{n}\right\rfloor}
-\]
-is the probability that at least one of these sequences is all $1$'s.
+$$ is the probability that at least one of these sequences is all $1$'s.
 
 ### Ex 15
-::: {.problem}
-$\textbf{(a)}$ A finite family $\{\mathcal{B}_i,\ i\in I\}$ of $\sigma$-algebras is independent iff
-for every choice of non-negative $\mathcal{B}_i$-measurable random variables $Y_i$,
-$i\in I$, we have
-\[
+
+::: problem
+$\textbf{(a)}$ A finite family $\{\mathcal{B}_i,\ i\in I\}$ of
+$\sigma$-algebras is independent iff for every choice of non-negative
+$\mathcal{B}_i$-measurable random variables $Y_i$, $i\in I$, we have $$
 E\!\left(\prod_{i\in I} Y_i\right)=\prod_{i\in I} E(Y_i).
-\]
-(One direction is immediate. For the opposite direction, prove the result first for
-positive simple functions and then extend.)
+$$ (One direction is immediate. For the opposite direction, prove the
+result first for positive simple functions and then extend.)
 
 \medskip
-$\textbf{(b)}$ If $\{\mathcal{B}_t,\ t\in T\}$ is an arbitrary independent family of $\sigma$-algebras
-in $(\Omega,\mathcal{B},P)$, the family $\{\mathcal{B}'_t,\ t\in T\}$ is again independent if
-$\mathcal{B}_t \supset \mathcal{B}'_t$ $(t\in T)$. Deduce from this that $\{f_t(X_t),\ t\in T\}$
-is a family of independent random variables if the family $\{X_t,\ t\in T\}$ is independent
-and the $f_t$ are measurable. In order for the family $\{X_t,\ t\in T\}$ of random variables to be independent,
-it is necessary and sufficient that
-\[
+
+$\textbf{(b)}$ If $\{\mathcal{B}_t,\ t\in T\}$ is an arbitrary
+independent family of $\sigma$-algebras in $(\Omega,\mathcal{B},P)$, the
+family $\{\mathcal{B}'_t,\ t\in T\}$ is again independent if
+$\mathcal{B}_t \supset \mathcal{B}'_t$ $(t\in T)$. Deduce from this that
+$\{f_t(X_t),\ t\in T\}$ is a family of independent random variables if
+the family $\{X_t,\ t\in T\}$ is independent and the $f_t$ are
+measurable. In order for the family $\{X_t,\ t\in T\}$ of random
+variables to be independent, it is necessary and sufficient that $$
 E\!\left(\prod_{j\in J} f_j(X_j)\right)=\prod_{j\in J} E\!\left(f_j(X_j)\right)
-\]
-for every finite family $\{f_j,\ j\in J\}$ of bounded measurable functions.
+$$ for every finite family $\{f_j,\ j\in J\}$ of bounded measurable
+functions.
 :::
 
 #### (a)
-$\textbf{My idea:}$ 
-In each $\sigma$-algebra $B_i$, we define a indicator function $Y_i=1_{A_i}$, where $A_i\in B_i$, so  $Y_i$ is a $B_i$-measurable R.V., 
-$$
+
+$\textbf{My idea:}$ In each $\sigma$-algebra $B_i$, we define a
+indicator function $Y_i=1_{A_i}$, where $A_i\in B_i$, so $Y_i$ is a
+$B_i$-measurable R.V., $$
 E(\prod_{i\in I}Y_i)=E(\prod_{i\in I} 1_{A_i})=E(1_{\bigcap_{i\in I}A_i})=\prod_{i\in I}\mu(A_i)=\prod_{i\in I}E(Y_i),
-$$
-where $\mu$ is the measure for each $\sigma$-algebra, if $Y_i$'s are simple function, the expectation of their product is the product in measure of interception of measurable set, so we also have $E(\prod_{i\in I}Y_i)=\prod_{i\in I}E(Y_i)$, since $I$ is finite, then for any $B_i$-measurable function $Y_i$, it can be approximated by $B_i$-measurable simple function sequence, and if $Y_i$'s are integrable, also $\prod{i\in I}Y_i$, so the order of product and limitation can be changed. Conversely, if we have $E(\prod_{i\in I}Y_i)=\prod_{i\in I}E(Y_i)$, then let each $Y_i$ be simple function, we can get the $B_i$ are independent.
+$$ where $\mu$ is the measure for each $\sigma$-algebra, if $Y_i$'s are
+simple function, the expectation of their product is the product in
+measure of interception of measurable set, so we also have
+$E(\prod_{i\in I}Y_i)=\prod_{i\in I}E(Y_i)$, since $I$ is finite, then
+for any $B_i$-measurable function $Y_i$, it can be approximated by
+$B_i$-measurable simple function sequence, and if $Y_i$'s are
+integrable, also $\prod{i\in I}Y_i$, so the order of product and
+limitation can be changed. Conversely, if we have
+$E(\prod_{i\in I}Y_i)=\prod_{i\in I}E(Y_i)$, then let each $Y_i$ be
+simple function, we can get the $B_i$ are independent.
 
-
-$\textbf{Answer:}$ 
-In each $\sigma$-algebra $B_i$, we define a indicator function $Y_i=\mathbf{1}_{A_i}$, where $A_i\in B_i$, so  $Y_i$ is a $B_i$-measurable R.V., 
-$$
+$\textbf{Answer:}$ In each $\sigma$-algebra $B_i$, we define a indicator
+function $Y_i=\mathbf{1}_{A_i}$, where $A_i\in B_i$, so $Y_i$ is a
+$B_i$-measurable R.V., $$
 E(\prod_{i\in I}Y_i)=E(\prod_{i\in I} \mathbf{1}_{A_i})=E(1_{\bigcap_{i\in I}A_i})=\prod_{i\in I}P(A_i)=\prod_{i\in I}E(Y_i),
-$$
-then we discuss the situation when $Y_i$'s are simple function $Y_i=\sum_{j=1}^{n_i}c_{ij}\mathbf{1}_{A_{ij}}$, where $c_{ij}\geq0$, we can rewrite the product of $Y_i$ as $\prod_{i\in I}Y_i=\prod_{i\in I}(\sum_{j=1}^{n_i}c_{ij}\mathbf{1}_{A_{ij}})=\sum_{j}(\prod_{i\in I}c_{ij})\mathbf{1}_{\bigcap_{i\in I}A_{ij}}$, so for simple funcion, we also have $E(\prod_{i\in I}Y_i)=\prod_{i\in I}E(Y_i)$, then for any non-negative $B_i$-measurable function $Y_i$, for each $i$, we can find a sequence of non-negative simple function $Y_i^{(m)}$ such that $Y_i^{(m)}\uparrow Y_i$, and by using monotone convergence theorem, $E(Y_i^{(m)})\uparrow E(Y_i)$, so for finitely many product of measurable function, we also have $E(\prod_{i\in I}Y_i)=\prod_{i\in I}E(Y_i)$, Conversely, if we have $E(\prod_{i\in I}Y_i)=\prod_{i\in I}E(Y_i)$, then let each $Y_i$ be indicator function, we can get the $B_i$ are independent.
+$$ then we discuss the situation when $Y_i$'s are simple function
+$Y_i=\sum_{j=1}^{n_i}c_{ij}\mathbf{1}_{A_{ij}}$, where $c_{ij}\geq0$, we
+can rewrite the product of $Y_i$ as
+$\prod_{i\in I}Y_i=\prod_{i\in I}(\sum_{j=1}^{n_i}c_{ij}\mathbf{1}_{A_{ij}})=\sum_{j}(\prod_{i\in I}c_{ij})\mathbf{1}_{\bigcap_{i\in I}A_{ij}}$,
+so for simple funcion, we also have
+$E(\prod_{i\in I}Y_i)=\prod_{i\in I}E(Y_i)$, then for any non-negative
+$B_i$-measurable function $Y_i$, for each $i$, we can find a sequence of
+non-negative simple function $Y_i^{(m)}$ such that
+$Y_i^{(m)}\uparrow Y_i$, and by using monotone convergence theorem,
+$E(Y_i^{(m)})\uparrow E(Y_i)$, so for finitely many product of
+measurable function, we also have
+$E(\prod_{i\in I}Y_i)=\prod_{i\in I}E(Y_i)$, Conversely, if we have
+$E(\prod_{i\in I}Y_i)=\prod_{i\in I}E(Y_i)$, then let each $Y_i$ be
+indicator function, we can get the $B_i$ are independent.
 
 #### (b)
-$\textbf{My idea:}$ when $f_j$ is an indicator, such as $f_j=\mathbf{1}_{A_j}$ for some $A_j\in\mathcal{B}_j$, then we have $E(f_j(X_j))=E[\mathbf{1}_{A_j}(X_j)]=P[X_j\in A_j]$, so we have 
-$$
+
+$\textbf{My idea:}$ when $f_j$ is an indicator, such as
+$f_j=\mathbf{1}_{A_j}$ for some $A_j\in\mathcal{B}_j$, then we have
+$E(f_j(X_j))=E[\mathbf{1}_{A_j}(X_j)]=P[X_j\in A_j]$, so we have $$
 E(\prod_J f_j(X_j))=\prod_{J}E(f_j(X_j)),
-$$
-, using the same idea in (a), for any bounded measurable functions $\{f_j,\ j\in J\}$, we have $E(\prod_J f_j(X_j))=\prod_{J}E(f_j(X_j))$. Conversely, if we have $E(\prod_J f_j(X_j))=\prod_{J}E(f_j(X_j))$,for any bounded measurable functions $\{f_j,\ j\in J\}$, by letting $f_j(x)=x$, and according to (a), we have for any finite index set $J$, $\{X_j,\ j\in J\}$ are independent, and therefore $\{X_t,\ t\in T\}$ are independent for arbitrary index set.
+$$ , using the same idea in (a), for any bounded measurable functions
+$\{f_j,\ j\in J\}$, we have $E(\prod_J f_j(X_j))=\prod_{J}E(f_j(X_j))$.
+Conversely, if we have $E(\prod_J f_j(X_j))=\prod_{J}E(f_j(X_j))$,for
+any bounded measurable functions $\{f_j,\ j\in J\}$, by letting
+$f_j(x)=x$, and according to (a), we have for any finite index set $J$,
+$\{X_j,\ j\in J\}$ are independent, and therefore $\{X_t,\ t\in T\}$ are
+independent for arbitrary index set.
 
-
-$\textbf{Answer:}$ Firstly, for $\{\mathcal{B}_t,\ t\in T\}$ when $\mathcal{B'}_t\subset\mathcal{B}_t$, then for any $A_t\in\mathcal{B'}_t$, it's in $\mathcal{B}_t$, so $\{A_t,\ t\in T\}$ are independent by the independence of $\{\mathcal{B}_t,\ t\in T\}$, therefore $\{\mathcal{B'}_t,\ t\in T\}$  are independent. When $f_j$ is an indicator, such as $f_j=\mathbf{1}_{A_j}$ for some $A_j\in\mathcal{B}(\mathbb{R})$, then we have $E(f_j(X_j))=E[\mathbf{1}_{A_j}(X_j)]=P[X_j\in A_j]$, so we have 
-$$
+$\textbf{Answer:}$ Firstly, for $\{\mathcal{B}_t,\ t\in T\}$ when
+$\mathcal{B'}_t\subset\mathcal{B}_t$, then for any
+$A_t\in\mathcal{B'}_t$, it's in $\mathcal{B}_t$, so $\{A_t,\ t\in T\}$
+are independent by the independence of $\{\mathcal{B}_t,\ t\in T\}$,
+therefore $\{\mathcal{B'}_t,\ t\in T\}$ are independent. When $f_j$ is
+an indicator, such as $f_j=\mathbf{1}_{A_j}$ for some
+$A_j\in\mathcal{B}(\mathbb{R})$, then we have
+$E(f_j(X_j))=E[\mathbf{1}_{A_j}(X_j)]=P[X_j\in A_j]$, so we have $$
 E(\prod_J f_j(X_j))=\prod_{J}E(f_j(X_j)),
-$$
-using the same idea in (a), for any bounded measurable functions $\{f_j,\ j\in J\}$, we have $E(\prod_J f_j(X_j))=\prod_{J}E(f_j(X_j))$, since $\sigma(f_j(X_j))\subseteq\sigma(X_j)$, so $\{\sigma(f_j(X_j)),\ j\in J\}$ are independent . Conversely, if we have $E(\prod_J f_j(X_j))=\prod_{J}E(f_j(X_j))$,for any bounded measurable functions $\{f_j,\ j\in J\}$, by letting $f_j(x)=\mathbf{1}_{A_j}$, for some $A_j\in\mathcal{B}(\mathbb{R})$. then we have $E(\prod_J f_j(X_j))=E(\prod_J \mathbf{1}_{\{X_j\in A_j\}})=\prod_J E(\mathbf{1}_{\{X_j\in A_j\}})$, then we have $P(\bigcap_J \{X_j\in A_j\})=\prod_J P(\{X_j\in A_j\})$, which we get for any finite index set $J$, $\{X_j,\ j\in J\}$ are independent, and therefore $\{X_t,\ t\in T\}$ are independent for arbitrary index set.
+$$ using the same idea in (a), for any bounded measurable functions
+$\{f_j,\ j\in J\}$, we have $E(\prod_J f_j(X_j))=\prod_{J}E(f_j(X_j))$,
+since $\sigma(f_j(X_j))\subseteq\sigma(X_j)$, so
+$\{\sigma(f_j(X_j)),\ j\in J\}$ are independent . Conversely, if we have
+$E(\prod_J f_j(X_j))=\prod_{J}E(f_j(X_j))$,for any bounded measurable
+functions $\{f_j,\ j\in J\}$, by letting $f_j(x)=\mathbf{1}_{A_j}$, for
+some $A_j\in\mathcal{B}(\mathbb{R})$. then we have
+$E(\prod_J f_j(X_j))=E(\prod_J \mathbf{1}_{\{X_j\in A_j\}})=\prod_J E(\mathbf{1}_{\{X_j\in A_j\}})$,
+then we have $P(\bigcap_J \{X_j\in A_j\})=\prod_J P(\{X_j\in A_j\})$,
+which we get for any finite index set $J$, $\{X_j,\ j\in J\}$ are
+independent, and therefore $\{X_t,\ t\in T\}$ are independent for
+arbitrary index set.
 
-$\textbf{Note:}$ When we construct $f_j$ as indicator, $A_j$ is not in $\mathcal{B}_j$, but in $\mathcal{B}(\mathbb{R})$ since $X_j$ is R.V. so its range is in $\mathbb{R}$, it is because in this book, we only consider real-valued measurable function.
-
+$\textbf{Note:}$ When we construct $f_j$ as indicator, $A_j$ is not in
+$\mathcal{B}_j$, but in $\mathcal{B}(\mathbb{R})$ since $X_j$ is R.V. so
+its range is in $\mathbb{R}$, it is because in this book, we only
+consider real-valued measurable function.
 
 ### Ex 16
-::: {.problem}
-The probability of convergence of a sequence of independent random variables is equal
-to $0$ or $1$. If the sequence $\{X_n\}$ is i.i.d., and not constant with probability $1$,
-then
-\[
+
+::: problem
+The probability of convergence of a sequence of independent random
+variables is equal to $0$ or $1$. If the sequence $\{X_n\}$ is i.i.d.,
+and not constant with probability $1$, then 
+$$
 P[X_n\ \text{converges}]=0.
+$$
+:::
+
+$\textbf{My idea:}$ Suppose for iid, not a.e constant r.v. sequence
+$\{X_n\}$, we have $P[X_n\ \text{converges}]\neq0$, since the event
+$[X_n\ \text{converges}]\in\mathcal{T}$, so we have
+$P[X_n\ \text{converges}]=1$, that is, exist random variable $X$, such
+that $X_n\to X$ a.e, however, $X\in\mathcal{T}$ also, so there exists a
+constant $c$, such that $P[X=c]=1$, this is contradicted to the fact
+that $\{X_n\}$ is not constant with probability 1.
+
+$\textbf{Answer:}$ Suppose for iid, not a.e constant r.v. sequence
+$\{X_n\}$, we have $P[X_n\ \text{converges}]\neq0$, since the event
+$[X_n\ \text{converges}]\in\mathcal{T}$, so we have
+$P[X_n\ \text{converges}]=1$, that is, exist random variable $X$, such
+that $X_n\to X$ a.e, however, $X\in\mathcal{T}$ also, according to Lemma
+4.5.1 so there exists a constant $c$, such that $P[X=c]=1$, that is,
+$X_n\to c$ a.e, therefore for any $\varepsilon>0$,
+$P(|X_n-c|>\varepsilon)\to0,\ (n\to\infty)$, and $\{X_n\}$ is iid, then
+the probability is the same for all $n$, that is to say, for any
+$\varepsilon>0$, we have $P(|X_n-c|>\varepsilon)=0$, this is
+contradicted to the fact that $\{X_n\}$ is not constant with probability
+1.
+
+$\textbf{Lemma (Resnick Lemma 4.5.1).}$ If $\mathcal{G}$ is almost
+trivial (i.e. $P(A)\in\{0,1\}$ for all $A\in\mathcal{G}$) and $X$ is
+$\mathcal{G}$-measurable, then $X=c$ a.s. for some constant $c$.
+
+$\textbf{Note:}$ When we get $X_n\to c$ a.e, we need to prove that
+$X_n=c$ a.e using the iid statement.
+
+### Ex 17
+::: problem
+
+$\textbf{(a)}$ Suppose $\{X_n,\ n\ge 1\}$ are iid random variables and suppose $\{a_n\}$ is a
+sequence of constants. Show
+\[
+P\big(\{X_n>a_n\}\ \text{i.o.}\big)=
+\begin{cases}
+0, & \text{if }\displaystyle\sum_{n} P[X_1>a_n]<\infty,\\[6pt]
+1, & \text{if }\displaystyle\sum_{n} P[X_1>a_n]=\infty .
+\end{cases}
+\]
+
+$\textbf{(b)}$ Suppose $\{X_n,\ n\ge 1\}$ are iid $N(0,1)$ random variables. Show
+\[
+P\!\left[\limsup_{n\to\infty}\frac{|X_n|}{\sqrt{\log n}}=\sqrt{2}\right]=1.
+\]
+$\textit{Hint:}$ Review, or look up Mill's Ratio which says
+\[
+\lim_{x\to\infty}\frac{P[X_n>x]}{\phi(x)/x}=1,
+\]
+where $\phi(x)$ is the standard normal density.
+
+$\textbf{(c)}$ Suppose $\{X_n,\ n\ge 1\}$ are iid and Poisson distributed with parameter $\lambda$.
+Prove
+\[
+\frac{\lambda^n}{n!}e^{-\lambda}\le P[X_1\ge n]\le \frac{\lambda^n}{n!},
+\]
+and therefore
+\[
+P\!\left[\limsup_{n\to\infty}\frac{X_n}{\log n/\log(\log n)}=1\right]=1.
 \]
 :::
 
-$\textbf{My idea:}$ Suppose for iid, not a.e constant r.v. sequence $\{X_n\}$, we have $P[X_n\ \text{converges}]\neq0$, since the event $[X_n\ \text{converges}]\in\mathcal{T}$, so we have $P[X_n\ \text{converges}]=1$, that is, exist random variable $X$, such that $X_n\to X$ a.e, however, $X\in\mathcal{T}$ also, so there exists a constant $c$, such that $P[X=c]=1$, this is contradicted to the fact that $\{X_n\}$ is not constant with probability 1.
-
-$\textbf{Answer:}$ Suppose for iid, not a.e constant r.v. sequence $\{X_n\}$, we have $P[X_n\ \text{converges}]\neq0$, since the event $[X_n\ \text{converges}]\in\mathcal{T}$, so we have $P[X_n\ \text{converges}]=1$, that is, exist random variable $X$, such that $X_n\to X$ a.e, however, $X\in\mathcal{T}$ also, according to Lemma 4.5.1 so there exists a constant $c$, such that $P[X=c]=1$, that is, $X_n\to c$ a.e, therefore for any $\varepsilon>0$, $P(|X_n-c|>\varepsilon)\to0,\ (n\to\infty)$, and $\{X_n\}$ is iid, then the probability is the same for all $n$, that is to say, for any $\varepsilon>0$, we have $P(|X_n-c|>\varepsilon)=0$, this is contradicted to the fact that $\{X_n\}$ is not constant with probability 1.
-
-$\textbf{Lemma (Resnick Lemma 4.5.1).}$
-If $\mathcal{G}$ is almost trivial (i.e.\ $P(A)\in\{0,1\}$ for all $A\in\mathcal{G}$)
-and $X$ is $\mathcal{G}$-measurable, then $X=c$ a.s.\ for some constant $c$.
-
-$\textbf{Note:}$ When we get $X_n\to c$ a.e, we need to prove that $X_n=c$ a.e using the iid statement.
-
-### Ex 17
 #### (a)
-$\textbf{My idea:}$ Let $A_n=[X_n>a_n]$, since $\{X_n,\ n\geq1\}$ are iid r.v's, then $A_n=[X_1>a_n]$, according to Borel-Cantelli II, we get what we want.
 
-$\textbf{Answer:}$ Let $A_n=[X_n>a_n]$, since $\{X_n,\ n\geq1\}$ are iid r.v's, then $P(A_n)=P(X_n>a_n)=P(X_1>a_n)$, and $\{A_n\}$ are independent, then according to Borel-Cantelli, $P[A_n,\ \text{i.o.}]=1$ iff $\sum_n P(X_1>a_n)=\infty$ and $P[A_n,\ \text{i.o.}]=0$ iff $\sum_n P(X_1>a_n)<\infty$.
+$\textbf{My idea:}$ Let $A_n=[X_n>a_n]$, since $\{X_n,\ n\geq1\}$ are
+iid r.v's, then $A_n=[X_1>a_n]$, according to Borel-Cantelli II, we get
+what we want.
 
-$\textbf{Note:}$ $A_n=[X_n>a_n]$, is not equal to $[X_1>a_n]$, but we only need to discuss it probability.
+$\textbf{Answer:}$ Let $A_n=[X_n>a_n]$, since $\{X_n,\ n\geq1\}$ are iid
+r.v's, then $P(A_n)=P(X_n>a_n)=P(X_1>a_n)$, and $\{A_n\}$ are
+independent, then according to Borel-Cantelli, $P[A_n,\ \text{i.o.}]=1$
+iff $\sum_n P(X_1>a_n)=\infty$ and $P[A_n,\ \text{i.o.}]=0$ iff
+$\sum_n P(X_1>a_n)<\infty$.
+
+$\textbf{Note:}$ $A_n=[X_n>a_n]$, is not equal to $[X_1>a_n]$, but we
+only need to discuss it probability.
+
+#### (b)
+
+$\textbf{My idea:}$ For $\omega\in\Omega$, if
+$\limsup_{n\to\infty}\frac{|X_n|}{\sqrt{\log n}}=\sqrt2$, it means
+
+1.  $\forall\varepsilon>0$,
+    $\frac{|X_n|}{\sqrt{\log n}}\leq\sqrt2+\varepsilon$ for large $n$,
+
+2.  $\forall\varepsilon>0$,
+    $\frac{|X_n|}{\sqrt{\log n}}>\sqrt2-\varepsilon$ for infinitely many
+    $n$.
+
+That is, by letting $\varepsilon_k\downarrow0$, we have $$
+\begin{aligned}
+\left[\limsup_{n\to\infty}\frac{|X_n|}{\sqrt{\log n}}=\sqrt2\right]
+&= \bigcap_{k=1}^\infty \left(\liminf_{n\to\infty}\left[\frac{|X_n|}{\sqrt{\log n}}\le \sqrt2+\varepsilon_k\right]\right)
+\ \bigcap\
+\bigcap_{k=1}^\infty \left[\frac{|X_n|}{\sqrt{\log n}}>\sqrt2-\varepsilon_k,\ \text{i.o.}\right].
+\end{aligned}
+$$
+
+Then we can discuss
+$P[\frac{|X_n|}{\sqrt{\log n}}>\sqrt2-\varepsilon_k]$, using the Mill's
+Ratio, we have
+$P[\frac{|X_n|}{\sqrt{\log n}}>\sqrt2-\varepsilon_k]\sim2\frac{\phi((\sqrt2-\varepsilon_k)\sqrt{\log n})}{(\sqrt2-\varepsilon_k)\sqrt{\log n}}=\frac{2}{n^{\frac{(\sqrt{2}-\varepsilon_k)^2}{2}}\sqrt{\log n}(\sqrt{2}-\varepsilon_k)}$.
+
+That is, we have $\frac{(\sqrt{2}-\varepsilon_k)^2}{2}<1$, for all $k$,
+therefore
+$\sum_{n\to\infty}P[\frac{|X_n|}{\sqrt{\log n}}>\sqrt2-\varepsilon_k]=\infty$,
+so
+$P\left[\frac{|X_n|}{\sqrt{\log n}}>\sqrt2-\varepsilon_k,\ \text{i.o.}\right]=1$.
+
+For the $\liminf$ part, we can discuss the probability of its
+complement, which is $$
+\begin{aligned}
+P\left\{\limsup_{n\to\infty}\left[\frac{|X_n|}{\sqrt{\log n}}\le \sqrt2+\varepsilon_k\right]^c\right\}&=P\left\{\limsup_{n\to\infty}\left[\frac{|X_n|}{\sqrt{\log n}}> \sqrt2+\varepsilon_k\right]\right\}\\
+&=P\left[\frac{|X_n|}{\sqrt{\log n}}> \sqrt2+\varepsilon_k,\ \text{i.o.}\right]\\
+&\sim 2\frac{\phi((\sqrt2+\varepsilon_k)\sqrt{\log n})}{(\sqrt2+\varepsilon_k)\sqrt{\log n}}\\
+&=\frac{2}{n^{\frac{(\sqrt{2}+\varepsilon_k)^2}{2}}\sqrt{\log n}(\sqrt{2}+\varepsilon_k)}
+\end{aligned}
+$$ and we have
+$\sum_{n\to\infty}\frac{2}{n^{\frac{(\sqrt{2}+\varepsilon_k)^2}{2}}\sqrt{\log n}(\sqrt{2}+\varepsilon_k)}<\infty$
+since $\frac{(\sqrt{2}+\varepsilon_k)^2}{2}>1$, so
+$P\left[\frac{|X_n|}{\sqrt{\log n}}> \sqrt2+\varepsilon_k,\ \text{i.o.}\right]=0$,
+so for any $k$, we have
+$P\left\{\liminf_{n\to\infty}\left[\frac{|X_n|}{\sqrt{\log n}}\le \sqrt2+\varepsilon_k\right]\right\}=1$,
+according to the above, we have $$
+P\left[\limsup_{n\to\infty}\frac{|X_n|}{\sqrt{\log n}}=\sqrt2\right]=1
+$$ $\textbf{Answer:}$ For $\omega\in\Omega$, if
+$\limsup_{n\to\infty}\frac{|X_n|}{\sqrt{\log n}}=\sqrt2$, it means
+
+1.  $\forall\varepsilon>0$,
+    $\frac{|X_n|}{\sqrt{\log n}}\leq\sqrt2+\varepsilon$ for large $n$,
+
+2.  $\forall\varepsilon>0$,
+    $\frac{|X_n|}{\sqrt{\log n}}>\sqrt2-\varepsilon$ for infinitely many
+    $n$.
+
+That is, by letting $\varepsilon_k\downarrow0$, we have $$
+\begin{aligned}
+\left[\limsup_{n\to\infty}\frac{|X_n|}{\sqrt{\log n}}=\sqrt2\right]
+&= \bigcap_{k=1}^\infty \left(\liminf_{n\to\infty}\left[\frac{|X_n|}{\sqrt{\log n}}\le \sqrt2+\varepsilon_k\right]\right)
+\ \bigcap\
+\bigcap_{k=1}^\infty \left[\frac{|X_n|}{\sqrt{\log n}}>\sqrt2-\varepsilon_k,\ \text{i.o.}\right].
+\end{aligned}
+$$
+
+Then we can discuss
+$P[\frac{|X_n|}{\sqrt{\log n}}>\sqrt2-\varepsilon_k]$, using the Mill's
+Ratio, we have
+$P[\frac{|X_n|}{\sqrt{\log n}}>\sqrt2-\varepsilon_k]\sim2\frac{\phi((\sqrt2-\varepsilon_k)\sqrt{\log n})}{(\sqrt2-\varepsilon_k)\sqrt{\log n}}=\frac{2}{n^{\frac{(\sqrt{2}-\varepsilon_k)^2}{2}}\sqrt{\log n}(\sqrt{2}-\varepsilon_k)}$.
+
+Let
+$A_n^{-}(k)=\left[\frac{|X_n|}{\sqrt{\log n}}>\sqrt2-\varepsilon_k\right]$.
+Since $\{X_n\}$ are independent, $\{A_n^{-}(k)\}$ are independent. Also,
+$$
+\sum_{n=1}^\infty P(A_n^{-}(k))
+=\sum_{n=1}^\infty P\!\left(\frac{|X_n|}{\sqrt{\log n}}>\sqrt2-\varepsilon_k\right)
+=\infty.
+$$ Hence by Borel--Cantelli II, $$
+P\big(A_n^{-}(k)\ \text{i.o.}\big)=1.
+$$
+
+For the $\liminf$ part, we can discuss the probability of its
+complement, which is $$
+\begin{aligned}
+P\left\{\limsup_{n\to\infty}\left[\frac{|X_n|}{\sqrt{\log n}}\le \sqrt2+\varepsilon_k\right]^c\right\}&=P\left\{\limsup_{n\to\infty}\left[\frac{|X_n|}{\sqrt{\log n}}> \sqrt2+\varepsilon_k\right]\right\}\\
+&=P\left[\frac{|X_n|}{\sqrt{\log n}}> \sqrt2+\varepsilon_k,\ \text{i.o.}\right].\\
+\end{aligned}
+$$ Let
+$A_n^{+}(k)=\left[\frac{|X_n|}{\sqrt{\log n}}>\sqrt2+\varepsilon_k\right]$.
+Then $$
+\sum_{n=1}^\infty P(A_n^{+}(k))
+=\sum_{n=1}^\infty P\!\left(\frac{|X_n|}{\sqrt{\log n}}>\sqrt2+\varepsilon_k\right)
+<\infty,
+$$ since $\frac{(\sqrt{2}+\varepsilon_k)^2}{2}>1$. Hence by
+Borel--Cantelli I, $$
+P\big(A_n^{+}(k)\ \text{i.o.}\big)=0,
+$$ equivalently, $$
+P\left\{\liminf_{n\to\infty}\left[\frac{|X_n|}{\sqrt{\log n}}\le \sqrt2+\varepsilon_k\right]\right\}=1.
+$$ According to the above, we have 
+$$
+P\left[\limsup_{n\to\infty}\frac{|X_n|}{\sqrt{\log n}}=\sqrt2\right]=1
+$$
+
+$\textbf{Note:}$ 1. Should not write:
+$P[\text{something i.o.}]\sim 2\frac{\phi(\dots)}{\dots}$, 2. Should
+specifically state Borel-Cantelli. 3. Should state the independence of
+the event.
+
+#### (c)
+
+$\textbf{My idea:}$ We knew that for Poisson distribution,
+$P[X_1\geq n]=\sum_{k=n}^{\infty}\frac{\lambda^k}{k!}\exp(-\lambda)\geq\frac{\lambda^n}{n!}\exp(-\lambda)$,
+for the other direction
+
+Using the same method from (b) and example 4.5.2, we only need to
+discuss two summation: 
+$$
+\sum_{n}P\left[\frac{X_n}{\log n/\log(\log n)}\geq 1-\varepsilon_k\right]\ \text{and}\ 
+\sum_{n}P\left[\frac{X_n}{\log n/\log(\log n)}\geq 1+\varepsilon_k\right].
+$$ 
+For the first one, we have 
+$$
+\sum_{n}P\left[X_n\geq (1-\varepsilon_k)({\frac{\log n}{\log(\log n)}})\right]\geq\sum_{n}\frac{\lambda^{((1-\varepsilon_k)({\frac{\log n}{\log(\log n)}}))}}{\lceil(1-\varepsilon_k)({\frac{\log n}{\log(\log n)}})\rceil!},
+$$ 
+the ${\frac{\log n}{\log(\log n)}}$ part basically act as a constant,
+so we can only consider $\lambda^{(1-\varepsilon_k)}$, therefore we have
+$\sum_{n}P\left[X_n\geq (1-\varepsilon_k)({\frac{\log n}{\log(\log n)}})\right]\geq\sum_{n}\frac{\lambda^{((1-\varepsilon_k)({\frac{\log n}{\log(\log n)}}))}}{\lceil(1-\varepsilon_k)({\frac{\log n}{\log(\log n)}})\rceil!}=\infty$.
+
+For the second one, we have $$
+\sum_{n}P\left[X_n\geq (1+\varepsilon_k)({\frac{\log n}{\log(\log n)}})\right]\leq\sum_{n}\frac{\lambda^{((1+\varepsilon_k)({\frac{\log n}{\log(\log n)}}))}}{\lceil(1+\varepsilon_k)({\frac{\log n}{\log(\log n)}})\rceil!},
+$$ by the same idea, we can conclude that
+$\sum_{n}P\left[X_n\geq (1+\varepsilon_k)({\frac{\log n}{\log(\log n)}})\right]<\infty$.
+
+According to the above, we have
+$P\left[\limsup_{n\to\infty}\frac{X_n}{\log n/\log(\log n)}=1\right]=1$.
+
+$\textbf{Answer:}$ We knew that for Poisson distribution,
+$P[X_1\geq n]=\sum_{k=n}^{\infty}\frac{\lambda^k}{k!}\exp(-\lambda)\geq\frac{\lambda^n}{n!}\exp(-\lambda)$,
+for the other direction, we define $(X)_n=X(X-1)(X-2)\dots(X-n+1)$, then
+we have: (1) when $X<n$, then exist some $k<n$, such that $X-k=0$, so
+$(X)_n=0$, that is, $(X)_n\geq n!\mathbf{1}_{\{X\geq n\}}$, (2) when
+$X\geq n$, then $X\geq n,\ X-1\geq n-1,\dots,\ X-n+1\geq 1$, so
+$(X)_n\geq n!$, therefore we have
+$(X)_n\geq n!\mathbf{1}_{\{X\geq n\}}$, and
+$\mathbf{1}_{\{X\geq n\}}\leq\frac{(X)_n}{n!}$, then we have $$
+P(X\geq n)=E(\mathbf{1}_{{\{X\geq n\}}})\leq \frac{E((X)_n)}{n!},
+$$ also, $$
+\begin{aligned}
+E((X)_n)&=\exp(-\lambda)\sum_{k=0}^\infty (k)_n\frac{\lambda^k}{k!}\\
+&=\exp(-\lambda)\sum_{k=n}^\infty \frac{\lambda^k}{(k-n)!}\ (\text{Because}\ (k)_n=k(k-1)\dots(k-n+1))\\
+&=\exp(-\lambda)\sum_{m=0}^\infty \frac{\lambda^{m+n}}{m!}\ (\text{By letting}\ m=k-n)\\
+&=\lambda^n
+\end{aligned}
+$$ so we have $P(X\geq n)\leq\frac{\lambda^n}{n!}$.
+
+Using the same method from (b) and example 4.5.2, we only need to
+discuss two summation: 
+$$
+\sum_{n}P\left[\frac{X_n}{\log n/\log(\log n)}\geq 1-\varepsilon_k\right]\ \text{and}\ 
+\sum_{n}P\left[\frac{X_n}{\log n/\log(\log n)}\geq 1+\varepsilon_k\right].
+$$
+We can define $m_n:=\lceil c\,\frac{\log n}{\log\log(n)}\rceil$ and then
+try to discuss the properties of $\frac{\lambda^{m_n}}{m_n!}$ using the
+first part of the question, for this, we can use the Stirling's formula
+in log form: $\log(n!)=n\log n-n+\frac{1}{2}\log(2\pi n)+o(1)$. Let
+$T(m_n)=\frac{\lambda^{m_n}}{m_n!}$, then 
+$$
+\begin{aligned}
+\log T(m_n)&=m_n\log\lambda-\log(m_n!)\\
+&=m_n\log\lambda-(m_n\log(m_n)-m_n+\frac{1}{2}\log(m_n)+o(1))\\
+&=-m_n\log(m_n)-\frac{1}{2}\log(m_n)+(1+\log\lambda)m_n+o(1),\\
+\end{aligned}
+$$ 
+Also, we can discuss $\log(m_n)$ $$
+\log(m_n)=\log c+\log\log n-\log\log\log n=\log\log n+o(\log\log n),
+$$ combine the above together, we have 
+$$
+\begin{aligned}
+\log T(m_n)&=-c\frac{\log n}{\log\log n}(\log\log n+o(\log\log n))-\frac{1}{2}[\log\log n+o(\log\log n)]+
+(1+\log\lambda)c\frac{\log n}{\log\log n}+o(1)\\
+&=-c\log n+o(\log n)-\frac{1}{2}[\log\log n+o(\log\log n)]+
+(1+\log\lambda)c\frac{\log n}{\log\log n}+o(1)\\
+&=-c\log n+o(\log n),
+\end{aligned}
+$$ 
+so we have $T(m_n)=\exp(-c\log n+o(\log n))=n^{-c+o(1)}$, since $o(1)\to 0,$ for any $\delta>0$, eventually $n^{-c+o(1)}\leq n^{-(c-\delta)}$ and $n^{-c+o(1)}\geq n^{-(c+\delta)}$, so we can choose $\delta$, such that
+for $c=1+\varepsilon_k$,
+$\sum_n n^{-(1+\varepsilon_k)+o(1)}\leq \sum_n n^{-(1+\varepsilon_k-\delta)}<\infty$, and for
+$c=1-\varepsilon_k$, $\sum_n n^{-(1-\varepsilon_k)+o(1)}\geq\sum_n n^{-(1-\varepsilon_k+\delta)}=\infty$.
+And since $X_n$ iid, so the events are independent, using Borel-Cantelli I and II, we
+have
+$P\left[\limsup_{n\to\infty}\frac{X_n}{\log n/\log(\log n)}=1\right]=1$.
+
+$\textbf{Note:}$ When facing the problem to estimate the order of $n!$, try to connect to Striling's formula:
+$$
+n!\sim\sqrt{2\pi}n^{n+\frac{1}{2}}\exp(-n).
+$$
+My idea fails because the growth is dominated by $m_n!$, where $m_n=\lceil c\,\frac{\log n}{\log\log(n)}\rceil$.
+
+
 

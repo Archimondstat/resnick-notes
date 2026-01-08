@@ -9,9 +9,9 @@
 <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
-<meta name="author" content="Archimond" />
+<meta name="author" content="P" />
 
-<meta name="date" content="2025-12-30" />
+<meta name="date" content="2026-01-08" />
 
 <title>Notess on A Probability Path (Resnick)</title>
 
@@ -352,8 +352,8 @@ display: none;
 
 
 <h1 class="title toc-ignore">Notess on A Probability Path (Resnick)</h1>
-<h4 class="author">Archimond</h4>
-<h4 class="date">2025-12-30</h4>
+<h4 class="author">P</h4>
+<h4 class="date">2026-01-08</h4>
 
 </div>
 
@@ -381,6 +381,8 @@ Independence</a>
 <li><a href="#ex-17" id="toc-ex-17">Ex 17</a>
 <ul>
 <li><a href="#a-1" id="toc-a-1">(a)</a></li>
+<li><a href="#b-1" id="toc-b-1">(b)</a></li>
+<li><a href="#c" id="toc-c">(c)</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -774,6 +776,32 @@ for all <span class="math inline">\(A\in\mathcal{G}\)</span>) and <span class="m
 </div>
 <div id="ex-17" class="section level3">
 <h3>Ex 17</h3>
+<div class="problem">
+<p><span class="math inline">\(\textbf{(a)}\)</span> Suppose <span class="math inline">\(\{X_n,\ n\ge 1\}\)</span> are iid random variables
+and suppose <span class="math inline">\(\{a_n\}\)</span> is a sequence
+of constants. Show <span class="math display">\[
+P\big(\{X_n&gt;a_n\}\ \text{i.o.}\big)=
+\begin{cases}
+0, &amp; \text{if }\displaystyle\sum_{n} P[X_1&gt;a_n]&lt;\infty,\\[6pt]
+1, &amp; \text{if }\displaystyle\sum_{n} P[X_1&gt;a_n]=\infty .
+\end{cases}
+\]</span></p>
+<p><span class="math inline">\(\textbf{(b)}\)</span> Suppose <span class="math inline">\(\{X_n,\ n\ge 1\}\)</span> are iid <span class="math inline">\(N(0,1)\)</span> random variables. Show <span class="math display">\[
+P\!\left[\limsup_{n\to\infty}\frac{|X_n|}{\sqrt{\log
+n}}=\sqrt{2}\right]=1.
+\]</span> <span class="math inline">\(\textit{Hint:}\)</span> Review, or
+look up Mill’s Ratio which says <span class="math display">\[
+\lim_{x\to\infty}\frac{P[X_n&gt;x]}{\phi(x)/x}=1,
+\]</span> where <span class="math inline">\(\phi(x)\)</span> is the
+standard normal density.</p>
+<p><span class="math inline">\(\textbf{(c)}\)</span> Suppose <span class="math inline">\(\{X_n,\ n\ge 1\}\)</span> are iid and Poisson
+distributed with parameter <span class="math inline">\(\lambda\)</span>.
+Prove <span class="math display">\[
+\frac{\lambda^n}{n!}e^{-\lambda}\le P[X_1\ge n]\le \frac{\lambda^n}{n!},
+\]</span> and therefore <span class="math display">\[
+P\!\left[\limsup_{n\to\infty}\frac{X_n}{\log n/\log(\log n)}=1\right]=1.
+\]</span></p>
+</div>
 <div id="a-1" class="section level4">
 <h4>(a)</h4>
 <p><span class="math inline">\(\textbf{My idea:}\)</span> Let <span class="math inline">\(A_n=[X_n&gt;a_n]\)</span>, since <span class="math inline">\(\{X_n,\ n\geq1\}\)</span> are iid r.v’s, then
@@ -789,6 +817,231 @@ P(X_1&gt;a_n)=\infty\)</span> and <span class="math inline">\(P[A_n,\
 P(X_1&gt;a_n)&lt;\infty\)</span>.</p>
 <p><span class="math inline">\(\textbf{Note:}\)</span> <span class="math inline">\(A_n=[X_n&gt;a_n]\)</span>, is not equal to <span class="math inline">\([X_1&gt;a_n]\)</span>, but we only need to discuss
 it probability.</p>
+</div>
+<div id="b-1" class="section level4">
+<h4>(b)</h4>
+<p><span class="math inline">\(\textbf{My idea:}\)</span> For <span class="math inline">\(\omega\in\Omega\)</span>, if <span class="math inline">\(\limsup_{n\to\infty}\frac{|X_n|}{\sqrt{\log
+n}}=\sqrt2\)</span>, it means</p>
+<ol style="list-style-type: decimal">
+<li><p><span class="math inline">\(\forall\varepsilon&gt;0\)</span>,
+<span class="math inline">\(\frac{|X_n|}{\sqrt{\log
+n}}\leq\sqrt2+\varepsilon\)</span> for large <span class="math inline">\(n\)</span>,</p></li>
+<li><p><span class="math inline">\(\forall\varepsilon&gt;0\)</span>,
+<span class="math inline">\(\frac{|X_n|}{\sqrt{\log
+n}}&gt;\sqrt2-\varepsilon\)</span> for infinitely many <span class="math inline">\(n\)</span>.</p></li>
+</ol>
+<p>That is, by letting <span class="math inline">\(\varepsilon_k\downarrow0\)</span>, we have <span class="math display">\[
+\begin{aligned}
+\left[\limsup_{n\to\infty}\frac{|X_n|}{\sqrt{\log n}}=\sqrt2\right]
+&amp;= \bigcap_{k=1}^\infty
+\left(\liminf_{n\to\infty}\left[\frac{|X_n|}{\sqrt{\log n}}\le
+\sqrt2+\varepsilon_k\right]\right)
+\ \bigcap\
+\bigcap_{k=1}^\infty \left[\frac{|X_n|}{\sqrt{\log
+n}}&gt;\sqrt2-\varepsilon_k,\ \text{i.o.}\right].
+\end{aligned}
+\]</span></p>
+<p>Then we can discuss <span class="math inline">\(P[\frac{|X_n|}{\sqrt{\log
+n}}&gt;\sqrt2-\varepsilon_k]\)</span>, using the Mill’s Ratio, we have
+<span class="math inline">\(P[\frac{|X_n|}{\sqrt{\log
+n}}&gt;\sqrt2-\varepsilon_k]\sim2\frac{\phi((\sqrt2-\varepsilon_k)\sqrt{\log
+n})}{(\sqrt2-\varepsilon_k)\sqrt{\log
+n}}=\frac{2}{n^{\frac{(\sqrt{2}-\varepsilon_k)^2}{2}}\sqrt{\log
+n}(\sqrt{2}-\varepsilon_k)}\)</span>.</p>
+<p>That is, we have <span class="math inline">\(\frac{(\sqrt{2}-\varepsilon_k)^2}{2}&lt;1\)</span>,
+for all <span class="math inline">\(k\)</span>, therefore <span class="math inline">\(\sum_{n\to\infty}P[\frac{|X_n|}{\sqrt{\log
+n}}&gt;\sqrt2-\varepsilon_k]=\infty\)</span>, so <span class="math inline">\(P\left[\frac{|X_n|}{\sqrt{\log
+n}}&gt;\sqrt2-\varepsilon_k,\ \text{i.o.}\right]=1\)</span>.</p>
+<p>For the <span class="math inline">\(\liminf\)</span> part, we can
+discuss the probability of its complement, which is <span class="math display">\[
+\begin{aligned}
+P\left\{\limsup_{n\to\infty}\left[\frac{|X_n|}{\sqrt{\log n}}\le
+\sqrt2+\varepsilon_k\right]^c\right\}&amp;=P\left\{\limsup_{n\to\infty}\left[\frac{|X_n|}{\sqrt{\log
+n}}&gt; \sqrt2+\varepsilon_k\right]\right\}\\
+&amp;=P\left[\frac{|X_n|}{\sqrt{\log n}}&gt; \sqrt2+\varepsilon_k,\
+\text{i.o.}\right]\\
+&amp;\sim 2\frac{\phi((\sqrt2+\varepsilon_k)\sqrt{\log
+n})}{(\sqrt2+\varepsilon_k)\sqrt{\log n}}\\
+&amp;=\frac{2}{n^{\frac{(\sqrt{2}+\varepsilon_k)^2}{2}}\sqrt{\log
+n}(\sqrt{2}+\varepsilon_k)}
+\end{aligned}
+\]</span> and we have <span class="math inline">\(\sum_{n\to\infty}\frac{2}{n^{\frac{(\sqrt{2}+\varepsilon_k)^2}{2}}\sqrt{\log
+n}(\sqrt{2}+\varepsilon_k)}&lt;\infty\)</span> since <span class="math inline">\(\frac{(\sqrt{2}+\varepsilon_k)^2}{2}&gt;1\)</span>,
+so <span class="math inline">\(P\left[\frac{|X_n|}{\sqrt{\log n}}&gt;
+\sqrt2+\varepsilon_k,\ \text{i.o.}\right]=0\)</span>, so for any <span class="math inline">\(k\)</span>, we have <span class="math inline">\(P\left\{\liminf_{n\to\infty}\left[\frac{|X_n|}{\sqrt{\log
+n}}\le \sqrt2+\varepsilon_k\right]\right\}=1\)</span>, according to the
+above, we have <span class="math display">\[
+P\left[\limsup_{n\to\infty}\frac{|X_n|}{\sqrt{\log n}}=\sqrt2\right]=1
+\]</span> <span class="math inline">\(\textbf{Answer:}\)</span> For
+<span class="math inline">\(\omega\in\Omega\)</span>, if <span class="math inline">\(\limsup_{n\to\infty}\frac{|X_n|}{\sqrt{\log
+n}}=\sqrt2\)</span>, it means</p>
+<ol style="list-style-type: decimal">
+<li><p><span class="math inline">\(\forall\varepsilon&gt;0\)</span>,
+<span class="math inline">\(\frac{|X_n|}{\sqrt{\log
+n}}\leq\sqrt2+\varepsilon\)</span> for large <span class="math inline">\(n\)</span>,</p></li>
+<li><p><span class="math inline">\(\forall\varepsilon&gt;0\)</span>,
+<span class="math inline">\(\frac{|X_n|}{\sqrt{\log
+n}}&gt;\sqrt2-\varepsilon\)</span> for infinitely many <span class="math inline">\(n\)</span>.</p></li>
+</ol>
+<p>That is, by letting <span class="math inline">\(\varepsilon_k\downarrow0\)</span>, we have <span class="math display">\[
+\begin{aligned}
+\left[\limsup_{n\to\infty}\frac{|X_n|}{\sqrt{\log n}}=\sqrt2\right]
+&amp;= \bigcap_{k=1}^\infty
+\left(\liminf_{n\to\infty}\left[\frac{|X_n|}{\sqrt{\log n}}\le
+\sqrt2+\varepsilon_k\right]\right)
+\ \bigcap\
+\bigcap_{k=1}^\infty \left[\frac{|X_n|}{\sqrt{\log
+n}}&gt;\sqrt2-\varepsilon_k,\ \text{i.o.}\right].
+\end{aligned}
+\]</span></p>
+<p>Then we can discuss <span class="math inline">\(P[\frac{|X_n|}{\sqrt{\log
+n}}&gt;\sqrt2-\varepsilon_k]\)</span>, using the Mill’s Ratio, we have
+<span class="math inline">\(P[\frac{|X_n|}{\sqrt{\log
+n}}&gt;\sqrt2-\varepsilon_k]\sim2\frac{\phi((\sqrt2-\varepsilon_k)\sqrt{\log
+n})}{(\sqrt2-\varepsilon_k)\sqrt{\log
+n}}=\frac{2}{n^{\frac{(\sqrt{2}-\varepsilon_k)^2}{2}}\sqrt{\log
+n}(\sqrt{2}-\varepsilon_k)}\)</span>.</p>
+<p>Let <span class="math inline">\(A_n^{-}(k)=\left[\frac{|X_n|}{\sqrt{\log
+n}}&gt;\sqrt2-\varepsilon_k\right]\)</span>. Since <span class="math inline">\(\{X_n\}\)</span> are independent, <span class="math inline">\(\{A_n^{-}(k)\}\)</span> are independent. Also,
+<span class="math display">\[
+\sum_{n=1}^\infty P(A_n^{-}(k))
+=\sum_{n=1}^\infty P\!\left(\frac{|X_n|}{\sqrt{\log
+n}}&gt;\sqrt2-\varepsilon_k\right)
+=\infty.
+\]</span> Hence by Borel–Cantelli II, <span class="math display">\[
+P\big(A_n^{-}(k)\ \text{i.o.}\big)=1.
+\]</span></p>
+<p>For the <span class="math inline">\(\liminf\)</span> part, we can
+discuss the probability of its complement, which is <span class="math display">\[
+\begin{aligned}
+P\left\{\limsup_{n\to\infty}\left[\frac{|X_n|}{\sqrt{\log n}}\le
+\sqrt2+\varepsilon_k\right]^c\right\}&amp;=P\left\{\limsup_{n\to\infty}\left[\frac{|X_n|}{\sqrt{\log
+n}}&gt; \sqrt2+\varepsilon_k\right]\right\}\\
+&amp;=P\left[\frac{|X_n|}{\sqrt{\log n}}&gt; \sqrt2+\varepsilon_k,\
+\text{i.o.}\right].\\
+\end{aligned}
+\]</span> Let <span class="math inline">\(A_n^{+}(k)=\left[\frac{|X_n|}{\sqrt{\log
+n}}&gt;\sqrt2+\varepsilon_k\right]\)</span>. Then <span class="math display">\[
+\sum_{n=1}^\infty P(A_n^{+}(k))
+=\sum_{n=1}^\infty P\!\left(\frac{|X_n|}{\sqrt{\log
+n}}&gt;\sqrt2+\varepsilon_k\right)
+&lt;\infty,
+\]</span> since <span class="math inline">\(\frac{(\sqrt{2}+\varepsilon_k)^2}{2}&gt;1\)</span>.
+Hence by Borel–Cantelli I, <span class="math display">\[
+P\big(A_n^{+}(k)\ \text{i.o.}\big)=0,
+\]</span> equivalently, <span class="math display">\[
+P\left\{\liminf_{n\to\infty}\left[\frac{|X_n|}{\sqrt{\log n}}\le
+\sqrt2+\varepsilon_k\right]\right\}=1.
+\]</span> According to the above, we have <span class="math display">\[
+P\left[\limsup_{n\to\infty}\frac{|X_n|}{\sqrt{\log n}}=\sqrt2\right]=1
+\]</span></p>
+<p><span class="math inline">\(\textbf{Note:}\)</span> 1. Should not
+write: <span class="math inline">\(P[\text{something i.o.}]\sim
+2\frac{\phi(\dots)}{\dots}\)</span>, 2. Should specifically state
+Borel-Cantelli. 3. Should state the independence of the event.</p>
+</div>
+<div id="c" class="section level4">
+<h4>(c)</h4>
+<p><span class="math inline">\(\textbf{My idea:}\)</span> We knew that
+for Poisson distribution, <span class="math inline">\(P[X_1\geq
+n]=\sum_{k=n}^{\infty}\frac{\lambda^k}{k!}\exp(-\lambda)\geq\frac{\lambda^n}{n!}\exp(-\lambda)\)</span>,
+for the other direction</p>
+<p>Using the same method from (b) and example 4.5.2, we only need to
+discuss two summation: <span class="math display">\[
+\sum_{n}P\left[\frac{X_n}{\log n/\log(\log n)}\geq
+1-\varepsilon_k\right]\ \text{and}\
+\sum_{n}P\left[\frac{X_n}{\log n/\log(\log n)}\geq
+1+\varepsilon_k\right].
+\]</span> For the first one, we have <span class="math display">\[
+\sum_{n}P\left[X_n\geq (1-\varepsilon_k)({\frac{\log n}{\log(\log
+n)}})\right]\geq\sum_{n}\frac{\lambda^{((1-\varepsilon_k)({\frac{\log
+n}{\log(\log n)}}))}}{\lceil(1-\varepsilon_k)({\frac{\log n}{\log(\log
+n)}})\rceil!},
+\]</span> the <span class="math inline">\({\frac{\log n}{\log(\log
+n)}}\)</span> part basically act as a constant, so we can only consider
+<span class="math inline">\(\lambda^{(1-\varepsilon_k)}\)</span>,
+therefore we have <span class="math inline">\(\sum_{n}P\left[X_n\geq
+(1-\varepsilon_k)({\frac{\log n}{\log(\log
+n)}})\right]\geq\sum_{n}\frac{\lambda^{((1-\varepsilon_k)({\frac{\log
+n}{\log(\log n)}}))}}{\lceil(1-\varepsilon_k)({\frac{\log n}{\log(\log
+n)}})\rceil!}=\infty\)</span>.</p>
+<p>For the second one, we have <span class="math display">\[
+\sum_{n}P\left[X_n\geq (1+\varepsilon_k)({\frac{\log n}{\log(\log
+n)}})\right]\leq\sum_{n}\frac{\lambda^{((1+\varepsilon_k)({\frac{\log
+n}{\log(\log n)}}))}}{\lceil(1+\varepsilon_k)({\frac{\log n}{\log(\log
+n)}})\rceil!},
+\]</span> by the same idea, we can conclude that <span class="math inline">\(\sum_{n}P\left[X_n\geq
+(1+\varepsilon_k)({\frac{\log n}{\log(\log
+n)}})\right]&lt;\infty\)</span>.</p>
+<p>According to the above, we have <span class="math inline">\(P\left[\limsup_{n\to\infty}\frac{X_n}{\log
+n/\log(\log n)}=1\right]=1\)</span>.</p>
+<p><span class="math inline">\(\textbf{Answer:}\)</span> We knew that
+for Poisson distribution, <span class="math inline">\(P[X_1\geq
+n]=\sum_{k=n}^{\infty}\frac{\lambda^k}{k!}\exp(-\lambda)\geq\frac{\lambda^n}{n!}\exp(-\lambda)\)</span>,
+for the other direction, we define <span class="math inline">\((X)_n=X(X-1)(X-2)\dots(X-n+1)\)</span>, then we
+have: (1) when <span class="math inline">\(X&lt;n\)</span>, then exist
+some <span class="math inline">\(k&lt;n\)</span>, such that <span class="math inline">\(X-k=0\)</span>, so <span class="math inline">\((X)_n=0\)</span>, that is, <span class="math inline">\((X)_n\geq n!\mathbf{1}_{\{X\geq n\}}\)</span>, (2)
+when <span class="math inline">\(X\geq n\)</span>, then <span class="math inline">\(X\geq n,\ X-1\geq n-1,\dots,\ X-n+1\geq
+1\)</span>, so <span class="math inline">\((X)_n\geq n!\)</span>,
+therefore we have <span class="math inline">\((X)_n\geq
+n!\mathbf{1}_{\{X\geq n\}}\)</span>, and <span class="math inline">\(\mathbf{1}_{\{X\geq
+n\}}\leq\frac{(X)_n}{n!}\)</span>, then we have <span class="math display">\[
+P(X\geq n)=E(\mathbf{1}_{{\{X\geq n\}}})\leq \frac{E((X)_n)}{n!},
+\]</span> also, <span class="math display">\[
+\begin{aligned}
+E((X)_n)&amp;=\exp(-\lambda)\sum_{k=0}^\infty
+(k)_n\frac{\lambda^k}{k!}\\
+&amp;=\exp(-\lambda)\sum_{k=n}^\infty \frac{\lambda^k}{(k-n)!}\
+(\text{Because}\ (k)_n=k(k-1)\dots(k-n+1))\\
+&amp;=\exp(-\lambda)\sum_{m=0}^\infty \frac{\lambda^{m+n}}{m!}\
+(\text{By letting}\ m=k-n)\\
+&amp;=\lambda^n
+\end{aligned}
+\]</span> so we have <span class="math inline">\(P(X\geq
+n)\leq\frac{\lambda^n}{n!}\)</span>.</p>
+<p>Using the same method from (b) and example 4.5.2, we only need to
+discuss two summation: <span class="math display">\[
+\sum_{n}P\left[\frac{X_n}{\log n/\log(\log n)}\geq
+1-\varepsilon_k\right]\ \text{and}\
+\sum_{n}P\left[\frac{X_n}{\log n/\log(\log n)}\geq
+1+\varepsilon_k\right].
+\]</span> We can define <span class="math inline">\(m_n:=\lceil
+c\,\frac{\log n}{\log\log(n)}\rceil\)</span> and then try to discuss the
+properties of <span class="math inline">\(\frac{\lambda^{m_n}}{m_n!}\)</span> using the
+first part of the question, for this, we can use the Stirling’s formula
+in log form: <span class="math inline">\(\log(n!)=n\log
+n-n+\frac{1}{2}\log(2\pi n)+o(1)\)</span>. Let <span class="math inline">\(T(m_n)=\frac{\lambda^{m_n}}{m_n!}\)</span>, then
+<span class="math display">\[
+\begin{aligned}
+\log T(m_n)&amp;=m_n\log\lambda-\log(m_n!)\\
+&amp;=m_n\log\lambda-(m_n\log(m_n)-m_n+\frac{1}{2}\log(m_n)+o(1))\\
+&amp;=-m_n\log(m_n)-\frac{1}{2}\log(m_n)+(1+\log\lambda)m_n+o(1),\\
+\end{aligned}
+\]</span> Also, we can discuss <span class="math inline">\(\log(m_n)\)</span> <span class="math display">\[
+\log(m_n)=\log c+\log\log n-\log\log\log n=\log\log n+o(\log\log n),
+\]</span> combine the above together, we have <span class="math display">\[
+\begin{aligned}
+\log T(m_n)&amp;=-c\frac{\log n}{\log\log n}(\log\log n+o(\log\log
+n))-\frac{1}{2}[\log\log n+o(\log\log n)]+
+(1+\log\lambda)c\frac{\log n}{\log\log n}+o(1)\\
+&amp;=-c\log n+o(\log n)-\frac{1}{2}[\log\log n+o(\log\log n)]+
+(1+\log\lambda)c\frac{\log n}{\log\log n}+o(1)\\
+&amp;=-c\log n+o(\log n),
+\end{aligned}
+\]</span> so we have <span class="math inline">\(T(m_n)=\exp(-c\log
+n+o(\log n))=n^{-c+o(1)}\)</span>, since <span class="math inline">\(o(1)\to 0,\)</span> for any <span class="math inline">\(\delta&gt;0\)</span>, eventually <span class="math inline">\(n^{-c+o(1)}\leq n^{-(c-\delta)}\)</span> and <span class="math inline">\(n^{-c+o(1)}\geq n^{-(c+\delta)}\)</span>, so we
+can choose <span class="math inline">\(\delta\)</span>, such that for
+<span class="math inline">\(c=1+\varepsilon_k\)</span>, <span class="math inline">\(\sum_n n^{-(1+\varepsilon_k)+o(1)}\leq \sum_n
+n^{-(1+\varepsilon_k-\delta)}&lt;\infty\)</span>, and for <span class="math inline">\(c=1-\varepsilon_k\)</span>, <span class="math inline">\(\sum_n n^{-(1-\varepsilon_k)+o(1)}\geq\sum_n
+n^{-(1-\varepsilon_k+\delta)}=\infty\)</span>. And since <span class="math inline">\(X_n\)</span> iid, so the events are independent,
+using Borel-Cantelli I and II, we have <span class="math inline">\(P\left[\limsup_{n\to\infty}\frac{X_n}{\log
+n/\log(\log n)}=1\right]=1\)</span>.</p>
+<p><span class="math inline">\(\textbf{Note:}\)</span> When facing the
+problem to estimate the order of <span class="math inline">\(n!\)</span>, try to connect to Striling’s formula:
+<span class="math display">\[
+n!\sim\sqrt{2\pi}n^{n+\frac{1}{2}}\exp(-n).
+\]</span> My idea fails because the growth is dominated by <span class="math inline">\(m_n!\)</span>, where <span class="math inline">\(m_n=\lceil c\,\frac{\log
+n}{\log\log(n)}\rceil\)</span>.</p>
 </div>
 </div>
 </div>
