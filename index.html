@@ -386,6 +386,12 @@ Independence</a>
 </ul></li>
 <li><a href="#ex-18" id="toc-ex-18">Ex 18</a></li>
 <li><a href="#ex-19" id="toc-ex-19">Ex 19</a></li>
+<li><a href="#ex-20" id="toc-ex-20">Ex 20</a>
+<ul>
+<li><a href="#a-2" id="toc-a-2">(a)</a></li>
+<li><a href="#b-2" id="toc-b-2">(b)</a></li>
+<li><a href="#c-1" id="toc-c-1">(c)</a></li>
+</ul></li>
 </ul></li>
 </ul>
 </div>
@@ -1098,6 +1104,46 @@ discuss random variables, we should clarify in what sample space, 2. We
 should use different notations to represent different probability
 measures. In this question, we are required to discuss 2 probability
 measures in 1 sample space.</p>
+</div>
+<div id="ex-20" class="section level3">
+<h3>Ex 20</h3>
+<p><span class="math inline">\(\textbf{My idea:}\)</span></p>
+<div id="a-2" class="section level4">
+<h4>(a)</h4>
+<p>We have <span class="math inline">\(P(A_i)=\frac{1}{2},\
+i=1,2,3\)</span> and <span class="math inline">\(P(A_i\cap
+A_j)=P(\{1\})=\frac{1}{4}=P(A_i)P(A_j),\ i\neq j\)</span>, and <span class="math inline">\(P(A_1\cap A_2\cap A_3)=P(\{1\})=\frac{1}{4}\neq
+P(A_1)P(A_2)P(A_3)=\frac{1}{8}\)</span>.</p>
+</div>
+<div id="b-2" class="section level4">
+<h4>(b)</h4>
+<p>We have <span class="math display">\[
+\begin{aligned}
+P(BCD)&amp;=P((A_1\cup A_4)\cap(A_2\cup A_4)\cap(A_3\cup A_4))\\
+&amp;=P((A_1\cap A_2\cap A_3)\cup A_4)=P(\varnothing\cup A_4)\\
+&amp;=P(A_4)=\frac{1}{64},
+\end{aligned}
+\]</span> <span class="math inline">\(P(B)=P(C)=P(D)=\frac{16}{64}=\frac{1}{4}\)</span>,
+so <span class="math inline">\(P(B)P(C)P(D)=\frac{1}{64}\)</span>,
+further, <span class="math inline">\(P(BC)=P(BD)=P(CD)=P(A_4)=\frac{1}{64}\)</span>,
+and <span class="math inline">\(P(B)P(C)=P(B)P(D)=P(C)P(D)=\frac{1}{16}\)</span>,
+so <span class="math inline">\(B,C,D\)</span> are not independent.</p>
+</div>
+<div id="c-1" class="section level4">
+<h4>(c)</h4>
+<p>Let <span class="math inline">\(Y=X_1X_2\)</span>, <span class="math inline">\(P(Y=1)=P(X_1=1,X_2=1)+P(X_1=-1,X_2=-1)=P(X_1=1)P(X_2=1)+P(X_1=-1)P(X_2=-1)=\frac{1}{2}\)</span>
+and <span class="math inline">\(P(Y=-1)=P(X_1=1,X_2=-1)+P(X_1=-1,X_2=1)=P(X_1=1)P(X_2=-1)+P(X_1=-1)P(X_2=1)=\frac{1}{2}\)</span>.
+Since we already knew that <span class="math inline">\(X_1\)</span> and
+<span class="math inline">\(X_2\)</span> are independent, by the
+symmetry, we can only discuss the independence between <span class="math inline">\(X_1\)</span> and <span class="math inline">\(Y=X_1X_2\)</span>, so we have <span class="math display">\[
+\begin{aligned}
+&amp;P(X_1=1,X_1X_2=1)=P(X_1=1,X_2=1)=\frac{1}{4}\\
+&amp;P(X_1=1,X_1X_2=-1)=P(X_1=1,X_2=-1)=\frac{1}{4}\\
+&amp;P(X_1=-1,X_1X_2=1)=P(X_1=-1,X_2=-1)=\frac{1}{4}\\
+&amp;P(X_1=-1,X_1X_2=-1)=P(X_1=-1,X_2=1)=\frac{1}{4},\\
+\end{aligned}
+\]</span> so <span class="math inline">\(X_1\)</span> and <span class="math inline">\(Y\)</span> are independent, however, we have <span class="math inline">\(P(X_1=1,X_2=1,X_1X_2=-1)=0\)</span>, but <span class="math inline">\(P(X_1=1)P(X_2=1)P(X_1X_2=-1)=\frac{1}{8}\neq0\)</span>.</p>
+</div>
 </div>
 </div>
 
