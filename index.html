@@ -1107,6 +1107,28 @@ measures in 1 sample space.</p>
 </div>
 <div id="ex-20" class="section level3">
 <h3>Ex 20</h3>
+<div class="problem">
+<p> Counterexamples and examples:</p>
+<ol style="list-style-type: lower-alpha">
+<li><p>Let <span class="math inline">\(\Omega=\{1,2,3,4\}\)</span> with
+each point carrying probability <span class="math inline">\(1/4\)</span>. Let <span class="math inline">\(A_1=\{1,2\},\ A_2=\{1,3\},\ A_3=\{1,4\}\)</span>.
+Then any two of <span class="math inline">\(A_1,A_2,A_3\)</span> are
+independent, but <span class="math inline">\(A_1,A_2,A_3\)</span> are
+not independent.</p></li>
+<li><p>Let <span class="math inline">\(\{A_i,\ 1\le i\le 5\}\)</span> be
+a measurable partition of <span class="math inline">\(\Omega\)</span>
+such that <span class="math inline">\(P(A_1)=P(A_2)=P(A_3)=15/64,\
+P(A_4)=1/64,\ P(A_5)=18/64\)</span>. Define <span class="math inline">\(B=A_1\cup A_4,\ C=A_2\cup A_4,\ D=A_3\cup
+A_4\)</span>. Check that <span class="math display">\[
+P(BCD)=P(B)P(C)P(D)
+\]</span> but that <span class="math inline">\(B,\ C,\ D\)</span> are
+not independent.</p></li>
+<li><p>Let <span class="math inline">\(X_1,X_2\)</span> be independent
+random variables each assuming only the values <span class="math inline">\(+1\)</span> and <span class="math inline">\(-1\)</span> with probability <span class="math inline">\(1/2\)</span>. Are <span class="math inline">\(X_1,X_2,X_1X_2\)</span> pairwise independent? Are
+<span class="math inline">\(X_1,X_2,X_1X_2\)</span> an independent
+collection?</p></li>
+</ol>
+</div>
 <p><span class="math inline">\(\textbf{My idea:}\)</span></p>
 <div id="a-2" class="section level4">
 <h4>(a)</h4>
@@ -1143,6 +1165,8 @@ symmetry, we can only discuss the independence between <span class="math inline"
 &amp;P(X_1=-1,X_1X_2=-1)=P(X_1=-1,X_2=1)=\frac{1}{4},\\
 \end{aligned}
 \]</span> so <span class="math inline">\(X_1\)</span> and <span class="math inline">\(Y\)</span> are independent, however, we have <span class="math inline">\(P(X_1=1,X_2=1,X_1X_2=-1)=0\)</span>, but <span class="math inline">\(P(X_1=1)P(X_2=1)P(X_1X_2=-1)=\frac{1}{8}\neq0\)</span>.</p>
+<p><span class="math inline">\(\textbf{Note:}\)</span> I think this part
+is good.</p>
 </div>
 </div>
 </div>

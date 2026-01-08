@@ -703,7 +703,20 @@ Then for measure $P$, we have $P(X=i)=P(Y=j)=\frac{1}{2},\ P(X=i,Y=j)=\frac{1}{4
 $\textbf{Note:}$ 1. When we discuss random variables, we should clarify in what sample space, 2. We should use different notations to represent different probability measures. In this question, we are required to discuss 2 probability measures in 1 sample space.
 
 ### Ex 20
+::: problem
+\ Counterexamples and examples:
 
+a) Let $\Omega=\{1,2,3,4\}$ with each point carrying probability $1/4$. Let $A_1=\{1,2\},\ A_2=\{1,3\},\ A_3=\{1,4\}$. Then any two of $A_1,A_2,A_3$ are independent, but $A_1,A_2,A_3$ are not independent.
+
+b) Let $\{A_i,\ 1\le i\le 5\}$ be a measurable partition of $\Omega$ such that $P(A_1)=P(A_2)=P(A_3)=15/64,\ P(A_4)=1/64,\ P(A_5)=18/64$. Define
+$B=A_1\cup A_4,\ C=A_2\cup A_4,\ D=A_3\cup A_4$. Check that
+\[
+P(BCD)=P(B)P(C)P(D)
+\]
+but that $B,\ C,\ D$ are not independent.
+
+c) Let $X_1,X_2$ be independent random variables each assuming only the values $+1$ and $-1$ with probability $1/2$. Are $X_1,X_2,X_1X_2$ pairwise independent? Are $X_1,X_2,X_1X_2$ an independent collection?
+:::
 $\textbf{My idea:}$ 
 
 #### (a) 
@@ -735,7 +748,7 @@ so $X_1$ and $Y$ are independent, however, we have $P(X_1=1,X_2=1,X_1X_2=-1)=0$,
 $\textbf{Note:}$ I think this part is good.
 
 
-
+### Ex 20
 
 
 
