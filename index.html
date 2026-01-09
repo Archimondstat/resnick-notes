@@ -11,7 +11,7 @@
 
 <meta name="author" content="P" />
 
-<meta name="date" content="2026-01-08" />
+<meta name="date" content="2026-01-09" />
 
 <title>Notess on A Probability Path (Resnick)</title>
 
@@ -353,7 +353,7 @@ display: none;
 
 <h1 class="title toc-ignore">Notess on A Probability Path (Resnick)</h1>
 <h4 class="author">P</h4>
-<h4 class="date">2026-01-08</h4>
+<h4 class="date">2026-01-09</h4>
 
 </div>
 
@@ -391,6 +391,11 @@ Independence</a>
 <li><a href="#a-2" id="toc-a-2">(a)</a></li>
 <li><a href="#b-2" id="toc-b-2">(b)</a></li>
 <li><a href="#c-1" id="toc-c-1">(c)</a></li>
+</ul></li>
+<li><a href="#ex-21" id="toc-ex-21">Ex 21</a>
+<ul>
+<li><a href="#a-3" id="toc-a-3">(a)</a></li>
+<li><a href="#b-3" id="toc-b-3">(b)</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -1167,6 +1172,55 @@ symmetry, we can only discuss the independence between <span class="math inline"
 \]</span> so <span class="math inline">\(X_1\)</span> and <span class="math inline">\(Y\)</span> are independent, however, we have <span class="math inline">\(P(X_1=1,X_2=1,X_1X_2=-1)=0\)</span>, but <span class="math inline">\(P(X_1=1)P(X_2=1)P(X_1X_2=-1)=\frac{1}{8}\neq0\)</span>.</p>
 <p><span class="math inline">\(\textbf{Note:}\)</span> I think this part
 is good.</p>
+</div>
+</div>
+<div id="ex-21" class="section level3">
+<h3>Ex 21</h3>
+<div class="problem">
+<p> Suppose <span class="math inline">\(\{A_n\}\)</span> is a sequence
+of events.</p>
+<ol style="list-style-type: lower-alpha">
+<li><p>If <span class="math inline">\(P(A_n)\to 1\)</span> as <span class="math inline">\(n\to\infty\)</span>, prove there exists a
+subsequence <span class="math inline">\(\{n_k\}\)</span> tending to
+infinity such that <span class="math inline">\(P\!\left(\bigcap_k
+A_{n_k}\right)&gt;0\)</span>. (Hint: Use Borel–Cantelli.)</p></li>
+<li><p>Show the following is false: Given <span class="math inline">\(\varepsilon&gt;0\)</span> such that <span class="math inline">\(P(A_n)\ge \varepsilon\)</span>, it follows that
+there exists a subsequence <span class="math inline">\(\{n_k\}\)</span>
+tending to infinity such that <span class="math inline">\(P\!\left(\bigcap_k
+A_{n_k}\right)&gt;0\)</span>.</p></li>
+</ol>
+</div>
+<div id="a-3" class="section level4">
+<h4>(a)</h4>
+<p><span class="math inline">\(\textbf{My idea:}\)</span> Suppose for
+any subsequence <span class="math inline">\(\{n_k\}\)</span> that
+tending to infinity, we have <span class="math inline">\(P(\cap_k
+A_{n_k})=0\)</span>, that is, for any <span class="math inline">\(k\)</span>, we have <span class="math inline">\(P(\cap_{n=k}^{\infty}A_n)=0\)</span>, so we have
+<span class="math inline">\(P(\liminf_{n\to\infty}A_n)=P(\cup_{k=1}^\infty\cap_{n=k}^{\infty}A_n)\leq\sum_{k=1}^\infty
+P(\cap_{n=k}^{\infty}A_n)=0\)</span>, however, since <span class="math inline">\(P(A_n)\to 1\ (n\to\infty)\)</span>, and <span class="math inline">\(P\)</span> is continuous from above and below, so
+<span class="math inline">\(P(\liminf_{n\to\infty}A_n)\)</span> should
+be <span class="math inline">\(1\)</span>.</p>
+<p><span class="math inline">\(\textbf{Answer:}\)</span> From <span class="math inline">\(P(A_n)\to1\ (n\to\infty)\)</span> we have <span class="math inline">\(P(A_n^c)\to0\ (n\to\infty)\)</span>, that is, we
+can select a subsequence <span class="math inline">\(\{n_k\}\)</span>
+that is tending to infinity, such that <span class="math inline">\(P(A_{n_k}^c)\leq2^{-(k+1)}\)</span> for all <span class="math inline">\(k\)</span>, then we have for any <span class="math inline">\(m\)</span>, <span class="math display">\[
+P(\bigcap_{k=1}^{m}A_{n_k})=1-P(\bigcup_{k=1}^{m}A_{n_k}^c)\geq
+1-\sum_{k=1}^m P(A_{n_k}^c)\geq1-\sum_{k=1}^m2^{-(k+1)}\geq\frac{1}{2}
+\]</span> Since <span class="math inline">\(P\)</span> is continuous
+from above, so <span class="math inline">\(P(\cap_{k}A_{n_k})=\lim_{m\to\infty}P(\cap_{k=1}^{m}A_{n_k})\geq\frac{1}{2}\)</span>.</p>
+<p><span class="math inline">\(\textbf{Note:}\)</span> From <span class="math inline">\(P(A_n)\to1\)</span>, we may not have <span class="math inline">\(P(\liminf_{n\to\infty}A_n)=1\)</span>.</p>
+</div>
+<div id="b-3" class="section level4">
+<h4>(b)</h4>
+<p><span class="math inline">\(\textbf{My idea:}\)</span> My idea is
+just that when <span class="math inline">\(A_n\)</span> are mutually
+disjoint, then it cannot happen.</p>
+<p><span class="math inline">\(\textbf{Answer:}\)</span> Consider
+flipping a fair coin, let <span class="math inline">\(\Omega=\{0,1\}^\mathbb{N}\)</span>, and <span class="math inline">\(A_n=\{\omega_n=1\}\)</span>, so <span class="math inline">\(P(A_n)=\frac{1}{2}\)</span> for any <span class="math inline">\(n\)</span>, however for any subsequence <span class="math inline">\(\{n_k\}\)</span> that is tending to infinity, we
+have <span class="math inline">\(P(\bigcap_{k}A_{n_k})=\lim_{m\to\infty}
+P(\bigcap_{k=1}^{m}A_{n_k})=\lim_{m\to\infty}\frac{1}{2^m}=0\)</span>.</p>
+<p><span class="math inline">\(\textbf{Note:}\)</span> If exist <span class="math inline">\(\varepsilon\)</span> such that <span class="math inline">\(P(A_n)\geq\varepsilon\)</span>, they cannot be
+mutually disjoint since <span class="math inline">\(P(\bigcup_{n}A_n)=\sum_n P(A_n)\geq
+\sum_n\varepsilon=\infty\)</span>.</p>
 </div>
 </div>
 </div>

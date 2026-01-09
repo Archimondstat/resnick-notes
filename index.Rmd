@@ -748,16 +748,33 @@ so $X_1$ and $Y$ are independent, however, we have $P(X_1=1,X_2=1,X_1X_2=-1)=0$,
 $\textbf{Note:}$ I think this part is good.
 
 
-### Ex 20
+### Ex 21
+::: problem
+\ Suppose $\{A_n\}$ is a sequence of events.
+
+(a) If $P(A_n)\to 1$ as $n\to\infty$, prove there exists a subsequence $\{n_k\}$ tending to infinity such that
+$P\!\left(\bigcap_k A_{n_k}\right)>0$. (Hint: Use Borel--Cantelli.)
+
+(b) Show the following is false: Given $\varepsilon>0$ such that $P(A_n)\ge \varepsilon$, it follows that there exists a subsequence $\{n_k\}$ tending to infinity such that
+$P\!\left(\bigcap_k A_{n_k}\right)>0$.
+:::
+
+#### (a)
+
+$\textbf{My idea:}$ Suppose for any subsequence $\{n_k\}$ that tending to infinity, we have $P(\cap_k A_{n_k})=0$, that is, for any $k$, we have $P(\cap_{n=k}^{\infty}A_n)=0$, so we have $P(\liminf_{n\to\infty}A_n)=P(\cup_{k=1}^\infty\cap_{n=k}^{\infty}A_n)\leq\sum_{k=1}^\infty P(\cap_{n=k}^{\infty}A_n)=0$, however, since $P(A_n)\to 1\ (n\to\infty)$, and $P$ is continuous from above and below, so $P(\liminf_{n\to\infty}A_n)$ should be $1$.
+
+$\textbf{Answer:}$ From $P(A_n)\to1\ (n\to\infty)$ we have $P(A_n^c)\to0\ (n\to\infty)$, that is, we can select a subsequence $\{n_k\}$ that is tending to infinity, such that $P(A_{n_k}^c)\leq2^{-(k+1)}$ for all $k$, then we have for any $m$,
+$$
+P(\bigcap_{k=1}^{m}A_{n_k})=1-P(\bigcup_{k=1}^{m}A_{n_k}^c)\geq 1-\sum_{k=1}^m P(A_{n_k}^c)\geq1-\sum_{k=1}^m2^{-(k+1)}\geq\frac{1}{2}
+$$
+Since $P$ is continuous from above, so $P(\cap_{k}A_{n_k})=\lim_{m\to\infty}P(\cap_{k=1}^{m}A_{n_k})\geq\frac{1}{2}$.
+
+$\textbf{Note:}$ From $P(A_n)\to1$, we may not have $P(\liminf_{n\to\infty}A_n)=1$.
 
 
+#### (b) 
+$\textbf{My idea:}$ My idea is just that when $A_n$ are mutually disjoint, then it cannot happen.
 
+$\textbf{Answer:}$ Consider flipping a fair coin, let $\Omega=\{0,1\}^\mathbb{N}$, and $A_n=\{\omega_n=1\}$, so $P(A_n)=\frac{1}{2}$ for any $n$, however for any subsequence $\{n_k\}$ that is tending to infinity, we have $P(\bigcap_{k}A_{n_k})=\lim_{m\to\infty} P(\bigcap_{k=1}^{m}A_{n_k})=\lim_{m\to\infty}\frac{1}{2^m}=0$.
 
-
-
-
-
-
-
-
-
+$\textbf{Note:}$ If exist $\varepsilon$ such that $P(A_n)\geq\varepsilon$, they cannot be mutually disjoint since $P(\bigcup_{n}A_n)=\sum_n P(A_n)\geq \sum_n\varepsilon=\infty$.
