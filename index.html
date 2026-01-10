@@ -11,7 +11,7 @@
 
 <meta name="author" content="P" />
 
-<meta name="date" content="2026-01-09" />
+<meta name="date" content="2026-01-10" />
 
 <title>Notess on A Probability Path (Resnick)</title>
 
@@ -353,7 +353,7 @@ display: none;
 
 <h1 class="title toc-ignore">Notess on A Probability Path (Resnick)</h1>
 <h4 class="author">P</h4>
-<h4 class="date">2026-01-09</h4>
+<h4 class="date">2026-01-10</h4>
 
 </div>
 
@@ -397,6 +397,7 @@ Independence</a>
 <li><a href="#a-3" id="toc-a-3">(a)</a></li>
 <li><a href="#b-3" id="toc-b-3">(b)</a></li>
 </ul></li>
+<li><a href="#ex-22" id="toc-ex-22">Ex 22</a></li>
 </ul></li>
 </ul>
 </div>
@@ -1222,6 +1223,60 @@ P(\bigcap_{k=1}^{m}A_{n_k})=\lim_{m\to\infty}\frac{1}{2^m}=0\)</span>.</p>
 mutually disjoint since <span class="math inline">\(P(\bigcup_{n}A_n)=\sum_n P(A_n)\geq
 \sum_n\varepsilon=\infty\)</span>.</p>
 </div>
+</div>
+<div id="ex-22" class="section level3">
+<h3>Ex 22</h3>
+<div class="problem">
+<p> Suppose <span class="math inline">\(\{A_n\}\)</span> are independent
+events such that <span class="math display">\[
+\sum_{n=1}^{\infty}\bigl(P(A_n)\wedge(1-P(A_n))\bigr)=\infty.
+\]</span> Show <span class="math inline">\(P\)</span> is non-atomic.</p>
+</div>
+<p><span class="math inline">\(\textbf{My idea:}\)</span> Suppose <span class="math inline">\(P\)</span> is atomic, that is exist <span class="math inline">\(A\in\mathcal{B}\)</span>, for all <span class="math inline">\(B\in\mathcal{B}\)</span> and <span class="math inline">\(B\subseteq A\)</span>, either <span class="math inline">\(P(B)=0\)</span> or <span class="math inline">\(P(A\B)=0\)</span>. So W.L.G, suppose <span class="math inline">\(A_i\)</span> is an atom, that is <span class="math inline">\(P(A_n)&gt;0\)</span>, then for any <span class="math inline">\(j\neq i\)</span>, we have <span class="math inline">\(A_i\cap A_j\subseteq A_i\)</span>, so either <span class="math inline">\(P(A_i\cap A_j)=0\)</span>, in this case, because
+they are independent, we have <span class="math inline">\(P(A_i)P(A_j)=0\)</span>, for all <span class="math inline">\(j\neq i\)</span>, or <span class="math inline">\(P(A_i\(A_i\cap A_j))=0\)</span>, in this case, we
+have <span class="math inline">\(P(A_i\(A_i\cap
+A_j))=P(A_i)(1-P(A_j))=0\)</span>, that is <span class="math inline">\((1-P(A_j))=0\)</span>, so for <span class="math inline">\(j\neq i\)</span>, if <span class="math inline">\(P\)</span> is atomic, either <span class="math inline">\(P(A_j)=0\)</span> or <span class="math inline">\(1-P(A_j)=0\)</span>, which is contradicted to
+<span class="math inline">\(\sum_{n=1}^\infty\left(\min(P(A_n),1-P(A_n))\right)=\infty\)</span>,
+therefore <span class="math inline">\(P\)</span> should be
+non-atomic.</p>
+<span class="math inline">\(\textbf{Answer:}\)</span> Suppose <span class="math inline">\(P\)</span> is atomic, and let <span class="math inline">\(E\)</span> be the atom, so we have <span class="math inline">\(P(E)&gt;0\)</span>, and for each <span class="math inline">\(A_n\)</span>, either <span class="math inline">\(P(E\cap A_n)=0\)</span> or <span class="math inline">\(P(E\setminus(E\cap A_n))=P(E\cap
+A_n^c)=0\)</span>, then we can define <span class="math inline">\(\{B_n\}\)</span> as <span class="math display">\[
+B_n=
+\begin{cases}
+A_n, &amp; \text{if } P(E\cap A_n^c)=0 \quad (\text{so }E\subseteq A_n\
+\text{a.s.})\\
+A_n^c, &amp; \text{if } P(E\cap A_n)=0 \quad (\text{so }E\subseteq
+A_n^c\ \text{a.s.})
+\end{cases}
+\]</span> let <span class="math inline">\(B=\bigcap_{n=1}^\infty
+B_n\)</span>, and we have <span class="math inline">\(P(E)=P(E\cap
+B)+P(E\cap B^c)\)</span>, however, according to the definition of <span class="math inline">\(B_n\)</span>, we have $$
+<span class="math display">\[\begin{aligned}
+P(E\cap B^c)&amp;=P\left(E\cap(\bigcap_{n=1}^\infty B_n)^c\right)\\
+&amp;=P\left(E\cap(\bigcup_{n=1}^\infty B_n^c)\right)\\
+&amp;=P\left(\bigcup_{n=1}^\infty (E\cap B_n^c)\right)\\
+&amp;\leq\sum_{n=1}^\infty P(E\cap B_n^c)=0.
+
+\end{aligned}\]</span>
+<p>$$ So we have <span class="math inline">\(P(E)=P(E\cap B)\leq
+P(B)\)</span>.</p>
+<p>For any fixed <span class="math inline">\(m\)</span>, we have <span class="math inline">\(P\left(\bigcap_{n=1}^m B_n\right)=\prod_{n=1}^m
+r_n\)</span> where <span class="math inline">\(r_n\in\{P(A_n),
+1-P(A_n)\}\)</span>, so <span class="math inline">\(r_n\leq
+1-q_n\)</span>, where <span class="math inline">\(q_n=\min(P(A_n),
+1-P(A_n))\)</span>, then <span class="math inline">\(\sum_{n}q_n=\infty\)</span> and using the fact
+that <span class="math inline">\(\log(1-q_n)\leq -q_n\)</span>, we have
+<span class="math inline">\(\prod_n (1-q_n)=0\)</span> .Then for <span class="math inline">\(P(B)\)</span>, we have <span class="math inline">\(P(B)=P\left(\bigcap_{n=1}^\infty B_n
+\right)=\lim_{m\to\infty}P\left(\bigcap_{n=1}^m B_n
+\right)\leq\lim_{m\to\infty}\prod_{n=1}^m (1-q_n)=0\)</span>, Since an
+atom must have positive probability, we get the contradiction which
+leads to the conclusion that <span class="math inline">\(P\)</span> is
+non-atomic.</p>
+<p><span class="math inline">\(\textbf{Note:}\)</span> We cannot assume
+that some <span class="math inline">\(A_n\)</span> is the atom, instead,
+we make the atom interact with each <span class="math inline">\(A_n\)</span>, then the infinite sum of minimum
+make sure that no atom can survive the infinite intersection of
+independent events.</p>
 </div>
 </div>
 

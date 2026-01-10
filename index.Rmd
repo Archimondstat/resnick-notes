@@ -778,3 +778,45 @@ $\textbf{My idea:}$ My idea is just that when $A_n$ are mutually disjoint, then 
 $\textbf{Answer:}$ Consider flipping a fair coin, let $\Omega=\{0,1\}^\mathbb{N}$, and $A_n=\{\omega_n=1\}$, so $P(A_n)=\frac{1}{2}$ for any $n$, however for any subsequence $\{n_k\}$ that is tending to infinity, we have $P(\bigcap_{k}A_{n_k})=\lim_{m\to\infty} P(\bigcap_{k=1}^{m}A_{n_k})=\lim_{m\to\infty}\frac{1}{2^m}=0$.
 
 $\textbf{Note:}$ If exist $\varepsilon$ such that $P(A_n)\geq\varepsilon$, they cannot be mutually disjoint since $P(\bigcup_{n}A_n)=\sum_n P(A_n)\geq \sum_n\varepsilon=\infty$.
+
+
+### Ex 22
+::: problem
+\ Suppose $\{A_n\}$ are independent events such that
+\[
+\sum_{n=1}^{\infty}\bigl(P(A_n)\wedge(1-P(A_n))\bigr)=\infty.
+\]
+Show $P$ is non-atomic.
+:::
+
+$\textbf{My idea:}$ Suppose $P$ is atomic, that is exist $A\in\mathcal{B}$, for all $B\in\mathcal{B}$ and $B\subseteq A$, either $P(B)=0$ or $P(A\B)=0$. So W.L.G, suppose $A_i$ is an atom, that is $P(A_n)>0$, then for any $j\neq i$, we have $A_i\cap A_j\subseteq A_i$, so either $P(A_i\cap A_j)=0$, in this case, because they are independent, we have $P(A_i)P(A_j)=0$, for all $j\neq i$, or $P(A_i\(A_i\cap A_j))=0$, in this case, we have $P(A_i\(A_i\cap A_j))=P(A_i)(1-P(A_j))=0$, that is $(1-P(A_j))=0$, so for $j\neq i$, if $P$ is atomic, either $P(A_j)=0$ or $1-P(A_j)=0$, which is contradicted to $\sum_{n=1}^\infty\left(\min(P(A_n),1-P(A_n))\right)=\infty$, therefore $P$ should be non-atomic.
+
+$\textbf{Answer:}$ Suppose $P$ is atomic, and let $E$ be the atom, so we have $P(E)>0$, and for each $A_n$, either $P(E\cap A_n)=0$ or $P(E\setminus(E\cap A_n))=P(E\cap A_n^c)=0$, then we can define $\{B_n\}$ as 
+$$
+B_n=
+\begin{cases}
+A_n, & \text{if } P(E\cap A_n^c)=0 \quad (\text{so }E\subseteq A_n\ \text{a.s.})\\
+A_n^c, & \text{if } P(E\cap A_n)=0 \quad (\text{so }E\subseteq A_n^c\ \text{a.s.})
+\end{cases}
+$$
+let $B=\bigcap_{n=1}^\infty B_n$, and we have $P(E)=P(E\cap B)+P(E\cap B^c)$, however, according to the definition of $B_n$, we have 
+$$
+\begin{aligned}
+P(E\cap B^c)&=P\left(E\cap(\bigcap_{n=1}^\infty B_n)^c\right)\\
+&=P\left(E\cap(\bigcup_{n=1}^\infty B_n^c)\right)\\
+&=P\left(\bigcup_{n=1}^\infty (E\cap B_n^c)\right)\\
+&\leq\sum_{n=1}^\infty P(E\cap B_n^c)=0.
+
+\end{aligned}
+$$
+So we have $P(E)=P(E\cap B)\leq P(B)$.
+
+For any fixed $m$, we have $P\left(\bigcap_{n=1}^m B_n\right)=\prod_{n=1}^m r_n$ where $r_n\in\{P(A_n), 1-P(A_n)\}$, so $r_n\leq 1-q_n$, where $q_n=\min(P(A_n), 1-P(A_n))$, then $\sum_{n}q_n=\infty$ and using the fact that $\log(1-q_n)\leq -q_n$, we have $\prod_n (1-q_n)=0$ .Then for $P(B)$, we have $P(B)=P\left(\bigcap_{n=1}^\infty B_n \right)=\lim_{m\to\infty}P\left(\bigcap_{n=1}^m B_n \right)\leq\lim_{m\to\infty}\prod_{n=1}^m (1-q_n)=0$, Since an atom must have positive probability, we get the contradiction which leads to the conclusion that $P$ is non-atomic.
+
+$\textbf{Note:}$ We cannot assume that some $A_n$ is the atom, instead, we make the atom interact with each $A_n$, then the infinite sum of minimum make sure that no atom can survive the infinite intersection of independent events.
+
+
+
+
+
+
