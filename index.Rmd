@@ -789,7 +789,7 @@ $\textbf{Note:}$ If exist $\varepsilon$ such that $P(A_n)\geq\varepsilon$, they 
 Show $P$ is non-atomic.
 :::
 
-$\textbf{My idea:}$ Suppose $P$ is atomic, that is exist $A\in\mathcal{B}$, for all $B\in\mathcal{B}$ and $B\subseteq A$, either $P(B)=0$ or $P(A\B)=0$. So W.L.G, suppose $A_i$ is an atom, that is $P(A_n)>0$, then for any $j\neq i$, we have $A_i\cap A_j\subseteq A_i$, so either $P(A_i\cap A_j)=0$, in this case, because they are independent, we have $P(A_i)P(A_j)=0$, for all $j\neq i$, or $P(A_i\(A_i\cap A_j))=0$, in this case, we have $P(A_i\(A_i\cap A_j))=P(A_i)(1-P(A_j))=0$, that is $(1-P(A_j))=0$, so for $j\neq i$, if $P$ is atomic, either $P(A_j)=0$ or $1-P(A_j)=0$, which is contradicted to $\sum_{n=1}^\infty\left(\min(P(A_n),1-P(A_n))\right)=\infty$, therefore $P$ should be non-atomic.
+$\textbf{My idea:}$ Suppose $P$ is atomic, that is exist $A\in\mathcal{B}$, for all $B\in\mathcal{B}$ and $B\subseteq A$, either $P(B)=0$ or $P(A\setminus B)=0$. So W.L.G, suppose $A_i$ is an atom, that is $P(A_n)>0$, then for any $j\neq i$, we have $A_i\cap A_j\subseteq A_i$, so either $P(A_i\cap A_j)=0$, in this case, because they are independent, we have $P(A_i)P(A_j)=0$, for all $j\neq i$, or $P(A_i\(A_i\cap A_j))=0$, in this case, we have $P(A_i\(A_i\cap A_j))=P(A_i)(1-P(A_j))=0$, that is $(1-P(A_j))=0$, so for $j\neq i$, if $P$ is atomic, either $P(A_j)=0$ or $1-P(A_j)=0$, which is contradicted to $\sum_{n=1}^\infty\left(\min(P(A_n),1-P(A_n))\right)=\infty$, therefore $P$ should be non-atomic.
 
 $\textbf{Answer:}$ Suppose $P$ is atomic, and let $E$ be the atom, so we have $P(E)>0$, and for each $A_n$, either $P(E\cap A_n)=0$ or $P(E\setminus(E\cap A_n))=P(E\cap A_n^c)=0$, then we can define $\{B_n\}$ as 
 $$
