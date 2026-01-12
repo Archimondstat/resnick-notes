@@ -816,7 +816,54 @@ For any fixed $m$, we have $P\left(\bigcap_{n=1}^m B_n\right)=\prod_{n=1}^m r_n$
 $\textbf{Note:}$ We cannot assume that some $A_n$ is the atom, instead, we make the atom interact with each $A_n$, then the infinite sum of minimum make sure that no atom can survive the infinite intersection of independent events.
 
 
+### Ex 23
+::: problem
 
+:::
+
+#### (a)
+
+$\textbf{My idea:}$ My idea is that since we want to show $P[A_n\ \text{i.o.}]=1$, and we have
+$$
+P[A_n\ \text{i.o.}]=1-\lim_{n\to\infty}\lim_{m\to\infty}P(\bigcap_{k=n}^mA_k^c),
+$$
+and link this to 
+$$
+P(A_n|\bigcap_{i=k}^{n-1}A_i^c)=\frac{P(A_n\cap\bigcap_{i=k}^{n-1}A_i^c)}{P(\bigcap_{i=k}^{n-1}A_i^c)}
+$$
+
+$\textbf{Answer:}$ Firstly, we have
+$$
+P[A_n\ \text{i.o.}]=1-\lim_{k\to\infty}\lim_{m\to\infty}P(\bigcap_{n=k}^mA_n^c),
+$$
+fix $k$, define $B_n:=\bigcap_{i=k}^nA_i^c$, and follow the convention, $B_{k-1}=\Omega$, therefore we have
+$$
+\begin{aligned}
+P(B_n)&=P(A_n^c\cap\bigcap_{i=k}^{n-1}A_i^c)=P(A_n^c\cap B_{n-1})\\
+&=P(B_{n-1})P(A_n^c|B_{n-1})=P(B_{n-1})(1-P(A_n|B_{n-1})),
+\end{aligned}
+$$
+then for any $m$, we have
+$$
+\begin{aligned}
+P(\bigcap_{n=k}^mA_n^c)&=P(B_m)\\
+&=P(B_{m-1})(1-P(A_m|B_{m-1}))\\
+&=P(B_{m-2})(1-P(A_{m-1}|B_{m-2}))(1-P(A_m|B_{m-1}))\\
+&\dots\\
+&=P(B_{k-1})(1-P(A_{k}|B_{k-1}))(1-P(A_{k+1}|B_{k}))\dots(1-P(A_{m-1}|B_{m-2}))(1-P(A_m|B_{m-1}))\\
+&=\prod_{n=k}^{m}(1-P(A_n|B_{n-1}))\\
+&=\prod_{n=k}^{m}(1-P(A_n|\bigcap_{i=k}^{n-1}A_i^c))\leq\exp(-\sum_{n=k}^mP(A_n|\bigcap_{i=k}^{n-1}A_i^c))\to0\ (m\to\infty).
+\end{aligned}
+$$
+In the last step, we use the fact that since for each $k$, $\sum_{n=k}^\infty P(A_n|\bigcap_{i=k}^{n-1}A_i^c)=\infty$, and $1-x\leq\exp(-x)$ for $0<x<1$. So $P[A_n\ \text{i.o.}]=1$.
+
+$\textbf{Note:}$ I didn't figure out the recursive relation.
+
+#### (b)
+
+$\textbf{My idea:}$ The conditional part makes the event independent.
+
+$\textbf{Answer:}$ $[A_n\ \text{i.o.}]=\limsup_{n\to\infty}A_n$ is a tail event, according to Borel zero-one law, its probability can only be $0$ or $1$, and the condition in (a) exclude $0$, so it can only be $1$.
 
 
 

@@ -11,7 +11,7 @@
 
 <meta name="author" content="P" />
 
-<meta name="date" content="2026-01-10" />
+<meta name="date" content="2026-01-12" />
 
 <title>Notess on A Probability Path (Resnick)</title>
 
@@ -353,7 +353,7 @@ display: none;
 
 <h1 class="title toc-ignore">Notess on A Probability Path (Resnick)</h1>
 <h4 class="author">P</h4>
-<h4 class="date">2026-01-10</h4>
+<h4 class="date">2026-01-12</h4>
 
 </div>
 
@@ -398,6 +398,11 @@ Independence</a>
 <li><a href="#b-3" id="toc-b-3">(b)</a></li>
 </ul></li>
 <li><a href="#ex-22" id="toc-ex-22">Ex 22</a></li>
+<li><a href="#ex-23" id="toc-ex-23">Ex 23</a>
+<ul>
+<li><a href="#a-4" id="toc-a-4">(a)</a></li>
+<li><a href="#b-4" id="toc-b-4">(b)</a></li>
+</ul></li>
 </ul></li>
 </ul>
 </div>
@@ -1278,6 +1283,58 @@ that some <span class="math inline">\(A_n\)</span> is the atom, instead,
 we make the atom interact with each <span class="math inline">\(A_n\)</span>, then the infinite sum of minimum
 make sure that no atom can survive the infinite intersection of
 independent events.</p>
+</div>
+<div id="ex-23" class="section level3">
+<h3>Ex 23</h3>
+<div class="problem">
+
+</div>
+<div id="a-4" class="section level4">
+<h4>(a)</h4>
+<p><span class="math inline">\(\textbf{My idea:}\)</span> My idea is
+that since we want to show <span class="math inline">\(P[A_n\
+\text{i.o.}]=1\)</span>, and we have <span class="math display">\[
+P[A_n\
+\text{i.o.}]=1-\lim_{n\to\infty}\lim_{m\to\infty}P(\bigcap_{k=n}^mA_k^c),
+\]</span> and link this to <span class="math display">\[
+P(A_n|\bigcap_{i=k}^{n-1}A_i^c)=\frac{P(A_n\cap\bigcap_{i=k}^{n-1}A_i^c)}{P(\bigcap_{i=k}^{n-1}A_i^c)}
+\]</span></p>
+<p><span class="math inline">\(\textbf{Answer:}\)</span> Firstly, we
+have <span class="math display">\[
+P[A_n\
+\text{i.o.}]=1-\lim_{k\to\infty}\lim_{m\to\infty}P(\bigcap_{n=k}^mA_n^c),
+\]</span> fix <span class="math inline">\(k\)</span>, define <span class="math inline">\(B_n:=\bigcap_{i=k}^nA_i^c\)</span>, and follow the
+convention, <span class="math inline">\(B_{k-1}=\Omega\)</span>,
+therefore we have <span class="math display">\[
+\begin{aligned}
+P(B_n)&amp;=P(A_n^c\cap\bigcap_{i=k}^{n-1}A_i^c)=P(A_n^c\cap B_{n-1})\\
+&amp;=P(B_{n-1})P(A_n^c|B_{n-1})=P(B_{n-1})(1-P(A_n|B_{n-1})),
+\end{aligned}
+\]</span> then for any <span class="math inline">\(m\)</span>, we have
+<span class="math display">\[
+\begin{aligned}
+P(\bigcap_{n=k}^mA_n^c)&amp;=P(B_m)\\
+&amp;=P(B_{m-1})(1-P(A_m|B_{m-1}))\\
+&amp;=P(B_{m-2})(1-P(A_{m-1}|B_{m-2}))(1-P(A_m|B_{m-1}))\\
+&amp;\dots\\
+&amp;=P(B_{k-1})(1-P(A_{k}|B_{k-1}))(1-P(A_{k+1}|B_{k}))\dots(1-P(A_{m-1}|B_{m-2}))(1-P(A_m|B_{m-1}))\\
+&amp;=\prod_{n=k}^{m}(1-P(A_n|B_{n-1}))\\
+&amp;=\prod_{n=k}^{m}(1-P(A_n|\bigcap_{i=k}^{n-1}A_i^c))\leq\exp(-\sum_{n=k}^mP(A_n|\bigcap_{i=k}^{n-1}A_i^c))\to0\
+(m\to\infty).
+\end{aligned}
+\]</span> In the last step, we use the fact that since for each <span class="math inline">\(k\)</span>, <span class="math inline">\(\sum_{n=k}^\infty
+P(A_n|\bigcap_{i=k}^{n-1}A_i^c)=\infty\)</span>, and <span class="math inline">\(1-x\leq\exp(-x)\)</span> for <span class="math inline">\(0&lt;x&lt;1\)</span>. So <span class="math inline">\(P[A_n\ \text{i.o.}]=1\)</span>.</p>
+<p><span class="math inline">\(\textbf{Note:}\)</span> I didn’t figure
+out the recursive relation.</p>
+</div>
+<div id="b-4" class="section level4">
+<h4>(b)</h4>
+<p><span class="math inline">\(\textbf{My idea:}\)</span> The
+conditional part makes the event independent.</p>
+<p><span class="math inline">\(\textbf{Answer:}\)</span> <span class="math inline">\([A_n\
+\text{i.o.}]=\limsup_{n\to\infty}A_n\)</span> is a tail event, according
+to Borel zero-one law, its probability can only be <span class="math inline">\(0\)</span> or <span class="math inline">\(1\)</span>, and the condition in (a) exclude <span class="math inline">\(0\)</span>, so it can only be <span class="math inline">\(1\)</span>.</p>
+</div>
 </div>
 </div>
 
