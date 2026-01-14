@@ -818,7 +818,33 @@ $\textbf{Note:}$ We cannot assume that some $A_n$ is the atom, instead, we make 
 
 ### Ex 23
 ::: problem
+\ Suppose $\{A_n\}$ are events.
 
+(a) If for each $k$
+\[
+\sum_{n=k}^{\infty} P\!\left(A_n \,\middle|\, \bigcap_{i=k}^{\,n-1} A_i^{c}\right)=\infty,
+\]
+show
+\[
+P\!\left(\limsup_{n\to\infty} A_n\right)=1.
+\]
+
+(b) What is the relevance to the Borel Zero-One Law?
+
+(c) Is it enough to assume
+\[
+\sum_{n=1}^{\infty} P\!\left(A_n \,\middle|\, \bigcap_{i=1}^{\,n-1} A_i^{c}\right)=\infty\ ?
+\]
+
+(d) Show
+\[
+P\!\left(\limsup_{n\to\infty} A_n\right)=1
+\]
+iff
+\[
+\sum_{n=1}^{\infty} P(A\cap A_n)=\infty
+\]
+for all events $A$ such that $P(A)>0$.
 :::
 
 #### (a)
@@ -864,6 +890,33 @@ $\textbf{Note:}$ I didn't figure out the recursive relation.
 $\textbf{My idea:}$ The conditional part makes the event independent.
 
 $\textbf{Answer:}$ $[A_n\ \text{i.o.}]=\limsup_{n\to\infty}A_n$ is a tail event, according to Borel zero-one law, its probability can only be $0$ or $1$, and the condition in (a) exclude $0$, so it can only be $1$.
+
+
+#### (c)
+
+$\textbf{My idea:}$  We just need to find an event sequence such that $\sum_{n=1}^\infty P(A_n|\bigcap_{i=1}^{n-1}A_i^c)=\infty$, but $P[A_n\ \text{i.o.}]=0$, and this sequence cannot be independent, or else the Borel zero-one law will enforce $P[A_n\ \text{i.o.}]=1$.
+
+$\textbf{Answer:}$ Let $T$ follows geometric distribution with parameter $p\in(0,1)$, and let $A_n=\{T=n\}$, so $P(A_n|\bigcap_{i=1}^{n-1} A_i^c)=P(T=n|T\geq n)=p$, $\sum_{n=1}^\infty P(A_n|\bigcap_{i=1}^{n-1} A_i^c)=\sum_{n=1}^\infty p=\infty$, however, $A_n$ can occur at most once, so $P[A_n\ \text{i.o.}]=0$, therefore only $\sum_{n=1}^\infty P(A_n|\bigcap_{i=1}^{n-1} A_i^c)=\infty$ is not enough.
+
+$\textbf{Note:}$ For memoryless distribution T, we can make $P(A_n|\bigcap_{i=1}^{n-1} A_i^c)$ to be constant, but $A_n$ can only occur at most once.
+
+#### (d)
+
+$\textbf{My idea:}$ The converse part is obvious since by letting $A=\Omega$, we have $P(A)=1>0$, by Borel-Cantelli's lemma, $\sum_{n=1}^\infty P(A\cap A_n)=\sum_{n=1}^\infty P(A_n)=\infty$ implies $P[A_n\ \text{i.o.}]=1$. For another direction, since $P[A_n\ \text{i.o.}]$, that is, for each $\omega\in\Omega$, exist a sub-sequence $n_k(\omega)$, such that $A_{n_k}$ occur, then for $A\cap A_n$, $P(A)>0$, they can also happen infinitely many times, so $\sum_{n=1}^\infty P(A\cap A_n)=\infty$.
+
+$\textbf{Answer:}$ $\Rightarrow$: suppose exists $A_0\in\mathcal{B}$, such that $P(A_0)>0$ and $\sum_{n=1}^\infty P(A_0\cap A_n)<\infty$, then according to Borel-Cantelli's lemma, we have $P[A_0\cap A_n\ \text{i.o}]=0$, however, 
+$$
+\begin{aligned}
+P[A_0\cap A_n\ \text{i.o}]&=P(\limsup_{n\to\infty}A_0\cap A_n)\\
+&=P(A_0\cap\limsup_{n\to\infty} A_n)\\
+&=P(A_0)-P(A_0\cap(\limsup_{n\to\infty} A_n)^c)\\
+&=P(A_0)-0\\
+&=0,
+\end{aligned}
+$$
+which is contradicted to $P(A_0)>0$ so for any $P(A)>0$, we have $\sum_{n=1}^\infty P(A\cap A_n)=\infty$.
+
+$\Leftarrow$: Suppose $P[A_n\ \text{i.o.}]<1$, then let $A=(\limsup_{n\to\infty}A_n)^c=\liminf_{n\to\infty}A_n^c$, so we have $P(A)>0$, since $A=\bigcup_{k=1}^\infty\bigcap_{n=k}^\infty A_n^c$, $A$ is the countable union of $B_k=\bigcap_{n=k}^\infty A_n^c$, so exist some $k$, such that $P(B_k)>0$, however $\sum_{n=1}^\infty P(B_k\cap A_n)=\sum_{n=1}^{k-1}P(B_k\cap A_n)<\infty$, which contradicts to the assumption that for all $A$ such that $P(A)>0$, $\sum_{n=1}^\infty P(A\cap A_n)=\infty$, so we have $P[A_n\ \text{i.o.}]=1$.
 
 
 

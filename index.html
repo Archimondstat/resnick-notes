@@ -11,7 +11,7 @@
 
 <meta name="author" content="P" />
 
-<meta name="date" content="2026-01-12" />
+<meta name="date" content="2026-01-14" />
 
 <title>Notess on A Probability Path (Resnick)</title>
 
@@ -353,7 +353,7 @@ display: none;
 
 <h1 class="title toc-ignore">Notess on A Probability Path (Resnick)</h1>
 <h4 class="author">P</h4>
-<h4 class="date">2026-01-12</h4>
+<h4 class="date">2026-01-14</h4>
 
 </div>
 
@@ -402,6 +402,8 @@ Independence</a>
 <ul>
 <li><a href="#a-4" id="toc-a-4">(a)</a></li>
 <li><a href="#b-4" id="toc-b-4">(b)</a></li>
+<li><a href="#c-2" id="toc-c-2">(c)</a></li>
+<li><a href="#d" id="toc-d">(d)</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -1287,7 +1289,26 @@ independent events.</p>
 <div id="ex-23" class="section level3">
 <h3>Ex 23</h3>
 <div class="problem">
-
+<p> Suppose <span class="math inline">\(\{A_n\}\)</span> are events.</p>
+<ol style="list-style-type: lower-alpha">
+<li><p>If for each <span class="math inline">\(k\)</span> <span class="math display">\[
+\sum_{n=k}^{\infty} P\!\left(A_n \,\middle|\, \bigcap_{i=k}^{\,n-1}
+A_i^{c}\right)=\infty,
+\]</span> show <span class="math display">\[
+P\!\left(\limsup_{n\to\infty} A_n\right)=1.
+\]</span></p></li>
+<li><p>What is the relevance to the Borel Zero-One Law?</p></li>
+<li><p>Is it enough to assume <span class="math display">\[
+\sum_{n=1}^{\infty} P\!\left(A_n \,\middle|\, \bigcap_{i=1}^{\,n-1}
+A_i^{c}\right)=\infty\ ?
+\]</span></p></li>
+<li><p>Show <span class="math display">\[
+P\!\left(\limsup_{n\to\infty} A_n\right)=1
+\]</span> iff <span class="math display">\[
+\sum_{n=1}^{\infty} P(A\cap A_n)=\infty
+\]</span> for all events <span class="math inline">\(A\)</span> such
+that <span class="math inline">\(P(A)&gt;0\)</span>.</p></li>
+</ol>
 </div>
 <div id="a-4" class="section level4">
 <h4>(a)</h4>
@@ -1334,6 +1355,60 @@ conditional part makes the event independent.</p>
 <p><span class="math inline">\(\textbf{Answer:}\)</span> <span class="math inline">\([A_n\
 \text{i.o.}]=\limsup_{n\to\infty}A_n\)</span> is a tail event, according
 to Borel zero-one law, its probability can only be <span class="math inline">\(0\)</span> or <span class="math inline">\(1\)</span>, and the condition in (a) exclude <span class="math inline">\(0\)</span>, so it can only be <span class="math inline">\(1\)</span>.</p>
+</div>
+<div id="c-2" class="section level4">
+<h4>(c)</h4>
+<p><span class="math inline">\(\textbf{My idea:}\)</span> We just need
+to find an event sequence such that <span class="math inline">\(\sum_{n=1}^\infty
+P(A_n|\bigcap_{i=1}^{n-1}A_i^c)=\infty\)</span>, but <span class="math inline">\(P[A_n\ \text{i.o.}]=0\)</span>, and this sequence
+cannot be independent, or else the Borel zero-one law will enforce <span class="math inline">\(P[A_n\ \text{i.o.}]=1\)</span>.</p>
+<p><span class="math inline">\(\textbf{Answer:}\)</span> Let <span class="math inline">\(T\)</span> follows geometric distribution with
+parameter <span class="math inline">\(p\in(0,1)\)</span>, and let <span class="math inline">\(A_n=\{T=n\}\)</span>, so <span class="math inline">\(P(A_n|\bigcap_{i=1}^{n-1} A_i^c)=P(T=n|T\geq
+n)=p\)</span>, <span class="math inline">\(\sum_{n=1}^\infty
+P(A_n|\bigcap_{i=1}^{n-1} A_i^c)=\sum_{n=1}^\infty p=\infty\)</span>,
+however, <span class="math inline">\(A_n\)</span> can occur at most
+once, so <span class="math inline">\(P[A_n\ \text{i.o.}]=0\)</span>,
+therefore only <span class="math inline">\(\sum_{n=1}^\infty
+P(A_n|\bigcap_{i=1}^{n-1} A_i^c)=\infty\)</span> is not enough.</p>
+<p><span class="math inline">\(\textbf{Note:}\)</span> For memoryless
+distribution T, we can make <span class="math inline">\(P(A_n|\bigcap_{i=1}^{n-1} A_i^c)\)</span> to be
+constant, but <span class="math inline">\(A_n\)</span> can only occur at
+most once.</p>
+</div>
+<div id="d" class="section level4">
+<h4>(d)</h4>
+<p><span class="math inline">\(\textbf{My idea:}\)</span> The converse
+part is obvious since by letting <span class="math inline">\(A=\Omega\)</span>, we have <span class="math inline">\(P(A)=1&gt;0\)</span>, by Borel-Cantelli’s lemma,
+<span class="math inline">\(\sum_{n=1}^\infty P(A\cap
+A_n)=\sum_{n=1}^\infty P(A_n)=\infty\)</span> implies <span class="math inline">\(P[A_n\ \text{i.o.}]=1\)</span>. For another
+direction, since <span class="math inline">\(P[A_n\
+\text{i.o.}]\)</span>, that is, for each <span class="math inline">\(\omega\in\Omega\)</span>, exist a sub-sequence
+<span class="math inline">\(n_k(\omega)\)</span>, such that <span class="math inline">\(A_{n_k}\)</span> occur, then for <span class="math inline">\(A\cap A_n\)</span>, <span class="math inline">\(P(A)&gt;0\)</span>, they can also happen
+infinitely many times, so <span class="math inline">\(\sum_{n=1}^\infty
+P(A\cap A_n)=\infty\)</span>.</p>
+<p><span class="math inline">\(\textbf{Answer:}\)</span> <span class="math inline">\(\Rightarrow\)</span>: suppose exists <span class="math inline">\(A_0\in\mathcal{B}\)</span>, such that <span class="math inline">\(P(A_0)&gt;0\)</span> and <span class="math inline">\(\sum_{n=1}^\infty P(A_0\cap
+A_n)&lt;\infty\)</span>, then according to Borel-Cantelli’s lemma, we
+have <span class="math inline">\(P[A_0\cap A_n\ \text{i.o}]=0\)</span>,
+however, <span class="math display">\[
+\begin{aligned}
+P[A_0\cap A_n\ \text{i.o}]&amp;=P(\limsup_{n\to\infty}A_0\cap A_n)\\
+&amp;=P(A_0\cap\limsup_{n\to\infty} A_n)\\
+&amp;=P(A_0)-P(A_0\cap(\limsup_{n\to\infty} A_n)^c)\\
+&amp;=P(A_0)-0\\
+&amp;=0,
+\end{aligned}
+\]</span> which is contradicted to <span class="math inline">\(P(A_0)&gt;0\)</span> so for any <span class="math inline">\(P(A)&gt;0\)</span>, we have <span class="math inline">\(\sum_{n=1}^\infty P(A\cap
+A_n)=\infty\)</span>.</p>
+<p><span class="math inline">\(\Leftarrow\)</span>: Suppose <span class="math inline">\(P[A_n\ \text{i.o.}]&lt;1\)</span>, then let <span class="math inline">\(A=(\limsup_{n\to\infty}A_n)^c=\liminf_{n\to\infty}A_n^c\)</span>,
+so we have <span class="math inline">\(P(A)&gt;0\)</span>, since <span class="math inline">\(A=\bigcup_{k=1}^\infty\bigcap_{n=k}^\infty
+A_n^c\)</span>, <span class="math inline">\(A\)</span> is the countable
+union of <span class="math inline">\(B_k=\bigcap_{n=k}^\infty
+A_n^c\)</span>, so exist some <span class="math inline">\(k\)</span>,
+such that <span class="math inline">\(P(B_k)&gt;0\)</span>, however
+<span class="math inline">\(\sum_{n=1}^\infty P(B_k\cap
+A_n)=\sum_{n=1}^{k-1}P(B_k\cap A_n)&lt;\infty\)</span>, which
+contradicts to the assumption that for all <span class="math inline">\(A\)</span> such that <span class="math inline">\(P(A)&gt;0\)</span>, <span class="math inline">\(\sum_{n=1}^\infty P(A\cap A_n)=\infty\)</span>, so
+we have <span class="math inline">\(P[A_n\ \text{i.o.}]=1\)</span>.</p>
 </div>
 </div>
 </div>
