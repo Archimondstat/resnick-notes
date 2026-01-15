@@ -1,5 +1,5 @@
 ---
-title: "Notess on A Probability Path (Resnick)"
+title: "Notes on A Probability Path (Resnick)"
 author: "P"
 date: "`r Sys.Date()`"
 output:
@@ -919,4 +919,11 @@ which is contradicted to $P(A_0)>0$ so for any $P(A)>0$, we have $\sum_{n=1}^\in
 $\Leftarrow$: Suppose $P[A_n\ \text{i.o.}]<1$, then let $A=(\limsup_{n\to\infty}A_n)^c=\liminf_{n\to\infty}A_n^c$, so we have $P(A)>0$, since $A=\bigcup_{k=1}^\infty\bigcap_{n=k}^\infty A_n^c$, $A$ is the countable union of $B_k=\bigcap_{n=k}^\infty A_n^c$, so exist some $k$, such that $P(B_k)>0$, however $\sum_{n=1}^\infty P(B_k\cap A_n)=\sum_{n=1}^{k-1}P(B_k\cap A_n)<\infty$, which contradicts to the assumption that for all $A$ such that $P(A)>0$, $\sum_{n=1}^\infty P(A\cap A_n)=\infty$, so we have $P[A_n\ \text{i.o.}]=1$.
 
 
+### Ex 24
+::: problem
+\ If $P(A_n)\ge \varepsilon>0$, for all large $n$, then $P(A_n\ \text{i.o.})\ge \varepsilon$.
+:::
 
+$\textbf{My idea:}$ Since for large $n$, $P(A_n)\geq\varepsilon$, that is, exist $N>0$ such that when $n\geq N$, we also have $P(\bigcup_{m\geq n}A_m)\geq\varepsilon$, since $\{\bigcup_{m\geq n}A_m\}_{n\geq1}$ is a decreasing sequence, so $P[A_n\ \text{i.o.}]=P(\bigcap_{n=1}^\infty\bigcup_{m\geq n}A_m)=\lim_{n\to\infty}P(\bigcup_{m\geq n}A_m)\geq\varepsilon$.
+
+$\textbf{Note:}$ I am basically correct this time.

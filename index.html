@@ -11,7 +11,7 @@
 
 <meta name="author" content="P" />
 
-<meta name="date" content="2026-01-14" />
+<meta name="date" content="2026-01-15" />
 
 <title>Notess on A Probability Path (Resnick)</title>
 
@@ -353,7 +353,7 @@ display: none;
 
 <h1 class="title toc-ignore">Notess on A Probability Path (Resnick)</h1>
 <h4 class="author">P</h4>
-<h4 class="date">2026-01-14</h4>
+<h4 class="date">2026-01-15</h4>
 
 </div>
 
@@ -405,6 +405,7 @@ Independence</a>
 <li><a href="#c-2" id="toc-c-2">(c)</a></li>
 <li><a href="#d" id="toc-d">(d)</a></li>
 </ul></li>
+<li><a href="#ex-24" id="toc-ex-24">Ex 24</a></li>
 </ul></li>
 </ul>
 </div>
@@ -1410,6 +1411,23 @@ A_n)=\sum_{n=1}^{k-1}P(B_k\cap A_n)&lt;\infty\)</span>, which
 contradicts to the assumption that for all <span class="math inline">\(A\)</span> such that <span class="math inline">\(P(A)&gt;0\)</span>, <span class="math inline">\(\sum_{n=1}^\infty P(A\cap A_n)=\infty\)</span>, so
 we have <span class="math inline">\(P[A_n\ \text{i.o.}]=1\)</span>.</p>
 </div>
+</div>
+<div id="ex-24" class="section level3">
+<h3>Ex 24</h3>
+<div class="problem">
+<p> If <span class="math inline">\(P(A_n)\ge \varepsilon&gt;0\)</span>,
+for all large <span class="math inline">\(n\)</span>, then <span class="math inline">\(P(A_n\ \text{i.o.})\ge \varepsilon\)</span>.</p>
+</div>
+<p><span class="math inline">\(\textbf{My idea:}\)</span> Since for
+large <span class="math inline">\(n\)</span>, <span class="math inline">\(P(A_n)\geq\varepsilon\)</span>, that is, exist
+<span class="math inline">\(N&gt;0\)</span> such that when <span class="math inline">\(n\geq N\)</span>, we also have <span class="math inline">\(P(\bigcup_{m\geq n}A_m)\geq\varepsilon\)</span>,
+since <span class="math inline">\(\{\bigcup_{m\geq
+n}A_m\}_{n\geq1}\)</span> is a decreasing sequence, so <span class="math inline">\(P[A_n\
+\text{i.o.}]=P(\bigcap_{n=1}^\infty\bigcup_{m\geq
+n}A_m)=\lim_{n\to\infty}P(\bigcup_{m\geq
+n}A_m)\geq\varepsilon\)</span>.</p>
+<p><span class="math inline">\(\textbf{Note:}\)</span> I am basically
+correct this time.</p>
 </div>
 </div>
 
