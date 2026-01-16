@@ -927,3 +927,88 @@ $\Leftarrow$: Suppose $P[A_n\ \text{i.o.}]<1$, then let $A=(\limsup_{n\to\infty}
 $\textbf{My idea:}$ Since for large $n$, $P(A_n)\geq\varepsilon$, that is, exist $N>0$ such that when $n\geq N$, we also have $P(\bigcup_{m\geq n}A_m)\geq\varepsilon$, since $\{\bigcup_{m\geq n}A_m\}_{n\geq1}$ is a decreasing sequence, so $P[A_n\ \text{i.o.}]=P(\bigcap_{n=1}^\infty\bigcup_{m\geq n}A_m)=\lim_{n\to\infty}P(\bigcup_{m\geq n}A_m)\geq\varepsilon$.
 
 $\textbf{Note:}$ I am basically correct this time.
+
+### Ex 25
+::: problem
+\ Use Renyi's theorem to prove that if $\{X_n,\ n\ge 1\}$ is iid with common continuous distribution
+\[
+P\!\left(\left[X_n=\bigvee_{i=1}^{n} X_i\right]\ \text{i.o.}\right)=1.
+\]
+:::
+
+$\textbf{My idea:}$ Let $A_n=[X_n=\max\{X_i,i=1,\dots,n\}]$, since $\{X_n\}$ is iid with common continuous distribution, $A_n$ means that $X_n$ is a record, according to Renyi's theorem, $\{A_n\}$ is independent and $P(A_n)=\frac{1}{n}$, that is, we have $\sum_{n=1}^\infty P(A_n)=\infty$, according to BC II, $=P\{[X_n=\max\{X_i,i=1,\dots,n\}]\ \text{i.o.}\}=P[A_n\ \text{i.o.}]=1$.
+
+$\textbf{Note:}$ I am basically correct this time.
+
+### Ex 26
+::: problem
+\ (Barndorff-Nielsen)} Suppose $\{E_n\}$ is a sequence of events such that
+$$ \lim_{n \to \infty} P(E_n) = 0, \quad \sum_{n} P(E_n E_{n+1}^c) < \infty. $$
+Prove
+$$ P(E_n \text{ i.o.}) = 0. $$
+Hint: Decompose $\bigcup_{j=n}^m E_j$ for $m > n$.
+:::
+
+$\textbf{My idea:}$ For $\bigcup_{j=n}^mE_j$, $m>n$, we have 
+$$
+\begin{aligned}
+\bigcup_{j=n}^mE_j&=\bigcup_{j=n}^{m-1}\{(E_j\cap E_{j+1})\cup(E_j\cap E_{j+1}^c)\}\cup E_m\\
+&=\bigcup_{j=n}^{m-1}(E_j\cap E_{j+1})\cup\bigcup_{j=n}^{m-1}(E_j\cap E_{j+1}^c)\cup E_m\\
+&=\left\{\bigcup_{j=n}^{m-1}E_j\cap\bigcup_{j=n}^{m-1}E_{j+1}\right\}\cup\bigcup_{j=n}^{m-1}(E_j\cap E_{j+1}^c)\cup E_m,
+\end{aligned}
+$$
+therefore, for $P(\bigcup_{j=n}^mE_j)$, we have 
+$$
+\begin{aligned}
+P(\bigcup_{j=n}^mE_j)\leq P\left(\left\{\bigcup_{j=n}^{m-1}E_j\cap\bigcup_{j=n}^{m-1}E_{j+1}\right\}\right)+P(\bigcup_{j=n}^{m-1}(E_j\cap E_{j+1}^c))+P(E_m)
+\end{aligned}
+$$
+since we have $\lim_{n\to\infty}P(E_n)=0$ and $\sum_n P(E_n\cap E_{n+1}^c)\leq\infty$, so when $n$ and $m$ approach to infinity, the right hand side goes to $0$, that is $\lim_{n\to\infty}\lim_{m\to\infty}P(\bigcup_{j=n}^mE_j)=0$, and that is exactly $P[E_n\ \text{i.o.}]=0$.
+
+
+$\textbf{Answer:}$ For $\bigcup_{j=n}^mE_j$, $m>n$, we have 
+$$
+\begin{aligned}
+\bigcup_{j=n}^mE_j&=\bigcup_{j=n}^{m-1}\{(E_j\cap E_{j+1})\cup(E_j\cap E_{j+1}^c)\}\cup E_m\\
+&=\bigcup_{j=n}^{m-1}(E_j\cap E_{j+1})\cup\bigcup_{j=n}^{m-1}(E_j\cap E_{j+1}^c)\cup E_m\\
+&=\bigcup_{j=n}^{m-1}(E_j\cap E_{j+1}^c)\cup E_m,
+\end{aligned}
+$$
+in the last two step, for any $\omega\in\bigcup_{j=n}^{m-1}(E_j\cap E_{j+1})$ there will be at least one $k\in\{n,\dots,m-1\}$ such that $\omega\in E_k\cap E_{k+1}$, so $S(\omega)=\{j\in\{n,\dots, m\}:\ \omega\in E_j\}$ is non-empty, then it is legal to let $L$ be the largest index such that $\omega\in E_L$, so 1. $L=m$, then $\omega\in E_m$, 2. $n\leq L<m$, then we know that $\omega\in E_L$ and $\omega\not\in E_{L+1}$, that is $\omega\in E_L\cap E_{L+1}^c$, so in both cases, $\omega\in\bigcup_{j=n}^{m-1}(E_j\cap E_{j+1}^c)\cup E_m$, that is, the term $\bigcup_{j=n}^{m-1}(E_j\cap E_{j+1})$ is absorbed by $\bigcup_{j=n}^{m-1}(E_j\cap E_{j+1}^c)\cup E_m$.
+
+Therefore,
+$$
+P(\bigcup_{j=n}^mE_j)\leq P(\bigcup_{j=n}^{m-1}(E_j\cap E_{j+1}^c))+P(E_m).
+$$
+By letting $m\to\infty$, and because $P$ is continuous from below, we have 
+$$
+\begin{aligned}
+P(\bigcup_{j=n}^{\infty}E_j)&\leq P(\bigcup_{j=n}^{\infty}(E_j\cap E_{j+1}^c))+\lim_{m\to\infty}P(E_m)\\
+&=P(\bigcup_{j=n}^{\infty}(E_j\cap E_{j+1}^c))+0\\
+&=P(\bigcup_{j=n}^{\infty}(E_j\cap E_{j+1}^c)),
+\end{aligned}
+$$
+that is, for $P[E_n\ \text{i.o.}]$, by continuous from above, we have
+$$
+\begin{aligned}
+P[E_n\ \text{i.o.}]&=P(\bigcap_{n=1}^{\infty}\bigcup_{j=n}^\infty E_j)\\
+&=\lim_{n\to\infty}P(\bigcup_{j=n}^\infty E_j)\\
+&\leq\lim_{n\to\infty}P(\bigcup_{j=n}^{\infty}(E_j\cap E_{j+1}^c))\\
+&\leq\lim_{n\to\infty}\sum_{j=n}^\infty P(E_j\cap E_{j+1}^c)=0.
+\end{aligned}
+$$
+In the last step, $\lim_{n\to\infty}\sum_{j=n}^\infty P(E_j\cap E_{j+1}^c)=0$ since $\sum_{n=1}^\infty P(E_n\cap E_{n+1}^c)<\infty$.
+$\textbf{Note:}$ For the decomposition part, we can just consider the telescope absorption:
+$$
+\bigcup_{j=n}^mE_j=\bigcup_{j=n}^{m-1}(E_j\cap E_{j+1}^c)\cup E_m.
+$$
+and the condition can be interpret as: the element eventually stop staying in the sequence.
+
+
+
+
+
+
+
+
+

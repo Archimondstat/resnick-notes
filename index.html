@@ -11,9 +11,9 @@
 
 <meta name="author" content="P" />
 
-<meta name="date" content="2026-01-15" />
+<meta name="date" content="2026-01-17" />
 
-<title>Notess on A Probability Path (Resnick)</title>
+<title>Notes on A Probability Path (Resnick)</title>
 
 <script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
 // be compatible with the behavior of Pandoc < 2.8).
@@ -351,9 +351,9 @@ display: none;
 
 
 
-<h1 class="title toc-ignore">Notess on A Probability Path (Resnick)</h1>
+<h1 class="title toc-ignore">Notes on A Probability Path (Resnick)</h1>
 <h4 class="author">P</h4>
-<h4 class="date">2026-01-15</h4>
+<h4 class="date">2026-01-17</h4>
 
 </div>
 
@@ -406,6 +406,8 @@ Independence</a>
 <li><a href="#d" id="toc-d">(d)</a></li>
 </ul></li>
 <li><a href="#ex-24" id="toc-ex-24">Ex 24</a></li>
+<li><a href="#ex-25" id="toc-ex-25">Ex 25</a></li>
+<li><a href="#ex-26" id="toc-ex-26">Ex 26</a></li>
 </ul></li>
 </ul>
 </div>
@@ -1428,6 +1430,99 @@ n}A_m)=\lim_{n\to\infty}P(\bigcup_{m\geq
 n}A_m)\geq\varepsilon\)</span>.</p>
 <p><span class="math inline">\(\textbf{Note:}\)</span> I am basically
 correct this time.</p>
+</div>
+<div id="ex-25" class="section level3">
+<h3>Ex 25</h3>
+<div class="problem">
+<p> Use Renyi’s theorem to prove that if <span class="math inline">\(\{X_n,\ n\ge 1\}\)</span> is iid with common
+continuous distribution <span class="math display">\[
+P\!\left(\left[X_n=\bigvee_{i=1}^{n} X_i\right]\ \text{i.o.}\right)=1.
+\]</span></p>
+</div>
+<p><span class="math inline">\(\textbf{My idea:}\)</span> Let <span class="math inline">\(A_n=[X_n=\max\{X_i,i=1,\dots,n\}]\)</span>, since
+<span class="math inline">\(\{X_n\}\)</span> is iid with common
+continuous distribution, <span class="math inline">\(A_n\)</span> means
+that <span class="math inline">\(X_n\)</span> is a record, according to
+Renyi’s theorem, <span class="math inline">\(\{A_n\}\)</span> is
+independent and <span class="math inline">\(P(A_n)=\frac{1}{n}\)</span>,
+that is, we have <span class="math inline">\(\sum_{n=1}^\infty
+P(A_n)=\infty\)</span>, according to BC II, <span class="math inline">\(=P\{[X_n=\max\{X_i,i=1,\dots,n\}]\
+\text{i.o.}\}=P[A_n\ \text{i.o.}]=1\)</span>.</p>
+<p><span class="math inline">\(\textbf{Note:}\)</span> I am basically
+correct this time.</p>
+</div>
+<div id="ex-26" class="section level3">
+<h3>Ex 26</h3>
+<div class="problem">
+<p> (Barndorff-Nielsen)} Suppose <span class="math inline">\(\{E_n\}\)</span> is a sequence of events such that
+<span class="math display">\[ \lim_{n \to \infty} P(E_n) = 0, \quad
+\sum_{n} P(E_n E_{n+1}^c) &lt; \infty. \]</span> Prove <span class="math display">\[ P(E_n \text{ i.o.}) = 0. \]</span> Hint:
+Decompose <span class="math inline">\(\bigcup_{j=n}^m E_j\)</span> for
+<span class="math inline">\(m &gt; n\)</span>.</p>
+</div>
+<p><span class="math inline">\(\textbf{My idea:}\)</span> For <span class="math inline">\(\bigcup_{j=n}^mE_j\)</span>, <span class="math inline">\(m&gt;n\)</span>, we have <span class="math display">\[
+\begin{aligned}
+\bigcup_{j=n}^mE_j&amp;=\bigcup_{j=n}^{m-1}\{(E_j\cap
+E_{j+1})\cup(E_j\cap E_{j+1}^c)\}\cup E_m\\
+&amp;=\bigcup_{j=n}^{m-1}(E_j\cap
+E_{j+1})\cup\bigcup_{j=n}^{m-1}(E_j\cap E_{j+1}^c)\cup E_m\\
+&amp;=\left\{\bigcup_{j=n}^{m-1}E_j\cap\bigcup_{j=n}^{m-1}E_{j+1}\right\}\cup\bigcup_{j=n}^{m-1}(E_j\cap
+E_{j+1}^c)\cup E_m,
+\end{aligned}
+\]</span> therefore, for <span class="math inline">\(P(\bigcup_{j=n}^mE_j)\)</span>, we have <span class="math display">\[
+\begin{aligned}
+P(\bigcup_{j=n}^mE_j)\leq
+P\left(\left\{\bigcup_{j=n}^{m-1}E_j\cap\bigcup_{j=n}^{m-1}E_{j+1}\right\}\right)+P(\bigcup_{j=n}^{m-1}(E_j\cap
+E_{j+1}^c))+P(E_m)
+\end{aligned}
+\]</span> since we have <span class="math inline">\(\lim_{n\to\infty}P(E_n)=0\)</span> and <span class="math inline">\(\sum_n P(E_n\cap E_{n+1}^c)\leq\infty\)</span>, so
+when <span class="math inline">\(n\)</span> and <span class="math inline">\(m\)</span> approach to infinity, the right hand
+side goes to <span class="math inline">\(0\)</span>, that is <span class="math inline">\(\lim_{n\to\infty}\lim_{m\to\infty}P(\bigcup_{j=n}^mE_j)=0\)</span>,
+and that is exactly <span class="math inline">\(P[E_n\
+\text{i.o.}]=0\)</span>.</p>
+<p><span class="math inline">\(\textbf{Answer:}\)</span> For <span class="math inline">\(\bigcup_{j=n}^mE_j\)</span>, <span class="math inline">\(m&gt;n\)</span>, we have <span class="math display">\[
+\begin{aligned}
+\bigcup_{j=n}^mE_j&amp;=\bigcup_{j=n}^{m-1}\{(E_j\cap
+E_{j+1})\cup(E_j\cap E_{j+1}^c)\}\cup E_m\\
+&amp;=\bigcup_{j=n}^{m-1}(E_j\cap
+E_{j+1})\cup\bigcup_{j=n}^{m-1}(E_j\cap E_{j+1}^c)\cup E_m\\
+&amp;=\bigcup_{j=n}^{m-1}(E_j\cap E_{j+1}^c)\cup E_m,
+\end{aligned}
+\]</span> in the last two step, for any <span class="math inline">\(\omega\in\bigcup_{j=n}^{m-1}(E_j\cap
+E_{j+1})\)</span> there will be at least one <span class="math inline">\(k\in\{n,\dots,m-1\}\)</span> such that <span class="math inline">\(\omega\in E_k\cap E_{k+1}\)</span>, so <span class="math inline">\(S(\omega)=\{j\in\{n,\dots, m\}:\ \omega\in
+E_j\}\)</span> is non-empty, then it is legal to let <span class="math inline">\(L\)</span> be the largest index such that <span class="math inline">\(\omega\in E_L\)</span>, so 1. <span class="math inline">\(L=m\)</span>, then <span class="math inline">\(\omega\in E_m\)</span>, 2. <span class="math inline">\(n\leq L&lt;m\)</span>, then we know that <span class="math inline">\(\omega\in E_L\)</span> and <span class="math inline">\(\omega\not\in E_{L+1}\)</span>, that is <span class="math inline">\(\omega\in E_L\cap E_{L+1}^c\)</span>, so in both
+cases, <span class="math inline">\(\omega\in\bigcup_{j=n}^{m-1}(E_j\cap
+E_{j+1}^c)\cup E_m\)</span>, that is, the term <span class="math inline">\(\bigcup_{j=n}^{m-1}(E_j\cap E_{j+1})\)</span> is
+absorbed by <span class="math inline">\(\bigcup_{j=n}^{m-1}(E_j\cap
+E_{j+1}^c)\cup E_m\)</span>.</p>
+<p>Therefore, <span class="math display">\[
+P(\bigcup_{j=n}^mE_j)\leq P(\bigcup_{j=n}^{m-1}(E_j\cap
+E_{j+1}^c))+P(E_m).
+\]</span> By letting <span class="math inline">\(m\to\infty\)</span>,
+and because <span class="math inline">\(P\)</span> is continuous from
+below, we have <span class="math display">\[
+\begin{aligned}
+P(\bigcup_{j=n}^{\infty}E_j)&amp;\leq P(\bigcup_{j=n}^{\infty}(E_j\cap
+E_{j+1}^c))+\lim_{m\to\infty}P(E_m)\\
+&amp;=P(\bigcup_{j=n}^{\infty}(E_j\cap E_{j+1}^c))+0\\
+&amp;=P(\bigcup_{j=n}^{\infty}(E_j\cap E_{j+1}^c)),
+\end{aligned}
+\]</span> that is, for <span class="math inline">\(P[E_n\
+\text{i.o.}]\)</span>, by continuous from above, we have <span class="math display">\[
+\begin{aligned}
+P[E_n\ \text{i.o.}]&amp;=P(\bigcap_{n=1}^{\infty}\bigcup_{j=n}^\infty
+E_j)\\
+&amp;=\lim_{n\to\infty}P(\bigcup_{j=n}^\infty E_j)\\
+&amp;\leq\lim_{n\to\infty}P(\bigcup_{j=n}^{\infty}(E_j\cap E_{j+1}^c))\\
+&amp;\leq\lim_{n\to\infty}\sum_{j=n}^\infty P(E_j\cap E_{j+1}^c)=0.
+\end{aligned}
+\]</span> In the last step, <span class="math inline">\(\lim_{n\to\infty}\sum_{j=n}^\infty P(E_j\cap
+E_{j+1}^c)=0\)</span> since <span class="math inline">\(\sum_{n=1}^\infty P(E_n\cap
+E_{n+1}^c)&lt;\infty\)</span>. <span class="math inline">\(\textbf{Note:}\)</span> For the decomposition
+part, we can just consider the telescope absorption: <span class="math display">\[
+\bigcup_{j=n}^mE_j=\bigcup_{j=n}^{m-1}(E_j\cap E_{j+1}^c)\cup E_m.
+\]</span> and the condition can be interpret as: the element eventually
+stop staying in the sequence.</p>
 </div>
 </div>
 
