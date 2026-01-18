@@ -998,11 +998,63 @@ P[E_n\ \text{i.o.}]&=P(\bigcap_{n=1}^{\infty}\bigcup_{j=n}^\infty E_j)\\
 \end{aligned}
 $$
 In the last step, $\lim_{n\to\infty}\sum_{j=n}^\infty P(E_j\cap E_{j+1}^c)=0$ since $\sum_{n=1}^\infty P(E_n\cap E_{n+1}^c)<\infty$.
+
 $\textbf{Note:}$ For the decomposition part, we can just consider the telescope absorption:
 $$
 \bigcup_{j=n}^mE_j=\bigcup_{j=n}^{m-1}(E_j\cap E_{j+1}^c)\cup E_m.
 $$
 and the condition can be interpret as: the element eventually stop staying in the sequence.
+
+
+### Ex 27
+::: problem
+\ If $\{X_n, n\ge 1\}$ are independent random variables, show that the radius of
+convergence of the power series $\sum_{n=1}^{\infty} X_n z^n$ is a constant (possibly infinite)
+with probability one.
+
+\medskip
+Hint: The radius of convergence of $\sum_{n=1}^{\infty} c_n z^n$ is given by
+\[
+R^{-1}=\limsup_{n\to\infty} |c_n|^{1/n}.
+\]
+:::
+
+$\textbf{My idea:}$ Let $Y_n=\sup|X_n|^{1/n}$, since $\{X_n\}$ are independent r.v.s then $Y_n$ are also independent r.v.s, so $\limsup_{n\to\infty}Y_n\in\mathcal{T}$, that means $\limsup_{n\to\infty}Y_n$ is a constant with probability $1$, so the radius of convergence of the power series is a constant with probability one, when $\limsup_{n\to\infty}Y_n=0$ with probability one, then the radius is infinity with probability one.
+
+$\textbf{Answer:}$ Let $Y_n=|X_n|^{1/n}$, so we have $R(\omega)^{-1}=\limsup_{n\to\infty}|X_n|^{1/n}=\limsup_{n\to\infty}Y_n$, since $\{X_n\}$ are independent r.v.s then $Y_n$ are also independent r.v.s, and for $\limsup_{n\to\infty}Y_n$, the $\limsup$ for $\{Y_1,Y_2,\dots\}$ is the same as the $\limsup$ for $\{Y_{m+1},Y_{m+2},\dots\}$ for any $m\geq1$, so $\limsup_{n\to\infty}Y_n\in\mathcal{T}$, then for event $\{\limsup_{n\to\infty}Y_n\leq a\}=\{\limsup_{n\geq m+1}Y_n\leq a\}\in\sigma(\{Y_{m+1},Y_{m+2},\dots\})$, for any $m$, so $\{\limsup_{n\to\infty}Y_n\leq a\}\in\bigcap_{m}\sigma(\{Y_{m+1},Y_{m+2},\dots\})=\mathcal{T}$, according to Kolmogorov's 0-1 law, it can only have probability $0$ or $1$, so by letting $c=\inf\{q\in\mathbb{Q}:\ P(\limsup_{n\to\infty}Y_n\leq q)=1\}$, we have $\limsup_{n\to\infty}Y_n=c$ with probability one, since for $q\in\mathbb{Q}$, if $q<c$, $P(\limsup_{n\to\infty}Y_n\leq q)=0$, if $q>c$, $P(\limsup_{n\to\infty}Y_n\leq q)=1$. So $R=\frac{1}{c}\ \text{a.s.}$ (with $1/0=\infty$ and $1/\infty=0$).
+
+$\textbf{Note:}$ We should clarify the logic chain of this question, let $L:=R^{-1}=\limsup_{n\to\infty}|X_n|^{1/n}$, then:
+1. $L$ is a random varible, and is $\mathcal{T}$-measurable
+2. $L$ is a constant in probability one.
+3. The radius is a constant in probability one.
+Each step above should be stated clearly in the proof.
+
+### Ex 28
+::: problem
+\ Show $\{X_n,\, n\ge 1\}$ are independent if
+\[
+\sigma(X_1,\ldots,X_{n-1}) \perp\!\!\!\perp \sigma(X_n)
+\]
+are independent for each $n\ge 2$.
+:::
+
+$\textbf{My idea:}$ Since for each $n\geq2$, $\sigma(X_1,\dots,X_{n-1})$ and $\sigma(X_n)$ are independent, then we know: $\sigma(X_1)$ and $\sigma(X_2)$ are independent, when $n=2$, and when $n=3$, 
+$\sigma(X_1,X_{2})$ and $\sigma(X_3)$ are independent, so we have $\sigma(X_1)$ and $\sigma(X_3)$ are independent, and $\sigma(X_{2})$ and $\sigma(X_3)$ are independent since $\sigma(X_1),\sigma(X_2)\subseteq\sigma(X_1,X_{2})$, that is, $\sigma(X_1)$, $\sigma(X_2)$ and $\sigma(X_3)$ are pairwisely independent, then for any fixed $n$, $\{\sigma(X_n)\}$ are pairewise independent. Further, for any finite subset $A=\{a_1,\dots,a_n\}$ of $\mathbb{N}$, $\{\sigma(X_i),\ i\in A\}$ are independent since for $a_i<a_j$, we have $\sigma(X_1,\dots,X_{a_i},\dots,X_{a_j-1})$ and $\sigma(X_{a_j})$ are independent, and $\sigma(X_{a_i})\subseteq\sigma(X_1,\dots,X_{a_i},\dots,X_{a_j-1})$, therefore $\{\sigma(X_n)\}$ are independent, so $\{X_n,\ n\geq1\}$ are independent by the definition of independence of r.v.s.
+
+$\textbf{Answer:}$ For any fixed $n$, and any $A_i\in\sigma(X_i)$, $i=1,\dots,n$, since $\sigma(X_1,\dots,X_{n-1})$ and $\sigma(X_n)$ are independent, we have $P(\bigcap_{i=1}^nA_i)=P(\bigcap_{i=1}^{n-1}A_i)P(A_n)$, because $\bigcap_{i=1}^{n-1}A_i\in\sigma(X_1,\dots,X_{n-1})$ and $A_n\in\sigma(X_n)$, however, we also have $\bigcap_{i=1}^{n-2}A_i\in\sigma(X_1,\dots,X_{n-2})$ and $A_{n-1}\in\sigma(X_{n-1})$, and $\sigma(X_1,\dots,X_{n-2})$ and $\sigma(X_{n-1})$ are also independent, so $P(\bigcap_{i=1}^{n-1}A_i)=P(\bigcap_{i=1}^{n-2}A_i)P(A_{n-1})$, that is $P(\bigcap_{i=1}^nA_i)=P(\bigcap_{i=1}^{n-2}A_i)P(A_{n-1})P(A_n)$, repeat the same argument for $P(\bigcap_{i=1}^{n-2}A_i)$, etc. Formally, by induction on $n$, we have $P(\bigcap_{i=1}^nA_i)=\prod_{i=1}^{n}P(A_i)$, therefore $\sigma(X_1),\dots,\sigma(X_n)$ are independent for every $n$, so $\{X_n,\ n\geq1\}$ are independent by the definition of independence of r.v.s.
+
+$\textbf{Note:}$ I was wrong about the definition of independent classes, so I type it here:
+
+$\textbf{Definition (Independent classes)}$ Let $\mathcal{C}_i\subseteq\mathcal{B}$, $i=1,\dots,n$.
+The classes $\mathcal{C}_i$ are independent, if for any choice $A_1,\dots,A_n$, with
+$A_i\in \mathcal{C}_i$, $i=1,\dots,n$, we have the events $A_1,\dots,A_n$ independent events.
+
+
+
+
+
+
+
 
 
 

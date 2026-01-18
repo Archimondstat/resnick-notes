@@ -11,7 +11,7 @@
 
 <meta name="author" content="P" />
 
-<meta name="date" content="2026-01-17" />
+<meta name="date" content="2026-01-18" />
 
 <title>Notes on A Probability Path (Resnick)</title>
 
@@ -353,7 +353,7 @@ display: none;
 
 <h1 class="title toc-ignore">Notes on A Probability Path (Resnick)</h1>
 <h4 class="author">P</h4>
-<h4 class="date">2026-01-17</h4>
+<h4 class="date">2026-01-18</h4>
 
 </div>
 
@@ -408,6 +408,8 @@ Independence</a>
 <li><a href="#ex-24" id="toc-ex-24">Ex 24</a></li>
 <li><a href="#ex-25" id="toc-ex-25">Ex 25</a></li>
 <li><a href="#ex-26" id="toc-ex-26">Ex 26</a></li>
+<li><a href="#ex-27" id="toc-ex-27">Ex 27</a></li>
+<li><a href="#ex-28" id="toc-ex-28">Ex 28</a></li>
 </ul></li>
 </ul>
 </div>
@@ -1518,11 +1520,95 @@ E_j)\\
 \end{aligned}
 \]</span> In the last step, <span class="math inline">\(\lim_{n\to\infty}\sum_{j=n}^\infty P(E_j\cap
 E_{j+1}^c)=0\)</span> since <span class="math inline">\(\sum_{n=1}^\infty P(E_n\cap
-E_{n+1}^c)&lt;\infty\)</span>. <span class="math inline">\(\textbf{Note:}\)</span> For the decomposition
-part, we can just consider the telescope absorption: <span class="math display">\[
+E_{n+1}^c)&lt;\infty\)</span>.</p>
+<p><span class="math inline">\(\textbf{Note:}\)</span> For the
+decomposition part, we can just consider the telescope absorption: <span class="math display">\[
 \bigcup_{j=n}^mE_j=\bigcup_{j=n}^{m-1}(E_j\cap E_{j+1}^c)\cup E_m.
 \]</span> and the condition can be interpret as: the element eventually
 stop staying in the sequence.</p>
+</div>
+<div id="ex-27" class="section level3">
+<h3>Ex 27</h3>
+<div class="problem">
+<p> If <span class="math inline">\(\{X_n, n\ge 1\}\)</span> are
+independent random variables, show that the radius of convergence of the
+power series <span class="math inline">\(\sum_{n=1}^{\infty} X_n
+z^n\)</span> is a constant (possibly infinite) with probability one.</p>
+<p>Hint: The radius of convergence of <span class="math inline">\(\sum_{n=1}^{\infty} c_n z^n\)</span> is given by
+<span class="math display">\[
+R^{-1}=\limsup_{n\to\infty} |c_n|^{1/n}.
+\]</span></p>
+</div>
+<p><span class="math inline">\(\textbf{My idea:}\)</span> Let <span class="math inline">\(Y_n=\sup|X_n|^{1/n}\)</span>, since <span class="math inline">\(\{X_n\}\)</span> are independent r.v.s then <span class="math inline">\(Y_n\)</span> are also independent r.v.s, so <span class="math inline">\(\limsup_{n\to\infty}Y_n\in\mathcal{T}\)</span>,
+that means <span class="math inline">\(\limsup_{n\to\infty}Y_n\)</span>
+is a constant with probability <span class="math inline">\(1\)</span>,
+so the radius of convergence of the power series is a constant with
+probability one, when <span class="math inline">\(\limsup_{n\to\infty}Y_n=0\)</span> with
+probability one, then the radius is infinity with probability one.</p>
+<p><span class="math inline">\(\textbf{Answer:}\)</span> Let <span class="math inline">\(Y_n=|X_n|^{1/n}\)</span>, so we have <span class="math inline">\(R(\omega)^{-1}=\limsup_{n\to\infty}|X_n|^{1/n}=\limsup_{n\to\infty}Y_n\)</span>,
+since <span class="math inline">\(\{X_n\}\)</span> are independent r.v.s
+then <span class="math inline">\(Y_n\)</span> are also independent
+r.v.s, and for <span class="math inline">\(\limsup_{n\to\infty}Y_n\)</span>, the <span class="math inline">\(\limsup\)</span> for <span class="math inline">\(\{Y_1,Y_2,\dots\}\)</span> is the same as the
+<span class="math inline">\(\limsup\)</span> for <span class="math inline">\(\{Y_{m+1},Y_{m+2},\dots\}\)</span> for any <span class="math inline">\(m\geq1\)</span>, so <span class="math inline">\(\limsup_{n\to\infty}Y_n\in\mathcal{T}\)</span>,
+then for event <span class="math inline">\(\{\limsup_{n\to\infty}Y_n\leq
+a\}=\{\limsup_{n\geq m+1}Y_n\leq
+a\}\in\sigma(\{Y_{m+1},Y_{m+2},\dots\})\)</span>, for any <span class="math inline">\(m\)</span>, so <span class="math inline">\(\{\limsup_{n\to\infty}Y_n\leq
+a\}\in\bigcap_{m}\sigma(\{Y_{m+1},Y_{m+2},\dots\})=\mathcal{T}\)</span>,
+according to Kolmogorov’s 0-1 law, it can only have probability <span class="math inline">\(0\)</span> or <span class="math inline">\(1\)</span>, so by letting <span class="math inline">\(c=\inf\{q\in\mathbb{Q}:\
+P(\limsup_{n\to\infty}Y_n\leq q)=1\}\)</span>, we have <span class="math inline">\(\limsup_{n\to\infty}Y_n=c\)</span> with
+probability one, since for <span class="math inline">\(q\in\mathbb{Q}\)</span>, if <span class="math inline">\(q&lt;c\)</span>, <span class="math inline">\(P(\limsup_{n\to\infty}Y_n\leq q)=0\)</span>, if
+<span class="math inline">\(q&gt;c\)</span>, <span class="math inline">\(P(\limsup_{n\to\infty}Y_n\leq q)=1\)</span>. So
+<span class="math inline">\(R=\frac{1}{c}\ \text{a.s.}\)</span> (with
+<span class="math inline">\(1/0=\infty\)</span> and <span class="math inline">\(1/\infty=0\)</span>).</p>
+<p><span class="math inline">\(\textbf{Note:}\)</span> We should clarify
+the logic chain of this question, let <span class="math inline">\(L:=R^{-1}=\limsup_{n\to\infty}|X_n|^{1/n}\)</span>,
+then: 1. <span class="math inline">\(L\)</span> is a random varible, and
+is <span class="math inline">\(\mathcal{T}\)</span>-measurable 2. <span class="math inline">\(L\)</span> is a constant in probability one. 3.
+The radius is a constant in probability one. Each step above should be
+stated clearly in the proof.</p>
+</div>
+<div id="ex-28" class="section level3">
+<h3>Ex 28</h3>
+<div class="problem">
+<p> Show <span class="math inline">\(\{X_n,\, n\ge 1\}\)</span> are
+independent if <span class="math display">\[
+\sigma(X_1,\ldots,X_{n-1}) \perp\!\!\!\perp \sigma(X_n)
+\]</span> are independent for each <span class="math inline">\(n\ge
+2\)</span>.</p>
+</div>
+<p><span class="math inline">\(\textbf{My idea:}\)</span> Since for each
+<span class="math inline">\(n\geq2\)</span>, <span class="math inline">\(\sigma(X_1,\dots,X_{n-1})\)</span> and <span class="math inline">\(\sigma(X_n)\)</span> are independent, then we
+know: <span class="math inline">\(\sigma(X_1)\)</span> and <span class="math inline">\(\sigma(X_2)\)</span> are independent, when <span class="math inline">\(n=2\)</span>, and when <span class="math inline">\(n=3\)</span>, <span class="math inline">\(\sigma(X_1,X_{2})\)</span> and <span class="math inline">\(\sigma(X_3)\)</span> are independent, so we have
+<span class="math inline">\(\sigma(X_1)\)</span> and <span class="math inline">\(\sigma(X_3)\)</span> are independent, and <span class="math inline">\(\sigma(X_{2})\)</span> and <span class="math inline">\(\sigma(X_3)\)</span> are independent since <span class="math inline">\(\sigma(X_1),\sigma(X_2)\subseteq\sigma(X_1,X_{2})\)</span>,
+that is, <span class="math inline">\(\sigma(X_1)\)</span>, <span class="math inline">\(\sigma(X_2)\)</span> and <span class="math inline">\(\sigma(X_3)\)</span> are pairwisely independent,
+then for any fixed <span class="math inline">\(n\)</span>, <span class="math inline">\(\{\sigma(X_n)\}\)</span> are pairewise
+independent. Further, for any finite subset <span class="math inline">\(A=\{a_1,\dots,a_n\}\)</span> of <span class="math inline">\(\mathbb{N}\)</span>, <span class="math inline">\(\{\sigma(X_i),\ i\in A\}\)</span> are independent
+since for <span class="math inline">\(a_i&lt;a_j\)</span>, we have <span class="math inline">\(\sigma(X_1,\dots,X_{a_i},\dots,X_{a_j-1})\)</span>
+and <span class="math inline">\(\sigma(X_{a_j})\)</span> are
+independent, and <span class="math inline">\(\sigma(X_{a_i})\subseteq\sigma(X_1,\dots,X_{a_i},\dots,X_{a_j-1})\)</span>,
+therefore <span class="math inline">\(\{\sigma(X_n)\}\)</span> are
+independent, so <span class="math inline">\(\{X_n,\ n\geq1\}\)</span>
+are independent by the definition of independence of r.v.s.</p>
+<p><span class="math inline">\(\textbf{Answer:}\)</span> For any fixed
+<span class="math inline">\(n\)</span>, and any <span class="math inline">\(A_i\in\sigma(X_i)\)</span>, <span class="math inline">\(i=1,\dots,n\)</span>, since <span class="math inline">\(\sigma(X_1,\dots,X_{n-1})\)</span> and <span class="math inline">\(\sigma(X_n)\)</span> are independent, we have
+<span class="math inline">\(P(\bigcap_{i=1}^nA_i)=P(\bigcap_{i=1}^{n-1}A_i)P(A_n)\)</span>,
+because <span class="math inline">\(\bigcap_{i=1}^{n-1}A_i\in\sigma(X_1,\dots,X_{n-1})\)</span>
+and <span class="math inline">\(A_n\in\sigma(X_n)\)</span>, however, we
+also have <span class="math inline">\(\bigcap_{i=1}^{n-2}A_i\in\sigma(X_1,\dots,X_{n-2})\)</span>
+and <span class="math inline">\(A_{n-1}\in\sigma(X_{n-1})\)</span>, and
+<span class="math inline">\(\sigma(X_1,\dots,X_{n-2})\)</span> and <span class="math inline">\(\sigma(X_{n-1})\)</span> are also independent, so
+<span class="math inline">\(P(\bigcap_{i=1}^{n-1}A_i)=P(\bigcap_{i=1}^{n-2}A_i)P(A_{n-1})\)</span>,
+that is <span class="math inline">\(P(\bigcap_{i=1}^nA_i)=P(\bigcap_{i=1}^{n-2}A_i)P(A_{n-1})P(A_n)\)</span>,
+repeat the same argument for <span class="math inline">\(P(\bigcap_{i=1}^{n-2}A_i)\)</span>, etc. Formally,
+by induction on <span class="math inline">\(n\)</span>, we have <span class="math inline">\(P(\bigcap_{i=1}^nA_i)=\prod_{i=1}^{n}P(A_i)\)</span>,
+therefore <span class="math inline">\(\sigma(X_1),\dots,\sigma(X_n)\)</span> are
+independent for every <span class="math inline">\(n\)</span>, so <span class="math inline">\(\{X_n,\ n\geq1\}\)</span> are independent by the
+definition of independence of r.v.s.</p>
+<p><span class="math inline">\(\textbf{Note:}\)</span> I was wrong about
+the definition of independent classes, so I type it here:</p>
+<p><span class="math inline">\(\textbf{Definition (Independent
+classes)}\)</span> Let <span class="math inline">\(\mathcal{C}_i\subseteq\mathcal{B}\)</span>, <span class="math inline">\(i=1,\dots,n\)</span>. The classes <span class="math inline">\(\mathcal{C}_i\)</span> are independent, if for any
+choice <span class="math inline">\(A_1,\dots,A_n\)</span>, with <span class="math inline">\(A_i\in \mathcal{C}_i\)</span>, <span class="math inline">\(i=1,\dots,n\)</span>, we have the events <span class="math inline">\(A_1,\dots,A_n\)</span> independent events.</p>
 </div>
 </div>
 
