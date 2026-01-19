@@ -1049,7 +1049,7 @@ $\textbf{Definition (Independent classes)}$ Let $\mathcal{C}_i\subseteq\mathcal{
 The classes $\mathcal{C}_i$ are independent, if for any choice $A_1,\dots,A_n$, with
 $A_i\in \mathcal{C}_i$, $i=1,\dots,n$, we have the events $A_1,\dots,A_n$ independent events.
 
-### Ex 28
+### Ex 29
 ::: problem
  Let
 \[
@@ -1069,7 +1069,7 @@ P(X_1=x_1,\dots,X_n=x_n)=\frac{1}{r^n}=\prod_{i=1}^{n}P(X_i=x_i),
 $$
 therefore $X_1,\dots,X_n$ are independent.
 
-### Ex 29
+### Ex 30
 ::: problem
 
 :::
