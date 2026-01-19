@@ -1049,13 +1049,35 @@ $\textbf{Definition (Independent classes)}$ Let $\mathcal{C}_i\subseteq\mathcal{
 The classes $\mathcal{C}_i$ are independent, if for any choice $A_1,\dots,A_n$, with
 $A_i\in \mathcal{C}_i$, $i=1,\dots,n$, we have the events $A_1,\dots,A_n$ independent events.
 
+### Ex 28
+::: problem
+ Let
+\[
+\Omega=\{1,\ldots,r\}^n=\{(x_1,\ldots,x_n): x_i\in\{1,\ldots,r\},\, i=1,\ldots,n\}
+\]
+and assume an assignment of probabilities such that each point of $\Omega$ is equally likely.
+Define the coordinate random variables
+\[
+X_i((x_1,\ldots,x_n))=x_i,\qquad i=1,\ldots,n.
+\]
+Prove that the random variables $X_1,\ldots,X_n$ are independent.
+:::
 
+$\textbf{My idea:}$ According to the assumption, we have $|\Omega|=r^n$, so each point $\omega\in\Omega$ has probability $\frac{1}{r^n}$, and for coordinate random variables, $X_i(\omega)=X_i((x_1,\dots,x_n))=x_i$, $i=1,\dots,n$, then for $x_i\in\{1,\dots,r\}$, $P(X_i=x_i)=\frac{r^{n-1}}{r^n}=\frac{1}{r}$, because for the numerator, there are $r^{n-1}$ situations, then for r.v.s $X_1,\dots,X_n$, and any $\omega=(x_1,x_2,\dots,x_n)\in\Omega$,by corollary 4.2.2 we have
+$$
+P(X_1=x_1,\dots,X_n=x_n)=\frac{1}{r^n}=\prod_{i=1}^{n}P(X_i=x_i),
+$$
+therefore $X_1,\dots,X_n$ are independent.
 
+### Ex 29
+::: problem
 
+:::
 
+#### (a)
+$\textbf{My idea:}$ Let $A_n=[d_{2n}=0]$, $B_n=[d_{2n+1}=1]$, by the Fact 3 in 4.3.2, $d_n$ are iid, so $\{A_n\}\cup\{B_n\}$ are independent since $A_n\in\sigma(d_{2n})$ and $B_n\in\sigma(d_{2n+1})$, therefore $\{\sigma(A_n)\}\cup\{\sigma(B_n)\}$ is an independent family of $\sigma$-fields since $\sigma(A_n)\subseteq\sigma(d_{2n})$ and $\sigma(B_n)\subseteq\sigma(d_{2n+1})$ and independence is preserved under taking sub-$\sigma$-fields, then by lemma 4.4.1 (Grouping Lemma), $\sigma(A_1,\dots,A_n,\dots)$ and $\sigma(B_1,\dots,B_n,\dots)$ are independent, and $A\in\sigma(A_1,\dots,A_n,\dots)$, $B\in\sigma(B_1,\dots,B_n,\dots)$, so $A$ and $B$ are independent.
 
-
-
+$\textbf{Note:}$ The Grouping Lemma may be too strong for this question, we can also consider two random vectors $X=(d_2,d_4,\dots)$ and $Y=(d_1,d_3,\dots)$ are independent, and $A\in\sigma(X)$ and $B\in\sigma(Y)$.
 
 
 

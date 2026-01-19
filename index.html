@@ -11,7 +11,7 @@
 
 <meta name="author" content="P" />
 
-<meta name="date" content="2026-01-18" />
+<meta name="date" content="2026-01-19" />
 
 <title>Notes on A Probability Path (Resnick)</title>
 
@@ -353,7 +353,7 @@ display: none;
 
 <h1 class="title toc-ignore">Notes on A Probability Path (Resnick)</h1>
 <h4 class="author">P</h4>
-<h4 class="date">2026-01-18</h4>
+<h4 class="date">2026-01-19</h4>
 
 </div>
 
@@ -410,6 +410,11 @@ Independence</a>
 <li><a href="#ex-26" id="toc-ex-26">Ex 26</a></li>
 <li><a href="#ex-27" id="toc-ex-27">Ex 27</a></li>
 <li><a href="#ex-28" id="toc-ex-28">Ex 28</a></li>
+<li><a href="#ex-28-1" id="toc-ex-28-1">Ex 28</a></li>
+<li><a href="#ex-29" id="toc-ex-29">Ex 29</a>
+<ul>
+<li><a href="#a-5" id="toc-a-5">(a)</a></li>
+</ul></li>
 </ul></li>
 </ul>
 </div>
@@ -1609,6 +1614,52 @@ the definition of independent classes, so I type it here:</p>
 <p><span class="math inline">\(\textbf{Definition (Independent
 classes)}\)</span> Let <span class="math inline">\(\mathcal{C}_i\subseteq\mathcal{B}\)</span>, <span class="math inline">\(i=1,\dots,n\)</span>. The classes <span class="math inline">\(\mathcal{C}_i\)</span> are independent, if for any
 choice <span class="math inline">\(A_1,\dots,A_n\)</span>, with <span class="math inline">\(A_i\in \mathcal{C}_i\)</span>, <span class="math inline">\(i=1,\dots,n\)</span>, we have the events <span class="math inline">\(A_1,\dots,A_n\)</span> independent events.</p>
+</div>
+<div id="ex-28-1" class="section level3">
+<h3>Ex 28</h3>
+<div class="problem">
+<p>Let <span class="math display">\[
+\Omega=\{1,\ldots,r\}^n=\{(x_1,\ldots,x_n): x_i\in\{1,\ldots,r\},\,
+i=1,\ldots,n\}
+\]</span> and assume an assignment of probabilities such that each point
+of <span class="math inline">\(\Omega\)</span> is equally likely. Define
+the coordinate random variables <span class="math display">\[
+X_i((x_1,\ldots,x_n))=x_i,\qquad i=1,\ldots,n.
+\]</span> Prove that the random variables <span class="math inline">\(X_1,\ldots,X_n\)</span> are independent.</p>
+</div>
+<p><span class="math inline">\(\textbf{My idea:}\)</span> According to
+the assumption, we have <span class="math inline">\(|\Omega|=r^n\)</span>, so each point <span class="math inline">\(\omega\in\Omega\)</span> has probability <span class="math inline">\(\frac{1}{r^n}\)</span>, and for coordinate random
+variables, <span class="math inline">\(X_i(\omega)=X_i((x_1,\dots,x_n))=x_i\)</span>,
+<span class="math inline">\(i=1,\dots,n\)</span>, then for <span class="math inline">\(x_i\in\{1,\dots,r\}\)</span>, <span class="math inline">\(P(X_i=x_i)=\frac{r^{n-1}}{r^n}=\frac{1}{r}\)</span>,
+because for the numerator, there are <span class="math inline">\(r^{n-1}\)</span> situations, then for r.v.s <span class="math inline">\(X_1,\dots,X_n\)</span>, and any <span class="math inline">\(\omega=(x_1,x_2,\dots,x_n)\in\Omega\)</span>,by
+corollary 4.2.2 we have <span class="math display">\[
+P(X_1=x_1,\dots,X_n=x_n)=\frac{1}{r^n}=\prod_{i=1}^{n}P(X_i=x_i),
+\]</span> therefore <span class="math inline">\(X_1,\dots,X_n\)</span>
+are independent.</p>
+</div>
+<div id="ex-29" class="section level3">
+<h3>Ex 29</h3>
+<div class="problem">
+
+</div>
+<div id="a-5" class="section level4">
+<h4>(a)</h4>
+<p><span class="math inline">\(\textbf{My idea:}\)</span> Let <span class="math inline">\(A_n=[d_{2n}=0]\)</span>, <span class="math inline">\(B_n=[d_{2n+1}=1]\)</span>, by the Fact 3 in 4.3.2,
+<span class="math inline">\(d_n\)</span> are iid, so <span class="math inline">\(\{A_n\}\cup\{B_n\}\)</span> are independent since
+<span class="math inline">\(A_n\in\sigma(d_{2n})\)</span> and <span class="math inline">\(B_n\in\sigma(d_{2n+1})\)</span>, therefore <span class="math inline">\(\{\sigma(A_n)\}\cup\{\sigma(B_n)\}\)</span> is an
+independent family of <span class="math inline">\(\sigma\)</span>-fields
+since <span class="math inline">\(\sigma(A_n)\subseteq\sigma(d_{2n})\)</span> and
+<span class="math inline">\(\sigma(B_n)\subseteq\sigma(d_{2n+1})\)</span> and
+independence is preserved under taking sub-<span class="math inline">\(\sigma\)</span>-fields, then by lemma 4.4.1
+(Grouping Lemma), <span class="math inline">\(\sigma(A_1,\dots,A_n,\dots)\)</span> and <span class="math inline">\(\sigma(B_1,\dots,B_n,\dots)\)</span> are
+independent, and <span class="math inline">\(A\in\sigma(A_1,\dots,A_n,\dots)\)</span>, <span class="math inline">\(B\in\sigma(B_1,\dots,B_n,\dots)\)</span>, so <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are independent.</p>
+<p><span class="math inline">\(\textbf{Note:}\)</span> The Grouping
+Lemma may be too strong for this question, we can also consider two
+random vectors <span class="math inline">\(X=(d_2,d_4,\dots)\)</span>
+and <span class="math inline">\(Y=(d_1,d_3,\dots)\)</span> are
+independent, and <span class="math inline">\(A\in\sigma(X)\)</span> and
+<span class="math inline">\(B\in\sigma(Y)\)</span>.</p>
+</div>
 </div>
 </div>
 
