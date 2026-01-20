@@ -11,7 +11,7 @@
 
 <meta name="author" content="P" />
 
-<meta name="date" content="2026-01-19" />
+<meta name="date" content="2026-01-20" />
 
 <title>Notes on A Probability Path (Resnick)</title>
 
@@ -353,7 +353,7 @@ display: none;
 
 <h1 class="title toc-ignore">Notes on A Probability Path (Resnick)</h1>
 <h4 class="author">P</h4>
-<h4 class="date">2026-01-19</h4>
+<h4 class="date">2026-01-20</h4>
 
 </div>
 
@@ -414,6 +414,10 @@ Independence</a>
 <li><a href="#ex-30" id="toc-ex-30">Ex 30</a>
 <ul>
 <li><a href="#a-5" id="toc-a-5">(a)</a></li>
+<li><a href="#b-5" id="toc-b-5">(b)</a></li>
+<li><a href="#c-3" id="toc-c-3">(c)</a></li>
+<li><a href="#d-1" id="toc-d-1">(d)</a></li>
+<li><a href="#e" id="toc-e">(e)</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -528,7 +532,7 @@ P\!\left(\lim_{n\to\infty}\frac{X_n}{c_n}=0\right)=1.
 </div>
 <p><span class="math inline">\(\textbf{My idea:}\)</span> if we want to
 find <span class="math inline">\(\{c_n\}\)</span> that <span class="math inline">\(P[\lim_{n\to\infty}\frac{X_n}{c_n}=0]\)</span>,
-think the opposite, that is, for any <span class="math inline">\(a&gt;0\)</span>, we must have <span class="math inline">\(P[\frac{X_n}{c_n}&gt;a,\ \text{i.o.}]=0\)</span>,
+think the opposite, that is, for any <span class="math inline">\(a&gt;0\)</span>, we must have <span class="math inline">\(P[\frac{X_n}{c_n}&gt;a\ \text{i.o.}]=0\)</span>,
 because if such <span class="math inline">\(\{c_n\}\)</span> exists,
 <span class="math inline">\(X_n\)</span> would not exceed any positive
 number infintely many times, so we just need to fix some <span class="math inline">\(a&gt;0\)</span>, and construct <span class="math inline">\(\{c_n\}\)</span> such that make sure <span class="math inline">\(\sum_{n=1}^{\infty} P[X_n&gt;a\cdot
@@ -569,9 +573,9 @@ prove another direction. Since we have <span class="math inline">\(\lim_{n\to\in
 without lost of generality, we can assume that <span class="math inline">\(\{a_n\},\ \{b_n\}\in[0,1]\)</span>, otherwise we
 can discuss the terms after some big <span class="math inline">\(N\)</span>. We can assign <span class="math inline">\(\{a_n\}\)</span> as probability to independent
 measurable set <span class="math inline">\(\{A_n\}\)</span> and <span class="math inline">\(\{b_n\}\)</span> to <span class="math inline">\(\{B_n\}\)</span>, where <span class="math inline">\(\{B_n\}\)</span> also independent, then we have
-<span class="math inline">\(\sum_{n}P(A_n)&lt;\infty\)</span>, so <span class="math inline">\(P[A_n,\ \text{i.o.}]=0\)</span>, since <span class="math inline">\(\lim_{n\to\infty}\frac{a_n}{b_n}=1\)</span>, we
-know that <span class="math inline">\(P[B_n,\ \text{i.o.}]=0\)</span>,
-so we get <span class="math inline">\(\sum_{n}b_n=\sum_{n}P(B_n)&lt;\infty\)</span>.</p>
+<span class="math inline">\(\sum_{n}P(A_n)&lt;\infty\)</span>, so <span class="math inline">\(P[A_n\ \text{i.o.}]=0\)</span>, since <span class="math inline">\(\lim_{n\to\infty}\frac{a_n}{b_n}=1\)</span>, we
+know that <span class="math inline">\(P[B_n\ \text{i.o.}]=0\)</span>, so
+we get <span class="math inline">\(\sum_{n}b_n=\sum_{n}P(B_n)&lt;\infty\)</span>.</p>
 <p><span class="math inline">\(\textbf{Answer:}\)</span> Since <span class="math inline">\(\lim_{n\to\infty}\frac{a_n}{b_n}=1\)</span>, then
 <span class="math inline">\(\forall\varepsilon&gt;0\)</span>, <span class="math inline">\(\exists N&gt;0\)</span> such that when <span class="math inline">\(n&gt;N\)</span>, <span class="math inline">\((1-\varepsilon)b_n&lt;a_n&lt;(1+\varepsilon)b_n\)</span>,
 the sequences are non-negative, then we can choose <span class="math inline">\(\varepsilon\in(0,1)\)</span> to have <span class="math inline">\(\sum_{n\geq N}b_n\leq\frac{\sum_{n\geq
@@ -604,7 +608,7 @@ not independent, but <span class="math inline">\(A_{3k+1}\)</span> are
 independent since <span class="math inline">\(\{X_n\}\)</span> iid,
 also, we have <span class="math inline">\(P(A_{3k+1})=p^2(1-p)\)</span>,
 which is a constant, so <span class="math inline">\(\sum_{k\geq0}P(A_{3k+1})=\infty\)</span>, that is,
-<span class="math inline">\(P[A_{3k+1},\ \text{i.o.}]=1\)</span>, so the
+<span class="math inline">\(P[A_{3k+1}\ \text{i.o.}]=1\)</span>, so the
 pattern 1,0,1 appears infinitely often with probability 1.</p>
 <p><span class="math inline">\(\textbf{Answer:}\)</span> Start from
 <span class="math inline">\(P(A_{3k+1})=p^2(1-p)\)</span>, we need to
@@ -841,9 +845,9 @@ Borel-Cantelli II, we get what we want.</p>
 <p><span class="math inline">\(\textbf{Answer:}\)</span> Let <span class="math inline">\(A_n=[X_n&gt;a_n]\)</span>, since <span class="math inline">\(\{X_n,\ n\geq1\}\)</span> are iid r.v’s, then
 <span class="math inline">\(P(A_n)=P(X_n&gt;a_n)=P(X_1&gt;a_n)\)</span>,
 and <span class="math inline">\(\{A_n\}\)</span> are independent, then
-according to Borel-Cantelli, <span class="math inline">\(P[A_n,\
+according to Borel-Cantelli, <span class="math inline">\(P[A_n\
 \text{i.o.}]=1\)</span> iff <span class="math inline">\(\sum_n
-P(X_1&gt;a_n)=\infty\)</span> and <span class="math inline">\(P[A_n,\
+P(X_1&gt;a_n)=\infty\)</span> and <span class="math inline">\(P[A_n\
 \text{i.o.}]=0\)</span> iff <span class="math inline">\(\sum_n
 P(X_1&gt;a_n)&lt;\infty\)</span>.</p>
 <p><span class="math inline">\(\textbf{Note:}\)</span> <span class="math inline">\(A_n=[X_n&gt;a_n]\)</span>, is not equal to <span class="math inline">\([X_1&gt;a_n]\)</span>, but we only need to discuss
@@ -869,7 +873,7 @@ n}}&gt;\sqrt2-\varepsilon\)</span> for infinitely many <span class="math inline"
 \sqrt2+\varepsilon_k\right]\right)
 \ \bigcap\
 \bigcap_{k=1}^\infty \left[\frac{|X_n|}{\sqrt{\log
-n}}&gt;\sqrt2-\varepsilon_k,\ \text{i.o.}\right].
+n}}&gt;\sqrt2-\varepsilon_k\ \text{i.o.}\right].
 \end{aligned}
 \]</span></p>
 <p>Then we can discuss <span class="math inline">\(P[\frac{|X_n|}{\sqrt{\log
@@ -882,14 +886,14 @@ n}(\sqrt{2}-\varepsilon_k)}\)</span>.</p>
 <p>That is, we have <span class="math inline">\(\frac{(\sqrt{2}-\varepsilon_k)^2}{2}&lt;1\)</span>,
 for all <span class="math inline">\(k\)</span>, therefore <span class="math inline">\(\sum_{n\to\infty}P[\frac{|X_n|}{\sqrt{\log
 n}}&gt;\sqrt2-\varepsilon_k]=\infty\)</span>, so <span class="math inline">\(P\left[\frac{|X_n|}{\sqrt{\log
-n}}&gt;\sqrt2-\varepsilon_k,\ \text{i.o.}\right]=1\)</span>.</p>
+n}}&gt;\sqrt2-\varepsilon_k\ \text{i.o.}\right]=1\)</span>.</p>
 <p>For the <span class="math inline">\(\liminf\)</span> part, we can
 discuss the probability of its complement, which is <span class="math display">\[
 \begin{aligned}
 P\left\{\limsup_{n\to\infty}\left[\frac{|X_n|}{\sqrt{\log n}}\le
 \sqrt2+\varepsilon_k\right]^c\right\}&amp;=P\left\{\limsup_{n\to\infty}\left[\frac{|X_n|}{\sqrt{\log
 n}}&gt; \sqrt2+\varepsilon_k\right]\right\}\\
-&amp;=P\left[\frac{|X_n|}{\sqrt{\log n}}&gt; \sqrt2+\varepsilon_k,\
+&amp;=P\left[\frac{|X_n|}{\sqrt{\log n}}&gt; \sqrt2+\varepsilon_k\
 \text{i.o.}\right]\\
 &amp;\sim 2\frac{\phi((\sqrt2+\varepsilon_k)\sqrt{\log
 n})}{(\sqrt2+\varepsilon_k)\sqrt{\log n}}\\
@@ -899,7 +903,7 @@ n}(\sqrt{2}+\varepsilon_k)}
 \]</span> and we have <span class="math inline">\(\sum_{n\to\infty}\frac{2}{n^{\frac{(\sqrt{2}+\varepsilon_k)^2}{2}}\sqrt{\log
 n}(\sqrt{2}+\varepsilon_k)}&lt;\infty\)</span> since <span class="math inline">\(\frac{(\sqrt{2}+\varepsilon_k)^2}{2}&gt;1\)</span>,
 so <span class="math inline">\(P\left[\frac{|X_n|}{\sqrt{\log n}}&gt;
-\sqrt2+\varepsilon_k,\ \text{i.o.}\right]=0\)</span>, so for any <span class="math inline">\(k\)</span>, we have <span class="math inline">\(P\left\{\liminf_{n\to\infty}\left[\frac{|X_n|}{\sqrt{\log
+\sqrt2+\varepsilon_k\ \text{i.o.}\right]=0\)</span>, so for any <span class="math inline">\(k\)</span>, we have <span class="math inline">\(P\left\{\liminf_{n\to\infty}\left[\frac{|X_n|}{\sqrt{\log
 n}}\le \sqrt2+\varepsilon_k\right]\right\}=1\)</span>, according to the
 above, we have <span class="math display">\[
 P\left[\limsup_{n\to\infty}\frac{|X_n|}{\sqrt{\log n}}=\sqrt2\right]=1
@@ -922,7 +926,7 @@ n}}&gt;\sqrt2-\varepsilon\)</span> for infinitely many <span class="math inline"
 \sqrt2+\varepsilon_k\right]\right)
 \ \bigcap\
 \bigcap_{k=1}^\infty \left[\frac{|X_n|}{\sqrt{\log
-n}}&gt;\sqrt2-\varepsilon_k,\ \text{i.o.}\right].
+n}}&gt;\sqrt2-\varepsilon_k\ \text{i.o.}\right].
 \end{aligned}
 \]</span></p>
 <p>Then we can discuss <span class="math inline">\(P[\frac{|X_n|}{\sqrt{\log
@@ -948,7 +952,7 @@ discuss the probability of its complement, which is <span class="math display">\
 P\left\{\limsup_{n\to\infty}\left[\frac{|X_n|}{\sqrt{\log n}}\le
 \sqrt2+\varepsilon_k\right]^c\right\}&amp;=P\left\{\limsup_{n\to\infty}\left[\frac{|X_n|}{\sqrt{\log
 n}}&gt; \sqrt2+\varepsilon_k\right]\right\}\\
-&amp;=P\left[\frac{|X_n|}{\sqrt{\log n}}&gt; \sqrt2+\varepsilon_k,\
+&amp;=P\left[\frac{|X_n|}{\sqrt{\log n}}&gt; \sqrt2+\varepsilon_k\
 \text{i.o.}\right].\\
 \end{aligned}
 \]</span> Let <span class="math inline">\(A_n^{+}(k)=\left[\frac{|X_n|}{\sqrt{\log
@@ -1659,6 +1663,61 @@ random vectors <span class="math inline">\(X=(d_2,d_4,\dots)\)</span>
 and <span class="math inline">\(Y=(d_1,d_3,\dots)\)</span> are
 independent, and <span class="math inline">\(A\in\sigma(X)\)</span> and
 <span class="math inline">\(B\in\sigma(Y)\)</span>.</p>
+</div>
+<div id="b-5" class="section level4">
+<h4>(b)</h4>
+<p><span class="math inline">\(\textbf{My idea:}\)</span> Since <span class="math inline">\(\{d_n\}\)</span> are iid, and <span class="math inline">\(P[d_n(\omega)=1]=P[d_n(\omega)=0]=\frac{1}{2}\)</span>,
+then we have <span class="math display">\[
+P[l_n=k]=P[d_n=0,d_{n+1}=0,\dots,d_{n+k-1}=0,d_{n+k}=1]=P[d_n=0]P[d_{n+1}=0]\dots
+P[d_{n+k-1}=0]P[d_{n+k}=1]=(\frac{1}{2})^{k+1},
+\]</span> and since <span class="math inline">\(\{l_n\geq
+r\}=\sum_{k=r}^\infty\{l_n=k\}\)</span> (we use summation to express
+disjoin union here), we have <span class="math display">\[
+P[l_n\geq r]=\sum_{k=r}^\infty P[l_n=
+k]=\sum_{k=r}^\infty(\frac{1}{2})^{k+1}=(\frac{1}{2})^{r}.
+\]</span></p>
+</div>
+<div id="c-3" class="section level4">
+<h4>(c)</h4>
+<p><span class="math inline">\(\textbf{My idea:}\)</span> <span class="math inline">\([l_n=0]=[d_n=1]\)</span> and <span class="math inline">\(\{d_n\}\)</span> are iid ,so <span class="math inline">\(\{[l_n=0],n\geq1\}\)</span> are independent
+events.</p>
+</div>
+<div id="d-1" class="section level4">
+<h4>(d)</h4>
+<p><span class="math inline">\(\textbf{My idea:}\)</span> According to
+(b) and (c), <span class="math inline">\(\{[l_n=0],n\geq1\}\)</span> are
+independent and <span class="math inline">\(P[l_n=0]=\frac{1}{2}\)</span>, so <span class="math inline">\(\sum_{n=1}^\infty
+P[l_n=0]=\sum_{n=1}^\infty\frac{1}{2}=\infty,\)</span> so by Borel
+Zero-One Law, <span class="math inline">\(P\{[l_n=0]\
+\text{i.o.}\}=1\)</span>.</p>
+</div>
+<div id="e" class="section level4">
+<h4>(e)</h4>
+<p><span class="math inline">\(\textbf{My idea:}\)</span> For <span class="math inline">\(\{[l_n=1],n\geq1\}\)</span>, let’s consider <span class="math inline">\([l_n=1]=[d_n=0,d_{n+1}=1]\)</span> and <span class="math inline">\([l_{n+1}=1]=[d_{n+1}=0,d_{n+2}=1]\)</span> for any
+fixed <span class="math inline">\(n\)</span>, so <span class="math inline">\(P\{[l_n=1]\cap[l_{n+1}=1]\}=P\{[d_n=0,d_{n+1}=1]\cap[d_{n+1}=0,d_{n+2}=1]\}=P(\emptyset)=0\)</span>,which
+is not equal to <span class="math inline">\(P[d_n=0,d_{n+1}=1]P[d_{n+1}=0,d_{n+2}=1]=\frac{1}{2^4}\)</span>.
+For <span class="math inline">\(\{[l_{2n}=1],n\geq1\}=\{[d_{2n}=0,d_{2n+1}=1],n\geq1\}\)</span>,
+these are disjoint events consist of independent events, so they are
+independent.</p>
+<p><span class="math inline">\(\textbf{Answer:}\)</span> For <span class="math inline">\(\{[l_n=1],n\geq1\}\)</span>, let’s consider <span class="math inline">\([l_n=1]=[d_n=0,d_{n+1}=1]\)</span> and <span class="math inline">\([l_{n+1}=1]=[d_{n+1}=0,d_{n+2}=1]\)</span> for any
+fixed <span class="math inline">\(n\)</span>, so <span class="math inline">\(P\{[l_n=1]\cap[l_{n+1}=1]\}=P\{[d_n=0,d_{n+1}=1]\cap[d_{n+1}=0,d_{n+2}=1]\}=P(\emptyset)=0\)</span>,which
+is not equal to <span class="math inline">\(P[d_n=0,d_{n+1}=1]P[d_{n+1}=0,d_{n+2}=1]=\frac{1}{2^4}\)</span>.
+For <span class="math inline">\(\{[l_{2n}=1],n\geq1\}=\{[d_{2n}=0,d_{2n+1}=1],n\geq1\}\)</span>,
+then <span class="math inline">\([l_{2n}=1]\in\sigma(d_{2n},d_{2n+1})\)</span>,
+since <span class="math inline">\(\{d_n\}\)</span> are iid, then <span class="math inline">\(\{\sigma(d_{2n},d_{2n+1}),\ n\geq1\}\)</span> is a
+family of independent <span class="math inline">\(\sigma\)</span>-fields, so <span class="math inline">\(\{[l_{2n}=1]\}\)</span> are independent, and we
+have <span class="math inline">\(P[l_{2n}=1]=P[d_{2n}=0,d_{2n+1}=1]=\frac{1}{4}\)</span>,
+and <span class="math inline">\(\sum_{n=1}^\infty
+P[l_{2n}=1]=\sum_{n=1}^\infty \frac{1}{4}=\infty\)</span>, by Borel
+Zero-One Law, we have <span class="math inline">\(P([l_{2n}=1]\
+\text{i.o.})=1\)</span> and since <span class="math inline">\(\{[l_{2n}=1]\ \text{i.o.}\}\subseteq\{[l_{n}=1]\
+\text{i.o.}\}\)</span>, we have <span class="math inline">\(P([l_{n}=1]\
+\text{i.o.})=1\)</span>.</p>
+<p><span class="math inline">\(\textbf{Note:}\)</span> We shouldn’t say
+<span class="math inline">\(\{[d_{2n}=0,d_{2n+1}=1],n\geq1\}\)</span>
+are disjoint, instead, we should use <span class="math inline">\(\{\sigma(d_{2n},d_{2n+1})\}\)</span> and the
+Grouping lemma to prove the independence. Also, I forgot the second part
+of this question when do my answer part.</p>
 </div>
 </div>
 </div>

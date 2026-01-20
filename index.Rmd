@@ -131,7 +131,7 @@ $$ Give a careful description of how you choose $c_n$.
 
 $\textbf{My idea:}$ if we want to find $\{c_n\}$ that
 $P[\lim_{n\to\infty}\frac{X_n}{c_n}=0]$, think the opposite, that is,
-for any $a>0$, we must have $P[\frac{X_n}{c_n}>a,\ \text{i.o.}]=0$,
+for any $a>0$, we must have $P[\frac{X_n}{c_n}>a\ \text{i.o.}]=0$,
 because if such $\{c_n\}$ exists, $X_n$ would not exceed any positive
 number infintely many times, so we just need to fix some $a>0$, and
 construct $\{c_n\}$ such that make sure
@@ -176,9 +176,9 @@ generality, we can assume that $\{a_n\},\ \{b_n\}\in[0,1]$, otherwise we
 can discuss the terms after some big $N$. We can assign $\{a_n\}$ as
 probability to independent measurable set $\{A_n\}$ and $\{b_n\}$ to
 $\{B_n\}$, where $\{B_n\}$ also independent, then we have
-$\sum_{n}P(A_n)<\infty$, so $P[A_n,\ \text{i.o.}]=0$, since
+$\sum_{n}P(A_n)<\infty$, so $P[A_n\ \text{i.o.}]=0$, since
 $\lim_{n\to\infty}\frac{a_n}{b_n}=1$, we know that
-$P[B_n,\ \text{i.o.}]=0$, so we get $\sum_{n}b_n=\sum_{n}P(B_n)<\infty$.
+$P[B_n\ \text{i.o.}]=0$, so we get $\sum_{n}b_n=\sum_{n}P(B_n)<\infty$.
 
 $\textbf{Answer:}$ Since $\lim_{n\to\infty}\frac{a_n}{b_n}=1$, then
 $\forall\varepsilon>0$, $\exists N>0$ such that when $n>N$,
@@ -211,7 +211,7 @@ $A_k=[X_k=1,\ X_{k+1}=0,\ X_{k+2}=1]$, $\{A_k\}$ are not independent,
 but $A_{3k+1}$ are independent since $\{X_n\}$ iid, also, we have
 $P(A_{3k+1})=p^2(1-p)$, which is a constant, so
 $\sum_{k\geq0}P(A_{3k+1})=\infty$, that is,
-$P[A_{3k+1},\ \text{i.o.}]=1$, so the pattern 1,0,1 appears infinitely
+$P[A_{3k+1}\ \text{i.o.}]=1$, so the pattern 1,0,1 appears infinitely
 often with probability 1.
 
 $\textbf{Answer:}$ Start from $P(A_{3k+1})=p^2(1-p)$, we need to check
@@ -453,8 +453,8 @@ what we want.
 
 $\textbf{Answer:}$ Let $A_n=[X_n>a_n]$, since $\{X_n,\ n\geq1\}$ are iid
 r.v's, then $P(A_n)=P(X_n>a_n)=P(X_1>a_n)$, and $\{A_n\}$ are
-independent, then according to Borel-Cantelli, $P[A_n,\ \text{i.o.}]=1$
-iff $\sum_n P(X_1>a_n)=\infty$ and $P[A_n,\ \text{i.o.}]=0$ iff
+independent, then according to Borel-Cantelli, $P[A_n\ \text{i.o.}]=1$
+iff $\sum_n P(X_1>a_n)=\infty$ and $P[A_n\ \text{i.o.}]=0$ iff
 $\sum_n P(X_1>a_n)<\infty$.
 
 $\textbf{Note:}$ $A_n=[X_n>a_n]$, is not equal to $[X_1>a_n]$, but we
@@ -477,7 +477,7 @@ That is, by letting $\varepsilon_k\downarrow0$, we have $$
 \left[\limsup_{n\to\infty}\frac{|X_n|}{\sqrt{\log n}}=\sqrt2\right]
 &= \bigcap_{k=1}^\infty \left(\liminf_{n\to\infty}\left[\frac{|X_n|}{\sqrt{\log n}}\le \sqrt2+\varepsilon_k\right]\right)
 \ \bigcap\
-\bigcap_{k=1}^\infty \left[\frac{|X_n|}{\sqrt{\log n}}>\sqrt2-\varepsilon_k,\ \text{i.o.}\right].
+\bigcap_{k=1}^\infty \left[\frac{|X_n|}{\sqrt{\log n}}>\sqrt2-\varepsilon_k\ \text{i.o.}\right].
 \end{aligned}
 $$
 
@@ -490,20 +490,20 @@ That is, we have $\frac{(\sqrt{2}-\varepsilon_k)^2}{2}<1$, for all $k$,
 therefore
 $\sum_{n\to\infty}P[\frac{|X_n|}{\sqrt{\log n}}>\sqrt2-\varepsilon_k]=\infty$,
 so
-$P\left[\frac{|X_n|}{\sqrt{\log n}}>\sqrt2-\varepsilon_k,\ \text{i.o.}\right]=1$.
+$P\left[\frac{|X_n|}{\sqrt{\log n}}>\sqrt2-\varepsilon_k\ \text{i.o.}\right]=1$.
 
 For the $\liminf$ part, we can discuss the probability of its
 complement, which is $$
 \begin{aligned}
 P\left\{\limsup_{n\to\infty}\left[\frac{|X_n|}{\sqrt{\log n}}\le \sqrt2+\varepsilon_k\right]^c\right\}&=P\left\{\limsup_{n\to\infty}\left[\frac{|X_n|}{\sqrt{\log n}}> \sqrt2+\varepsilon_k\right]\right\}\\
-&=P\left[\frac{|X_n|}{\sqrt{\log n}}> \sqrt2+\varepsilon_k,\ \text{i.o.}\right]\\
+&=P\left[\frac{|X_n|}{\sqrt{\log n}}> \sqrt2+\varepsilon_k\ \text{i.o.}\right]\\
 &\sim 2\frac{\phi((\sqrt2+\varepsilon_k)\sqrt{\log n})}{(\sqrt2+\varepsilon_k)\sqrt{\log n}}\\
 &=\frac{2}{n^{\frac{(\sqrt{2}+\varepsilon_k)^2}{2}}\sqrt{\log n}(\sqrt{2}+\varepsilon_k)}
 \end{aligned}
 $$ and we have
 $\sum_{n\to\infty}\frac{2}{n^{\frac{(\sqrt{2}+\varepsilon_k)^2}{2}}\sqrt{\log n}(\sqrt{2}+\varepsilon_k)}<\infty$
 since $\frac{(\sqrt{2}+\varepsilon_k)^2}{2}>1$, so
-$P\left[\frac{|X_n|}{\sqrt{\log n}}> \sqrt2+\varepsilon_k,\ \text{i.o.}\right]=0$,
+$P\left[\frac{|X_n|}{\sqrt{\log n}}> \sqrt2+\varepsilon_k\ \text{i.o.}\right]=0$,
 so for any $k$, we have
 $P\left\{\liminf_{n\to\infty}\left[\frac{|X_n|}{\sqrt{\log n}}\le \sqrt2+\varepsilon_k\right]\right\}=1$,
 according to the above, we have $$
@@ -523,7 +523,7 @@ That is, by letting $\varepsilon_k\downarrow0$, we have $$
 \left[\limsup_{n\to\infty}\frac{|X_n|}{\sqrt{\log n}}=\sqrt2\right]
 &= \bigcap_{k=1}^\infty \left(\liminf_{n\to\infty}\left[\frac{|X_n|}{\sqrt{\log n}}\le \sqrt2+\varepsilon_k\right]\right)
 \ \bigcap\
-\bigcap_{k=1}^\infty \left[\frac{|X_n|}{\sqrt{\log n}}>\sqrt2-\varepsilon_k,\ \text{i.o.}\right].
+\bigcap_{k=1}^\infty \left[\frac{|X_n|}{\sqrt{\log n}}>\sqrt2-\varepsilon_k\ \text{i.o.}\right].
 \end{aligned}
 $$
 
@@ -547,7 +547,7 @@ For the $\liminf$ part, we can discuss the probability of its
 complement, which is $$
 \begin{aligned}
 P\left\{\limsup_{n\to\infty}\left[\frac{|X_n|}{\sqrt{\log n}}\le \sqrt2+\varepsilon_k\right]^c\right\}&=P\left\{\limsup_{n\to\infty}\left[\frac{|X_n|}{\sqrt{\log n}}> \sqrt2+\varepsilon_k\right]\right\}\\
-&=P\left[\frac{|X_n|}{\sqrt{\log n}}> \sqrt2+\varepsilon_k,\ \text{i.o.}\right].\\
+&=P\left[\frac{|X_n|}{\sqrt{\log n}}> \sqrt2+\varepsilon_k\ \text{i.o.}\right].\\
 \end{aligned}
 $$ Let
 $A_n^{+}(k)=\left[\frac{|X_n|}{\sqrt{\log n}}>\sqrt2+\varepsilon_k\right]$.
@@ -1080,9 +1080,25 @@ $\textbf{My idea:}$ Let $A_n=[d_{2n}=0]$, $B_n=[d_{2n+1}=1]$, by the Fact 3 in 4
 $\textbf{Note:}$ The Grouping Lemma may be too strong for this question, we can also consider two random vectors $X=(d_2,d_4,\dots)$ and $Y=(d_1,d_3,\dots)$ are independent, and $A\in\sigma(X)$ and $B\in\sigma(Y)$.
 
 
+#### (b)
+$\textbf{My idea:}$ Since $\{d_n\}$ are iid, and $P[d_n(\omega)=1]=P[d_n(\omega)=0]=\frac{1}{2}$, then we have 
+$$
+P[l_n=k]=P[d_n=0,d_{n+1}=0,\dots,d_{n+k-1}=0,d_{n+k}=1]=P[d_n=0]P[d_{n+1}=0]\dots P[d_{n+k-1}=0]P[d_{n+k}=1]=(\frac{1}{2})^{k+1},
+$$
+and since $\{l_n\geq r\}=\sum_{k=r}^\infty\{l_n=k\}$ (we use summation to express disjoin union here), we have
+$$
+P[l_n\geq r]=\sum_{k=r}^\infty P[l_n= k]=\sum_{k=r}^\infty(\frac{1}{2})^{k+1}=(\frac{1}{2})^{r}.
+$$
 
+#### (c)
+$\textbf{My idea:}$ $[l_n=0]=[d_n=1]$ and $\{d_n\}$ are iid ,so $\{[l_n=0],n\geq1\}$ are independent events.
 
+#### (d)
+$\textbf{My idea:}$ According to (b) and (c), $\{[l_n=0],n\geq1\}$ are independent and $P[l_n=0]=\frac{1}{2}$, so $\sum_{n=1}^\infty P[l_n=0]=\sum_{n=1}^\infty\frac{1}{2}=\infty,$ so by Borel Zero-One Law, $P\{[l_n=0]\ \text{i.o.}\}=1$.
 
+#### (e)
+$\textbf{My idea:}$ For $\{[l_n=1],n\geq1\}$, let's consider $[l_n=1]=[d_n=0,d_{n+1}=1]$ and $[l_{n+1}=1]=[d_{n+1}=0,d_{n+2}=1]$ for any fixed $n$, so $P\{[l_n=1]\cap[l_{n+1}=1]\}=P\{[d_n=0,d_{n+1}=1]\cap[d_{n+1}=0,d_{n+2}=1]\}=P(\emptyset)=0$,which is not equal to $P[d_n=0,d_{n+1}=1]P[d_{n+1}=0,d_{n+2}=1]=\frac{1}{2^4}$. For $\{[l_{2n}=1],n\geq1\}=\{[d_{2n}=0,d_{2n+1}=1],n\geq1\}$, these are disjoint events consist of independent events, so they are independent.
 
+$\textbf{Answer:}$  For $\{[l_n=1],n\geq1\}$, let's consider $[l_n=1]=[d_n=0,d_{n+1}=1]$ and $[l_{n+1}=1]=[d_{n+1}=0,d_{n+2}=1]$ for any fixed $n$, so $P\{[l_n=1]\cap[l_{n+1}=1]\}=P\{[d_n=0,d_{n+1}=1]\cap[d_{n+1}=0,d_{n+2}=1]\}=P(\emptyset)=0$,which is not equal to $P[d_n=0,d_{n+1}=1]P[d_{n+1}=0,d_{n+2}=1]=\frac{1}{2^4}$. For $\{[l_{2n}=1],n\geq1\}=\{[d_{2n}=0,d_{2n+1}=1],n\geq1\}$,  then $[l_{2n}=1]\in\sigma(d_{2n},d_{2n+1})$, since $\{d_n\}$ are iid, then $\{\sigma(d_{2n},d_{2n+1}),\ n\geq1\}$ is a family of independent $\sigma$-fields, so $\{[l_{2n}=1]\}$ are independent, and we have $P[l_{2n}=1]=P[d_{2n}=0,d_{2n+1}=1]=\frac{1}{4}$, and $\sum_{n=1}^\infty P[l_{2n}=1]=\sum_{n=1}^\infty \frac{1}{4}=\infty$, by Borel Zero-One Law, we have $P([l_{2n}=1]\ \text{i.o.})=1$ and since $\{[l_{2n}=1]\ \text{i.o.}\}\subseteq\{[l_{n}=1]\ \text{i.o.}\}$, we have $P([l_{n}=1]\ \text{i.o.})=1$.
 
-
+$\textbf{Note:}$ We shouldn't say $\{[d_{2n}=0,d_{2n+1}=1],n\geq1\}$ are disjoint, instead, we should use $\{\sigma(d_{2n},d_{2n+1})\}$ and the Grouping lemma to prove the independence. Also, I forgot the second part of this question when do my answer part.
