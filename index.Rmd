@@ -6,6 +6,9 @@ output:
   html_document:
     toc: true
     toc_depth: 5
+    toc_float:
+      collapsed: true
+      smooth_scroll: true
     number_sections: false
     css: styles.css
     mathjax: default
@@ -18,6 +21,58 @@ editor_options:
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+```{=html}
+<style>
+/* Small toggle button for the floating TOC */
+#toc-toggle-btn {
+  position: fixed;
+  left: 10px;
+  top: 10px;
+  z-index: 9999;
+  padding: 6px 10px;
+  font-size: 13px;
+  border: 1px solid #ccc;
+  background: #fff;
+  border-radius: 6px;
+  cursor: pointer;
+}
+@media print {
+  #toc-toggle-btn { display: none; }
+}
+</style>
+
+<button id="toc-toggle-btn" type="button">TOC: Expand</button>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  var btn = document.getElementById('toc-toggle-btn');
+  if (!btn) return;
+
+  function subheaders() {
+    return document.querySelectorAll('.tocify-subheader');
+  }
+
+  // Start collapsed (only top-level headings shown)
+  var collapsed = true;
+
+  function apply() {
+    var els = subheaders();
+    for (var i = 0; i < els.length; i++) {
+      els[i].style.display = collapsed ? 'none' : '';
+    }
+    btn.textContent = collapsed ? 'TOC: Expand' : 'TOC: Collapse';
+  }
+
+  btn.addEventListener('click', function () {
+    collapsed = !collapsed;
+    apply();
+  });
+
+  // Ensure the initial state wins even if tocify auto-expands on load
+  setTimeout(apply, 0);
+});
+</script>
+```
 ## Pre
 
 These are my Notes and exercise records while learning *A Probability
