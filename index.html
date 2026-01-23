@@ -9,7 +9,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
-<meta name="author" content="P" />
+<meta name="author" content="Zhanwen Peng" />
 
 <meta name="date" content="2026-01-23" />
 
@@ -1481,7 +1481,7 @@ border-radius: 0px;
 
 
 <h1 class="title toc-ignore">Notes on A Probability Path (Resnick)</h1>
-<h4 class="author">P</h4>
+<h4 class="author">Zhanwen Peng</h4>
 <h4 class="date">2026-01-23</h4>
 
 </div>
@@ -1489,11 +1489,10 @@ border-radius: 0px;
 
 <style>
 
-#toc-toggle-btn {
-position: fixed;
-left: 10px;
-top: 10px;
-z-index: 9999;
+#toc-toggle-btn{
+display: block;
+width: calc(100% - 16px);
+margin: 8px;
 padding: 6px 10px;
 font-size: 13px;
 border: 1px solid #ccc;
@@ -1501,24 +1500,26 @@ background: #fff;
 border-radius: 6px;
 cursor: pointer;
 }
-@media print {
-#toc-toggle-btn { display: none; }
-}
+@media print { #toc-toggle-btn { display: none; } }
 </style>
-
-<button id="toc-toggle-btn" type="button">TOC: Expand</button>
 
 <script>
 document.addEventListener('DOMContentLoaded', function () {
-  var btn = document.getElementById('toc-toggle-btn');
-  if (!btn) return;
+  var toc = document.getElementById('TOC'); // R Markdown's floating TOC container
+  if (!toc) return;
+
+  // Create and insert the button at the top of the TOC
+  var btn = document.createElement('button');
+  btn.id = 'toc-toggle-btn';
+  btn.type = 'button';
+  btn.textContent = 'TOC: Expand';
+  toc.insertBefore(btn, toc.firstChild);
 
   function subheaders() {
-    return document.querySelectorAll('.tocify-subheader');
+    return toc.querySelectorAll('.tocify-subheader');
   }
 
-  // Start collapsed (only top-level headings shown)
-  var collapsed = true;
+  var collapsed = true; // default collapsed
 
   function apply() {
     var els = subheaders();
@@ -1533,10 +1534,11 @@ document.addEventListener('DOMContentLoaded', function () {
     apply();
   });
 
-  // Ensure the initial state wins even if tocify auto-expands on load
+  // Enforce initial collapsed state after tocify renders
   setTimeout(apply, 0);
 });
 </script>
+
 <div id="pre" class="section level2">
 <h2>Pre</h2>
 <p>These are my Notes and exercise records while learning <em>A
