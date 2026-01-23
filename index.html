@@ -11,7 +11,7 @@
 
 <meta name="author" content="P" />
 
-<meta name="date" content="2026-01-20" />
+<meta name="date" content="2026-01-23" />
 
 <title>Notes on A Probability Path (Resnick)</title>
 
@@ -353,7 +353,7 @@ display: none;
 
 <h1 class="title toc-ignore">Notes on A Probability Path (Resnick)</h1>
 <h4 class="author">P</h4>
-<h4 class="date">2026-01-20</h4>
+<h4 class="date">2026-01-23</h4>
 
 </div>
 
@@ -418,6 +418,8 @@ Independence</a>
 <li><a href="#c-3" id="toc-c-3">(c)</a></li>
 <li><a href="#d-1" id="toc-d-1">(d)</a></li>
 <li><a href="#e" id="toc-e">(e)</a></li>
+<li><a href="#f" id="toc-f">(f)</a></li>
+<li><a href="#g" id="toc-g">(g)</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -1644,7 +1646,58 @@ are independent.</p>
 <div id="ex-30" class="section level3">
 <h3>Ex 30</h3>
 <div class="problem">
-
+<p>Refer to Subsection 4.3.2.</p>
+<ol style="list-style-type: lower-alpha">
+<li><p>Define <span class="math display">\[
+A=\{[d_{2n}=0]\ \text{i.o.}\}, \qquad B=\{[d_{2n+1}=1]\ \text{i.o.}\}.
+\]</span> Show <span class="math inline">\(A \perp\!\!\!\perp
+B\)</span>.</p></li>
+<li><p>Define <span class="math display">\[
+l_n(\omega):=\text{length of the run of $0$&#39;s starting at }
+d_n(\omega),
+\]</span> <span class="math display">\[
+l_n(\omega)=
+\begin{cases}
+k\ge 1, &amp; \text{if } d_n(\omega)=0,\ldots,d_{n+k-1}(\omega)=0,\
+d_{n+k}(\omega)=1,\\
+0, &amp; \text{if } d_n(\omega)=1.
+\end{cases}
+\]</span> Show <span class="math display">\[
+P[l_n=k]=\left(\frac12\right)^{k+1}, \qquad P[l_n\ge
+r]=\left(\frac12\right)^r. \tag{4.18}
+\]</span></p></li>
+<li><p>Show <span class="math inline">\(\{[l_n=0],\, n\ge 1\}\)</span>
+are independent events.</p></li>
+<li><p>Show <span class="math inline">\(P([l_n=0]\
+\text{i.o.})=1\)</span>. (Use the Borel Zero-One Law.)</p></li>
+<li><p>The events <span class="math inline">\(\{[l_n=1],\, n\ge
+1\}\)</span> are not independent but the events <span class="math inline">\(\{[l_{2n}=1],\, n\ge 1\}\)</span> are, and
+therefore prove <span class="math display">\[
+P([l_{2n}=1]\ \text{i.o.})=1
+\]</span> so that <span class="math display">\[
+P([l_n=1]\ \text{i.o.})=1.
+\]</span></p></li>
+<li><p>Let <span class="math inline">\(\log_2 n\)</span> be the
+logarithm to the base <span class="math inline">\(2\)</span> of <span class="math inline">\(n\)</span>. Show <span class="math display">\[
+P\!\left[\limsup_{n\to\infty}\frac{l_n}{\log_2 n}\le 1\right]=1.
+\tag{4.19}
+\]</span> Show <span class="math display">\[
+\sum_n P\!\left[l_n&gt;(1+\varepsilon)\log_2 n\right]&lt;\infty
+\]</span> and use Borel-Cantelli. Then replace <span class="math inline">\(\varepsilon\)</span> by <span class="math inline">\(\varepsilon_k\downarrow 0\)</span>.</p></li>
+<li><p>Show <span class="math display">\[
+P\!\left[\limsup_{n\to\infty}\frac{l_n}{\log_2 n}\ge 1\right]=1.
+\]</span> Combine this with (4.19).</p></li>
+</ol>
+<p>Hint: Set <span class="math inline">\(r_n=[\log_2 n]\)</span> and
+define <span class="math inline">\(n_k\)</span> by <span class="math inline">\(n_1=1\)</span>, <span class="math inline">\(n_2=1+r_1\)</span>, , <span class="math inline">\(n_{k+1}=n_k+r_{n_k}\)</span> so that <span class="math inline">\(n_{k+1}-n_k=r_{n_k}\)</span>. Then <span class="math display">\[
+[l_{n_k}\ge r_{n_k}] \in \mathcal{B}(d_i;\, n_k\le i &lt; n_{k+1})
+\]</span> and hence <span class="math inline">\(\{[l_{n_k}\ge
+r_{n_k}],\, k\ge 1\}\)</span> are independent events. Use the Borel
+Zero-One Law to show <span class="math display">\[
+P([l_{n_k}\ge r_{n_k}]\ \text{i.o.})=1
+\]</span> and hence <span class="math display">\[
+P([l_n\ge r_n]\ \text{i.o.})=1.
+\]</span></p>
 </div>
 <div id="a-5" class="section level4">
 <h4>(a)</h4>
@@ -1718,6 +1771,112 @@ Zero-One Law, we have <span class="math inline">\(P([l_{2n}=1]\
 are disjoint, instead, we should use <span class="math inline">\(\{\sigma(d_{2n},d_{2n+1})\}\)</span> and the
 Grouping lemma to prove the independence. Also, I forgot the second part
 of this question when do my answer part.</p>
+</div>
+<div id="f" class="section level4">
+<h4>(f)</h4>
+<p><span class="math inline">\(\textbf{My idea:}\)</span> We can firstly
+discuss <span class="math inline">\(P[\limsup_{n\to\infty}\frac{l_n}{\log_2n}&gt;1]\)</span>,
+because it is the probability of independent event in tail, which can
+only have value with <span class="math inline">\(0\)</span> or <span class="math inline">\(1\)</span> by Borel 0-1 law, and if it is <span class="math inline">\(0\)</span>, then by <span class="math inline">\([\liminf_{n\to\infty}\frac{l_n}{\log_2n}&gt;1]\subseteq[\limsup_{n\to\infty}\frac{l_n}{\log_2n}&gt;1]\)</span>,
+we have <span class="math inline">\(P[\liminf_{n\to\infty}\frac{l_n}{\log_2n}&gt;1]\leq
+P[\limsup_{n\to\infty}\frac{l_n}{\log_2n}&gt;1]=0\)</span>, so <span class="math inline">\(P[\limsup_{n\to\infty}\frac{l_n}{\log_2n}\leq1]=1-P[\liminf_{n\to\infty}\frac{l_n}{\log_2n}&gt;1]=1-0=1\)</span>.
+According to the definition of <span class="math inline">\(\limsup\)</span>, if <span class="math inline">\(\omega\in\{\omega\in\Omega:\
+\limsup_{n\to\infty}\frac{l_n(\omega)}{\log_2n}&gt;1\}\)</span>, then
+for any <span class="math inline">\(\varepsilon&gt;0\)</span>, exists
+<span class="math inline">\(N(\omega)\geq1\)</span> such that when <span class="math inline">\(n\geq N\)</span>, we have <span class="math inline">\(\frac{l_n}{\log_2n}&gt;(1+\varepsilon)\)</span> or
+<span class="math inline">\(l_n&gt;(1+\varepsilon)({\log_2n})\)</span>,
+and for large <span class="math inline">\(n\)</span>, we also have <span class="math inline">\((1+\varepsilon)({\log_2n})\leq n\)</span>,by this
+inequality and the result from (b), we have <span class="math display">\[
+\sum_{n\geq N}P[l_n&gt;(1+\varepsilon)({\log_2n})]\leq\sum_{n\geq N}
+P[l_n&gt;n]=\sum_{n\geq N}(\frac{1}{2})^{n+1}&lt;\infty,
+\]</span> then adding the finite terms before <span class="math inline">\(N\)</span>, we have <span class="math inline">\(\sum_{n}P[l_n&gt;(1+\varepsilon)({\log_2n})]&lt;\infty\)</span>
+for arbitrary <span class="math inline">\(\varepsilon\)</span>, so by
+letting <span class="math inline">\(\varepsilon\to0\)</span>, that is
+<span class="math inline">\(\sum_{n}P[l_n&gt;\log_2n]&lt;\infty\)</span>, so
+<span class="math inline">\(P[\limsup_{n\to\infty}\frac{l_n}{\log_2n}\leq1]=1\)</span>.</p>
+<p><span class="math inline">\(\textbf{Answer:}\)</span> We can select a
+sequence <span class="math inline">\(\{\varepsilon_k\}\)</span>, <span class="math inline">\(\varepsilon_k\downarrow0\)</span> and we have
+<span class="math display">\[
+\begin{aligned}
+{}[\limsup_{n\to\infty}\frac{l_n}{\log_2n}&gt;1]&amp;=\bigcup_{k\geq1}[\frac{l_n}{\log_2n}&gt;1+\varepsilon_k\
+\text{i.o.}]\\
+&amp;=\bigcup_{k\geq1}[l_n&gt;(1+\varepsilon_k){\log_2n}\ \text{i.o.}],
+\end{aligned}
+\]</span> for each <span class="math inline">\(k\)</span>, by (b) we
+have <span class="math display">\[
+\begin{aligned}
+\sum_{n}
+P[l_n&gt;(1+\varepsilon_k){\log_2n}]&amp;\leq\sum_{n}  P[l_n\geq(1+\varepsilon_k){\log_2n}]\\
+&amp;=\sum_{n} 2^{-(1+\varepsilon_k){\log_2n}}=\sum_{n}
+n^{-(1+\varepsilon_k)}&lt;\infty,
+\end{aligned}
+\]</span> so according to Borel 0-1 Law, <span class="math inline">\(P[l_n&gt;(1+\varepsilon_k){\log_2n}\
+\text{i.o.}]=0\)</span> and <span class="math display">\[
+\begin{aligned}
+{}
+P[\limsup_{n\to\infty}\frac{l_n}{\log_2n}&gt;1]&amp;=P(\bigcup_{k\geq1}[l_n&gt;(1+\varepsilon_k){\log_2n}\
+\text{i.o.}])\\
+&amp;\leq\sum_{k\geq1}P([l_n&gt;(1+\varepsilon_k){\log_2n}\
+\text{i.o.}])\\
+&amp;=0.
+\end{aligned}
+\]</span> Therefore <span class="math inline">\(P[\limsup_{n\to\infty}\frac{l_n}{\log_2n}\leq1]=1\)</span>.</p>
+<p><span class="math inline">\(\textbf{Note:}\)</span> We should get
+back to the definition of <span class="math inline">\(\limsup\)</span>,
+for <span class="math inline">\(\limsup_{n\to\infty}\frac{l_n}{\log_2n}&gt;1\)</span>,
+it means that for any <span class="math inline">\(\varepsilon&gt;0\)</span>, <span class="math inline">\([\frac{l_n}{\log_2n}&gt;1+\varepsilon]\)</span>
+occur infinitely often, then use a countable sequence to express it.</p>
+</div>
+<div id="g" class="section level4">
+<h4>(g)</h4>
+<p><span class="math inline">\(\textbf{My idea:}\)</span> I think the
+idea follows (e), that is divide <span class="math inline">\(\{d_n\}\)</span> into different chucks with
+disjoint index set, these index set should be constructed using <span class="math inline">\(\log_2n\)</span> to make sure we have a
+independent subsequence like <span class="math inline">\([l_{n_k}\geq\log_2n_{n_k}]\)</span> are
+independent.</p>
+<p><span class="math inline">\(\textbf{Answer:}\)</span> Set <span class="math inline">\(r_n=[\log_2 n]\)</span>, and define <span class="math inline">\(n_k\)</span> as <span class="math inline">\(n_1=2,
+n_2=n_1+r_{n_1},\dots,n_{k+1}=n_k+r_{n_k}\)</span>, therefore, <span class="math inline">\(n_{k+1}-n_{k}=r_{n_k}\)</span>. Since for each
+<span class="math inline">\(k\)</span>, <span class="math inline">\([l_{n_k}\geq
+r_{n_k}]=[d_{n_k}=0,d_{n_k+1}=0,\dots,d_{n_{k}+r_{n_k}-1}=0]=[d_{n_k}=0,d_{n_k+1}=0,\dots,d_{n_{k+1}-1}=0]\in\sigma(d_i:n_k\leq
+i&lt;n_{k+1})\)</span>, and by Grouping Lemma, events <span class="math inline">\(\{[l_{n_k}\geq r_{n_k}],k\geq1\}\)</span> are
+independent. and according to (e), <span class="math display">\[
+\begin{aligned}
+P[l_{n_k}\geq r_{n_k}]&amp;=2^{-r_{n_k}}\\
+&amp;=2^{-[\log_2n_k]}\geq\frac{1}{n_k},
+\end{aligned}
+\]</span> since <span class="math inline">\(r_{n_k}=[\log_2n_k]\leq\log_2n_k\)</span>, so
+<span class="math inline">\(n_{k+1}=n_k+[\log_2n_k]\leq
+n_k+\log_2n_k\leq2n_k\)</span> for large <span class="math inline">\(k\)</span>, and that is <span class="math inline">\(\frac{1}{n_{k+1}}\geq\frac{1}{2}\cdot\frac{1}{n_k}\)</span>,
+by iterating, we have <span class="math display">\[
+\sum_{j=1}^m\frac{1}{n_j}\geq\frac{1}{n_m}\sum_{j=1}^m
+2^{m-j}=\frac{2^m-1}{n_m},
+\]</span> and <span class="math inline">\(n_m\leq2^mn_1\)</span>,
+therefore <span class="math inline">\(\sum_{k}P[l_{n_k}\geq
+r_{n_k}]\geq\sum_{k}\frac{1}{n_k}=\infty\)</span>, by Borel 0-1 Law,
+<span class="math inline">\(P([l_{n_k}\geq r_{n_k}]\
+\text{i.o.})=1\)</span>, and <span class="math inline">\(\{[l_{n_k}\geq
+r_{n_k}]\ \text{i.o.}\}\subseteq\{[l_{n}\geq r_{n}]\
+\text{i.o.}\}\)</span>, so <span class="math inline">\(P([l_{n}\geq
+r_{n}]\ \text{i.o.})=1\)</span>.</p>
+<p><span class="math inline">\(\textbf{Note:}\)</span> This question
+stuck me for two days, firstly, if I follow the hint from the book by
+letting <span class="math inline">\(n_1=1\)</span>, then we only have a
+constant subsequence, and then I made some concrete examples to display
+why disjoint blocks lead to independence: let’s consider <span class="math inline">\([l_2\geq2]\)</span> and <span class="math inline">\([l_4\geq3]\)</span>, so we have <span class="math inline">\(P[l_2\geq2]=(\frac{1}{2})^2\)</span> and <span class="math inline">\(P[l_4\geq3]=(\frac{1}{2})^3\)</span> and <span class="math inline">\(P([l_2\geq2]\cap[l_4\geq3])=P(d_2=0,d_3=0,d_4=0,d_5=0,d_6=0)=(\frac{1}{2})^5=P[l_2\geq2]P[l_4\geq3]\)</span>,
+however, if we consider <span class="math inline">\([l_2\geq3]\)</span>
+and <span class="math inline">\([l_4\geq3]\)</span>, then <span class="math inline">\(P([l_2\geq3]\cap[l_4\geq3])=P(d_2=0,d_3=0,d_4=0,d_5=0,d_6=0)=(\frac{1}{2})^5\neq
+P[l_2\geq3]P[l_4\geq3]\)</span>, so this is what the hint means. Then
+the logic chain for this question is:</p>
+<ol style="list-style-type: decimal">
+<li>The original probability decreases at speed of <span class="math inline">\((1/2)^{n}\)</span>, so we need to construct a
+sub-sequence <span class="math inline">\(n_k\)</span> to draw <span class="math inline">\((1/2)^{-n_k}\)</span> back to harmonic level, so
+we need the increment increases like <span class="math inline">\(\log_2
+n\)</span>,</li>
+<li>Use it to construct a sequence of disjoint blocks,</li>
+<li>Use these block to construct a sequence of independent events.</li>
+</ol>
+<p>Besides: we can use <span class="math inline">\(\int_{1}^\infty\frac{1}{x\log_2x}dx\)</span> to
+prove the divergence.</p>
 </div>
 </div>
 </div>

@@ -1071,6 +1071,75 @@ therefore $X_1,\dots,X_n$ are independent.
 
 ### Ex 30
 ::: problem
+Refer to Subsection 4.3.2.
+
+(a) Define
+\[
+A=\{[d_{2n}=0]\ \text{i.o.}\}, \qquad B=\{[d_{2n+1}=1]\ \text{i.o.}\}.
+\]
+Show $A \perp\!\!\!\perp B$.
+
+(b) Define
+\[
+l_n(\omega):=\text{length of the run of $0$'s starting at } d_n(\omega),
+\]
+\[
+l_n(\omega)=
+\begin{cases}
+k\ge 1, & \text{if } d_n(\omega)=0,\ldots,d_{n+k-1}(\omega)=0,\ d_{n+k}(\omega)=1,\\
+0, & \text{if } d_n(\omega)=1.
+\end{cases}
+\]
+Show
+\[
+P[l_n=k]=\left(\frac12\right)^{k+1}, \qquad P[l_n\ge r]=\left(\frac12\right)^r. \tag{4.18}
+\]
+
+(c) Show $\{[l_n=0],\, n\ge 1\}$ are independent events.
+
+(d) Show $P([l_n=0]\ \text{i.o.})=1$. (Use the Borel Zero-One Law.)
+
+(e) The events $\{[l_n=1],\, n\ge 1\}$ are not independent but the events
+$\{[l_{2n}=1],\, n\ge 1\}$ are, and therefore prove
+\[
+P([l_{2n}=1]\ \text{i.o.})=1
+\]
+so that
+\[
+P([l_n=1]\ \text{i.o.})=1.
+\]
+
+(f) Let $\log_2 n$ be the logarithm to the base $2$ of $n$. Show
+\[
+P\!\left[\limsup_{n\to\infty}\frac{l_n}{\log_2 n}\le 1\right]=1. \tag{4.19}
+\]
+\textbf{Hint:} Show
+\[
+\sum_n P\!\left[l_n>(1+\varepsilon)\log_2 n\right]<\infty
+\]
+and use Borel-Cantelli. Then replace $\varepsilon$ by $\varepsilon_k\downarrow 0$.
+
+(g) Show
+\[
+P\!\left[\limsup_{n\to\infty}\frac{l_n}{\log_2 n}\ge 1\right]=1.
+\]
+Combine this with (4.19).
+
+Hint: Set $r_n=[\log_2 n]$ and define $n_k$ by
+$n_1=1$, $n_2=1+r_1$, \ldots, $n_{k+1}=n_k+r_{n_k}$ so that
+$n_{k+1}-n_k=r_{n_k}$. Then
+\[
+[l_{n_k}\ge r_{n_k}] \in \mathcal{B}(d_i;\, n_k\le i < n_{k+1})
+\]
+and hence $\{[l_{n_k}\ge r_{n_k}],\, k\ge 1\}$ are independent events. Use the Borel
+Zero-One Law to show
+\[
+P([l_{n_k}\ge r_{n_k}]\ \text{i.o.})=1
+\]
+and hence
+\[
+P([l_n\ge r_n]\ \text{i.o.})=1.
+\]
 
 :::
 
@@ -1102,3 +1171,62 @@ $\textbf{My idea:}$ For $\{[l_n=1],n\geq1\}$, let's consider $[l_n=1]=[d_n=0,d_{
 $\textbf{Answer:}$  For $\{[l_n=1],n\geq1\}$, let's consider $[l_n=1]=[d_n=0,d_{n+1}=1]$ and $[l_{n+1}=1]=[d_{n+1}=0,d_{n+2}=1]$ for any fixed $n$, so $P\{[l_n=1]\cap[l_{n+1}=1]\}=P\{[d_n=0,d_{n+1}=1]\cap[d_{n+1}=0,d_{n+2}=1]\}=P(\emptyset)=0$,which is not equal to $P[d_n=0,d_{n+1}=1]P[d_{n+1}=0,d_{n+2}=1]=\frac{1}{2^4}$. For $\{[l_{2n}=1],n\geq1\}=\{[d_{2n}=0,d_{2n+1}=1],n\geq1\}$,  then $[l_{2n}=1]\in\sigma(d_{2n},d_{2n+1})$, since $\{d_n\}$ are iid, then $\{\sigma(d_{2n},d_{2n+1}),\ n\geq1\}$ is a family of independent $\sigma$-fields, so $\{[l_{2n}=1]\}$ are independent, and we have $P[l_{2n}=1]=P[d_{2n}=0,d_{2n+1}=1]=\frac{1}{4}$, and $\sum_{n=1}^\infty P[l_{2n}=1]=\sum_{n=1}^\infty \frac{1}{4}=\infty$, by Borel Zero-One Law, we have $P([l_{2n}=1]\ \text{i.o.})=1$ and since $\{[l_{2n}=1]\ \text{i.o.}\}\subseteq\{[l_{n}=1]\ \text{i.o.}\}$, we have $P([l_{n}=1]\ \text{i.o.})=1$.
 
 $\textbf{Note:}$ We shouldn't say $\{[d_{2n}=0,d_{2n+1}=1],n\geq1\}$ are disjoint, instead, we should use $\{\sigma(d_{2n},d_{2n+1})\}$ and the Grouping lemma to prove the independence. Also, I forgot the second part of this question when do my answer part.
+
+#### (f)
+$\textbf{My idea:}$ We can firstly discuss $P[\limsup_{n\to\infty}\frac{l_n}{\log_2n}>1]$, because it is the probability of independent event in tail, which can only have value with $0$ or $1$ by Borel 0-1 law, and if it is $0$, then by $[\liminf_{n\to\infty}\frac{l_n}{\log_2n}>1]\subseteq[\limsup_{n\to\infty}\frac{l_n}{\log_2n}>1]$, we have $P[\liminf_{n\to\infty}\frac{l_n}{\log_2n}>1]\leq P[\limsup_{n\to\infty}\frac{l_n}{\log_2n}>1]=0$, so $P[\limsup_{n\to\infty}\frac{l_n}{\log_2n}\leq1]=1-P[\liminf_{n\to\infty}\frac{l_n}{\log_2n}>1]=1-0=1$. According to the definition of $\limsup$, if $\omega\in\{\omega\in\Omega:\ \limsup_{n\to\infty}\frac{l_n(\omega)}{\log_2n}>1\}$, then for any $\varepsilon>0$, exists $N(\omega)\geq1$ such that when $n\geq N$, we have $\frac{l_n}{\log_2n}>(1+\varepsilon)$ or $l_n>(1+\varepsilon)({\log_2n})$, and for large $n$, we also have $(1+\varepsilon)({\log_2n})\leq n$,by this inequality and the result from (b), we have
+$$
+\sum_{n\geq N}P[l_n>(1+\varepsilon)({\log_2n})]\leq\sum_{n\geq N} P[l_n>n]=\sum_{n\geq N}(\frac{1}{2})^{n+1}<\infty,
+$$
+then adding the finite terms before $N$, we have $\sum_{n}P[l_n>(1+\varepsilon)({\log_2n})]<\infty$ for arbitrary $\varepsilon$, so by letting $\varepsilon\to0$, that is $\sum_{n}P[l_n>\log_2n]<\infty$, so $P[\limsup_{n\to\infty}\frac{l_n}{\log_2n}\leq1]=1$.
+
+$\textbf{Answer:}$ We can select a sequence $\{\varepsilon_k\}$, $\varepsilon_k\downarrow0$ and we have 
+$$
+\begin{aligned}
+{}[\limsup_{n\to\infty}\frac{l_n}{\log_2n}>1]&=\bigcup_{k\geq1}[\frac{l_n}{\log_2n}>1+\varepsilon_k\ \text{i.o.}]\\
+&=\bigcup_{k\geq1}[l_n>(1+\varepsilon_k){\log_2n}\ \text{i.o.}],
+\end{aligned}
+$$
+for each $k$, by (b) we have 
+$$
+\begin{aligned}
+\sum_{n} P[l_n>(1+\varepsilon_k){\log_2n}]&\leq\sum_{n}  P[l_n\geq(1+\varepsilon_k){\log_2n}]\\
+&=\sum_{n} 2^{-(1+\varepsilon_k){\log_2n}}=\sum_{n} n^{-(1+\varepsilon_k)}<\infty,
+\end{aligned}
+$$
+so according to Borel 0-1 Law, $P[l_n>(1+\varepsilon_k){\log_2n}\ \text{i.o.}]=0$ and
+$$
+\begin{aligned}
+{} P[\limsup_{n\to\infty}\frac{l_n}{\log_2n}>1]&=P(\bigcup_{k\geq1}[l_n>(1+\varepsilon_k){\log_2n}\ \text{i.o.}])\\
+&\leq\sum_{k\geq1}P([l_n>(1+\varepsilon_k){\log_2n}\ \text{i.o.}])\\
+&=0.
+\end{aligned}
+$$
+Therefore $P[\limsup_{n\to\infty}\frac{l_n}{\log_2n}\leq1]=1$.
+
+$\textbf{Note:}$ We should get back to the definition of $\limsup$, for $\limsup_{n\to\infty}\frac{l_n}{\log_2n}>1$, it means that for any $\varepsilon>0$, $[\frac{l_n}{\log_2n}>1+\varepsilon]$ occur infinitely often, then use a countable sequence to express it.
+
+#### (g)
+$\textbf{My idea:}$ I think the idea follows (e), that is divide $\{d_n\}$ into different chucks with disjoint index set, these index set should be constructed using $\log_2n$ to make sure we have a independent subsequence like $[l_{n_k}\geq\log_2n_{n_k}]$ are independent.
+
+$\textbf{Answer:}$ Set $r_n=[\log_2 n]$, and define $n_k$ as $n_1=2, n_2=n_1+r_{n_1},\dots,n_{k+1}=n_k+r_{n_k}$, therefore, $n_{k+1}-n_{k}=r_{n_k}$. Since for each $k$, $[l_{n_k}\geq r_{n_k}]=[d_{n_k}=0,d_{n_k+1}=0,\dots,d_{n_{k}+r_{n_k}-1}=0]=[d_{n_k}=0,d_{n_k+1}=0,\dots,d_{n_{k+1}-1}=0]\in\sigma(d_i:n_k\leq i<n_{k+1})$, and by Grouping Lemma, events $\{[l_{n_k}\geq r_{n_k}],k\geq1\}$ are independent. and according to (e), 
+$$
+\begin{aligned}
+P[l_{n_k}\geq r_{n_k}]&=2^{-r_{n_k}}\\
+&=2^{-[\log_2n_k]}\geq\frac{1}{n_k},
+\end{aligned}
+$$
+since $r_{n_k}=[\log_2n_k]\leq\log_2n_k$, so $n_{k+1}=n_k+[\log_2n_k]\leq n_k+\log_2n_k\leq2n_k$ for large $k$, and that is $\frac{1}{n_{k+1}}\geq\frac{1}{2}\cdot\frac{1}{n_k}$, by iterating, we have 
+$$
+\sum_{j=1}^m\frac{1}{n_j}\geq\frac{1}{n_m}\sum_{j=1}^m 2^{m-j}=\frac{2^m-1}{n_m},
+$$
+and $n_m\leq2^mn_1$, therefore $\sum_{k}P[l_{n_k}\geq r_{n_k}]\geq\sum_{k}\frac{1}{n_k}=\infty$, by Borel 0-1 Law, $P([l_{n_k}\geq r_{n_k}]\ \text{i.o.})=1$, and $\{[l_{n_k}\geq r_{n_k}]\ \text{i.o.}\}\subseteq\{[l_{n}\geq r_{n}]\ \text{i.o.}\}$, so $P([l_{n}\geq r_{n}]\ \text{i.o.})=1$.
+
+$\textbf{Note:}$ This question stuck me for two days, firstly, if I follow the hint from the book by letting $n_1=1$, then we only have a constant subsequence, and then I made some concrete examples to display why disjoint blocks lead to independence: let's consider $[l_2\geq2]$ and $[l_4\geq3]$, so we have $P[l_2\geq2]=(\frac{1}{2})^2$ and $P[l_4\geq3]=(\frac{1}{2})^3$ and $P([l_2\geq2]\cap[l_4\geq3])=P(d_2=0,d_3=0,d_4=0,d_5=0,d_6=0)=(\frac{1}{2})^5=P[l_2\geq2]P[l_4\geq3]$, however, if we consider $[l_2\geq3]$ and $[l_4\geq3]$, then $P([l_2\geq3]\cap[l_4\geq3])=P(d_2=0,d_3=0,d_4=0,d_5=0,d_6=0)=(\frac{1}{2})^5\neq P[l_2\geq3]P[l_4\geq3]$, so this is what the hint means. Then the logic chain for this question is:
+
+1. The original probability decreases at speed of $(1/2)^{n}$, so we need to construct a sub-sequence $n_k$ to draw $(1/2)^{-n_k}$ back to harmonic level, so we need the increment increases like $\log_2 n$,
+2. Use it to construct a sequence of disjoint blocks,
+3. Use these block to construct a sequence of independent events.
+
+Besides: we can use $\int_{1}^\infty\frac{1}{x\log_2x}dx$ to prove the divergence.
+
+
