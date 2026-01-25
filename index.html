@@ -11,7 +11,7 @@
 
 <meta name="author" content="Zhanwen Peng" />
 
-<meta name="date" content="2026-01-23" />
+<meta name="date" content="2026-01-25" />
 
 <title>Notes on A Probability Path (Resnick)</title>
 
@@ -1482,7 +1482,7 @@ border-radius: 0px;
 
 <h1 class="title toc-ignore">Notes on A Probability Path (Resnick)</h1>
 <h4 class="author">Zhanwen Peng</h4>
-<h4 class="date">2026-01-23</h4>
+<h4 class="date">2026-01-25</h4>
 
 </div>
 
@@ -2992,6 +2992,31 @@ n\)</span>,</li>
 <p>Besides: we can use <span class="math inline">\(\int_{1}^\infty\frac{1}{x\log_2x}dx\)</span> to
 prove the divergence.</p>
 </div>
+</div>
+<div id="ex-31" class="section level3">
+<h3>Ex 31</h3>
+<div class="problem">
+<p>Suppose <span class="math inline">\(\{B_n,\, n\ge 1\}\)</span> is a
+sequence of events such that for some <span class="math inline">\(\delta&gt;0\)</span> <span class="math display">\[
+P(B_n)\ge \delta&gt;0,
+\]</span> for all <span class="math inline">\(n\ge 1\)</span>. Show
+<span class="math inline">\(\limsup_{n\to\infty} B_n \ne
+\varnothing\)</span>. Use this to help show with minimum calculation
+that in an infinite sequence of independent Bernoulli trials, there is
+an infinite number of successes with probability one.</p>
+</div>
+<p><span class="math inline">\(\textbf{My idea:}\)</span> Let <span class="math inline">\(C_n=\bigcup_{n\geq k}B_k\)</span>, then <span class="math inline">\(C_n\)</span> is a decreasing sequence, and <span class="math inline">\(P(C_n)=P(\bigcup_{n\geq k}B_k)\geq
+P(B_n)\geq\delta&gt;0\)</span>, so <span class="math inline">\(P(\limsup_{n\to\infty}B_n)=P(\bigcap_{n=1}^\infty\bigcup_{n\geq
+k}B_k)=\lim_{n\to\infty}P(C_n)\geq\delta&gt;0\)</span>, so <span class="math inline">\(P(\limsup_{n\to\infty}B_n)&gt;0\)</span>, implying
+<span class="math inline">\(\limsup_{n\to\infty}B_n\neq\varnothing\)</span>.
+For an infinite sequence of independent Bernoulli trials, that is, <span class="math inline">\(X_n\sim\text{Bernoulli}(p_n)\)</span>,
+independent. Let <span class="math inline">\(P(B_n)=p_n\geq\delta&gt;0\)</span>, then <span class="math inline">\(P(\limsup_{n\to\infty}B_n)&gt;0\)</span>, since
+they are independent, by <del>Borel</del> <strong>Kolmogorov</strong>
+0-1 Law, <span class="math inline">\(P(\limsup_{n\to\infty}B_n)=1\)</span>, so there is
+an infinite number of successes with probability one.</p>
+<p><span class="math inline">\(\textbf{Note:}\)</span> Since we have
+construct a sequence of independent r.v, <span class="math inline">\(\{X_n\}\)</span>, then we should note that <span class="math inline">\([B_n\ \text{i.o.}]\)</span> is in tail, so we are
+using the Kolmogorov 0-1 Law, not the Borel one.</p>
 </div>
 </div>
 

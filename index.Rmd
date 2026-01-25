@@ -1287,3 +1287,17 @@ $\textbf{Note:}$ This question stuck me for two days, firstly, if I follow the h
 Besides: we can use $\int_{1}^\infty\frac{1}{x\log_2x}dx$ to prove the divergence.
 
 
+### Ex 31
+::: problem
+Suppose $\{B_n,\, n\ge 1\}$ is a sequence of events such that for some $\delta>0$
+\[
+P(B_n)\ge \delta>0,
+\]
+for all $n\ge 1$. Show $\limsup_{n\to\infty} B_n \ne \varnothing$. Use this to help show with
+minimum calculation that in an infinite sequence of independent Bernoulli trials, there is an
+infinite number of successes with probability one.
+:::
+
+$\textbf{My idea:}$ Let $C_n=\bigcup_{n\geq k}B_k$, then $C_n$ is a decreasing sequence, and $P(C_n)=P(\bigcup_{n\geq k}B_k)\geq P(B_n)\geq\delta>0$, so $P(\limsup_{n\to\infty}B_n)=P(\bigcap_{n=1}^\infty\bigcup_{n\geq k}B_k)=\lim_{n\to\infty}P(C_n)\geq\delta>0$, so $P(\limsup_{n\to\infty}B_n)>0$, implying $\limsup_{n\to\infty}B_n\neq\varnothing$. For an infinite sequence of independent Bernoulli trials, that is, $X_n\sim\text{Bernoulli}(p_n)$, independent. Let $P(B_n)=p_n\geq\delta>0$, then $P(\limsup_{n\to\infty}B_n)>0$, since they are independent, by ~~Borel~~ **Kolmogorov** 0-1 Law, $P(\limsup_{n\to\infty}B_n)=1$, so there is an infinite number of successes with probability one.
+
+$\textbf{Note:}$ Since we have construct a sequence of independent r.v, $\{X_n\}$, then we should note that $[B_n\ \text{i.o.}]$ is in tail, so we are using the Kolmogorov 0-1 Law, not the Borel one.
