@@ -1301,3 +1301,125 @@ infinite number of successes with probability one.
 $\textbf{My idea:}$ Let $C_n=\bigcup_{n\geq k}B_k$, then $C_n$ is a decreasing sequence, and $P(C_n)=P(\bigcup_{n\geq k}B_k)\geq P(B_n)\geq\delta>0$, so $P(\limsup_{n\to\infty}B_n)=P(\bigcap_{n=1}^\infty\bigcup_{n\geq k}B_k)=\lim_{n\to\infty}P(C_n)\geq\delta>0$, so $P(\limsup_{n\to\infty}B_n)>0$, implying $\limsup_{n\to\infty}B_n\neq\varnothing$. For an infinite sequence of independent Bernoulli trials, that is, $X_n\sim\text{Bernoulli}(p_n)$, independent. Let $P(B_n)=p_n\geq\delta>0$, then $P(\limsup_{n\to\infty}B_n)>0$, since they are independent, by ~~Borel~~ **Kolmogorov** 0-1 Law, $P(\limsup_{n\to\infty}B_n)=1$, so there is an infinite number of successes with probability one.
 
 $\textbf{Note:}$ Since we have construct a sequence of independent r.v, $\{X_n\}$, then we should note that $[B_n\ \text{i.o.}]$ is in tail, so we are using the Kolmogorov 0-1 Law, not the Borel one.
+
+### Ex 32
+::: problem
+\noindent$\textbf{The Renyi representation.}$ Suppose $E_1,\ldots,E_n$ are iid exponentially
+distributed random variables with parameter $\lambda>0$ so that
+\[
+P[E_1\le x]=1-e^{-\lambda x}, \qquad x>0.
+\]
+Let
+\[
+E_{1,n}\le E_{2,n}\le \cdots \le E_{n,n}
+\]
+be the order statistics. Prove the $n$ spacings
+\[
+E_{1,n},\ E_{2,n}-E_{1,n},\ \ldots,\ E_{n,n}-E_{n-1,n}
+\]
+are independent exponentially distributed random variables where $E_{k+1,n}-E_{k,n}$ has
+parameter $(n-k)\lambda$. Intuitively, this results from the forgetfulness property of the
+exponential distribution.
+:::
+
+$\textbf{My idea:}$ 
+Let's express the order statistics as $E_{(1)},\dots,E_{(n)}$ for simplicity, I firstly try some simple cases: for $n=2$, it is a little trivial: $P[E_{(1)}>x]=P([E_{1}>x]\cap[E_{2}>x])=e^{-2\lambda x}$, and $P[E_{(2)}-E_{(1)}>x]=P(E_2-E_1>x|E_2>E_1)P(E_2>E_1)+P(E_1-E_2>x|E_1>E_2)P(E_1>E_2)$, then by forgetfulness of the exponential distribution, we have $P[E_{(2)}-E_{(1)}>x]=P(E_2>x)P(E_2>E_1)+P(E_1>x)P(E_1>E_2)=\frac{1}{2}e^{-\lambda x}+\frac{1}{2}e^{-\lambda x}=e^{-\lambda x}$. So for $n=1$, we can just discuss $P[E_{(2)}-E_{(1)}>x]$,
+$$
+\begin{aligned}
+P[E_{(2)}-E_{(1)}>x]&=P(E_1-E_2>x|E_1=E_{(2)},E_2=E_{(1)})P(E_1=E_{(2)},E_2=E_{(1)})+\dots\\
+&\qquad+P(E_3-E_2>x|E_3=E_{(2)},E_2=E_{(1)})P(E_3=E_{(2)},E_2=E_{(1)})\\
+&=P(E_1-E_2>x|E_3>E_1>E_2)P(E_3>E_1>E_2)+\dots\\
+&\qquad+P(E_3-E_2>x|E_1>E_3>E_2)P(E_1>E_3>E_2),
+\end{aligned}
+$$
+by Renyi's therom, for each order, such as $E_1>E_3>E_2$, the probability is $1/n!=1/6$, and then what is 
+$P(E_1-E_2>x|E_3>E_1>E_2)$?, Given $E_3>E_1>E_2$, when  $E_1-E_2>x$, there also have $E_3-E_2>x$, so it is just $P(E_1-E_2>x|E_3>E_1>E_2)=(e^{-\lambda x})^2=e^{-2\lambda x}$, then for $E_{(1)}$, we have, $P[E_{(1)}>x]=P[\min_{1\leq i\leq n}E_i>x]=P(\bigcap_{i=1}^n[E_i>x)=\prod_{i=1}^n P[E_i>x]=e^{-\lambda nx}$ since they are iid. Then for $E_{(k+1)}-E_{(k)}$, , we have 
+$$
+P(E_{(k+1)}-E_{(k)}>x)=\sum_{i\neq j}P(E_i-E_j>x|E_i=E_{(k+1)},E_j=E_{(k)})P(E_i=E_{(k+1)},E_j=E_{(k)})
+$$
+for $P(E_i-E_j>x|E_i=E_{(k+1)},E_j=E_{(k)})$, that is for each fixed order, $E_j$ is the $K$th rank, and since we are discussing  $P(E_{i}-E_{j}>x)$, than for each $E_k$ has higer rank, should also have $E_{k}-E_{j}>x$, and there are $(n-k)$ higer ranks, so using the forgetfulness and independence of $E_n$, we have $P(E_{(k+1)}-E_{(k)}>x)=\exp(-\lambda(n-k)x)$.
+
+ 
+Renew 1: Let $T=\min_i E_i=E_{(1)}$ and $I=\arg\min E_i $, that is, $I$ is the index such that $E_I$ is $E_{(1)}$, then for $j\neq I$, we have 
+$$
+\begin{aligned}
+P(E_j-T>x|T=t,I=i)&=P(E_j-E_i>x|E_i\ \text{is the minimum},E_i=t)\\
+&=P(E_j>x+t|E_j>t)=P(E_j>x)=e^{-\lambda x}
+\end{aligned}
+$$
+because since given $T=t$ and $E_j>T$, then it is $E_j>t$.
+
+Renew 2:
+
+We can rewrite $\{T=t,I=i\}$ as $\{E_i=t\}\bigcap_{k\neq i,j}\{E_k\geq t\}\cap\{E_j\geq t\}$, since $\{E_i\}$ are iid, so $\{E_j\geq t\}$ and $\{E_i=t\}\bigcap_{k\neq i,j}\{E_k\geq t\}$ are independent since they are in independent $\sigma$-field, which are $\sigma(E_j)$ and $\sigma(E_k:k=1,\dots,n\ \text{and}\ k\neq j)$, so
+
+$$
+\begin{aligned}
+P(E_j-T>x|T=t,I=i)&=P(E_j>x+t|\{E_i=t\}\cap\bigcap_{k\neq i,j}\{E_k\geq t\}\cap\{E_j\geq t\})\\
+&=\frac{P(\{E_j>x+t\}\cap\{E_i=t\}\cap\bigcap_{k\neq i,j}\{E_k\geq t\}\cap\{E_j\geq t\})}{P(\{E_i=t\}\cap\bigcap_{k\neq i,j}\{E_k\geq t\}\cap\{E_j\geq t\})}\\
+&=\frac{P(\{E_j>x+t\}\cap\{E_i=t\}\cap\bigcap_{k\neq i,j}\{E_k\geq t\})}{P(\{E_i=t\}\cap\bigcap_{k\neq i,j}\{E_k\geq t\}\cap\{E_j\geq t\})}\qquad (\text{because }\{E_j>x+t\}\cap\{E_j\geq t\}=\{E_j>x+t\})\\
+&=\frac{P(\{E_j>x+t\})\cdot P(\{E_i=t\}\cap\bigcap_{k\neq i,j}\{E_k\geq t\})}{P(\{E_i=t\}\cap\bigcap_{k\neq i,j}\{E_k\geq t\})\cdot P(\{E_j\geq t\})}\qquad (\text{Using independence})\\
+&=\frac{P(E_j>x+t)}{P(E_j\geq t)}\\
+&=P(E_j>x+t|E_j\geq t)=P(E_j>x)=e^{-\lambda x}
+\end{aligned}
+$$
+
+$\textbf{Answer:}$ Let $E_{(1)}\le \cdots \le E_{(n)}$ be the order statistics. Then
+\[
+P(E_{(1)}>x)=P\Big(\min_{1\le i\le n}E_i>x\Big)=\prod_{i=1}^n P(E_i>x)=e^{-n\lambda x},
+\]
+so $E_{(1)}\sim\mathrm{Exp}(n\lambda)$.
+
+Let $T:=E_{(1)}$ and let $I$ be the (a.s. unique) index of the minimum. Fix $t\ge0$ and
+$\Delta>0$ and define
+\[
+A_{t,\Delta,i}:=\{t<T\le t+\Delta,\ I=i\},\qquad
+G_\Delta:=\{t<E_i\le t+\Delta\}\cap\bigcap_{k\ne i,j}\{E_k>t\}.
+\]
+Then $A_{t,\Delta,i}=G_\Delta\cap\{E_j>t\}$, and $G_\Delta\in\sigma(E_k:k\ne j)$, hence $G_\Delta$
+is independent of $\sigma(E_j)$. For $x\ge0$ and $j\ne i$,
+\[
+P(E_j-T>x\mid A_{t,\Delta,i})
+= P(E_j>t+x\mid G_\Delta\cap\{E_j>t\})
+= \frac{P(E_j>t+x)\,P(G_\Delta)}{P(E_j>t)\,P(G_\Delta)}
+= \frac{P(E_j>t+x)}{P(E_j>t)}
+= e^{-\lambda x},
+\]
+using $P(E>t+x)/P(E>t)=e^{-\lambda x}$ for $E\sim\mathrm{Exp}(\lambda)$. Similarly, for distinct
+$j_1,\dots,j_m\ne i$,
+\[
+P\Big(\bigcap_{\ell=1}^m\{E_{j_\ell}-T>x_\ell\}\,\Big|\,A_{t,\Delta,i}\Big)
+=\prod_{\ell=1}^m e^{-\lambda x_\ell},
+\]
+so the residuals $\{E_j-T: j\ne I\}$ are independent and $\mathrm{Exp}(\lambda)$.
+
+Therefore,
+\[
+E_{(2)}-E_{(1)}=\min_{j\ne I}(E_j-T)\sim \mathrm{Exp}((n-1)\lambda).
+\]
+Iterating the same argument after removing the next minimum each time, the spacings
+$E_{(1)},E_{(2)}-E_{(1)},\dots,E_{(n)}-E_{(n-1)}$ are independent and
+\[
+E_{(k+1)}-E_{(k)}\sim \mathrm{Exp}((n-k)\lambda),\qquad k=0,1,\dots,n-1,
+\]
+(with $E_{(0)}:=0$), i.e.\ the parameters are $n\lambda,(n-1)\lambda,\dots,\lambda$.
+
+$\textbf{Note:}$ The formal conditional probability has not been introduced in this book yet, so at first I have to use some naive (not based on measure theory) probability method to deal with it, then in the end, I used the "hazard rate" method to make it as rigor as possible. Using the combination way is OK, but it will be a nightmare to write down the process and not fit the basic idea of measure theory, that is, the $\sigma$-field language.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

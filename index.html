@@ -11,7 +11,7 @@
 
 <meta name="author" content="Zhanwen Peng" />
 
-<meta name="date" content="2026-01-25" />
+<meta name="date" content="2026-01-28" />
 
 <title>Notes on A Probability Path (Resnick)</title>
 
@@ -1482,7 +1482,7 @@ border-radius: 0px;
 
 <h1 class="title toc-ignore">Notes on A Probability Path (Resnick)</h1>
 <h4 class="author">Zhanwen Peng</h4>
-<h4 class="date">2026-01-25</h4>
+<h4 class="date">2026-01-28</h4>
 
 </div>
 
@@ -3017,6 +3017,126 @@ an infinite number of successes with probability one.</p>
 <p><span class="math inline">\(\textbf{Note:}\)</span> Since we have
 construct a sequence of independent r.v, <span class="math inline">\(\{X_n\}\)</span>, then we should note that <span class="math inline">\([B_n\ \text{i.o.}]\)</span> is in tail, so we are
 using the Kolmogorov 0-1 Law, not the Borel one.</p>
+</div>
+<div id="ex-32" class="section level3">
+<h3>Ex 32</h3>
+<div class="problem">
+<p><span class="math inline">\(\textbf{The Renyi
+representation.}\)</span> Suppose <span class="math inline">\(E_1,\ldots,E_n\)</span> are iid exponentially
+distributed random variables with parameter <span class="math inline">\(\lambda&gt;0\)</span> so that <span class="math display">\[
+P[E_1\le x]=1-e^{-\lambda x}, \qquad x&gt;0.
+\]</span> Let <span class="math display">\[
+E_{1,n}\le E_{2,n}\le \cdots \le E_{n,n}
+\]</span> be the order statistics. Prove the <span class="math inline">\(n\)</span> spacings <span class="math display">\[
+E_{1,n},\ E_{2,n}-E_{1,n},\ \ldots,\ E_{n,n}-E_{n-1,n}
+\]</span> are independent exponentially distributed random variables
+where <span class="math inline">\(E_{k+1,n}-E_{k,n}\)</span> has
+parameter <span class="math inline">\((n-k)\lambda\)</span>.
+Intuitively, this results from the forgetfulness property of the
+exponential distribution.</p>
+</div>
+<p><span class="math inline">\(\textbf{My idea:}\)</span> Let’s express
+the order statistics as <span class="math inline">\(E_{(1)},\dots,E_{(n)}\)</span> for simplicity, I
+firstly try some simple cases: for <span class="math inline">\(n=2\)</span>, it is a little trivial: <span class="math inline">\(P[E_{(1)}&gt;x]=P([E_{1}&gt;x]\cap[E_{2}&gt;x])=e^{-2\lambda
+x}\)</span>, and <span class="math inline">\(P[E_{(2)}-E_{(1)}&gt;x]=P(E_2-E_1&gt;x|E_2&gt;E_1)P(E_2&gt;E_1)+P(E_1-E_2&gt;x|E_1&gt;E_2)P(E_1&gt;E_2)\)</span>,
+then by forgetfulness of the exponential distribution, we have <span class="math inline">\(P[E_{(2)}-E_{(1)}&gt;x]=P(E_2&gt;x)P(E_2&gt;E_1)+P(E_1&gt;x)P(E_1&gt;E_2)=\frac{1}{2}e^{-\lambda
+x}+\frac{1}{2}e^{-\lambda x}=e^{-\lambda x}\)</span>. So for <span class="math inline">\(n=1\)</span>, we can just discuss <span class="math inline">\(P[E_{(2)}-E_{(1)}&gt;x]\)</span>, <span class="math display">\[
+\begin{aligned}
+P[E_{(2)}-E_{(1)}&gt;x]&amp;=P(E_1-E_2&gt;x|E_1=E_{(2)},E_2=E_{(1)})P(E_1=E_{(2)},E_2=E_{(1)})+\dots\\
+&amp;\qquad+P(E_3-E_2&gt;x|E_3=E_{(2)},E_2=E_{(1)})P(E_3=E_{(2)},E_2=E_{(1)})\\
+&amp;=P(E_1-E_2&gt;x|E_3&gt;E_1&gt;E_2)P(E_3&gt;E_1&gt;E_2)+\dots\\
+&amp;\qquad+P(E_3-E_2&gt;x|E_1&gt;E_3&gt;E_2)P(E_1&gt;E_3&gt;E_2),
+\end{aligned}
+\]</span> by Renyi’s therom, for each order, such as <span class="math inline">\(E_1&gt;E_3&gt;E_2\)</span>, the probability is
+<span class="math inline">\(1/n!=1/6\)</span>, and then what is <span class="math inline">\(P(E_1-E_2&gt;x|E_3&gt;E_1&gt;E_2)\)</span>?, Given
+<span class="math inline">\(E_3&gt;E_1&gt;E_2\)</span>, when <span class="math inline">\(E_1-E_2&gt;x\)</span>, there also have <span class="math inline">\(E_3-E_2&gt;x\)</span>, so it is just <span class="math inline">\(P(E_1-E_2&gt;x|E_3&gt;E_1&gt;E_2)=(e^{-\lambda
+x})^2=e^{-2\lambda x}\)</span>, then for <span class="math inline">\(E_{(1)}\)</span>, we have, <span class="math inline">\(P[E_{(1)}&gt;x]=P[\min_{1\leq i\leq
+n}E_i&gt;x]=P(\bigcap_{i=1}^n[E_i&gt;x)=\prod_{i=1}^n
+P[E_i&gt;x]=e^{-\lambda nx}\)</span> since they are iid. Then for <span class="math inline">\(E_{(k+1)}-E_{(k)}\)</span>, , we have <span class="math display">\[
+P(E_{(k+1)}-E_{(k)}&gt;x)=\sum_{i\neq
+j}P(E_i-E_j&gt;x|E_i=E_{(k+1)},E_j=E_{(k)})P(E_i=E_{(k+1)},E_j=E_{(k)})
+\]</span> for <span class="math inline">\(P(E_i-E_j&gt;x|E_i=E_{(k+1)},E_j=E_{(k)})\)</span>,
+that is for each fixed order, <span class="math inline">\(E_j\)</span>
+is the <span class="math inline">\(K\)</span>th rank, and since we are
+discussing <span class="math inline">\(P(E_{i}-E_{j}&gt;x)\)</span>,
+than for each <span class="math inline">\(E_k\)</span> has higer rank,
+should also have <span class="math inline">\(E_{k}-E_{j}&gt;x\)</span>,
+and there are <span class="math inline">\((n-k)\)</span> higer ranks, so
+using the forgetfulness and independence of <span class="math inline">\(E_n\)</span>, we have <span class="math inline">\(P(E_{(k+1)}-E_{(k)}&gt;x)=\exp(-\lambda(n-k)x)\)</span>.</p>
+<p>Renew 1: Let <span class="math inline">\(T=\min_i
+E_i=E_{(1)}\)</span> and $I=E_i $, that is, <span class="math inline">\(I\)</span> is the index such that <span class="math inline">\(E_I\)</span> is <span class="math inline">\(E_{(1)}\)</span>, then for <span class="math inline">\(j\neq I\)</span>, we have <span class="math display">\[
+\begin{aligned}
+P(E_j-T&gt;x|T=t,I=i)&amp;=P(E_j-E_i&gt;x|E_i\ \text{is the
+minimum},E_i=t)\\
+&amp;=P(E_j&gt;x+t|E_j&gt;t)=P(E_j&gt;x)=e^{-\lambda x}
+\end{aligned}
+\]</span> because since given <span class="math inline">\(T=t\)</span>
+and <span class="math inline">\(E_j&gt;T\)</span>, then it is <span class="math inline">\(E_j&gt;t\)</span>.</p>
+<p>Renew 2:</p>
+<p>We can rewrite <span class="math inline">\(\{T=t,I=i\}\)</span> as
+<span class="math inline">\(\{E_i=t\}\bigcap_{k\neq i,j}\{E_k\geq
+t\}\cap\{E_j\geq t\}\)</span>, since <span class="math inline">\(\{E_i\}\)</span> are iid, so <span class="math inline">\(\{E_j\geq t\}\)</span> and <span class="math inline">\(\{E_i=t\}\bigcap_{k\neq i,j}\{E_k\geq t\}\)</span>
+are independent since they are in independent <span class="math inline">\(\sigma\)</span>-field, which are <span class="math inline">\(\sigma(E_j)\)</span> and <span class="math inline">\(\sigma(E_k:k=1,\dots,n\ \text{and}\ k\neq
+j)\)</span>, so</p>
+<p><span class="math display">\[
+\begin{aligned}
+P(E_j-T&gt;x|T=t,I=i)&amp;=P(E_j&gt;x+t|\{E_i=t\}\cap\bigcap_{k\neq
+i,j}\{E_k\geq t\}\cap\{E_j\geq t\})\\
+&amp;=\frac{P(\{E_j&gt;x+t\}\cap\{E_i=t\}\cap\bigcap_{k\neq
+i,j}\{E_k\geq t\}\cap\{E_j\geq t\})}{P(\{E_i=t\}\cap\bigcap_{k\neq
+i,j}\{E_k\geq t\}\cap\{E_j\geq t\})}\\
+&amp;=\frac{P(\{E_j&gt;x+t\}\cap\{E_i=t\}\cap\bigcap_{k\neq
+i,j}\{E_k\geq t\})}{P(\{E_i=t\}\cap\bigcap_{k\neq i,j}\{E_k\geq
+t\}\cap\{E_j\geq t\})}\qquad (\text{because }\{E_j&gt;x+t\}\cap\{E_j\geq
+t\}=\{E_j&gt;x+t\})\\
+&amp;=\frac{P(\{E_j&gt;x+t\})\cdot P(\{E_i=t\}\cap\bigcap_{k\neq
+i,j}\{E_k\geq t\})}{P(\{E_i=t\}\cap\bigcap_{k\neq i,j}\{E_k\geq
+t\})\cdot P(\{E_j\geq t\})}\qquad (\text{Using independence})\\
+&amp;=\frac{P(E_j&gt;x+t)}{P(E_j\geq t)}\\
+&amp;=P(E_j&gt;x+t|E_j\geq t)=P(E_j&gt;x)=e^{-\lambda x}
+\end{aligned}
+\]</span></p>
+<p><span class="math inline">\(\textbf{Answer:}\)</span> Let <span class="math inline">\(E_{(1)}\le \cdots \le E_{(n)}\)</span> be the
+order statistics. Then <span class="math display">\[
+P(E_{(1)}&gt;x)=P\Big(\min_{1\le i\le n}E_i&gt;x\Big)=\prod_{i=1}^n
+P(E_i&gt;x)=e^{-n\lambda x},
+\]</span> so <span class="math inline">\(E_{(1)}\sim\mathrm{Exp}(n\lambda)\)</span>.</p>
+<p>Let <span class="math inline">\(T:=E_{(1)}\)</span> and let <span class="math inline">\(I\)</span> be the (a.s. unique) index of the
+minimum. Fix <span class="math inline">\(t\ge0\)</span> and <span class="math inline">\(\Delta&gt;0\)</span> and define <span class="math display">\[
+A_{t,\Delta,i}:=\{t&lt;T\le t+\Delta,\ I=i\},\qquad
+G_\Delta:=\{t&lt;E_i\le t+\Delta\}\cap\bigcap_{k\ne i,j}\{E_k&gt;t\}.
+\]</span> Then <span class="math inline">\(A_{t,\Delta,i}=G_\Delta\cap\{E_j&gt;t\}\)</span>,
+and <span class="math inline">\(G_\Delta\in\sigma(E_k:k\ne j)\)</span>,
+hence <span class="math inline">\(G_\Delta\)</span> is independent of
+<span class="math inline">\(\sigma(E_j)\)</span>. For <span class="math inline">\(x\ge0\)</span> and <span class="math inline">\(j\ne i\)</span>, <span class="math display">\[
+P(E_j-T&gt;x\mid A_{t,\Delta,i})
+= P(E_j&gt;t+x\mid G_\Delta\cap\{E_j&gt;t\})
+= \frac{P(E_j&gt;t+x)\,P(G_\Delta)}{P(E_j&gt;t)\,P(G_\Delta)}
+= \frac{P(E_j&gt;t+x)}{P(E_j&gt;t)}
+= e^{-\lambda x},
+\]</span> using <span class="math inline">\(P(E&gt;t+x)/P(E&gt;t)=e^{-\lambda x}\)</span> for
+<span class="math inline">\(E\sim\mathrm{Exp}(\lambda)\)</span>.
+Similarly, for distinct <span class="math inline">\(j_1,\dots,j_m\ne
+i\)</span>, <span class="math display">\[
+P\Big(\bigcap_{\ell=1}^m\{E_{j_\ell}-T&gt;x_\ell\}\,\Big|\,A_{t,\Delta,i}\Big)
+=\prod_{\ell=1}^m e^{-\lambda x_\ell},
+\]</span> so the residuals <span class="math inline">\(\{E_j-T: j\ne
+I\}\)</span> are independent and <span class="math inline">\(\mathrm{Exp}(\lambda)\)</span>.</p>
+<p>Therefore, <span class="math display">\[
+E_{(2)}-E_{(1)}=\min_{j\ne I}(E_j-T)\sim \mathrm{Exp}((n-1)\lambda).
+\]</span> Iterating the same argument after removing the next minimum
+each time, the spacings <span class="math inline">\(E_{(1)},E_{(2)}-E_{(1)},\dots,E_{(n)}-E_{(n-1)}\)</span>
+are independent and <span class="math display">\[
+E_{(k+1)}-E_{(k)}\sim \mathrm{Exp}((n-k)\lambda),\qquad k=0,1,\dots,n-1,
+\]</span> (with <span class="math inline">\(E_{(0)}:=0\)</span>),
+i.e. the parameters are <span class="math inline">\(n\lambda,(n-1)\lambda,\dots,\lambda\)</span>.</p>
+<p><span class="math inline">\(\textbf{Note:}\)</span> The formal
+conditional probability has not been introduced in this book yet, so at
+first I have to use some naive (not based on measure theory) probability
+method to deal with it, then in the end, I used the “hazard rate” method
+to make it as rigor as possible. Using the combination way is OK, but it
+will be a nightmare to write down the process and not fit the basic idea
+of measure theory, that is, the <span class="math inline">\(\sigma\)</span>-field language.</p>
 </div>
 </div>
 
