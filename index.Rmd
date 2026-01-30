@@ -1406,9 +1406,51 @@ E_{(k+1)}-E_{(k)}\sim \mathrm{Exp}((n-k)\lambda),\qquad k=0,1,\dots,n-1,
 
 $\textbf{Note:}$ The formal conditional probability has not been introduced in this book yet, so at first I have to use some naive (not based on measure theory) probability method to deal with it, then in the end, I used the "hazard rate" method to make it as rigor as possible. Using the combination way is OK, but it will be a nightmare to write down the process and not fit the basic idea of measure theory, that is, the $\sigma$-field language.
 
+## Chap 5, Integration and Expectation
 
+### Summary
+**(2026-01-30)**
 
+I want to summarize the main idea from 5.1 to 5.2.
 
+We start from **simple functions** (finite range), i.e. functions of the form
+[
+X=\sum_{i=1}^m a_i,1_{A_i},
+]
+which are the “basic blocks” because they’re easy to compute with, and they’re measurable (so they are random variables too).
+
+In **Theorem 5.1.1 (Measurability Theorem)** (for (X(\omega)\ge 0)), we prove that a random variable (X) is measurable **iff** it can be approximated from below by an **increasing** sequence of simple functions:
+[
+0\le X_n \uparrow X.
+]
+The construction idea is to **slice the range** of (X) into many small bins, and also **truncate** at level (n). Using a dyadic mesh (2^{-n}) (or more generally (b^{-n})) is important because these partitions are **nested**, so the approximation can be made monotone increasing. I tried to slice with step size (1/n), but that does **not** guarantee (X_n\uparrow X) since the partitions aren’t nested (so the “rounded-down” approximations can go down when (n) changes).
+
+After that, expectation is first defined for simple functions in the most elementary way:
+[
+E(X)=\sum_{i=1}^m a_i,P(A_i),
+]
+which is exactly “sum of (possible value) × (its probability).” Then for a general measurable (X\ge 0), we **extend** the definition by approximation: pick simple (X_n\uparrow X) and set
+[
+E(X):=\lim_{n\to\infty}E(X_n).
+]
+A key point is that this limit is **well-defined** (it doesn’t depend on the particular approximating sequence), so expectation becomes a legitimate object for all nonnegative measurable random variables. This is a classic analysis strategy: define something on a handy class, then extend it to a larger class via limits.
+
+This viewpoint also explains why **monotone convergence** matters: if (0\le X_n\uparrow X), then
+[
+E(X_n)\uparrow E(X),
+]
+so under monotone increase we can exchange “take limits” and “take expectations.” Conceptually, the proof (and the entire construction) keeps returning to the base case of simple functions.
+
+Finally, in **Markov’s inequality**, the indicator function is the bridge between probability and expectation: since
+[
+1_{{X\ge a}}\le \frac{X}{a}\quad (X\ge 0),
+]
+we get
+[
+P(X\ge a)=E!\left(1_{{X\ge a}}\right)\le \frac{E(X)}{a}.
+]
+This is a clean example of how expectations control probabilities by rewriting events as indicator random variables.
+ 
 
 
 

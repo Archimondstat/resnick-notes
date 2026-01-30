@@ -11,7 +11,7 @@
 
 <meta name="author" content="Zhanwen Peng" />
 
-<meta name="date" content="2026-01-28" />
+<meta name="date" content="2026-01-30" />
 
 <title>Notes on A Probability Path (Resnick)</title>
 
@@ -1482,7 +1482,7 @@ border-radius: 0px;
 
 <h1 class="title toc-ignore">Notes on A Probability Path (Resnick)</h1>
 <h4 class="author">Zhanwen Peng</h4>
-<h4 class="date">2026-01-28</h4>
+<h4 class="date">2026-01-30</h4>
 
 </div>
 
@@ -3137,6 +3137,50 @@ method to deal with it, then in the end, I used the “hazard rate” method
 to make it as rigor as possible. Using the combination way is OK, but it
 will be a nightmare to write down the process and not fit the basic idea
 of measure theory, that is, the <span class="math inline">\(\sigma\)</span>-field language.</p>
+</div>
+</div>
+<div id="chap-5-integration-and-expectation" class="section level2">
+<h2>Chap 5, Integration and Expectation</h2>
+<div id="summary-1" class="section level3">
+<h3>Summary</h3>
+<p><strong>(2026-01-30)</strong></p>
+<p>I want to summarize the main idea from 5.1 to 5.2.</p>
+<p>We start from <strong>simple functions</strong> (finite range),
+i.e. functions of the form [ X=<em>{i=1}^m a_i,1</em>{A_i},] which are
+the “basic blocks” because they’re easy to compute with, and they’re
+measurable (so they are random variables too).</p>
+<p>In <strong>Theorem 5.1.1 (Measurability Theorem)</strong> (for
+(X())), we prove that a random variable (X) is measurable
+<strong>iff</strong> it can be approximated from below by an
+<strong>increasing</strong> sequence of simple functions: [ 0X_n X.] The
+construction idea is to <strong>slice the range</strong> of (X) into
+many small bins, and also <strong>truncate</strong> at level (n). Using
+a dyadic mesh (2^{-n}) (or more generally (b^{-n})) is important because
+these partitions are <strong>nested</strong>, so the approximation can
+be made monotone increasing. I tried to slice with step size (1/n), but
+that does <strong>not</strong> guarantee (X_nX) since the partitions
+aren’t nested (so the “rounded-down” approximations can go down when (n)
+changes).</p>
+<p>After that, expectation is first defined for simple functions in the
+most elementary way: [ E(X)=_{i=1}^m a_i,P(A_i),] which is exactly “sum
+of (possible value) × (its probability).” Then for a general measurable
+(X), we <strong>extend</strong> the definition by approximation: pick
+simple (X_nX) and set [ E(X):=_{n}E(X_n).] A key point is that this
+limit is <strong>well-defined</strong> (it doesn’t depend on the
+particular approximating sequence), so expectation becomes a legitimate
+object for all nonnegative measurable random variables. This is a
+classic analysis strategy: define something on a handy class, then
+extend it to a larger class via limits.</p>
+<p>This viewpoint also explains why <strong>monotone
+convergence</strong> matters: if (0X_nX), then [ E(X_n)E(X),] so under
+monotone increase we can exchange “take limits” and “take expectations.”
+Conceptually, the proof (and the entire construction) keeps returning to
+the base case of simple functions.</p>
+<p>Finally, in <strong>Markov’s inequality</strong>, the indicator
+function is the bridge between probability and expectation: since [
+1_{{Xa}}(X),] we get [ P(Xa)=E!(1_{{Xa}}).] This is a clean example of
+how expectations control probabilities by rewriting events as indicator
+random variables.</p>
 </div>
 </div>
 
