@@ -144,7 +144,8 @@ for $E(XY)$, since $XY$ can only has value $0$, so $E(XY)=0$, therefore $E(XY)=E
 
 ## Ex 1
 ::: problem
-
+Consider the triangle with vertices $(-1,0)$, $(1,0)$, $(0,1)$ and suppose $(X_1,X_2)$
+is a random vector uniformly distributed on this triangle. Compute $E(X_1+X_2)$.
 :::
 
 $\textbf{My idea:}$ By linearity, 
@@ -159,4 +160,15 @@ E(X_1+X_2)&=E(X_1)+E(X_2)\\
 \end{aligned}
 $$
 
+$\textbf{Answer:}$ Since $(X_1,X_2)$ is uniform on the triangle with vertices
+$(-1,0),(1,0),(0,1)$, its mean is the centroid of the triangle:
+\[
+E(X_1,X_2)=\left(\frac{-1+1+0}{3},\frac{0+0+1}{3}\right)=(0,\tfrac13).
+\]
+Hence
+\[
+E(X_1+X_2)=E(X_1)+E(X_2)=0+\tfrac13=\tfrac13.
+\]
 
+
+$\textbf{Note:}$ $X_1$ and $X_2$ are continuous r.v.s, we cannot use something like $P(X_1=-1)$ since it must be $0$.

@@ -173,18 +173,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="chap-4-independence.html"><a href="chap-4-independence.html#ex-21"><i class="fa fa-check"></i>Ex 21</a>
 <ul>
 <li class="chapter" data-level="" data-path="chap-4-independence.html"><a href="chap-4-independence.html#a-2"><i class="fa fa-check"></i>(a)</a></li>
-<li class="chapter" data-level="" data-path="chap-4-independence.html"><a href="chap-4-independence.html#b-textbfmy-idea-my-idea-is-just-that-when-a_n-are-mutually-disjoint-then-it-cannot-happen."><i class="fa fa-check"></i>(b) <span class="math inline">\(\textbf{My idea:}\)</span> My idea is just that when <span class="math inline">\(A_n\)</span> are mutually disjoint, then it cannot happen.</a></li>
+<li class="chapter" data-level="" data-path="chap-4-independence.html"><a href="chap-4-independence.html#b-2"><i class="fa fa-check"></i>(b)</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="chap-4-independence.html"><a href="chap-4-independence.html#ex-22"><i class="fa fa-check"></i>Ex 22</a></li>
 <li class="chapter" data-level="" data-path="chap-4-independence.html"><a href="chap-4-independence.html#ex-23"><i class="fa fa-check"></i>Ex 23</a>
 <ul>
 <li class="chapter" data-level="" data-path="chap-4-independence.html"><a href="chap-4-independence.html#a-3"><i class="fa fa-check"></i>(a)</a></li>
-<li class="chapter" data-level="" data-path="chap-4-independence.html"><a href="chap-4-independence.html#b-2"><i class="fa fa-check"></i>(b)</a></li>
+<li class="chapter" data-level="" data-path="chap-4-independence.html"><a href="chap-4-independence.html#b-3"><i class="fa fa-check"></i>(b)</a></li>
 <li class="chapter" data-level="" data-path="chap-4-independence.html"><a href="chap-4-independence.html#c-1"><i class="fa fa-check"></i>(c)</a></li>
 <li class="chapter" data-level="" data-path="chap-4-independence.html"><a href="chap-4-independence.html#d"><i class="fa fa-check"></i>(d)</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="chap-4-independence.html"><a href="chap-4-independence.html#ex-24"><i class="fa fa-check"></i>Ex 24</a></li>
-<li class="chapter" data-level="" data-path="chap-4-independence.html"><a href="chap-4-independence.html#ex-25-problem"><i class="fa fa-check"></i>Ex 25::: problem</a></li>
+<li class="chapter" data-level="" data-path="chap-4-independence.html"><a href="chap-4-independence.html#ex-25"><i class="fa fa-check"></i>Ex 25</a></li>
 <li class="chapter" data-level="" data-path="chap-4-independence.html"><a href="chap-4-independence.html#ex-26"><i class="fa fa-check"></i>Ex 26</a></li>
 <li class="chapter" data-level="" data-path="chap-4-independence.html"><a href="chap-4-independence.html#ex-27"><i class="fa fa-check"></i>Ex 27</a></li>
 <li class="chapter" data-level="" data-path="chap-4-independence.html"><a href="chap-4-independence.html#ex-28"><i class="fa fa-check"></i>Ex 28</a></li>
@@ -192,7 +192,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="chap-4-independence.html"><a href="chap-4-independence.html#ex-30"><i class="fa fa-check"></i>Ex 30</a>
 <ul>
 <li class="chapter" data-level="" data-path="chap-4-independence.html"><a href="chap-4-independence.html#a-4"><i class="fa fa-check"></i>(a)</a></li>
-<li class="chapter" data-level="" data-path="chap-4-independence.html"><a href="chap-4-independence.html#b-3"><i class="fa fa-check"></i>(b)</a></li>
+<li class="chapter" data-level="" data-path="chap-4-independence.html"><a href="chap-4-independence.html#b-4"><i class="fa fa-check"></i>(b)</a></li>
 <li class="chapter" data-level="" data-path="chap-4-independence.html"><a href="chap-4-independence.html#c-2"><i class="fa fa-check"></i>(c)</a></li>
 <li class="chapter" data-level="" data-path="chap-4-independence.html"><a href="chap-4-independence.html#d-1"><i class="fa fa-check"></i>(d)</a></li>
 <li class="chapter" data-level="" data-path="chap-4-independence.html"><a href="chap-4-independence.html#e"><i class="fa fa-check"></i>(e)</a></li>
@@ -375,7 +375,8 @@ for <span class="math inline">\(E(XY)\)</span>, since <span class="math inline">
 <div id="ex-1" class="section level2 hasAnchor">
 <h2>Ex 1<a href="chap-5-integration-and-expectation.html#ex-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div class="problem">
-
+<p>Consider the triangle with vertices <span class="math inline">\((-1,0)\)</span>, <span class="math inline">\((1,0)\)</span>, <span class="math inline">\((0,1)\)</span> and suppose <span class="math inline">\((X_1,X_2)\)</span>
+is a random vector uniformly distributed on this triangle. Compute <span class="math inline">\(E(X_1+X_2)\)</span>.</p>
 </div>
 <p><span class="math inline">\(\textbf{My idea:}\)</span> By linearity,
 <span class="math display">\[
@@ -388,6 +389,16 @@ E(X_1+X_2)&amp;=E(X_1)+E(X_2)\\
 &amp;=\frac{1}{3}.
 \end{aligned}
 \]</span></p>
+<p><span class="math inline">\(\textbf{Answer:}\)</span> Since <span class="math inline">\((X_1,X_2)\)</span> is uniform on the triangle with vertices
+<span class="math inline">\((-1,0),(1,0),(0,1)\)</span>, its mean is the centroid of the triangle:
+<span class="math display">\[
+E(X_1,X_2)=\left(\frac{-1+1+0}{3},\frac{0+0+1}{3}\right)=(0,\tfrac13).
+\]</span>
+Hence
+<span class="math display">\[
+E(X_1+X_2)=E(X_1)+E(X_2)=0+\tfrac13=\tfrac13.
+\]</span></p>
+<p><span class="math inline">\(\textbf{Note:}\)</span> <span class="math inline">\(X_1\)</span> and <span class="math inline">\(X_2\)</span> are continuous r.v.s, we cannot use something like <span class="math inline">\(P(X_1=-1)\)</span> since it must be <span class="math inline">\(0\)</span>.</p>
 
 </div>
 </div>
