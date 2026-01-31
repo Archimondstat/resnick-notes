@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chap 5, Integration and Expectation | Notes on A Probability Path (Resnick)</title>
+  <meta name="description" content="Chap 5, Integration and Expectation | Notes on A Probability Path (Resnick)" />
+  <meta name="generator" content="bookdown 0.46 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chap 5, Integration and Expectation | Notes on A Probability Path (Resnick)" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chap 5, Integration and Expectation | Notes on A Probability Path (Resnick)" />
+  
+  
+  
+
+<meta name="author" content="Zhanwen Peng" />
+
+
+<meta name="date" content="2026-01-31" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="chap-4-independence.html"/>
+
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="styles.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Pre</a></li>
+<li class="chapter" data-level="" data-path="chap-1.html"><a href="chap-1.html"><i class="fa fa-check"></i>Chap 1</a></li>
+<li class="chapter" data-level="" data-path="chap-2.html"><a href="chap-2.html"><i class="fa fa-check"></i>Chap 2</a></li>
+<li class="chapter" data-level="" data-path="chap-3.html"><a href="chap-3.html"><i class="fa fa-check"></i>Chap 3</a></li>
+<li class="chapter" data-level="" data-path="chap-4-independence.html"><a href="chap-4-independence.html"><i class="fa fa-check"></i>Chap 4, Independence</a>
+<ul>
+<li class="chapter" data-level="" data-path="chap-4-independence.html"><a href="chap-4-independence.html#summary"><i class="fa fa-check"></i>Summary</a></li>
+<li class="chapter" data-level="" data-path="chap-4-independence.html"><a href="chap-4-independence.html#ex-10"><i class="fa fa-check"></i>Ex 10</a></li>
+<li class="chapter" data-level="" data-path="chap-4-independence.html"><a href="chap-4-independence.html#ex-11"><i class="fa fa-check"></i>Ex 11</a></li>
+<li class="chapter" data-level="" data-path="chap-4-independence.html"><a href="chap-4-independence.html#ex-12"><i class="fa fa-check"></i>Ex 12</a></li>
+<li class="chapter" data-level="" data-path="chap-4-independence.html"><a href="chap-4-independence.html#ex-13"><i class="fa fa-check"></i>Ex 13</a></li>
+<li class="chapter" data-level="" data-path="chap-4-independence.html"><a href="chap-4-independence.html#ex-14"><i class="fa fa-check"></i>Ex 14</a></li>
+<li class="chapter" data-level="" data-path="chap-4-independence.html"><a href="chap-4-independence.html#ex-15"><i class="fa fa-check"></i>Ex 15</a>
+<ul>
+<li class="chapter" data-level="" data-path="chap-4-independence.html"><a href="chap-4-independence.html#a"><i class="fa fa-check"></i>(a)</a></li>
+<li class="chapter" data-level="" data-path="chap-4-independence.html"><a href="chap-4-independence.html#b"><i class="fa fa-check"></i>(b)</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="chap-4-independence.html"><a href="chap-4-independence.html#ex-16"><i class="fa fa-check"></i>Ex 16</a></li>
+<li class="chapter" data-level="" data-path="chap-4-independence.html"><a href="chap-4-independence.html#ex-17"><i class="fa fa-check"></i>Ex 17</a>
+<ul>
+<li class="chapter" data-level="" data-path="chap-4-independence.html"><a href="chap-4-independence.html#a-1"><i class="fa fa-check"></i>(a)</a></li>
+<li class="chapter" data-level="" data-path="chap-4-independence.html"><a href="chap-4-independence.html#b-1"><i class="fa fa-check"></i>(b)</a></li>
+<li class="chapter" data-level="" data-path="chap-4-independence.html"><a href="chap-4-independence.html#c"><i class="fa fa-check"></i>(c)</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="chap-4-independence.html"><a href="chap-4-independence.html#ex-18"><i class="fa fa-check"></i>Ex 18</a></li>
+<li class="chapter" data-level="" data-path="chap-4-independence.html"><a href="chap-4-independence.html#ex-19"><i class="fa fa-check"></i>Ex 19</a></li>
+<li class="chapter" data-level="" data-path="chap-4-independence.html"><a href="chap-4-independence.html#ex-20"><i class="fa fa-check"></i>Ex 20</a>
+<ul>
+<li class="chapter" data-level="" data-path="chap-4-independence.html"><a href="chap-4-independence.html#a-we-have-pa_ifrac12-i123-and-pa_icap-a_jp1frac14pa_ipa_j-ineq-j-and-pa_1cap-a_2cap-a_3p1frac14neq-pa_1pa_2pa_3frac18."><i class="fa fa-check"></i>(a) We have <span class="math inline">\(P(A_i)=\frac{1}{2},\ i=1,2,3\)</span> and <span class="math inline">\(P(A_i\cap A_j)=P(\{1\})=\frac{1}{4}=P(A_i)P(A_j),\ i\neq j\)</span>, and <span class="math inline">\(P(A_1\cap A_2\cap A_3)=P(\{1\})=\frac{1}{4}\neq P(A_1)P(A_2)P(A_3)=\frac{1}{8}\)</span>.</a></li>
+<li class="chapter" data-level="" data-path="chap-4-independence.html"><a href="chap-4-independence.html#bwe-have"><i class="fa fa-check"></i>(b)We have</a></li>
+<li class="chapter" data-level="" data-path="chap-4-independence.html"><a href="chap-4-independence.html#clet-yx_1x_2-py1px_11x_21px_1-1x_2-1px_11px_21px_1-1px_2-1frac12-and-py-1px_11x_2-1px_1-1x_21px_11px_2-1px_1-1px_21frac12.-since-we-already-knew-that-x_1-and-x_2-are-independent-by-the-symmetry-we-can-only-discuss-the-independence-between-x_1-and-yx_1x_2-so-we-have"><i class="fa fa-check"></i>(c)Let <span class="math inline">\(Y=X_1X_2\)</span>, <span class="math inline">\(P(Y=1)=P(X_1=1,X_2=1)+P(X_1=-1,X_2=-1)=P(X_1=1)P(X_2=1)+P(X_1=-1)P(X_2=-1)=\frac{1}{2}\)</span> and <span class="math inline">\(P(Y=-1)=P(X_1=1,X_2=-1)+P(X_1=-1,X_2=1)=P(X_1=1)P(X_2=-1)+P(X_1=-1)P(X_2=1)=\frac{1}{2}\)</span>. Since we already knew that <span class="math inline">\(X_1\)</span> and <span class="math inline">\(X_2\)</span> are independent, by the symmetry, we can only discuss the independence between <span class="math inline">\(X_1\)</span> and <span class="math inline">\(Y=X_1X_2\)</span>, so we have</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="chap-4-independence.html"><a href="chap-4-independence.html#ex-21"><i class="fa fa-check"></i>Ex 21</a>
+<ul>
+<li class="chapter" data-level="" data-path="chap-4-independence.html"><a href="chap-4-independence.html#a-2"><i class="fa fa-check"></i>(a)</a></li>
+<li class="chapter" data-level="" data-path="chap-4-independence.html"><a href="chap-4-independence.html#b-textbfmy-idea-my-idea-is-just-that-when-a_n-are-mutually-disjoint-then-it-cannot-happen."><i class="fa fa-check"></i>(b) <span class="math inline">\(\textbf{My idea:}\)</span> My idea is just that when <span class="math inline">\(A_n\)</span> are mutually disjoint, then it cannot happen.</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="chap-4-independence.html"><a href="chap-4-independence.html#ex-22"><i class="fa fa-check"></i>Ex 22</a></li>
+<li class="chapter" data-level="" data-path="chap-4-independence.html"><a href="chap-4-independence.html#ex-23"><i class="fa fa-check"></i>Ex 23</a>
+<ul>
+<li class="chapter" data-level="" data-path="chap-4-independence.html"><a href="chap-4-independence.html#a-3"><i class="fa fa-check"></i>(a)</a></li>
+<li class="chapter" data-level="" data-path="chap-4-independence.html"><a href="chap-4-independence.html#b-2"><i class="fa fa-check"></i>(b)</a></li>
+<li class="chapter" data-level="" data-path="chap-4-independence.html"><a href="chap-4-independence.html#c-1"><i class="fa fa-check"></i>(c)</a></li>
+<li class="chapter" data-level="" data-path="chap-4-independence.html"><a href="chap-4-independence.html#d"><i class="fa fa-check"></i>(d)</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="chap-4-independence.html"><a href="chap-4-independence.html#ex-24"><i class="fa fa-check"></i>Ex 24</a></li>
+<li class="chapter" data-level="" data-path="chap-4-independence.html"><a href="chap-4-independence.html#ex-25-problem"><i class="fa fa-check"></i>Ex 25::: problem</a></li>
+<li class="chapter" data-level="" data-path="chap-4-independence.html"><a href="chap-4-independence.html#ex-26"><i class="fa fa-check"></i>Ex 26</a></li>
+<li class="chapter" data-level="" data-path="chap-4-independence.html"><a href="chap-4-independence.html#ex-27"><i class="fa fa-check"></i>Ex 27</a></li>
+<li class="chapter" data-level="" data-path="chap-4-independence.html"><a href="chap-4-independence.html#ex-28"><i class="fa fa-check"></i>Ex 28</a></li>
+<li class="chapter" data-level="" data-path="chap-4-independence.html"><a href="chap-4-independence.html#ex-29"><i class="fa fa-check"></i>Ex 29</a></li>
+<li class="chapter" data-level="" data-path="chap-4-independence.html"><a href="chap-4-independence.html#ex-30"><i class="fa fa-check"></i>Ex 30</a>
+<ul>
+<li class="chapter" data-level="" data-path="chap-4-independence.html"><a href="chap-4-independence.html#a-4"><i class="fa fa-check"></i>(a)</a></li>
+<li class="chapter" data-level="" data-path="chap-4-independence.html"><a href="chap-4-independence.html#b-3"><i class="fa fa-check"></i>(b)</a></li>
+<li class="chapter" data-level="" data-path="chap-4-independence.html"><a href="chap-4-independence.html#c-2"><i class="fa fa-check"></i>(c)</a></li>
+<li class="chapter" data-level="" data-path="chap-4-independence.html"><a href="chap-4-independence.html#d-1"><i class="fa fa-check"></i>(d)</a></li>
+<li class="chapter" data-level="" data-path="chap-4-independence.html"><a href="chap-4-independence.html#e"><i class="fa fa-check"></i>(e)</a></li>
+<li class="chapter" data-level="" data-path="chap-4-independence.html"><a href="chap-4-independence.html#f"><i class="fa fa-check"></i>(f)</a></li>
+<li class="chapter" data-level="" data-path="chap-4-independence.html"><a href="chap-4-independence.html#g"><i class="fa fa-check"></i>(g)</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="chap-4-independence.html"><a href="chap-4-independence.html#ex-31"><i class="fa fa-check"></i>Ex 31</a></li>
+<li class="chapter" data-level="" data-path="chap-4-independence.html"><a href="chap-4-independence.html#ex-32"><i class="fa fa-check"></i>Ex 32</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html"><i class="fa fa-check"></i>Chap 5, Integration and Expectation</a>
+<ul>
+<li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#summary-2026-01-30"><i class="fa fa-check"></i>Summary <strong>(2026-01-30)</strong></a>
+<ul>
+<li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#simple-functions-as-the-basic-building-blocks"><i class="fa fa-check"></i>Simple functions as the basic building blocks</a></li>
+<li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#theorem-5.1.1-measurability-theorem-approximation-by-simple-functions"><i class="fa fa-check"></i>Theorem 5.1.1 (Measurability Theorem): approximation by simple functions</a></li>
+<li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#defining-expectation-via-extension-from-simple-functions"><i class="fa fa-check"></i>Defining expectation via extension from simple functions</a></li>
+<li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#why-monotone-convergence-is-central"><i class="fa fa-check"></i>Why monotone convergence is central</a></li>
+<li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#markovs-inequality-probability-via-indicators-and-expectation"><i class="fa fa-check"></i>Markov’s inequality: probability via indicators and expectation</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#ex-2"><i class="fa fa-check"></i>Ex 2</a></li>
+<li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#ex-4"><i class="fa fa-check"></i>Ex 4</a></li>
+<li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#ex-1"><i class="fa fa-check"></i>Ex 1</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Notes on A Probability Path (Resnick)</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="chap-5-integration-and-expectation" class="section level1 hasAnchor">
+<h1>Chap 5, Integration and Expectation<a href="chap-5-integration-and-expectation.html#chap-5-integration-and-expectation" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="summary-2026-01-30" class="section level2 hasAnchor">
+<h2>Summary <strong>(2026-01-30)</strong><a href="chap-5-integration-and-expectation.html#summary-2026-01-30" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>I want to summarize the main idea from Sections 5.1 to 5.2.</p>
+<div id="simple-functions-as-the-basic-building-blocks" class="section level3 hasAnchor">
+<h3>Simple functions as the basic building blocks<a href="chap-5-integration-and-expectation.html#simple-functions-as-the-basic-building-blocks" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>We start from <strong>simple functions</strong> (finite range), i.e. functions of the form
+<span class="math display">\[
+X=\sum_{i=1}^m a_i\,\mathbf{1}_{A_i},
+\]</span>
+which are the “basic blocks” because they’re easy to compute with, and they’re measurable (so they are random variables too).</p>
+</div>
+<div id="theorem-5.1.1-measurability-theorem-approximation-by-simple-functions" class="section level3 hasAnchor">
+<h3>Theorem 5.1.1 (Measurability Theorem): approximation by simple functions<a href="chap-5-integration-and-expectation.html#theorem-5.1.1-measurability-theorem-approximation-by-simple-functions" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>In <strong>Theorem 5.1.1 (Measurability Theorem)</strong> (for <span class="math inline">\(X(\omega)\ge 0\)</span>), we prove that a random variable <span class="math inline">\(X\)</span> is measurable <strong>iff</strong> it can be approximated from below by an <strong>increasing</strong> sequence of simple functions:
+<span class="math display">\[
+0\le X_n \uparrow X.
+\]</span></p>
+<p>The construction idea is to <strong>slice the range</strong> of <span class="math inline">\(X\)</span> into many small bins, and also <strong>truncate</strong> at level <span class="math inline">\(n\)</span>. Using a dyadic mesh <span class="math inline">\(2^{-n}\)</span> (or more generally <span class="math inline">\(b^{-n}\)</span>) is important because these partitions are <strong>nested</strong>, so the approximation can be made monotone increasing.</p>
+<p>I tried to slice with step size <span class="math inline">\(1/n\)</span>, but that does <strong>not</strong> guarantee <span class="math inline">\(X_n\uparrow X\)</span> since the partitions aren’t nested (so the “rounded-down” approximations can go down when <span class="math inline">\(n\)</span> changes).</p>
+</div>
+<div id="defining-expectation-via-extension-from-simple-functions" class="section level3 hasAnchor">
+<h3>Defining expectation via extension from simple functions<a href="chap-5-integration-and-expectation.html#defining-expectation-via-extension-from-simple-functions" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Expectation is first defined for simple functions in the most elementary way:
+<span class="math display">\[
+E(X)=\sum_{i=1}^m a_i\,P(A_i),
+\]</span>
+which is exactly “sum of (possible value) <span class="math inline">\(\times\)</span> (its probability).”</p>
+<p>Then for a general measurable <span class="math inline">\(X\ge 0\)</span>, we <strong>extend</strong> the definition by approximation: pick simple <span class="math inline">\(X_n\uparrow X\)</span> and set
+<span class="math display">\[
+E(X):=\lim_{n\to\infty}E(X_n).
+\]</span></p>
+<p>A key point is that this limit is <strong>well-defined</strong> (it doesn’t depend on the particular approximating sequence), so expectation becomes a legitimate object for all nonnegative measurable random variables. This is a classic analysis strategy: define something on a handy class, then extend it to a larger class via limits.</p>
+</div>
+<div id="why-monotone-convergence-is-central" class="section level3 hasAnchor">
+<h3>Why monotone convergence is central<a href="chap-5-integration-and-expectation.html#why-monotone-convergence-is-central" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>This viewpoint also explains why <strong>monotone convergence</strong> matters: if <span class="math inline">\(0\le X_n\uparrow X\)</span>, then
+<span class="math display">\[
+E(X_n)\uparrow E(X),
+\]</span>
+so under monotone increase we can exchange “take limits” and “take expectations.” Conceptually, the proof (and the entire construction) keeps returning to the base case of simple functions.</p>
+</div>
+<div id="markovs-inequality-probability-via-indicators-and-expectation" class="section level3 hasAnchor">
+<h3>Markov’s inequality: probability via indicators and expectation<a href="chap-5-integration-and-expectation.html#markovs-inequality-probability-via-indicators-and-expectation" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Finally, in <strong>Markov’s inequality</strong>, the indicator function is the bridge between probability and expectation: since
+<span class="math display">\[
+\mathbf{1}_{\{X\ge a\}}\le \frac{X}{a}\quad (X\ge 0),
+\]</span>
+we get
+<span class="math display">\[
+P(X\ge a)=E\!\left(\mathbf{1}_{\{X\ge a\}}\right)\le \frac{E(X)}{a}.
+\]</span></p>
+<p>This is a clean example of how expectations control probabilities by rewriting events as indicator random variables.</p>
+<p>Also here is a R code to illustrate the approximating process</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="chap-5-integration-and-expectation.html#cb1-1" tabindex="-1"></a><span class="do">## Simple-function approximation:</span></span>
+<span id="cb1-2"><a href="chap-5-integration-and-expectation.html#cb1-2" tabindex="-1"></a><span class="do">## X_n = floor(2^n * X) / 2^n  on {X &lt; n}, and = n on {X &gt;= n}</span></span>
+<span id="cb1-3"><a href="chap-5-integration-and-expectation.html#cb1-3" tabindex="-1"></a>Xn_simple <span class="ot">&lt;-</span> <span class="cf">function</span>(X, n) {</span>
+<span id="cb1-4"><a href="chap-5-integration-and-expectation.html#cb1-4" tabindex="-1"></a>  <span class="fu">pmin</span>(n, <span class="fu">floor</span>((<span class="dv">2</span><span class="sc">^</span>n) <span class="sc">*</span> X) <span class="sc">/</span> (<span class="dv">2</span><span class="sc">^</span>n))</span>
+<span id="cb1-5"><a href="chap-5-integration-and-expectation.html#cb1-5" tabindex="-1"></a>}</span>
+<span id="cb1-6"><a href="chap-5-integration-and-expectation.html#cb1-6" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="chap-5-integration-and-expectation.html#cb1-7" tabindex="-1"></a><span class="do">## Grid for omega (pick 0..2 so truncation is visible for small n)</span></span>
+<span id="cb1-8"><a href="chap-5-integration-and-expectation.html#cb1-8" tabindex="-1"></a>omega <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">2</span>, <span class="at">length.out =</span> <span class="dv">4001</span>)</span>
+<span id="cb1-9"><a href="chap-5-integration-and-expectation.html#cb1-9" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="chap-5-integration-and-expectation.html#cb1-10" tabindex="-1"></a><span class="do">## Two target functions</span></span>
+<span id="cb1-11"><a href="chap-5-integration-and-expectation.html#cb1-11" tabindex="-1"></a>X_id <span class="ot">&lt;-</span> omega          <span class="co"># X(ω) = ω</span></span>
+<span id="cb1-12"><a href="chap-5-integration-and-expectation.html#cb1-12" tabindex="-1"></a>X_sq <span class="ot">&lt;-</span> omega<span class="sc">^</span><span class="dv">2</span>        <span class="co"># X(ω) = ω^2</span></span>
+<span id="cb1-13"><a href="chap-5-integration-and-expectation.html#cb1-13" tabindex="-1"></a></span>
+<span id="cb1-14"><a href="chap-5-integration-and-expectation.html#cb1-14" tabindex="-1"></a><span class="do">## Choose which approximations to show</span></span>
+<span id="cb1-15"><a href="chap-5-integration-and-expectation.html#cb1-15" tabindex="-1"></a>n_vec <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">9</span></span>
+<span id="cb1-16"><a href="chap-5-integration-and-expectation.html#cb1-16" tabindex="-1"></a></span>
+<span id="cb1-17"><a href="chap-5-integration-and-expectation.html#cb1-17" tabindex="-1"></a><span class="do">## Compute approximations</span></span>
+<span id="cb1-18"><a href="chap-5-integration-and-expectation.html#cb1-18" tabindex="-1"></a>approx_id <span class="ot">&lt;-</span> <span class="fu">sapply</span>(n_vec, <span class="cf">function</span>(n) <span class="fu">Xn_simple</span>(X_id, n))</span>
+<span id="cb1-19"><a href="chap-5-integration-and-expectation.html#cb1-19" tabindex="-1"></a>approx_sq <span class="ot">&lt;-</span> <span class="fu">sapply</span>(n_vec, <span class="cf">function</span>(n) <span class="fu">Xn_simple</span>(X_sq, n))</span>
+<span id="cb1-20"><a href="chap-5-integration-and-expectation.html#cb1-20" tabindex="-1"></a></span>
+<span id="cb1-21"><a href="chap-5-integration-and-expectation.html#cb1-21" tabindex="-1"></a><span class="do">## ---- Plot: X(ω)=ω ----</span></span>
+<span id="cb1-22"><a href="chap-5-integration-and-expectation.html#cb1-22" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>), <span class="at">mar =</span> <span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">4</span>, <span class="dv">3</span>, <span class="dv">1</span>))</span>
+<span id="cb1-23"><a href="chap-5-integration-and-expectation.html#cb1-23" tabindex="-1"></a></span>
+<span id="cb1-24"><a href="chap-5-integration-and-expectation.html#cb1-24" tabindex="-1"></a><span class="fu">plot</span>(omega, X_id, <span class="at">type =</span> <span class="st">&quot;l&quot;</span>, <span class="at">lwd =</span> <span class="dv">2</span>,</span>
+<span id="cb1-25"><a href="chap-5-integration-and-expectation.html#cb1-25" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="fu">expression</span>(omega), <span class="at">ylab =</span> <span class="fu">expression</span>(<span class="fu">X</span>(omega)),</span>
+<span id="cb1-26"><a href="chap-5-integration-and-expectation.html#cb1-26" tabindex="-1"></a>     <span class="at">main =</span> <span class="fu">expression</span>(<span class="fu">X</span>(omega) <span class="sc">==</span> omega))</span>
+<span id="cb1-27"><a href="chap-5-integration-and-expectation.html#cb1-27" tabindex="-1"></a></span>
+<span id="cb1-28"><a href="chap-5-integration-and-expectation.html#cb1-28" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="fu">seq_along</span>(n_vec)) {</span>
+<span id="cb1-29"><a href="chap-5-integration-and-expectation.html#cb1-29" tabindex="-1"></a>  <span class="fu">lines</span>(omega, approx_id[, i], <span class="at">type =</span> <span class="st">&quot;s&quot;</span>, <span class="at">lty =</span> i <span class="sc">+</span> <span class="dv">1</span>, <span class="at">lwd =</span> <span class="dv">2</span>)</span>
+<span id="cb1-30"><a href="chap-5-integration-and-expectation.html#cb1-30" tabindex="-1"></a>}</span>
+<span id="cb1-31"><a href="chap-5-integration-and-expectation.html#cb1-31" tabindex="-1"></a></span>
+<span id="cb1-32"><a href="chap-5-integration-and-expectation.html#cb1-32" tabindex="-1"></a><span class="fu">legend</span>(<span class="st">&quot;topleft&quot;</span>,</span>
+<span id="cb1-33"><a href="chap-5-integration-and-expectation.html#cb1-33" tabindex="-1"></a>       <span class="at">legend =</span> <span class="fu">c</span>(<span class="st">&quot;true&quot;</span>, <span class="fu">paste0</span>(<span class="st">&quot;X_n, n=&quot;</span>, n_vec)),</span>
+<span id="cb1-34"><a href="chap-5-integration-and-expectation.html#cb1-34" tabindex="-1"></a>       <span class="at">lty =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span><span class="sc">:</span>(<span class="fu">length</span>(n_vec) <span class="sc">+</span> <span class="dv">1</span>)), <span class="at">lwd =</span> <span class="dv">2</span>, <span class="at">bty =</span> <span class="st">&quot;n&quot;</span>)</span>
+<span id="cb1-35"><a href="chap-5-integration-and-expectation.html#cb1-35" tabindex="-1"></a></span>
+<span id="cb1-36"><a href="chap-5-integration-and-expectation.html#cb1-36" tabindex="-1"></a><span class="do">## ---- Plot: X(ω)=ω^2 ----</span></span>
+<span id="cb1-37"><a href="chap-5-integration-and-expectation.html#cb1-37" tabindex="-1"></a><span class="fu">plot</span>(omega, X_sq, <span class="at">type =</span> <span class="st">&quot;l&quot;</span>, <span class="at">lwd =</span> <span class="dv">2</span>,</span>
+<span id="cb1-38"><a href="chap-5-integration-and-expectation.html#cb1-38" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="fu">expression</span>(omega), <span class="at">ylab =</span> <span class="fu">expression</span>(<span class="fu">X</span>(omega)),</span>
+<span id="cb1-39"><a href="chap-5-integration-and-expectation.html#cb1-39" tabindex="-1"></a>     <span class="at">main =</span> <span class="fu">expression</span>(<span class="fu">X</span>(omega) <span class="sc">==</span> omega<span class="sc">^</span><span class="dv">2</span>))</span>
+<span id="cb1-40"><a href="chap-5-integration-and-expectation.html#cb1-40" tabindex="-1"></a></span>
+<span id="cb1-41"><a href="chap-5-integration-and-expectation.html#cb1-41" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="fu">seq_along</span>(n_vec)) {</span>
+<span id="cb1-42"><a href="chap-5-integration-and-expectation.html#cb1-42" tabindex="-1"></a>  <span class="fu">lines</span>(omega, approx_sq[, i], <span class="at">type =</span> <span class="st">&quot;s&quot;</span>, <span class="at">lty =</span> i <span class="sc">+</span> <span class="dv">1</span>, <span class="at">lwd =</span> <span class="dv">2</span>)</span>
+<span id="cb1-43"><a href="chap-5-integration-and-expectation.html#cb1-43" tabindex="-1"></a>}</span>
+<span id="cb1-44"><a href="chap-5-integration-and-expectation.html#cb1-44" tabindex="-1"></a></span>
+<span id="cb1-45"><a href="chap-5-integration-and-expectation.html#cb1-45" tabindex="-1"></a><span class="fu">legend</span>(<span class="st">&quot;topleft&quot;</span>,</span>
+<span id="cb1-46"><a href="chap-5-integration-and-expectation.html#cb1-46" tabindex="-1"></a>       <span class="at">legend =</span> <span class="fu">c</span>(<span class="st">&quot;true&quot;</span>, <span class="fu">paste0</span>(<span class="st">&quot;X_n, n=&quot;</span>, n_vec)),</span>
+<span id="cb1-47"><a href="chap-5-integration-and-expectation.html#cb1-47" tabindex="-1"></a>       <span class="at">lty =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span><span class="sc">:</span>(<span class="fu">length</span>(n_vec) <span class="sc">+</span> <span class="dv">1</span>)), <span class="at">lwd =</span> <span class="dv">2</span>, <span class="at">bty =</span> <span class="st">&quot;n&quot;</span>)</span></code></pre></div>
+<p><img src="resnick-notes_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
+</div>
+</div>
+<div id="ex-2" class="section level2 hasAnchor">
+<h2>Ex 2<a href="chap-5-integration-and-expectation.html#ex-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="problem">
+<p>Argue without a computation that if <span class="math inline">\(X\in L_2\)</span> and <span class="math inline">\(c\in\mathbb{R}\)</span>, then
+<span class="math inline">\(\operatorname{Var}(c)=0\)</span> and <span class="math inline">\(\operatorname{Var}(X+c)=\operatorname{Var}(X)\)</span>.</p>
+</div>
+<p><span class="math inline">\(\textbf{My idea:}\)</span> If to argue without computation, I would say that for constant r.v. <span class="math inline">\(c\)</span>, it won’t change, so it has <span class="math inline">\(0\)</span> variation, therefore <span class="math inline">\(\text{Var}(X+c)=\text{Var}(X)+\text{Var}(C)=\text{Var}(X)\)</span>.</p>
+<p><span class="math inline">\(\textbf{Answer:}\)</span> For constant r.v. <span class="math inline">\(c\)</span>, it won’t change, so it has <span class="math inline">\(0\)</span> variation, that is, <span class="math inline">\(E(c)=c\)</span>, and <span class="math inline">\(\text{Var}(c)=E(c-E(c))^2=E(0)^2=0\)</span>, for r.v. <span class="math inline">\(X+c\)</span>, we have <span class="math inline">\(E(X+c)=E(X)+E(c)=E(X)+c\)</span>, and
+<span class="math display">\[
+\begin{aligned}
+\text{Var}(X+c)&amp;=E((X+c)-E(X+c))^2\\
+&amp;=E(X+c-E(X)-c)^2\\
+&amp;=E(X-E(X))^2=\text{Var}(X).
+\end{aligned}
+\]</span>
+Further, <span class="math inline">\(X\in L_2\)</span> ensure that the variance is finite.</p>
+<p><span class="math inline">\(\textbf{Note:}\)</span> Additivity is not a general property.</p>
+</div>
+<div id="ex-4" class="section level2 hasAnchor">
+<h2>Ex 4<a href="chap-5-integration-and-expectation.html#ex-4" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="problem">
+<p>Let <span class="math inline">\((X,Y)\)</span> be uniformly distributed on the discrete points
+<span class="math inline">\((-1,0)\)</span>, <span class="math inline">\((1,0)\)</span>, <span class="math inline">\((0,1)\)</span>, <span class="math inline">\((0,-1)\)</span>.
+Verify <span class="math inline">\(X,Y\)</span> are not independent but <span class="math inline">\(E(XY)=E(X)E(Y)\)</span>.</p>
+</div>
+<p><span class="math inline">\(\textbf{My idea:}\)</span> Since <span class="math inline">\(P(X=0,Y=1)=\frac{1}{4}\)</span>, and also <span class="math inline">\(P(X=0)=\frac{1}{2}\)</span>, <span class="math inline">\(P(Y=1)=\frac{1}{4}\)</span>, therefore <span class="math inline">\(P(X=0,Y=1)\neq P(X=0)P(Y=1)=\frac{1}{8}\)</span>, so <span class="math inline">\(X\)</span>, <span class="math inline">\(Y\)</span> are not independent. Also,
+<span class="math display">\[
+\begin{aligned}
+&amp;E(X)=-1\cdot P(X=-1)+1\cdot P(X=1)+0\cdot P(X=0)=-1\cdot \frac{1}{4}+1\cdot \frac{1}{4}+0\cdot \frac{1}{2}=0\\
+&amp;E(Y)=-1\cdot P(Y=-1)+1\cdot P(Y=1)+0\cdot P(Y=0)=-1\cdot \frac{1}{4}+1\cdot \frac{1}{4}+0\cdot \frac{1}{2}=0,\\
+\end{aligned}
+\]</span>
+for <span class="math inline">\(E(XY)\)</span>, since <span class="math inline">\(XY\)</span> can only has value <span class="math inline">\(0\)</span>, so <span class="math inline">\(E(XY)=0\)</span>, therefore <span class="math inline">\(E(XY)=E(X)E(Y)\)</span>.</p>
+</div>
+<div id="ex-1" class="section level2 hasAnchor">
+<h2>Ex 1<a href="chap-5-integration-and-expectation.html#ex-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="problem">
+
+</div>
+<p><span class="math inline">\(\textbf{My idea:}\)</span> By linearity,
+<span class="math display">\[
+\begin{aligned}
+E(X_1+X_2)&amp;=E(X_1)+E(X_2)\\
+&amp;=[-1\cdot P(X_1=-1)+1\cdot P(X_1=1)+0\cdot P(X_1=0)]
++[0\cdot P(X_2=0)+0\cdot P(X_2=0)+1\cdot P(X_2=1)]\\
+&amp;=(-1\cdot\frac{1}{3}+1\cdot\frac{1}{3}+0\cdot\frac{1}{3})+
+(0\cdot\frac{1}{3}+0\cdot\frac{1}{3}+1\cdot\frac{1}{3})\\
+&amp;=\frac{1}{3}.
+\end{aligned}
+\]</span></p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="chap-4-independence.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+  "sharing": {
+    "github": false,
+    "facebook": true,
+    "twitter": true,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": null,
+    "text": null
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": {},
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "section"
+  }
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

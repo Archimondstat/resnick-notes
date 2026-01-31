@@ -1,0 +1,12 @@
+bookdown::gitbook:
+  css: styles.css
+  toc_depth: 4
+  number_sections: false
+  config:
+    toc:
+      collapse: section
+    download: []
+bookdown::html_book:
+  css: styles.css
+  toc_depth: 4
+  number_sections: false
