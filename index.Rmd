@@ -26,3 +26,5 @@ Here is the protocol I follow for exercises:
 I record both my first idea and the final correct solution here.
 
 
+## 2026-01-31
+Starting from Chapter 5, I began writing my notes and following a new plan: instead of waiting until I finish the entire chapter to start the exercises, I now work on the corresponding exercises each time I finish reading a section (or a chunk) of the chapter. Also, I converted my R Markdown notes into a Bookdown project.
