@@ -23,7 +23,7 @@
 <meta name="author" content="Zhanwen Peng" />
 
 
-<meta name="date" content="2026-01-31" />
+<meta name="date" content="2026-02-01" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -218,6 +218,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#ex-2"><i class="fa fa-check"></i>Ex 2</a></li>
 <li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#ex-4"><i class="fa fa-check"></i>Ex 4</a></li>
 <li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#ex-1"><i class="fa fa-check"></i>Ex 1</a></li>
+<li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#ex-3"><i class="fa fa-check"></i>Ex 3</a></li>
 </ul></li>
 </ul>
 
@@ -403,6 +404,31 @@ Hence
 E(X_1+X_2)=E(X_1)+E(X_2)=0+\tfrac13=\tfrac13.
 \]</span></p>
 <p><span class="math inline">\(\textbf{Note:}\)</span> <span class="math inline">\(X_1\)</span> and <span class="math inline">\(X_2\)</span> are continuous r.v.s, we cannot use something like <span class="math inline">\(P(X_1=-1)\)</span> since it must be <span class="math inline">\(0\)</span>.</p>
+</div>
+<div id="ex-3" class="section level2 hasAnchor">
+<h2>Ex 3<a href="chap-5-integration-and-expectation.html#ex-3" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="problem">
+<p>Refer to Renyi’s theorem 4.3.1 in Chapter 4. Let
+<span class="math display">\[
+L_1:=\inf\{j\ge 2:\ X_j \text{ is a record}\}.
+\]</span>
+Check <span class="math inline">\(E(L_1)=\infty\)</span>.</p>
+</div>
+<p><span class="math inline">\(\textbf{My idea:}\)</span> For any integer <span class="math inline">\(k\)</span>, we have <span class="math inline">\(L^{-1}_1(k)=\{X_k\ \text{is a record}\}\)</span>, so <span class="math inline">\(L_1\)</span> is a r.v., and according to Renyi’s theorem, <span class="math inline">\(P(L_1=k)=\frac{1}{k}\)</span>, for <span class="math inline">\(E(L_1)\)</span>, we need to find a sequence of simple function that approach to <span class="math inline">\(L_1\)</span>, naturally, we choose <span class="math inline">\(L_1^{(n)}=\inf\{2\leq j\leq n:\ X_j\ \text{is a record}\}\)</span>, so <span class="math inline">\(L_1^{(n)}\uparrow L_1\)</span> and <span class="math inline">\(E(L_1^{(n)})=\sum_{k=2}^n kP(L_1^{(n)}=k)=\sum_{k=2}^n1=n-1\)</span>, then according to the definition of expectation, <span class="math inline">\(E(L_1)=\lim_{n\to\infty}E(L_1^{(n)})=\lim_{n\to\infty}(n-1)=\infty\)</span>.</p>
+<p><span class="math inline">\(\textbf{Answer:}\)</span> Let <span class="math inline">\(A_n=\{X_n\ \text{is a record}\}\in\mathcal{B}\)</span>, according to Renyi’s theorem, <span class="math inline">\(A_n\)</span> are independent, and for <span class="math inline">\(n\geq2\)</span> <span class="math inline">\(\{L_1\leq n\}=\bigcup_{j=2}^{n}A_j\in\mathcal{B}\)</span>, so <span class="math inline">\(L_1\)</span> is a r.v., also
+<span class="math display">\[
+\begin{aligned}
+P(L_1=n)&amp;=P(\bigcap_{k=2}^{n-1}\{X_k\ \text{is not a record}\}\cap\{X_n\ \text{is a record}\})\\
+&amp;=P(\bigcap_{k=2}^{n-1}A_k^c\cap A_n)\\
+&amp;=\prod_{k=2}^{n-1}P(A_k^c)\cdot P(A_n)\\
+&amp;=\frac{1}{n}\prod_{k=2}^{n-1}\frac{k-1}{k}=\frac{1}{n(n-1)},\\
+\end{aligned}
+\]</span>
+formally, we can let <span class="math inline">\(L_1^{(n)}=\min\{L_1,n\}\)</span>, then <span class="math inline">\(L_1^{(n)}\uparrow L_1\)</span>, but it is not necessary, finally we have
+<span class="math display">\[
+E(L_1)=\sum_{n=2}^{\infty}nP(L_1=n)=\sum_{n=2}^\infty\frac{1}{n-1}=\infty.
+\]</span></p>
+<p><span class="math inline">\(\textbf{Note:}\)</span> When we discuss <span class="math inline">\(\{L_1=n\}\)</span>, note that <span class="math inline">\(X_2,X_3,\dots X_{n-1}\)</span> cannot be record, and also, if we write <span class="math inline">\(L_1^{(n)}=\inf\{2\leq j\leq n:\ X_j\ \text{is a record}\}\)</span>, there could be not record, so it may take <span class="math inline">\(\infty\)</span> as value.</p>
 
 </div>
 </div>

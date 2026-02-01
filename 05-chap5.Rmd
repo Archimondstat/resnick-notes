@@ -173,3 +173,32 @@ E(X_1+X_2)=E(X_1)+E(X_2)=0+\tfrac13=\tfrac13.
 
 
 $\textbf{Note:}$ $X_1$ and $X_2$ are continuous r.v.s, we cannot use something like $P(X_1=-1)$ since it must be $0$.
+
+## Ex 3
+::: problem
+Refer to Renyi's theorem 4.3.1 in Chapter 4. Let
+\[
+L_1:=\inf\{j\ge 2:\ X_j \text{ is a record}\}.
+\]
+Check $E(L_1)=\infty$.
+:::
+
+$\textbf{My idea:}$ For any integer $k$, we have $L^{-1}_1(k)=\{X_k\ \text{is a record}\}$, so $L_1$ is a r.v., and according to Renyi's theorem, $P(L_1=k)=\frac{1}{k}$, for $E(L_1)$, we need to find a sequence of simple function that approach to $L_1$, naturally, we choose $L_1^{(n)}=\inf\{2\leq j\leq n:\ X_j\ \text{is a record}\}$, so $L_1^{(n)}\uparrow L_1$ and $E(L_1^{(n)})=\sum_{k=2}^n kP(L_1^{(n)}=k)=\sum_{k=2}^n1=n-1$, then according to the definition of expectation, $E(L_1)=\lim_{n\to\infty}E(L_1^{(n)})=\lim_{n\to\infty}(n-1)=\infty$.
+
+$\textbf{Answer:}$ Let $A_n=\{X_n\ \text{is a record}\}\in\mathcal{B}$, according to Renyi's theorem, $A_n$ are independent, and for $n\geq2$ $\{L_1\leq n\}=\bigcup_{j=2}^{n}A_j\in\mathcal{B}$, so $L_1$ is a r.v., also
+$$
+\begin{aligned}
+P(L_1=n)&=P(\bigcap_{k=2}^{n-1}\{X_k\ \text{is not a record}\}\cap\{X_n\ \text{is a record}\})\\
+&=P(\bigcap_{k=2}^{n-1}A_k^c\cap A_n)\\
+&=\prod_{k=2}^{n-1}P(A_k^c)\cdot P(A_n)\\
+&=\frac{1}{n}\prod_{k=2}^{n-1}\frac{k-1}{k}=\frac{1}{n(n-1)},\\
+\end{aligned}
+$$
+formally, we can let $L_1^{(n)}=\min\{L_1,n\}$, then $L_1^{(n)}\uparrow L_1$, but it is not necessary, finally we have 
+$$
+E(L_1)=\sum_{n=2}^{\infty}nP(L_1=n)=\sum_{n=2}^\infty\frac{1}{n-1}=\infty.
+$$
+
+$\textbf{Note:}$ When we discuss $\{L_1=n\}$, note that $X_2,X_3,\dots X_{n-1}$ cannot be record, and also, if we write  $L_1^{(n)}=\inf\{2\leq j\leq n:\ X_j\ \text{is a record}\}$, there could be not record, so it may take $\infty$ as value.
+
+
