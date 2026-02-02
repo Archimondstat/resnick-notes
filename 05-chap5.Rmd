@@ -263,18 +263,18 @@ $$
 E(F(X_1))=\frac{1}{2}+\frac{1}{2}\sum_{a}(P[X_1=a])^2.
 $$
 
-$\textbf{Answer:}$For each atom $a$, let $\Delta F(a)=F(a)-F(a-)=P(X_1=a)$.
+$\textbf{Answer:}$ For each atom $a$, let $\Delta F(a)=F(a)-F(a-)=P(X_1=a)$.
 Using the jump-corrected Stieltjes integration-by-parts identity,
-\[
+$$
 \int u\,dv+\int v\,du
 =uv\Big|_{-\infty}^{\infty}+\sum_{a}\Delta u(a)\Delta v(a),
-\]
+$$
 and taking $u=v=F$, we obtain
-\[
+$$
 2\int_{\mathbb R} F(x)\,dF(x)
 =F(x)^2\Big|_{-\infty}^{\infty}+\sum_{a}(\Delta F(a))^2
 =1+\sum_a \big(P(X_1=a)\big)^2.
-\]
+$$
 so 
 $$
 E(F(X_1))=\int F(x)dF(x)=\frac{1}{2}+\frac{1}{2}\sum_{a}(P[X_1=a])^2
@@ -312,9 +312,21 @@ E(F(Y))+E(G(X))&=\frac{1}{2}+\sum_{a}P(Y=a)+\frac{1}{2}+\sum_{b}P(X=b)\\
 $$
 Interpretation: for 2 r.v.s with distribution functions have no common discontinuities, the probability that they are not equal is $1$.
 
-
-
-
-
-
-
+$\textbf{Answer:}$ If we consider the jump-corrected Stieltjes integration-by-parts, we should have 
+$$
+\int_\mathbb{R}F(x)dG(x)=F(x)\cdot G(x)|_{-\infty}^\infty+\sum_{a}\Delta F(a)\Delta G(a)-\int_\mathbb{R}G(x)dF(x),
+$$
+where $a$ ranges over all the atoms of $F$ and $G$, and $F(\infty)G(\infty)=1$, $F(-\infty)G(-\infty)=0$ so $F(x)\cdot G(x)|_{-\infty}^\infty=1$, also, since $F$ and $G$ have no common atom, so for each atom $a$, $\Delta F(a)$ and $\Delta G(a)$ must have at least one to be $0$, so we have 
+$$
+\int_\mathbb{R}F(x)dG(x)+\int_\mathbb{R}G(x)dF(x)=1.
+$$
+Interpretation: Let $X,Y$ be **independent** random variables with distribution
+functions $F$ and $G$, respectively, We can interpret $\int_\mathbb{R}F(x)dG(x)$ as $P(X\leq Y)$ and $\int_\mathbb{R}G(x)dF(x)$ as $P(Y\leq X)$, since they have no common atom, that implies $P(X=Y)=0$, so it is 
+$$
+P(X<Y)+P(Y<X)=1.
+$$
+$\textbf{Note:}$ It is still the application of Lebesgue-Stieltjes integration-by-parts, that is, we have to make correction for the atom
+$$
+\int_\mathbb{R}F(x)dG(x)=F(x)\cdot G(x)|_{-\infty}^\infty+\sum_{a}\Delta F(a)\Delta G(a)-\int_\mathbb{R}G(x)dF(x).
+$$
+What happened in the $\textbf{My idea}$ part is that I incorrectly tried to apply the special formula from (b) (which is for $E(F(X))$) to the mixed terms $E(F(Y))$ and $E(G(X))$.

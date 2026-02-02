@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chap 5, Integration and Expectation | Notes on A Probability Path (Resnick)</title>
   <meta name="description" content="Chap 5, Integration and Expectation | Notes on A Probability Path (Resnick)" />
-  <meta name="generator" content="bookdown 0.42 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.46 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chap 5, Integration and Expectation | Notes on A Probability Path (Resnick)" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="Zhanwen Peng" />
 
 
-<meta name="date" content="2026-02-02" />
+<meta name="date" content="2026-02-03" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -55,6 +55,7 @@
 
 
 <style type="text/css">
+html { -webkit-text-size-adjust: 100%; }
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -222,6 +223,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#a-5"><i class="fa fa-check"></i>(a)</a></li>
 <li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#b-5"><i class="fa fa-check"></i>(b)</a></li>
+<li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#c-3"><i class="fa fa-check"></i>(c)</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -492,7 +494,7 @@ so <span class="math inline">\(\int_{a-}^a F(x)dF(x)=\frac{1}{2}(F^2(a)-F^2(a-))
 <span class="math display">\[
 E(F(X_1))=\frac{1}{2}+\frac{1}{2}\sum_{a}(P[X_1=a])^2.
 \]</span></p>
-<p><span class="math inline">\(\textbf{Answer:}\)</span>For each atom <span class="math inline">\(a\)</span>, let <span class="math inline">\(\Delta F(a)=F(a)-F(a-)=P(X_1=a)\)</span>.
+<p><span class="math inline">\(\textbf{Answer:}\)</span> For each atom <span class="math inline">\(a\)</span>, let <span class="math inline">\(\Delta F(a)=F(a)-F(a-)=P(X_1=a)\)</span>.
 Using the jump-corrected Stieltjes integration-by-parts identity,
 <span class="math display">\[
 \int u\,dv+\int v\,du
@@ -525,6 +527,39 @@ however, we should view this problem in Lebesgue’s view, that is, summing up t
 \end{aligned}
 \]</span>
 so <span class="math inline">\(\frac{1}{2}(P(X=a))^2\)</span> is stolen by the continuous assumption.</p>
+</div>
+<div id="c-3" class="section level3 hasAnchor">
+<h3>(c)<a href="chap-5-integration-and-expectation.html#c-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><span class="math inline">\(\textbf{My idea:}\)</span> let <span class="math inline">\(a\)</span> be an atom of <span class="math inline">\(F(x)\)</span>, and <span class="math inline">\(b\)</span> be an atom of <span class="math inline">\(G(x)\)</span>, and <span class="math inline">\(b\)</span> is not the atom of <span class="math inline">\(F(x)\)</span>, <span class="math inline">\(a\)</span> is not the atom of <span class="math inline">\(G(x)\)</span>, so
+<span class="math display">\[
+P(Y=a)=G(a)-G(a-)=0\quad\text{and}\quad P(X=b)=F(b)-F(b-)=0,
+\]</span>
+therefore,
+<span class="math display">\[
+\begin{aligned}
+E(F(Y))+E(G(X))&amp;=\frac{1}{2}+\sum_{a}P(Y=a)+\frac{1}{2}+\sum_{b}P(X=b)\\
+&amp;=\frac{1}{2}+\frac{1}{2}.
+\end{aligned}
+\]</span>
+Interpretation: for 2 r.v.s with distribution functions have no common discontinuities, the probability that they are not equal is <span class="math inline">\(1\)</span>.</p>
+<p><span class="math inline">\(\textbf{Answer:}\)</span> If we consider the jump-corrected Stieltjes integration-by-parts, we should have
+<span class="math display">\[
+\int_\mathbb{R}F(x)dG(x)=F(x)\cdot G(x)|_{-\infty}^\infty+\sum_{a}\Delta F(a)\Delta G(a)-\int_\mathbb{R}G(x)dF(x),
+\]</span>
+where <span class="math inline">\(a\)</span> ranges over all the atoms of <span class="math inline">\(F\)</span> and <span class="math inline">\(G\)</span>, and <span class="math inline">\(F(\infty)G(\infty)=1\)</span>, <span class="math inline">\(F(-\infty)G(-\infty)=0\)</span> so <span class="math inline">\(F(x)\cdot G(x)|_{-\infty}^\infty=1\)</span>, also, since <span class="math inline">\(F\)</span> and <span class="math inline">\(G\)</span> have no common atom, so for each atom <span class="math inline">\(a\)</span>, <span class="math inline">\(\Delta F(a)\)</span> and <span class="math inline">\(\Delta G(a)\)</span> must have at least one to be <span class="math inline">\(0\)</span>, so we have
+<span class="math display">\[
+\int_\mathbb{R}F(x)dG(x)+\int_\mathbb{R}G(x)dF(x)=1.
+\]</span>
+Interpretation: Let <span class="math inline">\(X,Y\)</span> be <strong>independent</strong> random variables with distribution
+functions <span class="math inline">\(F\)</span> and <span class="math inline">\(G\)</span>, respectively, We can interpret <span class="math inline">\(\int_\mathbb{R}F(x)dG(x)\)</span> as <span class="math inline">\(P(X\leq Y)\)</span> and <span class="math inline">\(\int_\mathbb{R}G(x)dF(x)\)</span> as <span class="math inline">\(P(Y\leq X)\)</span>, since they have no common atom, that implies <span class="math inline">\(P(X=Y)=0\)</span>, so it is
+<span class="math display">\[
+P(X&lt;Y)+P(Y&lt;X)=1.
+\]</span>
+<span class="math inline">\(\textbf{Note:}\)</span> It is still the application of Lebesgue-Stieltjes integration-by-parts, that is, we have to make correction for the atom
+<span class="math display">\[
+\int_\mathbb{R}F(x)dG(x)=F(x)\cdot G(x)|_{-\infty}^\infty+\sum_{a}\Delta F(a)\Delta G(a)-\int_\mathbb{R}G(x)dF(x).
+\]</span>
+What happened in the <span class="math inline">\(\textbf{My idea}\)</span> part is that I incorrectly tried to apply the special formula from (b) (which is for <span class="math inline">\(E(F(X))\)</span>) to the mixed terms <span class="math inline">\(E(F(Y))\)</span> and <span class="math inline">\(E(G(X))\)</span>.</p>
 
 </div>
 </div>
