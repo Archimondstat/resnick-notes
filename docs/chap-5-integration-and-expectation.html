@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chap 5, Integration and Expectation | Notes on A Probability Path (Resnick)</title>
   <meta name="description" content="Chap 5, Integration and Expectation | Notes on A Probability Path (Resnick)" />
-  <meta name="generator" content="bookdown 0.46 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.42 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chap 5, Integration and Expectation | Notes on A Probability Path (Resnick)" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="Zhanwen Peng" />
 
 
-<meta name="date" content="2026-02-01" />
+<meta name="date" content="2026-02-02" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -55,7 +55,6 @@
 
 
 <style type="text/css">
-html { -webkit-text-size-adjust: 100%; }
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -219,6 +218,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#ex-4"><i class="fa fa-check"></i>Ex 4</a></li>
 <li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#ex-1"><i class="fa fa-check"></i>Ex 1</a></li>
 <li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#ex-3"><i class="fa fa-check"></i>Ex 3</a></li>
+<li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#ex-5"><i class="fa fa-check"></i>Ex 5</a>
+<ul>
+<li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#a-5"><i class="fa fa-check"></i>(a)</a></li>
+<li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#b-5"><i class="fa fa-check"></i>(b)</a></li>
+</ul></li>
 </ul></li>
 </ul>
 
@@ -429,7 +433,100 @@ formally, we can let <span class="math inline">\(L_1^{(n)}=\min\{L_1,n\}\)</span
 E(L_1)=\sum_{n=2}^{\infty}nP(L_1=n)=\sum_{n=2}^\infty\frac{1}{n-1}=\infty.
 \]</span></p>
 <p><span class="math inline">\(\textbf{Note:}\)</span> When we discuss <span class="math inline">\(\{L_1=n\}\)</span>, note that <span class="math inline">\(X_2,X_3,\dots X_{n-1}\)</span> cannot be record, and also, if we write <span class="math inline">\(L_1^{(n)}=\inf\{2\leq j\leq n:\ X_j\ \text{is a record}\}\)</span>, there could be not record, so it may take <span class="math inline">\(\infty\)</span> as value.</p>
+</div>
+<div id="ex-5" class="section level2 hasAnchor">
+<h2>Ex 5<a href="chap-5-integration-and-expectation.html#ex-5" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="problem">
 
+</div>
+<div id="a-5" class="section level3 hasAnchor">
+<h3>(a)<a href="chap-5-integration-and-expectation.html#a-5" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><span class="math inline">\(\textbf{My idea:}\)</span> I may try to use Riemann–Stieltjes integral method to solve it, more precisely, since the distribution function is continuous, it is meaningful/legitimate to perform integration by parts.
+<span class="math display">\[
+\begin{aligned}
+\int_{\mathbb{R}}F(x)F(dx)&amp;=\int_{\mathbb{R}}F(x)dF(x)\\
+&amp;=F(x)\cdot F(x)|_{\mathbb{R}}-\int_{\mathbb{R}}F(x)dF(x),
+\end{aligned}
+\]</span>
+that is,
+<span class="math display">\[
+\int_{\mathbb{R}}F(x)dF(x)=\frac{1}{2}F^2(x)|_{\mathbb{R}}=\frac{1}{2}.
+\]</span>
+and that is exactly the value of <span class="math inline">\(E(F(X_1))\)</span>.</p>
+<p>For the other part,
+<span class="math display">\[
+\begin{aligned}
+P[X_1\leq X_2]&amp;=\int_\mathbb{R}P[X_1\leq x|X_2=dx]P[X_2=dx]dx\\
+&amp;=\int_\mathbb{R}P[X_1\leq x]dP\\
+&amp;=\int_\mathbb{R}F(x)dF(x)=\frac{1}{2}.
+\end{aligned}
+\]</span>
+and I have to admit that this style is informal.</p>
+<p><span class="math inline">\(\textbf{Answer:}\)</span>
+<span class="math display">\[
+\begin{aligned}
+\int_{\mathbb{R}}F(x)F(dx)&amp;=\int_{\mathbb{R}}F(x)dF(x)\\
+&amp;=F(x)\cdot F(x)|_{-\infty}^{\infty}-\int_{\mathbb{R}}F(x)dF(x),
+\end{aligned}
+\]</span>
+that is,
+<span class="math display">\[
+\int_{\mathbb{R}}F(x)dF(x)=\frac{1}{2}F^2(x)|_{-\infty}^\infty=\frac{1}{2}.
+\]</span>
+and that is exactly the value of <span class="math inline">\(E(F(X_1))=\int_\mathbb{R}F(x)dF(x)\)</span>.</p>
+<p>For the other part, we may use symmetry, since <span class="math inline">\(F\)</span> is continuous, then <span class="math inline">\(P(X_1=X_2)=0\)</span>, so we have
+<span class="math display">\[
+1=P(X_1&lt;X_2)+P(X_2&lt;X_1)+P(X_1=X_2)=P(X_1&lt;X_2)+P(X_2&lt;X_1)
+\]</span>
+by symmetry, <span class="math inline">\(P(X_1&lt;X_2)=P(X_2&lt;X_1)\)</span>, so <span class="math inline">\(P(X_1\leq X_2)=P(X_1&lt;X_2)=1/2\)</span>.</p>
+<p><span class="math inline">\(\textbf{Note:}\)</span> My original idea fits the intuition, but not rigorous since conditional probability and conditional expectation are not defined yet, we will revisit this part after we learn Fubini’s theorem, also, I replace the <span class="math inline">\(|_R\)</span> in <span class="math inline">\(\textbf{My idea}\)</span> part with <span class="math inline">\(|_{-\infty}^{\infty}\)</span>. (2026-02-02).</p>
+</div>
+<div id="b-5" class="section level3 hasAnchor">
+<h3>(b)<a href="chap-5-integration-and-expectation.html#b-5" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><span class="math inline">\(\textbf{My idea:}\)</span> Using the same method from (a), for each atom <span class="math inline">\(a\)</span>, the Riemann–Stieltjes integral on it is:
+<span class="math display">\[
+\int_{a-}^a F(x)dF(x)=F^2(x)\big|_{a-}^a-\int_{a-}^a F(x)dF(x),
+\]</span>
+so <span class="math inline">\(\int_{a-}^a F(x)dF(x)=\frac{1}{2}(F^2(a)-F^2(a-))\)</span></p>
+<p>and since <span class="math inline">\(F\)</span> is a distribution function, it is right continuous and has at most countable discontinuous points (atoms), so <span class="math inline">\(E(F(X_1))\)</span> is the sum of integral on continuous part and atom part, therefore
+<span class="math display">\[
+E(F(X_1))=\frac{1}{2}+\frac{1}{2}\sum_{a}(P[X_1=a])^2.
+\]</span></p>
+<p><span class="math inline">\(\textbf{Answer:}\)</span>For each atom <span class="math inline">\(a\)</span>, let <span class="math inline">\(\Delta F(a)=F(a)-F(a-)=P(X_1=a)\)</span>.
+Using the jump-corrected Stieltjes integration-by-parts identity,
+<span class="math display">\[
+\int u\,dv+\int v\,du
+=uv\Big|_{-\infty}^{\infty}+\sum_{a}\Delta u(a)\Delta v(a),
+\]</span>
+and taking <span class="math inline">\(u=v=F\)</span>, we obtain
+<span class="math display">\[
+2\int_{\mathbb R} F(x)\,dF(x)
+=F(x)^2\Big|_{-\infty}^{\infty}+\sum_{a}(\Delta F(a))^2
+=1+\sum_a \big(P(X_1=a)\big)^2.
+\]</span>
+so
+<span class="math display">\[
+E(F(X_1))=\int F(x)dF(x)=\frac{1}{2}+\frac{1}{2}\sum_{a}(P[X_1=a])^2
+\]</span></p>
+<p><span class="math inline">\(\textbf{Note:}\)</span> In the <strong>My idea</strong> part, I used <span class="math inline">\(\int\)</span> to calculate the mass in atom, it is wrong because it assume <span class="math inline">\(F\)</span> is continuous, so we get
+<span class="math display">\[
+\begin{aligned}
+\frac{1}{2}(F^2(a)-F^2(a-))&amp;=\frac{1}{2}((F(a-)+P(X=a))^2-F^2(a-))\\
+&amp;=\frac{1}{2}(2F(a-)P(X=a)+P(X=a)^2)\\
+&amp;=\frac{1}{2}(P(X=a))^2+F(a-)P(X=a)
+\end{aligned}
+\]</span>
+however, we should view this problem in Lebesgue’s view, that is, summing up the mass in each measurable set, so on atom <span class="math inline">\(a\)</span>, the integral should be:
+<span class="math display">\[
+\begin{aligned}
+\int_{\{a\}}F(x)dF(x)&amp;=F(a)\Delta F(a)=F(a)P(X=a)\\
+&amp;=(F(a)-F(a-)+F(a-))P(X=a)\\
+&amp;=(P(X=a))^2+F(a-)P(X=a)
+\end{aligned}
+\]</span>
+so <span class="math inline">\(\frac{1}{2}(P(X=a))^2\)</span> is stolen by the continuous assumption.</p>
+
+</div>
 </div>
 </div>
             </section>

@@ -201,4 +201,120 @@ $$
 
 $\textbf{Note:}$ When we discuss $\{L_1=n\}$, note that $X_2,X_3,\dots X_{n-1}$ cannot be record, and also, if we write  $L_1^{(n)}=\inf\{2\leq j\leq n:\ X_j\ \text{is a record}\}$, there could be not record, so it may take $\infty$ as value.
 
+## Ex 5
+::: problem
+
+:::
+
+### (a)
+$\textbf{My idea:}$ I may try to use Riemann–Stieltjes integral method to solve it, more precisely, since the distribution function is continuous,  it is meaningful/legitimate to perform integration by parts.
+$$
+\begin{aligned}
+\int_{\mathbb{R}}F(x)F(dx)&=\int_{\mathbb{R}}F(x)dF(x)\\
+&=F(x)\cdot F(x)|_{\mathbb{R}}-\int_{\mathbb{R}}F(x)dF(x),
+\end{aligned}
+$$
+that is, 
+$$
+\int_{\mathbb{R}}F(x)dF(x)=\frac{1}{2}F^2(x)|_{\mathbb{R}}=\frac{1}{2}.
+$$
+and that is exactly the value of $E(F(X_1))$.
+
+For the other part, 
+$$
+\begin{aligned}
+P[X_1\leq X_2]&=\int_\mathbb{R}P[X_1\leq x|X_2=dx]P[X_2=dx]dx\\
+&=\int_\mathbb{R}P[X_1\leq x]dP\\
+&=\int_\mathbb{R}F(x)dF(x)=\frac{1}{2}.
+\end{aligned}
+$$
+and I have to admit that this style is informal.
+
+$\textbf{Answer:}$ 
+$$
+\begin{aligned}
+\int_{\mathbb{R}}F(x)F(dx)&=\int_{\mathbb{R}}F(x)dF(x)\\
+&=F(x)\cdot F(x)|_{-\infty}^{\infty}-\int_{\mathbb{R}}F(x)dF(x),
+\end{aligned}
+$$
+that is, 
+$$
+\int_{\mathbb{R}}F(x)dF(x)=\frac{1}{2}F^2(x)|_{-\infty}^\infty=\frac{1}{2}.
+$$
+and that is exactly the value of $E(F(X_1))=\int_\mathbb{R}F(x)dF(x)$.
+
+For the other part, we may use symmetry, since $F$ is continuous, then $P(X_1=X_2)=0$, so we have
+$$
+1=P(X_1<X_2)+P(X_2<X_1)+P(X_1=X_2)=P(X_1<X_2)+P(X_2<X_1)
+$$
+by symmetry, $P(X_1<X_2)=P(X_2<X_1)$, so $P(X_1\leq X_2)=P(X_1<X_2)=1/2$.
+
+$\textbf{Note:}$ My original idea fits the intuition, but not rigorous since conditional probability and conditional expectation are not defined yet, we will revisit this part after we learn Fubini's theorem, also, I replace the $|_R$ in $\textbf{My idea}$ part with $|_{-\infty}^{\infty}$. (2026-02-02).
+
+### (b)
+$\textbf{My idea:}$ Using the same method from (a), for each atom $a$, the Riemann–Stieltjes integral on it is:
+$$
+\int_{a-}^a F(x)dF(x)=F^2(x)\big|_{a-}^a-\int_{a-}^a F(x)dF(x),
+$$
+so $\int_{a-}^a F(x)dF(x)=\frac{1}{2}(F^2(a)-F^2(a-))$
+
+and since $F$ is a distribution function, it is right continuous and has at most countable discontinuous points (atoms), so $E(F(X_1))$ is the sum of integral on continuous part and atom part, therefore 
+$$
+E(F(X_1))=\frac{1}{2}+\frac{1}{2}\sum_{a}(P[X_1=a])^2.
+$$
+
+$\textbf{Answer:}$For each atom $a$, let $\Delta F(a)=F(a)-F(a-)=P(X_1=a)$.
+Using the jump-corrected Stieltjes integration-by-parts identity,
+\[
+\int u\,dv+\int v\,du
+=uv\Big|_{-\infty}^{\infty}+\sum_{a}\Delta u(a)\Delta v(a),
+\]
+and taking $u=v=F$, we obtain
+\[
+2\int_{\mathbb R} F(x)\,dF(x)
+=F(x)^2\Big|_{-\infty}^{\infty}+\sum_{a}(\Delta F(a))^2
+=1+\sum_a \big(P(X_1=a)\big)^2.
+\]
+so 
+$$
+E(F(X_1))=\int F(x)dF(x)=\frac{1}{2}+\frac{1}{2}\sum_{a}(P[X_1=a])^2
+$$
+
+$\textbf{Note:}$ In the **My idea** part, I used $\int$ to calculate the mass in atom, it is wrong because it assume $F$ is continuous, so we get 
+$$
+\begin{aligned}
+\frac{1}{2}(F^2(a)-F^2(a-))&=\frac{1}{2}((F(a-)+P(X=a))^2-F^2(a-))\\
+&=\frac{1}{2}(2F(a-)P(X=a)+P(X=a)^2)\\
+&=\frac{1}{2}(P(X=a))^2+F(a-)P(X=a)
+\end{aligned}
+$$
+however, we should view this problem in Lebesgue's view, that is, summing up the mass in each measurable set, so on atom $a$, the integral should be:
+$$
+\begin{aligned}
+\int_{\{a\}}F(x)dF(x)&=F(a)\Delta F(a)=F(a)P(X=a)\\
+&=(F(a)-F(a-)+F(a-))P(X=a)\\
+&=(P(X=a))^2+F(a-)P(X=a)
+\end{aligned}
+$$
+so $\frac{1}{2}(P(X=a))^2$ is stolen by the continuous assumption.
+
+### (c)
+$\textbf{My idea:}$ let $a$ be an atom of $F(x)$, and $b$ be an atom of $G(x)$, and $b$ is not the atom of $F(x)$, $a$ is not the atom of $G(x)$, so 
+$$
+P(Y=a)=G(a)-G(a-)=0\quad\text{and}\quad P(X=b)=F(b)-F(b-)=0,
+$$
+therefore,
+$$
+\begin{aligned}
+E(F(Y))+E(G(X))&=\frac{1}{2}+\sum_{a}P(Y=a)+\frac{1}{2}+\sum_{b}P(X=b)\\
+&=\frac{1}{2}+\frac{1}{2}.
+\end{aligned}
+$$
+Interpretation: for 2 r.v.s with distribution functions have no common discontinuities, the probability that they are not equal is $1$.
+
+
+
+
+
+
 
