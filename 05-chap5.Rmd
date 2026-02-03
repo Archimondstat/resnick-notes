@@ -203,7 +203,22 @@ $\textbf{Note:}$ When we discuss $\{L_1=n\}$, note that $X_2,X_3,\dots X_{n-1}$ 
 
 ## Ex 5
 ::: problem
+(a) If $F$ is a continuous distribution function, prove that
+$$\int_{\mathbb{R}} F(x) F(dx) = \frac{1}{2}.$$
+Thus show that if $X_1, X_2$ are iid with common distribution $F$, then
+$$P[X_1 \le X_2] = \frac{1}{2}$$
+and $E(F(X_1)) = 1/2$. (One solution method relies on Fubini's theorem.)
 
+(b) If $F$ is not continuous
+$$E(F(X_1)) = \frac{1}{2} + \frac{1}{2} \sum_{a} (P[X_1 = a])^2,$$
+where the sum is over the atoms of $F$.
+
+(c) If $X, Y$ are random variables with distribution functions $F(x), G(x)$ which have no common discontinuities, then
+$$E(F(Y)) + E(G(X)) = 1.$$
+Interpret the sum of expectations on the left as a probability.
+
+(d) Even if $F$ and $G$ have common jumps, if $X \perp \!\!\! \perp Y$ then
+$$E(F(Y)) + E(G(X)) = 1 + P[X = Y].$$
 :::
 
 ### (a)
@@ -330,3 +345,20 @@ $$
 \int_\mathbb{R}F(x)dG(x)=F(x)\cdot G(x)|_{-\infty}^\infty+\sum_{a}\Delta F(a)\Delta G(a)-\int_\mathbb{R}G(x)dF(x).
 $$
 What happened in the $\textbf{My idea}$ part is that I incorrectly tried to apply the special formula from (b) (which is for $E(F(X))$) to the mixed terms $E(F(Y))$ and $E(G(X))$.
+
+### (d)
+$\textbf{My idea:}$ By using the interpretation in (c), for independent r.v.s $X$ and $Y$, $E(F(Y))+E(G(X))$ can be seen as $P(X\leq Y)+P(Y\leq X)$, considering the common atom, we get $E(F(Y))+E(G(X))=P(X<Y)+P(Y<X)+P(X=Y)=1+P(X=Y)$.
+
+$\textbf{Answer:}$ (Lebesgue-Stieltjes version) We redo this part using integral form
+$$
+\begin{aligned}
+E(F(Y))+E(G(X))&=\int_\mathbb{R}F(x)dG(x)+\int_\mathbb{R}G(x)dF(x)\\
+&=F\cdot G|_{-\infty}^\infty+\sum_a \Delta F(a)\Delta G(a)\\
+&=1+\sum_a P(X=a)P(Y=a) \qquad (X\perp Y)\\
+&=1+\sum_a P(X=a,Y=a)\\
+&=1+P(X=Y),
+\end{aligned}
+$$
+where the sum may be taken over all $a\in\mathbb R$ (only atoms contribute).
+
+$\textbf{Note/Reflection:}$ In this note I want to summarize what we actually did in this exercise, that is, walked though a path from Riemann-Stieltjes to Lebesgue-Stieltjes integral. I used the continuous version of integration-by-parts to deal with the atom, and as we can see, half of the mass of the atom was stolen, and that is where we need the correction $\Delta F(a)$.

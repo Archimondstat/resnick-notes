@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chap 5, Integration and Expectation | Notes on A Probability Path (Resnick)</title>
   <meta name="description" content="Chap 5, Integration and Expectation | Notes on A Probability Path (Resnick)" />
-  <meta name="generator" content="bookdown 0.46 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.42 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chap 5, Integration and Expectation | Notes on A Probability Path (Resnick)" />
   <meta property="og:type" content="book" />
@@ -55,7 +55,6 @@
 
 
 <style type="text/css">
-html { -webkit-text-size-adjust: 100%; }
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -224,6 +223,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#a-5"><i class="fa fa-check"></i>(a)</a></li>
 <li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#b-5"><i class="fa fa-check"></i>(b)</a></li>
 <li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#c-3"><i class="fa fa-check"></i>(c)</a></li>
+<li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#d-2"><i class="fa fa-check"></i>(d)</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -439,7 +439,21 @@ E(L_1)=\sum_{n=2}^{\infty}nP(L_1=n)=\sum_{n=2}^\infty\frac{1}{n-1}=\infty.
 <div id="ex-5" class="section level2 hasAnchor">
 <h2>Ex 5<a href="chap-5-integration-and-expectation.html#ex-5" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div class="problem">
-
+<ol style="list-style-type: lower-alpha">
+<li><p>If <span class="math inline">\(F\)</span> is a continuous distribution function, prove that
+<span class="math display">\[\int_{\mathbb{R}} F(x) F(dx) = \frac{1}{2}.\]</span>
+Thus show that if <span class="math inline">\(X_1, X_2\)</span> are iid with common distribution <span class="math inline">\(F\)</span>, then
+<span class="math display">\[P[X_1 \le X_2] = \frac{1}{2}\]</span>
+and <span class="math inline">\(E(F(X_1)) = 1/2\)</span>. (One solution method relies on Fubini’s theorem.)</p></li>
+<li><p>If <span class="math inline">\(F\)</span> is not continuous
+<span class="math display">\[E(F(X_1)) = \frac{1}{2} + \frac{1}{2} \sum_{a} (P[X_1 = a])^2,\]</span>
+where the sum is over the atoms of <span class="math inline">\(F\)</span>.</p></li>
+<li><p>If <span class="math inline">\(X, Y\)</span> are random variables with distribution functions <span class="math inline">\(F(x), G(x)\)</span> which have no common discontinuities, then
+<span class="math display">\[E(F(Y)) + E(G(X)) = 1.\]</span>
+Interpret the sum of expectations on the left as a probability.</p></li>
+<li><p>Even if <span class="math inline">\(F\)</span> and <span class="math inline">\(G\)</span> have common jumps, if <span class="math inline">\(X \perp \!\!\! \perp Y\)</span> then
+<span class="math display">\[E(F(Y)) + E(G(X)) = 1 + P[X = Y].\]</span></p></li>
+</ol>
 </div>
 <div id="a-5" class="section level3 hasAnchor">
 <h3>(a)<a href="chap-5-integration-and-expectation.html#a-5" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -560,6 +574,22 @@ P(X&lt;Y)+P(Y&lt;X)=1.
 \int_\mathbb{R}F(x)dG(x)=F(x)\cdot G(x)|_{-\infty}^\infty+\sum_{a}\Delta F(a)\Delta G(a)-\int_\mathbb{R}G(x)dF(x).
 \]</span>
 What happened in the <span class="math inline">\(\textbf{My idea}\)</span> part is that I incorrectly tried to apply the special formula from (b) (which is for <span class="math inline">\(E(F(X))\)</span>) to the mixed terms <span class="math inline">\(E(F(Y))\)</span> and <span class="math inline">\(E(G(X))\)</span>.</p>
+</div>
+<div id="d-2" class="section level3 hasAnchor">
+<h3>(d)<a href="chap-5-integration-and-expectation.html#d-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><span class="math inline">\(\textbf{My idea:}\)</span> By using the interpretation in (c), for independent r.v.s <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>, <span class="math inline">\(E(F(Y))+E(G(X))\)</span> can be seen as <span class="math inline">\(P(X\leq Y)+P(Y\leq X)\)</span>, considering the common atom, we get <span class="math inline">\(E(F(Y))+E(G(X))=P(X&lt;Y)+P(Y&lt;X)+P(X=Y)=1+P(X=Y)\)</span>.</p>
+<p><span class="math inline">\(\textbf{Answer:}\)</span> (Lebesgue-Stieltjes version) We redo this part using integral form
+<span class="math display">\[
+\begin{aligned}
+E(F(Y))+E(G(X))&amp;=\int_\mathbb{R}F(x)dG(x)+\int_\mathbb{R}G(x)dF(x)\\
+&amp;=F\cdot G|_{-\infty}^\infty+\sum_a \Delta F(a)\Delta G(a)\\
+&amp;=1+\sum_a P(X=a)P(Y=a) \qquad (X\perp Y)\\
+&amp;=1+\sum_a P(X=a,Y=a)\\
+&amp;=1+P(X=Y),
+\end{aligned}
+\]</span>
+where the sum may be taken over all <span class="math inline">\(a\in\mathbb R\)</span> (only atoms contribute).</p>
+<p><span class="math inline">\(\textbf{Note/Reflection:}\)</span> In this note I want to summarize what we actually did in this exercise, that is, walked though a path from Riemann-Stieltjes to Lebesgue-Stieltjes integral. I used the continuous version of integration-by-parts to deal with the atom, and as we can see, half of the mass of the atom was stolen, and that is where we need the correction <span class="math inline">\(\Delta F(a)\)</span>.</p>
 
 </div>
 </div>
