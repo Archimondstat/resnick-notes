@@ -23,7 +23,7 @@
 <meta name="author" content="Zhanwen Peng" />
 
 
-<meta name="date" content="2026-02-03" />
+<meta name="date" content="2026-02-04" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -224,6 +224,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#b-5"><i class="fa fa-check"></i>(b)</a></li>
 <li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#c-3"><i class="fa fa-check"></i>(c)</a></li>
 <li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#d-2"><i class="fa fa-check"></i>(d)</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#ex-6"><i class="fa fa-check"></i>Ex 6</a>
+<ul>
+<li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#a-6"><i class="fa fa-check"></i>(a)</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -590,6 +594,33 @@ E(F(Y))+E(G(X))&amp;=\int_\mathbb{R}F(x)dG(x)+\int_\mathbb{R}G(x)dF(x)\\
 \]</span>
 where the sum may be taken over all <span class="math inline">\(a\in\mathbb R\)</span> (only atoms contribute).</p>
 <p><span class="math inline">\(\textbf{Note/Reflection:}\)</span> In this note I want to summarize what we actually did in this exercise, that is, walked though a path from Riemann-Stieltjes to Lebesgue-Stieltjes integral. I used the continuous version of integration-by-parts to deal with the atom, and as we can see, half of the mass of the atom was stolen, and that is where we need the correction <span class="math inline">\(\Delta F(a)\)</span>.</p>
+</div>
+</div>
+<div id="ex-6" class="section level2 hasAnchor">
+<h2>Ex 6<a href="chap-5-integration-and-expectation.html#ex-6" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="problem">
+
+</div>
+<div id="a-6" class="section level3 hasAnchor">
+<h3>(a)<a href="chap-5-integration-and-expectation.html#a-6" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><span class="math inline">\(\textbf{My idea:}\)</span> Let <span class="math inline">\(X^+_n = X^+\mathbf{1}_{[|X|\geq n]}\)</span>, and <span class="math inline">\(X^-_n = X^-\mathbf{1}_{[|X|\geq n]}\)</span> since <span class="math inline">\(X\in L_1\)</span>, then <span class="math inline">\(X\)</span> is essentially bounded, so <span class="math inline">\(X^+_n\downarrow0\,\text{(a.s.)}\)</span> and <span class="math inline">\(X^-_n\downarrow0\,\text{(a.s.)}\)</span>, by MCT, we have
+<span class="math inline">\(E(X^+_n)\downarrow0\)</span> and <span class="math inline">\(E(X^-_n)\downarrow0\)</span>, so
+<span class="math display">\[
+\begin{aligned}
+\int_{[|X|&gt;n]}XdP&amp;=E(X\mathbf{1}_{[|X|\geq n]})\\
+&amp;=E(X^+\mathbf{1}_{[|X|\geq n]})-E(X^-\mathbf{1}_{[|X|\geq n]})\downarrow0.
+\end{aligned}
+\]</span></p>
+<p><span class="math inline">\(\textbf{Answer:}\)</span> Let <span class="math inline">\(X_n=|X|\mathbb{1}_{\{|X|&gt;n\}}\)</span>, then <span class="math inline">\(0\leq X_{n+1}\leq X_n\)</span>, so <span class="math inline">\(X_n\downarrow0\)</span> a.s., since <span class="math inline">\(P(|X|&lt;\infty)=1\)</span>, so for a.e. <span class="math inline">\(\omega\in\Omega\)</span>, <span class="math inline">\(|X(\omega)|&lt;\infty\)</span>, also, since <span class="math inline">\(0\leq X_n\leq|X|\)</span>, then <span class="math inline">\(X_n\in L_1\)</span>. By MCT (decreasing version) , we have <span class="math inline">\(E(X_n)\downarrow0\)</span>, therefore
+<span class="math display">\[
+\begin{aligned}
+\left|\int_{\{|X|&gt;n\}}XdP\right|&amp;=\left|\int X\mathbb{1}_{\{|X|&gt;n\}}dP\right|\\
+&amp;\leq\int \left|X\mathbb{1}_{\{|X|&gt;n\}}\right|dP\\
+&amp;=E(X_n)\to0.
+\end{aligned}
+\]</span>
+so we have <span class="math inline">\(\int_{\{|X|&gt;n\}}XdP\to0\)</span>.</p>
+<p><span class="math inline">\(\textbf{Note:}\)</span> When we have <span class="math inline">\(X\in L_1\)</span>, it only indicates that <span class="math inline">\(|X|&lt;\infty\)</span> a.s., since if <span class="math inline">\(P(|X|=\infty)&gt;0\)</span>, then we have <span class="math inline">\(E(|X|)=\infty\)</span>, which makes <span class="math inline">\(X\)</span> out of <span class="math inline">\(L_1\)</span>, it does <strong>not</strong> imply that <span class="math inline">\(X\)</span> is essentially bounded. And note that I use the “decreasing version” of MCT in the <strong>answer</strong> part, even if we are safe in this exercise, we should keep in mind that there are extra condition, that is, we should guarantee that exists some <span class="math inline">\(n\)</span>, such that <span class="math inline">\(X_n\in L_1\)</span>, it is an analog to the “continuous from above” in measure, and that’s why many texts state the increasing version first.</p>
 
 </div>
 </div>

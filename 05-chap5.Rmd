@@ -362,3 +362,42 @@ $$
 where the sum may be taken over all $a\in\mathbb R$ (only atoms contribute).
 
 $\textbf{Note/Reflection:}$ In this note I want to summarize what we actually did in this exercise, that is, walked though a path from Riemann-Stieltjes to Lebesgue-Stieltjes integral. I used the continuous version of integration-by-parts to deal with the atom, and as we can see, half of the mass of the atom was stolen, and that is where we need the correction $\Delta F(a)$.
+
+
+## Ex 6
+::: problem
+
+:::
+
+### (a)
+$\textbf{My idea:}$ Let $X^+_n = X^+\mathbf{1}_{[|X|\geq n]}$, and $X^-_n = X^-\mathbf{1}_{[|X|\geq n]}$ since $X\in L_1$, then $X$ is essentially bounded, so  $X^+_n\downarrow0\,\text{(a.s.)}$ and $X^-_n\downarrow0\,\text{(a.s.)}$, by MCT, we have 
+$E(X^+_n)\downarrow0$ and $E(X^-_n)\downarrow0$, so 
+$$
+\begin{aligned}
+\int_{[|X|>n]}XdP&=E(X\mathbf{1}_{[|X|\geq n]})\\
+&=E(X^+\mathbf{1}_{[|X|\geq n]})-E(X^-\mathbf{1}_{[|X|\geq n]})\downarrow0.
+\end{aligned}
+$$
+
+$\textbf{Answer:}$ Let $X_n=|X|\mathbb{1}_{\{|X|>n\}}$, then $0\leq X_{n+1}\leq X_n$, so $X_n\downarrow0$ a.s., since $P(|X|<\infty)=1$, so for a.e. $\omega\in\Omega$, $|X(\omega)|<\infty$, also, since $0\leq X_n\leq|X|$, then $X_n\in L_1$. By MCT (decreasing version) , we have $E(X_n)\downarrow0$, therefore
+$$
+\begin{aligned}
+\left|\int_{\{|X|>n\}}XdP\right|&=\left|\int X\mathbb{1}_{\{|X|>n\}}dP\right|\\
+&\leq\int \left|X\mathbb{1}_{\{|X|>n\}}\right|dP\\
+&=E(X_n)\to0.
+\end{aligned}
+$$
+so we have $\int_{\{|X|>n\}}XdP\to0$.
+
+$\textbf{Note:}$ When we have $X\in L_1$, it only indicates that $|X|<\infty$ a.s., since if $P(|X|=\infty)>0$, then we have $E(|X|)=\infty$, which makes $X$ out of $L_1$, it does **not** imply that $X$ is essentially bounded. And note that I use the "decreasing version" of MCT in the **answer** part, even if we are safe in this exercise, we should keep in mind that there are extra condition, that is, we should guarantee that exists some $n$, such that $X_n\in L_1$, it is an analog to the "continuous from above" in measure, and that's why many texts state the increasing version first.
+
+
+
+
+
+
+
+
+
+
+
