@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chap 5, Integration and Expectation | Notes on A Probability Path (Resnick)</title>
   <meta name="description" content="Chap 5, Integration and Expectation | Notes on A Probability Path (Resnick)" />
-  <meta name="generator" content="bookdown 0.42 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.46 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chap 5, Integration and Expectation | Notes on A Probability Path (Resnick)" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="Zhanwen Peng" />
 
 
-<meta name="date" content="2026-02-04" />
+<meta name="date" content="2026-02-05" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -55,6 +55,7 @@
 
 
 <style type="text/css">
+html { -webkit-text-size-adjust: 100%; }
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -225,10 +226,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#c-3"><i class="fa fa-check"></i>(c)</a></li>
 <li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#d-2"><i class="fa fa-check"></i>(d)</a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#ex-6"><i class="fa fa-check"></i>Ex 6</a>
+<li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#ex-6-a-c"><i class="fa fa-check"></i>Ex 6 (a-c)</a>
 <ul>
 <li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#a-6"><i class="fa fa-check"></i>(a)</a></li>
+<li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#b-6"><i class="fa fa-check"></i>(b)</a></li>
+<li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#c-4"><i class="fa fa-check"></i>(c)</a></li>
 </ul></li>
+<li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#ex-10-1"><i class="fa fa-check"></i>Ex 10</a></li>
 </ul></li>
 </ul>
 
@@ -596,10 +600,36 @@ where the sum may be taken over all <span class="math inline">\(a\in\mathbb R\)<
 <p><span class="math inline">\(\textbf{Note/Reflection:}\)</span> In this note I want to summarize what we actually did in this exercise, that is, walked though a path from Riemann-Stieltjes to Lebesgue-Stieltjes integral. I used the continuous version of integration-by-parts to deal with the atom, and as we can see, half of the mass of the atom was stolen, and that is where we need the correction <span class="math inline">\(\Delta F(a)\)</span>.</p>
 </div>
 </div>
-<div id="ex-6" class="section level2 hasAnchor">
-<h2>Ex 6<a href="chap-5-integration-and-expectation.html#ex-6" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="ex-6-a-c" class="section level2 hasAnchor">
+<h2>Ex 6 (a-c)<a href="chap-5-integration-and-expectation.html#ex-6-a-c" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div class="problem">
-
+<ol style="list-style-type: lower-alpha">
+<li><p>Show
+<span class="math display">\[
+\int_{[\,|X|&gt;n\,]} X\,dP \to 0.
+\]</span></p></li>
+<li><p>Show that if <span class="math inline">\(P(A_n)\to 0\)</span>, then
+<span class="math display">\[
+\int_{A_n} X\,dP \to 0.
+\]</span></p></li>
+</ol>
+<p>Hint: Decompose
+<span class="math display">\[
+\int_{A_n} |X|\,dP
+=
+\int_{A_n\cap[\,|X|\le M\,]} |X|\,dP
++
+\int_{A_n\cap[\,|X|&gt; M\,]} |X|\,dP
+\]</span>
+for large <span class="math inline">\(M\)</span>.</p>
+<ol start="3" style="list-style-type: lower-alpha">
+<li>Show
+<span class="math display">\[
+\int_A |X|\,dP = 0
+\quad\text{iff}\quad
+P\bigl(A\cap[\,|X|&gt;0\,]\bigr)=0.
+\]</span></li>
+</ol>
 </div>
 <div id="a-6" class="section level3 hasAnchor">
 <h3>(a)<a href="chap-5-integration-and-expectation.html#a-6" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -620,9 +650,123 @@ where the sum may be taken over all <span class="math inline">\(a\in\mathbb R\)<
 \end{aligned}
 \]</span>
 so we have <span class="math inline">\(\int_{\{|X|&gt;n\}}XdP\to0\)</span>.</p>
-<p><span class="math inline">\(\textbf{Note:}\)</span> When we have <span class="math inline">\(X\in L_1\)</span>, it only indicates that <span class="math inline">\(|X|&lt;\infty\)</span> a.s., since if <span class="math inline">\(P(|X|=\infty)&gt;0\)</span>, then we have <span class="math inline">\(E(|X|)=\infty\)</span>, which makes <span class="math inline">\(X\)</span> out of <span class="math inline">\(L_1\)</span>, it does <strong>not</strong> imply that <span class="math inline">\(X\)</span> is essentially bounded. And note that I use the “decreasing version” of MCT in the <strong>answer</strong> part, even if we are safe in this exercise, we should keep in mind that there are extra condition, that is, we should guarantee that exists some <span class="math inline">\(n\)</span>, such that <span class="math inline">\(X_n\in L_1\)</span>, it is an analog to the “continuous from above” in measure, and that’s why many texts state the increasing version first.</p>
-
+<p><span class="math inline">\(\textbf{Note:}\)</span> When we have <span class="math inline">\(X\in L_1\)</span>, it only indicates that <span class="math inline">\(|X|&lt;\infty\)</span> a.s., since if <span class="math inline">\(P(|X|=\infty)&gt;0\)</span>, then we have <span class="math inline">\(E(|X|)=\infty\)</span>, which makes <span class="math inline">\(X\)</span> out of <span class="math inline">\(L_1\)</span>, it does <strong>not</strong> imply that <span class="math inline">\(X\)</span> is essentially bounded, the counter example is <span class="math inline">\(\frac{1}{\sqrt x}\)</span> on <span class="math inline">\((0,1]\)</span>. And note that I use the “decreasing version” of MCT in the <strong>answer</strong> part, even if we are safe in this exercise, we should keep in mind that there are extra condition, that is, we should guarantee that exists some <span class="math inline">\(n\)</span>, such that <span class="math inline">\(X_n\in L_1\)</span>, it is an analog to the “continuous from above” in measure, and that’s why many texts state the increasing version first.</p>
 </div>
+<div id="b-6" class="section level3 hasAnchor">
+<h3>(b)<a href="chap-5-integration-and-expectation.html#b-6" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><span class="math inline">\(\textbf{My idea:}\)</span> Since <span class="math inline">\(X\in L_1\)</span>, then for any <span class="math inline">\(\varepsilon&gt;0\)</span>, there exists <span class="math inline">\(M&gt;0\)</span> such that <span class="math inline">\(\int_{\{|X|&gt;M\}}|X|dP&lt;\varepsilon\)</span> since from (a) we knew that <span class="math inline">\(\int \left|X\mathbb{1}_{\{|X|&gt;n\}}\right|dP\downarrow0\)</span>, so for such <span class="math inline">\(M\)</span>, we have
+<span class="math display">\[
+\begin{aligned}
+\int_{A_n}|X|dP&amp;=\int_{A_n\cap[|X|\leq M]}|X|dP+\int_{A_n\cap[|X|&gt; M]}|X|dP\\
+&amp;\leq M\int\mathbb{1}_{A_n}dP+\int_{[|X|&gt; M]}|X|dP\\
+&amp;\leq MP(A_n)+\varepsilon,
+\end{aligned}
+\]</span>
+since <span class="math inline">\(P(A_n)\to0\)</span> and the <span class="math inline">\(\varepsilon\)</span> is arbitrary, we have <span class="math inline">\(\int_{A_n}|X|dP\to0\)</span>, therefore <span class="math inline">\(\int_{A_n}XdP\to0\)</span>.</p>
+<p><span class="math inline">\(\textbf{Answer:}\)</span> (Pure <span class="math inline">\(\varepsilon-N\)</span> version) Since <span class="math inline">\(X\in L_1\)</span>, then for any <span class="math inline">\(\varepsilon&gt;0\)</span>, there exists <span class="math inline">\(M&gt;0\)</span> such that <span class="math inline">\(\int_{\{|X|&gt;M\}}|X|dP&lt;\frac{\varepsilon}{2}\)</span> since from (a) we knew that <span class="math inline">\(\int \left|X\mathbb{1}_{\{|X|&gt;n\}}\right|dP\downarrow0\)</span>, so for such <span class="math inline">\(M\)</span>, we have
+<span class="math display">\[
+\begin{aligned}
+\int_{A_n}|X|dP&amp;=\int_{A_n\cap[|X|\leq M]}|X|dP+\int_{A_n\cap[|X|&gt; M]}|X|dP\\
+&amp;\leq M\int\mathbb{1}_{A_n}dP+\int_{[|X|&gt; M]}|X|dP\\
+&amp;\leq MP(A_n)+\frac{\varepsilon}{2},
+\end{aligned}
+\]</span>
+since <span class="math inline">\(P(A_n)\to0\)</span>, exists <span class="math inline">\(N&gt;0\)</span> such that when <span class="math inline">\(n\geq N\)</span>, <span class="math inline">\(P(A_n)\leq\frac{\varepsilon}{2M}\)</span>, then we have
+<span class="math display">\[
+\int_{A_n}|X|dP\leq\left(\frac{\varepsilon}{2}+\frac{\varepsilon}{2}\right)=\varepsilon
+\]</span>
+since the <span class="math inline">\(\varepsilon\)</span> is arbitrary, we have <span class="math inline">\(\int_{A_n}|X|dP\to0\)</span>, therefore <span class="math inline">\(\int_{A_n}XdP\to0\)</span>.</p>
+<p><span class="math inline">\(\textbf{Note:}\)</span> We cannot conclude that <span class="math inline">\(|X|\mathbb{1}_{A_n}\to0\)</span> from <span class="math inline">\(P(A_n)\to0\)</span>, but we are only required to prove that the mass on <span class="math inline">\(|X|\mathbb{1}_{A_n}\)</span> decrease to <span class="math inline">\(0\)</span>, Using the tail control from part (a), we pick a large cutoff <span class="math inline">\(M\)</span> and split the integral into two pieces: on <span class="math inline">\(\{|X|\le M\}\)</span> it is controlled by <span class="math inline">\(P(A_n)\)</span>, and on <span class="math inline">\(\{|X|&gt;M\}\)</span> it is controlled by the tail of <span class="math inline">\(X\)</span>.</p>
+<p>We need a counter example here:</p>
+</div>
+<div id="c-4" class="section level3 hasAnchor">
+<h3>(c)<a href="chap-5-integration-and-expectation.html#c-4" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><span class="math inline">\(\textbf{My idea:}\)</span></p>
+<p>“<span class="math inline">\(\Rightarrow\)</span>”: Suppose we have <span class="math inline">\(\int_A|X|dP=\int|X|\mathbb{1}_AdP=0\)</span>, then for any <span class="math inline">\(\varepsilon&gt;0\)</span>, we have
+<span class="math display">\[
+\begin{aligned}
+P(A\cap[|X|&gt;0])&amp;=\int\mathbb{1}_{\{A\cap[|X|&gt;0]\}}dP\\
+&amp;=\int\mathbb{1}_{\{A\cap[0&lt;|X|\leq\varepsilon]\}}dP+\int\mathbb{1}_{\{A\cap[|X|&gt;\varepsilon]\}}dP\\
+&amp;\leq\varepsilon+\int\frac{|X|}{\varepsilon}\mathbb{1}_{\{A\cap[|X|&gt;\varepsilon]\}}dP\\
+&amp;\leq\varepsilon+0=\varepsilon,
+\end{aligned}
+\]</span>
+since <span class="math inline">\(\varepsilon\)</span> is arbitrary, we have <span class="math inline">\(P(A\cap[|X|&gt;0])=0\)</span>.</p>
+<p>“<span class="math inline">\(\Leftarrow\)</span>”: conversely, this time we have <span class="math inline">\(P(A\cap[|X|&gt;0])=0\)</span>, and since <span class="math inline">\(X\in L_1\)</span>, using the result from (a) and (b), we know that for any <span class="math inline">\(\varepsilon&gt;0\)</span>, there exists <span class="math inline">\(M&gt;0\)</span>, such that <span class="math inline">\(\int |X|\mathbb{1}_{[|X|&gt;m]}dP\leq\varepsilon\)</span>, therefore
+<span class="math display">\[
+\begin{aligned}
+\int_A|X|dP&amp;=\int|X|\mathbb{1}_AdP\\
+&amp;=\int|X|\mathbb{1}_{\{A\cap[|X|&gt;M]\}}dP+\int|X|\mathbb{1}_{\{A\cap[|X|\leq M]\}}dP\\
+&amp;\leq\int|X|\mathbb{1}_{[|X|&gt;M]}dP+M\int\mathbb{1}_{\{A\cap[|X|\leq M]\}}dP\\
+&amp;\leq\varepsilon+MP(A\cap[|X|\leq M])\\
+&amp;=\varepsilon+0=\varepsilon,
+\end{aligned}
+\]</span>
+since <span class="math inline">\(\varepsilon\)</span> is arbitrary, we have <span class="math inline">\(\int_A|X|dP=0\)</span>.</p>
+<p><span class="math inline">\(\textbf{Answer:}\)</span></p>
+<p>“<span class="math inline">\(\Rightarrow\)</span>”: For any <span class="math inline">\(\varepsilon&gt;0\)</span>, we have
+<span class="math display">\[
+\varepsilon P(A\cap[|X|&gt;\varepsilon])\leq\int |X|\mathbb{1}_{\{A\cap[|X|&gt;\varepsilon]\}}dP\leq\int|X|\mathbb{1}_AdP=0
+\]</span>
+therefore for any <span class="math inline">\(\varepsilon&gt;0\)</span>, <span class="math inline">\(P(A\cap[|X|&gt;\varepsilon])=0\)</span>, and note that
+<span class="math display">\[
+\{A\cap[|X|&gt;0]\}=\bigcup_m\{A\cap[|X|&gt;\frac{1}{m}]\},
+\]</span>
+and the sets on the right-hand side increase with <span class="math inline">\(m\)</span>, by continuity from below, we have
+<span class="math display">\[
+P(\{A\cap[|X|&gt;0]\})=\lim_{m\to\infty} P(A\cap[|X|&gt;\frac{1}{m}])=0.
+\]</span></p>
+<p>“<span class="math inline">\(\Leftarrow\)</span>”: It is immediate, since
+<span class="math display">\[
+\int_A|X|dP=\int_{A\cap[|X|=0]}|X|dP+\int_{A\cap[|X|&gt;0]}|X|dP=0,
+\]</span>
+for the first part in RHS, <span class="math inline">\(|X|\)</span> is <span class="math inline">\(0\)</span> so the integral is <span class="math inline">\(0\)</span>, and for the second part in RHS, it is a integral on a set with measure <span class="math inline">\(0\)</span>.</p>
+<p><span class="math inline">\(\textbf{Note:}\)</span> In the “<span class="math inline">\(\Rightarrow\)</span>” part in <strong>My idea</strong>, we should see that even though <span class="math inline">\(\int\mathbb{1}_{\{A\cap[0&lt;|X|\leq\varepsilon]\}}dP\leq\int\mathbb{1}_{\{[0&lt;|X|\leq\varepsilon]\}}dP\)</span>, but <span class="math inline">\(P(0&lt;|X|\leq\varepsilon)\)</span> may not less or equal than <span class="math inline">\(\varepsilon\)</span>, and in the “<span class="math inline">\(\Leftarrow\)</span>” part, we assumed that <span class="math inline">\(\int\mathbb{1}_{\{A\cap[|X|\leq M]\}}dP0\)</span>, this is also wrong, a counter example is that for <span class="math inline">\(X(\omega)\equiv0\)</span>, then <span class="math inline">\(P(|X|=0)=1\)</span>.</p>
+</div>
+</div>
+<div id="ex-10-1" class="section level2 hasAnchor">
+<h2>Ex 10<a href="chap-5-integration-and-expectation.html#ex-10-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="problem">
+<p>For <span class="math inline">\(X\ge 0\)</span>, let
+<span class="math display">\[
+X_n^{*}=\sum_{k=1}^{\infty}\frac{k}{2^{n}}\mathbf{1}_{\left[\frac{k-1}{2^{n}}\le X&lt;\frac{k}{2^{n}}\right]}
++\infty\,\mathbf{1}_{[X=\infty]}.
+\]</span>
+Show
+<span class="math display">\[
+E\!\left(X_n^{*}\right)\downarrow E(X).
+\]</span></p>
+</div>
+<p><span class="math inline">\(\textbf{My idea:}\)</span> For <span class="math inline">\(\omega\in[X\neq\infty]\)</span>, we can see that <span class="math inline">\(X^*_n(\omega)\geq X^*_{n+1}(\omega)\)</span> and
+<span class="math display">\[
+|X^*_n(\omega)-X(\omega)|\leq\frac{1}{2^n}\to0
+\]</span>
+and for <span class="math inline">\(\omega\in[X=\infty]\)</span>, we have <span class="math inline">\(X^*_n(\omega)=X(\omega)=\infty\)</span>, therefore <span class="math inline">\(X^*_n\downarrow X\)</span>.</p>
+<p>If <span class="math inline">\(E(X)=\infty\)</span>, that means <span class="math inline">\(P(X=\infty)&gt;0\)</span>, therefore <span class="math inline">\(E(X^*_n)=\infty\)</span>, if <span class="math inline">\(E(X)&lt;\infty\)</span>, so <span class="math inline">\(P(X=\infty)=0\)</span>, so for each <span class="math inline">\(n\)</span>, we have <span class="math inline">\(E(X^*_n)&lt;\infty\)</span>, by the decreasing version of MCT, we have <span class="math inline">\(E(X^*_n)\downarrow E(X)\)</span>.</p>
+<p><span class="math inline">\(\textbf{Answer:}\)</span> For <span class="math inline">\(\omega\in[X&lt;\infty]\)</span>, <span class="math inline">\(X^*_n(\omega)=\frac{\lceil 2^n X(\omega)\rceil}{2^n}\)</span>, and <span class="math inline">\(\frac{\lceil 2^n X(\omega)\rceil}{2^n}\geq\frac{\lceil 2^{n+1} X(\omega)\rceil}{2^{n+1}}\)</span> since <span class="math inline">\(\lceil 2^{n+1}x\rceil\leq2\lceil 2^{n}x\rceil\)</span>, so <span class="math inline">\(X^*_n(\omega)\geq X^*_{n+1}(\omega)\)</span> and <span class="math inline">\(X^*_n(\omega)\geq X(\omega)\)</span>, therefore
+<span class="math display">\[
+|X^*_n(\omega)-X(\omega)|\leq\frac{1}{2^n}\to0
+\]</span>
+and for <span class="math inline">\(\omega\in[X=\infty]\)</span>, we have <span class="math inline">\(X^*_n(\omega)=X(\omega)=\infty\)</span>, therefore <span class="math inline">\(X^*_n\downarrow X\)</span>.
+If <span class="math inline">\(E(X)=\infty\)</span>, since we have <span class="math inline">\(X^*_n\geq X\)</span> therefore <span class="math inline">\(E(X^*_n)\geq E(X)=\infty\)</span>, if <span class="math inline">\(E(X)&lt;\infty\)</span>, so for each <span class="math inline">\(n\)</span>, we have <span class="math inline">\(X^*_n\leq X+\frac{1}{2^n}\)</span>, then by linearity, <span class="math inline">\(E(X^*_n)\leq E(X)+\frac{1}{2^n}&lt;\infty\)</span>, by the decreasing version of MCT, we have <span class="math inline">\(E(X^*_n)\downarrow E(X)\)</span>.</p>
+<p><span class="math inline">\(\textbf{Note:}\)</span></p>
+<ol style="list-style-type: decimal">
+<li>In <strong>my idea</strong> part, we should note that <span class="math inline">\(E(X)=\infty\)</span> does not imply <span class="math inline">\(P(X=\infty)&gt;0\)</span>, the classic counterexample is the “double after each loss” gambling strategy:</li>
+</ol>
+<ul>
+<li>Flip a fair coin</li>
+<li>Let <span class="math inline">\(T=\min\{n\ge1:\text{the n-th flip is a win (say Heads)}\}\)</span>, so <span class="math inline">\(P(T=n)=2^{-n}\)</span></li>
+<li>Each time bet <span class="math inline">\(1,2,4,\dots\)</span> until the first win, so for the bet <span class="math inline">\(B\)</span> we have
+<span class="math display">\[
+E(B)=\sum_{n=1}^\infty 2^{n-1}P(T=n)=\sum_{n=1}^\infty 2^{n-1}\cdot2^{-n}=\sum_{n=1}^\infty\frac{1}{2}=\infty,
+\]</span>
+but <span class="math inline">\(B&lt;\infty\)</span> a.s..</li>
+</ul>
+<p>Or we just consider the <strong>Example 5.2.1 (Heavy Tails)</strong> from the book, so we should use the property that <span class="math inline">\(X^*_n\geq X\)</span> to prove that <span class="math inline">\(E(X^*_n)\geq E(X)=\infty\)</span>.</p>
+<ol start="2" style="list-style-type: decimal">
+<li>And also, the monotonicity of <span class="math inline">\(X^*_n\)</span> is not that trivial, we should specifically prove it: by using <span class="math inline">\(\lceil 2x\rceil\leq2\lceil x\rceil\)</span>.</li>
+</ol>
+
 </div>
 </div>
             </section>

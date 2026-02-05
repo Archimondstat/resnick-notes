@@ -364,9 +364,34 @@ where the sum may be taken over all $a\in\mathbb R$ (only atoms contribute).
 $\textbf{Note/Reflection:}$ In this note I want to summarize what we actually did in this exercise, that is, walked though a path from Riemann-Stieltjes to Lebesgue-Stieltjes integral. I used the continuous version of integration-by-parts to deal with the atom, and as we can see, half of the mass of the atom was stolen, and that is where we need the correction $\Delta F(a)$.
 
 
-## Ex 6
+## Ex 6 (a-c)
 ::: problem
+(a) Show
+\[
+\int_{[\,|X|>n\,]} X\,dP \to 0.
+\]
 
+(b) Show that if $P(A_n)\to 0$, then
+\[
+\int_{A_n} X\,dP \to 0.
+\]
+
+Hint: Decompose
+\[
+\int_{A_n} |X|\,dP
+=
+\int_{A_n\cap[\,|X|\le M\,]} |X|\,dP
++
+\int_{A_n\cap[\,|X|> M\,]} |X|\,dP
+\]
+for large $M$.
+
+(c) Show
+\[
+\int_A |X|\,dP = 0
+\quad\text{iff}\quad
+P\bigl(A\cap[\,|X|>0\,]\bigr)=0.
+\]
 :::
 
 ### (a)
@@ -389,11 +414,132 @@ $$
 $$
 so we have $\int_{\{|X|>n\}}XdP\to0$.
 
-$\textbf{Note:}$ When we have $X\in L_1$, it only indicates that $|X|<\infty$ a.s., since if $P(|X|=\infty)>0$, then we have $E(|X|)=\infty$, which makes $X$ out of $L_1$, it does **not** imply that $X$ is essentially bounded. And note that I use the "decreasing version" of MCT in the **answer** part, even if we are safe in this exercise, we should keep in mind that there are extra condition, that is, we should guarantee that exists some $n$, such that $X_n\in L_1$, it is an analog to the "continuous from above" in measure, and that's why many texts state the increasing version first.
+$\textbf{Note:}$ When we have $X\in L_1$, it only indicates that $|X|<\infty$ a.s., since if $P(|X|=\infty)>0$, then we have $E(|X|)=\infty$, which makes $X$ out of $L_1$, it does **not** imply that $X$ is essentially bounded, the counter example is $\frac{1}{\sqrt x}$ on $(0,1]$. And note that I use the "decreasing version" of MCT in the **answer** part, even if we are safe in this exercise, we should keep in mind that there are extra condition, that is, we should guarantee that exists some $n$, such that $X_n\in L_1$, it is an analog to the "continuous from above" in measure, and that's why many texts state the increasing version first.
+
+### (b)
+$\textbf{My idea:}$ Since $X\in L_1$, then for any $\varepsilon>0$, there exists $M>0$ such that $\int_{\{|X|>M\}}|X|dP<\varepsilon$ since from (a) we knew that $\int \left|X\mathbb{1}_{\{|X|>n\}}\right|dP\downarrow0$, so for such $M$, we have 
+$$
+\begin{aligned}
+\int_{A_n}|X|dP&=\int_{A_n\cap[|X|\leq M]}|X|dP+\int_{A_n\cap[|X|> M]}|X|dP\\
+&\leq M\int\mathbb{1}_{A_n}dP+\int_{[|X|> M]}|X|dP\\
+&\leq MP(A_n)+\varepsilon,
+\end{aligned}
+$$
+since $P(A_n)\to0$ and the $\varepsilon$ is arbitrary, we have $\int_{A_n}|X|dP\to0$, therefore $\int_{A_n}XdP\to0$.
+
+$\textbf{Answer:}$ (Pure $\varepsilon-N$ version)  Since $X\in L_1$, then for any $\varepsilon>0$, there exists $M>0$ such that $\int_{\{|X|>M\}}|X|dP<\frac{\varepsilon}{2}$ since from (a) we knew that $\int \left|X\mathbb{1}_{\{|X|>n\}}\right|dP\downarrow0$, so for such $M$, we have 
+$$
+\begin{aligned}
+\int_{A_n}|X|dP&=\int_{A_n\cap[|X|\leq M]}|X|dP+\int_{A_n\cap[|X|> M]}|X|dP\\
+&\leq M\int\mathbb{1}_{A_n}dP+\int_{[|X|> M]}|X|dP\\
+&\leq MP(A_n)+\frac{\varepsilon}{2},
+\end{aligned}
+$$
+since $P(A_n)\to0$, exists $N>0$ such that when $n\geq N$, $P(A_n)\leq\frac{\varepsilon}{2M}$, then we have 
+$$
+\int_{A_n}|X|dP\leq\left(\frac{\varepsilon}{2}+\frac{\varepsilon}{2}\right)=\varepsilon
+$$
+since the $\varepsilon$ is arbitrary, we have $\int_{A_n}|X|dP\to0$, therefore $\int_{A_n}XdP\to0$.
+
+$\textbf{Note:}$ We cannot conclude that $|X|\mathbb{1}_{A_n}\to0$ from $P(A_n)\to0$, but we are only required to prove that the mass on $|X|\mathbb{1}_{A_n}$ decrease to $0$, Using the tail control from part (a), we pick a large cutoff $M$ and split the integral into two pieces: on $\{|X|\le M\}$ it is controlled by $P(A_n)$, and on $\{|X|>M\}$ it is controlled by the tail of $X$.
+
+We need a counter example here:
+
+### (c)
+$\textbf{My idea:}$ 
+
+"$\Rightarrow$": Suppose we have $\int_A|X|dP=\int|X|\mathbb{1}_AdP=0$, then for any $\varepsilon>0$, we have 
+$$
+\begin{aligned}
+P(A\cap[|X|>0])&=\int\mathbb{1}_{\{A\cap[|X|>0]\}}dP\\
+&=\int\mathbb{1}_{\{A\cap[0<|X|\leq\varepsilon]\}}dP+\int\mathbb{1}_{\{A\cap[|X|>\varepsilon]\}}dP\\
+&\leq\varepsilon+\int\frac{|X|}{\varepsilon}\mathbb{1}_{\{A\cap[|X|>\varepsilon]\}}dP\\
+&\leq\varepsilon+0=\varepsilon,
+\end{aligned}
+$$
+since $\varepsilon$ is arbitrary, we have $P(A\cap[|X|>0])=0$.
+
+"$\Leftarrow$": conversely, this time we have $P(A\cap[|X|>0])=0$, and since $X\in L_1$, using the result from (a) and (b), we know that for any $\varepsilon>0$, there exists $M>0$, such that $\int |X|\mathbb{1}_{[|X|>m]}dP\leq\varepsilon$, therefore
+$$
+\begin{aligned}
+\int_A|X|dP&=\int|X|\mathbb{1}_AdP\\
+&=\int|X|\mathbb{1}_{\{A\cap[|X|>M]\}}dP+\int|X|\mathbb{1}_{\{A\cap[|X|\leq M]\}}dP\\
+&\leq\int|X|\mathbb{1}_{[|X|>M]}dP+M\int\mathbb{1}_{\{A\cap[|X|\leq M]\}}dP\\
+&\leq\varepsilon+MP(A\cap[|X|\leq M])\\
+&=\varepsilon+0=\varepsilon,
+\end{aligned}
+$$
+since $\varepsilon$ is arbitrary, we have $\int_A|X|dP=0$.
 
 
+$\textbf{Answer:}$ 
+
+"$\Rightarrow$": For any $\varepsilon>0$, we have
+$$
+\varepsilon P(A\cap[|X|>\varepsilon])\leq\int |X|\mathbb{1}_{\{A\cap[|X|>\varepsilon]\}}dP\leq\int|X|\mathbb{1}_AdP=0
+$$
+therefore for any $\varepsilon>0$, $P(A\cap[|X|>\varepsilon])=0$, and note that
+$$
+\{A\cap[|X|>0]\}=\bigcup_m\{A\cap[|X|>\frac{1}{m}]\},
+$$
+and the sets on the right-hand side increase with $m$, by continuity from below, we have 
+$$
+P(\{A\cap[|X|>0]\})=\lim_{m\to\infty} P(A\cap[|X|>\frac{1}{m}])=0.
+$$
 
 
+"$\Leftarrow$": It is immediate, since
+$$
+\int_A|X|dP=\int_{A\cap[|X|=0]}|X|dP+\int_{A\cap[|X|>0]}|X|dP=0,
+$$
+for the first part in RHS, $|X|$ is $0$ so the integral is $0$, and for the second part in RHS, it is a integral on a set with measure $0$.
+
+$\textbf{Note:}$ In the "$\Rightarrow$" part in **My idea**, we should see that even though $\int\mathbb{1}_{\{A\cap[0<|X|\leq\varepsilon]\}}dP\leq\int\mathbb{1}_{\{[0<|X|\leq\varepsilon]\}}dP$, but $P(0<|X|\leq\varepsilon)$ may not less or equal than $\varepsilon$, and in the "$\Leftarrow$" part, we assumed that $\int\mathbb{1}_{\{A\cap[|X|\leq M]\}}dP0$, this is also wrong, a counter example is that for $X(\omega)\equiv0$, then $P(|X|=0)=1$.
+
+
+## Ex 10
+::: problem
+For $X\ge 0$, let
+\[
+X_n^{*}=\sum_{k=1}^{\infty}\frac{k}{2^{n}}\mathbf{1}_{\left[\frac{k-1}{2^{n}}\le X<\frac{k}{2^{n}}\right]}
++\infty\,\mathbf{1}_{[X=\infty]}.
+\]
+Show
+\[
+E\!\left(X_n^{*}\right)\downarrow E(X).
+\]
+:::
+
+$\textbf{My idea:}$ For $\omega\in[X\neq\infty]$, we can see that $X^*_n(\omega)\geq X^*_{n+1}(\omega)$ and 
+$$
+|X^*_n(\omega)-X(\omega)|\leq\frac{1}{2^n}\to0
+$$
+and for $\omega\in[X=\infty]$, we have $X^*_n(\omega)=X(\omega)=\infty$, therefore $X^*_n\downarrow X$.
+
+If $E(X)=\infty$, that means $P(X=\infty)>0$, therefore $E(X^*_n)=\infty$, if $E(X)<\infty$, so $P(X=\infty)=0$, so for each $n$, we have $E(X^*_n)<\infty$, by the decreasing version of MCT, we have $E(X^*_n)\downarrow E(X)$.
+
+$\textbf{Answer:}$  For $\omega\in[X<\infty]$, $X^*_n(\omega)=\frac{\lceil 2^n X(\omega)\rceil}{2^n}$, and $\frac{\lceil 2^n X(\omega)\rceil}{2^n}\geq\frac{\lceil 2^{n+1} X(\omega)\rceil}{2^{n+1}}$ since $\lceil 2^{n+1}x\rceil\leq2\lceil 2^{n}x\rceil$, so $X^*_n(\omega)\geq X^*_{n+1}(\omega)$ and $X^*_n(\omega)\geq X(\omega)$, therefore
+$$
+|X^*_n(\omega)-X(\omega)|\leq\frac{1}{2^n}\to0
+$$
+and for $\omega\in[X=\infty]$, we have $X^*_n(\omega)=X(\omega)=\infty$, therefore $X^*_n\downarrow X$.
+If $E(X)=\infty$, since we have $X^*_n\geq X$ therefore $E(X^*_n)\geq E(X)=\infty$, if $E(X)<\infty$, so  for each $n$, we have $X^*_n\leq X+\frac{1}{2^n}$, then by linearity, $E(X^*_n)\leq E(X)+\frac{1}{2^n}<\infty$, by the decreasing version of MCT, we have $E(X^*_n)\downarrow E(X)$.
+
+$\textbf{Note:}$ 
+
+1. In **my idea** part, we should note that $E(X)=\infty$ does not imply $P(X=\infty)>0$, the classic counterexample is the "double after each loss" gambling strategy: 
+
+* Flip a fair coin
+* Let $T=\min\{n\ge1:\text{the n-th flip is a win (say Heads)}\}$, so $P(T=n)=2^{-n}$
+* Each time bet $1,2,4,\dots$ until the first win, so for the bet $B$ we have 
+$$
+E(B)=\sum_{n=1}^\infty 2^{n-1}P(T=n)=\sum_{n=1}^\infty 2^{n-1}\cdot2^{-n}=\sum_{n=1}^\infty\frac{1}{2}=\infty,
+$$
+but $B<\infty$ a.s..
+
+Or we just consider the **Example 5.2.1 (Heavy Tails)** from the book, so we should use the property that $X^*_n\geq X$ to prove that $E(X^*_n)\geq E(X)=\infty$. 
+
+2. And also, the monotonicity of $X^*_n$ is not that trivial, we should specifically prove it: by using $\lceil 2x\rceil\leq2\lceil x\rceil$.
 
 
 
