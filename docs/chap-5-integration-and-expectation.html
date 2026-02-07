@@ -23,7 +23,7 @@
 <meta name="author" content="Zhanwen Peng" />
 
 
-<meta name="date" content="2026-02-05" />
+<meta name="date" content="2026-02-07" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -214,6 +214,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#defining-expectation-via-extension-from-simple-functions"><i class="fa fa-check"></i>Defining expectation via extension from simple functions</a></li>
 <li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#why-monotone-convergence-is-central"><i class="fa fa-check"></i>Why monotone convergence is central</a></li>
 <li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#markovs-inequality-probability-via-indicators-and-expectation"><i class="fa fa-check"></i>Markov’s inequality: probability via indicators and expectation</a></li>
+<li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#fatou-and-inverse-fatou"><i class="fa fa-check"></i>Fatou and “inverse” Fatou</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#ex-2"><i class="fa fa-check"></i>Ex 2</a></li>
 <li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#ex-4"><i class="fa fa-check"></i>Ex 4</a></li>
@@ -233,6 +234,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#c-4"><i class="fa fa-check"></i>(c)</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#ex-10-1"><i class="fa fa-check"></i>Ex 10</a></li>
+<li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#ex-38"><i class="fa fa-check"></i>Ex 38</a></li>
+<li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#ex-7"><i class="fa fa-check"></i>Ex 7</a></li>
 </ul></li>
 </ul>
 
@@ -355,6 +358,32 @@ P(X\ge a)=E\!\left(\mathbf{1}_{\{X\ge a\}}\right)\le \frac{E(X)}{a}.
 <span id="cb1-46"><a href="chap-5-integration-and-expectation.html#cb1-46" tabindex="-1"></a>       <span class="at">legend =</span> <span class="fu">c</span>(<span class="st">&quot;true&quot;</span>, <span class="fu">paste0</span>(<span class="st">&quot;X_n, n=&quot;</span>, n_vec)),</span>
 <span id="cb1-47"><a href="chap-5-integration-and-expectation.html#cb1-47" tabindex="-1"></a>       <span class="at">lty =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span><span class="sc">:</span>(<span class="fu">length</span>(n_vec) <span class="sc">+</span> <span class="dv">1</span>)), <span class="at">lwd =</span> <span class="dv">2</span>, <span class="at">bty =</span> <span class="st">&quot;n&quot;</span>)</span></code></pre></div>
 <p><img src="resnick-notes_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
+</div>
+<div id="fatou-and-inverse-fatou" class="section level3 hasAnchor">
+<h3>Fatou and “inverse” Fatou<a href="chap-5-integration-and-expectation.html#fatou-and-inverse-fatou" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>When we proving the <span class="math inline">\(\sup\)</span> version of Fatou Lemma, I wondered that why do we need a <span class="math inline">\(Z\in L_1\)</span>, such that <span class="math inline">\(X_n\leq Z\)</span>? Can we just say that
+<span class="math display">\[
+\begin{aligned}
+E(\limsup_{n\to\infty} X_n)&amp;=E\left\{\lim_{n\to\infty}(\sup_{k\geq n}X_k)\right\}\\
+&amp;=\lim_{n\to\infty}E(\sup_{k\geq n}X_k)\\
+&amp;\geq\lim_{n\to\infty}\sup_{k\geq n}E(X_k)\\
+&amp;=\limsup_{n\to\infty} E(X_n)
+\end{aligned}
+\]</span>
+what’s wrong is that, we incorrectly used the decreasing version of MCT, that is, generally we don’t have <span class="math inline">\(E\left\{\lim_{n\to\infty}(\sup_{k\geq n}X_k)\right\}=\lim_{n\to\infty}E(\sup_{k\geq n}X_k)\)</span>, we can let <span class="math inline">\(X_n=n\mathbb{1}_{(0,\frac{1}{n})}\)</span>, then <span class="math inline">\(X_n\to 0\)</span> a.s., and <span class="math inline">\(E(X_n)=1\)</span>, so <span class="math inline">\(\limsup_{n\to\infty} E(X_n)=1\)</span> of course. However, if we focus on <span class="math inline">\(\lim_{n\to\infty}E(\sup_{k\geq n}X_k)\)</span>, we should see that
+<span class="math display">\[
+S_n(\omega)=\sup_{k\geq n}X_n(\omega)=\left\lfloor\frac{1}{\omega}\right\rfloor\mathbb{1}_{(0,\frac{1}{n})}
+\]</span>
+Then what is <span class="math inline">\(E(\sup_{k\geq n}X_k)\)</span>? I think that is the interesting part
+<span class="math display">\[
+\begin{aligned}
+E(\sup_{k\geq n}X_k)&amp;=\int_{(0,\frac{1}{n})}\left\lfloor\frac{1}{\omega}\right\rfloor dP\\
+&amp;=\sum_{m=n}^\infty\int_{\frac{1}{m+1}}^{\frac{1}{m}}mdP\\
+&amp;=\sum_{m=n}^\infty m(\frac{1}{m}-\frac{1}{m+1})\\
+&amp;=\sum_{m=n}^\infty\frac{1}{m+1}=\infty,
+\end{aligned}
+\]</span>
+and that is why we need a <span class="math inline">\(Z\in L_1\)</span> to dominate the sequence, more specifically, if we have <span class="math inline">\(X_n\leq Z\)</span>, then <span class="math inline">\(E\left\{\lim_{n\to\infty}(\sup_{k\geq n}X_k)\right\}=\lim_{n\to\infty}E(\sup_{k\geq n}X_k)\)</span>.</p>
 </div>
 </div>
 <div id="ex-2" class="section level2 hasAnchor">
@@ -766,6 +795,43 @@ but <span class="math inline">\(B&lt;\infty\)</span> a.s..</li>
 <ol start="2" style="list-style-type: decimal">
 <li>And also, the monotonicity of <span class="math inline">\(X^*_n\)</span> is not that trivial, we should specifically prove it: by using <span class="math inline">\(\lceil 2x\rceil\leq2\lceil x\rceil\)</span>.</li>
 </ol>
+</div>
+<div id="ex-38" class="section level2 hasAnchor">
+<h2>Ex 38<a href="chap-5-integration-and-expectation.html#ex-38" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="problem">
+<p>Use the Fatou Lemma to show the following: If <span class="math inline">\(0 \leq X_n \rightarrow X\)</span> and <span class="math inline">\(\sup_n E(X_n) = K &lt; \infty\)</span>, then <span class="math inline">\(E(X) \leq K\)</span> and <span class="math inline">\(X \in L_1\)</span>.</p>
+</div>
+<p><span class="math inline">\(\textbf{My idea:}\)</span> Since <span class="math inline">\(\sup_n E(X_n)=K&lt;\infty\)</span>, and <span class="math inline">\(X_n\geq0\)</span> by Fatou Lemma we have
+<span class="math display">\[
+E(\liminf_{n\to\infty}X_n)\leq\liminf_{n\to\infty}E(X_n)\leq\sup_n E(X_n)=K
+\]</span>
+and since <span class="math inline">\(0\leq X_n\to X\)</span>, we have <span class="math inline">\(\liminf_{n\to\infty}X_n=\lim_{n\to\infty}X_n=X\geq0\)</span>, that is
+<span class="math display">\[
+E(|X|)=E(X)\leq K,
+\]</span>
+so <span class="math inline">\(X\in L_1\)</span>.</p>
+<p><span class="math inline">\(\textbf{Note:}\)</span> This one is straight forward.</p>
+</div>
+<div id="ex-7" class="section level2 hasAnchor">
+<h2>Ex 7<a href="chap-5-integration-and-expectation.html#ex-7" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="problem">
+<p>Suppose <span class="math inline">\(X_n, n \geq 1\)</span> and <span class="math inline">\(X\)</span> are uniformly bounded random variables; i.e. there exists a constant <span class="math inline">\(K\)</span> such that
+<span class="math display">\[|X_n| \vee |X| \leq K.\]</span>
+If <span class="math inline">\(X_n \rightarrow X\)</span> as <span class="math inline">\(n \rightarrow \infty\)</span>, show by means of dominated convergence that
+<span class="math display">\[E|X_n - X| \rightarrow 0.\]</span></p>
+</div>
+<p><span class="math inline">\(\textbf{My idea:}\)</span> We can let <span class="math inline">\(Y(\omega)\equiv2K\)</span> as a r.v., and on <span class="math inline">\((\Omega,\mathcal{B},P)\)</span>, we actually have
+<span class="math display">\[
+\int YdP=2K&lt;\infty,
+\]</span>
+so <span class="math inline">\(Y\in L_1\)</span>, and for <span class="math inline">\(Z_n=|X_n-X|\)</span>, we have
+<span class="math display">\[
+Z_n=|X_n-X|\leq |X_n|+|X|\leq 2K=Y.
+\]</span>
+since <span class="math inline">\(Z_n\to0\)</span> and <span class="math inline">\(Z_n\leq Y\in L_1\)</span>, then by DCT, we have
+<span class="math display">\[
+E(|X_n-X|)=E(Z_n)\to0.
+\]</span></p>
 
 </div>
 </div>

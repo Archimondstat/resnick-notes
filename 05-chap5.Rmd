@@ -105,6 +105,32 @@ legend("topleft",
        lty = c(1, 2:(length(n_vec) + 1)), lwd = 2, bty = "n")
 ```
 
+### From MCT to DCT (5.3)
+The bridge that connects MCT, which can be only applied to monotone sequence, and the DCT is the Fatou Lemma(s). The DCT is basically the squeezing of 2 Fatous.
+
+When we proving the $\sup$ version of Fatou Lemma, I wondered that why do we need a $Z\in L_1$, such that $X_n\leq Z$? Can we just say that 
+$$
+\begin{aligned}
+E(\limsup_{n\to\infty} X_n)&=E\left\{\lim_{n\to\infty}(\sup_{k\geq n}X_k)\right\}\\
+&=\lim_{n\to\infty}E(\sup_{k\geq n}X_k)\\
+&\geq\lim_{n\to\infty}\sup_{k\geq n}E(X_k)\\
+&=\limsup_{n\to\infty} E(X_n)
+\end{aligned}
+$$
+what's wrong is that, we incorrectly used the decreasing version of MCT, that is, generally we don't have $E\left\{\lim_{n\to\infty}(\sup_{k\geq n}X_k)\right\}=\lim_{n\to\infty}E(\sup_{k\geq n}X_k)$, for example, we can let $X_n=n\mathbb{1}_{(0,\frac{1}{n})}$ on $(\Omega,\mathcal{B},P)=((0,1),\mathcal{B}((0,1)),\lambda)$, then $X_n\to 0$ a.s., and $E(X_n)=1$, so $\limsup_{n\to\infty} E(X_n)=1$ of course. However, if we focus on $\lim_{n\to\infty}E(\sup_{k\geq n}X_k)$, we should see that 
+$$
+S_n(\omega)=\sup_{k\geq n}X_k(\omega)=\left\lfloor\frac{1}{\omega}\right\rfloor\mathbb{1}_{(0,\frac{1}{n})}\, \text{a.s.}
+$$
+Then what is $E(\sup_{k\geq n}X_k)$? I think that is the interesting part
+$$
+\begin{aligned}
+E(\sup_{k\geq n}X_k)&=\int_{(0,\frac{1}{n})}\left\lfloor\frac{1}{\omega}\right\rfloor dP\\
+&=\sum_{m=n}^\infty\int_{\frac{1}{m+1}}^{\frac{1}{m}}mdP\\
+&=\sum_{m=n}^\infty m(\frac{1}{m}-\frac{1}{m+1})\\
+&=\sum_{m=n}^\infty\frac{1}{m+1}=\infty,
+\end{aligned}
+$$
+and that is why we need a $Z\in L_1$ to dominate the sequence, more specifically, if we have $X_n\leq Z\in L_1$, then $E\left\{\lim_{n\to\infty}(\sup_{k\geq n}X_k)\right\}=\lim_{n\to\infty}E(\sup_{k\geq n}X_k)$.
 
 ## Ex 2
 ::: problem
@@ -541,9 +567,43 @@ Or we just consider the **Example 5.2.1 (Heavy Tails)** from the book, so we sho
 
 2. And also, the monotonicity of $X^*_n$ is not that trivial, we should specifically prove it: by using $\lceil 2x\rceil\leq2\lceil x\rceil$.
 
+## Ex 38
+::: problem
+Use the Fatou Lemma to show the following: If $0 \leq X_n \rightarrow X$ and $\sup_n E(X_n) = K < \infty$, then $E(X) \leq K$ and $X \in L_1$.
+:::
 
+$\textbf{My idea:}$ Since $\sup_n E(X_n)=K<\infty$, and $X_n\geq0$ by Fatou Lemma we have 
+$$
+E(\liminf_{n\to\infty}X_n)\leq\liminf_{n\to\infty}E(X_n)\leq\sup_n E(X_n)=K
+$$
+and since $0\leq X_n\to X$, we have $\liminf_{n\to\infty}X_n=\lim_{n\to\infty}X_n=X\geq0$, that is
+$$
+E(|X|)=E(X)\leq K,
+$$
+so $X\in L_1$.
 
+$\textbf{Note:}$ This one is straight forward.
 
+## Ex 7
+::: problem
+Suppose $X_n, n \geq 1$ and $X$ are uniformly bounded random variables; i.e. there exists a constant $K$ such that 
+$$|X_n| \vee |X| \leq K.$$
+If $X_n \rightarrow X$ as $n \rightarrow \infty$, show by means of dominated convergence that
+$$E|X_n - X| \rightarrow 0.$$
+:::
+
+$\textbf{My idea:}$ We can let $Y(\omega)\equiv2K$ as a r.v., and on $(\Omega,\mathcal{B},P)$, we actually have
+$$
+\int YdP=2K<\infty,
+$$
+so $Y\in L_1$, and for $Z_n=|X_n-X|$, we have 
+$$
+Z_n=|X_n-X|\leq |X_n|+|X|\leq 2K=Y.
+$$
+since $Z_n\to0$ and $Z_n\leq Y\in L_1$, then by DCT, we have 
+$$
+E(|X_n-X|)=E(Z_n)\to0.
+$$
 
 
 
