@@ -105,7 +105,10 @@ legend("topleft",
        lty = c(1, 2:(length(n_vec) + 1)), lwd = 2, bty = "n")
 ```
 
+
+
 ### From MCT to DCT (5.3)
+**(2026-02-07)**
 The bridge that connects MCT, which can be only applied to monotone sequence, and the DCT is the Fatou Lemma(s). The DCT is basically the squeezing of 2 Fatous.
 
 When we proving the $\sup$ version of Fatou Lemma, I wondered that why do we need a $Z\in L_1$, such that $X_n\leq Z$? Can we just say that 
@@ -604,6 +607,85 @@ since $Z_n\to0$ and $Z_n\leq Y\in L_1$, then by DCT, we have
 $$
 E(|X_n-X|)=E(Z_n)\to0.
 $$
+
+## Ex 8
+::: problem
+Suppose $X, X_n, n \geq 1$ are random variables on the space $(\Omega, \mathcal{B}, P)$ and assume
+$$\sup_{\substack{\omega \in \Omega \\ n \geq 1}} |X_n(\omega)| < \infty;$$
+that is, the sequence $\{X_n\}$ is uniformly bounded.
+
+(a) Show that if in addition
+$$\sup_{\omega \in \Omega} |X(\omega) - X_n(\omega)| \rightarrow 0, \quad n \rightarrow \infty,$$
+then $E(X_n) \rightarrow E(X)$.
+
+(b) Use Egorov's theorem (Exercise 25, page 89 of Chapter 3) to prove: 
+If $\{X_n\}$ is uniformly bounded and $X_n \rightarrow X$, then $E(X_n) \rightarrow E(X)$. 
+(Obviously, this follows from dominated convergence as in Exercise 7 above; the point is to use Egorov's theorem and not dominated convergence.)
+:::
+
+### (a)
+$\textbf{My idea:}$ Since $X_n$ is uniformly bounded and $X_n\to X$ uniformly, because
+$$
+\begin{aligned}
+\sup_{\omega\in\Omega}|X(\omega)|&=\sup_{\omega\in\Omega}|X(\omega)-X_n(\omega)+X_n(\omega)|\\
+&\leq\sup_{\omega\in\Omega}|X(\omega)-X_n(\omega)|+\sup_{\omega\in\Omega}|X_n(\omega)|\\
+&\leq\sup_{\omega\in\Omega}|X(\omega)-X_n(\omega)|+\sup_{\omega\in\Omega,n\geq1}|X_n(\omega)|,
+\end{aligned}
+$$
+the first part of RHS approaches to $0$, and the second part is uniformly bounded, therefore there existes constant $M=\max\{\sup_{\omega\in\Omega,n\geq1}|X_n(\omega)|,\sup_{\omega\in\Omega}|X(\omega)|\}$, such that $|X_n| \vee |X| \leq M$, that is $Y(\omega)\equiv M$ is in $L_1$ on $(\Omega,\mathcal{B},P)$, by using the DCT, we have $E(X_n)\to E(X)$.
+
+$\textbf{Answer:}$ Since $X_n$ is uniformly bounded and $X_n\to X$ uniformly, then $X_n\to X$ pointwise, also a.e., and $X$ is bounded, because for any specific $n_0$, we have 
+$$
+\begin{aligned}
+\sup_{\omega\in\Omega}|X(\omega)|&=\sup_{\omega\in\Omega}|X(\omega)-X_{n_0}(\omega)+X_{n_0}(\omega)|\\
+&\leq\sup_{\omega\in\Omega}|X(\omega)-X_{n_0}(\omega)|+\sup_{\omega\in\Omega}|X_{n_0}(\omega)|,\\
+\end{aligned}
+$$
+since $X_n\to X$ uniformly, the first part of RHS is finite, and the second part is also bounded because $X_n$ is uniformly bounded, so we can let $Y(\omega)\equiv M=\sup_{\omega\in\Omega}|X(\omega)-X_{n_0}(\omega)|+\sup_{\omega\in\Omega}|X_{n_0}(\omega)|$, then $Y\in L_1$ on $(\Omega,\mathcal{B},P)$, by using the DCT, we have $E(X_n)\to E(X)$.
+
+$\textbf{Note:}$ 
+1. We should mention that $X_n\to X$ almost everywhere,
+2. We only need some specific $n_0$ to build the inequality.
+
+
+### (b)
+$\textbf{My idea:}$ We have $X_n$ is uniformly bounded and $X_n\to X$, then $X$ must also be bounded, since there exists $M>0$, such that for any $n$, $|X_n|\leq M$, then $|X|=|\lim_{n\to\infty} X|\leq M$, and it is suffice to prove $E(|X_n-X|)\to0$, since we are in probability space, $P(\Omega)=1$, so by Egorov's theorem, for any $\varepsilon>0$, there exist a set $\Lambda_\varepsilon$ such that $P(\Lambda_\varepsilon)<\varepsilon$ and 
+$$
+\sup_{\omega\in\Omega\setminus\Lambda_\varepsilon}|X(\omega)-X_n(\omega)|\to0\quad(n\to\infty),
+$$
+therefore we have
+$$
+\begin{aligned}
+E(|X_n-X|)&=\int|X_n-X|dP\\
+&=\int_{\Omega\setminus\Lambda_\varepsilon}|X_n-X|dP+\int_{\Lambda_\varepsilon}|X_n-X|dP\\
+&\leq\sup_{\omega\in\Omega\setminus\Lambda_\varepsilon}|X(\omega)-X_n(\omega)|\cdot P(\Omega\setminus\Lambda_\varepsilon)+2M\varepsilon\\
+&\leq\sup_{\omega\in\Omega\setminus\Lambda_\varepsilon}|X(\omega)-X_n(\omega)|+2M\varepsilon,
+\end{aligned}
+$$
+the first part of RHS approaches to $0$ and the second part can be arbitrary, so we can choose $\varepsilon$ small enough so that $2M\varepsilon$ is small, and then choose $n$ large enough so that the $\sup$ term is also small, therefore $E(|X_n-X|)\to0$, therefore $E(X_n)\to E(X)$.
+
+$\textbf{Note:}$ Generally speaking, in a finite measure space, such as probability space, the Egorov's theorem allows us to divide the space into two parts, one behaves well, allowing our a.e. convergent sequence to converge uniformly; the other part may not behave as well, but its measure can be made arbitrarily small.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

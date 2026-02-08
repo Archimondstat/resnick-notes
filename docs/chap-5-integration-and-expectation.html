@@ -23,7 +23,7 @@
 <meta name="author" content="Zhanwen Peng" />
 
 
-<meta name="date" content="2026-02-07" />
+<meta name="date" content="2026-02-08" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -214,7 +214,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#defining-expectation-via-extension-from-simple-functions"><i class="fa fa-check"></i>Defining expectation via extension from simple functions</a></li>
 <li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#why-monotone-convergence-is-central"><i class="fa fa-check"></i>Why monotone convergence is central</a></li>
 <li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#markovs-inequality-probability-via-indicators-and-expectation"><i class="fa fa-check"></i>Markov’s inequality: probability via indicators and expectation</a></li>
-<li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#fatou-and-inverse-fatou"><i class="fa fa-check"></i>Fatou and “inverse” Fatou</a></li>
+<li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#from-mct-to-dct-5.3"><i class="fa fa-check"></i>From MCT to DCT (5.3)</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#ex-2"><i class="fa fa-check"></i>Ex 2</a></li>
 <li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#ex-4"><i class="fa fa-check"></i>Ex 4</a></li>
@@ -236,6 +236,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#ex-10-1"><i class="fa fa-check"></i>Ex 10</a></li>
 <li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#ex-38"><i class="fa fa-check"></i>Ex 38</a></li>
 <li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#ex-7"><i class="fa fa-check"></i>Ex 7</a></li>
+<li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#ex-8"><i class="fa fa-check"></i>Ex 8</a>
+<ul>
+<li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#a-7"><i class="fa fa-check"></i>(a)</a></li>
+<li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#b-7"><i class="fa fa-check"></i>(b)</a></li>
+</ul></li>
 </ul></li>
 </ul>
 
@@ -359,8 +364,10 @@ P(X\ge a)=E\!\left(\mathbf{1}_{\{X\ge a\}}\right)\le \frac{E(X)}{a}.
 <span id="cb1-47"><a href="chap-5-integration-and-expectation.html#cb1-47" tabindex="-1"></a>       <span class="at">lty =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span><span class="sc">:</span>(<span class="fu">length</span>(n_vec) <span class="sc">+</span> <span class="dv">1</span>)), <span class="at">lwd =</span> <span class="dv">2</span>, <span class="at">bty =</span> <span class="st">&quot;n&quot;</span>)</span></code></pre></div>
 <p><img src="resnick-notes_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
 </div>
-<div id="fatou-and-inverse-fatou" class="section level3 hasAnchor">
-<h3>Fatou and “inverse” Fatou<a href="chap-5-integration-and-expectation.html#fatou-and-inverse-fatou" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="from-mct-to-dct-5.3" class="section level3 hasAnchor">
+<h3>From MCT to DCT (5.3)<a href="chap-5-integration-and-expectation.html#from-mct-to-dct-5.3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><strong>(2026-02-07)</strong>
+The bridge that connects MCT, which can be only applied to monotone sequence, and the DCT is the Fatou Lemma(s). The DCT is basically the squeezing of 2 Fatous.</p>
 <p>When we proving the <span class="math inline">\(\sup\)</span> version of Fatou Lemma, I wondered that why do we need a <span class="math inline">\(Z\in L_1\)</span>, such that <span class="math inline">\(X_n\leq Z\)</span>? Can we just say that
 <span class="math display">\[
 \begin{aligned}
@@ -370,9 +377,9 @@ E(\limsup_{n\to\infty} X_n)&amp;=E\left\{\lim_{n\to\infty}(\sup_{k\geq n}X_k)\ri
 &amp;=\limsup_{n\to\infty} E(X_n)
 \end{aligned}
 \]</span>
-what’s wrong is that, we incorrectly used the decreasing version of MCT, that is, generally we don’t have <span class="math inline">\(E\left\{\lim_{n\to\infty}(\sup_{k\geq n}X_k)\right\}=\lim_{n\to\infty}E(\sup_{k\geq n}X_k)\)</span>, we can let <span class="math inline">\(X_n=n\mathbb{1}_{(0,\frac{1}{n})}\)</span>, then <span class="math inline">\(X_n\to 0\)</span> a.s., and <span class="math inline">\(E(X_n)=1\)</span>, so <span class="math inline">\(\limsup_{n\to\infty} E(X_n)=1\)</span> of course. However, if we focus on <span class="math inline">\(\lim_{n\to\infty}E(\sup_{k\geq n}X_k)\)</span>, we should see that
+what’s wrong is that, we incorrectly used the decreasing version of MCT, that is, generally we don’t have <span class="math inline">\(E\left\{\lim_{n\to\infty}(\sup_{k\geq n}X_k)\right\}=\lim_{n\to\infty}E(\sup_{k\geq n}X_k)\)</span>, for example, we can let <span class="math inline">\(X_n=n\mathbb{1}_{(0,\frac{1}{n})}\)</span> on <span class="math inline">\((\Omega,\mathcal{B},P)=((0,1),\mathcal{B}((0,1)),\lambda)\)</span>, then <span class="math inline">\(X_n\to 0\)</span> a.s., and <span class="math inline">\(E(X_n)=1\)</span>, so <span class="math inline">\(\limsup_{n\to\infty} E(X_n)=1\)</span> of course. However, if we focus on <span class="math inline">\(\lim_{n\to\infty}E(\sup_{k\geq n}X_k)\)</span>, we should see that
 <span class="math display">\[
-S_n(\omega)=\sup_{k\geq n}X_n(\omega)=\left\lfloor\frac{1}{\omega}\right\rfloor\mathbb{1}_{(0,\frac{1}{n})}
+S_n(\omega)=\sup_{k\geq n}X_k(\omega)=\left\lfloor\frac{1}{\omega}\right\rfloor\mathbb{1}_{(0,\frac{1}{n})}\, \text{a.s.}
 \]</span>
 Then what is <span class="math inline">\(E(\sup_{k\geq n}X_k)\)</span>? I think that is the interesting part
 <span class="math display">\[
@@ -383,7 +390,7 @@ E(\sup_{k\geq n}X_k)&amp;=\int_{(0,\frac{1}{n})}\left\lfloor\frac{1}{\omega}\rig
 &amp;=\sum_{m=n}^\infty\frac{1}{m+1}=\infty,
 \end{aligned}
 \]</span>
-and that is why we need a <span class="math inline">\(Z\in L_1\)</span> to dominate the sequence, more specifically, if we have <span class="math inline">\(X_n\leq Z\)</span>, then <span class="math inline">\(E\left\{\lim_{n\to\infty}(\sup_{k\geq n}X_k)\right\}=\lim_{n\to\infty}E(\sup_{k\geq n}X_k)\)</span>.</p>
+and that is why we need a <span class="math inline">\(Z\in L_1\)</span> to dominate the sequence, more specifically, if we have <span class="math inline">\(X_n\leq Z\in L_1\)</span>, then <span class="math inline">\(E\left\{\lim_{n\to\infty}(\sup_{k\geq n}X_k)\right\}=\lim_{n\to\infty}E(\sup_{k\geq n}X_k)\)</span>.</p>
 </div>
 </div>
 <div id="ex-2" class="section level2 hasAnchor">
@@ -832,7 +839,64 @@ since <span class="math inline">\(Z_n\to0\)</span> and <span class="math inline"
 <span class="math display">\[
 E(|X_n-X|)=E(Z_n)\to0.
 \]</span></p>
+</div>
+<div id="ex-8" class="section level2 hasAnchor">
+<h2>Ex 8<a href="chap-5-integration-and-expectation.html#ex-8" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="problem">
+<p>Suppose <span class="math inline">\(X, X_n, n \geq 1\)</span> are random variables on the space <span class="math inline">\((\Omega, \mathcal{B}, P)\)</span> and assume
+<span class="math display">\[\sup_{\substack{\omega \in \Omega \\ n \geq 1}} |X_n(\omega)| &lt; \infty;\]</span>
+that is, the sequence <span class="math inline">\(\{X_n\}\)</span> is uniformly bounded.</p>
+<ol style="list-style-type: lower-alpha">
+<li><p>Show that if in addition
+<span class="math display">\[\sup_{\omega \in \Omega} |X(\omega) - X_n(\omega)| \rightarrow 0, \quad n \rightarrow \infty,\]</span>
+then <span class="math inline">\(E(X_n) \rightarrow E(X)\)</span>.</p></li>
+<li><p>Use Egorov’s theorem (Exercise 25, page 89 of Chapter 3) to prove:
+If <span class="math inline">\(\{X_n\}\)</span> is uniformly bounded and <span class="math inline">\(X_n \rightarrow X\)</span>, then <span class="math inline">\(E(X_n) \rightarrow E(X)\)</span>.
+(Obviously, this follows from dominated convergence as in Exercise 7 above; the point is to use Egorov’s theorem and not dominated convergence.)</p></li>
+</ol>
+</div>
+<div id="a-7" class="section level3 hasAnchor">
+<h3>(a)<a href="chap-5-integration-and-expectation.html#a-7" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><span class="math inline">\(\textbf{My idea:}\)</span> Since <span class="math inline">\(X_n\)</span> is uniformly bounded and <span class="math inline">\(X_n\to X\)</span> uniformly, because
+<span class="math display">\[
+\begin{aligned}
+\sup_{\omega\in\Omega}|X(\omega)|&amp;=\sup_{\omega\in\Omega}|X(\omega)-X_n(\omega)+X_n(\omega)|\\
+&amp;\leq\sup_{\omega\in\Omega}|X(\omega)-X_n(\omega)|+\sup_{\omega\in\Omega}|X_n(\omega)|\\
+&amp;\leq\sup_{\omega\in\Omega}|X(\omega)-X_n(\omega)|+\sup_{\omega\in\Omega,n\geq1}|X_n(\omega)|,
+\end{aligned}
+\]</span>
+the first part of RHS approaches to <span class="math inline">\(0\)</span>, and the second part is uniformly bounded, therefore there existes constant <span class="math inline">\(M=\max\{\sup_{\omega\in\Omega,n\geq1}|X_n(\omega)|,\sup_{\omega\in\Omega}|X(\omega)|\}\)</span>, such that <span class="math inline">\(|X_n| \vee |X| \leq M\)</span>, that is <span class="math inline">\(Y(\omega)\equiv M\)</span> is in <span class="math inline">\(L_1\)</span> on <span class="math inline">\((\Omega,\mathcal{B},P)\)</span>, by using the DCT, we have <span class="math inline">\(E(X_n)\to E(X)\)</span>.</p>
+<p><span class="math inline">\(\textbf{Answer:}\)</span> Since <span class="math inline">\(X_n\)</span> is uniformly bounded and <span class="math inline">\(X_n\to X\)</span> uniformly, then <span class="math inline">\(X_n\to X\)</span> pointwise, also a.e., and <span class="math inline">\(X\)</span> is bounded, because for any specific <span class="math inline">\(n_0\)</span>, we have
+<span class="math display">\[
+\begin{aligned}
+\sup_{\omega\in\Omega}|X(\omega)|&amp;=\sup_{\omega\in\Omega}|X(\omega)-X_{n_0}(\omega)+X_{n_0}(\omega)|\\
+&amp;\leq\sup_{\omega\in\Omega}|X(\omega)-X_{n_0}(\omega)|+\sup_{\omega\in\Omega}|X_{n_0}(\omega)|,\\
+\end{aligned}
+\]</span>
+since <span class="math inline">\(X_n\to X\)</span> uniformly, the first part of RHS is finite, and the second part is also bounded because <span class="math inline">\(X_n\)</span> is uniformly bounded, so we can let <span class="math inline">\(Y(\omega)\equiv M=\sup_{\omega\in\Omega}|X(\omega)-X_{n_0}(\omega)|+\sup_{\omega\in\Omega}|X_{n_0}(\omega)|\)</span>, then <span class="math inline">\(Y\in L_1\)</span> on <span class="math inline">\((\Omega,\mathcal{B},P)\)</span>, by using the DCT, we have <span class="math inline">\(E(X_n)\to E(X)\)</span>.</p>
+<p><span class="math inline">\(\textbf{Note:}\)</span>
+1. We should mention that <span class="math inline">\(X_n\to X\)</span> almost everywhere,
+2. We only need some specific <span class="math inline">\(n_0\)</span> to build the inequality.</p>
+</div>
+<div id="b-7" class="section level3 hasAnchor">
+<h3>(b)<a href="chap-5-integration-and-expectation.html#b-7" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><span class="math inline">\(\textbf{My idea:}\)</span> We have <span class="math inline">\(X_n\)</span> is uniformly bounded and <span class="math inline">\(X_n\to X\)</span>, then <span class="math inline">\(X\)</span> must also be bounded, since there exists <span class="math inline">\(M&gt;0\)</span>, such that for any <span class="math inline">\(n\)</span>, <span class="math inline">\(|X_n|\leq M\)</span>, then <span class="math inline">\(|X|=|\lim_{n\to\infty} X|\leq M\)</span>, and it is suffice to prove <span class="math inline">\(E(|X_n-X|)\to0\)</span>, since we are in probability space, <span class="math inline">\(P(\Omega)=1\)</span>, so by Egorov’s theorem, for any <span class="math inline">\(\varepsilon&gt;0\)</span>, there exist a set <span class="math inline">\(\Lambda_\varepsilon\)</span> such that <span class="math inline">\(P(\Lambda_\varepsilon)&lt;\varepsilon\)</span> and
+<span class="math display">\[
+\sup_{\omega\in\Omega\setminus\Lambda_\varepsilon}|X(\omega)-X_n(\omega)|\to0\quad(n\to\infty),
+\]</span>
+therefore we have
+<span class="math display">\[
+\begin{aligned}
+E(|X_n-X|)&amp;=\int|X_n-X|dP\\
+&amp;=\int_{\Omega\setminus\Lambda_\varepsilon}|X_n-X|dP+\int_{\Lambda_\varepsilon}|X_n-X|dP\\
+&amp;\leq\sup_{\omega\in\Omega\setminus\Lambda_\varepsilon}|X(\omega)-X_n(\omega)|\cdot P(\Omega\setminus\Lambda_\varepsilon)+2M\varepsilon\\
+&amp;\leq\sup_{\omega\in\Omega\setminus\Lambda_\varepsilon}|X(\omega)-X_n(\omega)|+2M\varepsilon,
+\end{aligned}
+\]</span>
+the first part of RHS approaches to <span class="math inline">\(0\)</span> and the second part can be arbitrary, so we can choose <span class="math inline">\(\varepsilon\)</span> small enough so that <span class="math inline">\(2M\varepsilon\)</span> is small, and then choose <span class="math inline">\(n\)</span> large enough so that the <span class="math inline">\(\sup\)</span> term is also small, therefore <span class="math inline">\(E(|X_n-X|)\to0\)</span>, therefore <span class="math inline">\(E(X_n)\to E(X)\)</span>.</p>
+<p><span class="math inline">\(\textbf{Note:}\)</span> Generally speaking, in a finite measure space, such as probability space, the Egorov’s theorem allows us to divide the space into two parts, one behaves well, allowing our a.e. convergent sequence to converge uniformly; the other part may not behave as well, but its measure can be made arbitrarily small.</p>
 
+</div>
 </div>
 </div>
             </section>
