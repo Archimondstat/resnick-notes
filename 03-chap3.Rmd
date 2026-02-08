@@ -1,3 +1,5 @@
-# Chap 3
+# Chap 3, Random Variables, Elements, and Measurable Maps
 
+#### Pre
 
+Currently, this chapter serves as a placeholder for my retrospective review.

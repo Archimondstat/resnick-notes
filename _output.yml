@@ -6,6 +6,7 @@ bookdown::gitbook:
     toc:
       collapse: section
     download: []
+    sharing: null
 bookdown::html_book:
   css: styles.css
   toc_depth: 4

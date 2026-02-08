@@ -10,7 +10,7 @@ documentclass: book
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-# Pre
+# About This Project
 
 These are my Notes and exercise records while learning *A Probability
 Path* by Resnick.\
@@ -25,6 +25,26 @@ Here is the protocol I follow for exercises:
 
 I record both my first idea and the final correct solution here.
 
+> **Note on Chapters 1–3:** I have already worked through the exercises for Chapters 1–3 during my initial study, so I will randomly or quasi-randomly select exercises from Chapters 1-3 to refill the blank, and may or may not write down notes for these chapters.
 
-## 2026-01-31
+### Contact {-}
+
+If you have any questions or suggestions regarding these notes, feel free to reach out:
+
+- **Email:** `archimondstat@gmail.com`
+
+## Change Log {-}
+
+### 2026-01-31 {-}
 Starting from Chapter 5, I began writing my notes and following a new plan: instead of waiting until I finish the entire chapter to start the exercises, I now work on the corresponding exercises each time I finish reading a section (or a chunk) of the chapter. Also, I converted my R Markdown notes into a Bookdown project.
+
+
+
+
+
+
+
+
+
+
+
