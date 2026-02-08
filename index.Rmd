@@ -29,7 +29,8 @@ I record both my first idea and the final correct solution here.
 
 ### Contact {-}
 If you have any questions, corrections,  feel free to reach out:
-* **Email:** `archimondstat@gmail.com`
+
+**Email:** `archimondstat@gmail.com`
 
 
 ## Change Log {-}
