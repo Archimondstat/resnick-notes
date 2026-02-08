@@ -668,15 +668,39 @@ $\textbf{Note:}$ Generally speaking, in a finite measure space, such as probabil
 
 
 
+## Ex 13
+::: problem
+Suppose the probability space is the Lebesgue interval
+$$(\Omega = [0, 1], \mathcal{B}([0, 1]), \lambda)$$
+and define
+$$X_n = \frac{n}{\log n} 1_{(0, \frac{1}{n})}.$$
+Show $X_n \rightarrow 0$ and $E(X_n) \rightarrow 0$ even though the condition of domination in the Dominated Convergence Theorem fails.
+:::
 
+$\textbf{My idea:}$ For any $\omega\in[0,1]$ and for any $\varepsilon>0$, there exists $N=\lceil\frac{1}{\omega}\rceil$, such that when $n\geq N$, we have $X_n(\omega)=0$, therefore $X_n\to 0$, also, since each $X_n$ is actually simple function, therefore
+$$
+\begin{aligned}
+E(X_n)&=\frac{n}{\log n}\lambda((0,\frac{1}{n}))\\
+&=\frac{1}{\log n}\to0\quad(n\to\infty).
+\end{aligned}
+$$
+And why the condition of domination in DCT fails? Suppose there exists such $Z\in L_1$, $|X_n|=X_n\leq Z$, then we should have $S_n=\sup_{k\geq n}X_k\leq Z$, and by the $\sup$ version of Fatou, $E(S_n)\to0$, but actually $E(S_n)\to\infty$.
 
+$\textbf{Answer:}$ (why the condition of domination in DCT fails)
+Suppose there exists such $Z\in L_1$, $|X_n|=X_n\leq Z$, then we should have $S_n=\sup_{k\geq n}X_k\leq Z$, so for $\omega\in(0,\frac1n)$, choose $k=\lfloor\frac1\omega\rfloor$, then $S_n(\omega)\geq X_k(\omega)=\frac{k}{\log k}$, therefore, for $m\geq n$, $S_n(\omega)\geq\frac{m}{\log m}$ on intervar $(\frac{1}{m+1},\frac{1}{m}]$, so we have 
+$$
+\begin{aligned}
+E(S_n)&\geq \sum_{m=n}^\infty\int_{\frac{1}{m+1}}^{\frac{1}{m}}\frac{m}{\log m}d\lambda\\
+&=\sum_{m=n}^\infty\frac{m}{\log m}(\frac{1}{m}-\frac{1}{m+1})\\
+&=\sum_{m=n}^\infty\frac{1}{(m+1)\log m}=\infty.\\
+\end{aligned}
+$$
 
-
-
-
-
-
-
+$\textbf{Note:}$ In **my idea** part, I said use $\sup$ version of Fatou, but that would only mean
+$$
+E(S_n)\downarrow E(\limsup_{n\to\infty}X_n)=0,
+$$
+since $S_n$ is decreasing and dominated by $Z\in L_1$.
 
 
 
