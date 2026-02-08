@@ -684,9 +684,11 @@ c) Let $X_1,X_2$ be independent random variables each assuming only the values $
 
 $\textbf{My idea:}$ 
 
-### (a) We have $P(A_i)=\frac{1}{2},\ i=1,2,3$ and $P(A_i\cap A_j)=P(\{1\})=\frac{1}{4}=P(A_i)P(A_j),\ i\neq j$, and $P(A_1\cap A_2\cap A_3)=P(\{1\})=\frac{1}{4}\neq P(A_1)P(A_2)P(A_3)=\frac{1}{8}$.
+### (a) 
+We have $P(A_i)=\frac{1}{2},\ i=1,2,3$ and $P(A_i\cap A_j)=P(\{1\})=\frac{1}{4}=P(A_i)P(A_j),\ i\neq j$, and $P(A_1\cap A_2\cap A_3)=P(\{1\})=\frac{1}{4}\neq P(A_1)P(A_2)P(A_3)=\frac{1}{8}$.
 
-### (b)We have
+### (b)
+We have
 $$
 \begin{aligned}
 P(BCD)&=P((A_1\cup A_4)\cap(A_2\cup A_4)\cap(A_3\cup A_4))\\
@@ -696,7 +698,8 @@ P(BCD)&=P((A_1\cup A_4)\cap(A_2\cup A_4)\cap(A_3\cup A_4))\\
 $$
 $P(B)=P(C)=P(D)=\frac{16}{64}=\frac{1}{4}$, so $P(B)P(C)P(D)=\frac{1}{64}$, further, $P(BC)=P(BD)=P(CD)=P(A_4)=\frac{1}{64}$, and $P(B)P(C)=P(B)P(D)=P(C)P(D)=\frac{1}{16}$, so $B,C,D$ are not independent.
 
-### (c)Let $Y=X_1X_2$, $P(Y=1)=P(X_1=1,X_2=1)+P(X_1=-1,X_2=-1)=P(X_1=1)P(X_2=1)+P(X_1=-1)P(X_2=-1)=\frac{1}{2}$ and $P(Y=-1)=P(X_1=1,X_2=-1)+P(X_1=-1,X_2=1)=P(X_1=1)P(X_2=-1)+P(X_1=-1)P(X_2=1)=\frac{1}{2}$. Since we already knew that $X_1$ and $X_2$ are independent, by the symmetry, we can only discuss the independence between $X_1$ and $Y=X_1X_2$, so we have 
+### (c)
+Let $Y=X_1X_2$, $P(Y=1)=P(X_1=1,X_2=1)+P(X_1=-1,X_2=-1)=P(X_1=1)P(X_2=1)+P(X_1=-1)P(X_2=-1)=\frac{1}{2}$ and $P(Y=-1)=P(X_1=1,X_2=-1)+P(X_1=-1,X_2=1)=P(X_1=1)P(X_2=-1)+P(X_1=-1)P(X_2=1)=\frac{1}{2}$. Since we already knew that $X_1$ and $X_2$ are independent, by the symmetry, we can only discuss the independence between $X_1$ and $Y=X_1X_2$, so we have 
 $$
 \begin{aligned}
 &P(X_1=1,X_1X_2=1)=P(X_1=1,X_2=1)=\frac{1}{4}\\
