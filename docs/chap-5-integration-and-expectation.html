@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chap 5, Integration and Expectation | Notes on A Probability Path (Resnick)</title>
   <meta name="description" content="Chap 5, Integration and Expectation | Notes on A Probability Path (Resnick)" />
-  <meta name="generator" content="bookdown 0.42 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.46 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chap 5, Integration and Expectation | Notes on A Probability Path (Resnick)" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="Zhanwen Peng" />
 
 
-<meta name="date" content="2026-02-10" />
+<meta name="date" content="2026-02-11" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -55,6 +55,7 @@
 
 
 <style type="text/css">
+html { -webkit-text-size-adjust: 100%; }
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -258,6 +259,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#ex-13-1"><i class="fa fa-check"></i>Ex 13</a></li>
 <li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#ex-30-1"><i class="fa fa-check"></i>Ex 30</a></li>
+<li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#ex-36"><i class="fa fa-check"></i>Ex 36</a></li>
 </ul></li>
 </ul>
 
@@ -955,11 +957,13 @@ since <span class="math inline">\(S_n\)</span> is decreasing and dominated by <s
 <div id="ex-30-1" class="section level2 hasAnchor">
 <h2>Ex 30<a href="chap-5-integration-and-expectation.html#ex-30-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div class="problem">
-<p><strong>Pratt’s lemma.</strong> The following variant of dominated convergence and Fatou is useful: Let <span class="math inline">\(X_n, Y_n, X, Y\)</span> be random variables on the probability space <span class="math inline">\((\Omega, \mathcal{B}, P)\)</span> such that
-(i) <span class="math inline">\(0 \leq X_n \leq Y_n\)</span>,
-(ii) <span class="math inline">\(X_n \rightarrow X, \quad Y_n \rightarrow Y\)</span>,
-(iii) <span class="math inline">\(E(Y_n) \rightarrow E(Y), \quad EY &lt; \infty\)</span>.
-Prove <span class="math inline">\(E(X_n) \rightarrow E(X)\)</span>. Show the Dominated Convergence Theorem follows.</p>
+<p><strong>Pratt’s lemma.</strong> The following variant of dominated convergence and Fatou is useful: Let <span class="math inline">\(X_n, Y_n, X, Y\)</span> be random variables on the probability space <span class="math inline">\((\Omega, \mathcal{B}, P)\)</span> such that</p>
+<ol style="list-style-type: lower-roman">
+<li><p><span class="math inline">\(0 \leq X_n \leq Y_n\)</span>,</p></li>
+<li><p><span class="math inline">\(X_n \rightarrow X, \quad Y_n \rightarrow Y\)</span>,</p></li>
+<li><p><span class="math inline">\(E(Y_n) \rightarrow E(Y), \quad EY &lt; \infty\)</span>.</p></li>
+</ol>
+<p>Prove <span class="math inline">\(E(X_n) \rightarrow E(X)\)</span>. Show the Dominated Convergence Theorem follows.</p>
 </div>
 <p><span class="math inline">\(\textbf{My idea:}\)</span> by (i) and (ii), we should have <span class="math inline">\(X_n\leq Y\)</span> and <span class="math inline">\(X\leq Y\)</span>, and by (iii), we should have <span class="math inline">\(X_n\in L_1\)</span> and <span class="math inline">\(X\in L_1\)</span> since <span class="math inline">\(E(Y)&lt;\infty\)</span>. Therefore the two (<span class="math inline">\(\inf\)</span> and <span class="math inline">\(\sup\)</span>) version of Fatou lemma apply, that is
 <span class="math display">\[
@@ -990,6 +994,30 @@ E(Y-X)=E(\liminf_{n\to\infty}(Y_n-X_n))\leq\liminf_{n\to\infty}E(Y_n-X_n).
 that is, <span class="math inline">\(\lim_{n\to\infty}E(X_n)=E(X)\)</span>.</p>
 <p>Further, let <span class="math inline">\(V_n=|X_n-X|\geq 0\)</span>, and <span class="math inline">\(Y_n=Y=2Z\in L_1\)</span>, we have <span class="math inline">\(E(|X_n-X|)\to0\)</span> when <span class="math inline">\(|X_n|\leq Z\in L_1\)</span> and <span class="math inline">\(|X_n-X|\to0\)</span> a.s.</p>
 <p><span class="math inline">\(\textbf{Note:}\)</span> What happened in <strong>my idea</strong> is that, we don’t have <span class="math inline">\(X_n\leq Y\)</span> pointwise or a.s., we only have <span class="math inline">\(X_n\leq Y_n\)</span> for each pair of <span class="math inline">\(X_n,Y_n\)</span>.</p>
+</div>
+<div id="ex-36" class="section level2 hasAnchor">
+<h2>Ex 36<a href="chap-5-integration-and-expectation.html#ex-36" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="problem">
+<p><strong>Beppo Levi Theorem.</strong> Suppose for <span class="math inline">\(n \geq 1\)</span> that <span class="math inline">\(X_n \in L_1\)</span> are random variables such that
+<span class="math display">\[\sup_{n \geq 1} E(X_n) &lt; \infty.\]</span>
+Show that if <span class="math inline">\(X_n \uparrow X\)</span>, then <span class="math inline">\(X \in L_1\)</span> and
+<span class="math display">\[E(X_n) \rightarrow E(X).\]</span></p>
+</div>
+<p><span class="math inline">\(\textbf{My idea:}\)</span> What we have is that <span class="math inline">\(\sup_{n\geq1}E(X_n)&lt;\infty\)</span>, that means it is a real number sequence which is upper bounded, therefore there exists a subsequence <span class="math inline">\(E(X_{n_k})\)</span> that converges, and since <span class="math inline">\(X_n\in L_1\)</span> and <span class="math inline">\(X_n\uparrow X\)</span>, then <span class="math inline">\(X_{n_k}\uparrow X\)</span>, so
+<span class="math display">\[
+E(X_{n_k})\uparrow E(X),
+\]</span>
+since we already have <span class="math inline">\(E(X_{n_k})\)</span> converges to some real number, that means <span class="math inline">\(E(X)&lt;\infty\)</span>, which means <span class="math inline">\(X\in L_1\)</span>. This time we can apply DCT, that is, let <span class="math inline">\(Z=|X|\in L_1\)</span>, then <span class="math inline">\(X_n\leq |X|\)</span>, and since <span class="math inline">\(X_n\uparrow X\)</span>, we have <span class="math inline">\(E(X_n)\to X\)</span>.</p>
+<p><span class="math inline">\(\textbf{Answer:}\)</span> Since we have <span class="math inline">\(X_n\uparrow X\)</span>, <span class="math inline">\(X_n\in L_1\)</span> and <span class="math inline">\(\sup_{n}E(X_n)&lt;\infty\)</span>, then <span class="math inline">\(0\leq X_n-X_1\uparrow X-X_1\)</span>, and <span class="math inline">\(E(X_n-X_1)=E(X_n)-E(X_1)&lt;\infty\)</span>, also,
+<span class="math display">\[
+E(X_n-X_1)=E(X_n)-E(X_1)\leq \sup_{n}E(X_n)-E(X_1)&lt;\infty
+\]</span>
+then by MCT,
+<span class="math display">\[
+E(X-X_1)=\lim_{n\to\infty}E(X_n-X_1)&lt;\infty,
+\]</span>
+that is, <span class="math inline">\(E(X)=\lim_{n\to\infty}E(X_n)\)</span> and <span class="math inline">\(X\in L_1\)</span>.</p>
+<p><span class="math inline">\(\textbf{Note:}\)</span> We actually don’t need the subsequence trick here, and note that I incorrectly used the DCT in the end of <strong>my idea</strong>, but we didn’t have <span class="math inline">\(|X_n|\leq |X|\)</span> because we don’t have the nonnegative property here.</p>
 
 </div>
 </div>

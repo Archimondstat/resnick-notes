@@ -640,18 +640,11 @@ $$
 $$
 the first part of RHS approaches to $0$, and the second part is uniformly bounded, therefore there existes constant $M=\max\{\sup_{\omega\in\Omega,n\geq1}|X_n(\omega)|,\sup_{\omega\in\Omega}|X(\omega)|\}$, such that $|X_n| \vee |X| \leq M$, that is $Y(\omega)\equiv M$ is in $L_1$ on $(\Omega,\mathcal{B},P)$, by using the DCT, we have $E(X_n)\to E(X)$.
 
-$\textbf{Answer:}$ Since $X_n$ is uniformly bounded and $X_n\to X$ uniformly, then $X_n\to X$ pointwise, also a.e., and $X$ is bounded, because for any specific $n_0$, we have 
-$$
-\begin{aligned}
-\sup_{\omega\in\Omega}|X(\omega)|&=\sup_{\omega\in\Omega}|X(\omega)-X_{n_0}(\omega)+X_{n_0}(\omega)|\\
-&\leq\sup_{\omega\in\Omega}|X(\omega)-X_{n_0}(\omega)|+\sup_{\omega\in\Omega}|X_{n_0}(\omega)|,\\
-\end{aligned}
-$$
-since $X_n\to X$ uniformly, the first part of RHS is finite, and the second part is also bounded because $X_n$ is uniformly bounded, so we can let $Y(\omega)\equiv M=\sup_{\omega\in\Omega}|X(\omega)-X_{n_0}(\omega)|+\sup_{\omega\in\Omega}|X_{n_0}(\omega)|$, then $Y\in L_1$ on $(\Omega,\mathcal{B},P)$, by using the DCT, we have $E(X_n)\to E(X)$.
+$\textbf{Answer:}$ Since $X_n$ is uniformly bounded by some constant $K\in L_1$ on probability space, and $X_n\to X$ uniformly, then $X_n\to X$ pointwise, then by DCT, we have $E(X_n)\to E(X)$.
 
 $\textbf{Note:}$ 
 1. We should mention that $X_n\to X$ almost everywhere,
-2. We only need some specific $n_0$ to build the inequality.
+2. We can actually use DCT directly.
 
 
 ### (b)
@@ -711,10 +704,14 @@ since $S_n$ is decreasing and dominated by $Z\in L_1$.
 ## Ex 30
 ::: problem
 **Pratt's lemma.** The following variant of dominated convergence and Fatou is useful: Let $X_n, Y_n, X, Y$ be random variables on the probability space $(\Omega, \mathcal{B}, P)$ such that
-    (i) $0 \leq X_n \leq Y_n$,
-    (ii) $X_n \rightarrow X, \quad Y_n \rightarrow Y$,
-    (iii) $E(Y_n) \rightarrow E(Y), \quad EY < \infty$.
-    Prove $E(X_n) \rightarrow E(X)$. Show the Dominated Convergence Theorem follows.
+
+(i) $0 \leq X_n \leq Y_n$,
+    
+(ii) $X_n \rightarrow X, \quad Y_n \rightarrow Y$,
+    
+(iii) $E(Y_n) \rightarrow E(Y), \quad EY < \infty$.
+    
+Prove $E(X_n) \rightarrow E(X)$. Show the Dominated Convergence Theorem follows.
 :::
 
 $\textbf{My idea:}$ by (i) and (ii), we should have $X_n\leq Y$ and $X\leq Y$, and by (iii), we should have $X_n\in L_1$ and $X\in L_1$ since $E(Y)<\infty$. Therefore the two ($\inf$ and $\sup$) version of Fatou lemma apply, that is 
@@ -751,6 +748,33 @@ that is, $\lim_{n\to\infty}E(X_n)=E(X)$.
 Further, let $V_n=|X_n-X|\geq 0$, and $Y_n=Y=2Z\in L_1$, we have $E(|X_n-X|)\to0$ when $|X_n|\leq Z\in L_1$ and $|X_n-X|\to0$ a.s.
 
 $\textbf{Note:}$ What happened in **my idea** is that, we don't have $X_n\leq Y$ pointwise or a.s., we only have $X_n\leq Y_n$ for each pair of $X_n,Y_n$.
+
+## Ex 36
+::: problem
+**Beppo Levi Theorem.** Suppose for $n \geq 1$ that $X_n \in L_1$ are random variables such that
+$$\sup_{n \geq 1} E(X_n) < \infty.$$
+Show that if $X_n \uparrow X$, then $X \in L_1$ and
+$$E(X_n) \rightarrow E(X).$$
+:::
+
+$\textbf{My idea:}$ What we have is that $\sup_{n\geq1}E(X_n)<\infty$, that means it is a real number sequence which is upper bounded, therefore there exists a subsequence $E(X_{n_k})$ that converges, and since $X_n\in L_1$ and $X_n\uparrow X$, then $X_{n_k}\uparrow X$, so
+$$
+E(X_{n_k})\uparrow E(X),
+$$
+since we already have $E(X_{n_k})$ converges to some real number, that means $E(X)<\infty$, which means $X\in L_1$. This time we can apply DCT, that is, let $Z=|X|\in L_1$, then $X_n\leq |X|$, and since $X_n\uparrow X$, we have $E(X_n)\to X$.
+
+$\textbf{Answer:}$  Since we have $X_n\uparrow X$, $X_n\in L_1$ and $\sup_{n}E(X_n)<\infty$, then $0\leq X_n-X_1\uparrow X-X_1$, and $E(X_n-X_1)=E(X_n)-E(X_1)<\infty$, also,
+$$
+E(X_n-X_1)=E(X_n)-E(X_1)\leq \sup_{n}E(X_n)-E(X_1)<\infty
+$$
+then by MCT,
+$$
+E(X-X_1)=\lim_{n\to\infty}E(X_n-X_1)<\infty,
+$$
+that is, $E(X)=\lim_{n\to\infty}E(X_n)$ and $X\in L_1$.
+
+$\textbf{Note:}$ We actually don't need the subsequence trick here, and note that I incorrectly used the DCT in the end of **my idea**, but we didn't have $|X_n|\leq |X|$ because we don't have the nonnegative property here.
+
 
 
 
