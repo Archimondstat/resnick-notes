@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chap 5, Integration and Expectation | Notes on A Probability Path (Resnick)</title>
   <meta name="description" content="Chap 5, Integration and Expectation | Notes on A Probability Path (Resnick)" />
-  <meta name="generator" content="bookdown 0.46 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.42 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chap 5, Integration and Expectation | Notes on A Probability Path (Resnick)" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="Zhanwen Peng" />
 
 
-<meta name="date" content="2026-02-09" />
+<meta name="date" content="2026-02-10" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -55,7 +55,6 @@
 
 
 <style type="text/css">
-html { -webkit-text-size-adjust: 100%; }
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -258,6 +257,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#b-8"><i class="fa fa-check"></i>(b)</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#ex-13-1"><i class="fa fa-check"></i>Ex 13</a></li>
+<li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#ex-30-1"><i class="fa fa-check"></i>Ex 30</a></li>
 </ul></li>
 </ul>
 
@@ -756,6 +756,12 @@ since <span class="math inline">\(\varepsilon\)</span> is arbitrary, we have <sp
 \end{aligned}
 \]</span>
 since <span class="math inline">\(\varepsilon\)</span> is arbitrary, we have <span class="math inline">\(\int_A|X|dP=0\)</span>.</p>
+<p><span class="math inline">\(\textbf{My idea 2:}\)</span>
+“<span class="math inline">\(\Rightarrow\)</span>”: Since we have <span class="math inline">\(X\geq0\)</span> and <span class="math inline">\(\int_A XdP=0\)</span>, then
+<span class="math display">\[
+\int_A XdP=\int X\mathbb{1}_{A\cap\{X=0\}}dP+\int X\mathbb{1}_{A\cap\{X&gt;0\}}dP
+\]</span>
+then both part in RHS should be <span class="math inline">\(0\)</span>, therefore <span class="math inline">\(\int X\mathbb{1}_{A\cap\{X&gt;0\}}dP=0\)</span>, and since <span class="math inline">\(X&gt;0\)</span>, then <span class="math inline">\(P(A\cap\{X&gt;0\})=0\)</span>.</p>
 <p><span class="math inline">\(\textbf{Answer:}\)</span></p>
 <p>“<span class="math inline">\(\Rightarrow\)</span>”: For any <span class="math inline">\(\varepsilon&gt;0\)</span>, we have
 <span class="math display">\[
@@ -945,6 +951,45 @@ E(S_n)&amp;\geq \sum_{m=n}^\infty\int_{\frac{1}{m+1}}^{\frac{1}{m}}\frac{m}{\log
 E(S_n)\downarrow E(\limsup_{n\to\infty}X_n)=0,
 \]</span>
 since <span class="math inline">\(S_n\)</span> is decreasing and dominated by <span class="math inline">\(Z\in L_1\)</span>.</p>
+</div>
+<div id="ex-30-1" class="section level2 hasAnchor">
+<h2>Ex 30<a href="chap-5-integration-and-expectation.html#ex-30-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="problem">
+<p><strong>Pratt’s lemma.</strong> The following variant of dominated convergence and Fatou is useful: Let <span class="math inline">\(X_n, Y_n, X, Y\)</span> be random variables on the probability space <span class="math inline">\((\Omega, \mathcal{B}, P)\)</span> such that
+(i) <span class="math inline">\(0 \leq X_n \leq Y_n\)</span>,
+(ii) <span class="math inline">\(X_n \rightarrow X, \quad Y_n \rightarrow Y\)</span>,
+(iii) <span class="math inline">\(E(Y_n) \rightarrow E(Y), \quad EY &lt; \infty\)</span>.
+Prove <span class="math inline">\(E(X_n) \rightarrow E(X)\)</span>. Show the Dominated Convergence Theorem follows.</p>
+</div>
+<p><span class="math inline">\(\textbf{My idea:}\)</span> by (i) and (ii), we should have <span class="math inline">\(X_n\leq Y\)</span> and <span class="math inline">\(X\leq Y\)</span>, and by (iii), we should have <span class="math inline">\(X_n\in L_1\)</span> and <span class="math inline">\(X\in L_1\)</span> since <span class="math inline">\(E(Y)&lt;\infty\)</span>. Therefore the two (<span class="math inline">\(\inf\)</span> and <span class="math inline">\(\sup\)</span>) version of Fatou lemma apply, that is
+<span class="math display">\[
+\limsup_{n\to\infty}E(X_n)\leq E(X)\leq \liminf_{n\to\infty}E(X_n),
+\]</span>
+that is, <span class="math inline">\(\lim_{n\to\infty}E(X_n)=E(X)\)</span>. Further, we can seed that <span class="math inline">\(X_n\)</span> and <span class="math inline">\(X\)</span> are dominated by <span class="math inline">\(Y\in L_1\)</span>, therefore the DCT follows.</p>
+<p><span class="math inline">\(\textbf{Answer:}\)</span> By (i) and (ii), we should have <span class="math inline">\(0\leq Y_n- X_n\leq Y_n\)</span> and <span class="math inline">\(0\leq Y-X\leq Y\)</span>.</p>
+<p>Firstly, since <span class="math inline">\(X_n\geq0\)</span>, then by Fatou Lemma, we have
+<span class="math display">\[
+E(X)=E(\liminf_{n\to\infty}X_n)\leq\liminf_{n\to\infty}E(X_n),
+\]</span>
+secondly, by linearity, <span class="math inline">\(E(X_n)=E(Y_n)-E(Y_n-X_n)\)</span>, therefore
+<span class="math display">\[
+\begin{aligned}
+\limsup_{n\to\infty}E(X_n)&amp;=\limsup_{n\to\infty}(E(Y_n)-E(Y_n-X_n))\\
+&amp;\leq\limsup_{n\to\infty}E(Y_n)-\liminf_{n\to\infty}E(Y_n-X_n)\\
+&amp;\leq E(Y)-E(Y-X)=E(X),
+\end{aligned}
+\]</span>
+because by Fatou lemma
+<span class="math display">\[
+E(Y-X)=E(\liminf_{n\to\infty}(Y_n-X_n))\leq\liminf_{n\to\infty}E(Y_n-X_n).
+\]</span></p>
+<p>So we have
+<span class="math display">\[
+\limsup_{n\to\infty}E(X_n)\leq E(X)\leq \liminf_{n\to\infty}E(X_n),
+\]</span>
+that is, <span class="math inline">\(\lim_{n\to\infty}E(X_n)=E(X)\)</span>.</p>
+<p>Further, let <span class="math inline">\(V_n=|X_n-X|\geq 0\)</span>, and <span class="math inline">\(Y_n=Y=2Z\in L_1\)</span>, we have <span class="math inline">\(E(|X_n-X|)\to0\)</span> when <span class="math inline">\(|X_n|\leq Z\in L_1\)</span> and <span class="math inline">\(|X_n-X|\to0\)</span> a.s.</p>
+<p><span class="math inline">\(\textbf{Note:}\)</span> What happened in <strong>my idea</strong> is that, we don’t have <span class="math inline">\(X_n\leq Y\)</span> pointwise or a.s., we only have <span class="math inline">\(X_n\leq Y_n\)</span> for each pair of <span class="math inline">\(X_n,Y_n\)</span>.</p>
 
 </div>
 </div>
