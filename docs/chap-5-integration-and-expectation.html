@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chap 5, Integration and Expectation | Notes on A Probability Path (Resnick)</title>
   <meta name="description" content="Chap 5, Integration and Expectation | Notes on A Probability Path (Resnick)" />
-  <meta name="generator" content="bookdown 0.46 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.42 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chap 5, Integration and Expectation | Notes on A Probability Path (Resnick)" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="Zhanwen Peng" />
 
 
-<meta name="date" content="2026-02-11" />
+<meta name="date" content="2026-02-12" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -55,7 +55,6 @@
 
 
 <style type="text/css">
-html { -webkit-text-size-adjust: 100%; }
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -260,6 +259,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#ex-13-1"><i class="fa fa-check"></i>Ex 13</a></li>
 <li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#ex-30-1"><i class="fa fa-check"></i>Ex 30</a></li>
 <li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#ex-36"><i class="fa fa-check"></i>Ex 36</a></li>
+<li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#ex-15-1"><i class="fa fa-check"></i>Ex 15</a>
+<ul>
+<li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#a-9"><i class="fa fa-check"></i>(a)</a></li>
+<li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#b-9"><i class="fa fa-check"></i>(b)</a></li>
+</ul></li>
 </ul></li>
 </ul>
 
@@ -891,17 +895,10 @@ If <span class="math inline">\(\{X_n\}\)</span> is uniformly bounded and <span c
 \end{aligned}
 \]</span>
 the first part of RHS approaches to <span class="math inline">\(0\)</span>, and the second part is uniformly bounded, therefore there existes constant <span class="math inline">\(M=\max\{\sup_{\omega\in\Omega,n\geq1}|X_n(\omega)|,\sup_{\omega\in\Omega}|X(\omega)|\}\)</span>, such that <span class="math inline">\(|X_n| \vee |X| \leq M\)</span>, that is <span class="math inline">\(Y(\omega)\equiv M\)</span> is in <span class="math inline">\(L_1\)</span> on <span class="math inline">\((\Omega,\mathcal{B},P)\)</span>, by using the DCT, we have <span class="math inline">\(E(X_n)\to E(X)\)</span>.</p>
-<p><span class="math inline">\(\textbf{Answer:}\)</span> Since <span class="math inline">\(X_n\)</span> is uniformly bounded and <span class="math inline">\(X_n\to X\)</span> uniformly, then <span class="math inline">\(X_n\to X\)</span> pointwise, also a.e., and <span class="math inline">\(X\)</span> is bounded, because for any specific <span class="math inline">\(n_0\)</span>, we have
-<span class="math display">\[
-\begin{aligned}
-\sup_{\omega\in\Omega}|X(\omega)|&amp;=\sup_{\omega\in\Omega}|X(\omega)-X_{n_0}(\omega)+X_{n_0}(\omega)|\\
-&amp;\leq\sup_{\omega\in\Omega}|X(\omega)-X_{n_0}(\omega)|+\sup_{\omega\in\Omega}|X_{n_0}(\omega)|,\\
-\end{aligned}
-\]</span>
-since <span class="math inline">\(X_n\to X\)</span> uniformly, the first part of RHS is finite, and the second part is also bounded because <span class="math inline">\(X_n\)</span> is uniformly bounded, so we can let <span class="math inline">\(Y(\omega)\equiv M=\sup_{\omega\in\Omega}|X(\omega)-X_{n_0}(\omega)|+\sup_{\omega\in\Omega}|X_{n_0}(\omega)|\)</span>, then <span class="math inline">\(Y\in L_1\)</span> on <span class="math inline">\((\Omega,\mathcal{B},P)\)</span>, by using the DCT, we have <span class="math inline">\(E(X_n)\to E(X)\)</span>.</p>
+<p><span class="math inline">\(\textbf{Answer:}\)</span> Since <span class="math inline">\(X_n\)</span> is uniformly bounded by some constant <span class="math inline">\(K\in L_1\)</span> on probability space, and <span class="math inline">\(X_n\to X\)</span> uniformly, then <span class="math inline">\(X_n\to X\)</span> pointwise, then by DCT, we have <span class="math inline">\(E(X_n)\to E(X)\)</span>.</p>
 <p><span class="math inline">\(\textbf{Note:}\)</span>
 1. We should mention that <span class="math inline">\(X_n\to X\)</span> almost everywhere,
-2. We only need some specific <span class="math inline">\(n_0\)</span> to build the inequality.</p>
+2. We can actually use DCT directly.</p>
 </div>
 <div id="b-8" class="section level3 hasAnchor">
 <h3>(b)<a href="chap-5-integration-and-expectation.html#b-8" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -1018,7 +1015,80 @@ E(X-X_1)=\lim_{n\to\infty}E(X_n-X_1)&lt;\infty,
 \]</span>
 that is, <span class="math inline">\(E(X)=\lim_{n\to\infty}E(X_n)\)</span> and <span class="math inline">\(X\in L_1\)</span>.</p>
 <p><span class="math inline">\(\textbf{Note:}\)</span> We actually don’t need the subsequence trick here, and note that I incorrectly used the DCT in the end of <strong>my idea</strong>, but we didn’t have <span class="math inline">\(|X_n|\leq |X|\)</span> because we don’t have the nonnegative property here.</p>
+</div>
+<div id="ex-15-1" class="section level2 hasAnchor">
+<h2>Ex 15<a href="chap-5-integration-and-expectation.html#ex-15-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="problem">
+<p>Suppose <span class="math inline">\(X\)</span> is a non-negative random variable satisfying
+<span class="math display">\[P[0 \leq X &lt; \infty] = 1.\]</span>
+Show
+<span class="math display">\[(a) \quad \lim_{n \rightarrow \infty} n E \left( \frac{1}{X} 1_{[X &gt; n]} \right) = 0,\]</span>
+<span class="math display">\[(b) \quad \lim_{n \rightarrow \infty} n^{-1} E \left( \frac{1}{X} 1_{[X &gt; n^{-1}]} \right) = 0.\]</span></p>
+</div>
+<div id="a-9" class="section level3 hasAnchor">
+<h3>(a)<a href="chap-5-integration-and-expectation.html#a-9" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><span class="math inline">\(\textbf{My idea:}\)</span> Since <span class="math inline">\(P[0\leq X&lt; \infty]=1\)</span>, that is <span class="math inline">\(P[X=\infty]=0\)</span>.
+<span class="math display">\[
+\begin{aligned}
+nE(\frac1X\mathbb{1}_{[X&gt;n]})&amp;=n\int\frac1X\mathbb{1}_{[X&gt;n]}dP\\
+&amp;\leq n\int\frac1n\mathbb{1}_{[X&gt;n]}dP\\
+&amp;=P[X&gt;n]\to0
+\end{aligned}
+\]</span>
+<span class="math inline">\(\textbf{Answer:}\)</span> (DCT version)
+Let <span class="math inline">\(f_n(\omega)=\frac{n}{X(\omega)}\mathbb1_{[X&gt;n]}\)</span>, then <span class="math inline">\(|f_n|\leq 1\)</span> for all <span class="math inline">\(n\)</span>. For <span class="math inline">\(0&lt;X(\omega)&lt;\infty\)</span>, there exist <span class="math inline">\(N(\omega)\)</span> such that for all <span class="math inline">\(n\geq N(\omega)\)</span>, <span class="math inline">\(X(\omega)\leq n\)</span>, so <span class="math inline">\(\mathbb{1}_{[X(\omega)&gt;n]}=0\)</span>, that is <span class="math inline">\(f_n(\omega)=0\)</span>, and when <span class="math inline">\(X(\omega)=0\)</span>, since the indicator is <span class="math inline">\(0\)</span>, then <span class="math inline">\(f_n=0\)</span> for all <span class="math inline">\(n\)</span>, so <span class="math inline">\(f_n\to0\)</span> a.s., and since <span class="math inline">\(1\in L_1\)</span> because <span class="math inline">\(P(\Omega)=1\)</span>, so by DCT we have
+<span class="math display">\[
+\lim_{n\to\infty}E(\frac nX\mathbb{1}_{[X&gt;n]})=E(\lim_{n\to\infty}f_n)=0.
+\]</span></p>
+<p><span class="math inline">\(\textbf{Note:}\)</span> I thought this part was good, but after I finished (b), I realized that the DCT can also be applied to (a).</p>
+</div>
+<div id="b-9" class="section level3 hasAnchor">
+<h3>(b)<a href="chap-5-integration-and-expectation.html#b-9" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><span class="math inline">\(\textbf{My idea:}\)</span> What I can figure out so far is that, I divide <span class="math inline">\([X&gt;\frac1n]\)</span> into two parts: <span class="math inline">\([\frac1n&lt;X\leq\frac{1}{\sqrt{n}}]\)</span> and <span class="math inline">\([X&gt;\frac{1}{\sqrt n}]\)</span>, then in the second part, we have
+<span class="math display">\[
+\begin{aligned}
+\frac{1}nE(\frac1X\mathbb{1}_{[X&gt;\frac{1}{\sqrt n}]})&amp;=\frac1n\int\frac1X\mathbb{1}_{[X&gt;\frac{1}{\sqrt n}]}dP\\
+&amp;\leq\frac1n\int\sqrt n\mathbb{1}_{[X&gt;\frac{1}{\sqrt n}]}dP\\
+&amp;=\frac{1}{\sqrt{n}}P[X&gt;\frac{1}{\sqrt n}]\to0,
+\end{aligned}
+\]</span>
+since <span class="math inline">\(P(\cdot)\)</span> is bounded.</p>
+<p>For the first part, it is
+<span class="math display">\[
+\frac1n\int\frac1X\mathbb{1}_{[\frac1n&lt;X\leq\frac{1}{\sqrt{n}}]}dP,
+\]</span>
+my idea is that to bound the integral part, but I don’t know how to proceed.</p>
+<p><span class="math inline">\(\textbf{Answer:}\)</span> (Completion of <strong>my idea</strong>)
+Divide <span class="math inline">\([X&gt;\frac1n]\)</span> into two parts: <span class="math inline">\([\frac1n&lt;X\leq\frac{1}{\sqrt{n}}]\)</span> and <span class="math inline">\([X&gt;\frac{1}{\sqrt n}]\)</span>, then in the second part, we have
+<span class="math display">\[
+\begin{aligned}
+\frac{1}nE(\frac1X\mathbb{1}_{[X&gt;\frac{1}{\sqrt n}]})&amp;=\frac1n\int\frac1X\mathbb{1}_{[X&gt;\frac{1}{\sqrt n}]}dP\\
+&amp;\leq\frac1n\int\sqrt n\mathbb{1}_{[X&gt;\frac{1}{\sqrt n}]}dP\\
+&amp;=\frac{1}{\sqrt{n}}P[X&gt;\frac{1}{\sqrt n}]\to0,
+\end{aligned}
+\]</span>
+since <span class="math inline">\(P(\cdot)\)</span> is bounded.</p>
+<p>For the first part, since <span class="math inline">\(\frac{1}{n}&lt;X\leq\frac{1}{\sqrt n}\)</span>, then <span class="math inline">\(\frac{1}{nX}&lt;1\)</span>. Hence
+<span class="math display">\[
+\begin{aligned}
+\frac1n\int\frac1X\mathbb{1}_{[\frac1n&lt;X\leq\frac{1}{\sqrt{n}}]}dP&amp;=\int\frac1{nX}\mathbb{1}_{[\frac1n&lt;X\leq\frac{1}{\sqrt{n}}]}dP\\
+&amp;\leq\int\mathbb{1}_{[\frac1n&lt;X\leq\frac{1}{\sqrt{n}}]}dP\\
+&amp;=P[\frac1n&lt;X\leq\frac{1}{\sqrt{n}}],
+\end{aligned}
+\]</span>
+note that it is actually the measure of <span class="math inline">\(\{\omega:\frac1n&lt;X(\omega)\leq\frac{1}{\sqrt{n}}\}\)</span>, for any <span class="math inline">\(\omega\in\Omega\)</span>, if <span class="math inline">\(X(\omega)=0\)</span>, then it is not in this set, and if <span class="math inline">\(X(\omega)&gt;0\)</span>, then it will eventually out of it since there will be some <span class="math inline">\(n\)</span> such that <span class="math inline">\(X(\omega)&gt;\frac{1}{\sqrt n}\)</span>, so <span class="math inline">\(\{\omega:\frac1n&lt;X(\omega)\leq\frac{1}{\sqrt{n}}\}\)</span> decrease to <span class="math inline">\(\varnothing\)</span>, by continuity from above, <span class="math inline">\(P[\frac1n&lt;X\leq\frac{1}{\sqrt{n}}]\downarrow0\)</span>, therefore we have
+<span class="math display">\[
+\lim_{n\to\infty}\frac{1}nE(\frac1X\mathbb{1}_{[X&gt;\frac{1}{n}]})=0.
+\]</span>
+<span class="math inline">\(\textbf{Answer2:}\)</span> (Something much more elegant)
+Define <span class="math inline">\(f_n(\omega)=\frac{1}{nX(\omega)}\mathbb{1}_{[X&gt;\frac{1}{n}]}\)</span>, therefore <span class="math inline">\(|f_n|\leq1\)</span> for all n,
+and if <span class="math inline">\(X(\omega)&gt;0\)</span>, then <span class="math inline">\(f_n\to0\)</span>, if <span class="math inline">\(X(\omega)=0\)</span>, then <span class="math inline">\(f_n(0)=0\)</span> for all <span class="math inline">\(n\)</span> since the indicator is <span class="math inline">\(0\)</span>, so <span class="math inline">\(f_n\to0\)</span> a.s., by DCT,
+<span class="math display">\[
+\lim_{n\to\infty}\frac{1}nE(\frac1X\mathbb{1}_{[X&gt;\frac{1}{n}]})=E(\lim_{n\to\infty}f_n)=0.
+\]</span></p>
+<p><span class="math inline">\(\textbf{Note:}\)</span> This DCT version of solution is so straight forward, and my brain is hold by the idea from (a), let’s try rewrite something like <span class="math inline">\(a_nE(g(X)\mathbb{1}_{\{X\in A_n\}})\)</span> into <span class="math inline">\(E(f_n)\)</span> form and check whether <span class="math inline">\(f_n\to0\)</span> a.s..</p>
 
+</div>
 </div>
 </div>
             </section>

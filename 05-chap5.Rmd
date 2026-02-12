@@ -775,6 +775,86 @@ that is, $E(X)=\lim_{n\to\infty}E(X_n)$ and $X\in L_1$.
 
 $\textbf{Note:}$ We actually don't need the subsequence trick here, and note that I incorrectly used the DCT in the end of **my idea**, but we didn't have $|X_n|\leq |X|$ because we don't have the nonnegative property here.
 
+## Ex 15
+::: problem
+Suppose $X$ is a non-negative random variable satisfying 
+$$P[0 \leq X < \infty] = 1.$$
+Show
+$$(a) \quad \lim_{n \rightarrow \infty} n E \left( \frac{1}{X} 1_{[X > n]} \right) = 0,$$
+$$(b) \quad \lim_{n \rightarrow \infty} n^{-1} E \left( \frac{1}{X} 1_{[X > n^{-1}]} \right) = 0.$$
+:::
+
+### (a)
+$\textbf{My idea:}$ Since $P[0\leq X< \infty]=1$, that is $P[X=\infty]=0$.
+$$
+\begin{aligned}
+nE(\frac1X\mathbb{1}_{[X>n]})&=n\int\frac1X\mathbb{1}_{[X>n]}dP\\
+&\leq n\int\frac1n\mathbb{1}_{[X>n]}dP\\
+&=P[X>n]\to0
+\end{aligned}
+$$
+$\textbf{Answer:}$ (DCT version)
+Let $f_n(\omega)=\frac{n}{X(\omega)}\mathbb1_{[X>n]}$, then $|f_n|\leq 1$ for all $n$. For $0<X(\omega)<\infty$, there exist $N(\omega)$ such that for all $n\geq N(\omega)$, $X(\omega)\leq n$, so $\mathbb{1}_{[X(\omega)>n]}=0$, that is $f_n(\omega)=0$, and when $X(\omega)=0$, since the indicator is $0$, then $f_n=0$ for all $n$, so $f_n\to0$ a.s., and since $1\in L_1$ because $P(\Omega)=1$, so by DCT we have 
+$$
+\lim_{n\to\infty}E(\frac nX\mathbb{1}_{[X>n]})=E(\lim_{n\to\infty}f_n)=0.
+$$
+
+
+$\textbf{Note:}$ I thought this part was good, but after I finished (b), I realized that the DCT can also be applied to (a).
+
+### (b)
+$\textbf{My idea:}$ What I can figure out so far is that, I divide $[X>\frac1n]$ into two parts: $[\frac1n<X\leq\frac{1}{\sqrt{n}}]$ and $[X>\frac{1}{\sqrt n}]$, then in the second part, we have
+$$
+\begin{aligned}
+\frac{1}nE(\frac1X\mathbb{1}_{[X>\frac{1}{\sqrt n}]})&=\frac1n\int\frac1X\mathbb{1}_{[X>\frac{1}{\sqrt n}]}dP\\
+&\leq\frac1n\int\sqrt n\mathbb{1}_{[X>\frac{1}{\sqrt n}]}dP\\
+&=\frac{1}{\sqrt{n}}P[X>\frac{1}{\sqrt n}]\to0,
+\end{aligned}
+$$
+since $P(\cdot)$ is bounded.
+
+For the first part, it is
+$$
+\frac1n\int\frac1X\mathbb{1}_{[\frac1n<X\leq\frac{1}{\sqrt{n}}]}dP,
+$$
+my idea is that to bound the integral part, but I don't know how to proceed.
+
+$\textbf{Answer:}$ (Completion of __my idea__)
+Divide $[X>\frac1n]$ into two parts: $[\frac1n<X\leq\frac{1}{\sqrt{n}}]$ and $[X>\frac{1}{\sqrt n}]$, then in the second part, we have
+$$
+\begin{aligned}
+\frac{1}nE(\frac1X\mathbb{1}_{[X>\frac{1}{\sqrt n}]})&=\frac1n\int\frac1X\mathbb{1}_{[X>\frac{1}{\sqrt n}]}dP\\
+&\leq\frac1n\int\sqrt n\mathbb{1}_{[X>\frac{1}{\sqrt n}]}dP\\
+&=\frac{1}{\sqrt{n}}P[X>\frac{1}{\sqrt n}]\to0,
+\end{aligned}
+$$
+since $P(\cdot)$ is bounded.
+
+For the first part, since $\frac{1}{n}<X\leq\frac{1}{\sqrt n}$, then $\frac{1}{nX}<1$. Hence
+$$
+\begin{aligned}
+\frac1n\int\frac1X\mathbb{1}_{[\frac1n<X\leq\frac{1}{\sqrt{n}}]}dP&=\int\frac1{nX}\mathbb{1}_{[\frac1n<X\leq\frac{1}{\sqrt{n}}]}dP\\
+&\leq\int\mathbb{1}_{[\frac1n<X\leq\frac{1}{\sqrt{n}}]}dP\\
+&=P[\frac1n<X\leq\frac{1}{\sqrt{n}}],
+\end{aligned}
+$$
+note that it is actually the measure of $\{\omega:\frac1n<X(\omega)\leq\frac{1}{\sqrt{n}}\}$, for any $\omega\in\Omega$, if $X(\omega)=0$, then it is not in this set, and if $X(\omega)>0$, then it will eventually out of it since there will be some $n$ such that $X(\omega)>\frac{1}{\sqrt n}$, so $\{\omega:\frac1n<X(\omega)\leq\frac{1}{\sqrt{n}}\}$ decrease to $\varnothing$, by continuity from above, $P[\frac1n<X\leq\frac{1}{\sqrt{n}}]\downarrow0$, therefore we have 
+$$
+\lim_{n\to\infty}\frac{1}nE(\frac1X\mathbb{1}_{[X>\frac{1}{n}]})=0.
+$$
+$\textbf{Answer2:}$ (Something much more elegant)
+Define $f_n(\omega)=\frac{1}{nX(\omega)}\mathbb{1}_{[X>\frac{1}{n}]}$, therefore $|f_n|\leq1$ for all n,
+and if $X(\omega)>0$, then $f_n\to0$, if $X(\omega)=0$, then $f_n(0)=0$ for all $n$ since the indicator is $0$, so $f_n\to0$ a.s., by DCT, 
+$$
+\lim_{n\to\infty}\frac{1}nE(\frac1X\mathbb{1}_{[X>\frac{1}{n}]})=E(\lim_{n\to\infty}f_n)=0.
+$$
+
+
+$\textbf{Note:}$ This DCT version of solution is so straight forward, and my brain is hold by the idea from (a), let's try rewrite something like $a_nE(g(X)\mathbb{1}_{\{X\in A_n\}})$ into $E(f_n)$ form and check whether $f_n\to0$ a.s..
+
+
+
+
 
 
 
