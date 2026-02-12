@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chap 5, Integration and Expectation | Notes on A Probability Path (Resnick)</title>
   <meta name="description" content="Chap 5, Integration and Expectation | Notes on A Probability Path (Resnick)" />
-  <meta name="generator" content="bookdown 0.42 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.46 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chap 5, Integration and Expectation | Notes on A Probability Path (Resnick)" />
   <meta property="og:type" content="book" />
@@ -55,6 +55,7 @@
 
 
 <style type="text/css">
+html { -webkit-text-size-adjust: 100%; }
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -230,6 +231,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#why-monotone-convergence-is-central"><i class="fa fa-check"></i>Why monotone convergence is central</a></li>
 <li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#markovs-inequality-probability-via-indicators-and-expectation"><i class="fa fa-check"></i>Markov’s inequality: probability via indicators and expectation</a></li>
 <li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#from-mct-to-dct-5.3"><i class="fa fa-check"></i>From MCT to DCT (5.3)</a></li>
+<li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#summary-from-5.4-to-5.5"><i class="fa fa-check"></i>Summary from 5.4 to 5.5</a>
+<ul>
+<li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#indefinite-integrals"><i class="fa fa-check"></i>5.4 Indefinite integrals</a></li>
+<li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#transformation-theorem"><i class="fa fa-check"></i>5.5 Transformation theorem</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#ex-2"><i class="fa fa-check"></i>Ex 2</a></li>
 <li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#ex-4"><i class="fa fa-check"></i>Ex 4</a></li>
@@ -414,6 +420,33 @@ E(\sup_{k\geq n}X_k)&amp;=\int_{(0,\frac{1}{n})}\left\lfloor\frac{1}{\omega}\rig
 \end{aligned}
 \]</span>
 and that is why we need a <span class="math inline">\(Z\in L_1\)</span> to dominate the sequence, more specifically, if we have <span class="math inline">\(X_n\leq Z\in L_1\)</span>, then <span class="math inline">\(E\left\{\lim_{n\to\infty}(\sup_{k\geq n}X_k)\right\}=\lim_{n\to\infty}E(\sup_{k\geq n}X_k)\)</span>.</p>
+</div>
+<div id="summary-from-5.4-to-5.5" class="section level3 hasAnchor">
+<h3>Summary from 5.4 to 5.5<a href="chap-5-integration-and-expectation.html#summary-from-5.4-to-5.5" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><strong>(2026-02-12)</strong>
+Before 5.4, we mostly talk about integrals on the whole space (<span class="math inline">\(\Omega\)</span>): expectation is (<span class="math inline">\(\int_\Omega XdP\)</span>).</p>
+<div id="indefinite-integrals" class="section level4 hasAnchor">
+<h4>5.4 Indefinite integrals<a href="chap-5-integration-and-expectation.html#indefinite-integrals" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>5.4 lets us integrate over an <strong>arbitrary measurable set</strong> (<span class="math inline">\(A\in\mathcal B\)</span>). The definition fits intuition: just insert an indicator,
+<span class="math display">\[
+\int_A X,dP := \int_\Omega X,\mathbf 1_A,dP.
+\]</span>
+So unlike calculus—where “indefinite integral” usually means “find an antiderivative”—here “indefinite” means the set (<span class="math inline">\(A\)</span>) is not fixed in advance. It turns the integral into a whole set-function (<span class="math inline">\(A\mapsto \int_A XdP\)</span>), which in real analysis is often a stepping stone toward Radon–Nikodym, since it behaves like a (signed) measure.</p>
+</div>
+<div id="transformation-theorem" class="section level4 hasAnchor">
+<h4>5.5 Transformation theorem<a href="chap-5-integration-and-expectation.html#transformation-theorem" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>In this book, the point of introducing indefinite integrals is to set up the <strong>transformation theorem</strong>—which I mentally treat as the substitution rule for definite integrals, but now in probability language.</p>
+<p>The key message is: once you identify the right “pushforward” measure (the distribution)
+<span class="math display">\[
+F = P\circ X^{-1},
+\]</span>
+you can <strong>draw the integral back from the abstract (<span class="math inline">\(\Omega\)</span>)</strong> to something concrete. In the real-valued case, that means pulling everything back down to the solid ground of the real line:
+<span class="math display">\[
+E[g(X)] = \int_{\Omega} g(X(\omega))dP(\omega)
+= \int_{\mathbb R} g(x)F(dx),
+\]</span>
+so instead of integrating on (<span class="math inline">\(\Omega\)</span>), you integrate on <span class="math inline">\((\mathbb R,\mathcal B(\mathbb R))\)</span> using the distribution. And when <span class="math inline">\(F\)</span> is absolutely continuous, this “distribution integral” further collapses into the most familiar picture from basic probability: a density <span class="math inline">\(f\)</span>, so the expectation becomes an ordinary-looking integral against <span class="math inline">\(f(x)dx\)</span>.</p>
+</div>
 </div>
 </div>
 <div id="ex-2" class="section level2 hasAnchor">

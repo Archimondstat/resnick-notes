@@ -135,6 +135,33 @@ E(\sup_{k\geq n}X_k)&=\int_{(0,\frac{1}{n})}\left\lfloor\frac{1}{\omega}\right\r
 $$
 and that is why we need a $Z\in L_1$ to dominate the sequence, more specifically, if we have $X_n\leq Z\in L_1$, then $E\left\{\lim_{n\to\infty}(\sup_{k\geq n}X_k)\right\}=\lim_{n\to\infty}E(\sup_{k\geq n}X_k)$.
 
+### Summary from 5.4 to 5.5 
+**(2026-02-12)**
+Before 5.4, we mostly talk about integrals on the whole space ($\Omega$): expectation is ($\int_\Omega XdP$).
+
+#### 5.4 Indefinite integrals
+
+5.4 lets us integrate over an **arbitrary measurable set** ($A\in\mathcal B$). The definition fits intuition: just insert an indicator,
+$$
+\int_A X,dP := \int_\Omega X,\mathbf 1_A,dP.
+$$
+So unlike calculus—where “indefinite integral” usually means “find an antiderivative”—here “indefinite” means the set ($A$) is not fixed in advance. It turns the integral into a whole set-function ($A\mapsto \int_A XdP$), which in real analysis is often a stepping stone toward Radon–Nikodym, since it behaves like a (signed) measure.
+
+#### 5.5 Transformation theorem
+
+In this book, the point of introducing indefinite integrals is to set up the **transformation theorem**—which I mentally treat as the substitution rule for definite integrals, but now in probability language.
+
+The key message is: once you identify the right “pushforward” measure (the distribution)
+$$
+F = P\circ X^{-1},
+$$
+you can **draw the integral back from the abstract ($\Omega$)** to something concrete. In the real-valued case, that means pulling everything back down to the solid ground of the real line:
+$$
+E[g(X)] = \int_{\Omega} g(X(\omega))dP(\omega)
+= \int_{\mathbb R} g(x)F(dx),
+$$
+so instead of integrating on ($\Omega$), you integrate on $(\mathbb R,\mathcal B(\mathbb R))$ using the distribution. And when $F$ is absolutely continuous, this "distribution integral" further collapses into the most familiar picture from basic probability: a density $f$, so the expectation becomes an ordinary-looking integral against $f(x)dx$.
+
 ## Ex 2
 ::: problem
 Argue without a computation that if $X\in L_2$ and $c\in\mathbb{R}$, then
