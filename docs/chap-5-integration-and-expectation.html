@@ -23,7 +23,7 @@
 <meta name="author" content="Zhanwen Peng" />
 
 
-<meta name="date" content="2026-02-12" />
+<meta name="date" content="2026-02-13" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -248,11 +248,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#c-4"><i class="fa fa-check"></i>(c)</a></li>
 <li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#d-2"><i class="fa fa-check"></i>(d)</a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#ex-6-a-c"><i class="fa fa-check"></i>Ex 6 (a-c)</a>
+<li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#ex-6"><i class="fa fa-check"></i>Ex 6</a>
 <ul>
 <li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#a-7"><i class="fa fa-check"></i>(a)</a></li>
 <li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#b-7"><i class="fa fa-check"></i>(b)</a></li>
 <li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#c-5"><i class="fa fa-check"></i>(c)</a></li>
+<li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#d-3"><i class="fa fa-check"></i>(d)</a></li>
+<li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#e-1"><i class="fa fa-check"></i>(e)</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#ex-10-1"><i class="fa fa-check"></i>Ex 10</a></li>
 <li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#ex-38"><i class="fa fa-check"></i>Ex 38</a></li>
@@ -692,8 +694,9 @@ where the sum may be taken over all <span class="math inline">\(a\in\mathbb R\)<
 <p><span class="math inline">\(\textbf{Note/Reflection:}\)</span> In this note I want to summarize what we actually did in this exercise, that is, walked though a path from Riemann-Stieltjes to Lebesgue-Stieltjes integral. I used the continuous version of integration-by-parts to deal with the atom, and as we can see, half of the mass of the atom was stolen, and that is where we need the correction <span class="math inline">\(\Delta F(a)\)</span>.</p>
 </div>
 </div>
-<div id="ex-6-a-c" class="section level2 hasAnchor">
-<h2>Ex 6 (a-c)<a href="chap-5-integration-and-expectation.html#ex-6-a-c" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="ex-6" class="section level2 hasAnchor">
+<h2>Ex 6<a href="chap-5-integration-and-expectation.html#ex-6" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>(a-c at 2026-02-04), (d-e at 2026-02-13)</p>
 <div class="problem">
 <ol style="list-style-type: lower-alpha">
 <li><p>Show
@@ -715,12 +718,22 @@ where the sum may be taken over all <span class="math inline">\(a\in\mathbb R\)<
 \]</span>
 for large <span class="math inline">\(M\)</span>.</p>
 <ol start="3" style="list-style-type: lower-alpha">
-<li>Show
+<li><p>Show
 <span class="math display">\[
 \int_A |X|\,dP = 0
 \quad\text{iff}\quad
 P\bigl(A\cap[\,|X|&gt;0\,]\bigr)=0.
-\]</span></li>
+\]</span></p></li>
+<li><p>If <span class="math inline">\(X \in L_2\)</span>, show <span class="math inline">\(\text{Var}(X) = 0\)</span> implies <span class="math inline">\(P[X = E(X)] = 1\)</span> so that <span class="math inline">\(X\)</span> is equal to a constant with probability 1.</p></li>
+<li><p>Suppose that <span class="math inline">\((\Omega, \mathcal{B}, P)\)</span> is a probability space and <span class="math inline">\(A_i \in \mathcal{B}, i = 1, 2\)</span>. Define the distance <span class="math inline">\(d : \mathcal{B} \times \mathcal{B} \mapsto \mathbb{R}\)</span> by
+<span class="math display">\[d(A_1, A_2) = P(A_1 \Delta A_2).\]</span>
+Check the following continuity result: If <span class="math inline">\(A_n, A \in \mathcal{B}\)</span> and
+<span class="math display">\[d(A_n, A) \rightarrow 0\]</span>
+then
+<span class="math display">\[\int_{A_n} X dP \rightarrow \int_A X dP\]</span>
+so that the map
+<span class="math display">\[A \mapsto \int_A X dP\]</span>
+is continuous.</p></li>
 </ol>
 </div>
 <div id="a-7" class="section level3 hasAnchor">
@@ -820,6 +833,54 @@ P(\{A\cap[|X|&gt;0]\})=\lim_{m\to\infty} P(A\cap[|X|&gt;\frac{1}{m}])=0.
 \]</span>
 for the first part in RHS, <span class="math inline">\(|X|\)</span> is <span class="math inline">\(0\)</span> so the integral is <span class="math inline">\(0\)</span>, and for the second part in RHS, it is a integral on a set with measure <span class="math inline">\(0\)</span>.</p>
 <p><span class="math inline">\(\textbf{Note:}\)</span> In the “<span class="math inline">\(\Rightarrow\)</span>” part in <strong>My idea</strong>, we should see that even though <span class="math inline">\(\int\mathbb{1}_{\{A\cap[0&lt;|X|\leq\varepsilon]\}}dP\leq\int\mathbb{1}_{\{[0&lt;|X|\leq\varepsilon]\}}dP\)</span>, but <span class="math inline">\(P(0&lt;|X|\leq\varepsilon)\)</span> may not less or equal than <span class="math inline">\(\varepsilon\)</span>, and in the “<span class="math inline">\(\Leftarrow\)</span>” part, we assumed that <span class="math inline">\(\int\mathbb{1}_{\{A\cap[|X|\leq M]\}}dP0\)</span>, this is also wrong, a counter example is that for <span class="math inline">\(X(\omega)\equiv0\)</span>, then <span class="math inline">\(P(|X|=0)=1\)</span>.</p>
+</div>
+<div id="d-3" class="section level3 hasAnchor">
+<h3>(d)<a href="chap-5-integration-and-expectation.html#d-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><span class="math inline">\(\textbf{My idea:}\)</span> Since <span class="math inline">\(\text{Var}(X)=0\)</span>, that is
+<span class="math display">\[
+\int(X-E(X))^2dP=0,
+\]</span>
+so <span class="math inline">\(X=E(X)\)</span> a.e., that means <span class="math inline">\(P(X=E(X))=1\)</span>, which means that <span class="math inline">\(X\)</span> is a constant with probability <span class="math inline">\(1\)</span>.</p>
+<p><span class="math inline">\(\textbf{Note:}\)</span> There are some implicit assumption I didn’t wrote up, even though that will not affect the proof, I decide to write them on the note:
+1. <span class="math inline">\(X\in L_2\)</span>, so <span class="math inline">\(E(X)\)</span> exists and is finite, and <span class="math inline">\((X-E(X))^2\in L_1\)</span>;
+2. Since <span class="math inline">\((X-E(X))^2\)</span> is nonnegative, <span class="math inline">\(\int(X-E(X))^2dP=0\)</span> means <span class="math inline">\((X-E(X))^2=0\)</span> a.e..</p>
+</div>
+<div id="e-1" class="section level3 hasAnchor">
+<h3>(e)<a href="chap-5-integration-and-expectation.html#e-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><span class="math inline">\(\textbf{My idea:}\)</span> From the assumption we have
+<span class="math display">\[
+\begin{aligned}
+\left|\int_{A_n}XdP-\int_{A}XdP\right|&amp;=\left|\int X\mathbb1_{A_n}dP-\int X\mathbb1_{A}dP\right|\\
+&amp;\leq\int|X||\mathbb1_{A_n}-\mathbb1_{A}|dP\\
+&amp;=\int|X|\mathbb1_{A_n\Delta A}dP,
+\end{aligned}
+\]</span>
+and since <span class="math inline">\(X\in L_1\)</span>, then <span class="math inline">\(|X|\mathbb1_{A_n\Delta A}\in L_1\)</span> and <span class="math inline">\(|X|\mathbb1_{A_n\Delta A}\to0\)</span> a.s. because <span class="math inline">\(P(A_n\Delta A)\to0\)</span>, then by DCT, we have
+<span class="math display">\[
+\lim_{n\to\infty}\int|X|\mathbb1_{A_n\Delta A}dP=\int\lim_{n\to\infty}|X|\mathbb1_{A_n\Delta A}dP=0,
+\]</span>
+so
+<span class="math display">\[
+\left|\int_{A_n}XdP-\int_{A}XdP\right|\to0.
+\]</span></p>
+<p><span class="math inline">\(\textbf{Answer:}\)</span> (Minor Modification)
+From the assumption we have
+<span class="math display">\[
+\begin{aligned}
+\left|\int_{A_n}XdP-\int_{A}XdP\right|&amp;=\left|\int X\mathbb1_{A_n}dP-\int X\mathbb1_{A}dP\right|\\
+&amp;\leq\int|X||\mathbb1_{A_n}-\mathbb1_{A}|dP\\
+&amp;=\int|X|\mathbb1_{A_n\Delta A}dP,
+\end{aligned}
+\]</span>
+and since <span class="math inline">\(X\in L_1\)</span>, then <span class="math inline">\(|X|\mathbb1_{A_n\Delta A}\in L_1\)</span> and because <span class="math inline">\(P(A_n\Delta A)\to0\)</span>, then by <font color="Red">(b)</font>, we have
+<span class="math display">\[
+\lim_{n\to\infty}\int|X|\mathbb1_{A_n\Delta A}dP=\lim_{n\to\infty}\int_{A_n\Delta A}|X|dP=0,
+\]</span>
+so
+<span class="math display">\[
+\left|\int_{A_n}XdP-\int_{A}XdP\right|\to0.
+\]</span></p>
+<p><span class="math inline">\(\textbf{Note:}\)</span> In <strong>my idea</strong>, I said that “since <span class="math inline">\(X\in L_1\)</span>, then <span class="math inline">\(|X|\mathbb1_{A_n\Delta A}\in L_1\)</span> and <span class="math inline">\(|X|\mathbb1_{A_n\Delta A}\to0\)</span> a.s. because <span class="math inline">\(P(A_n\Delta A)\to0\)</span>.”, this is not true, <span class="math inline">\(P(A_n\Delta A)\to0\)</span> only provides us convergence in probability/measure, not a.s. or pointwise.</p>
 </div>
 </div>
 <div id="ex-10-1" class="section level2 hasAnchor">

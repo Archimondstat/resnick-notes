@@ -420,7 +420,9 @@ where the sum may be taken over all $a\in\mathbb R$ (only atoms contribute).
 $\textbf{Note/Reflection:}$ In this note I want to summarize what we actually did in this exercise, that is, walked though a path from Riemann-Stieltjes to Lebesgue-Stieltjes integral. I used the continuous version of integration-by-parts to deal with the atom, and as we can see, half of the mass of the atom was stolen, and that is where we need the correction $\Delta F(a)$.
 
 
-## Ex 6 (a-c)
+## Ex 6 
+(a-c at 2026-02-04), (d-e at 2026-02-13)
+
 ::: problem
 (a) Show
 \[
@@ -448,6 +450,19 @@ $$
 \quad\text{iff}\quad
 P\bigl(A\cap[\,|X|>0\,]\bigr)=0.
 $$
+
+(d) If $X \in L_2$, show $\text{Var}(X) = 0$ implies $P[X = E(X)] = 1$ so that $X$ is equal to a constant with probability 1.
+
+(e) Suppose that $(\Omega, \mathcal{B}, P)$ is a probability space and $A_i \in \mathcal{B}, i = 1, 2$. Define the distance $d : \mathcal{B} \times \mathcal{B} \mapsto \mathbb{R}$ by
+$$d(A_1, A_2) = P(A_1 \Delta A_2).$$
+Check the following continuity result: If $A_n, A \in \mathcal{B}$ and
+$$d(A_n, A) \rightarrow 0$$
+then
+$$\int_{A_n} X dP \rightarrow \int_A X dP$$
+so that the map
+$$A \mapsto \int_A X dP$$
+is continuous.
+
 :::
 
 ### (a)
@@ -558,6 +573,54 @@ for the first part in RHS, $|X|$ is $0$ so the integral is $0$, and for the seco
 
 $\textbf{Note:}$ In the "$\Rightarrow$" part in **My idea**, we should see that even though $\int\mathbb{1}_{\{A\cap[0<|X|\leq\varepsilon]\}}dP\leq\int\mathbb{1}_{\{[0<|X|\leq\varepsilon]\}}dP$, but $P(0<|X|\leq\varepsilon)$ may not less or equal than $\varepsilon$, and in the "$\Leftarrow$" part, we assumed that $\int\mathbb{1}_{\{A\cap[|X|\leq M]\}}dP0$, this is also wrong, a counter example is that for $X(\omega)\equiv0$, then $P(|X|=0)=1$.
 
+### (d)
+$\textbf{My idea:}$ Since $\text{Var}(X)=0$, that is 
+$$
+\int(X-E(X))^2dP=0,
+$$
+so $X=E(X)$ a.e., that means $P(X=E(X))=1$, which means that $X$ is a constant with probability $1$.
+
+$\textbf{Note:}$ There are some implicit assumption I didn't wrote up, even though that will not affect the proof, I decide to write them on the note:
+1. $X\in L_2$, so $E(X)$ exists and is finite, and $(X-E(X))^2\in L_1$;
+2. Since $(X-E(X))^2$ is nonnegative, $\int(X-E(X))^2dP=0$ means $(X-E(X))^2=0$ a.e..
+
+### (e)
+$\textbf{My idea:}$ From the assumption we have 
+$$
+\begin{aligned}
+\left|\int_{A_n}XdP-\int_{A}XdP\right|&=\left|\int X\mathbb1_{A_n}dP-\int X\mathbb1_{A}dP\right|\\
+&\leq\int|X||\mathbb1_{A_n}-\mathbb1_{A}|dP\\
+&=\int|X|\mathbb1_{A_n\Delta A}dP,
+\end{aligned}
+$$
+and since $X\in L_1$, then $|X|\mathbb1_{A_n\Delta A}\in L_1$ and $|X|\mathbb1_{A_n\Delta A}\to0$ a.s. because $P(A_n\Delta A)\to0$, then by DCT, we have 
+$$
+\lim_{n\to\infty}\int|X|\mathbb1_{A_n\Delta A}dP=\int\lim_{n\to\infty}|X|\mathbb1_{A_n\Delta A}dP=0,
+$$
+so
+$$
+\left|\int_{A_n}XdP-\int_{A}XdP\right|\to0.
+$$
+
+$\textbf{Answer:}$ (Minor Modification)
+From the assumption we have 
+$$
+\begin{aligned}
+\left|\int_{A_n}XdP-\int_{A}XdP\right|&=\left|\int X\mathbb1_{A_n}dP-\int X\mathbb1_{A}dP\right|\\
+&\leq\int|X||\mathbb1_{A_n}-\mathbb1_{A}|dP\\
+&=\int|X|\mathbb1_{A_n\Delta A}dP,
+\end{aligned}
+$$
+and since $X\in L_1$, then $|X|\mathbb1_{A_n\Delta A}\in L_1$ and because $P(A_n\Delta A)\to0$, then by <font color="Red">(b)</font>, we have 
+$$
+\lim_{n\to\infty}\int|X|\mathbb1_{A_n\Delta A}dP=\lim_{n\to\infty}\int_{A_n\Delta A}|X|dP=0,
+$$
+so
+$$
+\left|\int_{A_n}XdP-\int_{A}XdP\right|\to0.
+$$
+
+$\textbf{Note:}$ In **my idea**, I said that "since $X\in L_1$, then $|X|\mathbb1_{A_n\Delta A}\in L_1$ and $|X|\mathbb1_{A_n\Delta A}\to0$ a.s. because $P(A_n\Delta A)\to0$.", this is not true, $P(A_n\Delta A)\to0$ only provides us convergence in probability/measure, not a.s. or pointwise.
 
 ## Ex 10
 ::: problem
@@ -878,12 +941,5 @@ $$
 
 
 $\textbf{Note:}$ This DCT version of solution is so straight forward, and my brain is hold by the idea from (a), let's try rewrite something like $a_nE(g(X)\mathbb{1}_{\{X\in A_n\}})$ into $E(f_n)$ form and check whether $f_n\to0$ a.s..
-
-
-
-
-
-
-
 
 
