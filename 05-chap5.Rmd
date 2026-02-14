@@ -1,17 +1,19 @@
 # Chap 5, Integration and Expectation
 
 ## Summary 
+
+### Summary from 5.1 to 5.3
 **(2026-01-30)**
 I want to summarize the main idea from Sections 5.1 to 5.2.
 
-### Simple functions as the basic building blocks
+#### Simple functions as the basic building blocks
 We start from **simple functions** (finite range), i.e. functions of the form
 \[
 X=\sum_{i=1}^m a_i\,\mathbf{1}_{A_i},
 \]
 which are the “basic blocks” because they’re easy to compute with, and they’re measurable (so they are random variables too).
 
-### Theorem 5.1.1 (Measurability Theorem): approximation by simple functions
+#### Theorem 5.1.1 (Measurability Theorem): approximation by simple functions
 In **Theorem 5.1.1 (Measurability Theorem)** (for \(X(\omega)\ge 0\)), we prove that a random variable \(X\) is measurable **iff** it can be approximated from below by an **increasing** sequence of simple functions:
 \[
 0\le X_n \uparrow X.
@@ -21,7 +23,7 @@ The construction idea is to **slice the range** of \(X\) into many small bins, a
 
 I tried to slice with step size \(1/n\), but that does **not** guarantee \(X_n\uparrow X\) since the partitions aren’t nested (so the “rounded-down” approximations can go down when \(n\) changes).
 
-### Defining expectation via extension from simple functions
+#### Defining expectation via extension from simple functions
 Expectation is first defined for simple functions in the most elementary way:
 \[
 E(X)=\sum_{i=1}^m a_i\,P(A_i),
@@ -35,14 +37,14 @@ E(X):=\lim_{n\to\infty}E(X_n).
 
 A key point is that this limit is **well-defined** (it doesn’t depend on the particular approximating sequence), so expectation becomes a legitimate object for all nonnegative measurable random variables. This is a classic analysis strategy: define something on a handy class, then extend it to a larger class via limits.
 
-### Why monotone convergence is central
+#### Why monotone convergence is central
 This viewpoint also explains why **monotone convergence** matters: if \(0\le X_n\uparrow X\), then
 \[
 E(X_n)\uparrow E(X),
 \]
 so under monotone increase we can exchange “take limits” and “take expectations.” Conceptually, the proof (and the entire construction) keeps returning to the base case of simple functions.
 
-### Markov’s inequality: probability via indicators and expectation
+#### Markov’s inequality: probability via indicators and expectation
 Finally, in **Markov’s inequality**, the indicator function is the bridge between probability and expectation: since
 \[
 \mathbf{1}_{\{X\ge a\}}\le \frac{X}{a}\quad (X\ge 0),
@@ -107,7 +109,7 @@ legend("topleft",
 
 
 
-### From MCT to DCT (5.3)
+#### From MCT to DCT (5.3)
 **(2026-02-07)**
 The bridge that connects MCT, which can be only applied to monotone sequence, and the DCT is the Fatou Lemma(s). The DCT is basically the squeezing of 2 Fatous.
 
@@ -135,7 +137,9 @@ E(\sup_{k\geq n}X_k)&=\int_{(0,\frac{1}{n})}\left\lfloor\frac{1}{\omega}\right\r
 $$
 and that is why we need a $Z\in L_1$ to dominate the sequence, more specifically, if we have $X_n\leq Z\in L_1$, then $E\left\{\lim_{n\to\infty}(\sup_{k\geq n}X_k)\right\}=\lim_{n\to\infty}E(\sup_{k\geq n}X_k)$.
 
-### Summary from 5.4 to 5.5 
+So the path from 5.1 to 5.3 is: what is an integral for simple function $\to$ what is an integral for nonnegative measurable function $\to$ what is an integral for measurable function $\to$ how the sequence of integral converge.
+
+### Summary from 5.4 to 5.6 
 **(2026-02-12)**
 Before 5.4, we mostly talk about integrals on the whole space ($\Omega$): expectation is ($\int_\Omega XdP$).
 
@@ -161,6 +165,20 @@ E[g(X)] = \int_{\Omega} g(X(\omega))dP(\omega)
 = \int_{\mathbb R} g(x)F(dx),
 $$
 so instead of integrating on ($\Omega$), you integrate on $(\mathbb R,\mathcal B(\mathbb R))$ using the distribution. And when $F$ is absolutely continuous, this "distribution integral" further collapses into the most familiar picture from basic probability: a density $f$, so the expectation becomes an ordinary-looking integral against $f(x)dx$.
+
+![](images/pushforward.svg){width=40%}
+
+#### 5.6 Lebesgue Meets Riemann 
+**(2026-02-14)**
+From 5.5 we know that, we can use transformation theorem to push the measure forward, that is, turn an integral on $(\Omega,\mathcal{B},P)$ into an integral on $(\mathbb{R},\mathcal{B}(\mathbb{R}),F_X)$, that is
+$$
+E[g(X)]=\int_\Omega g(X)dP=\int_{\mathbb{R}} g(x)dF_X,
+$$
+and if $F_X$ is absolutely continuous (AC), then there will be a density $f_X(x)$, and it becomes $\int_{\mathbb{R}} g(x)f_X(x)dx$, then in 5.6, we know how to compute this Lebesgue integral, that is, the Theorem 5.6.1 provides a bridge for proper Riemann integrals, and also, in probability space, the equivalence of two measurable functions can be linked to the equality of the integral on any measurable set.
+
+so the path from 5.4 to 5.6 is: **define/set up integrals $\to$ move them to a concrete space $\to$ compute them**.
+
+
 
 ## Ex 2
 ::: problem
@@ -941,5 +959,42 @@ $$
 
 
 $\textbf{Note:}$ This DCT version of solution is so straight forward, and my brain is hold by the idea from (a), let's try rewrite something like $a_nE(g(X)\mathbb{1}_{\{X\in A_n\}})$ into $E(f_n)$ form and check whether $f_n\to0$ a.s..
+
+
+## Ex 20
+::: problem
+
+:::
+
+### (a)
+
+$\textbf{My idea:}$ Since $g(x)=e^{\lambda x}$ is a continuous function $\mathbb{R}\to\mathbb{R}$, then it is also a $\mathcal{B}(\mathbb{R})$/$\mathcal{B}(\mathbb{R})$ measurable function, by the transformation theorem, we have
+$$
+\begin{aligned}
+\phi(\lambda)&=E(e^{\lambda X})=\int e^{\lambda X}dP\\
+&=\int_\mathbb{R} e^{\lambda x} dF.
+\end{aligned}
+$$
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
