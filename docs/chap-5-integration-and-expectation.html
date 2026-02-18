@@ -23,7 +23,7 @@
 <meta name="author" content="Zhanwen Peng" />
 
 
-<meta name="date" content="2026-02-14" />
+<meta name="date" content="2026-02-18" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -279,7 +279,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#ex-20-1"><i class="fa fa-check"></i>Ex 20</a>
 <ul>
 <li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#a-10"><i class="fa fa-check"></i>(a)</a></li>
+<li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#b-10"><i class="fa fa-check"></i>(b)</a></li>
+<li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#c-6"><i class="fa fa-check"></i>(c)</a></li>
+<li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#d-4"><i class="fa fa-check"></i>(d)</a></li>
+<li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#e-2"><i class="fa fa-check"></i>(e)</a></li>
 </ul></li>
+<li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#ex-21-1"><i class="fa fa-check"></i>Ex 21</a></li>
 </ul></li>
 </ul>
 
@@ -1220,8 +1225,159 @@ and if <span class="math inline">\(X(\omega)&gt;0\)</span>, then <span class="ma
 &amp;=\int_\mathbb{R} e^{\lambda x} dF.
 \end{aligned}
 \]</span></p>
-
 </div>
+<div id="b-10" class="section level3 hasAnchor">
+<h3>(b)<a href="chap-5-integration-and-expectation.html#b-10" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><span class="math inline">\(\textbf{My idea:}\)</span> For <span class="math inline">\(\lambda\in\text{int}\Lambda\)</span>, <span class="math inline">\(e^{\lambda X}&gt;0\)</span>, therefore
+<span class="math display">\[
+\phi(\lambda)=\int e^{\lambda X}dP&gt;0,
+\]</span>
+further, for <span class="math inline">\(\lambda\in\text{int}\Lambda\)</span>, the there exist <span class="math inline">\(N&gt;0\)</span>, such that when <span class="math inline">\(n\geq N\)</span>, we have <span class="math inline">\((\lambda-\frac1n,\lambda+\frac1n)\subseteq\text{int}\Lambda\)</span>, that is
+<span class="math display">\[
+\begin{aligned}
+|\phi(\lambda)-\phi(\lambda+\frac1n)|&amp;=|\int e^{\lambda X}dP-\int e^{(\lambda+\frac1n) X}dP|\\
+&amp;=|\int e^{\lambda X}- e^{(\lambda+\frac1n) X} dP|\\
+&amp;=|\int e^{\lambda X}(1-e^{\frac1n X})dP|\\
+&amp;\leq\int|e^{\lambda X}||(1-e^{\frac1n X})|dP,
+\end{aligned}
+\]</span>
+since <span class="math inline">\(\lambda\in\text{int}\Lambda\)</span>, therefore <span class="math inline">\(e^{\lambda X}\)</span> is integrable, and <span class="math inline">\(|e^{\lambda X}||(1-e^{\frac1n X})|\leq e^{\lambda X}\in L_1\)</span>, also <span class="math inline">\(|e^{\lambda X}||(1-e^{\frac1n X})|\to0\)</span>, by DCT, we have
+<span class="math display">\[
+\int|e^{\lambda X}||(1-e^{\frac1n X})|dP\to0,
+\]</span>
+therefore <span class="math inline">\(|\phi(\lambda)-\phi(\lambda+\frac1n)|\to0\)</span>, and for <span class="math inline">\(|\phi(\lambda)-\phi(\lambda-\frac1n)|\)</span> we also have the same result ,so <span class="math inline">\(\phi\)</span> is continuous on <span class="math inline">\(\text{int}\Lambda\)</span>.</p>
+<p><span class="math inline">\(\textbf{Answer:}\)</span> For <span class="math inline">\(\lambda\in\text{int}\Lambda\)</span>, <span class="math inline">\(e^{\lambda X}&gt;0\)</span> a.s., therefore
+<span class="math display">\[
+\phi(\lambda)=\int e^{\lambda X}dP&gt;0,
+\]</span>
+further, for <span class="math inline">\(\lambda_0\in\text{int}\Lambda\)</span>, there exists a <span class="math inline">\(\delta\)</span>, such that <span class="math inline">\((\lambda_0-\delta,\lambda_0+\delta)\subseteq\Lambda\)</span>, specifically, we have
+<span class="math display">\[
+E(e^{(\lambda_0-\delta)X})&lt;\infty\quad\text{and}\quad E(e^{(\lambda_0+\delta)X})&lt;\infty,
+\]</span>
+then for any <span class="math inline">\(\lambda_n\in(\lambda_0-\delta,\lambda_0+\delta)\)</span> such that <span class="math inline">\(\lambda_n\to\lambda_0\)</span>, <span class="math inline">\(E(e^{\lambda_n X})&lt;\infty\)</span> and <span class="math inline">\(e^{\lambda_n X}\to e^{\lambda_0 X}\)</span> a.s., and we have
+<span class="math display">\[
+|e^{\lambda_n X}|\leq e^{(\lambda_0-\delta)X}+e^{(\lambda_0+\delta)X}\in L_1,
+\]</span>
+since on <span class="math inline">\(\{X&gt;0\}\)</span>, we have <span class="math inline">\(e^{\lambda_n X}\leq e^{(\lambda_0+\delta)X}\)</span> and on <span class="math inline">\(\{X\leq0\}\)</span>, we have <span class="math inline">\(e^{\lambda_n X}\leq e^{(\lambda_0-\delta)X}\)</span>. Then by DCT, <span class="math inline">\(E(e^{\lambda_n X})\to E(e^{\lambda_0 X})\)</span>, that is, <span class="math inline">\(\phi(\lambda_n)\to\phi(\lambda_0)\)</span>.</p>
+<p><span class="math inline">\(\textbf{Note:}\)</span> We don’t generally have <span class="math inline">\(|e^{\lambda X}||(1-e^{\frac1n X})|\leq e^{\lambda X}\)</span>, instead, we should try to use the interior condition to construct the bounds for dominating function</p>
+</div>
+<div id="c-6" class="section level3 hasAnchor">
+<h3>(c)<a href="chap-5-integration-and-expectation.html#c-6" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+</div>
+<div id="d-4" class="section level3 hasAnchor">
+<h3>(d)<a href="chap-5-integration-and-expectation.html#d-4" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><span class="math inline">\(\textbf{My idea:}\)</span> Since <span class="math inline">\(F\)</span> has a density <span class="math inline">\(f\)</span>, therefore we have
+<span class="math display">\[
+\begin{aligned}
+F_\lambda(I)&amp;=\int_I\frac{e^{\lambda x}}{\phi(\lambda)}F(dx)\\
+&amp;=\int_I\frac{e^{\lambda x}}{\phi(\lambda)}f(x)dx.
+\end{aligned}
+\]</span>
+We shall see that <span class="math inline">\(f_\lambda=\frac{e^{\lambda x}}{\phi(\lambda)}f(x)\)</span>.</p>
+<p><span class="math inline">\(\textbf{Note:}\)</span> I just directly used <strong>Proposition 5.5.2</strong> in page 139. So my understand is correct, when <span class="math inline">\(F\)</span> is AC, we have
+<span class="math display">\[
+\int g(x)F(dx)=\int g(x)f(x)dx,
+\]</span>
+the notation <span class="math inline">\(F(dx)=f(x)dx\)</span> is shorthand for this. In chapter 10, the Radon–Nikodym theorem will justify writing <span class="math inline">\(f=\frac{dF}{d\lambda}\)</span>.</p>
+</div>
+<div id="e-2" class="section level3 hasAnchor">
+<h3>(e)<a href="chap-5-integration-and-expectation.html#e-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><span class="math inline">\(\textbf{My idea:}\)</span>
+(Version 1:)
+Since <span class="math inline">\(F_\lambda\)</span> is AC w.r.t. <span class="math inline">\(F\)</span>, then we should have is <span class="math inline">\(F(I)=0\)</span>, then <span class="math inline">\(F_\lambda(I)=0\)</span> as well.
+(Version 2:)
+Since we are discussing in finite interval <span class="math inline">\(I\)</span>, we can discuss it on Riemann integral’s form, if <span class="math inline">\(F(I)=0\)</span>, and its density <span class="math inline">\(f\geq0\)</span>, then we should have <span class="math inline">\(f=0\)</span> a.s. on <span class="math inline">\(I\)</span>, so <span class="math inline">\(f_\lambda=0\)</span> a.s. on <span class="math inline">\(I\)</span>, therefore <span class="math inline">\(F_\lambda(I)=0\)</span> as well.</p>
+<p><span class="math inline">\(\textbf{Answer:}\)</span> Let <span class="math inline">\(I\)</span> be a finite interval and <span class="math inline">\(F(I)=0\)</span>, and since <span class="math inline">\(\phi(\lambda)&gt;0\)</span> and <span class="math inline">\(e^{\lambda x}&gt;0\)</span> (by (b)), we should have <span class="math inline">\(F(I\cap[e^{\lambda x}&gt;0])=F(I)=0\)</span>, (from page 134) so we have
+<span class="math display">\[
+F_\lambda(I)=\int_I \frac{e^{\lambda x}}{\phi(\lambda)}F(dx)=0.
+\]</span></p>
+<p><span class="math inline">\(\textbf{Note:}\)</span> We should note that in (e), we actually don’t have the density assumption, and also the absolutely continuous relation between measures is still not mentioned so far.</p>
+</div>
+</div>
+<div id="ex-21-1" class="section level2 hasAnchor">
+<h2>Ex 21<a href="chap-5-integration-and-expectation.html#ex-21-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="problem">
+<p>Suppose <span class="math inline">\(\{p_k, k \geq 0\}\)</span> is a probability mass function on <span class="math inline">\(\{0, 1, \dots\}\)</span> and define the generating function
+<span class="math display">\[P(s) = \sum_{k=0}^{\infty} p_k s^k, \quad 0 \leq s \leq 1.\]</span>
+Prove using dominated convergence that
+<span class="math display">\[\frac{d}{ds} P(s) = \sum_{k=1}^{\infty} p_k k s^{k-1}, \quad 0 \leq s \leq 1,\]</span>
+that is, prove differentiation and summation can be interchanged.</p>
+</div>
+<p><span class="math inline">\(\textbf{My idea:}\)</span> When we say <span class="math inline">\(\{p_k,k\geq0\}\)</span> is a probability mass function (pmf) on <span class="math inline">\(\{0,1,\dots\}\)</span>, it actually means that we have <span class="math inline">\(P(X=k)=p_k\)</span> and <span class="math inline">\(\sum_{k=0}^\infty p_k=1\)</span>, so for the generating function
+<span class="math display">\[
+P(s)=\sum_{k=0}^\infty p_k s^k,\quad 0\leq s\leq 1
+\]</span>
+we have that <span class="math inline">\(P(1)=\sum_{k=0}^\infty p_k=1\)</span> and <span class="math inline">\(P(0)=0\)</span>, and actually <span class="math inline">\(P(s)=E(s^X)\)</span>, so what we want to prove is actually
+<span class="math display">\[
+\frac{d}{ds}E(s^X)=E(\frac{d}{ds}s^X)=E(Xs^{X-1}),
+\]</span>
+so it should be suffice to prove that
+<span class="math display">\[
+\int_0^s E(Xt^{X-1})dt=E(s^X),
+\]</span>
+for any <span class="math inline">\(s\in[0,1]\)</span>. Note that <span class="math inline">\(\sum_{k=1}^n ks^{k-1}p_k\uparrow \sum_{k=1}^\infty ks^{k-1}p_k\)</span>, and
+<span class="math display">\[
+\int_0^s \sum_{k=1}^n kt^{k-1}p_k dt=\sum_{k=1}^n \int_0^s kt^{k-1}p_k dt=\sum_{k=1}^ns^kp_k\to\sum_{k=1}^\infty s^kp_k,
+\]</span>
+therefore by DCT, we should have
+<span class="math display">\[
+\int_0^s E(Xt^{X-1})dt=E(s^X).
+\]</span></p>
+<p><span class="math inline">\(\textbf{Answer:}\)</span></p>
+<p>(Version 1, The completion of <strong>my idea</strong>, using MCT only)
+Let <span class="math inline">\(P_n(s)=\sum_{k=0}^n p_ks^k\)</span>, then denote <span class="math inline">\(g_n(s)=\frac{d}{ds}P_n(s)=\sum_{k=1}^np_kks^{k-1}\)</span>, so we have
+<span class="math display">\[
+\int_0^sg_n(t)dt=\sum_{k=1}^n p_ks^k=P_n(s)-p_0\to P(s)-p_0,
+\]</span>
+also, note that for each <span class="math inline">\(t\in[0,s]\)</span>, <span class="math inline">\(g_n(t)\uparrow \sum_{k=1}^\infty p_kkt^{k-1}\)</span>, then by MCT, on <span class="math inline">\(([0,s],\mathcal{B}([0,s]),\lambda)\)</span>, <span class="math inline">\(s\in[0,1)\)</span>, we have
+<span class="math display">\[
+\int_0^sg_n(t)dt\to\int_0^s\sum_{k=1}^\infty p_kkt^{k-1}dt,
+\]</span>
+therefore, we have <span class="math inline">\(\int_0^s\sum_{k=1}^\infty p_kkt^{k-1}dt=P(s)-p_0\)</span>, by fundamental theorem of calculus, take derivative on both sides, we have
+<span class="math display">\[
+\frac{d}{ds}P(s)=\sum_{k=1}^\infty p_kks^{k-1}.
+\]</span></p>
+<p>(Version 2, Using DCT as the problem required)
+By the definition of derivative, for <span class="math inline">\(s\in[0,1)\)</span>, we have
+<span class="math display">\[
+\begin{aligned}
+\frac{d}{ds}P(s)&amp;=\lim_{h\to0}\frac{P(s+h)-P(s)}{h}\\
+&amp;=\lim_{h\to0}\frac{1}{h}(\sum_{k=0}^\infty p_k(s+h)^k-\sum_{k=0}^\infty p_k s^k)\\
+&amp;=\lim_{h\to0}\frac 1h\sum_{k=0}^\infty p_k[(s+h)^k-s^k]\\
+&amp;=\lim_{h\to0}\sum_{k=0}^\infty\frac {p_k[(s+h)^k-s^k]}h
+\end{aligned}
+\]</span>
+so define <span class="math inline">\(Z_h(k)=p_k\frac{(s+h)^k-s^k}{h}\)</span>, we have that <span class="math inline">\(\lim_{h\to0}Z_h(k)=p_kks^{k-1}\)</span>, and by Mean Value Theorem (MVT), for <span class="math inline">\(f(s)=s^k\)</span> there exists a <span class="math inline">\(\xi\)</span> between <span class="math inline">\(s+h\)</span> and <span class="math inline">\(s\)</span>, such that
+<span class="math display">\[
+\frac{(s+h)^k-s^k}{h}=f&#39;(\xi)=k\xi^{k-1},
+\]</span>
+and since <span class="math inline">\(0\leq s&lt;1\)</span>, we can always find an <span class="math inline">\(r\)</span> such that <span class="math inline">\(s&lt;r&lt;1\)</span>, also, we can choose small enough <span class="math inline">\(|h|\)</span> such that <span class="math inline">\(s+h\in [0,r]\)</span>, and for such <span class="math inline">\(h\)</span>, we have
+<span class="math display">\[
+|Z_h(k)|=\left|p_k\frac{(s+h)^k-s^k}{h}\right|=|p_kk\xi^{k-1}|\leq p_k kr^{k-1}.
+\]</span>
+Define <span class="math inline">\(Y(k)=p_k kr^{k-1}\)</span>, since <span class="math inline">\(0\leq p_k\leq1\)</span>, we have
+<span class="math display">\[
+\sum_{k=1}^\infty Y(k)=\sum_{k=1}^\infty p_k kr^{k-1}\leq\sum_{k=1}^\infty kr^{k-1}=\frac{1}{(1-r)^2},
+\]</span>
+for <span class="math inline">\(r\in[0,1)\)</span>, that is, <span class="math inline">\(Y(k)\)</span> is summable.</p>
+<p>Therefore, by DCT, we have
+<span class="math display">\[
+\frac{d}{ds}P(s)=\lim_{h\to0}\sum_{k=0}^\infty Z_h(k)=\sum_{k=0}^\infty\lim_{h\to0}Z_h(k)=\sum_{k=1}^\infty p_kks^{k-1}.
+\]</span></p>
+<p><span class="math inline">\(\textbf{Note:}\)</span> <strong>My idea</strong> is basically correct, but I forgot the <span class="math inline">\(p_0\)</span> terms, and also I didn’t mention the Fundamental Theorem of Calculus (FTC).</p>
+<p>For the DCT version, we should note that we use DCT in Real analysis viewpoint, not just in probability expectation viewpoint, but we can rewrite it on probability form: just define r.v. <span class="math inline">\(K\)</span> on <span class="math inline">\(\{0\}\cup\mathbb{N}\)</span> as <span class="math inline">\(P(K=k)=p_k\)</span>, we have
+<span class="math display">\[
+E(g_h(K))=\sum_{k=0}^\infty p_kg_h(k),
+\]</span>
+This is just the definition of expectation for a discrete r.v., and by letting <span class="math inline">\(g_h(k)=\frac{(s+h)^k-s^k}{h}\)</span>, we should see that everything else are actually the same.</p>
+<p>And I want to write down the scratch idea of version 2 here (since it took me two days):</p>
+<ol style="list-style-type: decimal">
+<li>Use the definition of derivative to find an intermediate function (the difference quotient);</li>
+<li>Use MVT to prove that the quotient is bounded by other function;</li>
+<li>Prove that function is summable/integrable;</li>
+<li>Use DCT.</li>
+</ol>
+
 </div>
 </div>
             </section>

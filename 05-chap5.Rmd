@@ -976,25 +976,166 @@ $$
 \end{aligned}
 $$
 
+### (b)
+
+$\textbf{My idea:}$ For $\lambda\in\text{int}\Lambda$, $e^{\lambda X}>0$, therefore 
+$$
+\phi(\lambda)=\int e^{\lambda X}dP>0,
+$$
+further, for $\lambda\in\text{int}\Lambda$, the there exist $N>0$, such that when $n\geq N$, we have $(\lambda-\frac1n,\lambda+\frac1n)\subseteq\text{int}\Lambda$, that is 
+$$
+\begin{aligned}
+|\phi(\lambda)-\phi(\lambda+\frac1n)|&=|\int e^{\lambda X}dP-\int e^{(\lambda+\frac1n) X}dP|\\
+&=|\int e^{\lambda X}- e^{(\lambda+\frac1n) X} dP|\\
+&=|\int e^{\lambda X}(1-e^{\frac1n X})dP|\\
+&\leq\int|e^{\lambda X}||(1-e^{\frac1n X})|dP,
+\end{aligned}
+$$
+since $\lambda\in\text{int}\Lambda$, therefore $e^{\lambda X}$ is integrable, and $|e^{\lambda X}||(1-e^{\frac1n X})|\leq e^{\lambda X}\in L_1$, also $|e^{\lambda X}||(1-e^{\frac1n X})|\to0$, by DCT, we have 
+$$
+\int|e^{\lambda X}||(1-e^{\frac1n X})|dP\to0,
+$$
+therefore $|\phi(\lambda)-\phi(\lambda+\frac1n)|\to0$, and for $|\phi(\lambda)-\phi(\lambda-\frac1n)|$ we also have the same result ,so $\phi$ is continuous on $\text{int}\Lambda$.
+
+$\textbf{Answer:}$ For $\lambda\in\text{int}\Lambda$, $e^{\lambda X}>0$ a.s., therefore 
+$$
+\phi(\lambda)=\int e^{\lambda X}dP>0,
+$$
+further, for $\lambda_0\in\text{int}\Lambda$, there exists a $\delta$, such that $(\lambda_0-\delta,\lambda_0+\delta)\subseteq\Lambda$, specifically, we have 
+$$
+E(e^{(\lambda_0-\delta)X})<\infty\quad\text{and}\quad E(e^{(\lambda_0+\delta)X})<\infty,
+$$
+then for any $\lambda_n\in(\lambda_0-\delta,\lambda_0+\delta)$ such that $\lambda_n\to\lambda_0$, $E(e^{\lambda_n X})<\infty$ and $e^{\lambda_n X}\to e^{\lambda_0 X}$ a.s., and we have 
+$$
+|e^{\lambda_n X}|\leq e^{(\lambda_0-\delta)X}+e^{(\lambda_0+\delta)X}\in L_1,
+$$
+since on $\{X>0\}$, we have $e^{\lambda_n X}\leq e^{(\lambda_0+\delta)X}$ and on $\{X\leq0\}$, we have $e^{\lambda_n X}\leq e^{(\lambda_0-\delta)X}$. Then by DCT, $E(e^{\lambda_n X})\to E(e^{\lambda_0 X})$, that is, $\phi(\lambda_n)\to\phi(\lambda_0)$.
+
+$\textbf{Note:}$ We don't generally have $|e^{\lambda X}||(1-e^{\frac1n X})|\leq e^{\lambda X}$, instead, we should try to use the interior condition to construct the bounds for dominating function
+
+### (c)
+
+### (d)
+$\textbf{My idea:}$ Since $F$ has a density $f$, therefore we have 
+$$
+\begin{aligned}
+F_\lambda(I)&=\int_I\frac{e^{\lambda x}}{\phi(\lambda)}F(dx)\\
+&=\int_I\frac{e^{\lambda x}}{\phi(\lambda)}f(x)dx.
+\end{aligned}
+$$
+We shall see that $f_\lambda=\frac{e^{\lambda x}}{\phi(\lambda)}f(x)$.
+
+$\textbf{Note:}$ I just directly used **Proposition 5.5.2** in page 139. So my understand is correct, when $F$ is AC, we have
+$$
+\int g(x)F(dx)=\int g(x)f(x)dx,
+$$
+the notation $F(dx)=f(x)dx$ is shorthand for this. In chapter 10, the Radon–Nikodym theorem will justify writing $f=\frac{dF}{d\lambda}$.
+
+### (e) 
+$\textbf{My idea:}$ 
+(Version 1:)
+Since $F_\lambda$ is AC w.r.t. $F$, then we should have is $F(I)=0$, then $F_\lambda(I)=0$ as well. 
+(Version 2:)
+Since we are discussing in finite interval $I$, we can discuss it on Riemann integral's form, if $F(I)=0$, and its density $f\geq0$, then we should have $f=0$ a.s. on $I$, so $f_\lambda=0$ a.s. on $I$, therefore $F_\lambda(I)=0$ as well.
+
+$\textbf{Answer:}$ Let $I$ be a finite interval and $F(I)=0$, and since $\phi(\lambda)>0$ and $e^{\lambda x}>0$ (by (b)), we should have $F(I\cap[e^{\lambda x}>0])=F(I)=0$, (from page 134) so we have 
+$$
+F_\lambda(I)=\int_I \frac{e^{\lambda x}}{\phi(\lambda)}F(dx)=0.
+$$
+
+$\textbf{Note:}$ We should note that in (e), we actually don't have the density assumption, and also the absolutely continuous relation between measures is still not mentioned so far.
 
 
+## Ex 21
+::: problem
+Suppose $\{p_k, k \geq 0\}$ is a probability mass function on $\{0, 1, \dots\}$ and define the generating function
+$$P(s) = \sum_{k=0}^{\infty} p_k s^k, \quad 0 \leq s \leq 1.$$
+Prove using dominated convergence that
+$$\frac{d}{ds} P(s) = \sum_{k=1}^{\infty} p_k k s^{k-1}, \quad 0 \leq s \leq 1,$$
+that is, prove differentiation and summation can be interchanged.
+:::
+
+$\textbf{My idea:}$ When we say $\{p_k,k\geq0\}$ is a probability mass function (pmf) on $\{0,1,\dots\}$, it actually means that we have $P(X=k)=p_k$ and $\sum_{k=0}^\infty p_k=1$, so for the generating function 
+$$
+P(s)=\sum_{k=0}^\infty p_k s^k,\quad 0\leq s\leq 1
+$$
+we have that $P(1)=\sum_{k=0}^\infty p_k=1$ and $P(0)=0$, and actually $P(s)=E(s^X)$, so what we want to prove is actually 
+$$
+\frac{d}{ds}E(s^X)=E(\frac{d}{ds}s^X)=E(Xs^{X-1}),
+$$
+so it should be suffice to prove that 
+$$
+\int_0^s E(Xt^{X-1})dt=E(s^X),
+$$
+for any $s\in[0,1]$. Note that $\sum_{k=1}^n ks^{k-1}p_k\uparrow \sum_{k=1}^\infty ks^{k-1}p_k$, and
+$$
+\int_0^s \sum_{k=1}^n kt^{k-1}p_k dt=\sum_{k=1}^n \int_0^s kt^{k-1}p_k dt=\sum_{k=1}^ns^kp_k\to\sum_{k=1}^\infty s^kp_k,
+$$
+therefore by DCT, we should have 
+$$
+\int_0^s E(Xt^{X-1})dt=E(s^X).
+$$
+
+$\textbf{Answer:}$ 
+
+(Version 1, The completion of __my idea__, using MCT only)
+Let $P_n(s)=\sum_{k=0}^n p_ks^k$, then denote $g_n(s)=\frac{d}{ds}P_n(s)=\sum_{k=1}^np_kks^{k-1}$, so we have 
+$$
+\int_0^sg_n(t)dt=\sum_{k=1}^n p_ks^k=P_n(s)-p_0\to P(s)-p_0,
+$$
+also, note that for each $t\in[0,s]$, $g_n(t)\uparrow \sum_{k=1}^\infty p_kkt^{k-1}$, then by MCT, on $([0,s],\mathcal{B}([0,s]),\lambda)$, $s\in[0,1)$, we have
+$$
+\int_0^sg_n(t)dt\to\int_0^s\sum_{k=1}^\infty p_kkt^{k-1}dt,
+$$
+therefore, we have $\int_0^s\sum_{k=1}^\infty p_kkt^{k-1}dt=P(s)-p_0$, by fundamental theorem of calculus, take derivative on both sides, we have
+$$
+\frac{d}{ds}P(s)=\sum_{k=1}^\infty p_kks^{k-1}.
+$$
+
+(Version 2, Using DCT as the problem required)
+By the definition of derivative, for $s\in[0,1)$, we have
+$$
+\begin{aligned}
+\frac{d}{ds}P(s)&=\lim_{h\to0}\frac{P(s+h)-P(s)}{h}\\
+&=\lim_{h\to0}\frac{1}{h}(\sum_{k=0}^\infty p_k(s+h)^k-\sum_{k=0}^\infty p_k s^k)\\
+&=\lim_{h\to0}\frac 1h\sum_{k=0}^\infty p_k[(s+h)^k-s^k]\\
+&=\lim_{h\to0}\sum_{k=0}^\infty\frac {p_k[(s+h)^k-s^k]}h
+\end{aligned}
+$$
+so define $Z_h(k)=p_k\frac{(s+h)^k-s^k}{h}$, we have that $\lim_{h\to0}Z_h(k)=p_kks^{k-1}$, and by Mean Value Theorem (MVT), for $f(s)=s^k$ there exists a $\xi$ between $s+h$ and $s$, such that
+$$
+\frac{(s+h)^k-s^k}{h}=f'(\xi)=k\xi^{k-1},
+$$
+and since $0\leq s<1$, we can always find an $r$ such that $s<r<1$, also, we can choose small enough $|h|$ such that $s+h\in [0,r]$, and for such $h$, we have
+$$
+|Z_h(k)|=\left|p_k\frac{(s+h)^k-s^k}{h}\right|=|p_kk\xi^{k-1}|\leq p_k kr^{k-1}.
+$$
+Define $Y(k)=p_k kr^{k-1}$, since $0\leq p_k\leq1$, we have
+$$
+\sum_{k=1}^\infty Y(k)=\sum_{k=1}^\infty p_k kr^{k-1}\leq\sum_{k=1}^\infty kr^{k-1}=\frac{1}{(1-r)^2},
+$$
+for $r\in[0,1)$, that is, $Y(k)$ is summable.
+
+Therefore, by DCT, we have
+$$
+\frac{d}{ds}P(s)=\lim_{h\to0}\sum_{k=0}^\infty Z_h(k)=\sum_{k=0}^\infty\lim_{h\to0}Z_h(k)=\sum_{k=1}^\infty p_kks^{k-1}.
+$$
 
 
+$\textbf{Note:}$ **My idea** is basically correct, but I forgot the $p_0$ terms, and also I didn't mention the Fundamental Theorem of Calculus (FTC).
 
+For the DCT version, we should note that we use DCT in Real analysis viewpoint, not just in probability expectation viewpoint, but we can rewrite it on probability form: just define r.v. $K$ on $\{0\}\cup\mathbb{N}$ as $P(K=k)=p_k$,  we have
+$$
+E(g_h(K))=\sum_{k=0}^\infty p_kg_h(k),
+$$
+This is just the definition of expectation for a discrete r.v., and by letting $g_h(k)=\frac{(s+h)^k-s^k}{h}$, we should see that everything else are actually the same.
 
+And I want to write down the scratch idea of version 2 here (since it took me two days):
 
-
-
-
-
-
-
-
-
-
-
-
-
+1. Use the definition of derivative to find an intermediate function (the difference quotient);
+2. Use MVT to prove that the quotient is bounded by other function;
+3. Prove that function is summable/integrable;
+4. Use DCT.
 
 
 
