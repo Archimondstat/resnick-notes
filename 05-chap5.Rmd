@@ -963,7 +963,20 @@ $\textbf{Note:}$ This DCT version of solution is so straight forward, and my bra
 
 ## Ex 20
 ::: problem
-
+For a random variable $X$ with distribution $F$, define the moment generating function $\phi(\lambda)$ by
+$$\phi(\lambda) = E(e^{\lambda X}).$$
+(a) Prove that
+    $$\phi(\lambda) = \int_{\mathbb{R}} e^{\lambda x} F(dx).$$
+    Let
+    $$\Lambda = \{ \lambda \in \mathbb{R} : \phi(\lambda) < \infty \}$$
+    and set
+    $$\lambda_{\infty} = \sup \Lambda.$$
+(b) Prove for $\lambda$ in the interior of $\Lambda$ that $\phi(\lambda) > 0$ and that $\phi(\lambda)$ is continuous on the interior of $\Lambda$. (This requires use of the dominated convergence theorem.)
+(c) Give an example where (i) $\lambda_{\infty} \in \Lambda$ and (ii) $\lambda_{\infty} \notin \Lambda$. (Something like gamma distributions should suffice to yield the needed examples.)
+    Define the measure $F_{\lambda}$ by
+    $$F_{\lambda}(I) = \int_I \frac{e^{\lambda x}}{\phi(\lambda)} F(dx), \quad \lambda \in \Lambda.$$
+(d) If $F$ has a density $f$, verify $F_{\lambda}$ has a density $f_{\lambda}$. What is $f_{\lambda}$? (Note that the family $\{f_{\lambda}, \lambda \in \Lambda\}$ is an *exponential family* of densities.)
+ (e) If $F(I) = 0$, show $F_{\lambda}(I) = 0$ as well for $I$ a finite interval and $\lambda \in \Lambda$.
 :::
 
 ### (a)
@@ -1014,6 +1027,15 @@ since on $\{X>0\}$, we have $e^{\lambda_n X}\leq e^{(\lambda_0+\delta)X}$ and on
 $\textbf{Note:}$ We don't generally have $|e^{\lambda X}||(1-e^{\frac1n X})|\leq e^{\lambda X}$, instead, we should try to use the interior condition to construct the bounds for dominating function
 
 ### (c)
+$\textbf{Answer:}$ Let $X\sim\exp(\beta)$, then $\Lambda=(-\infty,\beta)$ and $\lambda_\infty=\beta$, however, $\phi(\beta)=\infty$, therefore $\lambda_\infty\not\in\Lambda$.
+
+Then define density function $f(x)=c\frac{e^{-\beta x}}{1+x^2}$, $x\geq0$, where $c$ is the normalizing constant, then
+$$
+\phi(\lambda)=E(e^{\lambda X})=c\int_0^\infty\frac{e^{(\lambda-\beta) x}}{1+x^2}dx,
+$$
+we cannot antiderivative this function, but we should see that when $\lambda\leq\beta$, the integral is finite, so $\Lambda=(-\infty,\beta]$ and $\lambda_\infty\in\Lambda$.
+
+$\textbf{Note:}$ Because of the $e^{\lambda X}$, the exponential decreasing density will also be infinity at the boundary, so we need to add an extra polynomial them to control the boundary case.
 
 ### (d)
 $\textbf{My idea:}$ Since $F$ has a density $f$, therefore we have 
@@ -1077,7 +1099,6 @@ $$
 $$
 
 $\textbf{Answer:}$ 
-
 (Version 1, The completion of __my idea__, using MCT only)
 Let $P_n(s)=\sum_{k=0}^n p_ks^k$, then denote $g_n(s)=\frac{d}{ds}P_n(s)=\sum_{k=1}^np_kks^{k-1}$, so we have 
 $$
@@ -1136,6 +1157,131 @@ And I want to write down the scratch idea of version 2 here (since it took me tw
 2. Use MVT to prove that the quotient is bounded by other function;
 3. Prove that function is summable/integrable;
 4. Use DCT.
+
+## Ex 16
+::: problem
+
+:::
+
+### (a)
+$\textbf{My idea:}$ 
+Define $f_n(x)$ as
+$$
+\begin{cases} 
+n(x-a) & \text{if } x\in(a,a+\frac1n] \\
+1 & \text{if } x \in (a+\frac1n,b] \\
+-n(x-b)+1 & \text{if } x \in(b,b+\frac1n] \\
+0 & \text{elsewhere},
+\end{cases}
+$$
+so for each $n$, $f_n$ is bounded and continuous, we leave the checking of continuity here since it is trivial and we check that $f_n\to f$ pointwise.
+
+For $x\leq a$, $f_n(x)=f(x)=0$, for $x\in(a,b]$, there exists $N$ such that $a+\frac1N<x$, so when $n\geq N$, $f_n(x)=1$, and for $x>b$, we shall see that there exist $N$ such that $b+\frac 1N<x$, so when $n\geq N$, $f_n(x)=0$, so we have $f_n\to f$.
+
+Here is a code for visualization:
+```{r,warning=FALSE}
+f_n <- function(x, a, b, n) {
+  dplyr::case_when(
+    x > a & x <= a + 1/n ~ n * (x - a),
+    x > a + 1/n & x <= b ~ 1,
+    x > b & x <= b + 1/n ~ -n * (x - b) + 1,
+    TRUE ~ 0 
+  )
+}
+library(ggplot2)
+
+a <- 1
+b <- 3
+n_values <- c(2, 5, 10, 20, 40, 80, 160, 320, 640)
+x_range <- seq(0.5, 4, length.out = 1000)
+
+df_list <- lapply(n_values, function(n) {
+  data.frame(x = x_range, y = f_n(x_range, a, b, n), n = as.factor(n))
+})
+df <- do.call(rbind, df_list)
+
+ggplot(df, aes(x = x, y = y, color = n)) +
+  geom_line(size = 0.2) +
+  labs(title = paste("a =", a, ", b =", b),
+       x = "x", y = "f_n(x)") +
+  theme_minimal()
+```
+
+## Ex 18
+::: problem
+Suppose $(\Omega, \mathcal{B}, P) = ((0, 1], \mathcal{B}((0, 1]), \lambda)$ where $\lambda$ is Lebesgue measure on $(0, 1]$. Let $\lambda \times \lambda$ be product measure on $(0, 1] \times (0, 1]$. Suppose that $A \subset (0, 1] \times (0, 1]$ is a rectangle whose sides are **NOT** parallel to the axes. Show that
+$$\lambda \times \lambda(A) = \text{area of } A.$$
+:::
+
+$\textbf{My idea:}$ Divide $(0,1]\times(0,1]$ into $n\times n$ little disjoint squares, call them $\{A_i\}$, and define the area that covers the rectangle from the outside as
+$$
+S_n^\text{out}=\inf\{\sum_{k=1}^KA_k: A\subseteq\sum_{k=1}^KA_k\},
+$$
+and the area that fills the rectangle from the inside as
+$$
+S_n^\text{in}=\sup\{\sum_{k=1}^KA_k: \sum_{k=1}^KA_k\subseteq A\}.
+$$
+Since they are all constructed by squares, so their areas are just the number of squares divided by $n^2$, and we have $S_n^\text{in}\leq\text{area of }A\leq S_n^\text{out}$.
+
+What's left is to prove that when $n\to\infty$, they converges.
+
+$\textbf{Answer:}$ Let $Q_{ij}=(\frac{i-1}{n},\frac{i}{n}]\times(\frac{j-1}{n},\frac{j}{n}]$ and define
+$$
+A_{n}^\text{in}=\bigcup\{Q_{ij}:Q_{ij}\subseteq A\},
+$$
+and
+$$
+A_{n}^\text{out}=\bigcup\{Q_{ij}:Q_{ij}\cap A\neq\varnothing\}.
+$$
+Therefore we have 
+$$
+A_{n}^\text{in}\subseteq A \subseteq A_{n}^\text{out},
+$$
+and denote the area of $A$ as $S$, since $A_{n}^\text{in}$ and $A_{n}^\text{out}$ are constructed by $Q_{ij}$, therefore their areas are $S_{n}^\text{in}=\lambda\times\lambda(A_{n}^\text{in})$ and $S_{n}^\text{out}=\lambda\times\lambda(A_{n}^\text{out})$, and we also have 
+$$
+S_{n}^\text{in}\leq S\leq S_{n}^\text{out}.
+$$
+And we should note that, the difference between $S_{n}^\text{in}$ and $S_{n}^\text{out}$ is from the squares that in $A_{n}^\text{out}$ but not in $A_{n}^\text{in}$, and those squares must intersect the boundaries of the rectangle $A$, that is
+$$
+A_{n}^\text{out}\setminus A_{n}^\text{in}\subseteq\bigcup\{Q_{ij}:Q_{ij}\cap\partial A\neq\varnothing\},
+$$
+and $S_{n}^\text{out}-S_{n}^\text{in}$ is the number of squares in $A_{n}^\text{out}\setminus A_{n}^\text{in}$ divided by $n^2$.
+
+For one boundary of the rectangle $L$ with Euclidean $\mathcal{l}(L)$, suppose the endpoints are $(x_0,y_0)$ and $(x_1,y_1)$, and WLOG, we can let the shift on x-axis $\Delta x=x_1-x_0$, then we can count how many vertical line $x=\frac kn$ that this line cross by counting the $k$ such that
+$$
+x_0\leq\frac kn\leq x_1\iff nx_0\leq k\leq nx_1,
+$$
+that is equivalence to count the integer on interval $[a,b]$, that is at most $b-a+1$, so the boundary crosses at most $n(x_1-x_0)+1=n|\Delta x|+1$ squares vertically, similarly, the boundary crosses at most $n|\Delta y|+1$ squares horizontally, so for the total squares it crosses $N_n(L)$, we have
+$$
+N_n(L)\leq (n|\Delta x|+1) + (n|\Delta y|+1) +1=n(|\Delta x|+|\Delta y|)+3,
+$$
+and note that $|\Delta x|+|\Delta y|\leq\sqrt 2\mathcal{l}(L)$ because 
+$$
+(|\Delta x|+|\Delta y|)^2=|\Delta x|^2+|\Delta y|^2+2|\Delta x||\Delta y|\leq |\Delta x|^2+|\Delta y|^2+|\Delta x|^2+|\Delta y|^2=2\mathcal{l}(L)^2.
+$$
+According to the above, for the four boundaries of the rectangle, we have
+$$
+\sum_{i=1}^4N_n(L_i)\leq \sqrt 2n\sum_{i=1}^4\mathcal{l}(L_i)+12=O(n).
+$$
+Therefore
+$$
+0\leq S_{n}^\text{out}-S_{n}^\text{in}\leq\frac{O(n)}{n^2}\to 0,
+$$
+so we have $\lambda\times\lambda(A)=\text{area of }A$.
+
+
+$\textbf{Note:}$ My initial idea is to use the rotation matrix to solve this, but we still don't have the rotation invariance for product measure, so we can only use the standard analysis routine:approximate $A$ by __finite unions of grid squares__ (simple sets), and show the “missed region” is concentrated near $\partial A$.
+
+And I summarize the correct idea of this exercise here:
+
+1. Use big regular set to cover $A$, and use small regular set to fill up $A$, here regular I mean some thing that constructed by little squares.
+2. Show that the difference between their area goes to $0$.
+
+
+
+
+
+
 
 
 

@@ -23,7 +23,7 @@
 <meta name="author" content="Zhanwen Peng" />
 
 
-<meta name="date" content="2026-02-18" />
+<meta name="date" content="2026-02-25" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -285,6 +285,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#e-2"><i class="fa fa-check"></i>(e)</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#ex-21-1"><i class="fa fa-check"></i>Ex 21</a></li>
+<li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#ex-16-1"><i class="fa fa-check"></i>Ex 16</a>
+<ul>
+<li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#a-11"><i class="fa fa-check"></i>(a)</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#ex-18-1"><i class="fa fa-check"></i>Ex 18</a></li>
 </ul></li>
 </ul>
 
@@ -1214,7 +1219,20 @@ and if <span class="math inline">\(X(\omega)&gt;0\)</span>, then <span class="ma
 <div id="ex-20-1" class="section level2 hasAnchor">
 <h2>Ex 20<a href="chap-5-integration-and-expectation.html#ex-20-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div class="problem">
-
+<p>For a random variable <span class="math inline">\(X\)</span> with distribution <span class="math inline">\(F\)</span>, define the moment generating function <span class="math inline">\(\phi(\lambda)\)</span> by
+<span class="math display">\[\phi(\lambda) = E(e^{\lambda X}).\]</span>
+(a) Prove that
+<span class="math display">\[\phi(\lambda) = \int_{\mathbb{R}} e^{\lambda x} F(dx).\]</span>
+Let
+<span class="math display">\[\Lambda = \{ \lambda \in \mathbb{R} : \phi(\lambda) &lt; \infty \}\]</span>
+and set
+<span class="math display">\[\lambda_{\infty} = \sup \Lambda.\]</span>
+(b) Prove for <span class="math inline">\(\lambda\)</span> in the interior of <span class="math inline">\(\Lambda\)</span> that <span class="math inline">\(\phi(\lambda) &gt; 0\)</span> and that <span class="math inline">\(\phi(\lambda)\)</span> is continuous on the interior of <span class="math inline">\(\Lambda\)</span>. (This requires use of the dominated convergence theorem.)
+(c) Give an example where (i) <span class="math inline">\(\lambda_{\infty} \in \Lambda\)</span> and (ii) <span class="math inline">\(\lambda_{\infty} \notin \Lambda\)</span>. (Something like gamma distributions should suffice to yield the needed examples.)
+Define the measure <span class="math inline">\(F_{\lambda}\)</span> by
+<span class="math display">\[F_{\lambda}(I) = \int_I \frac{e^{\lambda x}}{\phi(\lambda)} F(dx), \quad \lambda \in \Lambda.\]</span>
+(d) If <span class="math inline">\(F\)</span> has a density <span class="math inline">\(f\)</span>, verify <span class="math inline">\(F_{\lambda}\)</span> has a density <span class="math inline">\(f_{\lambda}\)</span>. What is <span class="math inline">\(f_{\lambda}\)</span>? (Note that the family <span class="math inline">\(\{f_{\lambda}, \lambda \in \Lambda\}\)</span> is an <em>exponential family</em> of densities.)
+(e) If <span class="math inline">\(F(I) = 0\)</span>, show <span class="math inline">\(F_{\lambda}(I) = 0\)</span> as well for <span class="math inline">\(I\)</span> a finite interval and <span class="math inline">\(\lambda \in \Lambda\)</span>.</p>
 </div>
 <div id="a-10" class="section level3 hasAnchor">
 <h3>(a)<a href="chap-5-integration-and-expectation.html#a-10" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -1263,6 +1281,13 @@ since on <span class="math inline">\(\{X&gt;0\}\)</span>, we have <span class="m
 </div>
 <div id="c-6" class="section level3 hasAnchor">
 <h3>(c)<a href="chap-5-integration-and-expectation.html#c-6" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><span class="math inline">\(\textbf{Answer:}\)</span> Let <span class="math inline">\(X\sim\exp(\beta)\)</span>, then <span class="math inline">\(\Lambda=(-\infty,\beta)\)</span> and <span class="math inline">\(\lambda_\infty=\beta\)</span>, however, <span class="math inline">\(\phi(\beta)=\infty\)</span>, therefore <span class="math inline">\(\lambda_\infty\not\in\Lambda\)</span>.</p>
+<p>Then define density function <span class="math inline">\(f(x)=c\frac{e^{-\beta x}}{1+x^2}\)</span>, <span class="math inline">\(x\geq0\)</span>, where <span class="math inline">\(c\)</span> is the normalizing constant, then
+<span class="math display">\[
+\phi(\lambda)=E(e^{\lambda X})=c\int_0^\infty\frac{e^{(\lambda-\beta) x}}{1+x^2}dx,
+\]</span>
+we cannot antiderivative this function, but we should see that when <span class="math inline">\(\lambda\leq\beta\)</span>, the integral is finite, so <span class="math inline">\(\Lambda=(-\infty,\beta]\)</span> and <span class="math inline">\(\lambda_\infty\in\Lambda\)</span>.</p>
+<p><span class="math inline">\(\textbf{Note:}\)</span> Because of the <span class="math inline">\(e^{\lambda X}\)</span>, the exponential decreasing density will also be infinity at the boundary, so we need to add an extra polynomial them to control the boundary case.</p>
 </div>
 <div id="d-4" class="section level3 hasAnchor">
 <h3>(d)<a href="chap-5-integration-and-expectation.html#d-4" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -1323,8 +1348,8 @@ therefore by DCT, we should have
 <span class="math display">\[
 \int_0^s E(Xt^{X-1})dt=E(s^X).
 \]</span></p>
-<p><span class="math inline">\(\textbf{Answer:}\)</span></p>
-<p>(Version 1, The completion of <strong>my idea</strong>, using MCT only)
+<p><span class="math inline">\(\textbf{Answer:}\)</span>
+(Version 1, The completion of <strong>my idea</strong>, using MCT only)
 Let <span class="math inline">\(P_n(s)=\sum_{k=0}^n p_ks^k\)</span>, then denote <span class="math inline">\(g_n(s)=\frac{d}{ds}P_n(s)=\sum_{k=1}^np_kks^{k-1}\)</span>, so we have
 <span class="math display">\[
 \int_0^sg_n(t)dt=\sum_{k=1}^n p_ks^k=P_n(s)-p_0\to P(s)-p_0,
@@ -1376,6 +1401,119 @@ This is just the definition of expectation for a discrete r.v., and by letting <
 <li>Use MVT to prove that the quotient is bounded by other function;</li>
 <li>Prove that function is summable/integrable;</li>
 <li>Use DCT.</li>
+</ol>
+</div>
+<div id="ex-16-1" class="section level2 hasAnchor">
+<h2>Ex 16<a href="chap-5-integration-and-expectation.html#ex-16-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="problem">
+
+</div>
+<div id="a-11" class="section level3 hasAnchor">
+<h3>(a)<a href="chap-5-integration-and-expectation.html#a-11" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><span class="math inline">\(\textbf{My idea:}\)</span>
+Define <span class="math inline">\(f_n(x)\)</span> as
+<span class="math display">\[
+\begin{cases}
+n(x-a) &amp; \text{if } x\in(a,a+\frac1n] \\
+1 &amp; \text{if } x \in (a+\frac1n,b] \\
+-n(x-b)+1 &amp; \text{if } x \in(b,b+\frac1n] \\
+0 &amp; \text{elsewhere},
+\end{cases}
+\]</span>
+so for each <span class="math inline">\(n\)</span>, <span class="math inline">\(f_n\)</span> is bounded and continuous, we leave the checking of continuity here since it is trivial and we check that <span class="math inline">\(f_n\to f\)</span> pointwise.</p>
+<p>For <span class="math inline">\(x\leq a\)</span>, <span class="math inline">\(f_n(x)=f(x)=0\)</span>, for <span class="math inline">\(x\in(a,b]\)</span>, there exists <span class="math inline">\(N\)</span> such that <span class="math inline">\(a+\frac1N&lt;x\)</span>, so when <span class="math inline">\(n\geq N\)</span>, <span class="math inline">\(f_n(x)=1\)</span>, and for <span class="math inline">\(x&gt;b\)</span>, we shall see that there exist <span class="math inline">\(N\)</span> such that <span class="math inline">\(b+\frac 1N&lt;x\)</span>, so when <span class="math inline">\(n\geq N\)</span>, <span class="math inline">\(f_n(x)=0\)</span>, so we have <span class="math inline">\(f_n\to f\)</span>.</p>
+<p>Here is a code for visualization:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="chap-5-integration-and-expectation.html#cb2-1" tabindex="-1"></a>f_n <span class="ot">&lt;-</span> <span class="cf">function</span>(x, a, b, n) {</span>
+<span id="cb2-2"><a href="chap-5-integration-and-expectation.html#cb2-2" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">case_when</span>(</span>
+<span id="cb2-3"><a href="chap-5-integration-and-expectation.html#cb2-3" tabindex="-1"></a>    x <span class="sc">&gt;</span> a <span class="sc">&amp;</span> x <span class="sc">&lt;=</span> a <span class="sc">+</span> <span class="dv">1</span><span class="sc">/</span>n <span class="sc">~</span> n <span class="sc">*</span> (x <span class="sc">-</span> a),</span>
+<span id="cb2-4"><a href="chap-5-integration-and-expectation.html#cb2-4" tabindex="-1"></a>    x <span class="sc">&gt;</span> a <span class="sc">+</span> <span class="dv">1</span><span class="sc">/</span>n <span class="sc">&amp;</span> x <span class="sc">&lt;=</span> b <span class="sc">~</span> <span class="dv">1</span>,</span>
+<span id="cb2-5"><a href="chap-5-integration-and-expectation.html#cb2-5" tabindex="-1"></a>    x <span class="sc">&gt;</span> b <span class="sc">&amp;</span> x <span class="sc">&lt;=</span> b <span class="sc">+</span> <span class="dv">1</span><span class="sc">/</span>n <span class="sc">~</span> <span class="sc">-</span>n <span class="sc">*</span> (x <span class="sc">-</span> b) <span class="sc">+</span> <span class="dv">1</span>,</span>
+<span id="cb2-6"><a href="chap-5-integration-and-expectation.html#cb2-6" tabindex="-1"></a>    <span class="cn">TRUE</span> <span class="sc">~</span> <span class="dv">0</span> </span>
+<span id="cb2-7"><a href="chap-5-integration-and-expectation.html#cb2-7" tabindex="-1"></a>  )</span>
+<span id="cb2-8"><a href="chap-5-integration-and-expectation.html#cb2-8" tabindex="-1"></a>}</span>
+<span id="cb2-9"><a href="chap-5-integration-and-expectation.html#cb2-9" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb2-10"><a href="chap-5-integration-and-expectation.html#cb2-10" tabindex="-1"></a></span>
+<span id="cb2-11"><a href="chap-5-integration-and-expectation.html#cb2-11" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="dv">1</span></span>
+<span id="cb2-12"><a href="chap-5-integration-and-expectation.html#cb2-12" tabindex="-1"></a>b <span class="ot">&lt;-</span> <span class="dv">3</span></span>
+<span id="cb2-13"><a href="chap-5-integration-and-expectation.html#cb2-13" tabindex="-1"></a>n_values <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">5</span>, <span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">40</span>, <span class="dv">80</span>, <span class="dv">160</span>, <span class="dv">320</span>, <span class="dv">640</span>)</span>
+<span id="cb2-14"><a href="chap-5-integration-and-expectation.html#cb2-14" tabindex="-1"></a>x_range <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="fl">0.5</span>, <span class="dv">4</span>, <span class="at">length.out =</span> <span class="dv">1000</span>)</span>
+<span id="cb2-15"><a href="chap-5-integration-and-expectation.html#cb2-15" tabindex="-1"></a></span>
+<span id="cb2-16"><a href="chap-5-integration-and-expectation.html#cb2-16" tabindex="-1"></a>df_list <span class="ot">&lt;-</span> <span class="fu">lapply</span>(n_values, <span class="cf">function</span>(n) {</span>
+<span id="cb2-17"><a href="chap-5-integration-and-expectation.html#cb2-17" tabindex="-1"></a>  <span class="fu">data.frame</span>(<span class="at">x =</span> x_range, <span class="at">y =</span> <span class="fu">f_n</span>(x_range, a, b, n), <span class="at">n =</span> <span class="fu">as.factor</span>(n))</span>
+<span id="cb2-18"><a href="chap-5-integration-and-expectation.html#cb2-18" tabindex="-1"></a>})</span>
+<span id="cb2-19"><a href="chap-5-integration-and-expectation.html#cb2-19" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">do.call</span>(rbind, df_list)</span>
+<span id="cb2-20"><a href="chap-5-integration-and-expectation.html#cb2-20" tabindex="-1"></a></span>
+<span id="cb2-21"><a href="chap-5-integration-and-expectation.html#cb2-21" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y, <span class="at">color =</span> n)) <span class="sc">+</span></span>
+<span id="cb2-22"><a href="chap-5-integration-and-expectation.html#cb2-22" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">size =</span> <span class="fl">0.2</span>) <span class="sc">+</span></span>
+<span id="cb2-23"><a href="chap-5-integration-and-expectation.html#cb2-23" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="fu">paste</span>(<span class="st">&quot;a =&quot;</span>, a, <span class="st">&quot;, b =&quot;</span>, b),</span>
+<span id="cb2-24"><a href="chap-5-integration-and-expectation.html#cb2-24" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">&quot;x&quot;</span>, <span class="at">y =</span> <span class="st">&quot;f_n(x)&quot;</span>) <span class="sc">+</span></span>
+<span id="cb2-25"><a href="chap-5-integration-and-expectation.html#cb2-25" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
+<p><img src="resnick-notes_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+</div>
+</div>
+<div id="ex-18-1" class="section level2 hasAnchor">
+<h2>Ex 18<a href="chap-5-integration-and-expectation.html#ex-18-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="problem">
+<p>Suppose <span class="math inline">\((\Omega, \mathcal{B}, P) = ((0, 1], \mathcal{B}((0, 1]), \lambda)\)</span> where <span class="math inline">\(\lambda\)</span> is Lebesgue measure on <span class="math inline">\((0, 1]\)</span>. Let <span class="math inline">\(\lambda \times \lambda\)</span> be product measure on <span class="math inline">\((0, 1] \times (0, 1]\)</span>. Suppose that <span class="math inline">\(A \subset (0, 1] \times (0, 1]\)</span> is a rectangle whose sides are <strong>NOT</strong> parallel to the axes. Show that
+<span class="math display">\[\lambda \times \lambda(A) = \text{area of } A.\]</span></p>
+</div>
+<p><span class="math inline">\(\textbf{My idea:}\)</span> Divide <span class="math inline">\((0,1]\times(0,1]\)</span> into <span class="math inline">\(n\times n\)</span> little disjoint squares, call them <span class="math inline">\(\{A_i\}\)</span>, and define the area that covers the rectangle from the outside as
+<span class="math display">\[
+S_n^\text{out}=\inf\{\sum_{k=1}^KA_k: A\subseteq\sum_{k=1}^KA_k\},
+\]</span>
+and the area that fills the rectangle from the inside as
+<span class="math display">\[
+S_n^\text{in}=\sup\{\sum_{k=1}^KA_k: \sum_{k=1}^KA_k\subseteq A\}.
+\]</span>
+Since they are all constructed by squares, so their areas are just the number of squares divided by <span class="math inline">\(n^2\)</span>, and we have <span class="math inline">\(S_n^\text{in}\leq\text{area of }A\leq S_n^\text{out}\)</span>.</p>
+<p>What’s left is to prove that when <span class="math inline">\(n\to\infty\)</span>, they converges.</p>
+<p><span class="math inline">\(\textbf{Answer:}\)</span> Let <span class="math inline">\(Q_{ij}=(\frac{i-1}{n},\frac{i}{n}]\times(\frac{j-1}{n},\frac{j}{n}]\)</span> and define
+<span class="math display">\[
+A_{n}^\text{in}=\bigcup\{Q_{ij}:Q_{ij}\subseteq A\},
+\]</span>
+and
+<span class="math display">\[
+A_{n}^\text{out}=\bigcup\{Q_{ij}:Q_{ij}\cap A\neq\varnothing\}.
+\]</span>
+Therefore we have
+<span class="math display">\[
+A_{n}^\text{in}\subseteq A \subseteq A_{n}^\text{out},
+\]</span>
+and denote the area of <span class="math inline">\(A\)</span> as <span class="math inline">\(S\)</span>, since <span class="math inline">\(A_{n}^\text{in}\)</span> and <span class="math inline">\(A_{n}^\text{out}\)</span> are constructed by <span class="math inline">\(Q_{ij}\)</span>, therefore their areas are <span class="math inline">\(S_{n}^\text{in}=\lambda\times\lambda(A_{n}^\text{in})\)</span> and <span class="math inline">\(S_{n}^\text{out}=\lambda\times\lambda(A_{n}^\text{out})\)</span>, and we also have
+<span class="math display">\[
+S_{n}^\text{in}\leq S\leq S_{n}^\text{out}.
+\]</span>
+And we should note that, the difference between <span class="math inline">\(S_{n}^\text{in}\)</span> and <span class="math inline">\(S_{n}^\text{out}\)</span> is from the squares that in <span class="math inline">\(A_{n}^\text{out}\)</span> but not in <span class="math inline">\(A_{n}^\text{in}\)</span>, and those squares must intersect the boundaries of the rectangle <span class="math inline">\(A\)</span>, that is
+<span class="math display">\[
+A_{n}^\text{out}\setminus A_{n}^\text{in}\subseteq\bigcup\{Q_{ij}:Q_{ij}\cap\partial A\neq\varnothing\},
+\]</span>
+and <span class="math inline">\(S_{n}^\text{out}-S_{n}^\text{in}\)</span> is the number of squares in <span class="math inline">\(A_{n}^\text{out}\setminus A_{n}^\text{in}\)</span> divided by <span class="math inline">\(n^2\)</span>.</p>
+<p>For one boundary of the rectangle <span class="math inline">\(L\)</span> with Euclidean <span class="math inline">\(\mathcal{l}(L)\)</span>, suppose the endpoints are <span class="math inline">\((x_0,y_0)\)</span> and <span class="math inline">\((x_1,y_1)\)</span>, and WLOG, we can let the shift on x-axis <span class="math inline">\(\Delta x=x_1-x_0\)</span>, then we can count how many vertical line <span class="math inline">\(x=\frac kn\)</span> that this line cross by counting the <span class="math inline">\(k\)</span> such that
+<span class="math display">\[
+x_0\leq\frac kn\leq x_1\iff nx_0\leq k\leq nx_1,
+\]</span>
+that is equivalence to count the integer on interval <span class="math inline">\([a,b]\)</span>, that is at most <span class="math inline">\(b-a+1\)</span>, so the boundary crosses at most <span class="math inline">\(n(x_1-x_0)+1=n|\Delta x|+1\)</span> squares vertically, similarly, the boundary crosses at most <span class="math inline">\(n|\Delta y|+1\)</span> squares horizontally, so for the total squares it crosses <span class="math inline">\(N_n(L)\)</span>, we have
+<span class="math display">\[
+N_n(L)\leq (n|\Delta x|+1) + (n|\Delta y|+1) +1=n(|\Delta x|+|\Delta y|)+3,
+\]</span>
+and note that <span class="math inline">\(|\Delta x|+|\Delta y|\leq\sqrt 2\mathcal{l}(L)\)</span> because
+<span class="math display">\[
+(|\Delta x|+|\Delta y|)^2=|\Delta x|^2+|\Delta y|^2+2|\Delta x||\Delta y|\leq |\Delta x|^2+|\Delta y|^2+|\Delta x|^2+|\Delta y|^2=2\mathcal{l}(L)^2.
+\]</span>
+According to the above, for the four boundaries of the rectangle, we have
+<span class="math display">\[
+\sum_{i=1}^4N_n(L_i)\leq \sqrt 2n\sum_{i=1}^4\mathcal{l}(L_i)+12=O(n).
+\]</span>
+Therefore
+<span class="math display">\[
+0\leq S_{n}^\text{out}-S_{n}^\text{in}\leq\frac{O(n)}{n^2}\to 0,
+\]</span>
+so we have <span class="math inline">\(\lambda\times\lambda(A)=\text{area of }A\)</span>.</p>
+<p><span class="math inline">\(\textbf{Note:}\)</span> My initial idea is to use the rotation matrix to solve this, but we still don’t have the rotation invariance for product measure, so we can only use the standard analysis routine:approximate <span class="math inline">\(A\)</span> by <strong>finite unions of grid squares</strong> (simple sets), and show the “missed region” is concentrated near <span class="math inline">\(\partial A\)</span>.</p>
+<p>And I summarize the correct idea of this exercise here:</p>
+<ol style="list-style-type: decimal">
+<li>Use big regular set to cover <span class="math inline">\(A\)</span>, and use small regular set to fill up <span class="math inline">\(A\)</span>, here regular I mean some thing that constructed by little squares.</li>
+<li>Show that the difference between their area goes to <span class="math inline">\(0\)</span>.</li>
 </ol>
 
 </div>
