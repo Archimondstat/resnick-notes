@@ -23,7 +23,7 @@
 <meta name="author" content="Zhanwen Peng" />
 
 
-<meta name="date" content="2026-03-01" />
+<meta name="date" content="2026-03-04" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -156,6 +156,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="chap-2-probability-spaces.html"><a href="chap-2-probability-spaces.html"><i class="fa fa-check"></i>Chap 2, Probability Spaces</a>
 <ul>
 <li class="chapter" data-level="" data-path="chap-2-probability-spaces.html"><a href="chap-2-probability-spaces.html#pre-1"><i class="fa fa-check"></i>Pre</a></li>
+<li class="chapter" data-level="" data-path="chap-2-probability-spaces.html"><a href="chap-2-probability-spaces.html#ex-12"><i class="fa fa-check"></i>Ex 12</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="chap-3-random-variables-elements-and-measurable-maps.html"><a href="chap-3-random-variables-elements-and-measurable-maps.html"><i class="fa fa-check"></i>Chap 3, Random Variables, Elements, and Measurable Maps</a>
 <ul>
@@ -166,7 +167,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="chap-4-independence.html"><a href="chap-4-independence.html#summary"><i class="fa fa-check"></i>Summary</a></li>
 <li class="chapter" data-level="" data-path="chap-4-independence.html"><a href="chap-4-independence.html#ex-10"><i class="fa fa-check"></i>Ex 10</a></li>
 <li class="chapter" data-level="" data-path="chap-4-independence.html"><a href="chap-4-independence.html#ex-11"><i class="fa fa-check"></i>Ex 11</a></li>
-<li class="chapter" data-level="" data-path="chap-4-independence.html"><a href="chap-4-independence.html#ex-12"><i class="fa fa-check"></i>Ex 12</a></li>
+<li class="chapter" data-level="" data-path="chap-4-independence.html"><a href="chap-4-independence.html#ex-12-1"><i class="fa fa-check"></i>Ex 12</a></li>
 <li class="chapter" data-level="" data-path="chap-4-independence.html"><a href="chap-4-independence.html#ex-13"><i class="fa fa-check"></i>Ex 13</a></li>
 <li class="chapter" data-level="" data-path="chap-4-independence.html"><a href="chap-4-independence.html#ex-14"><i class="fa fa-check"></i>Ex 14</a></li>
 <li class="chapter" data-level="" data-path="chap-4-independence.html"><a href="chap-4-independence.html#ex-15"><i class="fa fa-check"></i>Ex 15</a>
@@ -291,6 +292,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#ex-18-1"><i class="fa fa-check"></i>Ex 18</a></li>
 <li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#ex-23-1"><i class="fa fa-check"></i>Ex 23</a></li>
+<li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#ex-12-2"><i class="fa fa-check"></i>Ex 12</a></li>
 </ul></li>
 </ul>
 
@@ -1525,6 +1527,46 @@ so we have <span class="math inline">\(\lambda\times\lambda(A)=\text{area of }A\
 <p><span class="math inline">\(\textbf{My idea:}\)</span> For <span class="math inline">\(\sigma\)</span>-algebra <span class="math inline">\(\mathcal{B}\)</span> on product space <span class="math inline">\(\Omega_1\times\Omega_2\)</span>, if we want the coordinate mappings <span class="math inline">\(\pi_1\)</span> and <span class="math inline">\(\pi_2\)</span> are <span class="math inline">\(\mathcal{B}\)</span>-measurable, then for any <span class="math inline">\(A_1\in \mathcal{B}_1\)</span>, <span class="math inline">\(\pi_1^{-1}(A_1)\in\mathcal{B}\)</span> and for any <span class="math inline">\(A_2\in\mathcal{B}_2\)</span>, <span class="math inline">\(\pi_2^{-1}(A_2)\in\mathcal{B}\)</span>. However, we have for any <span class="math inline">\(A_1\in \mathcal{B}_1\)</span>, <span class="math inline">\(\pi_1^{-1}(A_1)=A_1\times\Omega_2\in\mathcal{B}_1\times\mathcal{B}_2\)</span> and for any <span class="math inline">\(A_2\in\mathcal{B}_2\)</span>, <span class="math inline">\(\pi_2^{-1}(A_2)=\Omega_1\times A_2\in\mathcal{B}_1\times\mathcal{B}_2\)</span>, therefore <span class="math inline">\(\mathcal{B}_1\times\mathcal{B}_2\subseteq\mathcal{B}\)</span>.</p>
 <p><span class="math inline">\(\textbf{Answer:}\)</span> For <span class="math inline">\(\sigma\)</span>-algebra <span class="math inline">\(\mathcal{B}\)</span> on product space <span class="math inline">\(\Omega_1\times\Omega_2\)</span>, if we want the coordinate mappings <span class="math inline">\(\pi_1\)</span> and <span class="math inline">\(\pi_2\)</span> are <span class="math inline">\(\mathcal{B}\)</span>-measurable, then for any <span class="math inline">\(A_1\in \mathcal{B}_1\)</span>, <span class="math inline">\(\pi_1^{-1}(A_1)\in\mathcal{B}\)</span> and for any <span class="math inline">\(A_2\in\mathcal{B}_2\)</span>, <span class="math inline">\(\pi_2^{-1}(A_2)\in\mathcal{B}\)</span>. However, we have for any <span class="math inline">\(A_1\in \mathcal{B}_1\)</span>, <span class="math inline">\(\pi_1^{-1}(A_1)=A_1\times\Omega_2\in\mathcal{B}_1\times\mathcal{B}_2\)</span> and for any <span class="math inline">\(A_2\in\mathcal{B}_2\)</span>, <span class="math inline">\(\pi_2^{-1}(A_2)=\Omega_1\times A_2\in\mathcal{B}_1\times\mathcal{B}_2\)</span>, so far, <span class="math inline">\(\mathcal{B}\)</span> contains set of the form <span class="math inline">\(A_1\times\Omega_2\)</span> and <span class="math inline">\(\Omega_1\times A_2\)</span>, which we call strips, and since <span class="math inline">\(\mathcal{B}\)</span> is a (<span class="math inline">\(\sigma-\)</span>)algebra, it is closed under intersection, therefore the rectangle <span class="math inline">\(A_1\times A_2=(A_1\times\Omega_2)\cap(\Omega_1\times A_2)\in\mathcal{B}\)</span>, therefore the <span class="math inline">\(\sigma\)</span>-algebra generated by rectangles, which is <span class="math inline">\(\mathcal{B}_1\times\mathcal{B}_2\)</span> is also a subset of <span class="math inline">\(\mathcal{B}\)</span>, that is, <span class="math inline">\(\mathcal{B}_1\times\mathcal{B}_2\subseteq\mathcal{B}\)</span>. Conversely, for any <span class="math inline">\(A_1\in\mathcal{B}_1\)</span>, <span class="math inline">\(\pi_1^{-1}=A_1\times\Omega_2\in\text{RECT}\subseteq\mathcal{B}_1\times\mathcal{B}_2\)</span>, and similarly for <span class="math inline">\(\pi_2\)</span>, therefore <span class="math inline">\(\pi_1\)</span> and <span class="math inline">\(\pi_2\)</span> are <span class="math inline">\(\mathcal{B}_1\times\mathcal{B}_2\)</span>-measurable, so it is the smallest such <span class="math inline">\(\sigma\)</span>-algebra.</p>
 <p><span class="math inline">\(\textbf{Note:}\)</span> In <strong>my idea</strong> part, I only proved that the strips are in <span class="math inline">\(\mathcal{B}\)</span>, but what we finally need is that all the rectangles are in <span class="math inline">\(\mathcal{B}\)</span>. Further, we should write down <span class="math inline">\(\pi_1\)</span> and <span class="math inline">\(\pi_2\)</span> are <span class="math inline">\(\mathcal{B}_1\times\mathcal{B}_2\)</span>-measurable even if we actually already knew it.</p>
+</div>
+<div id="ex-12-2" class="section level2 hasAnchor">
+<h2>Ex 12<a href="chap-5-integration-and-expectation.html#ex-12-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="problem">
+<ol start="12" style="list-style-type: decimal">
+<li>Suppose <span class="math inline">\(X\)</span> is an uncountable set and let <span class="math inline">\(\mathcal{B}\)</span> be the <span class="math inline">\(\sigma\)</span>-field of countable and co-countable (complements are countable) sets. Show that the diagonal <span class="math inline">\(\text{DIAG}  := \{(x, x) : x \in X\} \notin \mathcal{B} \times \mathcal{B}\)</span> is <strong>not</strong> in the product <span class="math inline">\(\sigma\)</span>-field. However, every section of $ $ is measurable.
+<ul>
+<li><strong>Hints</strong>:
+<ul>
+<li>Show that <span class="math inline">\(\mathcal{B} \times \mathcal{B} = \sigma(\{\{x\} \times X, X \times \{x\}, x \in X\})\)</span>.</li>
+<li>Review Exercise 12 in Chapter 2.</li>
+<li>Proceed by contradiction. Suppose <span class="math inline">\(\text{DIAG}  \in \mathcal{B} \times \mathcal{B}\)</span>. Then there exists countable <span class="math inline">\(S \subset X\)</span> such that <span class="math inline">\(\text{DIAG}  \in \sigma(\{\{x\} \times X, X \times \{x\}, x \in S\}) =: \mathcal{G}\)</span>.</li>
+<li>Define <span class="math inline">\(\mathcal{P} := \{\{s\}, s \in S, S^c\}\)</span> and observe this is a partition of <span class="math inline">\(X\)</span>.</li>
+<li>Show it is impossible for <span class="math inline">\(\text{DIAG} \in \mathcal{G}\)</span>.</li>
+</ul></li>
+</ul></li>
+</ol>
+</div>
+<p><span class="math inline">\(\textbf{Answer:}\)</span> For <span class="math inline">\(A\in\mathcal{B}\)</span>, then <span class="math inline">\(A\)</span> is either countable or co-countable, so <span class="math inline">\(A\)</span> can expressed as <span class="math inline">\(\bigcup_{n}\{x_n\}\)</span> or <span class="math inline">\((\bigcup_{n}\{x_n\})^c\)</span>, therefore for strip <span class="math inline">\(A\times X\)</span>, it can be expressed by the horizontal line <span class="math inline">\(\{x\}\times X\)</span>, and similarly for strip <span class="math inline">\(X\times A\)</span>, since the rectangle is the intersection of strips, so we have
+<span class="math display">\[
+\mathcal{B}\times\mathcal{B}=\sigma\{\{x\}\times X,X\times\{x\},x\in X\}.
+\]</span>
+Suppose <span class="math inline">\(\text{DIAG}\in\mathcal{B}\times\mathcal{B}\)</span>, then by Exercise 12 in Chapter 2, we knew that there exists a countable subset <span class="math inline">\(S\subseteq X\)</span>, such that
+<span class="math display">\[
+\text{DIAG}\in\sigma\{\{x\}\times X,X\times\{x\},x\in S\}=:\mathcal{G}.
+\]</span>
+Define <span class="math inline">\(\mathcal{P}=\{\{s\},s\in S\}\cup \{S^c\}\)</span>, we shall see that it is a partition of <span class="math inline">\(X\)</span> since <span class="math inline">\((\bigcup\{s\})\cup S^c=X\)</span>, therefore, <span class="math inline">\(\{\Lambda_1\times\Lambda_2:\Lambda_i\in\mathcal{P}_i\}\)</span> is a partition of <span class="math inline">\(X\times X\)</span>.
+We have that <span class="math inline">\(\{x\}\times X=\bigcup_{t\in S}(\{x\}\times\{t\})\cup(\{x\}\times S^c)\)</span>, and similarly for <span class="math inline">\(X\times\{x\}\)</span>, conversely, each <span class="math inline">\(\Lambda_1\times\Lambda_2\)</span> is the intersection of horizontal strip and vertical strip, therefore we have
+<span class="math display">\[
+\mathcal{G}=\sigma(\{\Lambda_1\times\Lambda_2:\Lambda_i\in\mathcal{P}_i\}).
+\]</span>
+Let <span class="math inline">\(\mathcal{A}=\{\Lambda_1\times\Lambda_2:\Lambda_i\in\mathcal{P}_i\}\)</span>, it is a countable partition of <span class="math inline">\(X\times X\)</span>, so every <span class="math inline">\(G\in \mathcal{G}=\sigma(\mathcal{A})\)</span> can be written as union of <span class="math inline">\(\Lambda_j\times\Lambda_k\)</span>, in particular, since <span class="math inline">\(S^c\times S^c\in\mathcal{A}\)</span>, then for every <span class="math inline">\(G\in \mathcal{G}\)</span>, we must have either <span class="math inline">\(S^c\times S^c\subseteq G\)</span> or <span class="math inline">\(S^c\times S^c\cap G=\varnothing\)</span>. Then for <span class="math inline">\(\text{DIAG}\)</span>, we should see that <span class="math inline">\(\text{DIAG}\cap S^c\times S^c=\{(x,x):x\in S^c\}\neq\varnothing\)</span> and <span class="math inline">\(S^c\times S^c\setminus\text{DIAG}=\{(a,b):a,b\in S^c,a\neq b\}\)</span>, so we get contradiction.</p>
+<p>However, for the section of <span class="math inline">\(\text{DIAG}\)</span>, they are just the single point in <span class="math inline">\(X\)</span>, so they are measurable.</p>
+<p><span class="math inline">\(\textbf{Note:}\)</span> Firstly, what I failed to see is that, when a <span class="math inline">\(\sigma\)</span>-algebra <span class="math inline">\(\mathcal{G}\)</span> is generated by a countable partition, call it <span class="math inline">\(\mathcal{A}\)</span>, then the elements in <span class="math inline">\(\mathcal{A}\)</span> are actually the atoms of <span class="math inline">\(\mathcal{G}\)</span>, and every <span class="math inline">\(G\in\mathcal{G}\)</span> is the union of atoms, since they cannot be cut any “smaller”.</p>
+<p>Secondly is that I want to summarize what this exercise wants to tell, it seems that the point is, if we define the <span class="math inline">\(\sigma\)</span>-algebra too roughly/coarsely, then we will lose some important structure like the diagonal line, in our example, the <span class="math inline">\(\sigma\)</span>-algebra generated by horizontal and vertical line, so we lose the information that needs both coordinate.</p>
+<p>Further, for <span class="math inline">\(x_0\in X\)</span>, then <span class="math inline">\(\{x_0\}\times X\cap X\times\{x_0\}=\{(x_0,x_0)\}\)</span> should be measureable, but for DIAG, it is the uncountable union of such set since <span class="math inline">\(X\)</span> is uncountable. So in summary, we just cannot knit the DIAG by only using countable horizontal/vertical lines because from exercise 12 in chapter 2 we knew that, membership in a generated <span class="math inline">\(\sigma\)</span>-field always “uses” at most only countably many generators. and the idea in this exercise is exactly proving that, the DIAG cannot using only countably generators. Suppose we have a metric on <span class="math inline">\(X\)</span>, and using Borel set, then we will have
+<span class="math display">\[
+\text{DIAG}=\bigcap_{n=1}^\infty\{(x,y):d(x,y)&lt;\frac1n\},
+\]</span>
+which is measurable.</p>
 
 </div>
 </div>

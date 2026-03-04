@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chap 2, Probability Spaces | Notes on A Probability Path (Resnick)</title>
   <meta name="description" content="Chap 2, Probability Spaces | Notes on A Probability Path (Resnick)" />
-  <meta name="generator" content="bookdown 0.42 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.46 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chap 2, Probability Spaces | Notes on A Probability Path (Resnick)" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="Zhanwen Peng" />
 
 
-<meta name="date" content="2026-03-03" />
+<meta name="date" content="2026-03-04" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -272,7 +272,7 @@ firstly, since <span class="math inline">\(\mathcal{C}\)</span> is non-empty, se
 \mathcal{G}=\{B\subseteq\Omega:\exists\,\text{countable}\ \mathcal{C}_B\ \text{such that}\,B\in \sigma(\mathcal{C}_B)\},
 \]</span>
 firstly, surely we have <span class="math inline">\(\Omega\in\sigma(\varnothing)\)</span> and <span class="math inline">\(\varnothing\)</span> is countable, so <span class="math inline">\(\Omega\in\mathcal{G}\)</span>, and for <span class="math inline">\(B\in\mathcal{G}\)</span>, by definition, there exists a countable subset <span class="math inline">\(\mathcal{C}_{B}\)</span> such that <span class="math inline">\(B\in \sigma(\mathcal{C}_B)\)</span>, so <span class="math inline">\(B^c\in \sigma(\mathcal{C}_B)\)</span>, that is, <span class="math inline">\(B^c\in\mathcal{G}\)</span>. Further, suppose we have <span class="math inline">\(B_n\in\mathcal{G}\)</span>, so for each <span class="math inline">\(B_n\)</span>, there exists a countable subset <span class="math inline">\(\mathcal{C}_{B_n}\)</span> such that <span class="math inline">\(B_n\in \sigma(\mathcal{C}_{B_n})\)</span>, so we have <span class="math inline">\(\bigcup_n B_n\in\sigma(\bigcup_n\mathcal{C}_{B_n})\)</span>, <span class="math inline">\(\bigcup_n\mathcal{C}_{B_n}\subseteq\mathcal{C}\)</span> and is countable. Therefore, <span class="math inline">\(\mathcal{G}\)</span> is a <span class="math inline">\(\sigma\)</span>-field, and for each element of <span class="math inline">\(\mathcal{C}\)</span>, call it <span class="math inline">\(B_c\)</span>, it is a subset of <span class="math inline">\(\Omega\)</span>, and we have <span class="math inline">\(B_c\in\sigma(\{B_c\})\)</span>, so <span class="math inline">\(\mathcal{C}\subseteq\mathcal{G}\)</span>, so <span class="math inline">\(\sigma(\mathcal{C})\subseteq\mathcal{G}\)</span>, and since <span class="math inline">\(B\in\sigma(\mathcal{C})\)</span>, then <span class="math inline">\(B\in\mathcal{G}\)</span>.</p>
-<p><span class="math inline">\(\textbf{Note:}\)</span> We should not assume that <span class="math inline">\(\mathcal{C}\)</span> is non-empty.</p>
+<p><span class="math inline">\(\textbf{Note:}\)</span> We should not assume that <span class="math inline">\(\mathcal{C}\)</span> is non-empty. And what this exercise wants to tell us is that membership in a generated <span class="math inline">\(\sigma\)</span>-field always “uses” at most only countably many generators, these countably many generators can be seen as the “witness/subdescription” for that set.</p>
 
 </div>
 </div>
