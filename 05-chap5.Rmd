@@ -1291,4 +1291,41 @@ $\textbf{Answer:}$ For $\sigma$-algebra $\mathcal{B}$ on product space $\Omega_1
 $\textbf{Note:}$ In **my idea** part, I only proved that the strips are in $\mathcal{B}$, but what we finally need is that all the rectangles are in $\mathcal{B}$. Further, we should write down  $\pi_1$ and $\pi_2$ are $\mathcal{B}_1\times\mathcal{B}_2$-measurable even if we actually already knew it.
 
 
+## Ex 12
+::: problem
+
+:::
+
+$\textbf{My idea:}$ For $A\in\mathcal{B}$, then $A$ is either countable or co-countable, so $A$ can expressed as $\bigcup_{n}\{x_n\}$ or $(\bigcup_{n}\{x_n\})^c$, therefore for strip $A\times X$, it can be expressed by the horizontal line $x\times X$, and similarly for strip $X\times A$, since the rectangle is the intersection of strips, so we have 
+$$
+\mathcal{B}\times\mathcal{B}=\sigma\{\{x\}\times X,X\times\{x\},x\in X\}.
+$$
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

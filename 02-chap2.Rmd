@@ -4,3 +4,31 @@
 
 Currently, this chapter serves as a placeholder for my retrospective review.
 
+## Ex 12
+::: problem
+Suppose $\mathcal{C}$ is a class of subsets of $\Omega$ and suppose $B \subset \Omega$ satisfies $B \in \sigma(\mathcal{C})$. Show that there exists a countable class $\mathcal{C}_B \subset \mathcal{C}$ such that $B \in \sigma(\mathcal{C}_B)$.
+
+Hint: Define
+\[
+\mathcal{G} := \{B \subset \Omega : \exists \text{ countable } \mathcal{C}_B \subset \mathcal{C} \text{ such that } B \in \sigma(\mathcal{C}_B)\}.
+\]
+Show that $\mathcal{G}$ is a $\sigma$-field that contains $\mathcal{C}$.
+:::
+
+$\textbf{My idea:}$ Let 
+$$
+\mathcal{G}=\{B\subseteq\Omega:\exists\,\text{countable}\ \mathcal{C}_B\ \text{such that}\,B\in \sigma(\mathcal{C}_B)\},
+$$
+firstly, since $\mathcal{C}$ is non-empty, select single subset $\mathcal{C}_{B_1}\subseteq\mathcal{C}$, surely we have $\Omega\in\sigma(\mathcal{C}_{B_1})$, so $\Omega\in\mathcal{G}$, and for $B\in\mathcal{G}$, by definition, there exists a countable subset $\mathcal{C}_{B}$ such that $B\in \sigma(\mathcal{C}_B)$, so $B^c\in \sigma(\mathcal{C}_B)$, that is, $B^c\in\mathcal{G}$. Further, suppose we have $B_n\in\mathcal{G}$, so for each $B_n$, there exists a countable subset $\mathcal{C}_{B_n}$ such that $B_n\in \sigma(\mathcal{C}_{B_n})$, so we have $\bigcup_n B_n\in\sigma(\bigcup_n\mathcal{C}_{B_n})$, $\bigcup_n\mathcal{C}_{B_n}\subseteq\mathcal{C}$ and is countable. Therefore, $\mathcal{G}$ is a $\sigma$-field, and for each element of $\mathcal{C}$, call it $B_c$, it is a subset of $\Omega$, and we have $B_c\in\sigma(\{B_c\})$, so $\mathcal{C}\subseteq\mathcal{G}$, therefore we completed the proof.
+
+$\textbf{Answer:}$ Let 
+$$
+\mathcal{G}=\{B\subseteq\Omega:\exists\,\text{countable}\ \mathcal{C}_B\ \text{such that}\,B\in \sigma(\mathcal{C}_B)\},
+$$
+firstly, surely we have $\Omega\in\sigma(\varnothing)$ and $\varnothing$ is countable, so $\Omega\in\mathcal{G}$, and for $B\in\mathcal{G}$, by definition, there exists a countable subset $\mathcal{C}_{B}$ such that $B\in \sigma(\mathcal{C}_B)$, so $B^c\in \sigma(\mathcal{C}_B)$, that is, $B^c\in\mathcal{G}$. Further, suppose we have $B_n\in\mathcal{G}$, so for each $B_n$, there exists a countable subset $\mathcal{C}_{B_n}$ such that $B_n\in \sigma(\mathcal{C}_{B_n})$, so we have $\bigcup_n B_n\in\sigma(\bigcup_n\mathcal{C}_{B_n})$, $\bigcup_n\mathcal{C}_{B_n}\subseteq\mathcal{C}$ and is countable. Therefore, $\mathcal{G}$ is a $\sigma$-field, and for each element of $\mathcal{C}$, call it $B_c$, it is a subset of $\Omega$, and we have $B_c\in\sigma(\{B_c\})$, so $\mathcal{C}\subseteq\mathcal{G}$, so $\sigma(\mathcal{C})\subseteq\mathcal{G}$, and since $B\in\sigma(\mathcal{C})$, then $B\in\mathcal{G}$.
+
+$\textbf{Note:}$ We should not assume that $\mathcal{C}$ is non-empty.
+
+
+
+
