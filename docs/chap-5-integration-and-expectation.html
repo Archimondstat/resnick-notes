@@ -23,7 +23,7 @@
 <meta name="author" content="Zhanwen Peng" />
 
 
-<meta name="date" content="2026-03-04" />
+<meta name="date" content="2026-03-06" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -293,6 +293,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#ex-18-1"><i class="fa fa-check"></i>Ex 18</a></li>
 <li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#ex-23-1"><i class="fa fa-check"></i>Ex 23</a></li>
 <li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#ex-12-2"><i class="fa fa-check"></i>Ex 12</a></li>
+<li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#ex-17-1"><i class="fa fa-check"></i>Ex 17</a></li>
 </ul></li>
 </ul>
 
@@ -431,9 +432,9 @@ E(\limsup_{n\to\infty} X_n)&amp;=E\left\{\lim_{n\to\infty}(\sup_{k\geq n}X_k)\ri
 &amp;=\limsup_{n\to\infty} E(X_n)
 \end{aligned}
 \]</span>
-what’s wrong is that, we incorrectly used the decreasing version of MCT, that is, generally we don’t have <span class="math inline">\(E\left\{\lim_{n\to\infty}(\sup_{k\geq n}X_k)\right\}=\lim_{n\to\infty}E(\sup_{k\geq n}X_k)\)</span>, for example, we can let <span class="math inline">\(X_n=n\mathbb{1}_{(0,\frac{1}{n})}\)</span> on <span class="math inline">\((\Omega,\mathcal{B},P)=((0,1),\mathcal{B}((0,1)),\lambda)\)</span>, then <span class="math inline">\(X_n\to 0\)</span> a.s., and <span class="math inline">\(E(X_n)=1\)</span>, so <span class="math inline">\(\limsup_{n\to\infty} E(X_n)=1\)</span> of course. However, if we focus on <span class="math inline">\(\lim_{n\to\infty}E(\sup_{k\geq n}X_k)\)</span>, we should see that
+what’s wrong is that, we incorrectly used the decreasing version of MCT, that is, generally we don’t have <span class="math inline">\(E\left\{\lim_{n\to\infty}(\sup_{k\geq n}X_k)\right\}=\lim_{n\to\infty}E(\sup_{k\geq n}X_k)\)</span>, for example, we can let <span class="math inline">\(X_n=n\mathbf{1}_{(0,\frac{1}{n})}\)</span> on <span class="math inline">\((\Omega,\mathcal{B},P)=((0,1),\mathcal{B}((0,1)),\lambda)\)</span>, then <span class="math inline">\(X_n\to 0\)</span> a.s., and <span class="math inline">\(E(X_n)=1\)</span>, so <span class="math inline">\(\limsup_{n\to\infty} E(X_n)=1\)</span> of course. However, if we focus on <span class="math inline">\(\lim_{n\to\infty}E(\sup_{k\geq n}X_k)\)</span>, we should see that
 <span class="math display">\[
-S_n(\omega)=\sup_{k\geq n}X_k(\omega)=\left\lfloor\frac{1}{\omega}\right\rfloor\mathbb{1}_{(0,\frac{1}{n})}\, \text{a.s.}
+S_n(\omega)=\sup_{k\geq n}X_k(\omega)=\left\lfloor\frac{1}{\omega}\right\rfloor\mathbf{1}_{(0,\frac{1}{n})}\, \text{a.s.}
 \]</span>
 Then what is <span class="math inline">\(E(\sup_{k\geq n}X_k)\)</span>? I think that is the interesting part
 <span class="math display">\[
@@ -782,11 +783,11 @@ is continuous.</p></li>
 &amp;=E(X^+\mathbf{1}_{[|X|\geq n]})-E(X^-\mathbf{1}_{[|X|\geq n]})\downarrow0.
 \end{aligned}
 \]</span></p>
-<p><span class="math inline">\(\textbf{Answer:}\)</span> Let <span class="math inline">\(X_n=|X|\mathbb{1}_{\{|X|&gt;n\}}\)</span>, then <span class="math inline">\(0\leq X_{n+1}\leq X_n\)</span>, so <span class="math inline">\(X_n\downarrow0\)</span> a.s., since <span class="math inline">\(P(|X|&lt;\infty)=1\)</span>, so for a.e. <span class="math inline">\(\omega\in\Omega\)</span>, <span class="math inline">\(|X(\omega)|&lt;\infty\)</span>, also, since <span class="math inline">\(0\leq X_n\leq|X|\)</span>, then <span class="math inline">\(X_n\in L_1\)</span>. By MCT (decreasing version) , we have <span class="math inline">\(E(X_n)\downarrow0\)</span>, therefore
+<p><span class="math inline">\(\textbf{Answer:}\)</span> Let <span class="math inline">\(X_n=|X|\mathbf{1}_{\{|X|&gt;n\}}\)</span>, then <span class="math inline">\(0\leq X_{n+1}\leq X_n\)</span>, so <span class="math inline">\(X_n\downarrow0\)</span> a.s., since <span class="math inline">\(P(|X|&lt;\infty)=1\)</span>, so for a.e. <span class="math inline">\(\omega\in\Omega\)</span>, <span class="math inline">\(|X(\omega)|&lt;\infty\)</span>, also, since <span class="math inline">\(0\leq X_n\leq|X|\)</span>, then <span class="math inline">\(X_n\in L_1\)</span>. By MCT (decreasing version) , we have <span class="math inline">\(E(X_n)\downarrow0\)</span>, therefore
 <span class="math display">\[
 \begin{aligned}
-\left|\int_{\{|X|&gt;n\}}XdP\right|&amp;=\left|\int X\mathbb{1}_{\{|X|&gt;n\}}dP\right|\\
-&amp;\leq\int \left|X\mathbb{1}_{\{|X|&gt;n\}}\right|dP\\
+\left|\int_{\{|X|&gt;n\}}XdP\right|&amp;=\left|\int X\mathbf{1}_{\{|X|&gt;n\}}dP\right|\\
+&amp;\leq\int \left|X\mathbf{1}_{\{|X|&gt;n\}}\right|dP\\
 &amp;=E(X_n)\to0.
 \end{aligned}
 \]</span>
@@ -795,20 +796,20 @@ so we have <span class="math inline">\(\int_{\{|X|&gt;n\}}XdP\to0\)</span>.</p>
 </div>
 <div id="b-7" class="section level3 hasAnchor">
 <h3>(b)<a href="chap-5-integration-and-expectation.html#b-7" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p><span class="math inline">\(\textbf{My idea:}\)</span> Since <span class="math inline">\(X\in L_1\)</span>, then for any <span class="math inline">\(\varepsilon&gt;0\)</span>, there exists <span class="math inline">\(M&gt;0\)</span> such that <span class="math inline">\(\int_{\{|X|&gt;M\}}|X|dP&lt;\varepsilon\)</span> since from (a) we knew that <span class="math inline">\(\int \left|X\mathbb{1}_{\{|X|&gt;n\}}\right|dP\downarrow0\)</span>, so for such <span class="math inline">\(M\)</span>, we have
+<p><span class="math inline">\(\textbf{My idea:}\)</span> Since <span class="math inline">\(X\in L_1\)</span>, then for any <span class="math inline">\(\varepsilon&gt;0\)</span>, there exists <span class="math inline">\(M&gt;0\)</span> such that <span class="math inline">\(\int_{\{|X|&gt;M\}}|X|dP&lt;\varepsilon\)</span> since from (a) we knew that <span class="math inline">\(\int \left|X\mathbf{1}_{\{|X|&gt;n\}}\right|dP\downarrow0\)</span>, so for such <span class="math inline">\(M\)</span>, we have
 <span class="math display">\[
 \begin{aligned}
 \int_{A_n}|X|dP&amp;=\int_{A_n\cap[|X|\leq M]}|X|dP+\int_{A_n\cap[|X|&gt; M]}|X|dP\\
-&amp;\leq M\int\mathbb{1}_{A_n}dP+\int_{[|X|&gt; M]}|X|dP\\
+&amp;\leq M\int\mathbf{1}_{A_n}dP+\int_{[|X|&gt; M]}|X|dP\\
 &amp;\leq MP(A_n)+\varepsilon,
 \end{aligned}
 \]</span>
 since <span class="math inline">\(P(A_n)\to0\)</span> and the <span class="math inline">\(\varepsilon\)</span> is arbitrary, we have <span class="math inline">\(\int_{A_n}|X|dP\to0\)</span>, therefore <span class="math inline">\(\int_{A_n}XdP\to0\)</span>.</p>
-<p><span class="math inline">\(\textbf{Answer:}\)</span> (Pure <span class="math inline">\(\varepsilon-N\)</span> version) Since <span class="math inline">\(X\in L_1\)</span>, then for any <span class="math inline">\(\varepsilon&gt;0\)</span>, there exists <span class="math inline">\(M&gt;0\)</span> such that <span class="math inline">\(\int_{\{|X|&gt;M\}}|X|dP&lt;\frac{\varepsilon}{2}\)</span> since from (a) we knew that <span class="math inline">\(\int \left|X\mathbb{1}_{\{|X|&gt;n\}}\right|dP\downarrow0\)</span>, so for such <span class="math inline">\(M\)</span>, we have
+<p><span class="math inline">\(\textbf{Answer:}\)</span> (Pure <span class="math inline">\(\varepsilon-N\)</span> version) Since <span class="math inline">\(X\in L_1\)</span>, then for any <span class="math inline">\(\varepsilon&gt;0\)</span>, there exists <span class="math inline">\(M&gt;0\)</span> such that <span class="math inline">\(\int_{\{|X|&gt;M\}}|X|dP&lt;\frac{\varepsilon}{2}\)</span> since from (a) we knew that <span class="math inline">\(\int \left|X\mathbf{1}_{\{|X|&gt;n\}}\right|dP\downarrow0\)</span>, so for such <span class="math inline">\(M\)</span>, we have
 <span class="math display">\[
 \begin{aligned}
 \int_{A_n}|X|dP&amp;=\int_{A_n\cap[|X|\leq M]}|X|dP+\int_{A_n\cap[|X|&gt; M]}|X|dP\\
-&amp;\leq M\int\mathbb{1}_{A_n}dP+\int_{[|X|&gt; M]}|X|dP\\
+&amp;\leq M\int\mathbf{1}_{A_n}dP+\int_{[|X|&gt; M]}|X|dP\\
 &amp;\leq MP(A_n)+\frac{\varepsilon}{2},
 \end{aligned}
 \]</span>
@@ -817,28 +818,28 @@ since <span class="math inline">\(P(A_n)\to0\)</span>, exists <span class="math 
 \int_{A_n}|X|dP\leq\left(\frac{\varepsilon}{2}+\frac{\varepsilon}{2}\right)=\varepsilon
 \]</span>
 since the <span class="math inline">\(\varepsilon\)</span> is arbitrary, we have <span class="math inline">\(\int_{A_n}|X|dP\to0\)</span>, therefore <span class="math inline">\(\int_{A_n}XdP\to0\)</span>.</p>
-<p><span class="math inline">\(\textbf{Note:}\)</span> We cannot conclude that <span class="math inline">\(|X|\mathbb{1}_{A_n}\to0\)</span> from <span class="math inline">\(P(A_n)\to0\)</span>, but we are only required to prove that the mass on <span class="math inline">\(|X|\mathbb{1}_{A_n}\)</span> decrease to <span class="math inline">\(0\)</span>, Using the tail control from part (a), we pick a large cutoff <span class="math inline">\(M\)</span> and split the integral into two pieces: on <span class="math inline">\(\{|X|\le M\}\)</span> it is controlled by <span class="math inline">\(P(A_n)\)</span>, and on <span class="math inline">\(\{|X|&gt;M\}\)</span> it is controlled by the tail of <span class="math inline">\(X\)</span>.</p>
+<p><span class="math inline">\(\textbf{Note:}\)</span> We cannot conclude that <span class="math inline">\(|X|\mathbf{1}_{A_n}\to0\)</span> from <span class="math inline">\(P(A_n)\to0\)</span>, but we are only required to prove that the mass on <span class="math inline">\(|X|\mathbf{1}_{A_n}\)</span> decrease to <span class="math inline">\(0\)</span>, Using the tail control from part (a), we pick a large cutoff <span class="math inline">\(M\)</span> and split the integral into two pieces: on <span class="math inline">\(\{|X|\le M\}\)</span> it is controlled by <span class="math inline">\(P(A_n)\)</span>, and on <span class="math inline">\(\{|X|&gt;M\}\)</span> it is controlled by the tail of <span class="math inline">\(X\)</span>.</p>
 <p>We need a counter example here:</p>
 </div>
 <div id="c-5" class="section level3 hasAnchor">
 <h3>(c)<a href="chap-5-integration-and-expectation.html#c-5" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><span class="math inline">\(\textbf{My idea:}\)</span></p>
-<p>“<span class="math inline">\(\Rightarrow\)</span>”: Suppose we have <span class="math inline">\(\int_A|X|dP=\int|X|\mathbb{1}_AdP=0\)</span>, then for any <span class="math inline">\(\varepsilon&gt;0\)</span>, we have
+<p>“<span class="math inline">\(\Rightarrow\)</span>”: Suppose we have <span class="math inline">\(\int_A|X|dP=\int|X|\mathbf{1}_AdP=0\)</span>, then for any <span class="math inline">\(\varepsilon&gt;0\)</span>, we have
 <span class="math display">\[
 \begin{aligned}
-P(A\cap[|X|&gt;0])&amp;=\int\mathbb{1}_{\{A\cap[|X|&gt;0]\}}dP\\
-&amp;=\int\mathbb{1}_{\{A\cap[0&lt;|X|\leq\varepsilon]\}}dP+\int\mathbb{1}_{\{A\cap[|X|&gt;\varepsilon]\}}dP\\
-&amp;\leq\varepsilon+\int\frac{|X|}{\varepsilon}\mathbb{1}_{\{A\cap[|X|&gt;\varepsilon]\}}dP\\
+P(A\cap[|X|&gt;0])&amp;=\int\mathbf{1}_{\{A\cap[|X|&gt;0]\}}dP\\
+&amp;=\int\mathbf{1}_{\{A\cap[0&lt;|X|\leq\varepsilon]\}}dP+\int\mathbf{1}_{\{A\cap[|X|&gt;\varepsilon]\}}dP\\
+&amp;\leq\varepsilon+\int\frac{|X|}{\varepsilon}\mathbf{1}_{\{A\cap[|X|&gt;\varepsilon]\}}dP\\
 &amp;\leq\varepsilon+0=\varepsilon,
 \end{aligned}
 \]</span>
 since <span class="math inline">\(\varepsilon\)</span> is arbitrary, we have <span class="math inline">\(P(A\cap[|X|&gt;0])=0\)</span>.</p>
-<p>“<span class="math inline">\(\Leftarrow\)</span>”: conversely, this time we have <span class="math inline">\(P(A\cap[|X|&gt;0])=0\)</span>, and since <span class="math inline">\(X\in L_1\)</span>, using the result from (a) and (b), we know that for any <span class="math inline">\(\varepsilon&gt;0\)</span>, there exists <span class="math inline">\(M&gt;0\)</span>, such that <span class="math inline">\(\int |X|\mathbb{1}_{[|X|&gt;m]}dP\leq\varepsilon\)</span>, therefore
+<p>“<span class="math inline">\(\Leftarrow\)</span>”: conversely, this time we have <span class="math inline">\(P(A\cap[|X|&gt;0])=0\)</span>, and since <span class="math inline">\(X\in L_1\)</span>, using the result from (a) and (b), we know that for any <span class="math inline">\(\varepsilon&gt;0\)</span>, there exists <span class="math inline">\(M&gt;0\)</span>, such that <span class="math inline">\(\int |X|\mathbf{1}_{[|X|&gt;m]}dP\leq\varepsilon\)</span>, therefore
 <span class="math display">\[
 \begin{aligned}
-\int_A|X|dP&amp;=\int|X|\mathbb{1}_AdP\\
-&amp;=\int|X|\mathbb{1}_{\{A\cap[|X|&gt;M]\}}dP+\int|X|\mathbb{1}_{\{A\cap[|X|\leq M]\}}dP\\
-&amp;\leq\int|X|\mathbb{1}_{[|X|&gt;M]}dP+M\int\mathbb{1}_{\{A\cap[|X|\leq M]\}}dP\\
+\int_A|X|dP&amp;=\int|X|\mathbf{1}_AdP\\
+&amp;=\int|X|\mathbf{1}_{\{A\cap[|X|&gt;M]\}}dP+\int|X|\mathbf{1}_{\{A\cap[|X|\leq M]\}}dP\\
+&amp;\leq\int|X|\mathbf{1}_{[|X|&gt;M]}dP+M\int\mathbf{1}_{\{A\cap[|X|\leq M]\}}dP\\
 &amp;\leq\varepsilon+MP(A\cap[|X|\leq M])\\
 &amp;=\varepsilon+0=\varepsilon,
 \end{aligned}
@@ -847,13 +848,13 @@ since <span class="math inline">\(\varepsilon\)</span> is arbitrary, we have <sp
 <p><span class="math inline">\(\textbf{My idea 2:}\)</span>
 “<span class="math inline">\(\Rightarrow\)</span>”: Since we have <span class="math inline">\(X\geq0\)</span> and <span class="math inline">\(\int_A XdP=0\)</span>, then
 <span class="math display">\[
-\int_A XdP=\int X\mathbb{1}_{A\cap\{X=0\}}dP+\int X\mathbb{1}_{A\cap\{X&gt;0\}}dP
+\int_A XdP=\int X\mathbf{1}_{A\cap\{X=0\}}dP+\int X\mathbf{1}_{A\cap\{X&gt;0\}}dP
 \]</span>
-then both part in RHS should be <span class="math inline">\(0\)</span>, therefore <span class="math inline">\(\int X\mathbb{1}_{A\cap\{X&gt;0\}}dP=0\)</span>, and since <span class="math inline">\(X&gt;0\)</span>, then <span class="math inline">\(P(A\cap\{X&gt;0\})=0\)</span>.</p>
+then both part in RHS should be <span class="math inline">\(0\)</span>, therefore <span class="math inline">\(\int X\mathbf{1}_{A\cap\{X&gt;0\}}dP=0\)</span>, and since <span class="math inline">\(X&gt;0\)</span>, then <span class="math inline">\(P(A\cap\{X&gt;0\})=0\)</span>.</p>
 <p><span class="math inline">\(\textbf{Answer:}\)</span></p>
 <p>“<span class="math inline">\(\Rightarrow\)</span>”: For any <span class="math inline">\(\varepsilon&gt;0\)</span>, we have
 <span class="math display">\[
-\varepsilon P(A\cap[|X|&gt;\varepsilon])\leq\int |X|\mathbb{1}_{\{A\cap[|X|&gt;\varepsilon]\}}dP\leq\int|X|\mathbb{1}_AdP=0
+\varepsilon P(A\cap[|X|&gt;\varepsilon])\leq\int |X|\mathbf{1}_{\{A\cap[|X|&gt;\varepsilon]\}}dP\leq\int|X|\mathbf{1}_AdP=0
 \]</span>
 therefore for any <span class="math inline">\(\varepsilon&gt;0\)</span>, <span class="math inline">\(P(A\cap[|X|&gt;\varepsilon])=0\)</span>, and note that
 <span class="math display">\[
@@ -868,7 +869,7 @@ P(\{A\cap[|X|&gt;0]\})=\lim_{m\to\infty} P(A\cap[|X|&gt;\frac{1}{m}])=0.
 \int_A|X|dP=\int_{A\cap[|X|=0]}|X|dP+\int_{A\cap[|X|&gt;0]}|X|dP=0,
 \]</span>
 for the first part in RHS, <span class="math inline">\(|X|\)</span> is <span class="math inline">\(0\)</span> so the integral is <span class="math inline">\(0\)</span>, and for the second part in RHS, it is a integral on a set with measure <span class="math inline">\(0\)</span>.</p>
-<p><span class="math inline">\(\textbf{Note:}\)</span> In the “<span class="math inline">\(\Rightarrow\)</span>” part in <strong>My idea</strong>, we should see that even though <span class="math inline">\(\int\mathbb{1}_{\{A\cap[0&lt;|X|\leq\varepsilon]\}}dP\leq\int\mathbb{1}_{\{[0&lt;|X|\leq\varepsilon]\}}dP\)</span>, but <span class="math inline">\(P(0&lt;|X|\leq\varepsilon)\)</span> may not less or equal than <span class="math inline">\(\varepsilon\)</span>, and in the “<span class="math inline">\(\Leftarrow\)</span>” part, we assumed that <span class="math inline">\(\int\mathbb{1}_{\{A\cap[|X|\leq M]\}}dP0\)</span>, this is also wrong, a counter example is that for <span class="math inline">\(X(\omega)\equiv0\)</span>, then <span class="math inline">\(P(|X|=0)=1\)</span>.</p>
+<p><span class="math inline">\(\textbf{Note:}\)</span> In the “<span class="math inline">\(\Rightarrow\)</span>” part in <strong>My idea</strong>, we should see that even though <span class="math inline">\(\int\mathbf{1}_{\{A\cap[0&lt;|X|\leq\varepsilon]\}}dP\leq\int\mathbf{1}_{\{[0&lt;|X|\leq\varepsilon]\}}dP\)</span>, but <span class="math inline">\(P(0&lt;|X|\leq\varepsilon)\)</span> may not less or equal than <span class="math inline">\(\varepsilon\)</span>, and in the “<span class="math inline">\(\Leftarrow\)</span>” part, we assumed that <span class="math inline">\(\int\mathbf{1}_{\{A\cap[|X|\leq M]\}}dP0\)</span>, this is also wrong, a counter example is that for <span class="math inline">\(X(\omega)\equiv0\)</span>, then <span class="math inline">\(P(|X|=0)=1\)</span>.</p>
 </div>
 <div id="d-3" class="section level3 hasAnchor">
 <h3>(d)<a href="chap-5-integration-and-expectation.html#d-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -1160,15 +1161,15 @@ Show
 <p><span class="math inline">\(\textbf{My idea:}\)</span> Since <span class="math inline">\(P[0\leq X&lt; \infty]=1\)</span>, that is <span class="math inline">\(P[X=\infty]=0\)</span>.
 <span class="math display">\[
 \begin{aligned}
-nE(\frac1X\mathbb{1}_{[X&gt;n]})&amp;=n\int\frac1X\mathbb{1}_{[X&gt;n]}dP\\
-&amp;\leq n\int\frac1n\mathbb{1}_{[X&gt;n]}dP\\
+nE(\frac1X\mathbf{1}_{[X&gt;n]})&amp;=n\int\frac1X\mathbf{1}_{[X&gt;n]}dP\\
+&amp;\leq n\int\frac1n\mathbf{1}_{[X&gt;n]}dP\\
 &amp;=P[X&gt;n]\to0
 \end{aligned}
 \]</span>
 <span class="math inline">\(\textbf{Answer:}\)</span> (DCT version)
-Let <span class="math inline">\(f_n(\omega)=\frac{n}{X(\omega)}\mathbb1_{[X&gt;n]}\)</span>, then <span class="math inline">\(|f_n|\leq 1\)</span> for all <span class="math inline">\(n\)</span>. For <span class="math inline">\(0&lt;X(\omega)&lt;\infty\)</span>, there exist <span class="math inline">\(N(\omega)\)</span> such that for all <span class="math inline">\(n\geq N(\omega)\)</span>, <span class="math inline">\(X(\omega)\leq n\)</span>, so <span class="math inline">\(\mathbb{1}_{[X(\omega)&gt;n]}=0\)</span>, that is <span class="math inline">\(f_n(\omega)=0\)</span>, and when <span class="math inline">\(X(\omega)=0\)</span>, since the indicator is <span class="math inline">\(0\)</span>, then <span class="math inline">\(f_n=0\)</span> for all <span class="math inline">\(n\)</span>, so <span class="math inline">\(f_n\to0\)</span> a.s., and since <span class="math inline">\(1\in L_1\)</span> because <span class="math inline">\(P(\Omega)=1\)</span>, so by DCT we have
+Let <span class="math inline">\(f_n(\omega)=\frac{n}{X(\omega)}\mathbb1_{[X&gt;n]}\)</span>, then <span class="math inline">\(|f_n|\leq 1\)</span> for all <span class="math inline">\(n\)</span>. For <span class="math inline">\(0&lt;X(\omega)&lt;\infty\)</span>, there exist <span class="math inline">\(N(\omega)\)</span> such that for all <span class="math inline">\(n\geq N(\omega)\)</span>, <span class="math inline">\(X(\omega)\leq n\)</span>, so <span class="math inline">\(\mathbf{1}_{[X(\omega)&gt;n]}=0\)</span>, that is <span class="math inline">\(f_n(\omega)=0\)</span>, and when <span class="math inline">\(X(\omega)=0\)</span>, since the indicator is <span class="math inline">\(0\)</span>, then <span class="math inline">\(f_n=0\)</span> for all <span class="math inline">\(n\)</span>, so <span class="math inline">\(f_n\to0\)</span> a.s., and since <span class="math inline">\(1\in L_1\)</span> because <span class="math inline">\(P(\Omega)=1\)</span>, so by DCT we have
 <span class="math display">\[
-\lim_{n\to\infty}E(\frac nX\mathbb{1}_{[X&gt;n]})=E(\lim_{n\to\infty}f_n)=0.
+\lim_{n\to\infty}E(\frac nX\mathbf{1}_{[X&gt;n]})=E(\lim_{n\to\infty}f_n)=0.
 \]</span></p>
 <p><span class="math inline">\(\textbf{Note:}\)</span> I thought this part was good, but after I finished (b), I realized that the DCT can also be applied to (a).</p>
 </div>
@@ -1177,23 +1178,23 @@ Let <span class="math inline">\(f_n(\omega)=\frac{n}{X(\omega)}\mathbb1_{[X&gt;n
 <p><span class="math inline">\(\textbf{My idea:}\)</span> What I can figure out so far is that, I divide <span class="math inline">\([X&gt;\frac1n]\)</span> into two parts: <span class="math inline">\([\frac1n&lt;X\leq\frac{1}{\sqrt{n}}]\)</span> and <span class="math inline">\([X&gt;\frac{1}{\sqrt n}]\)</span>, then in the second part, we have
 <span class="math display">\[
 \begin{aligned}
-\frac{1}nE(\frac1X\mathbb{1}_{[X&gt;\frac{1}{\sqrt n}]})&amp;=\frac1n\int\frac1X\mathbb{1}_{[X&gt;\frac{1}{\sqrt n}]}dP\\
-&amp;\leq\frac1n\int\sqrt n\mathbb{1}_{[X&gt;\frac{1}{\sqrt n}]}dP\\
+\frac{1}nE(\frac1X\mathbf{1}_{[X&gt;\frac{1}{\sqrt n}]})&amp;=\frac1n\int\frac1X\mathbf{1}_{[X&gt;\frac{1}{\sqrt n}]}dP\\
+&amp;\leq\frac1n\int\sqrt n\mathbf{1}_{[X&gt;\frac{1}{\sqrt n}]}dP\\
 &amp;=\frac{1}{\sqrt{n}}P[X&gt;\frac{1}{\sqrt n}]\to0,
 \end{aligned}
 \]</span>
 since <span class="math inline">\(P(\cdot)\)</span> is bounded.</p>
 <p>For the first part, it is
 <span class="math display">\[
-\frac1n\int\frac1X\mathbb{1}_{[\frac1n&lt;X\leq\frac{1}{\sqrt{n}}]}dP,
+\frac1n\int\frac1X\mathbf{1}_{[\frac1n&lt;X\leq\frac{1}{\sqrt{n}}]}dP,
 \]</span>
 my idea is that to bound the integral part, but I don’t know how to proceed.</p>
 <p><span class="math inline">\(\textbf{Answer:}\)</span> (Completion of <strong>my idea</strong>)
 Divide <span class="math inline">\([X&gt;\frac1n]\)</span> into two parts: <span class="math inline">\([\frac1n&lt;X\leq\frac{1}{\sqrt{n}}]\)</span> and <span class="math inline">\([X&gt;\frac{1}{\sqrt n}]\)</span>, then in the second part, we have
 <span class="math display">\[
 \begin{aligned}
-\frac{1}nE(\frac1X\mathbb{1}_{[X&gt;\frac{1}{\sqrt n}]})&amp;=\frac1n\int\frac1X\mathbb{1}_{[X&gt;\frac{1}{\sqrt n}]}dP\\
-&amp;\leq\frac1n\int\sqrt n\mathbb{1}_{[X&gt;\frac{1}{\sqrt n}]}dP\\
+\frac{1}nE(\frac1X\mathbf{1}_{[X&gt;\frac{1}{\sqrt n}]})&amp;=\frac1n\int\frac1X\mathbf{1}_{[X&gt;\frac{1}{\sqrt n}]}dP\\
+&amp;\leq\frac1n\int\sqrt n\mathbf{1}_{[X&gt;\frac{1}{\sqrt n}]}dP\\
 &amp;=\frac{1}{\sqrt{n}}P[X&gt;\frac{1}{\sqrt n}]\to0,
 \end{aligned}
 \]</span>
@@ -1201,22 +1202,22 @@ since <span class="math inline">\(P(\cdot)\)</span> is bounded.</p>
 <p>For the first part, since <span class="math inline">\(\frac{1}{n}&lt;X\leq\frac{1}{\sqrt n}\)</span>, then <span class="math inline">\(\frac{1}{nX}&lt;1\)</span>. Hence
 <span class="math display">\[
 \begin{aligned}
-\frac1n\int\frac1X\mathbb{1}_{[\frac1n&lt;X\leq\frac{1}{\sqrt{n}}]}dP&amp;=\int\frac1{nX}\mathbb{1}_{[\frac1n&lt;X\leq\frac{1}{\sqrt{n}}]}dP\\
-&amp;\leq\int\mathbb{1}_{[\frac1n&lt;X\leq\frac{1}{\sqrt{n}}]}dP\\
+\frac1n\int\frac1X\mathbf{1}_{[\frac1n&lt;X\leq\frac{1}{\sqrt{n}}]}dP&amp;=\int\frac1{nX}\mathbf{1}_{[\frac1n&lt;X\leq\frac{1}{\sqrt{n}}]}dP\\
+&amp;\leq\int\mathbf{1}_{[\frac1n&lt;X\leq\frac{1}{\sqrt{n}}]}dP\\
 &amp;=P[\frac1n&lt;X\leq\frac{1}{\sqrt{n}}],
 \end{aligned}
 \]</span>
 note that it is actually the measure of <span class="math inline">\(\{\omega:\frac1n&lt;X(\omega)\leq\frac{1}{\sqrt{n}}\}\)</span>, for any <span class="math inline">\(\omega\in\Omega\)</span>, if <span class="math inline">\(X(\omega)=0\)</span>, then it is not in this set, and if <span class="math inline">\(X(\omega)&gt;0\)</span>, then it will eventually out of it since there will be some <span class="math inline">\(n\)</span> such that <span class="math inline">\(X(\omega)&gt;\frac{1}{\sqrt n}\)</span>, so <span class="math inline">\(\{\omega:\frac1n&lt;X(\omega)\leq\frac{1}{\sqrt{n}}\}\)</span> decrease to <span class="math inline">\(\varnothing\)</span>, by continuity from above, <span class="math inline">\(P[\frac1n&lt;X\leq\frac{1}{\sqrt{n}}]\downarrow0\)</span>, therefore we have
 <span class="math display">\[
-\lim_{n\to\infty}\frac{1}nE(\frac1X\mathbb{1}_{[X&gt;\frac{1}{n}]})=0.
+\lim_{n\to\infty}\frac{1}nE(\frac1X\mathbf{1}_{[X&gt;\frac{1}{n}]})=0.
 \]</span>
 <span class="math inline">\(\textbf{Answer2:}\)</span> (Something much more elegant)
-Define <span class="math inline">\(f_n(\omega)=\frac{1}{nX(\omega)}\mathbb{1}_{[X&gt;\frac{1}{n}]}\)</span>, therefore <span class="math inline">\(|f_n|\leq1\)</span> for all n,
+Define <span class="math inline">\(f_n(\omega)=\frac{1}{nX(\omega)}\mathbf{1}_{[X&gt;\frac{1}{n}]}\)</span>, therefore <span class="math inline">\(|f_n|\leq1\)</span> for all n,
 and if <span class="math inline">\(X(\omega)&gt;0\)</span>, then <span class="math inline">\(f_n\to0\)</span>, if <span class="math inline">\(X(\omega)=0\)</span>, then <span class="math inline">\(f_n(0)=0\)</span> for all <span class="math inline">\(n\)</span> since the indicator is <span class="math inline">\(0\)</span>, so <span class="math inline">\(f_n\to0\)</span> a.s., by DCT,
 <span class="math display">\[
-\lim_{n\to\infty}\frac{1}nE(\frac1X\mathbb{1}_{[X&gt;\frac{1}{n}]})=E(\lim_{n\to\infty}f_n)=0.
+\lim_{n\to\infty}\frac{1}nE(\frac1X\mathbf{1}_{[X&gt;\frac{1}{n}]})=E(\lim_{n\to\infty}f_n)=0.
 \]</span></p>
-<p><span class="math inline">\(\textbf{Note:}\)</span> This DCT version of solution is so straight forward, and my brain is hold by the idea from (a), let’s try rewrite something like <span class="math inline">\(a_nE(g(X)\mathbb{1}_{\{X\in A_n\}})\)</span> into <span class="math inline">\(E(f_n)\)</span> form and check whether <span class="math inline">\(f_n\to0\)</span> a.s..</p>
+<p><span class="math inline">\(\textbf{Note:}\)</span> This DCT version of solution is so straight forward, and my brain is hold by the idea from (a), let’s try rewrite something like <span class="math inline">\(a_nE(g(X)\mathbf{1}_{\{X\in A_n\}})\)</span> into <span class="math inline">\(E(f_n)\)</span> form and check whether <span class="math inline">\(f_n\to0\)</span> a.s..</p>
 </div>
 </div>
 <div id="ex-20-1" class="section level2 hasAnchor">
@@ -1567,6 +1568,137 @@ Let <span class="math inline">\(\mathcal{A}=\{\Lambda_1\times\Lambda_2:\Lambda_i
 \text{DIAG}=\bigcap_{n=1}^\infty\{(x,y):d(x,y)&lt;\frac1n\},
 \]</span>
 which is measurable.</p>
+</div>
+<div id="ex-17-1" class="section level2 hasAnchor">
+<h2>Ex 17<a href="chap-5-integration-and-expectation.html#ex-17-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="problem">
+<p><span class="math inline">\(\textbf{Integration by parts.}\)</span> Suppose <span class="math inline">\(F\)</span> and <span class="math inline">\(G\)</span> are two distribution functions with no common points of discontinuity in an interval <span class="math inline">\((a,b]\)</span>. Show
+<span class="math display">\[
+\int_{(a,b]} G(x)F(dx)
+=
+F(b)G(b)-F(a)G(a)-\int_{(a,b]} F(x)G(dx).
+\]</span></p>
+<p>The formula can fail if <span class="math inline">\(F\)</span> and <span class="math inline">\(G\)</span> have common discontinuities. If <span class="math inline">\(F\)</span> and <span class="math inline">\(G\)</span> are absolutely continuous with densities <span class="math inline">\(f\)</span> and <span class="math inline">\(g\)</span>, try to prove the formula by differentiating with respect to the upper limit of integration. (Why can you differentiate?)</p>
+</div>
+<p><span class="math inline">\(\textbf{My idea:}\)</span> We can build the distribution function from the block, that is,
+<span class="math display">\[
+G(x)=\begin{cases}
+0,&amp; \text{if}\ x&lt; c\\
+1,&amp; \text{if}\ x\geq c\\
+\end{cases}
+\]</span>
+, from the assumption, <span class="math inline">\(c\)</span> is not the discontinuity of <span class="math inline">\(F\)</span>, and we should see that <span class="math inline">\(G(dx)\)</span> is actually the Dirac measure <span class="math inline">\(\delta_c\)</span> (I don’t know if it is legal to use it here), so we have:</p>
+<ol style="list-style-type: decimal">
+<li><p><span class="math inline">\(c\leq a\)</span>, then <span class="math inline">\(G(a)=G(b)=1\)</span>, LHS<span class="math inline">\(=F(a,b]=F(b)-F(a)\)</span>, and
+<span class="math display">\[
+\begin{aligned}
+\text{RHS}&amp;=F(b)G(b)-F(a)G(a)-\int_{(a,b]}F(x)G(dx)\\
+&amp;=F(b)-F(a)
+\end{aligned}
+\]</span>
+so LHS=RHS.</p></li>
+<li><p><span class="math inline">\(c\in(a,b]\)</span>, then LHS<span class="math inline">\(=F(b)-F(c)\)</span>, and
+<span class="math display">\[
+\begin{aligned}
+\text{RHS}&amp;=F(b)G(b)-F(a)G(a)-\int_{(a,b]}F(x)G(dx)\\
+&amp;=F(b)-0-F(c)=F(b)-F(c)
+\end{aligned}
+\]</span>
+so LHS=RHS.</p></li>
+<li><p><span class="math inline">\(c&gt;b\)</span>, then we have LHS=RHS<span class="math inline">\(=0\)</span>.</p></li>
+</ol>
+<p>Then for <span class="math inline">\(G_n(x)=\sum_{i=1}^n p_i \mathbf{1}_{[c_i,\infty)}\)</span>, where <span class="math inline">\(\sum_{i=1}^n p_i=1\)</span>,by the linearity of integral, we still have LHS=RHS, and for <span class="math inline">\(G_n\uparrow G\)</span>, we can apply MCT to the LHS, and for the RHS, we have
+<span class="math display">\[
+\int F(x)G_n(dx) =\sum_{i=1}^n p_iF(c_i)\to\int F(x)G(dx),
+\]</span>
+since it is a Riemann sum. So when <span class="math inline">\(G\)</span> and <span class="math inline">\(F\)</span> have no common points of discontinuity.</p>
+<p>We shall see that, when <span class="math inline">\(c\)</span> is also a discontinuity of <span class="math inline">\(F\)</span>, then if <span class="math inline">\(c\in(a,b]\)</span>, we have
+<span class="math display">\[
+\int_{(a,b]}G(x)F(dx)=F(b)-F(c-).
+\]</span></p>
+<p>When they are absolutely continuous, so their product <span class="math inline">\(FG\)</span> is also ac, and we have
+<span class="math display">\[
+(FG)&#39;=fG+Fg\ \text{(a.e.)}
+\]</span>
+integral on both sides, we completed the proof.</p>
+<p><span class="math inline">\(\textbf{Answer:}\)</span></p>
+<ul>
+<li>Step 1: One jump case:</li>
+</ul>
+<p>Fix <span class="math inline">\(c\in\mathbb{R}\)</span> and let <span class="math inline">\(G_c(x)=\mathbf{1}_{[c,\infty)}(x)\)</span>. Then <span class="math inline">\(G_c(a)=\mathbf{1}_{\{a\geq c\}}\)</span> and <span class="math inline">\(G_c(b)=\mathbf{1}_{\{b\geq c\}}\)</span> and
+<span class="math display">\[
+\begin{aligned}
+\int_{(a,b]}G_c(x)F(dx)&amp;=\int_{(a,b]}\mathbf{1}_{[c,\infty)}(x)F(dx)\\
+&amp;=F((a,b]\cap[c,\infty))\\
+&amp;=F([c,b])=F(b)-F(c-).
+\end{aligned}
+\]</span>
+Also, we have <span class="math inline">\(G_c(dx)=\delta_c(dx)\)</span>, so
+<span class="math display">\[
+\int_{(a,b]}F(x)G_c(dx)=
+\begin{cases}
+F(c) &amp; \text{if}\ c\in (a,b]\\
+0 &amp; \text{if}\ c\not\in (a,b]\\
+\end{cases}
+\]</span></p>
+<ol style="list-style-type: decimal">
+<li><p>When <span class="math inline">\(c\leq a\)</span>, LHS is <span class="math inline">\(\text{LHS}=F(b)-F(a)\)</span>, and RHS<span class="math inline">\(=F(b)-F(a)\)</span>, that is, LHS = RHS.</p></li>
+<li><p>When <span class="math inline">\(c\in(a,b]\)</span>, and <span class="math inline">\(c\)</span> is not a discontinuity of <span class="math inline">\(F\)</span> so <span class="math inline">\(\text{LHS}=F(b)-F(c-)=F(b)-F(c)\)</span>, and RHS is also <span class="math inline">\(F(b)-F(c)\)</span>.</p></li>
+<li><p>When <span class="math inline">\(c&gt;b\)</span>, both sides are <span class="math inline">\(0\)</span>.</p></li>
+</ol>
+<p>So for the one step function case, we have LHS = RHS.</p>
+<ul>
+<li>Step 2: finite step distributions</li>
+</ul>
+<p>Let <span class="math inline">\(G(x)=\sum_{i=1}^n p_i\mathbf{1}_{[c_i,\infty)}\)</span>, where <span class="math inline">\(p_i\geq0\)</span> and <span class="math inline">\(\sum_{i=1}^n p_i=1\)</span>, and each jump point <span class="math inline">\(c_i\)</span> is not a discontinuity of <span class="math inline">\(F\)</span>, by the linearity of integral and step 1, LHS = RHS.</p>
+<ul>
+<li>Step 3: approximation of a general <span class="math inline">\(G\)</span></li>
+</ul>
+<p>Take partition of <span class="math inline">\((a,b]\)</span>, <span class="math inline">\(a=t_0&lt;t_1&lt;\cdots&lt;t_n=b\)</span> where <span class="math inline">\(\max\Delta t_i\to0\)</span>, and construct step function as
+<span class="math display">\[
+G_n(x)=\sum_{i=1}^n(G(t_i)-G(t_{i-1}))\mathbf{1}_{[t_i,\infty)}
+\]</span>
+the jump points of <span class="math inline">\(G_n(x)\)</span> are <span class="math inline">\(\{t_1,\dots,t_n\}\)</span> and <span class="math inline">\(G_n(x)\to G(x)\)</span> at every continuous point of <span class="math inline">\(G\)</span>, since <span class="math inline">\(G\)</span> is a monotone bounded function, which can only has at most countable discontinuity. Let <span class="math inline">\(Y_n\sim G_n\)</span> and <span class="math inline">\(Y\sim G\)</span>, so <span class="math inline">\(Y_n\Rightarrow Y\)</span> (or <span class="math inline">\(Y_n\xrightarrow{d} Y\)</span>, convergence in distribution).</p>
+<p>And for <span class="math inline">\(F\)</span>, it is also a df, so can only has at most discontinuity, denote them as <span class="math inline">\(\text{DISC}(F)\)</span>, so we have
+<span class="math display">\[
+\begin{aligned}
+P(Y\in\text{DISC}(F))&amp;=P(\{\omega\in\Omega:Y(\omega)\in\text{DISC}(F)\})\\
+&amp;=\sum_{c\in\text{DISC}(F)}P(Y=c)\\
+&amp;=\sum_{c\in\text{DISC}(F)}\Delta G(c)\\
+&amp;=0,
+\end{aligned}
+\]</span>
+it is because <span class="math inline">\(F\)</span> and <span class="math inline">\(G\)</span> have no common discontinuity, so for <span class="math inline">\(c\in(a,b]\cap\text{DISC}(F)\)</span>, we have <span class="math inline">\(\Delta G(c)=0\)</span>, Since <span class="math inline">\(Y_n\Rightarrow Y\)</span> and <span class="math inline">\(F\)</span> is bounded and continuous at <span class="math inline">\(Y\)</span> a.s., we have
+<span class="math display">\[
+E(F(Y_n))\to E(F(Y)),
+\]</span>
+and note that by transformation theorem, <span class="math inline">\(E(F(Y_n)\mathbf{1}_{\{Y_n\in(a,b]\}})=\int F(Y_n)\mathbf{1}_{\{Y_n\in(a,b]\}}dP=\int_{(a,b]} F(x)G_n(dx)\)</span> and <span class="math inline">\(E(F(Y)\mathbf{1}_{\{Y\in(a,b]\}})=\int F(Y)\mathbf{1}_{\{Y\in(a,b]\}}dP=\int_{(a,b]} F(x)G(dx)\)</span>, that is, we have
+<span class="math display">\[
+\int_{(a,b]} F(x)G_n(dx)\to \int_{(a,b]} F(x)G(dx),
+\]</span>
+and by DCT, we have
+<span class="math display">\[
+\int_{(a,b]} G_n(x)F(dx)\to\int_{(a,b]} G(x)F(dx)
+\]</span>
+also, <span class="math inline">\(G_n(a)\to G(a)\)</span> and <span class="math inline">\(G_n(b)\to G(b)\)</span>, therefore we have LHS=RHS.</p>
+<ul>
+<li>fail with common discontinuities</li>
+</ul>
+<p>when <span class="math inline">\(c\)</span> is also a discontinuity of <span class="math inline">\(F\)</span>, then if <span class="math inline">\(c\in(a,b]\)</span>, we have
+<span class="math display">\[
+\int_{(a,b]}G(x)F(dx)-(F(b)G(b)-F(a)G(a)-\int_{(a,b]}F(x)G(dx))=F(c)-F(c-)=\Delta F(c).
+\]</span></p>
+<ul>
+<li>Absolutely continuous</li>
+</ul>
+<p>When they are absolutely continuous, so their product <span class="math inline">\(FG\)</span> is also ac, and we have
+<span class="math display">\[
+(FG)(x)&#39;=f(x)G(x)+F(x)g(x) \quad \text{a.e.}
+\]</span>
+since <span class="math inline">\(f,g\in L_1(a,b]\)</span>, <span class="math inline">\(F,G\)</span> are bounded, then <span class="math inline">\(fG+Fg\in L_1(a,b]\)</span>, so we can integral on both sides, we completed the proof.</p>
+<p><span class="math inline">\(\textbf{Note:}\)</span> I think I basically get the idea of this, but I actually used some ideas from further chapter and outside from the book, so I make supplement for these ideas here.</p>
+<p>In step 3 of the <strong>answer</strong> part, I used a weak-convergence argument: <span class="math inline">\(Y_n\sim G_n\)</span> and <span class="math inline">\(Y\sim G\)</span> with <span class="math inline">\(Y_n\Rightarrow Y\)</span>. Since <span class="math inline">\(F\)</span> is bounded and <span class="math inline">\(P(Y\in\text{DISC}(F))=0\)</span>(because <span class="math inline">\(F\)</span> and <span class="math inline">\(G\)</span> have no common discontinuities) the extended Portmanteau/continuous-a.s. lemma gives <span class="math inline">\(E(F(Y_n))\to E(F(Y))\)</span>.
+We will officially learn this in chapter 8.</p>
 
 </div>
 </div>

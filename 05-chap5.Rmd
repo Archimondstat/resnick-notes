@@ -122,9 +122,9 @@ E(\limsup_{n\to\infty} X_n)&=E\left\{\lim_{n\to\infty}(\sup_{k\geq n}X_k)\right\
 &=\limsup_{n\to\infty} E(X_n)
 \end{aligned}
 $$
-what's wrong is that, we incorrectly used the decreasing version of MCT, that is, generally we don't have $E\left\{\lim_{n\to\infty}(\sup_{k\geq n}X_k)\right\}=\lim_{n\to\infty}E(\sup_{k\geq n}X_k)$, for example, we can let $X_n=n\mathbb{1}_{(0,\frac{1}{n})}$ on $(\Omega,\mathcal{B},P)=((0,1),\mathcal{B}((0,1)),\lambda)$, then $X_n\to 0$ a.s., and $E(X_n)=1$, so $\limsup_{n\to\infty} E(X_n)=1$ of course. However, if we focus on $\lim_{n\to\infty}E(\sup_{k\geq n}X_k)$, we should see that 
+what's wrong is that, we incorrectly used the decreasing version of MCT, that is, generally we don't have $E\left\{\lim_{n\to\infty}(\sup_{k\geq n}X_k)\right\}=\lim_{n\to\infty}E(\sup_{k\geq n}X_k)$, for example, we can let $X_n=n\mathbf{1}_{(0,\frac{1}{n})}$ on $(\Omega,\mathcal{B},P)=((0,1),\mathcal{B}((0,1)),\lambda)$, then $X_n\to 0$ a.s., and $E(X_n)=1$, so $\limsup_{n\to\infty} E(X_n)=1$ of course. However, if we focus on $\lim_{n\to\infty}E(\sup_{k\geq n}X_k)$, we should see that 
 $$
-S_n(\omega)=\sup_{k\geq n}X_k(\omega)=\left\lfloor\frac{1}{\omega}\right\rfloor\mathbb{1}_{(0,\frac{1}{n})}\, \text{a.s.}
+S_n(\omega)=\sup_{k\geq n}X_k(\omega)=\left\lfloor\frac{1}{\omega}\right\rfloor\mathbf{1}_{(0,\frac{1}{n})}\, \text{a.s.}
 $$
 Then what is $E(\sup_{k\geq n}X_k)$? I think that is the interesting part
 $$
@@ -493,11 +493,11 @@ $$
 \end{aligned}
 $$
 
-$\textbf{Answer:}$ Let $X_n=|X|\mathbb{1}_{\{|X|>n\}}$, then $0\leq X_{n+1}\leq X_n$, so $X_n\downarrow0$ a.s., since $P(|X|<\infty)=1$, so for a.e. $\omega\in\Omega$, $|X(\omega)|<\infty$, also, since $0\leq X_n\leq|X|$, then $X_n\in L_1$. By MCT (decreasing version) , we have $E(X_n)\downarrow0$, therefore
+$\textbf{Answer:}$ Let $X_n=|X|\mathbf{1}_{\{|X|>n\}}$, then $0\leq X_{n+1}\leq X_n$, so $X_n\downarrow0$ a.s., since $P(|X|<\infty)=1$, so for a.e. $\omega\in\Omega$, $|X(\omega)|<\infty$, also, since $0\leq X_n\leq|X|$, then $X_n\in L_1$. By MCT (decreasing version) , we have $E(X_n)\downarrow0$, therefore
 $$
 \begin{aligned}
-\left|\int_{\{|X|>n\}}XdP\right|&=\left|\int X\mathbb{1}_{\{|X|>n\}}dP\right|\\
-&\leq\int \left|X\mathbb{1}_{\{|X|>n\}}\right|dP\\
+\left|\int_{\{|X|>n\}}XdP\right|&=\left|\int X\mathbf{1}_{\{|X|>n\}}dP\right|\\
+&\leq\int \left|X\mathbf{1}_{\{|X|>n\}}\right|dP\\
 &=E(X_n)\to0.
 \end{aligned}
 $$
@@ -506,21 +506,21 @@ so we have $\int_{\{|X|>n\}}XdP\to0$.
 $\textbf{Note:}$ When we have $X\in L_1$, it only indicates that $|X|<\infty$ a.s., since if $P(|X|=\infty)>0$, then we have $E(|X|)=\infty$, which makes $X$ out of $L_1$, it does **not** imply that $X$ is essentially bounded, the counter example is $\frac{1}{\sqrt x}$ on $(0,1]$. And note that I use the "decreasing version" of MCT in the **answer** part, even if we are safe in this exercise, we should keep in mind that there are extra condition, that is, we should guarantee that exists some $n$, such that $X_n\in L_1$, it is an analog to the "continuous from above" in measure, and that's why many texts state the increasing version first.
 
 ### (b)
-$\textbf{My idea:}$ Since $X\in L_1$, then for any $\varepsilon>0$, there exists $M>0$ such that $\int_{\{|X|>M\}}|X|dP<\varepsilon$ since from (a) we knew that $\int \left|X\mathbb{1}_{\{|X|>n\}}\right|dP\downarrow0$, so for such $M$, we have 
+$\textbf{My idea:}$ Since $X\in L_1$, then for any $\varepsilon>0$, there exists $M>0$ such that $\int_{\{|X|>M\}}|X|dP<\varepsilon$ since from (a) we knew that $\int \left|X\mathbf{1}_{\{|X|>n\}}\right|dP\downarrow0$, so for such $M$, we have 
 $$
 \begin{aligned}
 \int_{A_n}|X|dP&=\int_{A_n\cap[|X|\leq M]}|X|dP+\int_{A_n\cap[|X|> M]}|X|dP\\
-&\leq M\int\mathbb{1}_{A_n}dP+\int_{[|X|> M]}|X|dP\\
+&\leq M\int\mathbf{1}_{A_n}dP+\int_{[|X|> M]}|X|dP\\
 &\leq MP(A_n)+\varepsilon,
 \end{aligned}
 $$
 since $P(A_n)\to0$ and the $\varepsilon$ is arbitrary, we have $\int_{A_n}|X|dP\to0$, therefore $\int_{A_n}XdP\to0$.
 
-$\textbf{Answer:}$ (Pure $\varepsilon-N$ version)  Since $X\in L_1$, then for any $\varepsilon>0$, there exists $M>0$ such that $\int_{\{|X|>M\}}|X|dP<\frac{\varepsilon}{2}$ since from (a) we knew that $\int \left|X\mathbb{1}_{\{|X|>n\}}\right|dP\downarrow0$, so for such $M$, we have 
+$\textbf{Answer:}$ (Pure $\varepsilon-N$ version)  Since $X\in L_1$, then for any $\varepsilon>0$, there exists $M>0$ such that $\int_{\{|X|>M\}}|X|dP<\frac{\varepsilon}{2}$ since from (a) we knew that $\int \left|X\mathbf{1}_{\{|X|>n\}}\right|dP\downarrow0$, so for such $M$, we have 
 $$
 \begin{aligned}
 \int_{A_n}|X|dP&=\int_{A_n\cap[|X|\leq M]}|X|dP+\int_{A_n\cap[|X|> M]}|X|dP\\
-&\leq M\int\mathbb{1}_{A_n}dP+\int_{[|X|> M]}|X|dP\\
+&\leq M\int\mathbf{1}_{A_n}dP+\int_{[|X|> M]}|X|dP\\
 &\leq MP(A_n)+\frac{\varepsilon}{2},
 \end{aligned}
 $$
@@ -530,30 +530,30 @@ $$
 $$
 since the $\varepsilon$ is arbitrary, we have $\int_{A_n}|X|dP\to0$, therefore $\int_{A_n}XdP\to0$.
 
-$\textbf{Note:}$ We cannot conclude that $|X|\mathbb{1}_{A_n}\to0$ from $P(A_n)\to0$, but we are only required to prove that the mass on $|X|\mathbb{1}_{A_n}$ decrease to $0$, Using the tail control from part (a), we pick a large cutoff $M$ and split the integral into two pieces: on $\{|X|\le M\}$ it is controlled by $P(A_n)$, and on $\{|X|>M\}$ it is controlled by the tail of $X$.
+$\textbf{Note:}$ We cannot conclude that $|X|\mathbf{1}_{A_n}\to0$ from $P(A_n)\to0$, but we are only required to prove that the mass on $|X|\mathbf{1}_{A_n}$ decrease to $0$, Using the tail control from part (a), we pick a large cutoff $M$ and split the integral into two pieces: on $\{|X|\le M\}$ it is controlled by $P(A_n)$, and on $\{|X|>M\}$ it is controlled by the tail of $X$.
 
 We need a counter example here:
 
 ### (c)
 $\textbf{My idea:}$ 
 
-"$\Rightarrow$": Suppose we have $\int_A|X|dP=\int|X|\mathbb{1}_AdP=0$, then for any $\varepsilon>0$, we have 
+"$\Rightarrow$": Suppose we have $\int_A|X|dP=\int|X|\mathbf{1}_AdP=0$, then for any $\varepsilon>0$, we have 
 $$
 \begin{aligned}
-P(A\cap[|X|>0])&=\int\mathbb{1}_{\{A\cap[|X|>0]\}}dP\\
-&=\int\mathbb{1}_{\{A\cap[0<|X|\leq\varepsilon]\}}dP+\int\mathbb{1}_{\{A\cap[|X|>\varepsilon]\}}dP\\
-&\leq\varepsilon+\int\frac{|X|}{\varepsilon}\mathbb{1}_{\{A\cap[|X|>\varepsilon]\}}dP\\
+P(A\cap[|X|>0])&=\int\mathbf{1}_{\{A\cap[|X|>0]\}}dP\\
+&=\int\mathbf{1}_{\{A\cap[0<|X|\leq\varepsilon]\}}dP+\int\mathbf{1}_{\{A\cap[|X|>\varepsilon]\}}dP\\
+&\leq\varepsilon+\int\frac{|X|}{\varepsilon}\mathbf{1}_{\{A\cap[|X|>\varepsilon]\}}dP\\
 &\leq\varepsilon+0=\varepsilon,
 \end{aligned}
 $$
 since $\varepsilon$ is arbitrary, we have $P(A\cap[|X|>0])=0$.
 
-"$\Leftarrow$": conversely, this time we have $P(A\cap[|X|>0])=0$, and since $X\in L_1$, using the result from (a) and (b), we know that for any $\varepsilon>0$, there exists $M>0$, such that $\int |X|\mathbb{1}_{[|X|>m]}dP\leq\varepsilon$, therefore
+"$\Leftarrow$": conversely, this time we have $P(A\cap[|X|>0])=0$, and since $X\in L_1$, using the result from (a) and (b), we know that for any $\varepsilon>0$, there exists $M>0$, such that $\int |X|\mathbf{1}_{[|X|>m]}dP\leq\varepsilon$, therefore
 $$
 \begin{aligned}
-\int_A|X|dP&=\int|X|\mathbb{1}_AdP\\
-&=\int|X|\mathbb{1}_{\{A\cap[|X|>M]\}}dP+\int|X|\mathbb{1}_{\{A\cap[|X|\leq M]\}}dP\\
-&\leq\int|X|\mathbb{1}_{[|X|>M]}dP+M\int\mathbb{1}_{\{A\cap[|X|\leq M]\}}dP\\
+\int_A|X|dP&=\int|X|\mathbf{1}_AdP\\
+&=\int|X|\mathbf{1}_{\{A\cap[|X|>M]\}}dP+\int|X|\mathbf{1}_{\{A\cap[|X|\leq M]\}}dP\\
+&\leq\int|X|\mathbf{1}_{[|X|>M]}dP+M\int\mathbf{1}_{\{A\cap[|X|\leq M]\}}dP\\
 &\leq\varepsilon+MP(A\cap[|X|\leq M])\\
 &=\varepsilon+0=\varepsilon,
 \end{aligned}
@@ -563,15 +563,15 @@ since $\varepsilon$ is arbitrary, we have $\int_A|X|dP=0$.
 $\textbf{My idea 2:}$ 
 "$\Rightarrow$": Since we have $X\geq0$ and $\int_A XdP=0$, then
 $$
-\int_A XdP=\int X\mathbb{1}_{A\cap\{X=0\}}dP+\int X\mathbb{1}_{A\cap\{X>0\}}dP
+\int_A XdP=\int X\mathbf{1}_{A\cap\{X=0\}}dP+\int X\mathbf{1}_{A\cap\{X>0\}}dP
 $$
-then both part in RHS should be $0$, therefore $\int X\mathbb{1}_{A\cap\{X>0\}}dP=0$, and since $X>0$, then $P(A\cap\{X>0\})=0$.
+then both part in RHS should be $0$, therefore $\int X\mathbf{1}_{A\cap\{X>0\}}dP=0$, and since $X>0$, then $P(A\cap\{X>0\})=0$.
 
 $\textbf{Answer:}$ 
 
 "$\Rightarrow$": For any $\varepsilon>0$, we have
 $$
-\varepsilon P(A\cap[|X|>\varepsilon])\leq\int |X|\mathbb{1}_{\{A\cap[|X|>\varepsilon]\}}dP\leq\int|X|\mathbb{1}_AdP=0
+\varepsilon P(A\cap[|X|>\varepsilon])\leq\int |X|\mathbf{1}_{\{A\cap[|X|>\varepsilon]\}}dP\leq\int|X|\mathbf{1}_AdP=0
 $$
 therefore for any $\varepsilon>0$, $P(A\cap[|X|>\varepsilon])=0$, and note that
 $$
@@ -589,7 +589,7 @@ $$
 $$
 for the first part in RHS, $|X|$ is $0$ so the integral is $0$, and for the second part in RHS, it is a integral on a set with measure $0$.
 
-$\textbf{Note:}$ In the "$\Rightarrow$" part in **My idea**, we should see that even though $\int\mathbb{1}_{\{A\cap[0<|X|\leq\varepsilon]\}}dP\leq\int\mathbb{1}_{\{[0<|X|\leq\varepsilon]\}}dP$, but $P(0<|X|\leq\varepsilon)$ may not less or equal than $\varepsilon$, and in the "$\Leftarrow$" part, we assumed that $\int\mathbb{1}_{\{A\cap[|X|\leq M]\}}dP0$, this is also wrong, a counter example is that for $X(\omega)\equiv0$, then $P(|X|=0)=1$.
+$\textbf{Note:}$ In the "$\Rightarrow$" part in **My idea**, we should see that even though $\int\mathbf{1}_{\{A\cap[0<|X|\leq\varepsilon]\}}dP\leq\int\mathbf{1}_{\{[0<|X|\leq\varepsilon]\}}dP$, but $P(0<|X|\leq\varepsilon)$ may not less or equal than $\varepsilon$, and in the "$\Leftarrow$" part, we assumed that $\int\mathbf{1}_{\{A\cap[|X|\leq M]\}}dP0$, this is also wrong, a counter example is that for $X(\omega)\equiv0$, then $P(|X|=0)=1$.
 
 ### (d)
 $\textbf{My idea:}$ Since $\text{Var}(X)=0$, that is 
@@ -896,15 +896,15 @@ $$(b) \quad \lim_{n \rightarrow \infty} n^{-1} E \left( \frac{1}{X} 1_{[X > n^{-
 $\textbf{My idea:}$ Since $P[0\leq X< \infty]=1$, that is $P[X=\infty]=0$.
 $$
 \begin{aligned}
-nE(\frac1X\mathbb{1}_{[X>n]})&=n\int\frac1X\mathbb{1}_{[X>n]}dP\\
-&\leq n\int\frac1n\mathbb{1}_{[X>n]}dP\\
+nE(\frac1X\mathbf{1}_{[X>n]})&=n\int\frac1X\mathbf{1}_{[X>n]}dP\\
+&\leq n\int\frac1n\mathbf{1}_{[X>n]}dP\\
 &=P[X>n]\to0
 \end{aligned}
 $$
 $\textbf{Answer:}$ (DCT version)
-Let $f_n(\omega)=\frac{n}{X(\omega)}\mathbb1_{[X>n]}$, then $|f_n|\leq 1$ for all $n$. For $0<X(\omega)<\infty$, there exist $N(\omega)$ such that for all $n\geq N(\omega)$, $X(\omega)\leq n$, so $\mathbb{1}_{[X(\omega)>n]}=0$, that is $f_n(\omega)=0$, and when $X(\omega)=0$, since the indicator is $0$, then $f_n=0$ for all $n$, so $f_n\to0$ a.s., and since $1\in L_1$ because $P(\Omega)=1$, so by DCT we have 
+Let $f_n(\omega)=\frac{n}{X(\omega)}\mathbb1_{[X>n]}$, then $|f_n|\leq 1$ for all $n$. For $0<X(\omega)<\infty$, there exist $N(\omega)$ such that for all $n\geq N(\omega)$, $X(\omega)\leq n$, so $\mathbf{1}_{[X(\omega)>n]}=0$, that is $f_n(\omega)=0$, and when $X(\omega)=0$, since the indicator is $0$, then $f_n=0$ for all $n$, so $f_n\to0$ a.s., and since $1\in L_1$ because $P(\Omega)=1$, so by DCT we have 
 $$
-\lim_{n\to\infty}E(\frac nX\mathbb{1}_{[X>n]})=E(\lim_{n\to\infty}f_n)=0.
+\lim_{n\to\infty}E(\frac nX\mathbf{1}_{[X>n]})=E(\lim_{n\to\infty}f_n)=0.
 $$
 
 
@@ -914,8 +914,8 @@ $\textbf{Note:}$ I thought this part was good, but after I finished (b), I reali
 $\textbf{My idea:}$ What I can figure out so far is that, I divide $[X>\frac1n]$ into two parts: $[\frac1n<X\leq\frac{1}{\sqrt{n}}]$ and $[X>\frac{1}{\sqrt n}]$, then in the second part, we have
 $$
 \begin{aligned}
-\frac{1}nE(\frac1X\mathbb{1}_{[X>\frac{1}{\sqrt n}]})&=\frac1n\int\frac1X\mathbb{1}_{[X>\frac{1}{\sqrt n}]}dP\\
-&\leq\frac1n\int\sqrt n\mathbb{1}_{[X>\frac{1}{\sqrt n}]}dP\\
+\frac{1}nE(\frac1X\mathbf{1}_{[X>\frac{1}{\sqrt n}]})&=\frac1n\int\frac1X\mathbf{1}_{[X>\frac{1}{\sqrt n}]}dP\\
+&\leq\frac1n\int\sqrt n\mathbf{1}_{[X>\frac{1}{\sqrt n}]}dP\\
 &=\frac{1}{\sqrt{n}}P[X>\frac{1}{\sqrt n}]\to0,
 \end{aligned}
 $$
@@ -923,7 +923,7 @@ since $P(\cdot)$ is bounded.
 
 For the first part, it is
 $$
-\frac1n\int\frac1X\mathbb{1}_{[\frac1n<X\leq\frac{1}{\sqrt{n}}]}dP,
+\frac1n\int\frac1X\mathbf{1}_{[\frac1n<X\leq\frac{1}{\sqrt{n}}]}dP,
 $$
 my idea is that to bound the integral part, but I don't know how to proceed.
 
@@ -931,8 +931,8 @@ $\textbf{Answer:}$ (Completion of __my idea__)
 Divide $[X>\frac1n]$ into two parts: $[\frac1n<X\leq\frac{1}{\sqrt{n}}]$ and $[X>\frac{1}{\sqrt n}]$, then in the second part, we have
 $$
 \begin{aligned}
-\frac{1}nE(\frac1X\mathbb{1}_{[X>\frac{1}{\sqrt n}]})&=\frac1n\int\frac1X\mathbb{1}_{[X>\frac{1}{\sqrt n}]}dP\\
-&\leq\frac1n\int\sqrt n\mathbb{1}_{[X>\frac{1}{\sqrt n}]}dP\\
+\frac{1}nE(\frac1X\mathbf{1}_{[X>\frac{1}{\sqrt n}]})&=\frac1n\int\frac1X\mathbf{1}_{[X>\frac{1}{\sqrt n}]}dP\\
+&\leq\frac1n\int\sqrt n\mathbf{1}_{[X>\frac{1}{\sqrt n}]}dP\\
 &=\frac{1}{\sqrt{n}}P[X>\frac{1}{\sqrt n}]\to0,
 \end{aligned}
 $$
@@ -941,24 +941,24 @@ since $P(\cdot)$ is bounded.
 For the first part, since $\frac{1}{n}<X\leq\frac{1}{\sqrt n}$, then $\frac{1}{nX}<1$. Hence
 $$
 \begin{aligned}
-\frac1n\int\frac1X\mathbb{1}_{[\frac1n<X\leq\frac{1}{\sqrt{n}}]}dP&=\int\frac1{nX}\mathbb{1}_{[\frac1n<X\leq\frac{1}{\sqrt{n}}]}dP\\
-&\leq\int\mathbb{1}_{[\frac1n<X\leq\frac{1}{\sqrt{n}}]}dP\\
+\frac1n\int\frac1X\mathbf{1}_{[\frac1n<X\leq\frac{1}{\sqrt{n}}]}dP&=\int\frac1{nX}\mathbf{1}_{[\frac1n<X\leq\frac{1}{\sqrt{n}}]}dP\\
+&\leq\int\mathbf{1}_{[\frac1n<X\leq\frac{1}{\sqrt{n}}]}dP\\
 &=P[\frac1n<X\leq\frac{1}{\sqrt{n}}],
 \end{aligned}
 $$
 note that it is actually the measure of $\{\omega:\frac1n<X(\omega)\leq\frac{1}{\sqrt{n}}\}$, for any $\omega\in\Omega$, if $X(\omega)=0$, then it is not in this set, and if $X(\omega)>0$, then it will eventually out of it since there will be some $n$ such that $X(\omega)>\frac{1}{\sqrt n}$, so $\{\omega:\frac1n<X(\omega)\leq\frac{1}{\sqrt{n}}\}$ decrease to $\varnothing$, by continuity from above, $P[\frac1n<X\leq\frac{1}{\sqrt{n}}]\downarrow0$, therefore we have 
 $$
-\lim_{n\to\infty}\frac{1}nE(\frac1X\mathbb{1}_{[X>\frac{1}{n}]})=0.
+\lim_{n\to\infty}\frac{1}nE(\frac1X\mathbf{1}_{[X>\frac{1}{n}]})=0.
 $$
 $\textbf{Answer2:}$ (Something much more elegant)
-Define $f_n(\omega)=\frac{1}{nX(\omega)}\mathbb{1}_{[X>\frac{1}{n}]}$, therefore $|f_n|\leq1$ for all n,
+Define $f_n(\omega)=\frac{1}{nX(\omega)}\mathbf{1}_{[X>\frac{1}{n}]}$, therefore $|f_n|\leq1$ for all n,
 and if $X(\omega)>0$, then $f_n\to0$, if $X(\omega)=0$, then $f_n(0)=0$ for all $n$ since the indicator is $0$, so $f_n\to0$ a.s., by DCT, 
 $$
-\lim_{n\to\infty}\frac{1}nE(\frac1X\mathbb{1}_{[X>\frac{1}{n}]})=E(\lim_{n\to\infty}f_n)=0.
+\lim_{n\to\infty}\frac{1}nE(\frac1X\mathbf{1}_{[X>\frac{1}{n}]})=E(\lim_{n\to\infty}f_n)=0.
 $$
 
 
-$\textbf{Note:}$ This DCT version of solution is so straight forward, and my brain is hold by the idea from (a), let's try rewrite something like $a_nE(g(X)\mathbb{1}_{\{X\in A_n\}})$ into $E(f_n)$ form and check whether $f_n\to0$ a.s..
+$\textbf{Note:}$ This DCT version of solution is so straight forward, and my brain is hold by the idea from (a), let's try rewrite something like $a_nE(g(X)\mathbf{1}_{\{X\in A_n\}})$ into $E(f_n)$ form and check whether $f_n\to0$ a.s..
 
 
 ## Ex 20
@@ -1331,17 +1331,146 @@ $$
 which is measurable. 
 
 
+## Ex 17
+::: problem
+$\textbf{Integration by parts.}$ Suppose $F$ and $G$ are two distribution functions with no common points of discontinuity in an interval $(a,b]$. Show
+\[
+\int_{(a,b]} G(x)F(dx)
+=
+F(b)G(b)-F(a)G(a)-\int_{(a,b]} F(x)G(dx).
+\]
 
+The formula can fail if $F$ and $G$ have common discontinuities. If $F$ and $G$ are absolutely continuous with densities $f$ and $g$, try to prove the formula by differentiating with respect to the upper limit of integration. (Why can you differentiate?)
+:::
 
+$\textbf{My idea:}$ We can build the distribution function from the block, that is, 
+$$
+G(x)=\begin{cases}
+0,& \text{if}\ x< c\\
+1,& \text{if}\ x\geq c\\
+\end{cases}
+$$
+, from the assumption, $c$ is not the discontinuity of $F$, and we should see that $G(dx)$ is actually the Dirac measure $\delta_c$ (I don't know if it is legal to use it here), so we have:
 
+1. $c\leq a$, then $G(a)=G(b)=1$, LHS$=F(a,b]=F(b)-F(a)$, and 
+$$
+\begin{aligned}
+\text{RHS}&=F(b)G(b)-F(a)G(a)-\int_{(a,b]}F(x)G(dx)\\
+&=F(b)-F(a)
+\end{aligned}
+$$
+so LHS=RHS.
 
+2. $c\in(a,b]$, then LHS$=F(b)-F(c)$, and 
+$$
+\begin{aligned}
+\text{RHS}&=F(b)G(b)-F(a)G(a)-\int_{(a,b]}F(x)G(dx)\\
+&=F(b)-0-F(c)=F(b)-F(c)
+\end{aligned}
+$$
+so LHS=RHS.
 
+3. $c>b$, then we have LHS=RHS$=0$.
 
+Then for $G_n(x)=\sum_{i=1}^n p_i \mathbf{1}_{[c_i,\infty)}$, where $\sum_{i=1}^n p_i=1$,by the linearity of integral, we still have LHS=RHS, and for $G_n\uparrow G$, we can apply MCT to the LHS, and for the RHS, we have 
+$$
+\int F(x)G_n(dx) =\sum_{i=1}^n p_iF(c_i)\to\int F(x)G(dx),
+$$
+since it is a Riemann sum. So when $G$ and $F$ have no common points of discontinuity.
 
+We shall see that, when $c$ is also a discontinuity of $F$, then if $c\in(a,b]$, we have 
+$$
+\int_{(a,b]}G(x)F(dx)=F(b)-F(c-).
+$$
 
+When they are absolutely continuous, so their product $FG$ is also ac, and we have
+$$
+(FG)'=fG+Fg\ \text{(a.e.)}
+$$
+integral on both sides, we completed the proof.
 
+$\textbf{Answer:}$ 
 
+* Step 1: One jump case:
 
+Fix $c\in\mathbb{R}$ and let $G_c(x)=\mathbf{1}_{[c,\infty)}(x)$. Then $G_c(a)=\mathbf{1}_{\{a\geq c\}}$ and $G_c(b)=\mathbf{1}_{\{b\geq c\}}$ and 
+$$
+\begin{aligned}
+\int_{(a,b]}G_c(x)F(dx)&=\int_{(a,b]}\mathbf{1}_{[c,\infty)}(x)F(dx)\\
+&=F((a,b]\cap[c,\infty))\\
+&=F([c,b])=F(b)-F(c-).
+\end{aligned}
+$$
+Also, we have $G_c(dx)=\delta_c(dx)$, so
+$$
+\int_{(a,b]}F(x)G_c(dx)=
+\begin{cases}
+F(c) & \text{if}\ c\in (a,b]\\
+0 & \text{if}\ c\not\in (a,b]\\
+\end{cases}
+$$
 
+1. When $c\leq a$, LHS is $\text{LHS}=F(b)-F(a)$, and  RHS$=F(b)-F(a)$, that is, LHS = RHS.
+
+2. When $c\in(a,b]$, and $c$ is not a discontinuity of $F$ so $\text{LHS}=F(b)-F(c-)=F(b)-F(c)$, and RHS is also $F(b)-F(c)$.
+
+3. When $c>b$, both sides are $0$.
+
+So for the one step function case, we have LHS = RHS.
+
+* Step 2: finite step distributions
+
+Let $G(x)=\sum_{i=1}^n p_i\mathbf{1}_{[c_i,\infty)}$, where $p_i\geq0$ and $\sum_{i=1}^n p_i=1$, and each jump point $c_i$ is not a discontinuity of $F$, by the linearity of integral and step 1, LHS = RHS.
+
+* Step 3: approximation of a general $G$
+
+Take partition of $(a,b]$, $a=t_0<t_1<\cdots<t_n=b$ where $\max\Delta t_i\to0$, and construct step function as 
+$$
+G_n(x)=\sum_{i=1}^n(G(t_i)-G(t_{i-1}))\mathbf{1}_{[t_i,\infty)}
+$$
+the jump points of $G_n(x)$ are $\{t_1,\dots,t_n\}$ and $G_n(x)\to G(x)$ at every continuous point of $G$, since $G$ is a monotone bounded function, which can only has at most countable discontinuity. Let $Y_n\sim G_n$ and $Y\sim G$, so $Y_n\Rightarrow Y$ (or $Y_n\xrightarrow{d} Y$, convergence in distribution).
+
+And for $F$, it is also a df, so can only has at most discontinuity, denote them as $\text{DISC}(F)$, so we have 
+$$
+\begin{aligned}
+P(Y\in\text{DISC}(F))&=P(\{\omega\in\Omega:Y(\omega)\in\text{DISC}(F)\})\\
+&=\sum_{c\in\text{DISC}(F)}P(Y=c)\\
+&=\sum_{c\in\text{DISC}(F)}\Delta G(c)\\
+&=0,
+\end{aligned}
+$$
+it is because $F$ and $G$ have no common discontinuity, so for $c\in(a,b]\cap\text{DISC}(F)$, we have $\Delta G(c)=0$, Since $Y_n\Rightarrow Y$ and $F$ is bounded and continuous at $Y$ a.s., we have
+$$
+E(F(Y_n))\to E(F(Y)),
+$$
+and note that by transformation theorem, $E(F(Y_n)\mathbf{1}_{\{Y_n\in(a,b]\}})=\int F(Y_n)\mathbf{1}_{\{Y_n\in(a,b]\}}dP=\int_{(a,b]} F(x)G_n(dx)$ and $E(F(Y)\mathbf{1}_{\{Y\in(a,b]\}})=\int F(Y)\mathbf{1}_{\{Y\in(a,b]\}}dP=\int_{(a,b]} F(x)G(dx)$, that is, we have 
+$$
+\int_{(a,b]} F(x)G_n(dx)\to \int_{(a,b]} F(x)G(dx),
+$$
+and by DCT, we have 
+$$
+\int_{(a,b]} G_n(x)F(dx)\to\int_{(a,b]} G(x)F(dx)
+$$
+also, $G_n(a)\to G(a)$ and $G_n(b)\to G(b)$, therefore we have LHS=RHS.
+
+* fail with common discontinuities
+
+when $c$ is also a discontinuity of $F$, then if $c\in(a,b]$, we have 
+$$ 
+\int_{(a,b]}G(x)F(dx)-(F(b)G(b)-F(a)G(a)-\int_{(a,b]}F(x)G(dx))=F(c)-F(c-)=\Delta F(c). 
+$$
+
+* Absolutely continuous
+
+When they are absolutely continuous, so their product $FG$ is also ac, and we have 
+$$ 
+(FG)(x)'=f(x)G(x)+F(x)g(x) \quad \text{a.e.} 
+$$ 
+since $f,g\in L_1(a,b]$, $F,G$ are bounded, then $fG+Fg\in L_1(a,b]$, so we can integral on both sides, we completed the proof.
+
+$\textbf{Note:}$ I think I basically get the idea of this, but I actually used some ideas from further chapter and outside from the book, so I make supplement for these ideas here.
+
+In step 3 of the __answer__ part, I used a weak-convergence argument: $Y_n\sim G_n$ and $Y\sim G$ with $Y_n\Rightarrow Y$. Since $F$ is bounded and $P(Y\in\text{DISC}(F))=0$(because $F$ and $G$ have no common discontinuities) the extended Portmanteau/continuous-a.s. lemma gives $E(F(Y_n))\to E(F(Y))$.
+We will officially learn this in chapter 8.
 
 
