@@ -1391,6 +1391,8 @@ integral on both sides, we completed the proof.
 
 $\textbf{Answer:}$ 
 
+**Version 1: Completion of my idea**
+
 * Step 1: One jump case:
 
 Fix $c\in\mathbb{R}$ and let $G_c(x)=\mathbf{1}_{[c,\infty)}(x)$. Then $G_c(a)=\mathbf{1}_{\{a\geq c\}}$ and $G_c(b)=\mathbf{1}_{\{b\geq c\}}$ and 
@@ -1468,9 +1470,82 @@ $$
 $$ 
 since $f,g\in L_1(a,b]$, $F,G$ are bounded, then $fG+Fg\in L_1(a,b]$, so we can integral on both sides, we completed the proof.
 
+**Version 2: Application of Fubini**
+We knew that $G$ is a distribution function, so we can rewrite it as 
+$$
+G(x)=\mu_G((-\infty,x])=\int_\mathbb{R}\mathbf{1}_{(-\infty,x]}\mu_G(dy),
+$$
+where $\mu_G$ is the induced measure, and let $\mu_F$ be the induced measure of $F$, then the LHS can be rewritten as
+$$
+\int_{(a,b]}\left(\int_{(-\infty,x]}G(dy)\right)F(dx),
+$$
+therefore, we can interpret this integral as the area on
+$$
+R:=\{(x,y)\in\mathbb{R}^2:x\in(a,b],y\leq x\},
+$$
+w.r.t product measure $F\times G$, since $R$ is measureable set because $R=\{(x,y)\in\mathbb{R}^2:x\in(a,b]\}\cap\{(x,y)\in\mathbb{R}^2:y\leq x\}$,which is an intersection of Borel sets, and $\mathbf{1}_R(x,y)\geq0$, according to Fubini, we can change the integral order, that is, this time $x$ first, then $y$.
+So we have
+$$
+\begin{aligned}
+\mathbf{1}_R(x,y)&=\mathbf{1}_{(a,b]}(x)\mathbf{1}_{(-\infty,x]}(y)\\
+&=\mathbf{1}_{(a,b]}(x)\mathbf{1}_{[y,+\infty)}(x)=\mathbf{1}_{(a,b]\cap[y,+\infty)}(x),
+\end{aligned}
+$$
+and
+$$
+\begin{aligned}
+\int_{\mathbb{R}^2}\mathbf{1}_R(x,y)(F\times G)(dx,dy)&
+=\int_{\mathbb{R}}\left(\int_{\mathbb{R}}\mathbf{1}_R(x,y)G(dy)\right)F(dx)\\
+&=\int_{\mathbb{R}}\left(\int_{\mathbb{R}}\mathbf{1}_R(x,y)F(dx)\right)G(dy),
+\end{aligned}
+$$
+and let use start from the inside
+$$
+\begin{aligned}
+\int_{\mathbb{R}}\mathbf{1}_R(x,y)F(dx)&=\int_{\mathbb{R}}\mathbf{1}_{(a,b]\cap[y,+\infty)}(x)F(dx)\\
+&=\mu_F((a,b]\cap[y,+\infty)),
+\end{aligned}
+$$
+
+* When $y\leq a$, it is $\mu_F((a,b])=F(b)-F(a)$.
+
+* When $y\in (a,b]$, it is $\mu_F([y,b])=F(b)-F(y-)$,
+
+* When $y>b$, it is $0$,
+
+so we have 
+$$
+\mu_F((a,b]\cap[y,+\infty))=(F(b)-F(a))\mathbf{1}_{(-\infty,a]}(y)+(F(b)-F(y-))\mathbf{1}_{(a,b]}(y),
+$$
+integral w.r.t $G$ on it, we have
+$$
+\begin{aligned}
+&\int_{\mathbb{R}}[(F(b)-F(a))\mathbf{1}_{(-\infty,a]}(y)+(F(b)-F(y-))\mathbf{1}_{(a,b]}(y)]G(dy)\\
+&=\int_{(-\infty,a]}(F(b)-F(a))G(dy)+\int_{(a,b]}(F(b)-F(y-))G(dy)\\
+&=(F(b)-F(a))G(a)+F(b)(G(b)-G(a))-\int_{(a,b]}F(y-)G(dy)\\
+&=F(b)G(b)-F(a)G(a)-\int_{(a,b]}F(y-)G(dy).
+\end{aligned}
+$$
+We can see that the only difference to the RHS is $F(y-)$, here is where we use the assumption that $F$ and $G$ have no common discontinuity:
+$$
+\begin{aligned}
+\int_{(a,b]}F(y)G(dy)-\int_{(a,b]}F(y-)G(dy)&=\int_{(a,b]}F(y)-F(y-)G(dy)\\
+&=\sum_{c\in(a,b]}\Delta F(c)G(\{c\})\\
+&=\sum_{c\in(a,b]}\Delta F(c)\Delta G(c)=0.
+\end{aligned}
+$$
+This works because $F$ is a df therefore has at most countable discontinuity.
+
+According to the above, we get LHS=RHS.
+
+
 $\textbf{Note:}$ I think I basically get the idea of this, but I actually used some ideas from further chapter and outside from the book, so I make supplement for these ideas here.
 
-In step 3 of the __answer__ part, I used a weak-convergence argument: $Y_n\sim G_n$ and $Y\sim G$ with $Y_n\Rightarrow Y$. Since $F$ is bounded and $P(Y\in\text{DISC}(F))=0$(because $F$ and $G$ have no common discontinuities) the extended Portmanteau/continuous-a.s. lemma gives $E(F(Y_n))\to E(F(Y))$.
+In step 3 of the __version 1 answer__ , I used a weak-convergence argument: $Y_n\sim G_n$ and $Y\sim G$ with $Y_n\Rightarrow Y$. Since $F$ is bounded and $P(Y\in\text{DISC}(F))=0$(because $F$ and $G$ have no common discontinuities) the extended Portmanteau/continuous-a.s. lemma gives $E(F(Y_n))\to E(F(Y))$.
 We will officially learn this in chapter 8.
 
-
+And I searched that there is __version 2__, generally speaking,it shows that the only possible discrepancy comes from jumps: 
+$$
+\int(F-F^-)dG=\sum_c\Delta F(c)\Delta G(c), 
+$$
+which is $0$ when there are no common discontinuities, This "upgrade to 2-D and integrate in two orders" idea remind me of the integral of $e^{-x^2}$ on $\mathbb{R}$, indeed, we can find the Taylor series and integral each part, but that requires knowledge from complex analysis.

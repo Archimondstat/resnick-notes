@@ -23,7 +23,7 @@
 <meta name="author" content="Zhanwen Peng" />
 
 
-<meta name="date" content="2026-03-06" />
+<meta name="date" content="2026-03-08" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -1622,6 +1622,7 @@ since it is a Riemann sum. So when <span class="math inline">\(G\)</span> and <s
 \]</span>
 integral on both sides, we completed the proof.</p>
 <p><span class="math inline">\(\textbf{Answer:}\)</span></p>
+<p><strong>Version 1: Completion of my idea</strong></p>
 <ul>
 <li>Step 1: One jump case:</li>
 </ul>
@@ -1696,9 +1697,78 @@ also, <span class="math inline">\(G_n(a)\to G(a)\)</span> and <span class="math 
 (FG)(x)&#39;=f(x)G(x)+F(x)g(x) \quad \text{a.e.}
 \]</span>
 since <span class="math inline">\(f,g\in L_1(a,b]\)</span>, <span class="math inline">\(F,G\)</span> are bounded, then <span class="math inline">\(fG+Fg\in L_1(a,b]\)</span>, so we can integral on both sides, we completed the proof.</p>
+<p><strong>Version 2: Application of Fubini</strong>
+We knew that <span class="math inline">\(G\)</span> is a distribution function, so we can rewrite it as
+<span class="math display">\[
+G(x)=\mu_G((-\infty,x])=\int_\mathbb{R}\mathbf{1}_{(-\infty,x]}\mu_G(dy),
+\]</span>
+where <span class="math inline">\(\mu_G\)</span> is the induced measure, and let <span class="math inline">\(\mu_F\)</span> be the induced measure of <span class="math inline">\(F\)</span>, then the LHS can be rewritten as
+<span class="math display">\[
+\int_{(a,b]}\left(\int_{(-\infty,x]}G(dy)\right)F(dx),
+\]</span>
+therefore, we can interpret this integral as the area on
+<span class="math display">\[
+R:=\{(x,y)\in\mathbb{R}^2:x\in(a,b],y\leq x\},
+\]</span>
+w.r.t product measure <span class="math inline">\(F\times G\)</span>, since <span class="math inline">\(R\)</span> is measureable set because <span class="math inline">\(R=\{(x,y)\in\mathbb{R}^2:x\in(a,b]\}\cap\{(x,y)\in\mathbb{R}^2:y\leq x\}\)</span>,which is an intersection of Borel sets, and <span class="math inline">\(\mathbf{1}_R(x,y)\geq0\)</span>, according to Fubini, we can change the integral order, that is, this time <span class="math inline">\(x\)</span> first, then <span class="math inline">\(y\)</span>.
+So we have
+<span class="math display">\[
+\begin{aligned}
+\mathbf{1}_R(x,y)&amp;=\mathbf{1}_{(a,b]}(x)\mathbf{1}_{(-\infty,x]}(y)\\
+&amp;=\mathbf{1}_{(a,b]}(x)\mathbf{1}_{[y,+\infty)}(x)=\mathbf{1}_{(a,b]\cap[y,+\infty)}(x),
+\end{aligned}
+\]</span>
+and
+<span class="math display">\[
+\begin{aligned}
+\int_{\mathbb{R}^2}\mathbf{1}_R(x,y)(F\times G)(dx,dy)&amp;
+=\int_{\mathbb{R}}\left(\int_{\mathbb{R}}\mathbf{1}_R(x,y)G(dy)\right)F(dx)\\
+&amp;=\int_{\mathbb{R}}\left(\int_{\mathbb{R}}\mathbf{1}_R(x,y)F(dx)\right)G(dy),
+\end{aligned}
+\]</span>
+and let use start from the inside
+<span class="math display">\[
+\begin{aligned}
+\int_{\mathbb{R}}\mathbf{1}_R(x,y)F(dx)&amp;=\int_{\mathbb{R}}\mathbf{1}_{(a,b]\cap[y,+\infty)}(x)F(dx)\\
+&amp;=\mu_F((a,b]\cap[y,+\infty)),
+\end{aligned}
+\]</span></p>
+<ul>
+<li><p>When <span class="math inline">\(y\leq a\)</span>, it is <span class="math inline">\(\mu_F((a,b])=F(b)-F(a)\)</span>.</p></li>
+<li><p>When <span class="math inline">\(y\in (a,b]\)</span>, it is <span class="math inline">\(\mu_F([y,b])=F(b)-F(y-)\)</span>,</p></li>
+<li><p>When <span class="math inline">\(y&gt;b\)</span>, it is <span class="math inline">\(0\)</span>,</p></li>
+</ul>
+<p>so we have
+<span class="math display">\[
+\mu_F((a,b]\cap[y,+\infty))=(F(b)-F(a))\mathbf{1}_{(-\infty,a]}(y)+(F(b)-F(y-))\mathbf{1}_{(a,b]}(y),
+\]</span>
+integral w.r.t <span class="math inline">\(G\)</span> on it, we have
+<span class="math display">\[
+\begin{aligned}
+&amp;\int_{\mathbb{R}}[(F(b)-F(a))\mathbf{1}_{(-\infty,a]}(y)+(F(b)-F(y-))\mathbf{1}_{(a,b]}(y)]G(dy)\\
+&amp;=\int_{(-\infty,a]}(F(b)-F(a))G(dy)+\int_{(a,b]}(F(b)-F(y-))G(dy)\\
+&amp;=(F(b)-F(a))G(a)+F(b)(G(b)-G(a))-\int_{(a,b]}F(y-)G(dy)\\
+&amp;=F(b)G(b)-F(a)G(a)-\int_{(a,b]}F(y-)G(dy).
+\end{aligned}
+\]</span>
+We can see that the only difference to the RHS is <span class="math inline">\(F(y-)\)</span>, here is where we use the assumption that <span class="math inline">\(F\)</span> and <span class="math inline">\(G\)</span> have no common discontinuity:
+<span class="math display">\[
+\begin{aligned}
+\int_{(a,b]}F(y)G(dy)-\int_{(a,b]}F(y-)G(dy)&amp;=\int_{(a,b]}F(y)-F(y-)G(dy)\\
+&amp;=\sum_{c\in(a,b]}\Delta F(c)G(\{c\})\\
+&amp;=\sum_{c\in(a,b]}\Delta F(c)\Delta G(c)=0.
+\end{aligned}
+\]</span>
+This works because <span class="math inline">\(F\)</span> is a df therefore has at most countable discontinuity.</p>
+<p>According to the above, we get LHS=RHS.</p>
 <p><span class="math inline">\(\textbf{Note:}\)</span> I think I basically get the idea of this, but I actually used some ideas from further chapter and outside from the book, so I make supplement for these ideas here.</p>
-<p>In step 3 of the <strong>answer</strong> part, I used a weak-convergence argument: <span class="math inline">\(Y_n\sim G_n\)</span> and <span class="math inline">\(Y\sim G\)</span> with <span class="math inline">\(Y_n\Rightarrow Y\)</span>. Since <span class="math inline">\(F\)</span> is bounded and <span class="math inline">\(P(Y\in\text{DISC}(F))=0\)</span>(because <span class="math inline">\(F\)</span> and <span class="math inline">\(G\)</span> have no common discontinuities) the extended Portmanteau/continuous-a.s. lemma gives <span class="math inline">\(E(F(Y_n))\to E(F(Y))\)</span>.
+<p>In step 3 of the <strong>version 1 answer</strong> , I used a weak-convergence argument: <span class="math inline">\(Y_n\sim G_n\)</span> and <span class="math inline">\(Y\sim G\)</span> with <span class="math inline">\(Y_n\Rightarrow Y\)</span>. Since <span class="math inline">\(F\)</span> is bounded and <span class="math inline">\(P(Y\in\text{DISC}(F))=0\)</span>(because <span class="math inline">\(F\)</span> and <span class="math inline">\(G\)</span> have no common discontinuities) the extended Portmanteau/continuous-a.s. lemma gives <span class="math inline">\(E(F(Y_n))\to E(F(Y))\)</span>.
 We will officially learn this in chapter 8.</p>
+<p>And I searched that there is <strong>version 2</strong>, generally speaking,it shows that the only possible discrepancy comes from jumps:
+<span class="math display">\[
+\int(F-F^-)dG=\sum_c\Delta F(c)\Delta G(c),
+\]</span>
+which is <span class="math inline">\(0\)</span> when there are no common discontinuities, This “upgrade to 2-D and integrate in two orders” idea remind me of the integral of <span class="math inline">\(e^{-x^2}\)</span> on <span class="math inline">\(\mathbb{R}\)</span>, indeed, we can find the Taylor series and integral each part, but that requires knowledge from complex analysis.</p>
 
 </div>
 </div>
