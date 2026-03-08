@@ -294,6 +294,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#ex-23-1"><i class="fa fa-check"></i>Ex 23</a></li>
 <li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#ex-12-2"><i class="fa fa-check"></i>Ex 12</a></li>
 <li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#ex-17-1"><i class="fa fa-check"></i>Ex 17</a></li>
+<li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#ex-27-1"><i class="fa fa-check"></i>Ex 27</a></li>
 </ul></li>
 </ul>
 
@@ -1769,6 +1770,127 @@ We will officially learn this in chapter 8.</p>
 \int(F-F^-)dG=\sum_c\Delta F(c)\Delta G(c),
 \]</span>
 which is <span class="math inline">\(0\)</span> when there are no common discontinuities, This “upgrade to 2-D and integrate in two orders” idea remind me of the integral of <span class="math inline">\(e^{-x^2}\)</span> on <span class="math inline">\(\mathbb{R}\)</span>, indeed, we can find the Taylor series and integral each part, but that requires knowledge from complex analysis.</p>
+</div>
+<div id="ex-27-1" class="section level2 hasAnchor">
+<h2>Ex 27<a href="chap-5-integration-and-expectation.html#ex-27-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="problem">
+<p><span class="math inline">\(\textbf{Rapid variation.}\)</span> A distribution tail <span class="math inline">\(1-F(x)\)</span> is called rapidly varying if
+<span class="math display">\[
+\lim_{t\to\infty}\frac{1-F(tx)}{1-F(t)}
+=
+\begin{cases}
+\infty, &amp; \text{if } 0&lt;x&lt;1,\\
+0, &amp; \text{if } x&gt;1.
+\end{cases}
+\]</span></p>
+<p>Verify that if <span class="math inline">\(F\)</span> is normal or gamma, then the distribution tail is rapidly varying.</p>
+<p>If <span class="math inline">\(X\ge 0\)</span> is a random variable with distribution tail which is rapidly varying, then <span class="math inline">\(X\)</span> possesses all positive moments: for any <span class="math inline">\(m&gt;0\)</span> we have <span class="math inline">\(E(X^m)&lt;\infty\)</span>.</p>
+</div>
+<p><span class="math inline">\(\textbf{My idea:}\)</span> Since any normal distribution can be expressed by standard normal distribution, so we will focus on standard normal distribution first,
+<span class="math display">\[
+\begin{aligned}
+\frac{1-F(tx)}{1-F(x)}&amp;=\frac{\int_{tx}^{+\infty}\exp(-\frac{y^2}{2})dy}{\int_{t}^{+\infty}\exp(-\frac{x^2}{2})dx}\\
+&amp;=\frac{\int_{t}^{+\infty}\exp(-\frac{(zx)^2}{2})xdz}{\int_{t}^{+\infty}\exp(-\frac{x^2}{2})dx}\\
+&amp;=\lim_{M\to\infty}\frac{\exp(-\frac{x^2\xi_1^2}{2})x(M-t)}{\exp(-\frac{\xi_2^2}{2})(M-t)}\\
+&amp;=\frac{\exp(-\frac{x^2\xi_1^2}{2})x}{\exp(-\frac{\xi_2^2}{2})}\\
+&amp;=x\exp(-\frac{x^2\xi_1^2}{2}+\frac{\xi_2^2}{2}),
+\end{aligned}
+\]</span>
+where <span class="math inline">\(\xi_1,\xi_2\in[t,+\infty)\)</span>, so when <span class="math inline">\(x\in(0,1)\)</span>, it goes to <span class="math inline">\(\infty\)</span> because <span class="math inline">\(\frac{\xi_2^2}{2}\)</span> dominates, and when <span class="math inline">\(x&gt;1\)</span>, it goes to <span class="math inline">\(0\)</span>.</p>
+<p><span class="math inline">\(\textbf{Answer:}\)</span></p>
+<p><strong>Normal Distribution :</strong></p>
+<ul>
+<li>Method 1 (L’Hopital’s Rule)</li>
+</ul>
+<p>Since both of them are positive, decreasing to <span class="math inline">\(0\)</span>, and have continuous derivatives, therefore</p>
+<p><span class="math display">\[
+\begin{aligned}
+\lim_{t\to\infty}\frac{1-F(tx)}{1-F(t)}&amp;=\lim_{t\to\infty}\frac{\int_{tx}^{+\infty}\exp(-\frac{(y-\mu)^2}{2\sigma^2})dy}{\int_{t}^{+\infty}\exp(-\frac{(x-\mu)^2}{2\sigma^2})dx}\\
+&amp;=\lim_{t\to\infty}\frac{\exp(-\frac{(tx-\mu)^2}{2\sigma^2})x}{\exp(-\frac{(t-\mu)^2}{2\sigma^2})}\\
+&amp;=\lim_{t\to\infty}\exp(\frac{t^2(1-x^2)-2t\mu(1-x)}{2\sigma^2})x.
+\end{aligned}
+\]</span></p>
+<p>When <span class="math inline">\(x&gt;1\)</span>, <span class="math inline">\(1-x^2&lt;0\)</span>, therefore the limit is <span class="math inline">\(0\)</span>, and if <span class="math inline">\(x\in(0,1)\)</span>, the limit is <span class="math inline">\(\infty\)</span>.</p>
+<ul>
+<li>Method 2 (Mill’s Ratio)</li>
+</ul>
+<p>According to Mill’s Ratio, for standard normal distribution, we have</p>
+<p><span class="math display">\[
+P[X&gt;x]\sim\frac{\phi(x)}{x},
+\]</span></p>
+<p>where <span class="math inline">\(\phi(x)\)</span> is the standard normal density.</p>
+<p>So
+<span class="math display">\[
+\begin{aligned}
+\lim_{t\to\infty}\frac{1-F(tx)}{1-F(t)}&amp;=\lim_{t\to\infty}\frac{\phi(tx)}{tx}\cdot\frac{t}{\phi(t)}\\
+&amp;=\lim_{t\to\infty}\frac{\phi(tx)}{x\phi(t)},
+\end{aligned}
+\]</span>
+what’s left to be done is the same as method 1, and indulge me to say: for non-standard normal distribution, left to the reader.</p>
+<p><strong>Gamma Distribution :</strong></p>
+<ul>
+<li>Method 1 (L’Hopital’s Rule)</li>
+</ul>
+<p>Like normal distribution, we also have <span class="math inline">\(\lim_{t\to\infty}(1-F(tx))=0\)</span>, <span class="math inline">\(\lim_{t\to\infty}(1-F(t))=0\)</span> and have continuous derivatives, therefore</p>
+<p><span class="math display">\[
+\begin{aligned}
+\lim_{t\to\infty}\frac{1-F(tx)}{1-F(t)}&amp;=\lim_{t\to\infty}\frac{(tx)^{\alpha-1}e^{-\beta xt}}{(t)^{\alpha-1}e^{-\beta t}}\\
+&amp;=\lim_{t\to\infty} x\cdot x^{\alpha-1}\exp(\beta t(1-x))\\
+&amp;=\lim_{t\to\infty} x^{\alpha}\exp(\beta t(1-x))
+\end{aligned}
+\]</span>
+so similarly, when <span class="math inline">\(x&gt;1\)</span>, <span class="math inline">\(1-x&lt;0\)</span>, therefore the limit is <span class="math inline">\(0\)</span>, and if <span class="math inline">\(x\in(0,1)\)</span>, the limit is <span class="math inline">\(\infty\)</span>.</p>
+<ul>
+<li>Method 2 (Asymptotic tail formula)</li>
+</ul>
+<p>For gamma distribution, we have</p>
+<p><span class="math display">\[
+1-F(t)\sim\frac{\beta^{\alpha-1}}{\Gamma(\alpha)}t^{\alpha-1}e^{-{\beta t}},
+\]</span>
+then what’s left is similar to Method 2 of normal distribution part.</p>
+<p><strong>Possesses all positive moments</strong></p>
+<p>Since <span class="math inline">\(X\geq0\)</span>, then for any positive <span class="math inline">\(m\)</span>, we have
+<span class="math display">\[
+\begin{aligned}
+E(X^m)&amp;=\int X^mdP\\
+&amp;=\int_{\mathbb{R}}x^mF(dx)\quad\text{(Transformation theorem)}\\
+&amp;=\int_{\mathbb{R}}\left(\int_0^xmt^{m-1}dt\right)F(dx)\\
+&amp;=\int_{\mathbb{R}}\left(\int_0^\infty mt^{m-1}\mathbf{1}_{\{t&lt;x\}}dt\right)F(dx)\\
+&amp;=\int_0^\infty \left(\int_{\mathbb{R}}mt^{m-1}\mathbf{1}_{\{t&lt;x\}}F(dx)\right)dt\quad\text{(Fubini)}\\
+&amp;=m\int_0^\infty t^{m-1}P(X&gt;t)dt.\\
+\end{aligned}
+\]</span>
+For simplicity, denote <span class="math inline">\(1-F(t)\)</span> as <span class="math inline">\(S(t)\)</span>, since <span class="math inline">\(X\)</span> is a random variable with distribution tail which is rapidly varying, for <span class="math inline">\(x&gt;1\)</span>, we have
+<span class="math display">\[
+\lim_{t\to\infty}\frac{S(tx)}{S(t)}=0,
+\]</span>
+so there exists <span class="math inline">\(t_0&gt;0\)</span> such that for <span class="math inline">\(t\geq t_0\)</span>, we have
+<span class="math display">\[
+S(tx)\leq\frac{1}{2}S(t).
+\]</span>
+apply repatedly at <span class="math inline">\(t=t_0,t_0x,t_0x^2,\dots\)</span>, then for integer <span class="math inline">\(k\)</span>, we have
+<span class="math display">\[
+S(t_0x^k)\leq\frac{1}{2^k}S(t_0)
+\]</span>
+Therefore for <span class="math inline">\(t\in (t_0x^k,t_0x^{k+1}]\)</span>, <span class="math inline">\(S(t)\)</span> is decreasing, so <span class="math inline">\(S(t)\leq S(t_0 x^k)\)</span>, and <span class="math inline">\(t\leq t_0x^{k+1}\)</span>,</p>
+<p><span class="math display">\[
+\begin{aligned}
+\int_{t_0x^k}^{t_0x^{k+1}} t^{m-1}P(X&gt;t)dt&amp;=\int_{t_0x^k}^{t_0x^{k+1}} t^{m-1}S(t)dt&amp;\\
+&amp;\leq\int_{t_0x^k}^{t_0x^{k+1}} t^{m-1} S(t_0x^{k})dt\\
+&amp;\leq\int_{t_0x^k}^{t_0x^{k+1}}t^{m-1}\frac{1}{2^{k}}S(t_0)dt\\
+&amp;\leq C\left(\frac{x^m}{2}\right) ^k.
+\end{aligned}
+\]</span></p>
+<p>For each positive <span class="math inline">\(m\)</span>, select <span class="math inline">\(x\in(1,2^{1/m})\)</span> such that <span class="math inline">\(\frac{x^m}{2}&lt;1\)</span>, so we have
+<span class="math display">\[
+\begin{aligned}
+E(X^m)&amp;=m\int_0^\infty t^{m-1}P(X&gt;t)dt\\
+&amp;=m\left(\int_{0}^{t_0} t^{m-1}P(X&gt;t)dt+\sum_{k\geq0}\int_{t_0x^k}^{t_0x^{k+1}} t^{m-1}P(X&gt;t)dt\right)\\
+&amp;\leq m\int_{0}^{t_0} t^{m-1}P(X&gt;t)dt+\sum_{k\geq0}C_1\sum_k\left(\frac{x^m}{2}\right) ^k&lt;\infty.
+\end{aligned}
+\]</span></p>
+<p><span class="math inline">\(\textbf{Note:}\)</span> The interesting thing is that I was abusing L’Hopital’s Rule before and I didn’t recognize it at the time.</p>
+<p>For the second part, I have to say it is the first time I met such idea.</p>
 
 </div>
 </div>

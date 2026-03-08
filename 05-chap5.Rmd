@@ -1549,3 +1549,142 @@ $$
 \int(F-F^-)dG=\sum_c\Delta F(c)\Delta G(c), 
 $$
 which is $0$ when there are no common discontinuities, This "upgrade to 2-D and integrate in two orders" idea remind me of the integral of $e^{-x^2}$ on $\mathbb{R}$, indeed, we can find the Taylor series and integral each part, but that requires knowledge from complex analysis.
+
+## Ex 27
+::: problem
+$\textbf{Rapid variation.}$ A distribution tail $1-F(x)$ is called rapidly varying if
+\[
+\lim_{t\to\infty}\frac{1-F(tx)}{1-F(t)}
+=
+\begin{cases}
+\infty, & \text{if } 0<x<1,\\
+0, & \text{if } x>1.
+\end{cases}
+\]
+
+Verify that if $F$ is normal or gamma, then the distribution tail is rapidly varying.
+
+If $X\ge 0$ is a random variable with distribution tail which is rapidly varying, then $X$ possesses all positive moments: for any $m>0$ we have $E(X^m)<\infty$.
+:::
+
+$\textbf{My idea:}$ Since any normal distribution can be expressed by standard normal distribution, so we will focus on standard normal distribution first, 
+$$
+\begin{aligned}
+\frac{1-F(tx)}{1-F(x)}&=\frac{\int_{tx}^{+\infty}\exp(-\frac{y^2}{2})dy}{\int_{t}^{+\infty}\exp(-\frac{x^2}{2})dx}\\
+&=\frac{\int_{t}^{+\infty}\exp(-\frac{(zx)^2}{2})xdz}{\int_{t}^{+\infty}\exp(-\frac{x^2}{2})dx}\\
+&=\lim_{M\to\infty}\frac{\exp(-\frac{x^2\xi_1^2}{2})x(M-t)}{\exp(-\frac{\xi_2^2}{2})(M-t)}\\
+&=\frac{\exp(-\frac{x^2\xi_1^2}{2})x}{\exp(-\frac{\xi_2^2}{2})}\\
+&=x\exp(-\frac{x^2\xi_1^2}{2}+\frac{\xi_2^2}{2}),
+\end{aligned}
+$$
+where $\xi_1,\xi_2\in[t,+\infty)$, so when $x\in(0,1)$, it goes to $\infty$ because $\frac{\xi_2^2}{2}$ dominates, and when $x>1$, it goes to $0$.
+
+$\textbf{Answer:}$ 
+
+**Normal Distribution :**
+
+* Method 1 (L'Hopital's Rule)
+
+Since both of them are positive, decreasing to $0$, and have continuous derivatives, therefore
+
+$$
+\begin{aligned}
+\lim_{t\to\infty}\frac{1-F(tx)}{1-F(t)}&=\lim_{t\to\infty}\frac{\int_{tx}^{+\infty}\exp(-\frac{(y-\mu)^2}{2\sigma^2})dy}{\int_{t}^{+\infty}\exp(-\frac{(x-\mu)^2}{2\sigma^2})dx}\\
+&=\lim_{t\to\infty}\frac{\exp(-\frac{(tx-\mu)^2}{2\sigma^2})x}{\exp(-\frac{(t-\mu)^2}{2\sigma^2})}\\
+&=\lim_{t\to\infty}\exp(\frac{t^2(1-x^2)-2t\mu(1-x)}{2\sigma^2})x.
+\end{aligned}
+$$
+
+When $x>1$, $1-x^2<0$, therefore the limit is $0$, and if $x\in(0,1)$, the limit is $\infty$.
+
+* Method 2 (Mill's Ratio)
+
+According to Mill's Ratio, for standard normal distribution, we have
+
+$$
+P[X>x]\sim\frac{\phi(x)}{x}, 
+$$
+
+where $\phi(x)$ is the standard normal density.
+
+So
+$$
+\begin{aligned}
+\lim_{t\to\infty}\frac{1-F(tx)}{1-F(t)}&=\lim_{t\to\infty}\frac{\phi(tx)}{tx}\cdot\frac{t}{\phi(t)}\\
+&=\lim_{t\to\infty}\frac{\phi(tx)}{x\phi(t)},
+\end{aligned}
+$$
+what's left to be done is the same as method 1, and indulge me to say: for non-standard normal distribution, left to the reader.
+
+**Gamma Distribution :**
+
+* Method 1 (L'Hopital's Rule)
+
+Like normal distribution, we also have $\lim_{t\to\infty}(1-F(tx))=0$, $\lim_{t\to\infty}(1-F(t))=0$ and have continuous derivatives, therefore
+
+$$
+\begin{aligned}
+\lim_{t\to\infty}\frac{1-F(tx)}{1-F(t)}&=\lim_{t\to\infty}\frac{(tx)^{\alpha-1}e^{-\beta xt}}{(t)^{\alpha-1}e^{-\beta t}}\\
+&=\lim_{t\to\infty} x\cdot x^{\alpha-1}\exp(\beta t(1-x))\\
+&=\lim_{t\to\infty} x^{\alpha}\exp(\beta t(1-x))
+\end{aligned}
+$$
+so similarly, when $x>1$, $1-x<0$, therefore the limit is $0$, and if $x\in(0,1)$, the limit is $\infty$.
+
+* Method 2 (Asymptotic tail formula)
+
+For gamma distribution, we have
+
+$$
+1-F(t)\sim\frac{\beta^{\alpha-1}}{\Gamma(\alpha)}t^{\alpha-1}e^{-{\beta t}},
+$$
+then what's left is similar to Method 2 of normal distribution part.
+
+**Possesses all positive moments**
+
+Since $X\geq0$, then for any positive $m$, we have
+$$
+\begin{aligned}
+E(X^m)&=\int X^mdP\\
+&=\int_{\mathbb{R}}x^mF(dx)\quad\text{(Transformation theorem)}\\
+&=\int_{\mathbb{R}}\left(\int_0^xmt^{m-1}dt\right)F(dx)\\
+&=\int_{\mathbb{R}}\left(\int_0^\infty mt^{m-1}\mathbf{1}_{\{t<x\}}dt\right)F(dx)\\
+&=\int_0^\infty \left(\int_{\mathbb{R}}mt^{m-1}\mathbf{1}_{\{t<x\}}F(dx)\right)dt\quad\text{(Fubini)}\\
+&=m\int_0^\infty t^{m-1}P(X>t)dt.\\
+\end{aligned}
+$$
+For simplicity, denote $1-F(t)$ as $S(t)$, since $X$ is a random variable with distribution tail which is rapidly varying, for $x>1$, we have
+$$
+\lim_{t\to\infty}\frac{S(tx)}{S(t)}=0,
+$$
+so there exists $t_0>0$ such that for $t\geq t_0$, we have
+$$
+S(tx)\leq\frac{1}{2}S(t).
+$$
+apply repatedly at $t=t_0,t_0x,t_0x^2,\dots$, then for integer $k$, we have 
+$$
+S(t_0x^k)\leq\frac{1}{2^k}S(t_0)
+$$
+Therefore for $t\in (t_0x^k,t_0x^{k+1}]$, $S(t)$ is decreasing, so $S(t)\leq S(t_0 x^k)$, and $t\leq t_0x^{k+1}$,
+
+$$
+\begin{aligned}
+\int_{t_0x^k}^{t_0x^{k+1}} t^{m-1}P(X>t)dt&=\int_{t_0x^k}^{t_0x^{k+1}} t^{m-1}S(t)dt&\\
+&\leq\int_{t_0x^k}^{t_0x^{k+1}} t^{m-1} S(t_0x^{k})dt\\
+&\leq\int_{t_0x^k}^{t_0x^{k+1}}t^{m-1}\frac{1}{2^{k}}S(t_0)dt\\
+&\leq C\left(\frac{x^m}{2}\right) ^k.
+\end{aligned}
+$$
+
+For each positive $m$, select $x\in(1,2^{1/m})$ such that $\frac{x^m}{2}<1$, so we have
+$$
+\begin{aligned}
+E(X^m)&=m\int_0^\infty t^{m-1}P(X>t)dt\\
+&=m\left(\int_{0}^{t_0} t^{m-1}P(X>t)dt+\sum_{k\geq0}\int_{t_0x^k}^{t_0x^{k+1}} t^{m-1}P(X>t)dt\right)\\
+&\leq m\int_{0}^{t_0} t^{m-1}P(X>t)dt+\sum_{k\geq0}C_1\sum_k\left(\frac{x^m}{2}\right) ^k<\infty.
+\end{aligned}
+$$
+
+$\textbf{Note:}$ The interesting thing is that I was abusing L'Hopital's Rule before and I didn’t recognize it at the time.
+
+For the second part, I have to say it is the first time I met such idea.
