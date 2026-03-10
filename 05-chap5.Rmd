@@ -1160,7 +1160,25 @@ And I want to write down the scratch idea of version 2 here (since it took me tw
 
 ## Ex 16
 ::: problem
+(a) Suppose $-\infty<a\le b<\infty$. Show that the indicator function $\mathbf{1}_{(a,b]}(x)$ can be approximated by bounded and continuous functions; that is, show that there exist a sequence of continuous functions $0\le f_n\le 1$ such that
+\[
+f_n\to \mathbf{1}_{(a,b]}
+\quad\text{pointwise.}
+\]
 
+Hint: Approximate the rectangle of height $1$ and base $(a,b]$ by a trapezoid of height $1$ with base $(a,b+n^{-1}]$ whose top line extends from $a+n^{-1}$ to $b$.
+
+(b) Show that two random variables $X_1$ and $X_2$ are independent iff for every pair $f_1,f_2$ of non-negative continuous functions, we have
+\[
+E\bigl(f_1(X_1)f_2(X_2)\bigr)=Ef_1(X_1)\,Ef_2(X_2).
+\]
+
+(c) Suppose for each $n$, that the pair $\xi_n$ and $\eta_n$ are independent random variables and that pointwise
+\[
+\xi_n\to \xi_\infty,\qquad \eta_n\to \eta_\infty.
+\]
+
+Show that the pair $\xi_\infty$ and $\eta_\infty$ are independent so that independence is preserved by taking limits.
 :::
 
 ### (a)
@@ -1206,6 +1224,175 @@ ggplot(df, aes(x = x, y = y, color = n)) +
        x = "x", y = "f_n(x)") +
   theme_minimal()
 ```
+
+
+### (b)
+$\textbf{My idea:}$ 
+
+"$\Rightarrow$": Suppose r.v.s $X_1$ and $X_2$ are independent, that is $\sigma(X_1)=X_1^{-1}(\mathcal{B}(\mathbb{R}))$ and $\sigma(X_2)=X_2^{-1}(\mathcal{B}(\mathbb{R}))$ are independent, then for any non-negative continuous function $f_1$, $f_2$, we have $\sigma(f_1(X_1))\subseteq\sigma(X_1)$ and $\sigma(f_2(X_2))\subseteq\sigma(X_2)$, so they are independent, which means $f_1(X_1)$ and $f_2(X_2)$ are independent r.v.s, therefore we have (we can prove it or use Example 5.9.2)
+$$
+E(f_1(X_1)f_2(X_2))=E(f_1(X_1))E(f_2(X_2)).
+$$
+
+"$\Leftarrow$": Conversely, suppose for any non-negative continuous function $f_1$, $f_2$, we have $E(f_1(X_1)f_2(X_2))=E(f_1(X_1))E(f_2(X_2))$, then for any half-open interval $(a,b]$, according to (a), we have non-negative continuous function $f^{(1)}_n$,$f^{(2)}_n$, such that $f^{(i)}_n\to\mathbf{1}_{(a_i,b_i]}$, that is, we have
+$$
+E(f^{(1)}_n(X_1)f^{(2)}_n(X_2))=E(f^{(1)}_n(X_1))E(f^{(2)}_n(X_2)).
+$$
+We shall see that $\mathbf{1}_{(a_i,b_i]}(X_i)$, $i=1,2$ is integrable since $E(\mathbf{1}_{(a,b]}(X_i))=P(X_i\in(a_i,b_i])$, $i=1,2$, and for $\mathbf{1}_{(a_1,b_1]}(X_1)\mathbf{1}_{(a_2,b_2]}(X_2)$, they’re bounded by 1, hence integrable., then by DCT and take limit on both side, we have
+$$
+E(\mathbf{1}_{(a_1,b_1]}(X_1)\mathbf{1}_{(a_2,b_2]}(X_2))=E(\mathbf{1}_{(a_1,b_1]}(X_1))E(\mathbf{1}_{(a_2,b_2]}(X_2)),
+$$
+but that is 
+$$
+P(\{X_1\in(a_1,b_1]\}\cap\{X_2\in(a_2,b_2]\})=P(X_1\in(a_1,b_1])P(X_2\in(a_2,b_2]),
+$$
+recall that $\mathcal{P}:=\{(a,b]:-\infty<a<b<\infty\}$ is a $\pi$-system which generates $\mathcal{B}(\mathbb{R})$, now we have $X_1^{-1}(\mathcal{P})$ and 
+$X_2^{-1}(\mathcal{P})$ are independent, and these are also $\pi$-systems, so $\sigma(X_1^{-1}(\mathcal{P}))=X_1^{-1}(\sigma(\mathcal{P}))=X_1^{-1}(\mathcal{B}(\mathbb{R}))$ and $\sigma(X_2^{-1}(\mathcal{P}))=X_2^{-1}(\sigma(\mathcal{P}))=X_2^{-1}(\mathcal{B}(\mathbb{R}))$ are independent, hence $X_1$ and $X_2$ are independent.
+
+
+$\textbf{Answer:}$ 
+
+Assume for all bounded continuous $f,g:\mathbb R\to[0,\infty)$,
+$$
+E[f(X_1)g(X_2)] = E[f(X_1)]E[g(X_2)]. \tag{1}
+$$
+Let $\mathcal P:={(a,b]:-\infty<a<b<\infty}$, a $\pi$-system generating $\mathcal B(\mathbb R)$. Then
+$$
+\mathcal R:=\{A\times B: A,B\in\mathcal P\}
+$$
+is a $\pi$-system generating $\mathcal B(\mathbb R^2)$.
+
+Define
+$$
+\mathcal{D}:=\{E\in\mathcal B(\mathbb R^2):\ P\big((X_1,X_2)\in E\big)
+= (P_{X_1}\times P_{X_2})(E)\}.
+$$
+Equivalently,
+$$
+\mathcal D=\{E: P((X_1,X_2)\in E)=P^*(E)\},
+$$
+where $P^*:=P_{X_1}\times P_{X_2}$.
+
+* Step 1: $\mathcal D$ is a λ-system
+
+* $\mathbb R^2\in\mathcal D$ since both measures give 1.
+* If $E\in\mathcal D$, then
+
+$$
+P((X_1,X_2)\in E^c)=1-P((X_1,X_2)\in E)=1-P^*(E)=P^*(E^c),
+$$
+  so $E^c\in\mathcal D$.
+* If $E_n\in\mathcal D$ are disjoint, then by countable additivity,
+
+$$
+P((X_1,X_2)\in \cup_n E_n)=\sum_n P((X_1,X_2)\in E_n)
+  =\sum_n P^*(E_n)=P^*(\cup_n E_n),
+$$
+
+  so $\cup_n E_n\in\mathcal D$.
+
+Thus $\mathcal D$ is a λ-system.
+
+* Step 2: $\mathcal R\subseteq \mathcal D$
+
+Fix $A=(a_1,b_1]\in\mathcal P$, $B=(a_2,b_2]\in\mathcal P$.
+By part (a), choose bounded continuous $f_n,g_n\ge0$ with
+$$
+0\le f_n\le 1,\quad f_n\to \mathbf 1_A;\qquad 0\le g_n\le 1,\quad g_n\to \mathbf 1_B
+$$
+pointwise.
+
+Apply (1):
+
+$$
+E[f_n(X_1)g_n(X_2)] = E[f_n(X_1)]E[g_n(X_2)].
+$$
+Let $n\to\infty$. By dominated convergence on all three expectations,
+$$
+E[\mathbf 1_A(X_1)\mathbf 1_B(X_2)]
+=E[\mathbf 1_A(X_1)],E[\mathbf 1_B(X_2)],
+$$
+i.e.
+$$
+P(X_1\in A,\ X_2\in B)=P(X_1\in A)P(X_2\in B).
+$$
+But $P^*(A\times B)=P(X_1\in A)P(X_2\in B)$, so $A\times B\in\mathcal D$.
+Hence $\mathcal R\subseteq\mathcal D$.
+
+* Step 3: $\pi-\lambda$ theorem
+
+Since $\mathcal R$ is a $\pi$-system generating $\mathcal B(\mathbb R^2)$ and $\mathcal D$ is a λ-system containing $\mathcal R$, the π–λ theorem gives
+$$
+\mathcal B(\mathbb R^2)\subseteq \mathcal D,
+$$
+so $P((X_1,X_2)\in E)=P^*(E)$ for all Borel $E$. Thus the joint law equals the product law:
+$$
+P_{(X_1,X_2)}=P_{X_1}\times P_{X_2},
+$$
+which is exactly independence of $X_1$ and $X_2$.
+
+$\textbf{Note:}$ __My idea__ is correct, but I kept the answer because it provide a $\pi-\lambda$ version of proof, but the core step is still the same: approximate indicators of half-open intervals (and hence rectangles) by bounded continuous functions, then pass to the limit with DCT.
+
+
+### (c)
+$\textbf{My idea:}$ 
+According to (b), for any indicators $\mathbf{1}_{(a_1,b_1]}$ and $\mathbf{1}_{(a_2,b_2]}$, there exist non-negative continuous functions $f_m^{(1)}\to\mathbf{1}_{(a_1,b_1]}$ and $f_m^{(2)}\to\mathbf{1}_{(a_2,b_2]}$, firstly, since each of them are continuous, we have for each $m$,
+$$
+\lim_{n\to\infty}f^{(1)}_m(\xi_n)=f^{(1)}_m(\lim_{n\to\infty}\xi_n)=f^{(1)}_m(\xi_\infty)
+$$
+and
+$$
+\lim_{n\to\infty}f^{(2)}_m(\eta_n)=f^{(2)}_m(\lim_{n\to\infty}\eta_n)=f^{(2)}_m(\eta_\infty)
+$$
+since $0\leq f_m^{(i)}\leq1$, $i=1,2$, by DCT, we have
+$$
+E(f^{(1)}_m(\xi_n)f^{(2)}_m(\eta_n))\to E(f^{(1)}_m(\xi_\infty)f^{(2)}_m(\eta_\infty))
+$$
+and
+$$
+E(f^{(1)}_m(\xi_n))\to E(f^{(1)}_m(\xi_\infty)),\quad E(f^{(2)}_m(\eta_n))\to E(f^{(2)}_m(\eta_\infty))
+$$
+Since for each $n$, $\xi_n$ and $\eta_n$ are independent, therefore we have
+$$
+E(f^{(1)}_m(\xi_n)f^{(2)}_m(\eta_n))=E(f^{(1)}_m(\xi_n))E(f^{(2)}_m(\eta_n)),
+$$
+take the limit on both side, that is
+$$
+E(f^{(1)}_m(\xi_\infty)f^{(2)}_m(\eta_\infty))=E(f^{(1)}_m(\xi_\infty))E(f^{(2)}_m(\eta_\infty))
+$$
+
+then using the same method from (b), we get the independence.
+
+$\textbf{Answer:}$ Using the result from (b), since $\xi_n$ and $\eta_n$ are independent, then for fixed $n$, we have
+$$
+E(f(\xi_n)g(\eta_n))=E(f(\xi_n))E(g(\eta_n)),
+$$
+where $f,g$ are non-negative continuous functions, then for any integers $N,M\geq0$, $f_M=\min\{f,M\}$ and $g_N=\min\{g,N\}$ are also non-negative continuous functions, that is,
+$$
+\lim_{n\to\infty}f_M(\xi_n)=f_M(\xi_\infty),\quad\lim_{n\to\infty}g_N(\eta_n)=g_N(\eta_\infty)\quad\text{a.s.}
+$$
+therefore $f_M(\xi_n)g_N(\eta_n)\to f_M(\xi_\infty)g_N(\eta_\infty)$ a.s.. Since $f_M$, $g_N$ are bounded, hence $f_Mg_N$ is also bounded, by DCT we have
+$$
+\begin{aligned}
+E(f_M(\xi_n)g_N(\eta_n))&\to E(f_M(\xi_\infty)g_N(\eta_\infty))\\
+E(f_M(\xi_n))&\to E(f_M(\xi_\infty))\\
+E(g_N(\eta_n))&\to E(g_N(\eta_\infty))\\
+\end{aligned}
+$$
+so 
+$$
+E(f_M(\xi_\infty)g_N(\eta_\infty))=E(f_M(\xi_\infty))E(g_N(\eta_\infty)).
+$$
+then by MCT, we have
+$$
+E(f(\xi_\infty)g(\eta_\infty))=E(f(\xi_\infty))E(g(\eta_\infty)).
+$$
+according to (b), we get the independence.
+
+
+$\textbf{Note:}$ __MY idea__ is correct, the answer is just another method. In fact, In fact, the criterion in (b) can be extended from non-negative continuous functions to non_negative __bounded__ continuous functions (and then to general non-negative measurable via truncation/approximation).
+
+
 
 ## Ex 18
 ::: problem

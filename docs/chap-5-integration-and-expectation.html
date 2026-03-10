@@ -23,7 +23,7 @@
 <meta name="author" content="Zhanwen Peng" />
 
 
-<meta name="date" content="2026-03-08" />
+<meta name="date" content="2026-03-10" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -289,6 +289,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#ex-16-1"><i class="fa fa-check"></i>Ex 16</a>
 <ul>
 <li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#a-11"><i class="fa fa-check"></i>(a)</a></li>
+<li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#b-11"><i class="fa fa-check"></i>(b)</a></li>
+<li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#c-7"><i class="fa fa-check"></i>(c)</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#ex-18-1"><i class="fa fa-check"></i>Ex 18</a></li>
 <li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#ex-23-1"><i class="fa fa-check"></i>Ex 23</a></li>
@@ -1411,7 +1413,25 @@ This is just the definition of expectation for a discrete r.v., and by letting <
 <div id="ex-16-1" class="section level2 hasAnchor">
 <h2>Ex 16<a href="chap-5-integration-and-expectation.html#ex-16-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div class="problem">
-
+<ol style="list-style-type: lower-alpha">
+<li>Suppose <span class="math inline">\(-\infty&lt;a\le b&lt;\infty\)</span>. Show that the indicator function <span class="math inline">\(\mathbf{1}_{(a,b]}(x)\)</span> can be approximated by bounded and continuous functions; that is, show that there exist a sequence of continuous functions <span class="math inline">\(0\le f_n\le 1\)</span> such that
+<span class="math display">\[
+f_n\to \mathbf{1}_{(a,b]}
+\quad\text{pointwise.}
+\]</span></li>
+</ol>
+<p>Hint: Approximate the rectangle of height <span class="math inline">\(1\)</span> and base <span class="math inline">\((a,b]\)</span> by a trapezoid of height <span class="math inline">\(1\)</span> with base <span class="math inline">\((a,b+n^{-1}]\)</span> whose top line extends from <span class="math inline">\(a+n^{-1}\)</span> to <span class="math inline">\(b\)</span>.</p>
+<ol start="2" style="list-style-type: lower-alpha">
+<li><p>Show that two random variables <span class="math inline">\(X_1\)</span> and <span class="math inline">\(X_2\)</span> are independent iff for every pair <span class="math inline">\(f_1,f_2\)</span> of non-negative continuous functions, we have
+<span class="math display">\[
+E\bigl(f_1(X_1)f_2(X_2)\bigr)=Ef_1(X_1)\,Ef_2(X_2).
+\]</span></p></li>
+<li><p>Suppose for each <span class="math inline">\(n\)</span>, that the pair <span class="math inline">\(\xi_n\)</span> and <span class="math inline">\(\eta_n\)</span> are independent random variables and that pointwise
+<span class="math display">\[
+\xi_n\to \xi_\infty,\qquad \eta_n\to \eta_\infty.
+\]</span></p></li>
+</ol>
+<p>Show that the pair <span class="math inline">\(\xi_\infty\)</span> and <span class="math inline">\(\eta_\infty\)</span> are independent so that independence is preserved by taking limits.</p>
 </div>
 <div id="a-11" class="section level3 hasAnchor">
 <h3>(a)<a href="chap-5-integration-and-expectation.html#a-11" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -1454,6 +1474,156 @@ so for each <span class="math inline">\(n\)</span>, <span class="math inline">\(
 <span id="cb2-24"><a href="chap-5-integration-and-expectation.html#cb2-24" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">&quot;x&quot;</span>, <span class="at">y =</span> <span class="st">&quot;f_n(x)&quot;</span>) <span class="sc">+</span></span>
 <span id="cb2-25"><a href="chap-5-integration-and-expectation.html#cb2-25" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
 <p><img src="resnick-notes_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+</div>
+<div id="b-11" class="section level3 hasAnchor">
+<h3>(b)<a href="chap-5-integration-and-expectation.html#b-11" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><span class="math inline">\(\textbf{My idea:}\)</span></p>
+<p>“<span class="math inline">\(\Rightarrow\)</span>”: Suppose r.v.s <span class="math inline">\(X_1\)</span> and <span class="math inline">\(X_2\)</span> are independent, that is <span class="math inline">\(\sigma(X_1)=X_1^{-1}(\mathcal{B}(\mathbb{R}))\)</span> and <span class="math inline">\(\sigma(X_2)=X_2^{-1}(\mathcal{B}(\mathbb{R}))\)</span> are independent, then for any non-negative continuous function <span class="math inline">\(f_1\)</span>, <span class="math inline">\(f_2\)</span>, we have <span class="math inline">\(\sigma(f_1(X_1))\subseteq\sigma(X_1)\)</span> and <span class="math inline">\(\sigma(f_2(X_2))\subseteq\sigma(X_2)\)</span>, so they are independent, which means <span class="math inline">\(f_1(X_1)\)</span> and <span class="math inline">\(f_2(X_2)\)</span> are independent r.v.s, therefore we have (we can prove it or use Example 5.9.2)
+<span class="math display">\[
+E(f_1(X_1)f_2(X_2))=E(f_1(X_1))E(f_2(X_2)).
+\]</span></p>
+<p>“<span class="math inline">\(\Leftarrow\)</span>”: Conversely, suppose for any non-negative continuous function <span class="math inline">\(f_1\)</span>, <span class="math inline">\(f_2\)</span>, we have <span class="math inline">\(E(f_1(X_1)f_2(X_2))=E(f_1(X_1))E(f_2(X_2))\)</span>, then for any half-open interval <span class="math inline">\((a,b]\)</span>, according to (a), we have non-negative continuous function <span class="math inline">\(f^{(1)}_n\)</span>,<span class="math inline">\(f^{(2)}_n\)</span>, such that <span class="math inline">\(f^{(i)}_n\to\mathbf{1}_{(a_i,b_i]}\)</span>, that is, we have
+<span class="math display">\[
+E(f^{(1)}_n(X_1)f^{(2)}_n(X_2))=E(f^{(1)}_n(X_1))E(f^{(2)}_n(X_2)).
+\]</span>
+We shall see that <span class="math inline">\(\mathbf{1}_{(a_i,b_i]}(X_i)\)</span>, <span class="math inline">\(i=1,2\)</span> is integrable since <span class="math inline">\(E(\mathbf{1}_{(a,b]}(X_i))=P(X_i\in(a_i,b_i])\)</span>, <span class="math inline">\(i=1,2\)</span>, and for <span class="math inline">\(\mathbf{1}_{(a_1,b_1]}(X_1)\mathbf{1}_{(a_2,b_2]}(X_2)\)</span>, they’re bounded by 1, hence integrable., then by DCT and take limit on both side, we have
+<span class="math display">\[
+E(\mathbf{1}_{(a_1,b_1]}(X_1)\mathbf{1}_{(a_2,b_2]}(X_2))=E(\mathbf{1}_{(a_1,b_1]}(X_1))E(\mathbf{1}_{(a_2,b_2]}(X_2)),
+\]</span>
+but that is
+<span class="math display">\[
+P(\{X_1\in(a_1,b_1]\}\cap\{X_2\in(a_2,b_2]\})=P(X_1\in(a_1,b_1])P(X_2\in(a_2,b_2]),
+\]</span>
+recall that <span class="math inline">\(\mathcal{P}:=\{(a,b]:-\infty&lt;a&lt;b&lt;\infty\}\)</span> is a <span class="math inline">\(\pi\)</span>-system which generates <span class="math inline">\(\mathcal{B}(\mathbb{R})\)</span>, now we have <span class="math inline">\(X_1^{-1}(\mathcal{P})\)</span> and
+<span class="math inline">\(X_2^{-1}(\mathcal{P})\)</span> are independent, and these are also <span class="math inline">\(\pi\)</span>-systems, so <span class="math inline">\(\sigma(X_1^{-1}(\mathcal{P}))=X_1^{-1}(\sigma(\mathcal{P}))=X_1^{-1}(\mathcal{B}(\mathbb{R}))\)</span> and <span class="math inline">\(\sigma(X_2^{-1}(\mathcal{P}))=X_2^{-1}(\sigma(\mathcal{P}))=X_2^{-1}(\mathcal{B}(\mathbb{R}))\)</span> are independent, hence <span class="math inline">\(X_1\)</span> and <span class="math inline">\(X_2\)</span> are independent.</p>
+<p><span class="math inline">\(\textbf{Answer:}\)</span></p>
+<p>Assume for all bounded continuous <span class="math inline">\(f,g:\mathbb R\to[0,\infty)\)</span>,
+<span class="math display">\[
+E[f(X_1)g(X_2)] = E[f(X_1)]E[g(X_2)]. \tag{1}
+\]</span>
+Let <span class="math inline">\(\mathcal P:={(a,b]:-\infty&lt;a&lt;b&lt;\infty}\)</span>, a <span class="math inline">\(\pi\)</span>-system generating <span class="math inline">\(\mathcal B(\mathbb R)\)</span>. Then
+<span class="math display">\[
+\mathcal R:=\{A\times B: A,B\in\mathcal P\}
+\]</span>
+is a <span class="math inline">\(\pi\)</span>-system generating <span class="math inline">\(\mathcal B(\mathbb R^2)\)</span>.</p>
+<p>Define
+<span class="math display">\[
+\mathcal{D}:=\{E\in\mathcal B(\mathbb R^2):\ P\big((X_1,X_2)\in E\big)
+= (P_{X_1}\times P_{X_2})(E)\}.
+\]</span>
+Equivalently,
+<span class="math display">\[
+\mathcal D=\{E: P((X_1,X_2)\in E)=P^*(E)\},
+\]</span>
+where <span class="math inline">\(P^*:=P_{X_1}\times P_{X_2}\)</span>.</p>
+<ul>
+<li><p>Step 1: <span class="math inline">\(\mathcal D\)</span> is a λ-system</p></li>
+<li><p><span class="math inline">\(\mathbb R^2\in\mathcal D\)</span> since both measures give 1.</p></li>
+<li><p>If <span class="math inline">\(E\in\mathcal D\)</span>, then</p></li>
+</ul>
+<p><span class="math display">\[
+P((X_1,X_2)\in E^c)=1-P((X_1,X_2)\in E)=1-P^*(E)=P^*(E^c),
+\]</span>
+so <span class="math inline">\(E^c\in\mathcal D\)</span>.
+* If <span class="math inline">\(E_n\in\mathcal D\)</span> are disjoint, then by countable additivity,</p>
+<p><span class="math display">\[
+P((X_1,X_2)\in \cup_n E_n)=\sum_n P((X_1,X_2)\in E_n)
+  =\sum_n P^*(E_n)=P^*(\cup_n E_n),
+\]</span></p>
+<p>so <span class="math inline">\(\cup_n E_n\in\mathcal D\)</span>.</p>
+<p>Thus <span class="math inline">\(\mathcal D\)</span> is a λ-system.</p>
+<ul>
+<li>Step 2: <span class="math inline">\(\mathcal R\subseteq \mathcal D\)</span></li>
+</ul>
+<p>Fix <span class="math inline">\(A=(a_1,b_1]\in\mathcal P\)</span>, <span class="math inline">\(B=(a_2,b_2]\in\mathcal P\)</span>.
+By part (a), choose bounded continuous <span class="math inline">\(f_n,g_n\ge0\)</span> with
+<span class="math display">\[
+0\le f_n\le 1,\quad f_n\to \mathbf 1_A;\qquad 0\le g_n\le 1,\quad g_n\to \mathbf 1_B
+\]</span>
+pointwise.</p>
+<p>Apply (1):</p>
+<p><span class="math display">\[
+E[f_n(X_1)g_n(X_2)] = E[f_n(X_1)]E[g_n(X_2)].
+\]</span>
+Let <span class="math inline">\(n\to\infty\)</span>. By dominated convergence on all three expectations,
+<span class="math display">\[
+E[\mathbf 1_A(X_1)\mathbf 1_B(X_2)]
+=E[\mathbf 1_A(X_1)],E[\mathbf 1_B(X_2)],
+\]</span>
+i.e.
+<span class="math display">\[
+P(X_1\in A,\ X_2\in B)=P(X_1\in A)P(X_2\in B).
+\]</span>
+But <span class="math inline">\(P^*(A\times B)=P(X_1\in A)P(X_2\in B)\)</span>, so <span class="math inline">\(A\times B\in\mathcal D\)</span>.
+Hence <span class="math inline">\(\mathcal R\subseteq\mathcal D\)</span>.</p>
+<ul>
+<li>Step 3: <span class="math inline">\(\pi-\lambda\)</span> theorem</li>
+</ul>
+<p>Since <span class="math inline">\(\mathcal R\)</span> is a <span class="math inline">\(\pi\)</span>-system generating <span class="math inline">\(\mathcal B(\mathbb R^2)\)</span> and <span class="math inline">\(\mathcal D\)</span> is a λ-system containing <span class="math inline">\(\mathcal R\)</span>, the π–λ theorem gives
+<span class="math display">\[
+\mathcal B(\mathbb R^2)\subseteq \mathcal D,
+\]</span>
+so <span class="math inline">\(P((X_1,X_2)\in E)=P^*(E)\)</span> for all Borel <span class="math inline">\(E\)</span>. Thus the joint law equals the product law:
+<span class="math display">\[
+P_{(X_1,X_2)}=P_{X_1}\times P_{X_2},
+\]</span>
+which is exactly independence of <span class="math inline">\(X_1\)</span> and <span class="math inline">\(X_2\)</span>.</p>
+<p><span class="math inline">\(\textbf{Note:}\)</span> <strong>My idea</strong> is correct, but I kept the answer because it provide a <span class="math inline">\(\pi-\lambda\)</span> version of proof, but the core step is still the same: approximate indicators of half-open intervals (and hence rectangles) by bounded continuous functions, then pass to the limit with DCT.</p>
+</div>
+<div id="c-7" class="section level3 hasAnchor">
+<h3>(c)<a href="chap-5-integration-and-expectation.html#c-7" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><span class="math inline">\(\textbf{My idea:}\)</span>
+According to (b), for any indicators <span class="math inline">\(\mathbf{1}_{(a_1,b_1]}\)</span> and <span class="math inline">\(\mathbf{1}_{(a_2,b_2]}\)</span>, there exist non-negative continuous functions <span class="math inline">\(f_m^{(1)}\to\mathbf{1}_{(a_1,b_1]}\)</span> and <span class="math inline">\(f_m^{(2)}\to\mathbf{1}_{(a_2,b_2]}\)</span>, firstly, since each of them are continuous, we have for each <span class="math inline">\(m\)</span>,
+<span class="math display">\[
+\lim_{n\to\infty}f^{(1)}_m(\xi_n)=f^{(1)}_m(\lim_{n\to\infty}\xi_n)=f^{(1)}_m(\xi_\infty)
+\]</span>
+and
+<span class="math display">\[
+\lim_{n\to\infty}f^{(2)}_m(\eta_n)=f^{(2)}_m(\lim_{n\to\infty}\eta_n)=f^{(2)}_m(\eta_\infty)
+\]</span>
+since <span class="math inline">\(0\leq f_m^{(i)}\leq1\)</span>, <span class="math inline">\(i=1,2\)</span>, by DCT, we have
+<span class="math display">\[
+E(f^{(1)}_m(\xi_n)f^{(2)}_m(\eta_n))\to E(f^{(1)}_m(\xi_\infty)f^{(2)}_m(\eta_\infty))
+\]</span>
+and
+<span class="math display">\[
+E(f^{(1)}_m(\xi_n))\to E(f^{(1)}_m(\xi_\infty)),\quad E(f^{(2)}_m(\eta_n))\to E(f^{(2)}_m(\eta_\infty))
+\]</span>
+Since for each <span class="math inline">\(n\)</span>, <span class="math inline">\(\xi_n\)</span> and <span class="math inline">\(\eta_n\)</span> are independent, therefore we have
+<span class="math display">\[
+E(f^{(1)}_m(\xi_n)f^{(2)}_m(\eta_n))=E(f^{(1)}_m(\xi_n))E(f^{(2)}_m(\eta_n)),
+\]</span>
+take the limit on both side, that is
+<span class="math display">\[
+E(f^{(1)}_m(\xi_\infty)f^{(2)}_m(\eta_\infty))=E(f^{(1)}_m(\xi_\infty))E(f^{(2)}_m(\eta_\infty))
+\]</span></p>
+<p>then using the same method from (b), we get the independence.</p>
+<p><span class="math inline">\(\textbf{Answer:}\)</span> Using the result from (b), since <span class="math inline">\(\xi_n\)</span> and <span class="math inline">\(\eta_n\)</span> are independent, then for fixed <span class="math inline">\(n\)</span>, we have
+<span class="math display">\[
+E(f(\xi_n)g(\eta_n))=E(f(\xi_n))E(g(\eta_n)),
+\]</span>
+where <span class="math inline">\(f,g\)</span> are non-negative continuous functions, then for any integers <span class="math inline">\(N,M\geq0\)</span>, <span class="math inline">\(f_M=\min\{f,M\}\)</span> and <span class="math inline">\(g_N=\min\{g,N\}\)</span> are also non-negative continuous functions, that is,
+<span class="math display">\[
+\lim_{n\to\infty}f_M(\xi_n)=f_M(\xi_\infty),\quad\lim_{n\to\infty}g_N(\eta_n)=g_N(\eta_\infty)\quad\text{a.s.}
+\]</span>
+therefore <span class="math inline">\(f_M(\xi_n)g_N(\eta_n)\to f_M(\xi_\infty)g_N(\eta_\infty)\)</span> a.s.. Since <span class="math inline">\(f_M\)</span>, <span class="math inline">\(g_N\)</span> are bounded, hence <span class="math inline">\(f_Mg_N\)</span> is also bounded, by DCT we have
+<span class="math display">\[
+\begin{aligned}
+E(f_M(\xi_n)g_N(\eta_n))&amp;\to E(f_M(\xi_\infty)g_N(\eta_\infty))\\
+E(f_M(\xi_n))&amp;\to E(f_M(\xi_\infty))\\
+E(g_N(\eta_n))&amp;\to E(g_N(\eta_\infty))\\
+\end{aligned}
+\]</span>
+so
+<span class="math display">\[
+E(f_M(\xi_\infty)g_N(\eta_\infty))=E(f_M(\xi_\infty))E(g_N(\eta_\infty)).
+\]</span>
+then by MCT, we have
+<span class="math display">\[
+E(f(\xi_\infty)g(\eta_\infty))=E(f(\xi_\infty))E(g(\eta_\infty)).
+\]</span>
+according to (b), we get the independence.</p>
+<p><span class="math inline">\(\textbf{Note:}\)</span> <strong>MY idea</strong> is correct, the answer is just another method. In fact, In fact, the criterion in (b) can be extended from non-negative continuous functions to non_negative <strong>bounded</strong> continuous functions (and then to general non-negative measurable via truncation/approximation).</p>
 </div>
 </div>
 <div id="ex-18-1" class="section level2 hasAnchor">
