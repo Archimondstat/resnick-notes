@@ -1875,3 +1875,64 @@ $$
 $\textbf{Note:}$ The interesting thing is that I was abusing L'Hopital's Rule before and I didn’t recognize it at the time.
 
 For the second part, I have to say it is the first time I met such idea.
+
+## Ex 11
+::: problem
+If $X,Y$ are independent random variables and $E(X)$ exists, then for all
+$B\in\mathcal{B}(\mathbb{R})$, we have
+\[
+\int_{[Y\in B]} XdP = E(X)P[Y\in B].
+\]
+:::
+
+$\textbf{My idea:}$ 
+
+First suppose that $X=\mathbf 1_{A}$ for some $A$ is independent of $\{Y\in B\}$, so we have $X$ and $Y$ are independent.
+$$
+\begin{aligned}
+\int_{[Y\in B]}XdP&=\int X\mathbf 1_{[Y\in B]}dP\\
+&=\int\mathbf 1_A\mathbf1_{[Y\in B]}dP\\
+&=P(A\cap[Y\in B])\\
+&=P(A)P([Y\in B])\\
+&=E(X)P([Y\in B]).
+\end{aligned}
+$$
+When $X$ is a simple function, by the linearity of expectation, this equality holds, and when $X$ is a non-negative r.v., using simple function such that $X_n\uparrow X$, by MCT, this equality also holds, in the end, for any r.v. $X$, we have $X=X^+-X^-$, where $X^+$ and $X^-$ are non-negative r.v.s, therefore the equality holds for every integrable random variable $X$.
+
+$\textbf{Answer:}$ Since $X$ and $Y$ are independent, then $X$ and $Z:=g(Y)=\mathbf{1}_B(Y)=\mathbf1_{\{Y\in B\}}$ should also be independent since $g$ is measurable, $\sigma(g(Y))\subseteq\sigma(Y)$, further, since $E(X)$ exists, and $|XZ|\leq|X|$, $E(|XZ|)<\infty$, let $h(x,z)=xz$, and $W=(X,Z)$, then for $\text{RECT}=\{A_1\times A_2:A_1,A_2\in\mathcal B(\mathbb R)\}$, we have
+$$
+\begin{aligned}
+P\circ W^{-1}(A_1\times A_2)&=P[(X,Z)\in A_1\times A_2]\\
+&=P[\{X\in A_1\}\cap\{Z\in A_2\}]\\
+&=P[X\in A_1]P[Z\in A_2]\\
+&=\mu_X(A_1)\times \mu_Z(A_2)\\
+&=(\mu_X\times \mu_Z)(A_1\times A_2)
+\end{aligned}
+$$
+so $P\circ W^{-1}$ and $\mu_X\times \mu_Z$ agree on RECT, therefore agree on $\mathcal B(\mathbb{R^2})=\sigma(\text{RECT})$, hence
+$$
+\begin{aligned}
+E(XZ)&=E(h(W))\\
+&=\int h(W)dP\\
+&=\int_{\mathbb R^2}h(w)P\circ W^{-1}\\
+&=\int_{\mathbb R^2}xz (\mu_X\times \mu_Z)(dx\times dz)\\
+&=\int_{\mathbb R}x\left(\int_{\mathbb R}z\mu_Z(dz)\right)\mu_X(dx)\\
+&=\int_{\mathbb R}x\mu_X(dx)\int_{\mathbb R}z\mu_Z(dz)\\
+&=E(X)E(Z)\\
+&=E(X)E(\mathbf{1}_B(Y))\\
+&=E(X)P(Y\in B)
+\end{aligned}
+$$
+and since $XZ=X\mathbf1_{\{Y\in B\}}$, so
+$$
+E(XZ)=\int_{\{Y\in B\}} XdP.
+$$
+
+
+$\textbf{Note:}$ **My idea** is correct. In fact, when a problem involves independent random variables $X$ and $Y$, it is natural to think of a product-measure/Fubini argument. The proof in the **Answer** is essentially the same pattern as Example 5.9.2, extended to the integrand $h(x,z)=xz$. Of course, the basic logic behind Fubini still comes from the standard approximation route: indicator functions $\to$ simple functions $\to$ measurable functions.
+
+Also, the author uses $F$ for both the distribution function and the induced measure (page 138), which can be confusing. Therefore, for a random variable $X$, I use $\mu_X$ for the induced measure and $F_X$ for the distribution function.
+
+
+
+

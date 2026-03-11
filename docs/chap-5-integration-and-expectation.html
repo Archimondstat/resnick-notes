@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chap 5, Integration and Expectation | Notes on A Probability Path (Resnick)</title>
   <meta name="description" content="Chap 5, Integration and Expectation | Notes on A Probability Path (Resnick)" />
-  <meta name="generator" content="bookdown 0.46 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.42 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chap 5, Integration and Expectation | Notes on A Probability Path (Resnick)" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="Zhanwen Peng" />
 
 
-<meta name="date" content="2026-03-10" />
+<meta name="date" content="2026-03-11" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -55,7 +55,6 @@
 
 
 <style type="text/css">
-html { -webkit-text-size-adjust: 100%; }
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -297,6 +296,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#ex-12-2"><i class="fa fa-check"></i>Ex 12</a></li>
 <li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#ex-17-1"><i class="fa fa-check"></i>Ex 17</a></li>
 <li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#ex-27-1"><i class="fa fa-check"></i>Ex 27</a></li>
+<li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#ex-11-1"><i class="fa fa-check"></i>Ex 11</a></li>
 </ul></li>
 </ul>
 
@@ -1704,13 +1704,13 @@ so we have <span class="math inline">\(\lambda\times\lambda(A)=\text{area of }A\
 <h2>Ex 12<a href="chap-5-integration-and-expectation.html#ex-12-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div class="problem">
 <ol start="12" style="list-style-type: decimal">
-<li>Suppose <span class="math inline">\(X\)</span> is an uncountable set and let <span class="math inline">\(\mathcal{B}\)</span> be the <span class="math inline">\(\sigma\)</span>-field of countable and co-countable (complements are countable) sets. Show that the diagonal <span class="math inline">\(\text{DIAG}  := \{(x, x) : x \in X\} \notin \mathcal{B} \times \mathcal{B}\)</span> is <strong>not</strong> in the product <span class="math inline">\(\sigma\)</span>-field. However, every section of $ $ is measurable.
+<li>Suppose <span class="math inline">\(X\)</span> is an uncountable set and let <span class="math inline">\(\mathcal{B}\)</span> be the <span class="math inline">\(\sigma\)</span>-field of countable and co-countable (complements are countable) sets. Show that the diagonal <span class="math inline">\(\text{DIAG} := \{(x, x) : x \in X\} \notin \mathcal{B} \times \mathcal{B}\)</span> is <strong>not</strong> in the product <span class="math inline">\(\sigma\)</span>-field. However, every section of $ $ is measurable.
 <ul>
 <li><strong>Hints</strong>:
 <ul>
 <li>Show that <span class="math inline">\(\mathcal{B} \times \mathcal{B} = \sigma(\{\{x\} \times X, X \times \{x\}, x \in X\})\)</span>.</li>
 <li>Review Exercise 12 in Chapter 2.</li>
-<li>Proceed by contradiction. Suppose <span class="math inline">\(\text{DIAG}  \in \mathcal{B} \times \mathcal{B}\)</span>. Then there exists countable <span class="math inline">\(S \subset X\)</span> such that <span class="math inline">\(\text{DIAG}  \in \sigma(\{\{x\} \times X, X \times \{x\}, x \in S\}) =: \mathcal{G}\)</span>.</li>
+<li>Proceed by contradiction. Suppose <span class="math inline">\(\text{DIAG} \in \mathcal{B} \times \mathcal{B}\)</span>. Then there exists countable <span class="math inline">\(S \subset X\)</span> such that <span class="math inline">\(\text{DIAG} \in \sigma(\{\{x\} \times X, X \times \{x\}, x \in S\}) =: \mathcal{G}\)</span>.</li>
 <li>Define <span class="math inline">\(\mathcal{P} := \{\{s\}, s \in S, S^c\}\)</span> and observe this is a partition of <span class="math inline">\(X\)</span>.</li>
 <li>Show it is impossible for <span class="math inline">\(\text{DIAG} \in \mathcal{G}\)</span>.</li>
 </ul></li>
@@ -2061,6 +2061,58 @@ E(X^m)&amp;=m\int_0^\infty t^{m-1}P(X&gt;t)dt\\
 \]</span></p>
 <p><span class="math inline">\(\textbf{Note:}\)</span> The interesting thing is that I was abusing L’Hopital’s Rule before and I didn’t recognize it at the time.</p>
 <p>For the second part, I have to say it is the first time I met such idea.</p>
+</div>
+<div id="ex-11-1" class="section level2 hasAnchor">
+<h2>Ex 11<a href="chap-5-integration-and-expectation.html#ex-11-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="problem">
+<p>If <span class="math inline">\(X,Y\)</span> are independent random variables and <span class="math inline">\(E(X)\)</span> exists, then for all
+<span class="math inline">\(B\in\mathcal{B}(\mathbb{R})\)</span>, we have
+<span class="math display">\[
+\int_{[Y\in B]} XdP = E(X)P[Y\in B].
+\]</span></p>
+</div>
+<p><span class="math inline">\(\textbf{My idea:}\)</span></p>
+<p>First suppose that <span class="math inline">\(X=\mathbf 1_{A}\)</span> for some <span class="math inline">\(A\)</span> is independent of <span class="math inline">\(\{Y\in B\}\)</span>, so we have <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are independent.
+<span class="math display">\[
+\begin{aligned}
+\int_{[Y\in B]}XdP&amp;=\int X\mathbf 1_{[Y\in B]}dP\\
+&amp;=\int\mathbf 1_A\mathbf1_{[Y\in B]}dP\\
+&amp;=P(A\cap[Y\in B])\\
+&amp;=P(A)P([Y\in B])\\
+&amp;=E(X)P([Y\in B]).
+\end{aligned}
+\]</span>
+When <span class="math inline">\(X\)</span> is a simple function, by the linearity of expectation, this equality holds, and when <span class="math inline">\(X\)</span> is a non-negative r.v., using simple function such that <span class="math inline">\(X_n\uparrow X\)</span>, by MCT, this equality also holds, in the end, for any r.v. <span class="math inline">\(X\)</span>, we have <span class="math inline">\(X=X^+-X^-\)</span>, where <span class="math inline">\(X^+\)</span> and <span class="math inline">\(X^-\)</span> are non-negative r.v.s, therefore the equality holds for every integrable random variable <span class="math inline">\(X\)</span>.</p>
+<p><span class="math inline">\(\textbf{Answer:}\)</span> Since <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are independent, then <span class="math inline">\(X\)</span> and <span class="math inline">\(Z:=g(Y)=\mathbf{1}_B(Y)=\mathbf1_{\{Y\in B\}}\)</span> should also be independent since <span class="math inline">\(g\)</span> is measurable, <span class="math inline">\(\sigma(g(Y))\subseteq\sigma(Y)\)</span>, further, since <span class="math inline">\(E(X)\)</span> exists, and <span class="math inline">\(|XZ|\leq|X|\)</span>, <span class="math inline">\(E(|XZ|)&lt;\infty\)</span>, let <span class="math inline">\(h(x,z)=xz\)</span>, and <span class="math inline">\(W=(X,Z)\)</span>, then for <span class="math inline">\(\text{RECT}=\{A_1\times A_2:A_1,A_2\in\mathcal B(\mathbb R)\}\)</span>, we have
+<span class="math display">\[
+\begin{aligned}
+P\circ W^{-1}(A_1\times A_2)&amp;=P[(X,Z)\in A_1\times A_2]\\
+&amp;=P[\{X\in A_1\}\cap\{Z\in A_2\}]\\
+&amp;=P[X\in A_1]P[Z\in A_2]\\
+&amp;=\mu_X(A_1)\times \mu_Z(A_2)\\
+&amp;=(\mu_X\times \mu_Z)(A_1\times A_2)
+\end{aligned}
+\]</span>
+so <span class="math inline">\(P\circ W^{-1}\)</span> and <span class="math inline">\(\mu_X\times \mu_Z\)</span> agree on RECT, therefore agree on <span class="math inline">\(\mathcal B(\mathbb{R^2})=\sigma(\text{RECT})\)</span>, hence
+<span class="math display">\[
+\begin{aligned}
+E(XZ)&amp;=E(h(W))\\
+&amp;=\int h(W)dP\\
+&amp;=\int_{\mathbb R^2}h(w)P\circ W^{-1}\\
+&amp;=\int_{\mathbb R^2}xz (\mu_X\times \mu_Z)(dx\times dz)\\
+&amp;=\int_{\mathbb R}x\left(\int_{\mathbb R}z\mu_Z(dz)\right)\mu_X(dx)\\
+&amp;=\int_{\mathbb R}x\mu_X(dx)\int_{\mathbb R}z\mu_Z(dz)\\
+&amp;=E(X)E(Z)\\
+&amp;=E(X)E(\mathbf{1}_B(Y))\\
+&amp;=E(X)P(Y\in B)
+\end{aligned}
+\]</span>
+and since <span class="math inline">\(XZ=X\mathbf1_{\{Y\in B\}}\)</span>, so
+<span class="math display">\[
+E(XZ)=\int_{\{Y\in B\}} XdP.
+\]</span></p>
+<p><span class="math inline">\(\textbf{Note:}\)</span> <strong>My idea</strong> is correct. In fact, when a problem involves independent random variables <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>, it is natural to think of a product-measure/Fubini argument. The proof in the <strong>Answer</strong> is essentially the same pattern as Example 5.9.2, extended to the integrand <span class="math inline">\(h(x,z)=xz\)</span>. Of course, the basic logic behind Fubini still comes from the standard approximation route: indicator functions <span class="math inline">\(\to\)</span> simple functions <span class="math inline">\(\to\)</span> measurable functions.</p>
+<p>Also, the author uses <span class="math inline">\(F\)</span> for both the distribution function and the induced measure (page 138), which can be confusing. Therefore, for a random variable <span class="math inline">\(X\)</span>, I use <span class="math inline">\(\mu_X\)</span> for the induced measure and <span class="math inline">\(F_X\)</span> for the distribution function.</p>
 
 </div>
 </div>
