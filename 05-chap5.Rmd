@@ -2142,3 +2142,163 @@ E(X^\alpha)&=\int_{[0,\infty)}\alpha t^{\alpha-1}P[X>t]dt\\
 $$
 
 $\textbf{Note:}$ __My idea__ is basically correct, but in fact we don't need to chop $\alpha\in(0,\infty)$ into 3 parts to discuss, further, method 2 told us that we can use the gamma function style integral to control $E(X^\alpha)$, that is, we don't event need to chop $[0,\infty)$ to pieces.
+
+
+### (d)
+$\textbf{My idea:}$ Since $E(X^\delta)<\infty$ and $X\geq0$, that is
+$$
+\delta\int_{\mathbb R^+}x^{\delta-1} P[X>x]dx<\infty,
+$$
+so we have 
+$$
+\lim_{x\to\infty}x^{\delta-1} P[X>x]=\lim_{x\to\infty}\frac{x^{\delta} P[X>x]}{x}=0,
+$$
+since $\lim_{x\to\infty}x=\infty$, we have
+$$
+\lim_{x\to\infty}x^{\delta}P[X>x]=0.
+$$
+
+$\textbf{Answer:}$ 
+We know that $E(X^\delta)<\infty$ and $P[X>x]$ decrease with $x$, then for $x$, we have
+$$
+\begin{aligned}
+\delta\int_{\frac{x}{2}}^x y^{\delta-1}P[X>y]dy&\geq P[X>x]\int_{\frac{x}{2}}^x \delta y^{\delta-1}dy\\
+&=P[X>x](x^\delta-(\frac{x}{2})^\delta)\\
+&=(1-\frac{1}{2^\delta})x^\delta P[X>x].
+\end{aligned}
+$$
+Since $E(X^\delta)<\infty$, then 
+$$
+0\leq\delta\int_{\frac{x}{2}}^x y^{\delta-1}P[X>y]dy\leq\delta\int_{\frac{x}{2}}^\infty y^{\delta-1}P[X>y]dy\to0,
+$$
+therefore
+$$
+\lim_{x\to\infty}x^{\delta}P[X>x]=0.
+$$
+
+
+$\textbf{Note:}$ It is actually very easy to find a counterexample such that for $f\geq0$, $\int_{\mathbb R^+}fdx<\infty$, but $\lim_{x\to\infty}f(x)\neq0$.
+A very classic (counter)example is 
+$$
+f(x)=\sum_{n=1}^\infty\mathbf1_{[n,n+\frac{1}{2^n}]}(x),
+$$
+the integral is
+$$
+\int_{\mathbb R^+}f(x)dx=\sum_{n=1}^\infty\frac{1}{2^n}=1<\infty,
+$$
+but for $x_n=n$, $f(x_n)=1$, therefore the limit does not exist.
+
+
+### (e)
+$\textbf{My idea:}$ 
+According to (a), we have
+$$
+\begin{aligned}
+E(X)&=\int_{[0,\infty)}P[X>t]dt\\
+&=\int_{[0,17)}P[X>t]dt+\int_{[17,\infty)}P[X>t]dt\\
+&=\int_{[0,17)}P[X>t]dt+C\int_{[17,\infty)}\frac{1}{t\log t}dt\\
+&=\int_{[0,17)}P[X>t]dt+C\lim_{b\to\infty}\log(\log t)|_{17}^b\\
+&=\infty.
+\end{aligned}
+$$
+and when $x$ is large, we have
+$$
+xP[X>x]=\frac{C}{\log x}\to0.
+$$
+
+$\textbf{Note:}$ By comparing (d) and (e), we note that $xP[X>x]\to0$ is much weaker than $E(X)<\infty$.
+
+
+### (f)
+$\textbf{My idea:}$ Note that $P[|X|>\eta\sqrt x]=P[X^2>\eta^2x]=P[\frac{X^2}{\eta^2}>x]$, let $Y=\frac{X^2}{\eta^2}$,then for any $\eta>0$ we have $E(Y)<\infty$, by $(d)$, we get
+$$
+\lim_{x\to\infty}xP[Y>x]=0,
+$$
+and that is exactly
+$$
+\lim_{x\to\infty}xP[|X|>\eta\sqrt x]=0.
+$$
+
+## Ex 24
+::: problem
+Suppose $X_1,X_2$ are iid random variables with common $N(0,1)$ distribution. Define
+\[
+Y_n=\frac{X_1}{\frac{1}{n}+|X_2|}.
+\]
+
+Use Fubini's theorem to verify that
+\[
+E(Y_n)=0.
+\]
+
+Note that as $n\to\infty$,
+\[
+Y_n\to Y:=\frac{X_1}{|X_2|}
+\]
+and that the expectation of $Y$ does not exist, so this is one case where random variables converge but means do not.
+:::
+
+$\textbf{My idea:}$ Note that $|Y_n|\leq n|X_1|$, and $E(|X_1|)<\infty$, so for each $n$, $Y_n$ is integrable, applying Fubini, we have
+$$
+\begin{aligned}
+E(Y_n)&=\int_{\mathbb R^2}\frac{x_1}{\frac{1}{n}+|x_2|}(\mu_{x_1}\times\mu_{x_2})(dx_1\times dx_2)\\
+&=\int_{\mathbb R}\left(\int_{\mathbb R}\frac{x_1}{\frac{1}{n}+|x_2|}\mu_{x_1}(dx_1) \right)\mu_{x_2}(dx_2)\\
+&=\int_{\mathbb R}\frac{1}{\frac{1}{n}+|x_2|}\left(\int_{\mathbb R}x_1\mu_{x_1}(dx_1) \right)\mu_{x_2}(dx_2)\\
+&=E(X_1)\int_{\mathbb R}\frac{1}{\frac{1}{n}+|x_2|}\mu_{x_2}(dx_2)\\
+&=0.
+\end{aligned}
+$$
+
+
+However, for $Y=\frac{X_1}{|X_2|}$, it is neither non-negative nor bounded, therefore its integral does not exist.
+
+
+$\textbf{Answer:}$ (Why $Y$ is not integrable)
+The first part in __My idea__ is correct, so we focus on why $Y$ is not integrable here.
+
+Firstly we have $|Y|\geq 0$, and $|X_1|$ is independent of $|X_2|$, the by (the non-negative part of) Fubini, we have
+$$
+\begin{aligned}
+E(|Y|)&=\int_{\mathbb R^2}\frac{|x_1|}{|x_2|}(\mu_{x_1}\times\mu_{x_2})(dx_1\times dx_2)\\
+&=\int_{\mathbb R}\left(\int_{\mathbb R}\frac{|x_1|}{|x_2|}\mu_{x_1}(dx_1) \right)\mu_{x_2}\\
+&=\int_{\mathbb R}\frac{1}{|x_2|}\left(\int_{\mathbb R}|x_1|\mu_{x_1}(dx_1) \right)\mu_{x_2}\\
+&=E(|X_1|)E(\frac{1}{|X_2|}).\\
+\end{aligned}
+$$
+What we have is that $E(|X_1|)<\infty$, for the second part, we have
+$$
+\int_{\mathbb R}\frac{1}{|x|}\mu(dx)=\infty,
+$$
+since the standard normal density is positive near $0$, and
+$$
+\int_{-1}^1\frac{1}{|x|}\phi(x)dx
+$$
+diverges for the same reason as
+$$
+\int_{-1}^1\frac{1}{|x|}dx.
+$$
+
+
+So $|Y|$ is not integrable.
+
+$\textbf{Note:}$ Even though for each $n$, $Y_n$ is integrable, and $Y_n\to Y$ a.s., but we can not find a dominating integrable function $F$ such that $|Y_n|\leq F$, therefore DCT cannot be applied here. 
+
+However, that does not mean that $Y$ is necessarily not integrable, consider
+$$
+Y_n=n\mathbf1_{[n,n+\frac{1}{n}]}.
+$$
+For each $n$, $E(Y_n)=1$, and $Y_n\to0$ a.s. However, if we want to find integrable $F$ such that for each $n$, $F\geq|Y_n|$, then we must have $F\geq\sup_nY_n$, since the suppots are disjoint, so we have
+$$
+\sup_nY_n=\sum_{n=1}^\infty n\mathbf1_{[n,n+\frac{1}{n}]},
+$$
+therefore
+$$
+\int Fdx\geq\int\sum_{n=1}^\infty n\mathbf1_{[n,n+\frac{1}{n}]}dx=\infty,
+$$
+so we get contradiction. In this example, $Y$ is integrable, even if $E(Y_n)\not\to E(Y)$.
+
+
+
+
+
+

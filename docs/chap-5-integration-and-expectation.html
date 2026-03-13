@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chap 5, Integration and Expectation | Notes on A Probability Path (Resnick)</title>
   <meta name="description" content="Chap 5, Integration and Expectation | Notes on A Probability Path (Resnick)" />
-  <meta name="generator" content="bookdown 0.46 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.42 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chap 5, Integration and Expectation | Notes on A Probability Path (Resnick)" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="Zhanwen Peng" />
 
 
-<meta name="date" content="2026-03-12" />
+<meta name="date" content="2026-03-13" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -55,7 +55,6 @@
 
 
 <style type="text/css">
-html { -webkit-text-size-adjust: 100%; }
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -307,7 +306,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#a-and-b"><i class="fa fa-check"></i>(a) and (b)</a></li>
 <li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#c-8"><i class="fa fa-check"></i>(c)</a></li>
+<li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#d-5"><i class="fa fa-check"></i>(d)</a></li>
+<li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#e-3"><i class="fa fa-check"></i>(e)</a></li>
+<li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#f-1"><i class="fa fa-check"></i>(f)</a></li>
 </ul></li>
+<li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#ex-24-1"><i class="fa fa-check"></i>Ex 24</a></li>
 </ul></li>
 </ul>
 
@@ -1715,13 +1718,13 @@ so we have <span class="math inline">\(\lambda\times\lambda(A)=\text{area of }A\
 <h2>Ex 12<a href="chap-5-integration-and-expectation.html#ex-12-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div class="problem">
 <ol start="12" style="list-style-type: decimal">
-<li>Suppose <span class="math inline">\(X\)</span> is an uncountable set and let <span class="math inline">\(\mathcal{B}\)</span> be the <span class="math inline">\(\sigma\)</span>-field of countable and co-countable (complements are countable) sets. Show that the diagonal <span class="math inline">\(\text{DIAG}  := \{(x, x) : x \in X\} \notin \mathcal{B} \times \mathcal{B}\)</span> is <strong>not</strong> in the product <span class="math inline">\(\sigma\)</span>-field. However, every section of $ $ is measurable.
+<li>Suppose <span class="math inline">\(X\)</span> is an uncountable set and let <span class="math inline">\(\mathcal{B}\)</span> be the <span class="math inline">\(\sigma\)</span>-field of countable and co-countable (complements are countable) sets. Show that the diagonal <span class="math inline">\(\text{DIAG} := \{(x, x) : x \in X\} \notin \mathcal{B} \times \mathcal{B}\)</span> is <strong>not</strong> in the product <span class="math inline">\(\sigma\)</span>-field. However, every section of $ $ is measurable.
 <ul>
 <li><strong>Hints</strong>:
 <ul>
 <li>Show that <span class="math inline">\(\mathcal{B} \times \mathcal{B} = \sigma(\{\{x\} \times X, X \times \{x\}, x \in X\})\)</span>.</li>
 <li>Review Exercise 12 in Chapter 2.</li>
-<li>Proceed by contradiction. Suppose <span class="math inline">\(\text{DIAG}  \in \mathcal{B} \times \mathcal{B}\)</span>. Then there exists countable <span class="math inline">\(S \subset X\)</span> such that <span class="math inline">\(\text{DIAG}  \in \sigma(\{\{x\} \times X, X \times \{x\}, x \in S\}) =: \mathcal{G}\)</span>.</li>
+<li>Proceed by contradiction. Suppose <span class="math inline">\(\text{DIAG} \in \mathcal{B} \times \mathcal{B}\)</span>. Then there exists countable <span class="math inline">\(S \subset X\)</span> such that <span class="math inline">\(\text{DIAG} \in \sigma(\{\{x\} \times X, X \times \{x\}, x \in S\}) =: \mathcal{G}\)</span>.</li>
 <li>Define <span class="math inline">\(\mathcal{P} := \{\{s\}, s \in S, S^c\}\)</span> and observe this is a partition of <span class="math inline">\(X\)</span>.</li>
 <li>Show it is impossible for <span class="math inline">\(\text{DIAG} \in \mathcal{G}\)</span>.</li>
 </ul></li>
@@ -2323,8 +2326,147 @@ E(X^\alpha)&amp;=\int_{[0,\infty)}\alpha t^{\alpha-1}P[X&gt;t]dt\\
 \end{aligned}
 \]</span></p>
 <p><span class="math inline">\(\textbf{Note:}\)</span> <strong>My idea</strong> is basically correct, but in fact we don’t need to chop <span class="math inline">\(\alpha\in(0,\infty)\)</span> into 3 parts to discuss, further, method 2 told us that we can use the gamma function style integral to control <span class="math inline">\(E(X^\alpha)\)</span>, that is, we don’t event need to chop <span class="math inline">\([0,\infty)\)</span> to pieces.</p>
-
 </div>
+<div id="d-5" class="section level3 hasAnchor">
+<h3>(d)<a href="chap-5-integration-and-expectation.html#d-5" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><span class="math inline">\(\textbf{My idea:}\)</span> Since <span class="math inline">\(E(X^\delta)&lt;\infty\)</span> and <span class="math inline">\(X\geq0\)</span>, that is
+<span class="math display">\[
+\delta\int_{\mathbb R^+}x^{\delta-1} P[X&gt;x]dx&lt;\infty,
+\]</span>
+so we have
+<span class="math display">\[
+\lim_{x\to\infty}x^{\delta-1} P[X&gt;x]=\lim_{x\to\infty}\frac{x^{\delta} P[X&gt;x]}{x}=0,
+\]</span>
+since <span class="math inline">\(\lim_{x\to\infty}x=\infty\)</span>, we have
+<span class="math display">\[
+\lim_{x\to\infty}x^{\delta}P[X&gt;x]=0.
+\]</span></p>
+<p><span class="math inline">\(\textbf{Answer:}\)</span>
+We know that <span class="math inline">\(E(X^\delta)&lt;\infty\)</span> and <span class="math inline">\(P[X&gt;x]\)</span> decrease with <span class="math inline">\(x\)</span>, then for <span class="math inline">\(x\)</span>, we have
+<span class="math display">\[
+\begin{aligned}
+\delta\int_{\frac{x}{2}}^x y^{\delta-1}P[X&gt;y]dy&amp;\geq P[X&gt;x]\int_{\frac{x}{2}}^x \delta y^{\delta-1}dy\\
+&amp;=P[X&gt;x](x^\delta-(\frac{x}{2})^\delta)\\
+&amp;=(1-\frac{1}{2^\delta})x^\delta P[X&gt;x].
+\end{aligned}
+\]</span>
+Since <span class="math inline">\(E(X^\delta)&lt;\infty\)</span>, then
+<span class="math display">\[
+0\leq\delta\int_{\frac{x}{2}}^x y^{\delta-1}P[X&gt;y]dy\leq\delta\int_{\frac{x}{2}}^\infty y^{\delta-1}P[X&gt;y]dy\to0,
+\]</span>
+therefore
+<span class="math display">\[
+\lim_{x\to\infty}x^{\delta}P[X&gt;x]=0.
+\]</span></p>
+<p><span class="math inline">\(\textbf{Note:}\)</span> It is actually very easy to find a counterexample such that for <span class="math inline">\(f\geq0\)</span>, <span class="math inline">\(\int_{\mathbb R^+}fdx&lt;\infty\)</span>, but <span class="math inline">\(\lim_{x\to\infty}f(x)\neq0\)</span>.
+A very classic (counter)example is
+<span class="math display">\[
+f(x)=\sum_{n=1}^\infty\mathbf1_{[n,n+\frac{1}{2^n}]}(x),
+\]</span>
+the integral is
+<span class="math display">\[
+\int_{\mathbb R^+}f(x)dx=\sum_{n=1}^\infty\frac{1}{2^n}=1&lt;\infty,
+\]</span>
+but for <span class="math inline">\(x_n=n\)</span>, <span class="math inline">\(f(x_n)=1\)</span>, therefore the limit does not exist.</p>
+</div>
+<div id="e-3" class="section level3 hasAnchor">
+<h3>(e)<a href="chap-5-integration-and-expectation.html#e-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><span class="math inline">\(\textbf{My idea:}\)</span>
+According to (a), we have
+<span class="math display">\[
+\begin{aligned}
+E(X)&amp;=\int_{[0,\infty)}P[X&gt;t]dt\\
+&amp;=\int_{[0,17)}P[X&gt;t]dt+\int_{[17,\infty)}P[X&gt;t]dt\\
+&amp;=\int_{[0,17)}P[X&gt;t]dt+C\int_{[17,\infty)}\frac{1}{t\log t}dt\\
+&amp;=\int_{[0,17)}P[X&gt;t]dt+C\lim_{b\to\infty}\log(\log t)|_{17}^b\\
+&amp;=\infty.
+\end{aligned}
+\]</span>
+and when <span class="math inline">\(x\)</span> is large, we have
+<span class="math display">\[
+xP[X&gt;x]=\frac{C}{\log x}\to0.
+\]</span></p>
+<p><span class="math inline">\(\textbf{Note:}\)</span> By comparing (d) and (e), we note that <span class="math inline">\(xP[X&gt;x]\to0\)</span> is much weaker than <span class="math inline">\(E(X)&lt;\infty\)</span>.</p>
+</div>
+<div id="f-1" class="section level3 hasAnchor">
+<h3>(f)<a href="chap-5-integration-and-expectation.html#f-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><span class="math inline">\(\textbf{My idea:}\)</span> Note that <span class="math inline">\(P[|X|&gt;\eta\sqrt x]=P[X^2&gt;\eta^2x]=P[\frac{X^2}{\eta^2}&gt;x]\)</span>, let <span class="math inline">\(Y=\frac{X^2}{\eta^2}\)</span>,then for any <span class="math inline">\(\eta&gt;0\)</span> we have <span class="math inline">\(E(Y)&lt;\infty\)</span>, by <span class="math inline">\((d)\)</span>, we get
+<span class="math display">\[
+\lim_{x\to\infty}xP[Y&gt;x]=0,
+\]</span>
+and that is exactly
+<span class="math display">\[
+\lim_{x\to\infty}xP[|X|&gt;\eta\sqrt x]=0.
+\]</span></p>
+</div>
+</div>
+<div id="ex-24-1" class="section level2 hasAnchor">
+<h2>Ex 24<a href="chap-5-integration-and-expectation.html#ex-24-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="problem">
+<p>Suppose <span class="math inline">\(X_1,X_2\)</span> are iid random variables with common <span class="math inline">\(N(0,1)\)</span> distribution. Define
+<span class="math display">\[
+Y_n=\frac{X_1}{\frac{1}{n}+|X_2|}.
+\]</span></p>
+<p>Use Fubini’s theorem to verify that
+<span class="math display">\[
+E(Y_n)=0.
+\]</span></p>
+<p>Note that as <span class="math inline">\(n\to\infty\)</span>,
+<span class="math display">\[
+Y_n\to Y:=\frac{X_1}{|X_2|}
+\]</span>
+and that the expectation of <span class="math inline">\(Y\)</span> does not exist, so this is one case where random variables converge but means do not.</p>
+</div>
+<p><span class="math inline">\(\textbf{My idea:}\)</span> Note that <span class="math inline">\(|Y_n|\leq n|X_1|\)</span>, and <span class="math inline">\(E(|X_1|)&lt;\infty\)</span>, so for each <span class="math inline">\(n\)</span>, <span class="math inline">\(Y_n\)</span> is integrable, applying Fubini, we have
+<span class="math display">\[
+\begin{aligned}
+E(Y_n)&amp;=\int_{\mathbb R^2}\frac{x_1}{\frac{1}{n}+|x_2|}(\mu_{x_1}\times\mu_{x_2})(dx_1\times dx_2)\\
+&amp;=\int_{\mathbb R}\left(\int_{\mathbb R}\frac{x_1}{\frac{1}{n}+|x_2|}\mu_{x_1}(dx_1) \right)\mu_{x_2}(dx_2)\\
+&amp;=\int_{\mathbb R}\frac{1}{\frac{1}{n}+|x_2|}\left(\int_{\mathbb R}x_1\mu_{x_1}(dx_1) \right)\mu_{x_2}(dx_2)\\
+&amp;=E(X_1)\int_{\mathbb R}\frac{1}{\frac{1}{n}+|x_2|}\mu_{x_2}(dx_2)\\
+&amp;=0.
+\end{aligned}
+\]</span></p>
+<p>However, for <span class="math inline">\(Y=\frac{X_1}{|X_2|}\)</span>, it is neither non-negative nor bounded, therefore its integral does not exist.</p>
+<p><span class="math inline">\(\textbf{Answer:}\)</span> (Why <span class="math inline">\(Y\)</span> is not integrable)
+The first part in <strong>My idea</strong> is correct, so we focus on why <span class="math inline">\(Y\)</span> is not integrable here.</p>
+<p>Firstly we have <span class="math inline">\(|Y|\geq 0\)</span>, and <span class="math inline">\(|X_1|\)</span> is independent of <span class="math inline">\(|X_2|\)</span>, the by (the non-negative part of) Fubini, we have
+<span class="math display">\[
+\begin{aligned}
+E(|Y|)&amp;=\int_{\mathbb R^2}\frac{|x_1|}{|x_2|}(\mu_{x_1}\times\mu_{x_2})(dx_1\times dx_2)\\
+&amp;=\int_{\mathbb R}\left(\int_{\mathbb R}\frac{|x_1|}{|x_2|}\mu_{x_1}(dx_1) \right)\mu_{x_2}\\
+&amp;=\int_{\mathbb R}\frac{1}{|x_2|}\left(\int_{\mathbb R}|x_1|\mu_{x_1}(dx_1) \right)\mu_{x_2}\\
+&amp;=E(|X_1|)E(\frac{1}{|X_2|}).\\
+\end{aligned}
+\]</span>
+What we have is that <span class="math inline">\(E(|X_1|)&lt;\infty\)</span>, for the second part, we have
+<span class="math display">\[
+\int_{\mathbb R}\frac{1}{|x|}\mu(dx)=\infty,
+\]</span>
+since the standard normal density is positive near <span class="math inline">\(0\)</span>, and
+<span class="math display">\[
+\int_{-1}^1\frac{1}{|x|}\phi(x)dx
+\]</span>
+diverges for the same reason as
+<span class="math display">\[
+\int_{-1}^1\frac{1}{|x|}dx.
+\]</span></p>
+<p>So <span class="math inline">\(|Y|\)</span> is not integrable.</p>
+<p><span class="math inline">\(\textbf{Note:}\)</span> Even though for each <span class="math inline">\(n\)</span>, <span class="math inline">\(Y_n\)</span> is integrable, and <span class="math inline">\(Y_n\to Y\)</span> a.s., but we can not find a dominating integrable function <span class="math inline">\(F\)</span> such that <span class="math inline">\(|Y_n|\leq F\)</span>, therefore DCT cannot be applied here.</p>
+<p>However, that does not mean that <span class="math inline">\(Y\)</span> is necessarily not integrable, consider
+<span class="math display">\[
+Y_n=n\mathbf1_{[n,n+\frac{1}{n}]}.
+\]</span>
+For each <span class="math inline">\(n\)</span>, <span class="math inline">\(E(Y_n)=1\)</span>, and <span class="math inline">\(Y_n\to0\)</span> a.s. However, if we want to find integrable <span class="math inline">\(F\)</span> such that for each <span class="math inline">\(n\)</span>, <span class="math inline">\(F\geq|Y_n|\)</span>, then we must have <span class="math inline">\(F\geq\sup_nY_n\)</span>, since the suppots are disjoint, so we have
+<span class="math display">\[
+\sup_nY_n=\sum_{n=1}^\infty n\mathbf1_{[n,n+\frac{1}{n}]},
+\]</span>
+therefore
+<span class="math display">\[
+\int Fdx\geq\int\sum_{n=1}^\infty n\mathbf1_{[n,n+\frac{1}{n}]}dx=\infty,
+\]</span>
+so we get contradiction. In this example, <span class="math inline">\(Y\)</span> is integrable, even if <span class="math inline">\(E(Y_n)\not\to E(Y)\)</span>.</p>
+
 </div>
 </div>
             </section>

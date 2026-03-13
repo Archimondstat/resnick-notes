@@ -1,5 +1,7 @@
 # Chap 4, Independence
 
+To quote Durrett: “measure theory ends and probability theory begins with the definition of independence.”
+
 ## Summary
 Firstly, we defined the definition of independence (of 2 events)
 
