@@ -178,6 +178,75 @@ and if $F_X$ is absolutely continuous (AC), then there will be a density $f_X(x)
 
 so the path from 5.4 to 5.6 is: **define/set up integrals $\to$ move them to a concrete space $\to$ compute them**.
 
+### Summary from 5.7 to 5.9
+Suppose given a function $X:\Omega_1\times\Omega_2\to\mathbb R$, if we want to discuss its integral, it is natural to compare it to the routine in multiple Riemann integral, that is, for function $F=f(x,y)$ that is continuous on a compact rectangle $Q=\{(x,y):a\leq x\leq b,c\leq y\leq d\}$, we have
+$$
+\int_Qf(x,y)d(x,y)=\int_c^d\left[\int_a^b f(x,y)dx\right]dy.
+$$
+So the first question we met is that, on $\Omega_1\times\Omega_2$, what kind of $\sigma-$field should we consider(since we discuss Lebesgue integral base on the choice of $\sigma-$field)? Unlike our $Q$ in $\mathbb R^2$, generally we cannot divide any $\sigma-$field $\mathcal F$ on $\Omega_1\times\Omega_2$ arbitrarily into $\sigma-$field w.r.t the two components, that is to say, the way that we want to go from the top to the bottom does not work. Instead, we build our wanted $\sigma-$field on $\Omega_1\times\Omega_2$ starting from $(\Omega_1,\mathcal B_1,P_1)$ and $(\Omega_2,\mathcal B_2,P_2)$ by generalizing the rectangle idea in $\mathbb R^2$, that is, choose an element $A_1$ from $\mathcal B_1$ and an element $A_2$ from $\mathcal B_2$ and then product them to create a subset in $\Omega_1\times\Omega_2$, so we get
+$$
+\text{RECT}=\{A_1\times A_2:A_1\in\mathcal B_1,A_2\in\mathcal B_2\},
+$$
+what we get currently is only a semi-algebra, of course we can generates a $\sigma$-field from it, that is $\mathcal B_1\times\mathcal B_2=\sigma(\text{RECT})$, by using this construction, if we have some function that is $\mathcal B_1\times\mathcal B_2$-measurable, then when we fix $\omega_1$ and perform a slice on it (our book call this action as "section"), then we get a $\mathcal B_2$-measureable function $X_{\omega_1}$, and vice versa, so we can legally discuss integral on each component.
+
+But what's more important is that, we need a $\sigma$-additive measure on the semi-algebra so that it can be extended uniquely with the semi-algebra, in our book, we choose to construct the measure using transition function/kernel:
+$$
+K(\omega_1,A_2):\Omega_1\times\mathcal B_2\mapsto [0,1].
+$$
+If we fix $\omega_1\in\Omega_1$, we get a probability measure on $\mathcal B_2$, and if we fix measurable set $A_2\in\mathcal B_2$, we get a measurable function on $(\Omega_1,\mathcal B_1)$.
+
+By using transition function/kernel, we can uniquely define a $\sigma$-additive probability measure on $\text{RECT}$:
+$$
+P(A_1\times A_2)=\int_{A_1}K(\omega_1,A_2)P_1(d\omega_1),
+$$
+where $A_1\times A_2\in\text{RECT}$. So we can uniquely extend it to $\mathcal B_1\times \mathcal B_2$, and note that doing this way we actually don't need a probability measure $P_2$ on $(\Omega_2,\mathcal B_2)$.
+
+For the special case product measure $P(A_1\times A_2)=P_1(A_1)P_2(A_2)$, we let $K(\omega_1,A_2)=P_2(A_2)$, which is independent of $\omega_1$, and after defining the product measure $P=P_1\times P_2$, the books defines coordinate $\sigma$-fields
+$$
+\mathcal B^\#_1=\{A_1\times\Omega_2:A_1\in\mathcal B_1\}
+$$
+and
+$$
+\mathcal B^\#_2=\{\Omega_1\times A_2:A_2\in\mathcal B_2\},
+$$
+they are independent under $P_1\times P_2$. As a consequence, the coordinate random variables are automatically independent, so the independence is automatically built into the model by construction when using product measure.
+
+What makes this transition function/kernel so useful is that, even in $\mathcal B_1\times\mathcal B_2$, we knew that if we fix $\omega_1$ and perform section, what we get is a $\mathcal B_2$-measureable function $X_{\omega_1}(\omega_2)$, but what we get if we integral it w.r.t $P_2$, informally speaking, we sum over all the possible value of $\omega_2$ in $\Omega_2$, what do we get? Theorem 5.9.1 told us that for $X\geq 0$ or $X\in L_1(P)$, we have
+$$
+Y(\omega_1)=\int_{\Omega_2} X_{\omega_1}(\omega_2)K(\omega_1,d\omega_2)
+$$
+happens to be a well-defined $\mathcal B_1$-measurable function, and if $X$ is integrable on $\Omega_1\times\Omega_2$ w.r.t $P$, then $Y$ is also integrable on $\Omega_1$ w.r.t $P_1$, and then we get
+$$
+\begin{aligned}
+\int_{\Omega_1\times\Omega_2}XdP&=\int_{\Omega_1}Y(\omega_1)P_1(d\omega_1)\\
+&=\int_{\Omega_1}\left[\int_{\Omega_2} X_{\omega_1}(\omega_2)K(\omega_1,d\omega_2)\right]P_1(d\omega_1).\\
+\end{aligned}
+$$
+So the theorem is really a full iterated-integration theorem for kernel-generated measures.
+
+The way that we proving it is classic:
+
+1. Prove that it is true for indicator on $\text{RECT}$,
+
+2. collect all the subsets $A$ that that the desired identity holds for indicator, and prove that collection is a $\lambda$-system containing $\text{RECT}$, so that we know it is true for indicator on $\sigma(\text{RECT})=\mathcal B_1\times\mathcal B_2$,
+
+3. Prove that it is true for simple function on $\mathcal B_1\times\mathcal B_2$ using linearity,
+
+4. Use MCT to prove that it is true for arbitrary $X\geq0$.
+
+In summary, after we have $\sigma(\text{RECT})$, the slicing (section) preserves the "measurablity", and the kernel theorem guarantees that integrating out one coordinate produces a measurable function on the other coordinate, and preserves the nonnegative/integrable structure needed for iterated integration.
+
+By applying the kernel theorem twice, our book proved Tonelli(non-negative) and Fubini(integrable) together.
+
+### Big picture
+
+So in chapter 5, what we learning is:
+
+1. 5.1 to 5.3: the construction of the Lebesgue integral,
+
+2. 5.4 to 5.6: practical ways to compute integrals..
+
+3. 5.7 to 5.9: product spaces, sections, kernels, and the justification of iterated integration through Fubini/Tonelli.
 
 
 ## Ex 2

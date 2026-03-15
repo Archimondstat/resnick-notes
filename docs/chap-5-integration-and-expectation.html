@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chap 5, Integration and Expectation | Notes on A Probability Path (Resnick)</title>
   <meta name="description" content="Chap 5, Integration and Expectation | Notes on A Probability Path (Resnick)" />
-  <meta name="generator" content="bookdown 0.42 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.46 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chap 5, Integration and Expectation | Notes on A Probability Path (Resnick)" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="Zhanwen Peng" />
 
 
-<meta name="date" content="2026-03-13" />
+<meta name="date" content="2026-03-15" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -55,6 +55,7 @@
 
 
 <style type="text/css">
+html { -webkit-text-size-adjust: 100%; }
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -240,6 +241,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#transformation-theorem"><i class="fa fa-check"></i>5.5 Transformation theorem</a></li>
 <li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#lebesgue-meets-riemann"><i class="fa fa-check"></i>5.6 Lebesgue Meets Riemann</a></li>
 </ul></li>
+<li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#summary-from-5.7-to-5.9"><i class="fa fa-check"></i>Summary from 5.7 to 5.9</a></li>
+<li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#big-picture"><i class="fa fa-check"></i>Big picture</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#ex-2"><i class="fa fa-check"></i>Ex 2</a></li>
 <li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#ex-4"><i class="fa fa-check"></i>Ex 4</a></li>
@@ -503,6 +506,67 @@ E[g(X)]=\int_\Omega g(X)dP=\int_{\mathbb{R}} g(x)dF_X,
 and if <span class="math inline">\(F_X\)</span> is absolutely continuous (AC), then there will be a density <span class="math inline">\(f_X(x)\)</span>, and it becomes <span class="math inline">\(\int_{\mathbb{R}} g(x)f_X(x)dx\)</span>, then in 5.6, we know how to compute this Lebesgue integral, that is, the Theorem 5.6.1 provides a bridge for proper Riemann integrals, and also, in probability space, the equivalence of two measurable functions can be linked to the equality of the integral on any measurable set.</p>
 <p>so the path from 5.4 to 5.6 is: <strong>define/set up integrals <span class="math inline">\(\to\)</span> move them to a concrete space <span class="math inline">\(\to\)</span> compute them</strong>.</p>
 </div>
+</div>
+<div id="summary-from-5.7-to-5.9" class="section level3 hasAnchor">
+<h3>Summary from 5.7 to 5.9<a href="chap-5-integration-and-expectation.html#summary-from-5.7-to-5.9" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Suppose given a function <span class="math inline">\(X:\Omega_1\times\Omega_2\to\mathbb R\)</span>, if we want to discuss its integral, it is natural to compare it to the routine in multiple Riemann integral, that is, for function <span class="math inline">\(F=f(x,y)\)</span> that is continuous on a compact rectangle <span class="math inline">\(Q=\{(x,y):a\leq x\leq b,c\leq y\leq d\}\)</span>, we have
+<span class="math display">\[
+\int_Qf(x,y)d(x,y)=\int_c^d\left[\int_a^b f(x,y)dx\right]dy.
+\]</span>
+So the first question we met is that, on <span class="math inline">\(\Omega_1\times\Omega_2\)</span>, what kind of <span class="math inline">\(\sigma-\)</span>field should we consider(since we discuss Lebesgue integral base on the choice of <span class="math inline">\(\sigma-\)</span>field)? Unlike our <span class="math inline">\(Q\)</span> in <span class="math inline">\(\mathbb R^2\)</span>, generally we cannot divide any <span class="math inline">\(\sigma-\)</span>field <span class="math inline">\(\mathcal F\)</span> on <span class="math inline">\(\Omega_1\times\Omega_2\)</span> arbitrarily into <span class="math inline">\(\sigma-\)</span>field w.r.t the two components, that is to say, the way that we want to go from the top to the bottom does not work. Instead, we build our wanted <span class="math inline">\(\sigma-\)</span>field on <span class="math inline">\(\Omega_1\times\Omega_2\)</span> starting from <span class="math inline">\((\Omega_1,\mathcal B_1,P_1)\)</span> and <span class="math inline">\((\Omega_2,\mathcal B_2,P_2)\)</span> by generalizing the rectangle idea in <span class="math inline">\(\mathbb R^2\)</span>, that is, choose an element <span class="math inline">\(A_1\)</span> from <span class="math inline">\(\mathcal B_1\)</span> and an element <span class="math inline">\(A_2\)</span> from <span class="math inline">\(\mathcal B_2\)</span> and then product them to create a subset in <span class="math inline">\(\Omega_1\times\Omega_2\)</span>, so we get
+<span class="math display">\[
+\text{RECT}=\{A_1\times A_2:A_1\in\mathcal B_1,A_2\in\mathcal B_2\},
+\]</span>
+what we get currently is only a semi-algebra, of course we can generates a <span class="math inline">\(\sigma\)</span>-field from it, that is <span class="math inline">\(\mathcal B_1\times\mathcal B_2=\sigma(\text{RECT})\)</span>, by using this construction, if we have some function that is <span class="math inline">\(\mathcal B_1\times\mathcal B_2\)</span>-measurable, then when we fix <span class="math inline">\(\omega_1\)</span> and perform a slice on it (our book call this action as “section”), then we get a <span class="math inline">\(\mathcal B_2\)</span>-measureable function <span class="math inline">\(X_{\omega_1}\)</span>, and vice versa, so we can legally discuss integral on each component.</p>
+<p>But what’s more important is that, we need a <span class="math inline">\(\sigma\)</span>-additive measure on the semi-algebra so that it can be extended uniquely with the semi-algebra, in our book, we choose to construct the measure using transition function/kernel:
+<span class="math display">\[
+K(\omega_1,A_2):\Omega_1\times\mathcal B_2\mapsto [0,1].
+\]</span>
+If we fix <span class="math inline">\(\omega_1\in\Omega_1\)</span>, we get a probability measure on <span class="math inline">\(\mathcal B_2\)</span>, and if we fix measurable set <span class="math inline">\(A_2\in\mathcal B_2\)</span>, we get a measurable function on <span class="math inline">\((\Omega_1,\mathcal B_1)\)</span>.</p>
+<p>By using transition function/kernel, we can uniquely define a <span class="math inline">\(\sigma\)</span>-additive probability measure on <span class="math inline">\(\text{RECT}\)</span>:
+<span class="math display">\[
+P(A_1\times A_2)=\int_{A_1}K(\omega_1,A_2)P_1(d\omega_1),
+\]</span>
+where <span class="math inline">\(A_1\times A_2\in\text{RECT}\)</span>. So we can uniquely extend it to <span class="math inline">\(\mathcal B_1\times \mathcal B_2\)</span>, and note that doing this way we actually don’t need a probability measure <span class="math inline">\(P_2\)</span> on <span class="math inline">\((\Omega_2,\mathcal B_2)\)</span>.</p>
+<p>For the special case product measure <span class="math inline">\(P(A_1\times A_2)=P_1(A_1)P_2(A_2)\)</span>, we let <span class="math inline">\(K(\omega_1,A_2)=P_2(A_2)\)</span>, which is independent of <span class="math inline">\(\omega_1\)</span>, and after defining the product measure <span class="math inline">\(P=P_1\times P_2\)</span>, the books defines coordinate <span class="math inline">\(\sigma\)</span>-fields
+<span class="math display">\[
+\mathcal B^\#_1=\{A_1\times\Omega_2:A_1\in\mathcal B_1\}
+\]</span>
+and
+<span class="math display">\[
+\mathcal B^\#_2=\{\Omega_1\times A_2:A_2\in\mathcal B_2\},
+\]</span>
+they are independent under <span class="math inline">\(P_1\times P_2\)</span>. As a consequence, the coordinate random variables are automatically independent, so the independence is automatically built into the model by construction when using product measure.</p>
+<p>What makes this transition function/kernel so useful is that, even in <span class="math inline">\(\mathcal B_1\times\mathcal B_2\)</span>, we knew that if we fix <span class="math inline">\(\omega_1\)</span> and perform section, what we get is a <span class="math inline">\(\mathcal B_2\)</span>-measureable function <span class="math inline">\(X_{\omega_1}(\omega_2)\)</span>, but what we get if we integral it w.r.t <span class="math inline">\(P_2\)</span>, informally speaking, we sum over all the possible value of <span class="math inline">\(\omega_2\)</span> in <span class="math inline">\(\Omega_2\)</span>, what do we get? Theorem 5.9.1 told us that for <span class="math inline">\(X\geq 0\)</span> or <span class="math inline">\(X\in L_1(P)\)</span>, we have
+<span class="math display">\[
+Y(\omega_1)=\int_{\Omega_2} X_{\omega_1}(\omega_2)K(\omega_1,d\omega_2)
+\]</span>
+happens to be a well-defined <span class="math inline">\(\mathcal B_1\)</span>-measurable function, and if <span class="math inline">\(X\)</span> is integrable on <span class="math inline">\(\Omega_1\times\Omega_2\)</span> w.r.t <span class="math inline">\(P\)</span>, then <span class="math inline">\(Y\)</span> is also integrable on <span class="math inline">\(\Omega_1\)</span> w.r.t <span class="math inline">\(P_1\)</span>, and then we get
+<span class="math display">\[
+\begin{aligned}
+\int_{\Omega_1\times\Omega_2}XdP&amp;=\int_{\Omega_1}Y(\omega_1)P_1(d\omega_1)\\
+&amp;=\int_{\Omega_1}\left[\int_{\Omega_2} X_{\omega_1}(\omega_2)K(\omega_1,d\omega_2)\right]P_1(d\omega_1).\\
+\end{aligned}
+\]</span>
+So the theorem is really a full iterated-integration theorem for kernel-generated measures.</p>
+<p>The way that we proving it is classic:</p>
+<ol style="list-style-type: decimal">
+<li><p>Prove that it is true for indicator on <span class="math inline">\(\text{RECT}\)</span>,</p></li>
+<li><p>collect all the subsets <span class="math inline">\(A\)</span> that that the desired identity holds for indicator, and prove that collection is a <span class="math inline">\(\lambda\)</span>-system containing <span class="math inline">\(\text{RECT}\)</span>, so that we know it is true for indicator on <span class="math inline">\(\sigma(\text{RECT})=\mathcal B_1\times\mathcal B_2\)</span>,</p></li>
+<li><p>Prove that it is true for simple function on <span class="math inline">\(\mathcal B_1\times\mathcal B_2\)</span> using linearity,</p></li>
+<li><p>Use MCT to prove that it is true for arbitrary <span class="math inline">\(X\geq0\)</span>.</p></li>
+</ol>
+<p>In summary, after we have <span class="math inline">\(\sigma(\text{RECT})\)</span>, the slicing (section) preserves the “measurablity”, and the kernel theorem guarantees that integrating out one coordinate produces a measurable function on the other coordinate, and preserves the nonnegative/integrable structure needed for iterated integration.</p>
+<p>By applying the kernel theorem twice, our book proved Tonelli(non-negative) and Fubini(integrable) together.</p>
+</div>
+<div id="big-picture" class="section level3 hasAnchor">
+<h3>Big picture<a href="chap-5-integration-and-expectation.html#big-picture" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>So in chapter 5, what we learning is:</p>
+<ol style="list-style-type: decimal">
+<li><p>5.1 to 5.3: the construction of the Lebesgue integral,</p></li>
+<li><p>5.4 to 5.6: practical ways to compute integrals..</p></li>
+<li><p>5.7 to 5.9: product spaces, sections, kernels, and the justification of iterated integration through Fubini/Tonelli.</p></li>
+</ol>
 </div>
 </div>
 <div id="ex-2" class="section level2 hasAnchor">
@@ -1718,13 +1782,13 @@ so we have <span class="math inline">\(\lambda\times\lambda(A)=\text{area of }A\
 <h2>Ex 12<a href="chap-5-integration-and-expectation.html#ex-12-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div class="problem">
 <ol start="12" style="list-style-type: decimal">
-<li>Suppose <span class="math inline">\(X\)</span> is an uncountable set and let <span class="math inline">\(\mathcal{B}\)</span> be the <span class="math inline">\(\sigma\)</span>-field of countable and co-countable (complements are countable) sets. Show that the diagonal <span class="math inline">\(\text{DIAG} := \{(x, x) : x \in X\} \notin \mathcal{B} \times \mathcal{B}\)</span> is <strong>not</strong> in the product <span class="math inline">\(\sigma\)</span>-field. However, every section of $ $ is measurable.
+<li>Suppose <span class="math inline">\(X\)</span> is an uncountable set and let <span class="math inline">\(\mathcal{B}\)</span> be the <span class="math inline">\(\sigma\)</span>-field of countable and co-countable (complements are countable) sets. Show that the diagonal <span class="math inline">\(\text{DIAG}  := \{(x, x) : x \in X\} \notin \mathcal{B} \times \mathcal{B}\)</span> is <strong>not</strong> in the product <span class="math inline">\(\sigma\)</span>-field. However, every section of $ $ is measurable.
 <ul>
 <li><strong>Hints</strong>:
 <ul>
 <li>Show that <span class="math inline">\(\mathcal{B} \times \mathcal{B} = \sigma(\{\{x\} \times X, X \times \{x\}, x \in X\})\)</span>.</li>
 <li>Review Exercise 12 in Chapter 2.</li>
-<li>Proceed by contradiction. Suppose <span class="math inline">\(\text{DIAG} \in \mathcal{B} \times \mathcal{B}\)</span>. Then there exists countable <span class="math inline">\(S \subset X\)</span> such that <span class="math inline">\(\text{DIAG} \in \sigma(\{\{x\} \times X, X \times \{x\}, x \in S\}) =: \mathcal{G}\)</span>.</li>
+<li>Proceed by contradiction. Suppose <span class="math inline">\(\text{DIAG}  \in \mathcal{B} \times \mathcal{B}\)</span>. Then there exists countable <span class="math inline">\(S \subset X\)</span> such that <span class="math inline">\(\text{DIAG}  \in \sigma(\{\{x\} \times X, X \times \{x\}, x \in S\}) =: \mathcal{G}\)</span>.</li>
 <li>Define <span class="math inline">\(\mathcal{P} := \{\{s\}, s \in S, S^c\}\)</span> and observe this is a partition of <span class="math inline">\(X\)</span>.</li>
 <li>Show it is impossible for <span class="math inline">\(\text{DIAG} \in \mathcal{G}\)</span>.</li>
 </ul></li>
