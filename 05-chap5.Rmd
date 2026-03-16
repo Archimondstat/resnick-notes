@@ -179,6 +179,8 @@ and if $F_X$ is absolutely continuous (AC), then there will be a density $f_X(x)
 so the path from 5.4 to 5.6 is: **define/set up integrals $\to$ move them to a concrete space $\to$ compute them**.
 
 ### Summary from 5.7 to 5.9
+**(2026-03-15)**
+
 Suppose given a function $X:\Omega_1\times\Omega_2\to\mathbb R$, if we want to discuss its integral, it is natural to compare it to the routine in multiple Riemann integral, that is, for function $F=f(x,y)$ that is continuous on a compact rectangle $Q=\{(x,y):a\leq x\leq b,c\leq y\leq d\}$, we have
 $$
 \int_Qf(x,y)d(x,y)=\int_c^d\left[\int_a^b f(x,y)dx\right]dy.
@@ -2367,7 +2369,71 @@ $$
 so we get contradiction. In this example, $Y$ is integrable, even if $E(Y_n)\not\to E(Y)$.
 
 
+## Ex 35
+::: problem
+Suppose $X,Y\in L_1$.
+
+(a) Show
+\[
+E(Y)-E(X)=\int_{\mathbb{R}}\bigl(P[X<x\leq Y]-P[Y<x\leq X]\bigr)\,dx.
+\]
+
+(b) The expected length of the random interval $(X,Y]$ is the integral with respect to $x$ of $P[x\in (X,Y]]$, the probability the random interval covers $x$.
+:::
+
+### (a)
+$\textbf{My idea:}$ It seems that we should let $Z=Y-X$, and
+$$
+E(Y-X)=E(Z)=\int_{\Omega}ZdP
+$$
+
+$\textbf{Answer:}$ Note that $Y-X=(Y-X)^+-(Y-X)^-$, for fixed $\omega\in\Omega$, $(Y(\omega)-X(\omega))^+$ is the length of interval $(X(\omega),Y(\omega)]$ and $(Y(\omega)-X(\omega))^-=(X(\omega)-Y(\omega))^+$ is the length of interval $(Y(\omega),X(\omega)]$, that is,
+$$
+(Y(\omega)-X(\omega))^+=\int_{\mathbb R}\mathbf1_{\{X(\omega)<x\leq Y(\omega)\}}dx
+$$
+and
+$$
+(Y(\omega)-X(\omega))^-=(X(\omega)-Y(\omega))^+=\int_{\mathbb R}\mathbf1_{\{Y(\omega)<x\leq X(\omega)\}}dx.
+$$
+Therefore by (non-negative part of) Fubini, we have
+$$
+\begin{aligned}
+E((Y-X)^+)&=\int_\Omega(Y(\omega)-X(\omega))^+dP\\
+&=\int_\Omega\left(\int_{\mathbb R}\mathbf1_{\{X(\omega)<x\leq Y(\omega)\}}dx\right)dP\\
+&=\int_{\mathbb R}\left(\int_\Omega\mathbf1_{\{X(\omega)<x\leq Y(\omega)\}}dP\right)dx\\
+&=\int_{\mathbb R}P(X<x\leq Y)dx\\
+\end{aligned}
+$$
+and
+$$
+\begin{aligned}
+E((X-Y)^+)&=\int_\Omega(X(\omega)-Y(\omega))^+dP\\
+&=\int_\Omega\left(\int_{\mathbb R}\mathbf1_{\{Y(\omega)<x\leq X(\omega)\}}dx\right)dP\\
+&=\int_{\mathbb R}\left(\int_\Omega\mathbf1_{\{Y(\omega)<x\leq X(\omega)\}}dP\right)dx\\
+&=\int_{\mathbb R}P(Y<x\leq X)dx.\\
+\end{aligned}
+$$
+Hence
+$$
+\begin{aligned}
+E(Y)-E(X)&=E(Y-X)\\
+&=E((Y-X)^+-(Y-X)^-)\\
+&=E((Y-X)^+)-E((Y-X)^-)\\
+&=\int_{\mathbb R}P(X<x\leq Y)dx-\int_{\mathbb R}P(Y<x\leq X)dx\\
+&=\int_{\mathbb R}\left(P(X<x\leq Y)-P(Y<x\leq X)\right)dx.
+\end{aligned}
+$$
+
+### (b)
+
+$\textbf{Answer:}$ According to (a), for fixed $\omega$, the length of $(X(\omega),Y(\omega)]$ is $(Y(\omega)-X(\omega))^+=\int_{\mathbb R}\mathbf1_{\{X(\omega)<x\leq Y(\omega)\}}dx$, using Fubini, we have
+$$
+\begin{aligned}
+E(\text{length of }(X,Y])&=E((Y-X)^+)\\
+&=\int_{\mathbb R}P(X<x\leq Y)dx\\
+&=\int_{\mathbb R}P(x\in(X,Y])dx.
+\end{aligned}
+$$
 
 
-
-
+$\textbf{Note:}$ The central point is to rewrite $(Y-X)^+$ and $(Y-X)^-$ as the lengths of random intervals, written in integral form via indicator functions, and then use Fubini's theorem to exchange expectation and integration.

@@ -23,7 +23,7 @@
 <meta name="author" content="Zhanwen Peng" />
 
 
-<meta name="date" content="2026-03-15" />
+<meta name="date" content="2026-03-16" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -314,6 +314,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#f-1"><i class="fa fa-check"></i>(f)</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#ex-24-1"><i class="fa fa-check"></i>Ex 24</a></li>
+<li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#ex-35"><i class="fa fa-check"></i>Ex 35</a>
+<ul>
+<li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#a-13"><i class="fa fa-check"></i>(a)</a></li>
+<li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#b-13"><i class="fa fa-check"></i>(b)</a></li>
+</ul></li>
 </ul></li>
 </ul>
 
@@ -509,6 +514,7 @@ and if <span class="math inline">\(F_X\)</span> is absolutely continuous (AC), t
 </div>
 <div id="summary-from-5.7-to-5.9" class="section level3 hasAnchor">
 <h3>Summary from 5.7 to 5.9<a href="chap-5-integration-and-expectation.html#summary-from-5.7-to-5.9" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><strong>(2026-03-15)</strong></p>
 <p>Suppose given a function <span class="math inline">\(X:\Omega_1\times\Omega_2\to\mathbb R\)</span>, if we want to discuss its integral, it is natural to compare it to the routine in multiple Riemann integral, that is, for function <span class="math inline">\(F=f(x,y)\)</span> that is continuous on a compact rectangle <span class="math inline">\(Q=\{(x,y):a\leq x\leq b,c\leq y\leq d\}\)</span>, we have
 <span class="math display">\[
 \int_Qf(x,y)d(x,y)=\int_c^d\left[\int_a^b f(x,y)dx\right]dy.
@@ -2530,7 +2536,75 @@ therefore
 \int Fdx\geq\int\sum_{n=1}^\infty n\mathbf1_{[n,n+\frac{1}{n}]}dx=\infty,
 \]</span>
 so we get contradiction. In this example, <span class="math inline">\(Y\)</span> is integrable, even if <span class="math inline">\(E(Y_n)\not\to E(Y)\)</span>.</p>
+</div>
+<div id="ex-35" class="section level2 hasAnchor">
+<h2>Ex 35<a href="chap-5-integration-and-expectation.html#ex-35" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="problem">
+<p>Suppose <span class="math inline">\(X,Y\in L_1\)</span>.</p>
+<ol style="list-style-type: lower-alpha">
+<li><p>Show
+<span class="math display">\[
+E(Y)-E(X)=\int_{\mathbb{R}}\bigl(P[X&lt;x\leq Y]-P[Y&lt;x\leq X]\bigr)\,dx.
+\]</span></p></li>
+<li><p>The expected length of the random interval <span class="math inline">\((X,Y]\)</span> is the integral with respect to <span class="math inline">\(x\)</span> of <span class="math inline">\(P[x\in (X,Y]]\)</span>, the probability the random interval covers <span class="math inline">\(x\)</span>.</p></li>
+</ol>
+</div>
+<div id="a-13" class="section level3 hasAnchor">
+<h3>(a)<a href="chap-5-integration-and-expectation.html#a-13" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><span class="math inline">\(\textbf{My idea:}\)</span> It seems that we should let <span class="math inline">\(Z=Y-X\)</span>, and
+<span class="math display">\[
+E(Y-X)=E(Z)=\int_{\Omega}ZdP
+\]</span></p>
+<p><span class="math inline">\(\textbf{Answer:}\)</span> Note that <span class="math inline">\(Y-X=(Y-X)^+-(Y-X)^-\)</span>, for fixed <span class="math inline">\(\omega\in\Omega\)</span>, <span class="math inline">\((Y(\omega)-X(\omega))^+\)</span> is the length of interval <span class="math inline">\((X(\omega),Y(\omega)]\)</span> and <span class="math inline">\((Y(\omega)-X(\omega))^-=(X(\omega)-Y(\omega))^+\)</span> is the length of interval <span class="math inline">\((Y(\omega),X(\omega)]\)</span>, that is,
+<span class="math display">\[
+(Y(\omega)-X(\omega))^+=\int_{\mathbb R}\mathbf1_{\{X(\omega)&lt;x\leq Y(\omega)\}}dx
+\]</span>
+and
+<span class="math display">\[
+(Y(\omega)-X(\omega))^-=(X(\omega)-Y(\omega))^+=\int_{\mathbb R}\mathbf1_{\{Y(\omega)&lt;x\leq X(\omega)\}}dx.
+\]</span>
+Therefore by (non-negative part of) Fubini, we have
+<span class="math display">\[
+\begin{aligned}
+E((Y-X)^+)&amp;=\int_\Omega(Y(\omega)-X(\omega))^+dP\\
+&amp;=\int_\Omega\left(\int_{\mathbb R}\mathbf1_{\{X(\omega)&lt;x\leq Y(\omega)\}}dx\right)dP\\
+&amp;=\int_{\mathbb R}\left(\int_\Omega\mathbf1_{\{X(\omega)&lt;x\leq Y(\omega)\}}dP\right)dx\\
+&amp;=\int_{\mathbb R}P(X&lt;x\leq Y)dx\\
+\end{aligned}
+\]</span>
+and
+<span class="math display">\[
+\begin{aligned}
+E((X-Y)^+)&amp;=\int_\Omega(X(\omega)-Y(\omega))^+dP\\
+&amp;=\int_\Omega\left(\int_{\mathbb R}\mathbf1_{\{Y(\omega)&lt;x\leq X(\omega)\}}dx\right)dP\\
+&amp;=\int_{\mathbb R}\left(\int_\Omega\mathbf1_{\{Y(\omega)&lt;x\leq X(\omega)\}}dP\right)dx\\
+&amp;=\int_{\mathbb R}P(Y&lt;x\leq X)dx.\\
+\end{aligned}
+\]</span>
+Hence
+<span class="math display">\[
+\begin{aligned}
+E(Y)-E(X)&amp;=E(Y-X)\\
+&amp;=E((Y-X)^+-(Y-X)^-)\\
+&amp;=E((Y-X)^+)-E((Y-X)^-)\\
+&amp;=\int_{\mathbb R}P(X&lt;x\leq Y)dx-\int_{\mathbb R}P(Y&lt;x\leq X)dx\\
+&amp;=\int_{\mathbb R}\left(P(X&lt;x\leq Y)-P(Y&lt;x\leq X)\right)dx.
+\end{aligned}
+\]</span></p>
+</div>
+<div id="b-13" class="section level3 hasAnchor">
+<h3>(b)<a href="chap-5-integration-and-expectation.html#b-13" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><span class="math inline">\(\textbf{Answer:}\)</span> According to (a), for fixed <span class="math inline">\(\omega\)</span>, the length of <span class="math inline">\((X(\omega),Y(\omega)]\)</span> is <span class="math inline">\((Y(\omega)-X(\omega))^+=\int_{\mathbb R}\mathbf1_{\{X(\omega)&lt;x\leq Y(\omega)\}}dx\)</span>, using Fubini, we have
+<span class="math display">\[
+\begin{aligned}
+E(\text{length of }(X,Y])&amp;=E((Y-X)^+)\\
+&amp;=\int_{\mathbb R}P(X&lt;x\leq Y)dx\\
+&amp;=\int_{\mathbb R}P(x\in(X,Y])dx.
+\end{aligned}
+\]</span></p>
+<p><span class="math inline">\(\textbf{Note:}\)</span> The central point is to rewrite <span class="math inline">\((Y-X)^+\)</span> and <span class="math inline">\((Y-X)^-\)</span> as the lengths of random intervals, written in integral form via indicator functions, and then use Fubini’s theorem to exchange expectation and integration.</p>
 
+</div>
 </div>
 </div>
             </section>
