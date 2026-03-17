@@ -2437,3 +2437,60 @@ $$
 
 
 $\textbf{Note:}$ The central point is to rewrite $(Y-X)^+$ and $(Y-X)^-$ as the lengths of random intervals, written in integral form via indicator functions, and then use Fubini's theorem to exchange expectation and integration.
+
+
+## Ex 28
+::: problem
+Let $\{X_n,n\geq 1\}$ be a sequence of random variables. Show
+\[
+E\left(\bigvee_{n=1}^{\infty}|X_n|\right)<\infty
+\]
+iff there exists a random variable $0\leq Y\in L_1$ such that
+\[
+P[|X_n|\leq Y]=1,\qquad \forall n\geq 1.
+\]
+:::
+
+$\textbf{My idea:}$ 
+
+$\Rightarrow$: Let $Y=\sup_n|X_n|$, then $Y$ is **measurable**, so we have 
+$$
+E(Y)=E(\sup_n|X_n|)<\infty,
+$$
+hence $0\leq Y\in L_1$, then for each $n$, $|X_n|\leq Y$ a.s., therefore $P[|X_n|\leq Y]=1,\forall n\geq1$.
+
+$\Leftarrow$: Suppose there exists $0\leq Y\in L_1$ such that $P[|X_n|\leq Y]=1,\forall n\geq1$, therefore $P[\sup_n|X_n|\leq Y]=P[\bigcap_n\{|X_n|\leq Y\}]=1$, therefore $\sup_n|X_n|\leq Y$ a.s.,
+$$
+E(\sup_n|X_n|)\leq E(Y)<\infty.
+$$
+
+$\textbf{Note:}$ __My idea__ is correct and I just polished it a little bit, but we should keep on mind that what makes our proof work is:
+
+1. The supreme of countable measurable function is still a measurable function
+
+2. The structure of $\sigma$-algebra and probability measure let us deal with countable intersection of sets.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

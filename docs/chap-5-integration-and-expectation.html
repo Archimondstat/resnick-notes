@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chap 5, Integration and Expectation | Notes on A Probability Path (Resnick)</title>
   <meta name="description" content="Chap 5, Integration and Expectation | Notes on A Probability Path (Resnick)" />
-  <meta name="generator" content="bookdown 0.46 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.42 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chap 5, Integration and Expectation | Notes on A Probability Path (Resnick)" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="Zhanwen Peng" />
 
 
-<meta name="date" content="2026-03-16" />
+<meta name="date" content="2026-03-17" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -55,7 +55,6 @@
 
 
 <style type="text/css">
-html { -webkit-text-size-adjust: 100%; }
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -319,6 +318,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#a-13"><i class="fa fa-check"></i>(a)</a></li>
 <li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#b-13"><i class="fa fa-check"></i>(b)</a></li>
 </ul></li>
+<li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#ex-28-1"><i class="fa fa-check"></i>Ex 28</a></li>
 </ul></li>
 </ul>
 
@@ -1788,13 +1788,13 @@ so we have <span class="math inline">\(\lambda\times\lambda(A)=\text{area of }A\
 <h2>Ex 12<a href="chap-5-integration-and-expectation.html#ex-12-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div class="problem">
 <ol start="12" style="list-style-type: decimal">
-<li>Suppose <span class="math inline">\(X\)</span> is an uncountable set and let <span class="math inline">\(\mathcal{B}\)</span> be the <span class="math inline">\(\sigma\)</span>-field of countable and co-countable (complements are countable) sets. Show that the diagonal <span class="math inline">\(\text{DIAG}  := \{(x, x) : x \in X\} \notin \mathcal{B} \times \mathcal{B}\)</span> is <strong>not</strong> in the product <span class="math inline">\(\sigma\)</span>-field. However, every section of $ $ is measurable.
+<li>Suppose <span class="math inline">\(X\)</span> is an uncountable set and let <span class="math inline">\(\mathcal{B}\)</span> be the <span class="math inline">\(\sigma\)</span>-field of countable and co-countable (complements are countable) sets. Show that the diagonal <span class="math inline">\(\text{DIAG} := \{(x, x) : x \in X\} \notin \mathcal{B} \times \mathcal{B}\)</span> is <strong>not</strong> in the product <span class="math inline">\(\sigma\)</span>-field. However, every section of $ $ is measurable.
 <ul>
 <li><strong>Hints</strong>:
 <ul>
 <li>Show that <span class="math inline">\(\mathcal{B} \times \mathcal{B} = \sigma(\{\{x\} \times X, X \times \{x\}, x \in X\})\)</span>.</li>
 <li>Review Exercise 12 in Chapter 2.</li>
-<li>Proceed by contradiction. Suppose <span class="math inline">\(\text{DIAG}  \in \mathcal{B} \times \mathcal{B}\)</span>. Then there exists countable <span class="math inline">\(S \subset X\)</span> such that <span class="math inline">\(\text{DIAG}  \in \sigma(\{\{x\} \times X, X \times \{x\}, x \in S\}) =: \mathcal{G}\)</span>.</li>
+<li>Proceed by contradiction. Suppose <span class="math inline">\(\text{DIAG} \in \mathcal{B} \times \mathcal{B}\)</span>. Then there exists countable <span class="math inline">\(S \subset X\)</span> such that <span class="math inline">\(\text{DIAG} \in \sigma(\{\{x\} \times X, X \times \{x\}, x \in S\}) =: \mathcal{G}\)</span>.</li>
 <li>Define <span class="math inline">\(\mathcal{P} := \{\{s\}, s \in S, S^c\}\)</span> and observe this is a partition of <span class="math inline">\(X\)</span>.</li>
 <li>Show it is impossible for <span class="math inline">\(\text{DIAG} \in \mathcal{G}\)</span>.</li>
 </ul></li>
@@ -2603,8 +2603,36 @@ E(\text{length of }(X,Y])&amp;=E((Y-X)^+)\\
 \end{aligned}
 \]</span></p>
 <p><span class="math inline">\(\textbf{Note:}\)</span> The central point is to rewrite <span class="math inline">\((Y-X)^+\)</span> and <span class="math inline">\((Y-X)^-\)</span> as the lengths of random intervals, written in integral form via indicator functions, and then use Fubini’s theorem to exchange expectation and integration.</p>
-
 </div>
+</div>
+<div id="ex-28-1" class="section level2 hasAnchor">
+<h2>Ex 28<a href="chap-5-integration-and-expectation.html#ex-28-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="problem">
+<p>Let <span class="math inline">\(\{X_n,n\geq 1\}\)</span> be a sequence of random variables. Show
+<span class="math display">\[
+E\left(\bigvee_{n=1}^{\infty}|X_n|\right)&lt;\infty
+\]</span>
+iff there exists a random variable <span class="math inline">\(0\leq Y\in L_1\)</span> such that
+<span class="math display">\[
+P[|X_n|\leq Y]=1,\qquad \forall n\geq 1.
+\]</span></p>
+</div>
+<p><span class="math inline">\(\textbf{My idea:}\)</span></p>
+<p><span class="math inline">\(\Rightarrow\)</span>: Let <span class="math inline">\(Y=\sup_n|X_n|\)</span>, then <span class="math inline">\(Y\)</span> is <strong>measurable</strong>, so we have
+<span class="math display">\[
+E(Y)=E(\sup_n|X_n|)&lt;\infty,
+\]</span>
+hence <span class="math inline">\(0\leq Y\in L_1\)</span>, then for each <span class="math inline">\(n\)</span>, <span class="math inline">\(|X_n|\leq Y\)</span> a.s., therefore <span class="math inline">\(P[|X_n|\leq Y]=1,\forall n\geq1\)</span>.</p>
+<p><span class="math inline">\(\Leftarrow\)</span>: Suppose there exists <span class="math inline">\(0\leq Y\in L_1\)</span> such that <span class="math inline">\(P[|X_n|\leq Y]=1,\forall n\geq1\)</span>, therefore <span class="math inline">\(P[\sup_n|X_n|\leq Y]=P[\bigcap_n\{|X_n|\leq Y\}]=1\)</span>, therefore <span class="math inline">\(\sup_n|X_n|\leq Y\)</span> a.s.,
+<span class="math display">\[
+E(\sup_n|X_n|)\leq E(Y)&lt;\infty.
+\]</span></p>
+<p><span class="math inline">\(\textbf{Note:}\)</span> <strong>My idea</strong> is correct and I just polished it a little bit, but we should keep on mind that what makes our proof work is:</p>
+<ol style="list-style-type: decimal">
+<li><p>The supreme of countable measurable function is still a measurable function</p></li>
+<li><p>The structure of <span class="math inline">\(\sigma\)</span>-algebra and probability measure let us deal with countable intersection of sets.</p></li>
+</ol>
+
 </div>
 </div>
             </section>
