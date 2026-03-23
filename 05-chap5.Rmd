@@ -2473,24 +2473,391 @@ $\textbf{Note:}$ __My idea__ is correct and I just polished it a little bit, but
 
 
 
+## Ex 26
+::: problem
+Suppose $\{X_n,n\geq 1\}$ is a sequence of (not necessarily independent) Bernoulli random variables with
+\[
+P[X_n=1]=p_n=1-P[X_n=0].
+\]
+
+Show that
+\[
+\sum_{n=1}^{\infty} p_n<\infty
+\]
+implies
+\[
+\sum_{n=1}^{\infty} E(X_n)<\infty
+\]
+and therefore that
+\[
+P[X_n\to 0]=1.
+\]
+
+(Compare with Example 4.5.1 in Chapter 4.)
+:::
+
+$\textbf{My idea:}$ Since for Bernoulli random variables $X_n=\mathbf1_{A_n}$, where $P(A_n)=p_n$, therefore
+$$
+E(X_n)=\int X_ndP=P(A_n)=p_n,
+$$
+so $\sum_{n=1}^\infty p_n<\infty$ implies $\sum_{n=1}^\infty E(X_n)<\infty$, by Borei-Cantelli Lemma (page 102), we have
+$$
+P(\limsup_{n\to\infty}[X_n=1])=P([X_n=1]\ \text{i.o.})=0
+$$
+that is
+$$
+P(\limsup_{n\to\infty}[X_n=1]^c)=P(\liminf_{n\to\infty}[X_n=0])=1,
+$$
+so after some point, $X_n$ are all $0$ with probability $1$.
 
 
+$\textbf{Note:}$ The idea is exactly from __Example 4.5.1__  in page 103.
 
 
+## Ex 29
+::: problem
+Suppose $X_n$ is a sequence of random variables such that
+\[
+P[X_n=\pm n^3]=\frac{1}{2n^2}, \qquad P[X_n=0]=1-\frac{1}{n^2}.
+\]
+
+Show that using Borel-Cantelli that $P\!\left[\lim_{n\to\infty} X_n=0\right]=1.$
+
+Compute $\lim_{n\to\infty} E(X_n)$. Is it $0$? Is the Lebesgue Dominated Convergence Theorem applicable? Why or why not?
+:::
+
+$\textbf{My idea:}$ By assumption we have 
+$$
+\sum_{n=1}^\infty P[X_n\neq0]=\sum_{n=1}^\infty\frac{1}{2n^2}<\infty.
+$$
+According to Borel-Cantelli, $P([X_n\neq0]\ \text{i.o.})=0$, that is
+$$
+P(\limsup_{n\to\infty}[X_n\neq0]^c)=P(\liminf_{n\to\infty}[X_n=0])=1,
+$$
+so after some point, $X_n$ are all $0$ with probability $1$, that is $P([\lim_{n\to\infty} X_n=0])=1$. 
+
+However, $E(X_n)=n^2$, so $\lim_{n\to\infty}E(X_n)=\infty$, which is not $0$, the reason that DCT is not applicable here is that we cannot find a dominating integrable function $Y$ such that $|X_n|\leq Y$.
 
 
+$\textbf{Answer:}$ (Second Part)
+$$
+E(X_n)=n^3\cdot\frac{1}{2n^2}-n^3\cdot\frac{1}{2n^2}+0\cdot(1-\frac{1}{n^2})=0,
+$$
+therefore $\lim_{n\to\infty}E(X_n)=0$, however, for $|X_n|$ we have
+$$
+E(|X_n|)=n^3\cdot\frac{1}{2n^2}+n^3\cdot\frac{1}{2n^2}+0\cdot(1-\frac{1}{n^2})=n,
+$$
+so $E(|X_n|)\to\infty$, and tthere cannot exist an integrable function $Y\geq0$ such that $|X_n|\leq Y$ for all $n$, so DCT is not applicable here.
+
+$\textbf{Note:}$ I accidentally miscalculate the value of $E(|X_n|)$, and this exercise tell us that if we want to apply DCT to $X_n$, then we actually need $|X_n|$ is uniformly bounded by some $0\leq Y\in L_1$.
+
+## Ex 32
+::: problem
+(a) Suppose $X$ has possible values $\pm 1,\pm 2$ and that $X$ assumed each of these $4$ values with equal probability $1/4$. Define $Y=X^2$. Despite this functional relationship, show $X$ and $Y$ are uncorrelated; that is, show
+\[
+\operatorname{Cov}(X,Y)=0.
+\]
+
+(b) Suppose $U,V$ have zero mean and the same variance. Check that $X=U+V$ and $Y=U-V$ are uncorrelated.
+
+(c) Toss two dice. Let $X$ be the sum of the faces and $Y$ be the difference. Are $X,Y$ independent? Are they uncorrelated?
+
+:::
+
+### (a)
+$\textbf{My idea:}$ I skip the expression of $X$, $Y$ and $XY$ here, we have
+$$
+E(X)=(1-1+2-2)\cdot\frac14=0
+$$
+
+$$
+E(Y)=(1+4)\cdot\frac{1}{2}=\frac52
+$$
+$$
+E(XY)=(1-1+4-4+2-2+8-8)\cdot\frac18
+$$
+so
+$$
+Cov(X,Y)=E(XY)-E(X)E(Y)=0
+$$
 
 
+### (b)
+$\textbf{My idea:}$ 
+$$
+\begin{aligned}
+\text{Cov}(X,Y)&=\text{Cov}(U+V,U-V)\\
+&=\text{Cov}(U,U-V)+\text{Cov}(V,U-V)\\
+&=\text{Cov}(U,U)-\text{Cov}(U,V)+\text{Cov}(V,U)-\text{Cov}(V,V)\\
+&=\text{Var}(U)-\text{Var}(V)-\text{Cov}(U,V)+\text{Cov}(U,V)\\
+&=0.
+\end{aligned}
+$$
+
+### (c)
+$\textbf{My idea:}$ According to (b), we shall see that even if the mean of rowing a dice is not zero, $X=U+V$ and $Y=U-V$ are still uncorrelated, however, note that $P(X=2)=\frac{1}{36}$, it means that we roll two $1$s, and $P(Y=0)=6\cdot\frac{1}{36}=\frac16$, but
+$$
+P(X=2,Y=0)=P(\text{roll two 1s})=\frac{1}{36}\neq P(X=2)P(Y=0).
+$$
+
+## Ex 33
+::: problem
+Suppose $X,Y$ are two $L_2$ random variables such that $(X,Y)$ and $(-X,Y)$ have the same joint distributions. Show that $X$ and $Y$ are uncorrelated.
+:::
+
+$\textbf{My idea:}$ Since $(X,Y)$ and $(-X,Y)$ have the same joint distributions, that means $X$ and $-X$ also have the same distribution, so we have
+$$
+E(XY)=\int XY dP=0
+$$
+and
+$$
+E(X)=0.
+$$
+Therefore $\text{Cov}(X,Y)=E(XY)-E(X)E(Y)=0$.
+
+$\textbf{Answer:}$ Since $X,Y\in L_2$, then $E(|XY|)\leq\sqrt{E(X^2)E(Y^2)}<\infty$ by Cauchy–Schwarz, so $XY\in L_1$. And by assumption we have
+$$
+(X,Y)\stackrel{d}{=}(-X,Y),
+$$
+then for any measurable function $f$ such that $f(X,Y)\in L_1$, we have $E(f(X,Y))=E(f(-X,Y))$, since $(X,Y)$ and $(-X,Y)$ have the same induced measure, that is
+$$
+\int_\Omega f(X,Y)dP=\int_{\mathbb R^2}f(x,y)\mu_{(X,Y)}(dx,dy)=\int_{\mathbb R^2}f(x,y)\mu_{(-X,Y)}(dx,dy)=\int_\Omega f(-X,Y)dP.
+$$
+Therefore let $f(x,y)=xy$ and $f(x,y)=x$, then we have
+$$
+E(XY)=E(-XY)=-E(XY)
+$$
+and
+$$
+E(X)=E(-X)=-E(X),
+$$
+So $E(XY)=E(X)=0$, Therefore $\text{Cov}(X,Y)=E(XY)-E(X)E(Y)=0$.
+
+$\textbf{Note:}$ In __My idea__, I jumped to the conclusion too fast. In fact, the argument is not completely trivial: we must use the symmetry $(X,Y)\stackrel{d}{=}(−X,Y)$ together with the integrability of $X$ and $XY$ to justify taking expectations.
 
 
+## Ex 34
+::: problem
+Suppose $\{X_n,n\geq 1\}$ are iid with $E(X_n)=0$, $\operatorname{Var}(X_n)=1$. Compute
+\[
+\operatorname{Cov}(S_n,S_m), \qquad n<m,
+\]
+where $S_n=X_1+\cdots+X_n.$
+:::
+
+$\textbf{My idea:}$ Since $\{X_n,n\geq1\}$ are iid, therefore for $n<m$,
+$$
+\begin{aligned}
+\text{Cov}(S_n,S_m)&=\sum_{i=1}^n \text{Cov}(X_i,S_m)\\
+&=\sum_{i=1}^n Var(X_i)\\
+&=n
+\end{aligned}
+$$
+
+$\textbf{Note:}$ __My idea__ may be compressed, but it is correct and I'll leave it as is.
+
+## Ex 31
+::: problem
+If $X$ is a random variable, call $m$ a \emph{median} of $X$ if
+\[
+\frac12 \le P[X\ge m], \qquad P[X\le m]\ge \frac12.
+\]
 
 
+(a) Show the median always exists.
+
+(b) Is the median always unique?
+
+(c) If $I$ is a closed interval such that $P[X\in I]\ge 1/2$, show $m\in I$.
+
+(d) When the variance exists, show
+\[
+|m-E(X)|\le \sqrt{2\operatorname{Var}(X)}.
+\]
+
+(e) If $m$ is a median of $X\in L_1$ show
+\[
+E(|X-m|)\le E(|X-a|), \qquad \forall a\in\mathbb{R}.
+\]
+
+Thus the median minimizes $L_1$ prediction.
+
+(f) If $X\in L_2$, show that for $\mu=E(X)$
+\[
+E\bigl((X-\mu)^2\bigr)\le E\bigl((X-a)^2\bigr), \qquad \forall a\in\mathbb{R}.
+\]
+
+Thus the mean minimizes $L_2$ prediction.
+
+(g) Suppose $X_1,X_2,\ldots,X_n,X_{n+1}$ are $L_2$ random variables. Find the
+\emph{best linear predictor} $X_{n+1}$ based on $X_1,\ldots,X_n$ of $X_{n+1}$; that is, find
+the linear function $\sum_{i=1}^n \alpha_i X_i$ such that
+\[
+E\left(\left(\sum_{i=1}^n \alpha_i X_i - X_{n+1}\right)^2\right)
+\]
+is minimized.
+:::
+
+### (a)
+$\textbf{My idea:}$ Let $F^\leftarrow(y)=\inf\{s:F(s)\geq y\}$, then $m=F^\leftarrow(\frac12)$ exists, and $\{s:F(s)\geq y\}$ is closed because the right continuity of $F$, that is $P[X\leq m]=F(m)\geq\frac{1}{2}$, so $P[X>m]\leq\frac12$, if $F$ is continuous at $m$, than $P[X>m]=\frac12$, else if $F$ has mass on $m$, than $P[X>m]+P[X=m]\geq\frac12$, so $m$ is what we want.
 
 
+$\textbf{Answer:}$ Let $A=\{s:F(s)\geq\frac12\}$, since $\lim_{x\to+\infty}F(x)=1$, then $A\neq\varnothing$ and $\lim_{x\to-\infty}F(x)=0$, so $A\neq\mathbb R$, therefore $m:=\inf A$ is well-defined. By the properties of infimum, there exists $s_n\in A$ such that $s_n\downarrow m$, and since $F$ is right continuous, so
+$$
+P(X\leq m)=F(m)=F(\lim_{n\to\infty}s_n)=\lim_{n\to\infty}F(s_n)\geq\frac{1}{2}.
+$$
+For $x<m$, then $x\not\in A$, so $F(x)<\frac12$, therefore
+$$
+P(X<m)=\sup_{x<m}F(x)\leq\frac12,
+$$
+that is 
+$$
+P(X\geq m)=1-P(X<m)\geq\frac{1}{2}.
+$$
+so $m$ is what we want.
 
+$\textbf{Note:}$ The core of __My idea__ is correct, but we don't need to split into continuous and has mass situations.
 
+### (b)
+$\textbf{My idea:}$ Consider $X$ follows Bernoulli distribution, $P[X=1]=P[X=0]=\frac12$, then $0$ and $1$ are both medians.
 
+### (c)
+$\textbf{My idea:}$ Since $I$ is a closed interval, let $I=[a,b]$,
 
+1. Firstly, suppose $m>b$, according to the definition of median $m=\inf\{s:F(s)\geq\frac12\}$, for $b<m$, we must have $P(X\leq b)=F(b)<\frac12$, which is contracdicted to $P(X\in I)\geq \frac12$, so $m$ cannot at the right of $I$,
+
+$\textbf{Answer:}$ Since $I$ is a closed interval, let $I=[a,b]$, and we have $P[X\in I]\geq \frac12$, so firstly we have $P[X\leq b]\geq P[X\in I]\geq\frac12$ and $P[X\geq a]\geq\frac12$, that is $P[X<a]=F(a-)\leq\frac12$, so
+$$
+m:=\inf_{}\{s\in I:F(s)\geq\frac12\}
+$$
+is well-defined because $b\in I$ and $F(b)\geq\frac12$, so using the same routine in (a), since $I$ is closed and $F$ is right continuous, there exist $s_n\downarrow m$, therefore
+$$
+F(m)=\lim_{n\to\infty}F(s_n)\geq\frac12,
+$$
+therefore
+$$
+P(X\leq m)\geq\frac12.
+$$
+for $x<m$, if $x<a$, then 
+$$
+F(x)\leq F(a-)\leq\frac12.
+$$
+If $a\leq x<m$, by the definition of $m$, we have $F(x)<\frac12$/
+
+Therefore for $x<m$, we have $F(x)\leq\frac12$, that is
+$$
+P(X<m)=\sup_{x<m}F(x)\leq\frac12,
+$$
+so
+$$
+P(X\geq m)=1-P(X<m)\geq\frac12.
+$$
+Therefore $m$ is a median in $I$.
+
+### (d)
+$\textbf{Answer:}$ Denot $E(x)$ as $\mu$ for simplicity.
+
+* If $m\geq \mu$, then on the event $\{X\geq m\}$, we have $(X-\mu)^2\geq(m-\mu)^2$, and since $\{X\geq m\}\subseteq\Omega$, we have
+
+$$
+\begin{aligned}
+E((X-\mu)^2)&\geq E((X-\mu)^2\mathbf1_{\{X\geq m\}})\\
+&\geq E((m-\mu)^2\mathbf1_{\{X\geq m\}})\\
+&=(m-\mu)^2E(\mathbf1_{\{X\geq m\}})\\
+&=(m-\mu)^2P(X\geq m)\\
+&\geq\frac12(m-\mu)^2.
+\end{aligned}
+$$
+
+* If $m<\mu$, by symmetric, we have
+
+$$
+\begin{aligned}
+E((X-\mu)^2)&\geq E((X-\mu)^2\mathbf1_{\{X\leq m\}})\\
+&\geq E((m-\mu)^2\mathbf1_{\{X\leq m\}})\\
+&=(m-\mu)^2E(\mathbf1_{\{X\leq m\}})\\
+&=(m-\mu)^2P(X\leq m)\\
+&\geq\frac12(m-\mu)^2.
+\end{aligned}
+$$
+
+Therefore we have 
+$$
+(m-\mu)^2\leq 2E((X-\mu)^2)=2Var(X),
+$$
+that is 
+$$
+|m-\mu|\leq\sqrt{2Var(X)}.
+$$
+
+### (e)
+$\textbf{My idea:}$ 
+$$
+\begin{aligned}
+E(|X-m|)&=\int|X-m|dP\\
+&=\int|X-a+a-m|dP\\
+&\leq\int|X-a|dP+\int|a-m|dP\\
+&=E(|X-a|)+|a-m|.
+\end{aligned}
+$$
+since $|a-m|\geq0$, so it gets the minimum when $a=m$.
+
+$\textbf{Answer:}$ 
+Firstly we shall see that, for any $a$, when $X\geq a$, we have
+$$
+X-a=\int_a^X1dt=\int_a^\infty\mathbf1_{\{X\geq t\}}dt,
+$$
+this is because $\lambda([a,X])=\lambda(\{t\geq a: t\leq X\})$.
+
+And when $X\leq a$, we similarly have
+$$
+a-X=\int_X^a1dt=\int_{-\infty}^a\mathbf1_{\{X\leq t\}}dt.
+$$
+
+Therefore, for $f(a):=E|X-a|$, we have
+$$
+\begin{aligned}
+f(a)&=E|X-a|\\
+&=E(\int_a^\infty\mathbf1_{\{X\geq t\}}dt)+E(\int_{-\infty}^a\mathbf1_{\{X\leq t\}}dt)\\
+&=\int_a^\infty E(\mathbf1_{\{X\geq t\}})dt+\int_{-\infty}^a E(\mathbf1_{\{X\leq t\}})dt\\
+&=\int_a^\infty P(X\geq t)dt+\int_{-\infty}^a P(X\leq t)dt.\\
+\end{aligned}
+$$
+When $a>m$, we have
+$$
+\begin{aligned}
+f(a)-f(m)&=-\int_m^a P(X\geq t)dt+\int_m^a P(X\leq t)dt\\
+&=\int_m^a(P(X\leq t)-P(X\geq t))dt\\
+&=\int_m^a(P(X\leq t)+P(X< t)-1)dt.
+\end{aligned}
+$$
+let $h(t)=P(X\leq t)+P(X< t)-1$, we have $P(X\leq t)\geq P(X\leq m)\geq\frac12$ and $P(X< t)\geq P(X\leq m)\geq\frac12$ since $t>m$, so 
+$$
+h(t)\geq\frac12+\frac12-1=0,
+$$
+therefore $f(a)-f(m)\geq0$ when $a>m$.
+
+Similarly, when $a<m$, we have 
+$$
+\begin{aligned}
+f(a)-f(m)&=\int_a^m P(X\geq t)dt-\int_a^m P(X\leq t)dt\\
+&=\int_a^m(P(X\geq t)-P(X\leq t))dt\\
+&=\int_a^m(P(X\geq t)+P(X> t)-1)dt.
+\end{aligned}
+$$
+Let $g(t)=P(X\geq t)+P(X> t)-1$, since $t<m$, we have $P(X\geq t)\geq P(X\geq m)\geq\frac12$ and $P(X> t)\geq P(X\geq m)\geq\frac12$,so 
+$$
+g(t)\geq\frac12+\frac12-1=0,
+$$
+therefore $f(a)-f(m)\geq0$ when $a<m$.
+
+According to the above, we get 
+$$
+E|X-m|\leq E|X-a|
+$$
+for all $a$.
+
+$\textbf{Note:}$ I think the idea in this kind of question should be linking the problem to the definition of median. In the __Answer__ part, I did try to take derivative on $a$ to get the minimum, but I occurred to me that $f(a)$ may not be differetiable at $a$, but we still can discuss the minimum using $f'_+$ and $f'_-$, but that makes the answer too tedious.
 
 
 
