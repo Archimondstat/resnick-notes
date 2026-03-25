@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chap 5, Integration and Expectation | Notes on A Probability Path (Resnick)</title>
   <meta name="description" content="Chap 5, Integration and Expectation | Notes on A Probability Path (Resnick)" />
-  <meta name="generator" content="bookdown 0.46 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.42 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chap 5, Integration and Expectation | Notes on A Probability Path (Resnick)" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="Zhanwen Peng" />
 
 
-<meta name="date" content="2026-03-23" />
+<meta name="date" content="2026-03-25" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -55,7 +55,6 @@
 
 
 <style type="text/css">
-html { -webkit-text-size-adjust: 100%; }
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -337,6 +336,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#c-10"><i class="fa fa-check"></i>(c)</a></li>
 <li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#d-6"><i class="fa fa-check"></i>(d)</a></li>
 <li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#e-4"><i class="fa fa-check"></i>(e)</a></li>
+<li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#f-2"><i class="fa fa-check"></i>(f)</a></li>
+<li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#g-1"><i class="fa fa-check"></i>(g)</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -1807,13 +1808,13 @@ so we have <span class="math inline">\(\lambda\times\lambda(A)=\text{area of }A\
 <h2>Ex 12<a href="chap-5-integration-and-expectation.html#ex-12-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div class="problem">
 <ol start="12" style="list-style-type: decimal">
-<li>Suppose <span class="math inline">\(X\)</span> is an uncountable set and let <span class="math inline">\(\mathcal{B}\)</span> be the <span class="math inline">\(\sigma\)</span>-field of countable and co-countable (complements are countable) sets. Show that the diagonal <span class="math inline">\(\text{DIAG}  := \{(x, x) : x \in X\} \notin \mathcal{B} \times \mathcal{B}\)</span> is <strong>not</strong> in the product <span class="math inline">\(\sigma\)</span>-field. However, every section of $ $ is measurable.
+<li>Suppose <span class="math inline">\(X\)</span> is an uncountable set and let <span class="math inline">\(\mathcal{B}\)</span> be the <span class="math inline">\(\sigma\)</span>-field of countable and co-countable (complements are countable) sets. Show that the diagonal <span class="math inline">\(\text{DIAG} := \{(x, x) : x \in X\} \notin \mathcal{B} \times \mathcal{B}\)</span> is <strong>not</strong> in the product <span class="math inline">\(\sigma\)</span>-field. However, every section of $ $ is measurable.
 <ul>
 <li><strong>Hints</strong>:
 <ul>
 <li>Show that <span class="math inline">\(\mathcal{B} \times \mathcal{B} = \sigma(\{\{x\} \times X, X \times \{x\}, x \in X\})\)</span>.</li>
 <li>Review Exercise 12 in Chapter 2.</li>
-<li>Proceed by contradiction. Suppose <span class="math inline">\(\text{DIAG}  \in \mathcal{B} \times \mathcal{B}\)</span>. Then there exists countable <span class="math inline">\(S \subset X\)</span> such that <span class="math inline">\(\text{DIAG}  \in \sigma(\{\{x\} \times X, X \times \{x\}, x \in S\}) =: \mathcal{G}\)</span>.</li>
+<li>Proceed by contradiction. Suppose <span class="math inline">\(\text{DIAG} \in \mathcal{B} \times \mathcal{B}\)</span>. Then there exists countable <span class="math inline">\(S \subset X\)</span> such that <span class="math inline">\(\text{DIAG} \in \sigma(\{\{x\} \times X, X \times \{x\}, x \in S\}) =: \mathcal{G}\)</span>.</li>
 <li>Define <span class="math inline">\(\mathcal{P} := \{\{s\}, s \in S, S^c\}\)</span> and observe this is a partition of <span class="math inline">\(X\)</span>.</li>
 <li>Show it is impossible for <span class="math inline">\(\text{DIAG} \in \mathcal{G}\)</span>.</li>
 </ul></li>
@@ -3013,6 +3014,79 @@ E|X-m|\leq E|X-a|
 \]</span>
 for all <span class="math inline">\(a\)</span>.</p>
 <p><span class="math inline">\(\textbf{Note:}\)</span> I think the idea in this kind of question should be linking the problem to the definition of median. In the <strong>Answer</strong> part, I did try to take derivative on <span class="math inline">\(a\)</span> to get the minimum, but I occurred to me that <span class="math inline">\(f(a)\)</span> may not be differetiable at <span class="math inline">\(a\)</span>, but we still can discuss the minimum using <span class="math inline">\(f&#39;_+\)</span> and <span class="math inline">\(f&#39;_-\)</span>, but that makes the answer too tedious.</p>
+</div>
+<div id="f-2" class="section level3 hasAnchor">
+<h3>(f)<a href="chap-5-integration-and-expectation.html#f-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><span class="math inline">\(\textbf{My idea:}\)</span> For any <span class="math inline">\(a\)</span> we have
+<span class="math display">\[
+\begin{aligned}
+E((X-\mu)^2)&amp;=E((X-a+a-\mu)^2)\\
+&amp;=E((X-a)^2+(a-\mu)^2+2(X-a)(a-\mu))\\
+&amp;=E((X-a)^2)+(a-\mu)^2+2(\mu-a)(a-\mu)\\
+&amp;=E((X-a)^2)-(a-\mu)^2\\
+&amp;\leq E((X-a)^2)
+\end{aligned}
+\]</span></p>
+</div>
+<div id="g-1" class="section level3 hasAnchor">
+<h3>(g)<a href="chap-5-integration-and-expectation.html#g-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><span class="math inline">\(\textbf{My idea:}\)</span> It seems that it should be <span class="math inline">\(\sum_{i=1}^n\frac1n X_i\)</span>.</p>
+<p><span class="math inline">\(\textbf{Answer:}\)</span> Expand <span class="math inline">\(E\left((\sum_{i=1}^n\alpha_iX_i-X_{n+1})^2\right)\)</span>, we have
+<span class="math display">\[
+\begin{aligned}
+E\left((\sum_{i=1}^n\alpha_iX_i-X_{n+1})^2\right)&amp;=E\left((\sum_{i=1}^n\alpha_iX_i)^2\right)-2\sum_{i=1}^n\alpha_iE(X_iX_{n+1})+E(X_{n+1}^2)\\
+&amp;=\alpha^TG\alpha-2b^T\alpha+E(X_{n+1}^2),
+\end{aligned}
+\]</span>
+where <span class="math inline">\(\alpha=(\alpha_1,\dots,\alpha_n)\)</span>, <span class="math inline">\(G=(g_{ij})\)</span>, <span class="math inline">\(g_{ij}=E(X_iX_j)\)</span>, <span class="math inline">\(b_i=E(X_iX_{n+1})\)</span>.</p>
+<p>We can see that <span class="math inline">\(G\)</span> is symmetric, and for any <span class="math inline">\(c\in\mathbb R^n\)</span>, we have
+<span class="math display">\[
+c^TGc=E\left((\sum_{i=1}^nc_iX_i)^2\right)\geq0,
+\]</span>
+so <span class="math inline">\(G\)</span> is semi-positive definite.</p>
+<p>Define <span class="math inline">\(J(\alpha):=\alpha^TG\alpha-2b^T\alpha+E(X_{n+1}^2)\)</span>, we have that
+<span class="math display">\[
+\frac{\partial}{\partial\alpha}J(\alpha)=2G\alpha-2b,
+\]</span>
+and
+<span class="math display">\[
+\nabla^2J(\alpha)=2G,
+\]</span>
+since <span class="math inline">\(G\)</span> is semi-positive, so <span class="math inline">\(J(\alpha)\)</span> is convex, therefore any <span class="math inline">\(\hat\alpha\)</span> that satisfies <span class="math inline">\(\frac{\partial}{\partial\alpha}=0\)</span> is a global minimizer.</p>
+<p>Next we will prove the existence of the solution.</p>
+<p>If <span class="math inline">\(X_1,\dots,X_n\)</span> are linearly independent, then <span class="math inline">\(G\)</span> is invertible, so we have unique solution
+<span class="math display">\[
+\hat\alpha=G^{-1}b,
+\]</span></p>
+<p>Otherwise, for any <span class="math inline">\(c\in\text{Ker}(G)\)</span>, we have
+<span class="math display">\[
+0=c^TGc=E\left((\sum_{i=1}^nc_iX_i)^2\right)=0,
+\]</span>
+that is for such <span class="math inline">\(c\)</span>, we have <span class="math inline">\(\sum_{i=1}^nc_iX_i=0\)</span> a.s., then
+<span class="math display">\[
+c^Tb=E(X_{n+1}(\sum_{i=1}^nc_iX_i))=0,
+\]</span>
+so <span class="math inline">\(b\in(\text{Ker}(G))^\perp=\text{Range}(G)\)</span>, that is, there exist <span class="math inline">\(\hat\alpha\in\mathbb R^n\)</span> such that <span class="math inline">\(G\hat\alpha=b\)</span>.</p>
+<p>According to the above, <span class="math inline">\(\hat\alpha\)</span> exists and is the minimizer we needed.</p>
+<p><span class="math inline">\(\textbf{note:}\)</span> I will summarize what happened shortly.</p>
+<ol style="list-style-type: decimal">
+<li><p>We rewrite
+<span class="math display">\[
+E\left((\sum_{i=1}^n\alpha_iX_i-X_{n+1})^2\right)
+\]</span>
+as quadratic form
+<span class="math display">\[
+J(\alpha)=\alpha^TG\alpha-2b^T\alpha+E(X_{n+1}^2),
+\]</span>
+where <span class="math inline">\(G_{ij}=E(X_iX_j)\)</span> and <span class="math inline">\(b_i=E(X_iX_{n+1})\)</span></p></li>
+<li><p>Since <span class="math inline">\(G\)</span> is symmetric positive semideinite, hence <span class="math inline">\(J\)</span> is convex, therefore, any critical point satisfying <span class="math inline">\(G\alpha=b\)</span> is a global minimizer.</p></li>
+<li><p>If <span class="math inline">\(G\)</span> is invertible, then the minimizer is unique and given by
+<span class="math display">\[
+\hat\alpha=G^{-1}b,
+\]</span>
+otherwise, if <span class="math inline">\(G\)</span> is not invertible, that is, <span class="math inline">\(\{X_n\}\)</span> are linearly dependent, we prove that <span class="math inline">\(b\in\text{Range}(G)\)</span>, so the system still has a solution. Hence the existence of minimizer is proven, althoght may not be unique.</p></li>
+</ol>
+<p>Further, if we view <span class="math inline">\(\{X_n\}\)</span> as vectors, then we can assume that they are linearly independent W.L.G., since we can always find a subset of them such that they are linearly independent, and this subset is the basis on <span class="math inline">\(\mathcal M=\text{span}\{X_1,\dots,X_n\}\)</span>, and in linear algebraic view, <span class="math inline">\(\hat\alpha^T(X_1,\dots,X_n)\)</span> is actually the project of <span class="math inline">\(X_{n+1}\)</span> on <span class="math inline">\(\mathcal M\)</span>, which only depends on <span class="math inline">\(\mathcal M\)</span> itself and not depends on which basis we use, but be careful, it does not mean the solution is unique.</p>
 
 </div>
 </div>

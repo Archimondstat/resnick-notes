@@ -2860,4 +2860,89 @@ for all $a$.
 $\textbf{Note:}$ I think the idea in this kind of question should be linking the problem to the definition of median. In the __Answer__ part, I did try to take derivative on $a$ to get the minimum, but I occurred to me that $f(a)$ may not be differetiable at $a$, but we still can discuss the minimum using $f'_+$ and $f'_-$, but that makes the answer too tedious.
 
 
+### (f)
+$\textbf{My idea:}$ For any $a$ we have
+$$
+\begin{aligned}
+E((X-\mu)^2)&=E((X-a+a-\mu)^2)\\
+&=E((X-a)^2+(a-\mu)^2+2(X-a)(a-\mu))\\
+&=E((X-a)^2)+(a-\mu)^2+2(\mu-a)(a-\mu)\\
+&=E((X-a)^2)-(a-\mu)^2\\
+&\leq E((X-a)^2)
+\end{aligned}
+$$
+
+### (g)
+$\textbf{My idea:}$ It seems that it should be $\sum_{i=1}^n\frac1n X_i$.
+
+$\textbf{Answer:}$ Expand $E\left((\sum_{i=1}^n\alpha_iX_i-X_{n+1})^2\right)$, we have
+$$
+\begin{aligned}
+E\left((\sum_{i=1}^n\alpha_iX_i-X_{n+1})^2\right)&=E\left((\sum_{i=1}^n\alpha_iX_i)^2\right)-2\sum_{i=1}^n\alpha_iE(X_iX_{n+1})+E(X_{n+1}^2)\\
+&=\alpha^TG\alpha-2b^T\alpha+E(X_{n+1}^2),
+\end{aligned}
+$$
+where $\alpha=(\alpha_1,\dots,\alpha_n)$, $G=(g_{ij})$, $g_{ij}=E(X_iX_j)$, $b_i=E(X_iX_{n+1})$.
+
+We can see that $G$ is symmetric, and for any $c\in\mathbb R^n$, we have
+$$
+c^TGc=E\left((\sum_{i=1}^nc_iX_i)^2\right)\geq0,
+$$
+so $G$ is semi-positive definite.
+
+Define $J(\alpha):=\alpha^TG\alpha-2b^T\alpha+E(X_{n+1}^2)$, we have that
+$$
+\frac{\partial}{\partial\alpha}J(\alpha)=2G\alpha-2b,
+$$
+and
+$$
+\nabla^2J(\alpha)=2G,
+$$
+since $G$ is semi-positive, so $J(\alpha)$ is convex, therefore any $\hat\alpha$ that satisfies $\frac{\partial}{\partial\alpha}=0$ is a global minimizer.
+
+Next we will prove the existence of the solution.
+
+If $X_1,\dots,X_n$ are linearly independent, then $G$ is invertible, so we have unique solution
+$$
+\hat\alpha=G^{-1}b,
+$$
+
+Otherwise, for any $c\in\text{Ker}(G)$, we have
+$$
+0=c^TGc=E\left((\sum_{i=1}^nc_iX_i)^2\right)=0,
+$$
+that is for such $c$, we have $\sum_{i=1}^nc_iX_i=0$ a.s., then
+$$
+c^Tb=E(X_{n+1}(\sum_{i=1}^nc_iX_i))=0,
+$$
+so $b\in(\text{Ker}(G))^\perp=\text{Range}(G)$, that is, there exist $\hat\alpha\in\mathbb R^n$ such that $G\hat\alpha=b$.
+
+According to the above, $\hat\alpha$ exists and is the minimizer we needed.
+
+$\textbf{note:}$ I will summarize what happened shortly.
+
+1. We rewrite
+$$
+E\left((\sum_{i=1}^n\alpha_iX_i-X_{n+1})^2\right)
+$$
+as quadratic form
+$$
+J(\alpha)=\alpha^TG\alpha-2b^T\alpha+E(X_{n+1}^2),
+$$
+where $G_{ij}=E(X_iX_j)$ and $b_i=E(X_iX_{n+1})$
+
+2. Since $G$ is symmetric positive semideinite, hence $J$ is convex, therefore, any critical point satisfying $G\alpha=b$ is a global minimizer.
+
+
+3. If $G$ is invertible, then the minimizer is unique and given by
+$$
+\hat\alpha=G^{-1}b,
+$$
+otherwise, if $G$ is not invertible, that is, $\{X_n\}$ are linearly dependent, we prove that $b\in\text{Range}(G)$, so the system still has a solution. Hence the existence of minimizer is proven, althoght may not be unique.
+
+Further, if we view $\{X_n\}$ as vectors, then we can assume that they are linearly independent W.L.G., since we can always find a subset of them such that they are linearly independent, and this subset is the basis on $\mathcal M=\text{span}\{X_1,\dots,X_n\}$, and in linear algebraic view, $\hat\alpha^T(X_1,\dots,X_n)$ is actually the project of $X_{n+1}$ on $\mathcal M$, which only depends on $\mathcal M$ itself and not depends on which basis we use, but be careful, it does not mean the solution is unique.
+
+
+
+
 
