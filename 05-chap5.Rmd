@@ -2919,7 +2919,7 @@ so $b\in(\text{Ker}(G))^\perp=\text{Range}(G)$, that is, there exist $\hat\alpha
 
 According to the above, $\hat\alpha$ exists and is the minimizer we needed.
 
-$\textbf{note:}$ I will summarize what happened shortly.
+$\textbf{Note:}$ I will summarize what happened shortly.
 
 1. We rewrite
 $$
@@ -2941,6 +2941,247 @@ $$
 otherwise, if $G$ is not invertible, that is, $\{X_n\}$ are linearly dependent, we prove that $b\in\text{Range}(G)$, so the system still has a solution. Hence the existence of minimizer is proven, althoght may not be unique.
 
 Further, if we view $\{X_n\}$ as vectors, then we can assume that they are linearly independent W.L.G., since we can always find a subset of them such that they are linearly independent, and this subset is the basis on $\mathcal M=\text{span}\{X_1,\dots,X_n\}$, and in linear algebraic view, $\hat\alpha^T(X_1,\dots,X_n)$ is actually the project of $X_{n+1}$ on $\mathcal M$, which only depends on $\mathcal M$ itself and not depends on which basis we use, but be careful, it does not mean the solution is unique.
+
+## Ex 25
+::: problem
+In cases where expectations are not guaranteed to exist, the following is a proposal for defining a central value. Suppose $F(x)$ is a strictly increasing and continuous distribution function. For example $F$ could be the standard normal distribution function. Define
+\[
+g:\mathbb{R}\to (-1,1)
+\]
+by
+\[
+g(x)=2\left(F(x)-\frac12\right).
+\]
+
+For a random variable $X$, define $\phi:\mathbb{R}\to (-1,1)$ by
+\[
+\phi(\gamma)=E\bigl(g(X-\gamma)\bigr). \tag{*}
+\]
+
+The \emph{central value} of $X$ with respect to $g$, denoted $\gamma(X)$, is defined as the solution of
+\[
+\phi(\gamma)=0.
+\]
+
+
+(a) Show $\phi(\gamma)$ is a continuous function of $\gamma$.
+
+(b) Show
+\[
+\lim_{\gamma\to\infty}\phi(\gamma)=-1,
+\qquad
+\lim_{\gamma\to-\infty}\phi(\gamma)=1.
+\]
+
+(c) Show $\phi(\gamma)$ is non-increasing.
+
+(d) Show $\gamma(X)$, the solution of
+\[
+\phi(\gamma)=0
+\]
+is unique.
+
+Show $\gamma(X)$ has some of the properties of expectation, namely the following.
+
+(e) For any $c\in\mathbb{R}$
+\[
+\gamma(X+c)=\gamma(X)+c.
+\]
+
+(f) Now suppose $g$ in $(*)$ is
+\[
+g:\mathbb{R}\to \left(-\frac{\pi}{2},\frac{\pi}{2}\right)
+\]
+defined by
+\[
+g(x):=\arctan(x),
+\]
+so that $g(-x)=-g(x)$. Show
+\[
+\gamma(-X)=-\gamma(X).
+\]
+:::
+
+### (a)
+$\textbf{My idea:}$ Since $F$ is a strictly increasing continuous distribution function, then it is uniformly continuous on $\mathbb R$, that is, for any $\varepsilon>0$ and any $x,y\in \mathbb R$, there exists $\delta>0$, such that when $|x-y|<\delta$, we have $|F(x)-F(y)|<\varepsilon$. Therefore for $|\Delta|<\delta$, we have
+$$
+\begin{aligned}
+|\phi(\gamma+\Delta)-\phi(\gamma)|&=\left|2E(F(X-\gamma-\Delta)-\frac12)-2E(F(X-\gamma)-\frac12)\right|\\
+&=\left|2\int(F(X-\gamma-\Delta)-\frac12)dP-2\int(F(X-\gamma)-\frac12)dP\right|\\
+&\leq2\int\left|F(X-\gamma-\Delta)-F(X-\gamma)\right|dP\\
+&<2\varepsilon.
+\end{aligned}
+$$
+Therefore $\phi(\gamma)$ is continuous.
+
+$\textbf{Answer:}$ (__DCT__ version)
+
+Since $F$ is a strictly increasing continuous distribution function, so $g$ is also continuous, also, because $0\leq F(x)\leq1$, we have 
+$$
+-1\leq g(x)\leq1\qquad\text{for all }x\in\mathbb R.
+$$
+,then for any $\gamma_n\to\gamma$, we have $g(X-\gamma_n)\to g(X-\gamma)$, and for any $n$, $|g(X-\gamma_n)|\leq1\in L_1$, so we have
+$$
+\begin{aligned}
+\lim_{n\to\infty}\phi(\gamma_n)&=\lim_{n\to\infty}E(g(X-\gamma_n))\\
+&=E(\lim_{n\to\infty}g(X-\gamma_n))\\
+&=E(g(X-\gamma))\\
+&=\phi(\gamma).
+\end{aligned}
+$$
+
+$\textbf{Note:}$ __My idea__ is correct, The DCT proof is a cleaner probability-style argument.
+
+### (b)
+$\textbf{My idea:}$ According (a), $\phi(\gamma)$ is continuous, and $|g(X-\gamma)|$ is bounded, therefore by DCT
+$$
+\begin{aligned}
+\lim_{\gamma\to\infty}\phi(\gamma)&=\lim_{\gamma\to\infty}E(g(X-\gamma))\\
+&=E(\lim_{\gamma\to\infty}g(X-\gamma))\\
+&=E(\lim_{\gamma\to\infty}2(F(X-\gamma)-\frac12))\\
+&=E(-1)=-1.
+\end{aligned}
+$$
+Similarly
+$$
+\begin{aligned}
+\lim_{\gamma\to-\infty}\phi(\gamma)&=\lim_{\gamma\to-\infty}E(g(X-\gamma))\\
+&=E(\lim_{\gamma\to-\infty}g(X-\gamma))\\
+&=E(\lim_{\gamma\to-\infty}2(F(X-\gamma)-\frac12))\\
+&=E(1)=1.
+\end{aligned}
+$$
+
+$\textbf{Answer:}$ Let $\gamma_n\to\infty$, then for each $\omega\in\Omega$,
+$$
+X(\omega)-\gamma_n\to-\infty.
+$$
+Since $F$ is a distribution function, so $F(X-\gamma_n)\to0$, therefore
+$$
+g(X-\gamma_n)=2(F(X-\gamma_n)-\frac12)\to-1\ \text{a.s.}
+$$
+Also, for every $n$, $|g(X-\gamma_n)|\leq1\in L_1$, by DCT we have
+$$
+\phi(\gamma_n)=E(g(X-\gamma_n))\to E(-1)=-1.
+$$
+Therefore $\lim_{\gamma\to\infty}\phi(\gamma)=-1$.
+
+Similarly, if $\gamma_n\to-\infty$, then for each $\omega\in\Omega$,
+$$
+X(\omega)-\gamma_n\to\infty.
+$$
+So $F(X-\gamma_n)\to1$, therefore
+$$
+g(X-\gamma_n)=2(F(X-\gamma_n)-\frac12)\to1\ \text{a.s.}
+$$
+Also, for every $n$, $|g(X-\gamma_n)|\leq1\in L_1$, by DCT we have
+$$
+\phi(\gamma_n)=E(g(X-\gamma_n))\to E(1)=1.
+$$
+Therefore $\lim_{\gamma\to-\infty}\phi(\gamma)=1$.
+
+$\textbf{Answer:}$ __My idea__ is correct, but needs adjustment. To study $\phi(\gamma)$ as $\gamma\to\pm\infty$, it is enough to let $\gamma_n\to\pm\infty$.
+
+
+### (c)
+$\textbf{My idea:}$ For $\gamma_1<\gamma_2$ and any $\omega\in\Omega$, we have $X(\omega)-\gamma_1\geq X(\omega)-\gamma_2$, since $F$ is strictly increasing, we have 
+$$
+F(X(\omega)-\gamma_1)\geq F(X(\omega)-\gamma_2),
+$$
+hence
+$$
+\begin{aligned}
+\phi(\gamma_1)-\phi(\gamma_2)&=E(g(X-\gamma_1))-E(g(X-\gamma_2))\\
+&=E(g(X-\gamma_1)-g(X-\gamma_2))\\
+&=E(2F(X(\omega)-\gamma_1)-2F(X(\omega)-\gamma_2))\\
+&=2E(F(X(\omega)-\gamma_1)-F(X(\omega)-\gamma_2))\geq0
+\end{aligned}
+$$
+Therefore $\phi(\gamma)$ is non-increasing.
+
+### (d)
+$\textbf{My idea:}$ According to (a) and (b), We knew that $\phi(\gamma)$ is continuous and $\lim_{\gamma\to\infty}\phi(\gamma)=-1$, $\lim_{\gamma\to-\infty}\phi(\gamma)=1$, and $0\in(-1,1)$, by intermediate value theorem, there exists $\gamma_0$ such that $\phi(\gamma_0)=0$. Suppose there exists $\gamma_1\neq\gamma_2$, such that $\phi(\gamma_1)=\phi(\gamma_2)=0$, according to (c), we can actually prove that $\phi(\gamma)$ is strictly decreasing:
+
+For $\gamma_1<\gamma_2$ and any $\omega\in\Omega$, we have $X(\omega)-\gamma_1> X(\omega)-\gamma_2$, since $F$ is strictly increasing, we have 
+$$
+F(X(\omega)-\gamma_1)> F(X(\omega)-\gamma_2),
+$$
+hence
+$$
+\begin{aligned}
+\phi(\gamma_1)-\phi(\gamma_2)&=E(g(X-\gamma_1))-E(g(X-\gamma_2))\\
+&=E(g(X-\gamma_1)-g(X-\gamma_2))\\
+&=E(2F(X(\omega)-\gamma_1)-2F(X(\omega)-\gamma_2))\\
+&=2E(F(X(\omega)-\gamma_1)-F(X(\omega)-\gamma_2))>0.
+\end{aligned}
+$$
+So we must have $\gamma_1=\gamma_2$.
+
+### (e)
+$\textbf{My idea:}$ Let $Y=X+c$, then $Y$ is a r.v., denote its df as $F_Y$, then we have
+$$
+\begin{aligned}
+F_Y(y)&=P(Y\leq y)\\
+&=P(X+c\leq y)\\
+&=P(X\leq y-c)\\
+&=F_X(y-c).
+\end{aligned}
+$$
+And $\gamma(X+c)=\gamma(Y)$ is the solution of $\phi_Y(\gamma)=0$ where
+$$
+\begin{aligned}
+\phi_Y(\gamma)&=E(g(Y-\gamma))\\
+&=E(2(F_Y(Y-\gamma)-\frac12))\\
+&=E(2(F_X(Y-\gamma-c)-\frac12)).
+\end{aligned}
+$$
+Therefore if $\gamma(X)$ is the solution of $\phi_X(\gamma)$, then $\gamma(X)+c$ is the solution of $\phi_Y(\gamma)$.
+
+
+
+$\textbf{Answer:}$ Let $\phi_X(\gamma)=E(g(X-\gamma))$, then 
+$$
+\phi_{X+c}(\gamma)=E(g(X+c-\gamma))=E(g(X-(\gamma-c)))=\phi_X(\gamma-c).
+$$
+If $\gamma(X)$ is the unique solution of $\phi_X(\gamma)=0$, then
+$$
+\phi_{X+c}(\gamma(X)+c)=E(g(X-(\gamma(X)+c-c)))=E(g(X-\gamma(X)))=\phi_X(\gamma(X))=0.
+$$
+So $\gamma(X)+c$ is a solution of $\phi_{X+c}(\gamma)=0$, and by (d), the solution is unique, therefore we have
+$$
+\gamma(X+c)=\gamma(X)+c.
+$$
+
+
+$\textbf{Note:}$ I made a mistake that I thought $F$ changes with $X$, however we should treat $F$ as universal.
+
+### (e)
+$\textbf{My idea:}$ Let $\phi_X(\gamma)=E(g(X-\gamma))$, then
+$$
+\begin{aligned}
+\phi_{-X}(\gamma)&=E(g(-X-\gamma))\\
+&=E(-g(X+\gamma))\\
+&=-E(g(X+\gamma))\\
+&=-\phi_X(-\gamma)
+\end{aligned}
+$$
+so if $\gamma(X)$ is the unique solution of $\phi_X(\gamma)=0$, then
+$$
+\phi_{-X}(-\gamma(X))=-\phi_X(-(-\gamma(X)))=-\phi_X(\gamma(X))=0.
+$$
+So by (d), $-\gamma(X)$ is the unique solution of $\phi_{-X}(\gamma)=0$, that is
+$$
+-\gamma(X)=\gamma(-X).
+$$
+
+
+
+
+
+
+
+
+
 
 
 

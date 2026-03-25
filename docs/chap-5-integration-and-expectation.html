@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chap 5, Integration and Expectation | Notes on A Probability Path (Resnick)</title>
   <meta name="description" content="Chap 5, Integration and Expectation | Notes on A Probability Path (Resnick)" />
-  <meta name="generator" content="bookdown 0.42 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.46 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chap 5, Integration and Expectation | Notes on A Probability Path (Resnick)" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="Zhanwen Peng" />
 
 
-<meta name="date" content="2026-03-25" />
+<meta name="date" content="2026-03-26" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -55,6 +55,7 @@
 
 
 <style type="text/css">
+html { -webkit-text-size-adjust: 100%; }
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -338,6 +339,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#e-4"><i class="fa fa-check"></i>(e)</a></li>
 <li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#f-2"><i class="fa fa-check"></i>(f)</a></li>
 <li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#g-1"><i class="fa fa-check"></i>(g)</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#ex-25-1"><i class="fa fa-check"></i>Ex 25</a>
+<ul>
+<li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#a-16"><i class="fa fa-check"></i>(a)</a></li>
+<li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#b-16"><i class="fa fa-check"></i>(b)</a></li>
+<li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#c-11"><i class="fa fa-check"></i>(c)</a></li>
+<li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#d-7"><i class="fa fa-check"></i>(d)</a></li>
+<li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#e-5"><i class="fa fa-check"></i>(e)</a></li>
+<li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#e-6"><i class="fa fa-check"></i>(e)</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -1808,13 +1818,13 @@ so we have <span class="math inline">\(\lambda\times\lambda(A)=\text{area of }A\
 <h2>Ex 12<a href="chap-5-integration-and-expectation.html#ex-12-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div class="problem">
 <ol start="12" style="list-style-type: decimal">
-<li>Suppose <span class="math inline">\(X\)</span> is an uncountable set and let <span class="math inline">\(\mathcal{B}\)</span> be the <span class="math inline">\(\sigma\)</span>-field of countable and co-countable (complements are countable) sets. Show that the diagonal <span class="math inline">\(\text{DIAG} := \{(x, x) : x \in X\} \notin \mathcal{B} \times \mathcal{B}\)</span> is <strong>not</strong> in the product <span class="math inline">\(\sigma\)</span>-field. However, every section of $ $ is measurable.
+<li>Suppose <span class="math inline">\(X\)</span> is an uncountable set and let <span class="math inline">\(\mathcal{B}\)</span> be the <span class="math inline">\(\sigma\)</span>-field of countable and co-countable (complements are countable) sets. Show that the diagonal <span class="math inline">\(\text{DIAG}  := \{(x, x) : x \in X\} \notin \mathcal{B} \times \mathcal{B}\)</span> is <strong>not</strong> in the product <span class="math inline">\(\sigma\)</span>-field. However, every section of $ $ is measurable.
 <ul>
 <li><strong>Hints</strong>:
 <ul>
 <li>Show that <span class="math inline">\(\mathcal{B} \times \mathcal{B} = \sigma(\{\{x\} \times X, X \times \{x\}, x \in X\})\)</span>.</li>
 <li>Review Exercise 12 in Chapter 2.</li>
-<li>Proceed by contradiction. Suppose <span class="math inline">\(\text{DIAG} \in \mathcal{B} \times \mathcal{B}\)</span>. Then there exists countable <span class="math inline">\(S \subset X\)</span> such that <span class="math inline">\(\text{DIAG} \in \sigma(\{\{x\} \times X, X \times \{x\}, x \in S\}) =: \mathcal{G}\)</span>.</li>
+<li>Proceed by contradiction. Suppose <span class="math inline">\(\text{DIAG}  \in \mathcal{B} \times \mathcal{B}\)</span>. Then there exists countable <span class="math inline">\(S \subset X\)</span> such that <span class="math inline">\(\text{DIAG}  \in \sigma(\{\{x\} \times X, X \times \{x\}, x \in S\}) =: \mathcal{G}\)</span>.</li>
 <li>Define <span class="math inline">\(\mathcal{P} := \{\{s\}, s \in S, S^c\}\)</span> and observe this is a partition of <span class="math inline">\(X\)</span>.</li>
 <li>Show it is impossible for <span class="math inline">\(\text{DIAG} \in \mathcal{G}\)</span>.</li>
 </ul></li>
@@ -3068,7 +3078,7 @@ c^Tb=E(X_{n+1}(\sum_{i=1}^nc_iX_i))=0,
 \]</span>
 so <span class="math inline">\(b\in(\text{Ker}(G))^\perp=\text{Range}(G)\)</span>, that is, there exist <span class="math inline">\(\hat\alpha\in\mathbb R^n\)</span> such that <span class="math inline">\(G\hat\alpha=b\)</span>.</p>
 <p>According to the above, <span class="math inline">\(\hat\alpha\)</span> exists and is the minimizer we needed.</p>
-<p><span class="math inline">\(\textbf{note:}\)</span> I will summarize what happened shortly.</p>
+<p><span class="math inline">\(\textbf{Note:}\)</span> I will summarize what happened shortly.</p>
 <ol style="list-style-type: decimal">
 <li><p>We rewrite
 <span class="math display">\[
@@ -3087,6 +3097,226 @@ where <span class="math inline">\(G_{ij}=E(X_iX_j)\)</span> and <span class="mat
 otherwise, if <span class="math inline">\(G\)</span> is not invertible, that is, <span class="math inline">\(\{X_n\}\)</span> are linearly dependent, we prove that <span class="math inline">\(b\in\text{Range}(G)\)</span>, so the system still has a solution. Hence the existence of minimizer is proven, althoght may not be unique.</p></li>
 </ol>
 <p>Further, if we view <span class="math inline">\(\{X_n\}\)</span> as vectors, then we can assume that they are linearly independent W.L.G., since we can always find a subset of them such that they are linearly independent, and this subset is the basis on <span class="math inline">\(\mathcal M=\text{span}\{X_1,\dots,X_n\}\)</span>, and in linear algebraic view, <span class="math inline">\(\hat\alpha^T(X_1,\dots,X_n)\)</span> is actually the project of <span class="math inline">\(X_{n+1}\)</span> on <span class="math inline">\(\mathcal M\)</span>, which only depends on <span class="math inline">\(\mathcal M\)</span> itself and not depends on which basis we use, but be careful, it does not mean the solution is unique.</p>
+</div>
+</div>
+<div id="ex-25-1" class="section level2 hasAnchor">
+<h2>Ex 25<a href="chap-5-integration-and-expectation.html#ex-25-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="problem">
+<p>In cases where expectations are not guaranteed to exist, the following is a proposal for defining a central value. Suppose <span class="math inline">\(F(x)\)</span> is a strictly increasing and continuous distribution function. For example <span class="math inline">\(F\)</span> could be the standard normal distribution function. Define
+<span class="math display">\[
+g:\mathbb{R}\to (-1,1)
+\]</span>
+by
+<span class="math display">\[
+g(x)=2\left(F(x)-\frac12\right).
+\]</span></p>
+<p>For a random variable <span class="math inline">\(X\)</span>, define <span class="math inline">\(\phi:\mathbb{R}\to (-1,1)\)</span> by
+<span class="math display">\[
+\phi(\gamma)=E\bigl(g(X-\gamma)\bigr). \tag{*}
+\]</span></p>
+<p>The of <span class="math inline">\(X\)</span> with respect to <span class="math inline">\(g\)</span>, denoted <span class="math inline">\(\gamma(X)\)</span>, is defined as the solution of
+<span class="math display">\[
+\phi(\gamma)=0.
+\]</span></p>
+<ol style="list-style-type: lower-alpha">
+<li><p>Show <span class="math inline">\(\phi(\gamma)\)</span> is a continuous function of <span class="math inline">\(\gamma\)</span>.</p></li>
+<li><p>Show
+<span class="math display">\[
+\lim_{\gamma\to\infty}\phi(\gamma)=-1,
+\qquad
+\lim_{\gamma\to-\infty}\phi(\gamma)=1.
+\]</span></p></li>
+<li><p>Show <span class="math inline">\(\phi(\gamma)\)</span> is non-increasing.</p></li>
+<li><p>Show <span class="math inline">\(\gamma(X)\)</span>, the solution of
+<span class="math display">\[
+\phi(\gamma)=0
+\]</span>
+is unique.</p></li>
+</ol>
+<p>Show <span class="math inline">\(\gamma(X)\)</span> has some of the properties of expectation, namely the following.</p>
+<ol start="5" style="list-style-type: lower-alpha">
+<li><p>For any <span class="math inline">\(c\in\mathbb{R}\)</span>
+<span class="math display">\[
+\gamma(X+c)=\gamma(X)+c.
+\]</span></p></li>
+<li><p>Now suppose <span class="math inline">\(g\)</span> in <span class="math inline">\((*)\)</span> is
+<span class="math display">\[
+g:\mathbb{R}\to \left(-\frac{\pi}{2},\frac{\pi}{2}\right)
+\]</span>
+defined by
+<span class="math display">\[
+g(x):=\arctan(x),
+\]</span>
+so that <span class="math inline">\(g(-x)=-g(x)\)</span>. Show
+<span class="math display">\[
+\gamma(-X)=-\gamma(X).
+\]</span></p></li>
+</ol>
+</div>
+<div id="a-16" class="section level3 hasAnchor">
+<h3>(a)<a href="chap-5-integration-and-expectation.html#a-16" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><span class="math inline">\(\textbf{My idea:}\)</span> Since <span class="math inline">\(F\)</span> is a strictly increasing continuous distribution function, then it is uniformly continuous on <span class="math inline">\(\mathbb R\)</span>, that is, for any <span class="math inline">\(\varepsilon&gt;0\)</span> and any <span class="math inline">\(x,y\in \mathbb R\)</span>, there exists <span class="math inline">\(\delta&gt;0\)</span>, such that when <span class="math inline">\(|x-y|&lt;\delta\)</span>, we have <span class="math inline">\(|F(x)-F(y)|&lt;\varepsilon\)</span>. Therefore for <span class="math inline">\(|\Delta|&lt;\delta\)</span>, we have
+<span class="math display">\[
+\begin{aligned}
+|\phi(\gamma+\Delta)-\phi(\gamma)|&amp;=\left|2E(F(X-\gamma-\Delta)-\frac12)-2E(F(X-\gamma)-\frac12)\right|\\
+&amp;=\left|2\int(F(X-\gamma-\Delta)-\frac12)dP-2\int(F(X-\gamma)-\frac12)dP\right|\\
+&amp;\leq2\int\left|F(X-\gamma-\Delta)-F(X-\gamma)\right|dP\\
+&amp;&lt;2\varepsilon.
+\end{aligned}
+\]</span>
+Therefore <span class="math inline">\(\phi(\gamma)\)</span> is continuous.</p>
+<p><span class="math inline">\(\textbf{Answer:}\)</span> (<strong>DCT</strong> version)</p>
+<p>Since <span class="math inline">\(F\)</span> is a strictly increasing continuous distribution function, so <span class="math inline">\(g\)</span> is also continuous, also, because <span class="math inline">\(0\leq F(x)\leq1\)</span>, we have
+<span class="math display">\[
+-1\leq g(x)\leq1\qquad\text{for all }x\in\mathbb R.
+\]</span>
+,then for any <span class="math inline">\(\gamma_n\to\gamma\)</span>, we have <span class="math inline">\(g(X-\gamma_n)\to g(X-\gamma)\)</span>, and for any <span class="math inline">\(n\)</span>, <span class="math inline">\(|g(X-\gamma_n)|\leq1\in L_1\)</span>, so we have
+<span class="math display">\[
+\begin{aligned}
+\lim_{n\to\infty}\phi(\gamma_n)&amp;=\lim_{n\to\infty}E(g(X-\gamma_n))\\
+&amp;=E(\lim_{n\to\infty}g(X-\gamma_n))\\
+&amp;=E(g(X-\gamma))\\
+&amp;=\phi(\gamma).
+\end{aligned}
+\]</span></p>
+<p><span class="math inline">\(\textbf{Note:}\)</span> <strong>My idea</strong> is correct, The DCT proof is a cleaner probability-style argument.</p>
+</div>
+<div id="b-16" class="section level3 hasAnchor">
+<h3>(b)<a href="chap-5-integration-and-expectation.html#b-16" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><span class="math inline">\(\textbf{My idea:}\)</span> According (a), <span class="math inline">\(\phi(\gamma)\)</span> is continuous, and <span class="math inline">\(|g(X-\gamma)|\)</span> is bounded, therefore by DCT
+<span class="math display">\[
+\begin{aligned}
+\lim_{\gamma\to\infty}\phi(\gamma)&amp;=\lim_{\gamma\to\infty}E(g(X-\gamma))\\
+&amp;=E(\lim_{\gamma\to\infty}g(X-\gamma))\\
+&amp;=E(\lim_{\gamma\to\infty}2(F(X-\gamma)-\frac12))\\
+&amp;=E(-1)=-1.
+\end{aligned}
+\]</span>
+Similarly
+<span class="math display">\[
+\begin{aligned}
+\lim_{\gamma\to-\infty}\phi(\gamma)&amp;=\lim_{\gamma\to-\infty}E(g(X-\gamma))\\
+&amp;=E(\lim_{\gamma\to-\infty}g(X-\gamma))\\
+&amp;=E(\lim_{\gamma\to-\infty}2(F(X-\gamma)-\frac12))\\
+&amp;=E(1)=1.
+\end{aligned}
+\]</span></p>
+<p><span class="math inline">\(\textbf{Answer:}\)</span> Let <span class="math inline">\(\gamma_n\to\infty\)</span>, then for each <span class="math inline">\(\omega\in\Omega\)</span>,
+<span class="math display">\[
+X(\omega)-\gamma_n\to-\infty.
+\]</span>
+Since <span class="math inline">\(F\)</span> is a distribution function, so <span class="math inline">\(F(X-\gamma_n)\to0\)</span>, therefore
+<span class="math display">\[
+g(X-\gamma_n)=2(F(X-\gamma_n)-\frac12)\to-1\ \text{a.s.}
+\]</span>
+Also, for every <span class="math inline">\(n\)</span>, <span class="math inline">\(|g(X-\gamma_n)|\leq1\in L_1\)</span>, by DCT we have
+<span class="math display">\[
+\phi(\gamma_n)=E(g(X-\gamma_n))\to E(-1)=-1.
+\]</span>
+Therefore <span class="math inline">\(\lim_{\gamma\to\infty}\phi(\gamma)=-1\)</span>.</p>
+<p>Similarly, if <span class="math inline">\(\gamma_n\to-\infty\)</span>, then for each <span class="math inline">\(\omega\in\Omega\)</span>,
+<span class="math display">\[
+X(\omega)-\gamma_n\to\infty.
+\]</span>
+So <span class="math inline">\(F(X-\gamma_n)\to1\)</span>, therefore
+<span class="math display">\[
+g(X-\gamma_n)=2(F(X-\gamma_n)-\frac12)\to1\ \text{a.s.}
+\]</span>
+Also, for every <span class="math inline">\(n\)</span>, <span class="math inline">\(|g(X-\gamma_n)|\leq1\in L_1\)</span>, by DCT we have
+<span class="math display">\[
+\phi(\gamma_n)=E(g(X-\gamma_n))\to E(1)=1.
+\]</span>
+Therefore <span class="math inline">\(\lim_{\gamma\to-\infty}\phi(\gamma)=1\)</span>.</p>
+<p><span class="math inline">\(\textbf{Answer:}\)</span> <strong>My idea</strong> is correct, but needs adjustment. To study <span class="math inline">\(\phi(\gamma)\)</span> as <span class="math inline">\(\gamma\to\pm\infty\)</span>, it is enough to let <span class="math inline">\(\gamma_n\to\pm\infty\)</span>.</p>
+</div>
+<div id="c-11" class="section level3 hasAnchor">
+<h3>(c)<a href="chap-5-integration-and-expectation.html#c-11" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><span class="math inline">\(\textbf{My idea:}\)</span> For <span class="math inline">\(\gamma_1&lt;\gamma_2\)</span> and any <span class="math inline">\(\omega\in\Omega\)</span>, we have <span class="math inline">\(X(\omega)-\gamma_1\geq X(\omega)-\gamma_2\)</span>, since <span class="math inline">\(F\)</span> is strictly increasing, we have
+<span class="math display">\[
+F(X(\omega)-\gamma_1)\geq F(X(\omega)-\gamma_2),
+\]</span>
+hence
+<span class="math display">\[
+\begin{aligned}
+\phi(\gamma_1)-\phi(\gamma_2)&amp;=E(g(X-\gamma_1))-E(g(X-\gamma_2))\\
+&amp;=E(g(X-\gamma_1)-g(X-\gamma_2))\\
+&amp;=E(2F(X(\omega)-\gamma_1)-2F(X(\omega)-\gamma_2))\\
+&amp;=2E(F(X(\omega)-\gamma_1)-F(X(\omega)-\gamma_2))\geq0
+\end{aligned}
+\]</span>
+Therefore <span class="math inline">\(\phi(\gamma)\)</span> is non-increasing.</p>
+</div>
+<div id="d-7" class="section level3 hasAnchor">
+<h3>(d)<a href="chap-5-integration-and-expectation.html#d-7" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><span class="math inline">\(\textbf{My idea:}\)</span> According to (a) and (b), We knew that <span class="math inline">\(\phi(\gamma)\)</span> is continuous and <span class="math inline">\(\lim_{\gamma\to\infty}\phi(\gamma)=-1\)</span>, <span class="math inline">\(\lim_{\gamma\to-\infty}\phi(\gamma)=1\)</span>, and <span class="math inline">\(0\in(-1,1)\)</span>, by intermediate value theorem, there exists <span class="math inline">\(\gamma_0\)</span> such that <span class="math inline">\(\phi(\gamma_0)=0\)</span>. Suppose there exists <span class="math inline">\(\gamma_1\neq\gamma_2\)</span>, such that <span class="math inline">\(\phi(\gamma_1)=\phi(\gamma_2)=0\)</span>, according to (c), we can actually prove that <span class="math inline">\(\phi(\gamma)\)</span> is strictly decreasing:</p>
+<p>For <span class="math inline">\(\gamma_1&lt;\gamma_2\)</span> and any <span class="math inline">\(\omega\in\Omega\)</span>, we have <span class="math inline">\(X(\omega)-\gamma_1&gt; X(\omega)-\gamma_2\)</span>, since <span class="math inline">\(F\)</span> is strictly increasing, we have
+<span class="math display">\[
+F(X(\omega)-\gamma_1)&gt; F(X(\omega)-\gamma_2),
+\]</span>
+hence
+<span class="math display">\[
+\begin{aligned}
+\phi(\gamma_1)-\phi(\gamma_2)&amp;=E(g(X-\gamma_1))-E(g(X-\gamma_2))\\
+&amp;=E(g(X-\gamma_1)-g(X-\gamma_2))\\
+&amp;=E(2F(X(\omega)-\gamma_1)-2F(X(\omega)-\gamma_2))\\
+&amp;=2E(F(X(\omega)-\gamma_1)-F(X(\omega)-\gamma_2))&gt;0.
+\end{aligned}
+\]</span>
+So we must have <span class="math inline">\(\gamma_1=\gamma_2\)</span>.</p>
+</div>
+<div id="e-5" class="section level3 hasAnchor">
+<h3>(e)<a href="chap-5-integration-and-expectation.html#e-5" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><span class="math inline">\(\textbf{My idea:}\)</span> Let <span class="math inline">\(Y=X+c\)</span>, then <span class="math inline">\(Y\)</span> is a r.v., denote its df as <span class="math inline">\(F_Y\)</span>, then we have
+<span class="math display">\[
+\begin{aligned}
+F_Y(y)&amp;=P(Y\leq y)\\
+&amp;=P(X+c\leq y)\\
+&amp;=P(X\leq y-c)\\
+&amp;=F_X(y-c).
+\end{aligned}
+\]</span>
+And <span class="math inline">\(\gamma(X+c)=\gamma(Y)\)</span> is the solution of <span class="math inline">\(\phi_Y(\gamma)=0\)</span> where
+<span class="math display">\[
+\begin{aligned}
+\phi_Y(\gamma)&amp;=E(g(Y-\gamma))\\
+&amp;=E(2(F_Y(Y-\gamma)-\frac12))\\
+&amp;=E(2(F_X(Y-\gamma-c)-\frac12)).
+\end{aligned}
+\]</span>
+Therefore if <span class="math inline">\(\gamma(X)\)</span> is the solution of <span class="math inline">\(\phi_X(\gamma)\)</span>, then <span class="math inline">\(\gamma(X)+c\)</span> is the solution of <span class="math inline">\(\phi_Y(\gamma)\)</span>.</p>
+<p><span class="math inline">\(\textbf{Answer:}\)</span> Let <span class="math inline">\(\phi_X(\gamma)=E(g(X-\gamma))\)</span>, then
+<span class="math display">\[
+\phi_{X+c}(\gamma)=E(g(X+c-\gamma))=E(g(X-(\gamma-c)))=\phi_X(\gamma-c).
+\]</span>
+If <span class="math inline">\(\gamma(X)\)</span> is the unique solution of <span class="math inline">\(\phi_X(\gamma)=0\)</span>, then
+<span class="math display">\[
+\phi_{X+c}(\gamma(X)+c)=E(g(X-(\gamma(X)+c-c)))=E(g(X-\gamma(X)))=\phi_X(\gamma(X))=0.
+\]</span>
+So <span class="math inline">\(\gamma(X)+c\)</span> is a solution of <span class="math inline">\(\phi_{X+c}(\gamma)=0\)</span>, and by (d), the solution is unique, therefore we have
+<span class="math display">\[
+\gamma(X+c)=\gamma(X)+c.
+\]</span></p>
+<p><span class="math inline">\(\textbf{Note:}\)</span> I made a mistake that I thought <span class="math inline">\(F\)</span> changes with <span class="math inline">\(X\)</span>, however we should treat <span class="math inline">\(F\)</span> as universal.</p>
+</div>
+<div id="e-6" class="section level3 hasAnchor">
+<h3>(e)<a href="chap-5-integration-and-expectation.html#e-6" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><span class="math inline">\(\textbf{My idea:}\)</span> Let <span class="math inline">\(\phi_X(\gamma)=E(g(X-\gamma))\)</span>, then
+<span class="math display">\[
+\begin{aligned}
+\phi_{-X}(\gamma)&amp;=E(g(-X-\gamma))\\
+&amp;=E(-g(X+\gamma))\\
+&amp;=-E(g(X+\gamma))\\
+&amp;=-\phi_X(-\gamma)
+\end{aligned}
+\]</span>
+so if <span class="math inline">\(\gamma(X)\)</span> is the unique solution of <span class="math inline">\(\phi_X(\gamma)=0\)</span>, then
+<span class="math display">\[
+\phi_{-X}(-\gamma(X))=-\phi_X(-(-\gamma(X)))=-\phi_X(\gamma(X))=0.
+\]</span>
+So by (d), <span class="math inline">\(-\gamma(X)\)</span> is the unique solution of <span class="math inline">\(\phi_{-X}(\gamma)=0\)</span>, that is
+<span class="math display">\[
+-\gamma(X)=\gamma(-X).
+\]</span></p>
 
 </div>
 </div>
