@@ -2755,7 +2755,7 @@ $$
 Therefore $m$ is a median in $I$.
 
 ### (d)
-$\textbf{Answer:}$ Denot $E(x)$ as $\mu$ for simplicity.
+$\textbf{Answer:}$ Denote $E(x)$ as $\mu$ for simplicity.
 
 * If $m\geq \mu$, then on the event $\{X\geq m\}$, we have $(X-\mu)^2\geq(m-\mu)^2$, and since $\{X\geq m\}\subseteq\Omega$, we have
 
@@ -3155,7 +3155,7 @@ $$
 
 $\textbf{Note:}$ I made a mistake that I thought $F$ changes with $X$, however we should treat $F$ as universal.
 
-### (e)
+### (f)
 $\textbf{My idea:}$ Let $\phi_X(\gamma)=E(g(X-\gamma))$, then
 $$
 \begin{aligned}
@@ -3174,16 +3174,53 @@ $$
 -\gamma(X)=\gamma(-X).
 $$
 
+## Ex 14
+::: problem
+Suppose $X \perp\!\!\!\perp Y$ and $h:\mathbb{R}^2\mapsto [0,\infty)$ is measurable. Define
+\[
+g(x)=E\bigl(h(x,Y)\bigr)
+\]
+and show
+\[
+E\bigl(g(X)\bigr)=E\bigl(h(X,Y)\bigr).
+\]
+:::
+
+$\textbf{My idea:}$ Since $X\perp Y$, then $\sigma(X)$ and $\sigma(Y)$ are independent, we have $g(x)=\int h(x,Y)dP=\int h(x,y)F_Y(dy)$
+$$
+\begin{aligned}
+E(g(X))&=E\left(\int h(X,y)F_Y(dy)\right)\\
+&=\int\left(\int h(X,y)F_Y(dy)\right)dP\\
+&=\int\left(\int h(x,y)F_Y(dy)\right)F_X(dx)\\
+&=\int h(x,y)(F_X\times F_Y)(dx,dy)\\
+&=E(h(X,Y)).
+\end{aligned}
+$$
 
 
+$\textbf{Answer:}$ Let $\mu_X$ and $\mu_Y$ denote the distributions of $X$ and $Y$. Since $h:\mathbb R^2\to[0,\infty)$, then
+$$
+g(x)=E(h(x,Y))=\int h(x,y)\mu_Y(dy)
+$$
+is measurable and takes values in $[0,\infty]$
+
+Since $X$ and $Y$ are independent, then the law of their joint distribution $(X,Y)$ is the product of the marginal law, that is
+$$
+\mu_{X,Y}=\mu_X\times\mu_Y,
+$$
+
+Applying (the non-negative part of) Fubini, we have
+$$
+\begin{aligned}
+E(g(X))&=\int g(X)dP\\
+&=\int\left(\int h(X,y)\mu_Y(dy)\right)dP\\
+&=\int\left(\int h(x,y)\mu_Y(dy)\right)\mu_X(dx)\\
+&=\int h(x,y)(\mu_X\times \mu_Y)(dx,dy)\\
+&=E(h(X,Y)).
+\end{aligned}
+$$
 
 
-
-
-
-
-
-
-
+$\textbf{Note:}$ __My idea__ is basically correct, but I didn't express the core idea: when $X$ and $Y$ are independent, then the law of their joint distribution $(X,Y)$ is the product of the marginal law, and I didn't mention the measurablity of $g$, besides, using $F_X$ and $F_Y$ to represent the law is confusing.
 
 

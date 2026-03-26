@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chap 5, Integration and Expectation | Notes on A Probability Path (Resnick)</title>
   <meta name="description" content="Chap 5, Integration and Expectation | Notes on A Probability Path (Resnick)" />
-  <meta name="generator" content="bookdown 0.46 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.42 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chap 5, Integration and Expectation | Notes on A Probability Path (Resnick)" />
   <meta property="og:type" content="book" />
@@ -55,7 +55,6 @@
 
 
 <style type="text/css">
-html { -webkit-text-size-adjust: 100%; }
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -347,8 +346,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#c-11"><i class="fa fa-check"></i>(c)</a></li>
 <li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#d-7"><i class="fa fa-check"></i>(d)</a></li>
 <li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#e-5"><i class="fa fa-check"></i>(e)</a></li>
-<li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#e-6"><i class="fa fa-check"></i>(e)</a></li>
+<li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#f-3"><i class="fa fa-check"></i>(f)</a></li>
 </ul></li>
+<li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#ex-14-1"><i class="fa fa-check"></i>Ex 14</a></li>
 </ul></li>
 </ul>
 
@@ -1818,13 +1818,13 @@ so we have <span class="math inline">\(\lambda\times\lambda(A)=\text{area of }A\
 <h2>Ex 12<a href="chap-5-integration-and-expectation.html#ex-12-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div class="problem">
 <ol start="12" style="list-style-type: decimal">
-<li>Suppose <span class="math inline">\(X\)</span> is an uncountable set and let <span class="math inline">\(\mathcal{B}\)</span> be the <span class="math inline">\(\sigma\)</span>-field of countable and co-countable (complements are countable) sets. Show that the diagonal <span class="math inline">\(\text{DIAG}  := \{(x, x) : x \in X\} \notin \mathcal{B} \times \mathcal{B}\)</span> is <strong>not</strong> in the product <span class="math inline">\(\sigma\)</span>-field. However, every section of $ $ is measurable.
+<li>Suppose <span class="math inline">\(X\)</span> is an uncountable set and let <span class="math inline">\(\mathcal{B}\)</span> be the <span class="math inline">\(\sigma\)</span>-field of countable and co-countable (complements are countable) sets. Show that the diagonal <span class="math inline">\(\text{DIAG} := \{(x, x) : x \in X\} \notin \mathcal{B} \times \mathcal{B}\)</span> is <strong>not</strong> in the product <span class="math inline">\(\sigma\)</span>-field. However, every section of $ $ is measurable.
 <ul>
 <li><strong>Hints</strong>:
 <ul>
 <li>Show that <span class="math inline">\(\mathcal{B} \times \mathcal{B} = \sigma(\{\{x\} \times X, X \times \{x\}, x \in X\})\)</span>.</li>
 <li>Review Exercise 12 in Chapter 2.</li>
-<li>Proceed by contradiction. Suppose <span class="math inline">\(\text{DIAG}  \in \mathcal{B} \times \mathcal{B}\)</span>. Then there exists countable <span class="math inline">\(S \subset X\)</span> such that <span class="math inline">\(\text{DIAG}  \in \sigma(\{\{x\} \times X, X \times \{x\}, x \in S\}) =: \mathcal{G}\)</span>.</li>
+<li>Proceed by contradiction. Suppose <span class="math inline">\(\text{DIAG} \in \mathcal{B} \times \mathcal{B}\)</span>. Then there exists countable <span class="math inline">\(S \subset X\)</span> such that <span class="math inline">\(\text{DIAG} \in \sigma(\{\{x\} \times X, X \times \{x\}, x \in S\}) =: \mathcal{G}\)</span>.</li>
 <li>Define <span class="math inline">\(\mathcal{P} := \{\{s\}, s \in S, S^c\}\)</span> and observe this is a partition of <span class="math inline">\(X\)</span>.</li>
 <li>Show it is impossible for <span class="math inline">\(\text{DIAG} \in \mathcal{G}\)</span>.</li>
 </ul></li>
@@ -2927,7 +2927,7 @@ Therefore <span class="math inline">\(m\)</span> is a median in <span class="mat
 </div>
 <div id="d-6" class="section level3 hasAnchor">
 <h3>(d)<a href="chap-5-integration-and-expectation.html#d-6" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p><span class="math inline">\(\textbf{Answer:}\)</span> Denot <span class="math inline">\(E(x)\)</span> as <span class="math inline">\(\mu\)</span> for simplicity.</p>
+<p><span class="math inline">\(\textbf{Answer:}\)</span> Denote <span class="math inline">\(E(x)\)</span> as <span class="math inline">\(\mu\)</span> for simplicity.</p>
 <ul>
 <li>If <span class="math inline">\(m\geq \mu\)</span>, then on the event <span class="math inline">\(\{X\geq m\}\)</span>, we have <span class="math inline">\((X-\mu)^2\geq(m-\mu)^2\)</span>, and since <span class="math inline">\(\{X\geq m\}\subseteq\Omega\)</span>, we have</li>
 </ul>
@@ -3298,8 +3298,8 @@ So <span class="math inline">\(\gamma(X)+c\)</span> is a solution of <span class
 \]</span></p>
 <p><span class="math inline">\(\textbf{Note:}\)</span> I made a mistake that I thought <span class="math inline">\(F\)</span> changes with <span class="math inline">\(X\)</span>, however we should treat <span class="math inline">\(F\)</span> as universal.</p>
 </div>
-<div id="e-6" class="section level3 hasAnchor">
-<h3>(e)<a href="chap-5-integration-and-expectation.html#e-6" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="f-3" class="section level3 hasAnchor">
+<h3>(f)<a href="chap-5-integration-and-expectation.html#f-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><span class="math inline">\(\textbf{My idea:}\)</span> Let <span class="math inline">\(\phi_X(\gamma)=E(g(X-\gamma))\)</span>, then
 <span class="math display">\[
 \begin{aligned}
@@ -3317,8 +3317,51 @@ So by (d), <span class="math inline">\(-\gamma(X)\)</span> is the unique solutio
 <span class="math display">\[
 -\gamma(X)=\gamma(-X).
 \]</span></p>
-
 </div>
+</div>
+<div id="ex-14-1" class="section level2 hasAnchor">
+<h2>Ex 14<a href="chap-5-integration-and-expectation.html#ex-14-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="problem">
+<p>Suppose <span class="math inline">\(X \perp\!\!\!\perp Y\)</span> and <span class="math inline">\(h:\mathbb{R}^2\mapsto [0,\infty)\)</span> is measurable. Define
+<span class="math display">\[
+g(x)=E\bigl(h(x,Y)\bigr)
+\]</span>
+and show
+<span class="math display">\[
+E\bigl(g(X)\bigr)=E\bigl(h(X,Y)\bigr).
+\]</span></p>
+</div>
+<p><span class="math inline">\(\textbf{My idea:}\)</span> Since <span class="math inline">\(X\perp Y\)</span>, then <span class="math inline">\(\sigma(X)\)</span> and <span class="math inline">\(\sigma(Y)\)</span> are independent, we have <span class="math inline">\(g(x)=\int h(x,Y)dP=\int h(x,y)F_Y(dy)\)</span>
+<span class="math display">\[
+\begin{aligned}
+E(g(X))&amp;=E\left(\int h(X,y)F_Y(dy)\right)\\
+&amp;=\int\left(\int h(X,y)F_Y(dy)\right)dP\\
+&amp;=\int\left(\int h(x,y)F_Y(dy)\right)F_X(dx)\\
+&amp;=\int h(x,y)(F_X\times F_Y)(dx,dy)\\
+&amp;=E(h(X,Y)).
+\end{aligned}
+\]</span></p>
+<p><span class="math inline">\(\textbf{Answer:}\)</span> Let <span class="math inline">\(\mu_X\)</span> and <span class="math inline">\(\mu_Y\)</span> denote the distributions of <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>. Since <span class="math inline">\(h:\mathbb R^2\to[0,\infty)\)</span>, then
+<span class="math display">\[
+g(x)=E(h(x,Y))=\int h(x,y)\mu_Y(dy)
+\]</span>
+is measurable and takes values in <span class="math inline">\([0,\infty]\)</span></p>
+<p>Since <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are independent, then the law of their joint distribution <span class="math inline">\((X,Y)\)</span> is the product of the marginal law, that is
+<span class="math display">\[
+\mu_{X,Y}=\mu_X\times\mu_Y,
+\]</span></p>
+<p>Applying (the non-negative part of) Fubini, we have
+<span class="math display">\[
+\begin{aligned}
+E(g(X))&amp;=\int g(X)dP\\
+&amp;=\int\left(\int h(X,y)\mu_Y(dy)\right)dP\\
+&amp;=\int\left(\int h(x,y)\mu_Y(dy)\right)\mu_X(dx)\\
+&amp;=\int h(x,y)(\mu_X\times \mu_Y)(dx,dy)\\
+&amp;=E(h(X,Y)).
+\end{aligned}
+\]</span></p>
+<p><span class="math inline">\(\textbf{Note:}\)</span> <strong>My idea</strong> is basically correct, but I didn’t express the core idea: when <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are independent, then the law of their joint distribution <span class="math inline">\((X,Y)\)</span> is the product of the marginal law, and I didn’t mention the measurablity of <span class="math inline">\(g\)</span>, besides, using <span class="math inline">\(F_X\)</span> and <span class="math inline">\(F_Y\)</span> to represent the law is confusing.</p>
+
 </div>
 </div>
             </section>
