@@ -23,7 +23,7 @@
 <meta name="author" content="Zhanwen Peng" />
 
 
-<meta name="date" content="2026-03-26" />
+<meta name="date" content="2026-04-01" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -31,7 +31,7 @@
   
   
 <link rel="prev" href="chap-4-independence.html"/>
-
+<link rel="next" href="afterword.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -349,7 +349,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#f-3"><i class="fa fa-check"></i>(f)</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#ex-14-1"><i class="fa fa-check"></i>Ex 14</a></li>
+<li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#ex-37"><i class="fa fa-check"></i>Ex 37</a></li>
+<li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#ex-9"><i class="fa fa-check"></i>Ex 9</a></li>
+<li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#ex-39"><i class="fa fa-check"></i>Ex 39</a></li>
+<li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#ex-40"><i class="fa fa-check"></i>Ex 40</a>
+<ul>
+<li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#a-17"><i class="fa fa-check"></i>(a)</a></li>
+<li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#b-17"><i class="fa fa-check"></i>(b)</a></li>
 </ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="afterword.html"><a href="afterword.html"><i class="fa fa-check"></i>Afterword</a></li>
 </ul>
 
       </nav>
@@ -3361,7 +3370,448 @@ E(g(X))&amp;=\int g(X)dP\\
 \end{aligned}
 \]</span></p>
 <p><span class="math inline">\(\textbf{Note:}\)</span> <strong>My idea</strong> is basically correct, but I didn’t express the core idea: when <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are independent, then the law of their joint distribution <span class="math inline">\((X,Y)\)</span> is the product of the marginal law, and I didn’t mention the measurablity of <span class="math inline">\(g\)</span>, besides, using <span class="math inline">\(F_X\)</span> and <span class="math inline">\(F_Y\)</span> to represent the law is confusing.</p>
-
+</div>
+<div id="ex-37" class="section level2 hasAnchor">
+<h2>Ex 37<a href="chap-5-integration-and-expectation.html#ex-37" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="problem">
+<p><span class="math inline">\(\textbf{Mean Approximation Lemma.}\)</span> Suppose that <span class="math inline">\(X\in L_1(\Omega,\mathcal{B},P)\)</span>. For any
+<span class="math inline">\(\epsilon&gt;0\)</span>, there exists an integrable simple random variable <span class="math inline">\(X_\epsilon\)</span> such that
+<span class="math display">\[
+E\bigl(|X-X_\epsilon|\bigr)&lt;\epsilon.
+\]</span></p>
+<p>Hint: Consider <span class="math inline">\(X^+\)</span> and <span class="math inline">\(X^-\)</span> separately.</p>
+<p>Furthermore, if <span class="math inline">\(\mathcal{A}\)</span> is a field such that <span class="math inline">\(\sigma(\mathcal{A})=\mathcal{B}\)</span>, then <span class="math inline">\(X_\epsilon\)</span> can be taken to be of the form
+<span class="math display">\[
+X_\epsilon=\sum_{i=1}^k c_i\,1_{A_i},
+\]</span>
+where <span class="math inline">\(A_i\in\mathcal{A}\)</span> for <span class="math inline">\(i=1,\ldots,k\)</span>. Hint: Review Exercise 5 from Chapter 2.</p>
+</div>
+<p><span class="math inline">\(\textbf{My idea:}\)</span> For non-negative r.v. <span class="math inline">\(X\in L_1(\Omega,\mathcal B,P)\)</span>, by Theorem 5.1.1 (Measurability Theorem) there exist simple functions <span class="math inline">\(X_n\)</span> such that <span class="math inline">\(0\leq X_n\uparrow X\)</span>, therefore <span class="math inline">\(X_n\in L_1\)</span>, so for any <span class="math inline">\(\varepsilon&gt;0\)</span>, there exists <span class="math inline">\(N&gt;0\)</span> such that when <span class="math inline">\(n\geq N\)</span>, we have <span class="math inline">\(X-X_n&lt;\varepsilon\)</span>, so let <span class="math inline">\(X_\varepsilon=X_N\)</span>, which is a simple function and by DCT,
+<span class="math display">\[
+E(|X-X_\varepsilon|)=\int |X-X_\varepsilon|dP&lt;\varepsilon.
+\]</span>
+For any r.v. <span class="math inline">\(X\in L_1(\Omega,\mathcal B,P)\)</span>, we have <span class="math inline">\(X=X^+-X^-\)</span>, and for any <span class="math inline">\(\varepsilon&gt;0\)</span>, there exist simple functions <span class="math inline">\(X^+_\varepsilon\in L_1(\Omega,\mathcal B,P)\)</span> and <span class="math inline">\(X^-_\varepsilon\in L_1(\Omega,\mathcal B,P)\)</span> such that
+<span class="math display">\[
+X^+-X^+_\varepsilon&lt;\frac\varepsilon2\quad \text{and}\quad X^--X^-_\varepsilon&lt;\frac\varepsilon2,
+\]</span>
+let <span class="math inline">\(X_\varepsilon=X^+_\varepsilon-X^-_\varepsilon\)</span>, which is still a simple function, and
+<span class="math display">\[
+\begin{aligned}
+E(|X-X_\varepsilon|)&amp;=E(|X^+-X^--(X^+_\varepsilon-X^-_\varepsilon)|)\\
+&amp;\leq E(|X^+-X^+_\varepsilon|)+E(|X^--X^-_\varepsilon|)\\
+&amp;&lt;\frac\varepsilon2+\frac\varepsilon2\\
+&amp;=\varepsilon.
+\end{aligned}
+\]</span>
+Further, let
+<span class="math display">\[
+\mathcal G:=\{A\in\mathcal B=\sigma(\mathcal A):\forall\varepsilon&gt;0,\exists A_\varepsilon\in\mathcal A,\text{s.t. }P(A\Delta A_\varepsilon)&lt;\varepsilon\}.
+\]</span></p>
+<ol style="list-style-type: decimal">
+<li><p>Let <span class="math inline">\(\bigcup_{n=1}^\infty C_n=\Omega\)</span>, and let <span class="math inline">\(A_n=\bigcup_{i=1}^n C_i\)</span>, then <span class="math inline">\(\lim_{n\to\infty}A_n=\Omega\)</span>, therefore for any <span class="math inline">\(\varepsilon&gt;0\)</span>, there exists <span class="math inline">\(N&gt;0\)</span>, such that when <span class="math inline">\(n\geq N\)</span>, we have <span class="math inline">\(P(\Omega\Delta A_n)=P(\Omega\setminus A_n)&lt;\varepsilon\)</span>, so <span class="math inline">\(\Omega\in\mathcal G\)</span>,</p></li>
+<li><p>For <span class="math inline">\(A\in\mathcal G\)</span>, then for any <span class="math inline">\(\varepsilon&gt;0\)</span>, there exists <span class="math inline">\(A_\varepsilon\in\mathcal A\)</span> such that <span class="math inline">\(P(A\Delta A_\varepsilon)&lt;\varepsilon\)</span>, and note that <span class="math inline">\(A^c\Delta A_\varepsilon^c=A\Delta A_\varepsilon\)</span> and since <span class="math inline">\(A_\varepsilon\in\mathcal B\)</span>, <span class="math inline">\(A^c_\varepsilon\in\mathcal B\)</span>, therefore <span class="math inline">\(\mathcal G\)</span> is closed on complement,</p></li>
+<li><p>For <span class="math inline">\(A_n\in\mathcal G\)</span>, then for any <span class="math inline">\(\varepsilon&gt;0\)</span>, there exists <span class="math inline">\(A_{n,\varepsilon}\in\mathcal B\)</span> such that <span class="math inline">\(P(A_n\Delta A_{n,\varepsilon})&lt;\frac{\varepsilon}{2^n}\)</span>, since <span class="math inline">\((\bigcup_n^\infty A_n)\Delta(\bigcup_n^\infty A_{n,\varepsilon})\subseteq\bigcup_n^\infty (A_n\Delta A_{n,\varepsilon})\)</span>therefore
+<span class="math display">\[
+P\left((\bigcup_n^\infty A_n)\Delta(\bigcup_n^\infty A_{n,\varepsilon})\right)\leq P(\bigcup_n^\infty (A_n\Delta  A_{n,\varepsilon}))&lt;\sum_{n=1}^\infty\frac\varepsilon{2^n}=\varepsilon.
+\]</span>
+So <span class="math inline">\(\mathcal G\)</span> is a <span class="math inline">\(\sigma\)</span>-algebra, and <span class="math inline">\(\mathcal A\in\mathcal G\)</span> since we can take <span class="math inline">\(A_\varepsilon=A\)</span> for <span class="math inline">\(A\in\mathcal A\)</span> and <span class="math inline">\(P(A\Delta A)=0&lt;\varepsilon\)</span>, and <span class="math inline">\(\mathcal G\subseteq\sigma(\mathcal A)\)</span>, therefore <span class="math inline">\(\mathcal G=\sigma(\mathcal A)\)</span>.</p></li>
+</ol>
+<p>So for r.v. <span class="math inline">\(X\)</span>, according to the first part, there exists simple function <span class="math inline">\(X_{1,\varepsilon}=\sum_{i=1}^na_i1_{B_i}\)</span>,<span class="math inline">\(B_i\in\mathcal B\)</span> such that
+<span class="math display">\[
+E(|X-X_{1,\varepsilon}|)&lt;\frac\varepsilon2.
+\]</span>
+For each <span class="math inline">\(B_i\in\mathcal B\)</span>, there exists <span class="math inline">\(A_i\in\mathcal A\)</span>, such that <span class="math inline">\(P(B_i\Delta A_i)&lt;\frac{\varepsilon}{2n(1+|a_i|)}\)</span>, let <span class="math inline">\(X_\varepsilon=\sum_{i=1}^na_i1_{B_i}\)</span>, then
+<span class="math display">\[
+\begin{aligned}
+E(|X_{1,\varepsilon}-X_\varepsilon|)&amp;=\int|X_{1,\varepsilon}-X_\varepsilon|dP\\
+&amp;=\int\sum_{i=1}^n|a_i||\mathbf1_{B_i}-\mathbf1_{A_i}|dP\\
+&amp;=\int\sum_{i=1}^n|a_i|\mathbf1_{B_i\Delta A_i}|dP\\
+&amp;=\sum_{i=1}^n|a_i|P(B_i\Delta A_i)\\
+&amp;&lt;\sum_{i=1}^n|a_i|\frac{\varepsilon}{2n(1+|a_i|)}\\
+&amp;\leq\frac\varepsilon2.
+\end{aligned}
+\]</span>
+so we have
+<span class="math display">\[
+\begin{aligned}
+E(|X-X_\varepsilon|)&amp;=E(|X-X_{1,\varepsilon}+X_{1,\varepsilon}-X_\varepsilon|)\\
+&amp;\leq E(|X-X_{1,\varepsilon}|)+E(|X_{1,\varepsilon}-X_\varepsilon|)\\
+&amp;&lt;\frac\varepsilon2+\frac\varepsilon2\\
+&amp;=\varepsilon.
+\end{aligned}
+\]</span>
+<span class="math inline">\(\textbf{Answer:}\)</span> For r.v. <span class="math inline">\(0\leq X\in L_1\)</span>, select simple functions <span class="math inline">\(X_n\)</span> such that <span class="math inline">\(0\leq X_n\uparrow X\)</span>, then by MCT,
+<span class="math display">\[
+E(X_n)\uparrow E(X)&lt;\infty,
+\]</span>
+so for any <span class="math inline">\(\varepsilon&gt;0\)</span>, we can choose <span class="math inline">\(N\)</span> such that
+<span class="math display">\[
+E(|X-X_N|)=E(X-X_N)=E(X)-E(X_N)&lt;\varepsilon,
+\]</span>
+so <span class="math inline">\(X_N\)</span> is our <span class="math inline">\(X_\varepsilon\)</span>.</p>
+<p>For any <span class="math inline">\(X\in L_1\)</span>, <span class="math inline">\(X=X^+-X^-\)</span>, then there exist simple functions <span class="math inline">\(U,V\)</span> such that
+<span class="math display">\[
+E(|X^+-U|)&lt;\frac\varepsilon2\quad\text{and}\quad E(|X^--V|)&lt;\frac\varepsilon2
+\]</span>
+let <span class="math inline">\(X_\varepsilon=U-V\)</span>, therefore
+<span class="math display">\[
+\begin{aligned}
+E(|X-X_\varepsilon|)&amp;=E(|X^+-X^--(U-V)|)\\
+&amp;\leq E(|X^+-U|)+E(|X^--V|)\\
+&amp;&lt;\frac\varepsilon2+\frac\varepsilon2\\
+&amp;=\varepsilon.
+\end{aligned}
+\]</span></p>
+<p>Further, let
+<span class="math display">\[
+\mathcal G:=\{A\in\mathcal B=\sigma(\mathcal A):\forall\varepsilon&gt;0,\exists A_\varepsilon\in\mathcal A,\text{s.t. }P(A\Delta A_\varepsilon)&lt;\varepsilon\}.
+\]</span></p>
+<ol style="list-style-type: decimal">
+<li><p>Since <span class="math inline">\(\mathcal A\)</span> is a field, <span class="math inline">\(\Omega\in\mathcal A\)</span>, so we can just choose <span class="math inline">\(A_\varepsilon=\Omega\)</span>, and for any <span class="math inline">\(\varepsilon&gt;0\)</span>, we have
+<span class="math display">\[
+P(\Omega\Delta A_\varepsilon)=P(\Omega\setminus\Omega)=P(\varnothing)=0&lt;\varepsilon,
+\]</span>
+so <span class="math inline">\(\Omega\in\mathcal G\)</span>,</p></li>
+<li><p>For <span class="math inline">\(A\in\mathcal G\)</span>, then for any <span class="math inline">\(\varepsilon&gt;0\)</span>, there exists <span class="math inline">\(A_\varepsilon\in\mathcal A\)</span> such that <span class="math inline">\(P(A\Delta A_\varepsilon)&lt;\varepsilon\)</span>, and note that <span class="math inline">\(A^c\Delta A_\varepsilon^c=A\Delta A_\varepsilon\)</span> and since <span class="math inline">\(A_\varepsilon\in\mathcal A\)</span>, <span class="math inline">\(A^c_\varepsilon\in\mathcal A\)</span>, therefore <span class="math inline">\(\mathcal G\)</span> is closed on complement,</p></li>
+<li><p>For <span class="math inline">\(A_n\in\mathcal G\)</span>, let <span class="math inline">\(A=\bigcup_{n=1}^\infty A_n\)</span>, and <span class="math inline">\(A^{(n)}=\bigcup_{i=1}^n A_i\)</span>, therefore <span class="math inline">\(A^{(n)}\uparrow A\)</span>, since we are working in a probability space, which has finite measure, so by continuity from below <span class="math inline">\(P(A\setminus A^{(n)})\to0\)</span>, so for any <span class="math inline">\(\varepsilon&gt;0\)</span>, we can choose <span class="math inline">\(N\)</span> such that
+<span class="math display">\[
+P(A\setminus A^{(N)})&lt;\frac\varepsilon2,
+\]</span>
+and for <span class="math inline">\(i\leq N\)</span>, for each <span class="math inline">\(A_i\)</span>, there exists <span class="math inline">\(B_i\in\mathcal A\)</span> such that <span class="math inline">\(P(A_i\Delta B_i)&lt;\frac\varepsilon{2N}\)</span>, and since <span class="math inline">\(\mathcal A\)</span> is a field, <span class="math inline">\(\bigcup_{i=1}^n B_i\in\mathcal A\)</span>, and note that
+<span class="math display">\[
+\left(\bigcup_{i=1}^N A_i\right)\Delta\left(\bigcup_{i=1}^N B_i\right)\subseteq\bigcup_{i=1}^N(A_i\Delta B_i)
+\]</span>
+and
+<span class="math display">\[
+A\Delta\left(\bigcup_{i=1}^N B_i\right)\subseteq\left(A\Delta A^{(N)}\right)\cup\left(A^{(N)}\Delta\bigcup_{i=1}^N B_i\right),
+\]</span>
+therefore
+<span class="math display">\[
+\begin{aligned}
+P\left(A\Delta\left(\bigcup_{i=1}^N B_i\right)\right)&amp;\leq P\left(A\Delta A^{(N)}\right)+P\left(A^{(N)}\Delta\bigcup_{i=1}^N B_i\right)\\
+&amp;&lt;\frac\varepsilon2+\sum_{i=1}^N\frac\varepsilon{2N}=\varepsilon.
+\end{aligned}
+\]</span>
+So <span class="math inline">\(\mathcal G\)</span> is a <span class="math inline">\(\sigma\)</span>-algebra, and <span class="math inline">\(\mathcal A\subseteq\mathcal G\)</span> since we can take <span class="math inline">\(A_\varepsilon=A\)</span> for <span class="math inline">\(A\in\mathcal A\)</span> and <span class="math inline">\(P(A\Delta A)=0&lt;\varepsilon\)</span>, so <span class="math inline">\(\mathcal G\)</span> is a <span class="math inline">\(\sigma\)</span>-algebra containing <span class="math inline">\(\mathcal A\)</span>, so <span class="math inline">\(\sigma(\mathcal A)\subseteq\mathcal G\)</span> and by definition <span class="math inline">\(\mathcal G\subseteq\sigma(\mathcal A)\)</span>, therefore <span class="math inline">\(\mathcal G=\sigma(\mathcal A)\)</span>.</p></li>
+</ol>
+<p>So for r.v. <span class="math inline">\(X\)</span>, according to the first part, there exists simple function <span class="math inline">\(X_{1,\varepsilon}=\sum_{i=1}^na_i1_{B_i}\)</span>,<span class="math inline">\(B_i\in\mathcal B\)</span> such that
+<span class="math display">\[
+E(|X-X_{1,\varepsilon}|)&lt;\frac\varepsilon2.
+\]</span>
+For each <span class="math inline">\(B_i\in\mathcal B\)</span>, there exists <span class="math inline">\(A_i\in\mathcal A\)</span>, such that <span class="math inline">\(P(B_i\Delta A_i)&lt;\frac{\varepsilon}{2n(1+|a_i|)}\)</span>, let <span class="math inline">\(X_\varepsilon=\sum_{i=1}^na_i1_{A_i}\)</span>, then
+<span class="math display">\[
+\begin{aligned}
+E(|X_{1,\varepsilon}-X_\varepsilon|)&amp;=\int|X_{1,\varepsilon}-X_\varepsilon|dP\\
+&amp;\leq\int\sum_{i=1}^n|a_i||\mathbf1_{B_i}-\mathbf1_{A_i}|dP\\
+&amp;=\int\sum_{i=1}^n|a_i|\mathbf1_{B_i\Delta A_i}|dP\\
+&amp;=\sum_{i=1}^n|a_i|P(B_i\Delta A_i)\\
+&amp;&lt;\sum_{i=1}^n|a_i|\frac{\varepsilon}{2n(1+|a_i|)}\\
+&amp;\leq\frac\varepsilon2.
+\end{aligned}
+\]</span>
+so we have
+<span class="math display">\[
+\begin{aligned}
+E(|X-X_\varepsilon|)&amp;=E(|X-X_{1,\varepsilon}+X_{1,\varepsilon}-X_\varepsilon|)\\
+&amp;\leq E(|X-X_{1,\varepsilon}|)+E(|X_{1,\varepsilon}-X_\varepsilon|)\\
+&amp;&lt;\frac\varepsilon2+\frac\varepsilon2\\
+&amp;=\varepsilon.
+\end{aligned}
+\]</span>
+<span class="math inline">\(\textbf{Note:}\)</span> The first part of the question is easy since we already knew that we can use simple functions to approximate measurable/integrable functions, however, we should notice that the question requires us to approximate on <span class="math inline">\(L_1\)</span> instead of pointwise, and what happened in step 3 of <strong>My idea</strong> is that, <span class="math inline">\(\mathcal A\)</span> is only a field, we cannot guarantee that countable union of subsets would not escape from it.</p>
+</div>
+<div id="ex-9" class="section level2 hasAnchor">
+<h2>Ex 9<a href="chap-5-integration-and-expectation.html#ex-9" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="problem">
+<p>Use Fubini’s theorem to show for a distribution function <span class="math inline">\(F(x)\)</span>
+<span class="math display">\[
+\int_{\mathbb{R}} \bigl(F(x+a)-F(x)\bigr)\,dx=a,
+\]</span>
+where ``<span class="math inline">\(dx\)</span>’’ can be interpreted as Lebesgue measure.</p>
+</div>
+<p><span class="math inline">\(\textbf{My idea:}\)</span>
+<span class="math display">\[
+\begin{aligned}
+\int_{\mathbb R}(F(x+a)-F(a))dx&amp;=\int_{\mathbb R}(P(X\leq x+a)-P(X\leq x))dx\\
+&amp;=\int_{\mathbb R}\left(\int\mathbf1_{\{x&lt;X\leq x+a\}} dP\right)dx\\
+&amp;=\int\left(\int_{\mathbb R} \mathbf1_{\{x&lt;X\leq x+a\}}dx\right)dP\\
+&amp;=\int (x+a-x)dP\\
+&amp;=\int a\,dP\\
+&amp;=a.
+\end{aligned}
+\]</span>
+Fubini works because <span class="math inline">\(\mathbf1_{\{x&lt;X\leq x+a\}}\leq 1\in L_1\)</span>.</p>
+<p><span class="math inline">\(\textbf{Answer:}\)</span>
+For <span class="math inline">\(a\geq 0\)</span>, since <span class="math inline">\(\mathbf1_{\{x&lt;X\leq x+a\}}\geq 0\)</span>, by the non-negative part of Fubini we have
+<span class="math display">\[
+\begin{aligned}
+\int_{\mathbb R}(F(x+a)-F(x))dx&amp;=\int_{\mathbb R}(P(X\leq x+a)-P(X\leq x))dx\\
+&amp;=\int_{\mathbb R}\left(\int\mathbf1_{\{x&lt;X\leq x+a\}} dP\right)dx\\
+&amp;=\int\left(\int_{\mathbb R} \mathbf1_{\{x&lt;X\leq x+a\}}dx\right)dP\\
+&amp;=\int a\,dP\\
+&amp;=a.
+\end{aligned}
+\]</span></p>
+<p>For <span class="math inline">\(a&lt;0\)</span>, let <span class="math inline">\(b=-a\)</span>, we have
+<span class="math display">\[
+\begin{aligned}
+\int_{\mathbb R}(F(x+a)-F(x))dx&amp;=\int_{\mathbb R}(F(x-b)-F(x))dx\\
+&amp;=-\int_{\mathbb R}(F(x)-F(x-b))dx\\
+&amp;=-\int_{\mathbb R}\left(\int\mathbf1_{\{x-b&lt;X\leq x\}}dP\right)dx\\
+&amp;=-\int\left(\int_{\mathbb R}\mathbf1_{\{x-b&lt;X\leq x\}}dx\right)dP\\
+&amp;=-b\\
+&amp;=a.
+\end{aligned}
+\]</span></p>
+</div>
+<div id="ex-39" class="section level2 hasAnchor">
+<h2>Ex 39<a href="chap-5-integration-and-expectation.html#ex-39" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="problem">
+<p>A Poisson process <span class="math inline">\(\{N(A,\omega),\,A\in\mathcal{B}(\mathbb{R}^2)\}\)</span> on <span class="math inline">\(\mathbb{R}^2\)</span> with mean measure <span class="math inline">\(\mu\)</span> is defined to have the following properties:</p>
+<ol style="list-style-type: lower-alpha">
+<li><p><span class="math inline">\(\mu\)</span> is a measure such that if <span class="math inline">\(A\)</span> is a bounded measurable set, <span class="math inline">\(\mu(A)&lt;\infty\)</span>.</p></li>
+<li><p>For any set <span class="math inline">\(A\in\mathcal{B}(\mathbb{R}^2)\)</span>, the random variable <span class="math inline">\(N(A)\)</span> is Poisson distributed with parameter <span class="math inline">\(\mu(A)\)</span>:
+<span class="math display">\[
+P[N(A)=k]=
+\begin{cases}
+\dfrac{e^{-\mu(A)}\mu(A)^k}{k!}, &amp; \text{if } \mu(A)&lt;\infty,\\[1ex]
+0, &amp; \text{if } \mu(A)=\infty.
+\end{cases}
+\]</span></p></li>
+<li><p>For <span class="math inline">\(A_1,A_2,\ldots,A_k\)</span> disjoint regions, the counting random variables
+<span class="math display">\[
+N(A_1),\ldots,N(A_k)
+\]</span>
+are independent.</p></li>
+</ol>
+<p>Define for a point process the Laplace functional <span class="math inline">\(L\)</span> as follows: <span class="math inline">\(L\)</span> maps non-negative measurable functions <span class="math inline">\(f:\mathbb{R}^2\mapsto [0,\infty)\)</span> into <span class="math inline">\([0,\infty)\)</span> via the formula
+<span class="math display">\[
+L(f):=E\left(\exp\left\{-\int_{\mathbb{R}^2} f(x)\,N(dx)\right\}\right)
+\]</span>
+<span class="math display">\[
+=\int_\Omega \exp\left\{-\int_{\mathbb{R}^2} f(x)\,N(dx,\omega)\right\}P(d\omega).
+\]</span></p>
+<p>Show for the Poisson process above that
+<span class="math display">\[
+L(f)=e^{-\int_{\mathbb{R}^2}(1-e^{-f(x)})\,\mu(dx)}.
+\]</span></p>
+<p>Hint: Start with <span class="math inline">\(f\)</span> an indicator function and remember how to compute the generating function or Laplace transform of a Poisson random variable. Then go from indicator variables to simple variables to general non-negative <span class="math inline">\(f\)</span> via monotone convergence.</p>
+</div>
+<p><span class="math inline">\(\textbf{My idea:}\)</span>
+Let <span class="math inline">\(f(\mathbf x)=\mathbf1_A(\mathbf x)\)</span>, for <span class="math inline">\(A\in\mathcal B(\mathbb R^2)\)</span>, then
+<span class="math display">\[
+\begin{aligned}
+L(f)&amp;=\int_\Omega \exp\{-\int_{\mathbb R^2}f(\mathbf x)N(d\mathbf x,\omega)\}P(d\omega)\\
+&amp;=\int_\Omega \exp\{-\int_{\mathbb R^2}\mathbf1_A(\mathbf x)N(d\mathbf x,\omega)\}P(d\omega)\\
+&amp;=\int_\Omega \exp\{-N(A,\omega)\}P(d\omega)\\
+\end{aligned}
+\]</span>
+on the other hand
+<span class="math display">\[
+\begin{aligned}
+1-e^{-f(\mathbf x)}&amp;=f(\mathbf x)-\frac{f(\mathbf x)^2}{2!}+\frac{f(\mathbf x)^3}{3!}\cdots\\
+&amp;=\mathbf1_A(\mathbf x)-\frac{\mathbf1_A(\mathbf x)^2}{2!}+\frac{\mathbf1_A(\mathbf x)^3}{3!}\cdots\\
+&amp;=\mathbf1_A(\mathbf x)-\frac{\mathbf1_A(\mathbf x)}{2!}+\frac{\mathbf1_A(\mathbf x)}{3!}\cdots\\
+&amp;=\mathbf1_A(\mathbf x)(1-\frac{1}{2!}+\frac{1}{3!}-\cdots)\\
+&amp;=\mathbf1_A(\mathbf x)(1-e^{-1})
+\end{aligned}
+\]</span>
+so for <span class="math inline">\(\mu(A)&lt;\infty\)</span>, we have
+<span class="math display">\[
+\begin{aligned}
+e^{-\int_{\mathbb R^2}(1-e^{-f(\mathbf x)})\mu(d\mathbf x)}&amp;=e^{-\int_{\mathbb R^2}\mathbf1_A(\mathbf x)(1-e^{-1})\mu(d\mathbf x)}\\
+&amp;=e^{-(1-e^{-1})\int_{\mathbb R^2}\mathbf1_A(\mathbf x)\mu(d\mathbf x)}\\
+&amp;=e^{-(1-e^{-1})\mu(A)}\\
+\end{aligned}
+\]</span>
+And I struck at how to link the 2 parts together.</p>
+<p><span class="math inline">\(\textbf{Answer:}\)</span></p>
+<ul>
+<li>Step 1: Indicator</li>
+</ul>
+<p>Firstly, let <span class="math inline">\(f(\mathbf x)=a\mathbf1_A(\mathbf x)\)</span>, for <span class="math inline">\(A\in\mathcal B(\mathbb R^2)\)</span> and <span class="math inline">\(a\geq0\)</span>, then
+<span class="math display">\[
+\begin{aligned}
+L(f)&amp;=\int_\Omega \exp\{-\int_{\mathbb R^2}f(\mathbf x)N(d\mathbf x,\omega)\}P(d\omega)\\
+&amp;=\int_\Omega \exp\{-\int_{\mathbb R^2}a\mathbf1_A(\mathbf x)N(d\mathbf x,\omega)\}P(d\omega)\\
+&amp;=\int_\Omega \exp\{-aN(A,\omega)\}P(d\omega)\\
+&amp;=E(\exp\{-aN(A)\}),
+\end{aligned}
+\]</span>
+considering the mgf of Poisson distribution <span class="math inline">\(N(A)\)</span>,
+<span class="math display">\[
+M_{N(A)}(t)=E(e^{tN(A)})=\exp(\mu(A)(e^t-1)),
+\]</span>
+therefore when <span class="math inline">\(\mu(A)&lt;\infty\)</span> we have
+<span class="math display">\[
+L(f)=E(\exp\{-aN(A)\})=M_{N(A)}(-a).
+\]</span></p>
+<p>on the other hand, note that
+<span class="math display">\[
+e^{-a\mathbf1_A(\mathbf x)}=\mathbf1_{A^c}(\mathbf x)+e^{-a}\mathbf1_A(\mathbf x)
+\]</span>
+so
+<span class="math display">\[
+1-e^{-a\mathbf1_A(\mathbf x)}=(1-e^{-a})\mathbf1_A(\mathbf x)
+\]</span>
+so we have
+<span class="math display">\[
+\begin{aligned}
+e^{-\int_{\mathbb R^2}(1-e^{-f(\mathbf x)})\mu(d\mathbf x)}&amp;=e^{-\int_{\mathbb R^2}\mathbf1_A(\mathbf x)(1-e^{-a})\mu(d\mathbf x)}\\
+&amp;=e^{-(1-e^{-a})\int_{\mathbb R^2}\mathbf1_A(\mathbf x)\mu(d\mathbf x)}\\
+&amp;=e^{-(1-e^{-a})\mu(A)},\\
+\end{aligned}
+\]</span></p>
+<p>For <span class="math inline">\(\mu(A)=\infty\)</span>, for <span class="math inline">\(a&gt;0\)</span>, <span class="math inline">\(N(A)=\infty\)</span> a.s., therefore
+<span class="math display">\[
+L(f)=E(e^{-aN(A)})=0,
+\]</span>
+and <span class="math inline">\(e^{-(1-e^{-a})\mu(A)}=e^{-(1-e^{-a})\infty}=0\)</span>.</p>
+<p>If <span class="math inline">\(a=0\)</span> then <span class="math inline">\(f\equiv0\)</span>, so both sides are <span class="math inline">\(1\)</span>.</p>
+<p>That is, we have
+<span class="math display">\[
+L(a\mathbf1_A(\mathbf x))=e^{-(1-e^{-a})\mu(A)}.
+\]</span>
+for <span class="math inline">\(\mu(A)&lt;\infty\)</span> and <span class="math inline">\(\mu(A)=\infty\)</span>.</p>
+<ul>
+<li>Step 2: Simple function</li>
+</ul>
+<p>Secondly, let <span class="math inline">\(f\)</span> be a simple function, that is
+<span class="math display">\[
+f(\mathbf x)=\sum_{i=1}^n a_i\mathbf1_{A_i}(\mathbf x),
+\]</span>
+where <span class="math inline">\(a_i&gt;0\)</span> and <span class="math inline">\(A_i\in\mathcal B(\mathbb R^2)\)</span> are mutually disjoint and <span class="math inline">\(\mu(A_i)&lt;\infty\)</span>, then by the property of mgf and the result from step 1, we have
+<span class="math display">\[
+\begin{aligned}
+L(f)&amp;=\int_\Omega \exp\{-\int_{\mathbb R^2}f(\mathbf x)N(d\mathbf x,\omega)\}P(d\omega)\\
+&amp;=\int_\Omega \exp\{-\int_{\mathbb R^2}\sum_{i=1}^n a_i\mathbf1_{A_i}(\mathbf x)N(d\mathbf x,\omega)\}P(d\omega)\\
+&amp;=\int_\Omega \exp\{-\sum_{i=1}^n a_i\int_{\mathbb R^2}\mathbf1_{A_i}(\mathbf x)N(d\mathbf x,\omega)\}P(d\omega)\\
+&amp;=\int_\Omega \prod_{i=1}^n \exp\{-a_i\int_{\mathbb R^2}\mathbf1_{A_i}(\mathbf x)N(d\mathbf x,\omega)\}P(d\omega)\\
+&amp;=E(\prod_{i=1}^n\exp\{-a_iN(A_i)\})\\
+&amp;=\prod_{i=1}^nE(\exp\{-a_iN(A_i)\})\\
+&amp;=\prod_{i=1}^nM_{N(A_i)}(-a_i)\\
+&amp;=\prod_{i=1}^ne^{-(1-e^{-a_i})\mu(A_i)}\\
+&amp;=\exp(-\sum_{i=1}^n(1-e^{-a_i})\mu(A_i))\\
+&amp;=\exp(-\int_{\mathbb R^2}\sum_{i=1}^n(1-e^{-a_i})\mathbb1_{A_i}(\mathbf x)\mu(d\mathbf x))\\
+&amp;=\exp(-\int_{\mathbb R^2}(1-e^{-\sum_{i=1}^na_i\mathbb1_{A_i}(\mathbf x)})\mu(d\mathbf x))\\
+&amp;=\exp(-\int_{\mathbb R^2}(1-e^{-f(\mathbf x)})\mu(d\mathbf x)),\\
+\end{aligned}
+\]</span>
+for the last 2 step, it is because <span class="math inline">\(A_i\)</span> are mutually disjoint, there is at most only one non-zero indicator.</p>
+<p>If there is one <span class="math inline">\(A_i\)</span> such that <span class="math inline">\(\mu(A_i)=\infty\)</span> and <span class="math inline">\(a_i&gt;0\)</span>, then both sides are <span class="math inline">\(0\)</span>, the equation still holds.</p>
+<ul>
+<li>Step 3: MCT</li>
+</ul>
+<p>For non-negative measurable functions <span class="math inline">\(f\)</span>, choose non-negative simple functions <span class="math inline">\(f_n\)</span> such that <span class="math inline">\(f_n\uparrow f\)</span>, by MCT we have
+<span class="math display">\[
+\int_{\mathbb R^2}f_n(\mathbf x)N(d\mathbf x,\omega)\to\int_{\mathbb R^2}f(\mathbf x)N(d\mathbf x,\omega)
+\]</span></p>
+<p>since <span class="math inline">\(f_n\)</span> are non-negative, therefore <span class="math inline">\(0\leq\exp\{-\int f_ndN\}\leq1\)</span> and <span class="math inline">\(\exp\{-\int f_ndN\}\to\exp\{-\int fdN\}\)</span>, so by DCT, we have
+<span class="math display">\[
+\int_\Omega \exp\{-\int_{\mathbb R^2}f_n(\mathbf x)N(d\mathbf x,\omega)\}P(d\omega)\to\int_\Omega \exp\{-\int_{\mathbb R^2}f(\mathbf x)N(d\mathbf x,\omega)\}P(d\omega)
+\]</span></p>
+<p>Similarly, since
+<span class="math display">\[
+1-e^{-f_n}\uparrow1-e^{-f},
+\]</span>
+by MCT we have
+<span class="math display">\[
+\int(1-e^{-f_n})d\mu\to\int(1-e^{-f})d\mu
+\]</span>
+hence
+<span class="math display">\[
+\exp(-\int_{\mathbb R^2}(1-e^{-f_n(\mathbf x)})\mu(d\mathbf x))\to\exp(-\int_{\mathbb R^2}(1-e^{-f(\mathbf x)})\mu(d\mathbf x)),
+\]</span>
+that is
+<span class="math display">\[
+\int_\Omega \exp\{-\int_{\mathbb R^2}f(\mathbf x)N(d\mathbf x,\omega)\}P(d\omega)=\exp(-\int_{\mathbb R^2}(1-e^{-f(\mathbf x)})\mu(d\mathbf x)).
+\]</span></p>
+<p><span class="math inline">\(\textbf{Note:}\)</span> I have almost get the full answer this time, what I have failed to recognized is that, for each fixed <span class="math inline">\(\omega\)</span>, <span class="math inline">\(N(A,\omega)\)</span> is a counting measure on <span class="math inline">\(\mathbb R^2\)</span>, and for each fixed measureable set <span class="math inline">\(A\)</span>, <span class="math inline">\(N(A,\omega)\)</span> is a Poisson r.v. with parameter <span class="math inline">\(\mu(A)\)</span>.</p>
+</div>
+<div id="ex-40" class="section level2 hasAnchor">
+<h2>Ex 40<a href="chap-5-integration-and-expectation.html#ex-40" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="problem">
+<ol style="list-style-type: lower-alpha">
+<li><p>Suppose <span class="math inline">\(\eta\)</span> is a <span class="math inline">\(N(\mu,\sigma^2)\)</span> random variable satisfying
+<span class="math display">\[
+E(\exp\{\eta\})=1.
+\]</span>
+Show <span class="math inline">\(\mu=-\sigma^2/2\)</span>.</p></li>
+<li><p>Suppose <span class="math inline">\((\xi,\eta)\)</span> are jointly normal. If <span class="math inline">\(e^\xi\)</span> and <span class="math inline">\(e^\eta\)</span> are uncorrelated, then so are <span class="math inline">\(\xi\)</span> and <span class="math inline">\(\eta\)</span>.</p></li>
+</ol>
+</div>
+<div id="a-17" class="section level3 hasAnchor">
+<h3>(a)<a href="chap-5-integration-and-expectation.html#a-17" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><span class="math inline">\(\textbf{My idea:}\)</span> For normal distribution <span class="math inline">\(N(\mu,\sigma^2)\)</span>, the mgf is
+<span class="math display">\[
+M_\eta(t)=\exp\{\mu t+\frac12\sigma^2t^2\},
+\]</span>
+therefore we have by assumption
+<span class="math display">\[
+E(e^\eta)=M_\eta(1)=\exp\{\mu+\frac12\sigma^2\}=1.
+\]</span>
+By solving the equation, we have
+<span class="math display">\[
+\mu=-\frac12\sigma^2.
+\]</span></p>
+</div>
+<div id="b-17" class="section level3 hasAnchor">
+<h3>(b)<a href="chap-5-integration-and-expectation.html#b-17" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><span class="math inline">\(\textbf{My idea:}\)</span> For r.v.s <span class="math inline">\(\xi\)</span> an <span class="math inline">\(\eta\)</span>, we have
+<span class="math display">\[
+e^\xi=1+\xi+\frac{\xi^2}{2!}+\frac{\xi^3}{3!}\cdots\quad\text{a.e.}
+\]</span>
+and
+<span class="math display">\[
+e^\eta=1+\eta+\frac{\eta^2}{2!}+\frac{\eta^3}{3!}\cdots\quad\text{a.e.}
+\]</span>
+Since we have
+<span class="math display">\[
+\text{Cov}(e^\xi,e^\eta)=0,
+\]</span>
+that is
+<span class="math display">\[
+\text{Cov}(\sum_{n=0}^\infty\frac{\xi^n}{n!},\sum_{n=0}^\infty\frac{\eta^n}{n!})=0
+\]</span>
+since covariance is bilinear, we have
+<span class="math display">\[
+\sum_{n,m}^\infty\text{Cov}(\frac{\xi^n}{n!},\frac{\eta^m}{m!})=0,
+\]</span>
+we can do this because <span class="math inline">\(\xi\)</span> and <span class="math inline">\(\eta\)</span> follow normal distribution, so they have <span class="math inline">\(k\)</span>th order moment for any <span class="math inline">\(k\)</span>, and since the sum is <span class="math inline">\(0\)</span>, then each term should be <span class="math inline">\(0\)</span>, that is
+<span class="math display">\[
+\text{Cov}(\xi,\eta)=0.
+\]</span></p>
+<p><span class="math inline">\(\textbf{Answer:}\)</span> Since <span class="math inline">\((\xi,\eta)\)</span> is jointly normal, then <span class="math inline">\(\xi\)</span> and <span class="math inline">\(\eta\)</span> should be marginally normal, denote <span class="math inline">\(\xi\sim N(\mu_1,\sigma_1^2)\)</span> and <span class="math inline">\(\eta\sim N(\mu_2,\sigma_2^2)\)</span>, so <span class="math inline">\(\xi+\eta\)</span> is also normal,and we have
+<span class="math display">\[
+E(\xi+\eta)=\mu_1+\mu_2
+\]</span>
+and
+<span class="math display">\[
+\text{Var}(\xi+\eta)=\text{var}(\xi)+\text{Var}(\eta)+2\text{Cov}(\xi,\eta)=\sigma_1^2+\sigma_2^2+2\text{Cov}(\xi,\eta).
+\]</span>
+and we have
+<span class="math display">\[
+\begin{aligned}
+\text{Cov}(e^\xi,e^\eta)&amp;=E(e^{\xi+\eta})-E(e^\xi)E(e^\eta)\\
+&amp;=M_{\xi+\eta}(1)-M_{\xi}(1)M_{\eta}(1)\\
+&amp;=\exp\{\mu_1+\mu_2+\frac12(\sigma_1^2+\sigma_2^2+2\text{Cov}(\xi,\eta))\}-\exp\{\mu_1+\frac12\sigma_1^2\}\exp\{\mu_2+\frac12\sigma_2^2\}\\
+&amp;=\exp\{\mu_1+\mu_2+\frac12(\sigma_1^2+\sigma_2^2+2\text{Cov}(\xi,\eta))\}-\exp\{\mu_1+\mu_2+\frac12(\sigma_1^2+\sigma_2^2)\}=0.
+\end{aligned}
+\]</span>
+That is, we have
+<span class="math display">\[
+\exp\left\{(\mu_1+\mu_2+\frac12(\sigma_1^2+\sigma_2^2+2\text{Cov}(\xi,\eta)))-(\mu_1+\mu_2+\frac12(\sigma_1^2+\sigma_2^2))\right\}=1
+\]</span>
+that is
+<span class="math display">\[
+(\mu_1+\mu_2+\frac12(\sigma_1^2+\sigma_2^2+2\text{Cov}(\xi,\eta)))-(\mu_1+\mu_2+\frac12(\sigma_1^2+\sigma_2^2))=0
+\]</span>
+so
+<span class="math display">\[
+\text{Cov}(\xi,\eta)=0.
+\]</span></p>
+<p><span class="math inline">\(\textbf{Note:}\)</span> What happened in <strong>My idea</strong> is that, we cannot guarantee that when the sum is <span class="math inline">\(0\)</span>, then every term is <span class="math inline">\(0\)</span> too.</p>
+</div>
 </div>
 </div>
             </section>
@@ -3369,8 +3819,8 @@ E(g(X))&amp;=\int g(X)dP\\
           </div>
         </div>
       </div>
-<a href="chap-4-independence.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-
+<a href="chap-4-independence.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="afterword.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

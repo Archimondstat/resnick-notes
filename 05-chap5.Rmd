@@ -3223,4 +3223,531 @@ $$
 
 $\textbf{Note:}$ __My idea__ is basically correct, but I didn't express the core idea: when $X$ and $Y$ are independent, then the law of their joint distribution $(X,Y)$ is the product of the marginal law, and I didn't mention the measurablity of $g$, besides, using $F_X$ and $F_Y$ to represent the law is confusing.
 
+## Ex 37
+::: problem
+$\textbf{Mean Approximation Lemma.}$ Suppose that $X\in L_1(\Omega,\mathcal{B},P)$. For any
+$\epsilon>0$, there exists an integrable simple random variable $X_\epsilon$ such that
+\[
+E\bigl(|X-X_\epsilon|\bigr)<\epsilon.
+\]
+
+Hint: Consider $X^+$ and $X^-$ separately.
+
+Furthermore, if $\mathcal{A}$ is a field such that $\sigma(\mathcal{A})=\mathcal{B}$, then $X_\epsilon$ can be taken to be of the form
+\[
+X_\epsilon=\sum_{i=1}^k c_i\,1_{A_i},
+\]
+where $A_i\in\mathcal{A}$ for $i=1,\ldots,k$. Hint: Review Exercise 5 from Chapter 2.
+:::
+
+$\textbf{My idea:}$ For non-negative r.v. $X\in L_1(\Omega,\mathcal B,P)$, by Theorem 5.1.1 (Measurability Theorem) there exist simple functions $X_n$ such that $0\leq X_n\uparrow X$, therefore $X_n\in L_1$, so for any $\varepsilon>0$, there exists $N>0$ such that when $n\geq N$, we have $X-X_n<\varepsilon$, so let $X_\varepsilon=X_N$, which is a simple function and by DCT,
+$$
+E(|X-X_\varepsilon|)=\int |X-X_\varepsilon|dP<\varepsilon.
+$$
+For any r.v. $X\in L_1(\Omega,\mathcal B,P)$, we have $X=X^+-X^-$, and for any $\varepsilon>0$, there exist simple functions $X^+_\varepsilon\in L_1(\Omega,\mathcal B,P)$ and $X^-_\varepsilon\in L_1(\Omega,\mathcal B,P)$ such that
+$$
+X^+-X^+_\varepsilon<\frac\varepsilon2\quad \text{and}\quad X^--X^-_\varepsilon<\frac\varepsilon2,
+$$
+let $X_\varepsilon=X^+_\varepsilon-X^-_\varepsilon$, which is still a simple function, and 
+$$
+\begin{aligned}
+E(|X-X_\varepsilon|)&=E(|X^+-X^--(X^+_\varepsilon-X^-_\varepsilon)|)\\
+&\leq E(|X^+-X^+_\varepsilon|)+E(|X^--X^-_\varepsilon|)\\
+&<\frac\varepsilon2+\frac\varepsilon2\\
+&=\varepsilon.
+\end{aligned}
+$$
+Further, let
+$$
+\mathcal G:=\{A\in\mathcal B=\sigma(\mathcal A):\forall\varepsilon>0,\exists A_\varepsilon\in\mathcal A,\text{s.t. }P(A\Delta A_\varepsilon)<\varepsilon\}.
+$$
+
+1. Let $\bigcup_{n=1}^\infty C_n=\Omega$, and let $A_n=\bigcup_{i=1}^n C_i$, then $\lim_{n\to\infty}A_n=\Omega$, therefore for any $\varepsilon>0$, there exists $N>0$, such that when $n\geq N$, we have $P(\Omega\Delta A_n)=P(\Omega\setminus A_n)<\varepsilon$, so $\Omega\in\mathcal G$,
+
+2. For $A\in\mathcal G$, then for any  $\varepsilon>0$, there exists $A_\varepsilon\in\mathcal A$ such that $P(A\Delta A_\varepsilon)<\varepsilon$, and note that $A^c\Delta A_\varepsilon^c=A\Delta A_\varepsilon$ and since $A_\varepsilon\in\mathcal B$, $A^c_\varepsilon\in\mathcal B$, therefore $\mathcal G$ is closed on complement,
+
+3. For $A_n\in\mathcal G$, then for any  $\varepsilon>0$, there exists $A_{n,\varepsilon}\in\mathcal B$ such that $P(A_n\Delta A_{n,\varepsilon})<\frac{\varepsilon}{2^n}$, since $(\bigcup_n^\infty A_n)\Delta(\bigcup_n^\infty A_{n,\varepsilon})\subseteq\bigcup_n^\infty (A_n\Delta  A_{n,\varepsilon})$therefore 
+$$
+P\left((\bigcup_n^\infty A_n)\Delta(\bigcup_n^\infty A_{n,\varepsilon})\right)\leq P(\bigcup_n^\infty (A_n\Delta  A_{n,\varepsilon}))<\sum_{n=1}^\infty\frac\varepsilon{2^n}=\varepsilon.
+$$
+So $\mathcal G$ is a $\sigma$-algebra, and $\mathcal A\in\mathcal G$ since we can take $A_\varepsilon=A$ for $A\in\mathcal A$ and $P(A\Delta A)=0<\varepsilon$, and $\mathcal G\subseteq\sigma(\mathcal A)$, therefore $\mathcal G=\sigma(\mathcal A)$.
+
+So for r.v. $X$, according to the first part, there exists simple function $X_{1,\varepsilon}=\sum_{i=1}^na_i1_{B_i}$,$B_i\in\mathcal B$ such that
+$$
+E(|X-X_{1,\varepsilon}|)<\frac\varepsilon2.
+$$
+For each $B_i\in\mathcal B$, there exists $A_i\in\mathcal A$, such that $P(B_i\Delta A_i)<\frac{\varepsilon}{2n(1+|a_i|)}$, let $X_\varepsilon=\sum_{i=1}^na_i1_{B_i}$, then
+$$
+\begin{aligned}
+E(|X_{1,\varepsilon}-X_\varepsilon|)&=\int|X_{1,\varepsilon}-X_\varepsilon|dP\\
+&=\int\sum_{i=1}^n|a_i||\mathbf1_{B_i}-\mathbf1_{A_i}|dP\\
+&=\int\sum_{i=1}^n|a_i|\mathbf1_{B_i\Delta A_i}|dP\\
+&=\sum_{i=1}^n|a_i|P(B_i\Delta A_i)\\
+&<\sum_{i=1}^n|a_i|\frac{\varepsilon}{2n(1+|a_i|)}\\
+&\leq\frac\varepsilon2.
+\end{aligned}
+$$
+so we have
+$$
+\begin{aligned}
+E(|X-X_\varepsilon|)&=E(|X-X_{1,\varepsilon}+X_{1,\varepsilon}-X_\varepsilon|)\\
+&\leq E(|X-X_{1,\varepsilon}|)+E(|X_{1,\varepsilon}-X_\varepsilon|)\\
+&<\frac\varepsilon2+\frac\varepsilon2\\
+&=\varepsilon.
+\end{aligned}
+$$
+$\textbf{Answer:}$ For r.v. $0\leq X\in L_1$, select simple functions $X_n$ such that $0\leq X_n\uparrow X$, then by MCT, 
+$$
+E(X_n)\uparrow E(X)<\infty,
+$$
+so for any $\varepsilon>0$, we can choose $N$ such that
+$$
+E(|X-X_N|)=E(X-X_N)=E(X)-E(X_N)<\varepsilon,
+$$
+so $X_N$ is our $X_\varepsilon$.
+
+For any $X\in L_1$, $X=X^+-X^-$, then there exist simple functions $U,V$ such that
+$$
+E(|X^+-U|)<\frac\varepsilon2\quad\text{and}\quad E(|X^--V|)<\frac\varepsilon2
+$$
+let $X_\varepsilon=U-V$, therefore
+$$
+\begin{aligned}
+E(|X-X_\varepsilon|)&=E(|X^+-X^--(U-V)|)\\
+&\leq E(|X^+-U|)+E(|X^--V|)\\
+&<\frac\varepsilon2+\frac\varepsilon2\\
+&=\varepsilon.
+\end{aligned}
+$$
+
+Further, let
+$$
+\mathcal G:=\{A\in\mathcal B=\sigma(\mathcal A):\forall\varepsilon>0,\exists A_\varepsilon\in\mathcal A,\text{s.t. }P(A\Delta A_\varepsilon)<\varepsilon\}.
+$$
+
+1. Since $\mathcal A$ is a field, $\Omega\in\mathcal A$, so we can just choose $A_\varepsilon=\Omega$, and for any $\varepsilon>0$, we have
+$$
+P(\Omega\Delta A_\varepsilon)=P(\Omega\setminus\Omega)=P(\varnothing)=0<\varepsilon,
+$$
+so $\Omega\in\mathcal G$,
+
+2. For $A\in\mathcal G$, then for any  $\varepsilon>0$, there exists $A_\varepsilon\in\mathcal A$ such that $P(A\Delta A_\varepsilon)<\varepsilon$, and note that $A^c\Delta A_\varepsilon^c=A\Delta A_\varepsilon$ and since $A_\varepsilon\in\mathcal A$, $A^c_\varepsilon\in\mathcal A$, therefore $\mathcal G$ is closed on complement,
+
+3. For $A_n\in\mathcal G$, let $A=\bigcup_{n=1}^\infty A_n$, and $A^{(n)}=\bigcup_{i=1}^n A_i$, therefore $A^{(n)}\uparrow A$, since we are working in a probability space, which has finite measure, so by continuity from below $P(A\setminus A^{(n)})\to0$, so for any $\varepsilon>0$, we can choose $N$ such that
+$$
+P(A\setminus A^{(N)})<\frac\varepsilon2,
+$$
+and for $i\leq N$, for each $A_i$, there exists $B_i\in\mathcal A$ such that $P(A_i\Delta B_i)<\frac\varepsilon{2N}$, and since $\mathcal A$ is a field, $\bigcup_{i=1}^n B_i\in\mathcal A$, and note that 
+$$
+\left(\bigcup_{i=1}^N A_i\right)\Delta\left(\bigcup_{i=1}^N B_i\right)\subseteq\bigcup_{i=1}^N(A_i\Delta B_i)
+$$
+and
+$$
+A\Delta\left(\bigcup_{i=1}^N B_i\right)\subseteq\left(A\Delta A^{(N)}\right)\cup\left(A^{(N)}\Delta\bigcup_{i=1}^N B_i\right),
+$$
+therefore
+$$
+\begin{aligned}
+P\left(A\Delta\left(\bigcup_{i=1}^N B_i\right)\right)&\leq P\left(A\Delta A^{(N)}\right)+P\left(A^{(N)}\Delta\bigcup_{i=1}^N B_i\right)\\
+&<\frac\varepsilon2+\sum_{i=1}^N\frac\varepsilon{2N}=\varepsilon.
+\end{aligned}
+$$
+So $\mathcal G$ is a $\sigma$-algebra, and $\mathcal A\subseteq\mathcal G$ since we can take $A_\varepsilon=A$ for $A\in\mathcal A$ and $P(A\Delta A)=0<\varepsilon$, so $\mathcal G$ is a $\sigma$-algebra containing $\mathcal A$, so $\sigma(\mathcal A)\subseteq\mathcal G$ and by definition $\mathcal G\subseteq\sigma(\mathcal A)$, therefore $\mathcal G=\sigma(\mathcal A)$.
+
+So for r.v. $X$, according to the first part, there exists simple function $X_{1,\varepsilon}=\sum_{i=1}^na_i1_{B_i}$,$B_i\in\mathcal B$ such that
+$$
+E(|X-X_{1,\varepsilon}|)<\frac\varepsilon2.
+$$
+For each $B_i\in\mathcal B$, there exists $A_i\in\mathcal A$, such that $P(B_i\Delta A_i)<\frac{\varepsilon}{2n(1+|a_i|)}$, let $X_\varepsilon=\sum_{i=1}^na_i1_{A_i}$, then
+$$
+\begin{aligned}
+E(|X_{1,\varepsilon}-X_\varepsilon|)&=\int|X_{1,\varepsilon}-X_\varepsilon|dP\\
+&\leq\int\sum_{i=1}^n|a_i||\mathbf1_{B_i}-\mathbf1_{A_i}|dP\\
+&=\int\sum_{i=1}^n|a_i|\mathbf1_{B_i\Delta A_i}|dP\\
+&=\sum_{i=1}^n|a_i|P(B_i\Delta A_i)\\
+&<\sum_{i=1}^n|a_i|\frac{\varepsilon}{2n(1+|a_i|)}\\
+&\leq\frac\varepsilon2.
+\end{aligned}
+$$
+so we have
+$$
+\begin{aligned}
+E(|X-X_\varepsilon|)&=E(|X-X_{1,\varepsilon}+X_{1,\varepsilon}-X_\varepsilon|)\\
+&\leq E(|X-X_{1,\varepsilon}|)+E(|X_{1,\varepsilon}-X_\varepsilon|)\\
+&<\frac\varepsilon2+\frac\varepsilon2\\
+&=\varepsilon.
+\end{aligned}
+$$
+$\textbf{Note:}$ The first part of the question is easy since we already knew that we can use simple functions to approximate measurable/integrable functions, however, we should notice that the question requires us to approximate on $L_1$ instead of pointwise, and what happened in step 3 of __My idea__ is that, $\mathcal A$ is only a field, we cannot guarantee that countable union of subsets would not escape from it.
+
+
+## Ex 9
+::: problem
+Use Fubini's theorem to show for a distribution function $F(x)$
+\[
+\int_{\mathbb{R}} \bigl(F(x+a)-F(x)\bigr)\,dx=a,
+\]
+where ``$dx$'' can be interpreted as Lebesgue measure.
+:::
+
+$\textbf{My idea:}$ 
+$$
+\begin{aligned}
+\int_{\mathbb R}(F(x+a)-F(a))dx&=\int_{\mathbb R}(P(X\leq x+a)-P(X\leq x))dx\\
+&=\int_{\mathbb R}\left(\int\mathbf1_{\{x<X\leq x+a\}} dP\right)dx\\
+&=\int\left(\int_{\mathbb R} \mathbf1_{\{x<X\leq x+a\}}dx\right)dP\\
+&=\int (x+a-x)dP\\
+&=\int a\,dP\\
+&=a.
+\end{aligned}
+$$
+Fubini works because $\mathbf1_{\{x<X\leq x+a\}}\leq 1\in L_1$.
+
+
+$\textbf{Answer:}$
+For $a\geq 0$, since $\mathbf1_{\{x<X\leq x+a\}}\geq 0$, by the non-negative part of Fubini we have
+$$
+\begin{aligned}
+\int_{\mathbb R}(F(x+a)-F(x))dx&=\int_{\mathbb R}(P(X\leq x+a)-P(X\leq x))dx\\
+&=\int_{\mathbb R}\left(\int\mathbf1_{\{x<X\leq x+a\}} dP\right)dx\\
+&=\int\left(\int_{\mathbb R} \mathbf1_{\{x<X\leq x+a\}}dx\right)dP\\
+&=\int a\,dP\\
+&=a.
+\end{aligned}
+$$
+
+For $a<0$, let $b=-a$, we have
+$$
+\begin{aligned}
+\int_{\mathbb R}(F(x+a)-F(x))dx&=\int_{\mathbb R}(F(x-b)-F(x))dx\\
+&=-\int_{\mathbb R}(F(x)-F(x-b))dx\\
+&=-\int_{\mathbb R}\left(\int\mathbf1_{\{x-b<X\leq x\}}dP\right)dx\\
+&=-\int\left(\int_{\mathbb R}\mathbf1_{\{x-b<X\leq x\}}dx\right)dP\\
+&=-b\\
+&=a.
+\end{aligned}
+$$
+
+## Ex 39
+::: problem
+A Poisson process $\{N(A,\omega),\,A\in\mathcal{B}(\mathbb{R}^2)\}$ on $\mathbb{R}^2$ with mean measure $\mu$ is defined to have the following properties:
+
+
+(a) $\mu$ is a measure such that if $A$ is a bounded measurable set, $\mu(A)<\infty$.
+
+(b) For any set $A\in\mathcal{B}(\mathbb{R}^2)$, the random variable $N(A)$ is Poisson distributed with parameter $\mu(A)$:
+\[
+P[N(A)=k]=
+\begin{cases}
+\dfrac{e^{-\mu(A)}\mu(A)^k}{k!}, & \text{if } \mu(A)<\infty,\\[1ex]
+0, & \text{if } \mu(A)=\infty.
+\end{cases}
+\]
+
+(c) For $A_1,A_2,\ldots,A_k$ disjoint regions, the counting random variables
+\[
+N(A_1),\ldots,N(A_k)
+\]
+are independent.
+
+
+Define for a point process the Laplace functional $L$ as follows: $L$ maps non-negative measurable functions $f:\mathbb{R}^2\mapsto [0,\infty)$ into $[0,\infty)$ via the formula
+\[
+L(f):=E\left(\exp\left\{-\int_{\mathbb{R}^2} f(x)\,N(dx)\right\}\right)
+\]
+\[
+=\int_\Omega \exp\left\{-\int_{\mathbb{R}^2} f(x)\,N(dx,\omega)\right\}P(d\omega).
+\]
+
+Show for the Poisson process above that
+\[
+L(f)=e^{-\int_{\mathbb{R}^2}(1-e^{-f(x)})\,\mu(dx)}.
+\]
+
+Hint: Start with $f$ an indicator function and remember how to compute the generating function or Laplace transform of a Poisson random variable. Then go from indicator variables to simple variables to general non-negative $f$ via monotone convergence.
+:::
+
+$\textbf{My idea:}$ 
+Let $f(\mathbf x)=\mathbf1_A(\mathbf x)$, for $A\in\mathcal B(\mathbb R^2)$, then
+$$
+\begin{aligned}
+L(f)&=\int_\Omega \exp\{-\int_{\mathbb R^2}f(\mathbf x)N(d\mathbf x,\omega)\}P(d\omega)\\
+&=\int_\Omega \exp\{-\int_{\mathbb R^2}\mathbf1_A(\mathbf x)N(d\mathbf x,\omega)\}P(d\omega)\\
+&=\int_\Omega \exp\{-N(A,\omega)\}P(d\omega)\\
+\end{aligned}
+$$
+on the other hand
+$$
+\begin{aligned}
+1-e^{-f(\mathbf x)}&=f(\mathbf x)-\frac{f(\mathbf x)^2}{2!}+\frac{f(\mathbf x)^3}{3!}\cdots\\
+&=\mathbf1_A(\mathbf x)-\frac{\mathbf1_A(\mathbf x)^2}{2!}+\frac{\mathbf1_A(\mathbf x)^3}{3!}\cdots\\
+&=\mathbf1_A(\mathbf x)-\frac{\mathbf1_A(\mathbf x)}{2!}+\frac{\mathbf1_A(\mathbf x)}{3!}\cdots\\
+&=\mathbf1_A(\mathbf x)(1-\frac{1}{2!}+\frac{1}{3!}-\cdots)\\
+&=\mathbf1_A(\mathbf x)(1-e^{-1})
+\end{aligned}
+$$
+so for $\mu(A)<\infty$, we have
+$$
+\begin{aligned}
+e^{-\int_{\mathbb R^2}(1-e^{-f(\mathbf x)})\mu(d\mathbf x)}&=e^{-\int_{\mathbb R^2}\mathbf1_A(\mathbf x)(1-e^{-1})\mu(d\mathbf x)}\\
+&=e^{-(1-e^{-1})\int_{\mathbb R^2}\mathbf1_A(\mathbf x)\mu(d\mathbf x)}\\
+&=e^{-(1-e^{-1})\mu(A)}\\
+\end{aligned}
+$$
+And I struck at how to link the 2 parts together.
+
+
+$\textbf{Answer:}$ 
+
+* Step 1: Indicator
+
+Firstly, let $f(\mathbf x)=a\mathbf1_A(\mathbf x)$, for $A\in\mathcal B(\mathbb R^2)$ and $a\geq0$, then
+$$
+\begin{aligned}
+L(f)&=\int_\Omega \exp\{-\int_{\mathbb R^2}f(\mathbf x)N(d\mathbf x,\omega)\}P(d\omega)\\
+&=\int_\Omega \exp\{-\int_{\mathbb R^2}a\mathbf1_A(\mathbf x)N(d\mathbf x,\omega)\}P(d\omega)\\
+&=\int_\Omega \exp\{-aN(A,\omega)\}P(d\omega)\\
+&=E(\exp\{-aN(A)\}),
+\end{aligned}
+$$
+considering the mgf of Poisson distribution $N(A)$,
+$$
+M_{N(A)}(t)=E(e^{tN(A)})=\exp(\mu(A)(e^t-1)),
+$$
+therefore when $\mu(A)<\infty$ we have
+$$
+L(f)=E(\exp\{-aN(A)\})=M_{N(A)}(-a).
+$$
+
+on the other hand, note that 
+$$
+e^{-a\mathbf1_A(\mathbf x)}=\mathbf1_{A^c}(\mathbf x)+e^{-a}\mathbf1_A(\mathbf x)
+$$
+so
+$$
+1-e^{-a\mathbf1_A(\mathbf x)}=(1-e^{-a})\mathbf1_A(\mathbf x)
+$$
+so  we have
+$$
+\begin{aligned}
+e^{-\int_{\mathbb R^2}(1-e^{-f(\mathbf x)})\mu(d\mathbf x)}&=e^{-\int_{\mathbb R^2}\mathbf1_A(\mathbf x)(1-e^{-a})\mu(d\mathbf x)}\\
+&=e^{-(1-e^{-a})\int_{\mathbb R^2}\mathbf1_A(\mathbf x)\mu(d\mathbf x)}\\
+&=e^{-(1-e^{-a})\mu(A)},\\
+\end{aligned}
+$$
+
+For $\mu(A)=\infty$, for $a>0$, $N(A)=\infty$ a.s., therefore
+$$
+L(f)=E(e^{-aN(A)})=0,
+$$
+and $e^{-(1-e^{-a})\mu(A)}=e^{-(1-e^{-a})\infty}=0$.
+
+If $a=0$ then $f\equiv0$, so both sides are $1$.
+
+That is, we have
+$$
+L(a\mathbf1_A(\mathbf x))=e^{-(1-e^{-a})\mu(A)}.
+$$
+for $\mu(A)<\infty$ and  $\mu(A)=\infty$.
+
+
+
+* Step 2: Simple function
+
+Secondly, let $f$ be a simple function, that is
+$$
+f(\mathbf x)=\sum_{i=1}^n a_i\mathbf1_{A_i}(\mathbf x),
+$$
+where $a_i>0$ and $A_i\in\mathcal B(\mathbb R^2)$ are mutually disjoint and $\mu(A_i)<\infty$, then by the property of mgf and the result from step 1, we have
+$$
+\begin{aligned}
+L(f)&=\int_\Omega \exp\{-\int_{\mathbb R^2}f(\mathbf x)N(d\mathbf x,\omega)\}P(d\omega)\\
+&=\int_\Omega \exp\{-\int_{\mathbb R^2}\sum_{i=1}^n a_i\mathbf1_{A_i}(\mathbf x)N(d\mathbf x,\omega)\}P(d\omega)\\
+&=\int_\Omega \exp\{-\sum_{i=1}^n a_i\int_{\mathbb R^2}\mathbf1_{A_i}(\mathbf x)N(d\mathbf x,\omega)\}P(d\omega)\\
+&=\int_\Omega \prod_{i=1}^n \exp\{-a_i\int_{\mathbb R^2}\mathbf1_{A_i}(\mathbf x)N(d\mathbf x,\omega)\}P(d\omega)\\
+&=E(\prod_{i=1}^n\exp\{-a_iN(A_i)\})\\
+&=\prod_{i=1}^nE(\exp\{-a_iN(A_i)\})\\
+&=\prod_{i=1}^nM_{N(A_i)}(-a_i)\\
+&=\prod_{i=1}^ne^{-(1-e^{-a_i})\mu(A_i)}\\
+&=\exp(-\sum_{i=1}^n(1-e^{-a_i})\mu(A_i))\\
+&=\exp(-\int_{\mathbb R^2}\sum_{i=1}^n(1-e^{-a_i})\mathbb1_{A_i}(\mathbf x)\mu(d\mathbf x))\\
+&=\exp(-\int_{\mathbb R^2}(1-e^{-\sum_{i=1}^na_i\mathbb1_{A_i}(\mathbf x)})\mu(d\mathbf x))\\
+&=\exp(-\int_{\mathbb R^2}(1-e^{-f(\mathbf x)})\mu(d\mathbf x)),\\
+\end{aligned}
+$$
+for the last 2 step, it is because $A_i$ are mutually disjoint, there is at most only one non-zero indicator.
+
+If there is one $A_i$ such that $\mu(A_i)=\infty$ and $a_i>0$, then both sides are $0$, the equation still holds.
+
+
+* Step 3: MCT
+
+For non-negative measurable functions $f$, choose non-negative simple functions $f_n$ such that $f_n\uparrow f$,  by MCT we have
+$$
+\int_{\mathbb R^2}f_n(\mathbf x)N(d\mathbf x,\omega)\to\int_{\mathbb R^2}f(\mathbf x)N(d\mathbf x,\omega)
+$$
+
+since $f_n$ are non-negative, therefore $0\leq\exp\{-\int f_ndN\}\leq1$ and $\exp\{-\int f_ndN\}\to\exp\{-\int fdN\}$, so by DCT, we have
+$$
+\int_\Omega \exp\{-\int_{\mathbb R^2}f_n(\mathbf x)N(d\mathbf x,\omega)\}P(d\omega)\to\int_\Omega \exp\{-\int_{\mathbb R^2}f(\mathbf x)N(d\mathbf x,\omega)\}P(d\omega)
+$$
+
+Similarly, since
+$$
+1-e^{-f_n}\uparrow1-e^{-f},
+$$
+by MCT we have
+$$
+\int(1-e^{-f_n})d\mu\to\int(1-e^{-f})d\mu
+$$
+hence
+$$
+\exp(-\int_{\mathbb R^2}(1-e^{-f_n(\mathbf x)})\mu(d\mathbf x))\to\exp(-\int_{\mathbb R^2}(1-e^{-f(\mathbf x)})\mu(d\mathbf x)),
+$$
+that is
+$$
+\int_\Omega \exp\{-\int_{\mathbb R^2}f(\mathbf x)N(d\mathbf x,\omega)\}P(d\omega)=\exp(-\int_{\mathbb R^2}(1-e^{-f(\mathbf x)})\mu(d\mathbf x)).
+$$
+
+$\textbf{Note:}$ I have almost get the full answer this time, what I have failed to recognized is that, for each fixed $\omega$, $N(A,\omega)$ is a counting measure on $\mathbb R^2$, and for each fixed measureable set $A$, $N(A,\omega)$ is a Poisson r.v. with parameter $\mu(A)$.
+
+## Ex 40
+::: problem
+
+(a) Suppose $\eta$ is a $N(\mu,\sigma^2)$ random variable satisfying
+\[
+E(\exp\{\eta\})=1.
+\]
+Show $\mu=-\sigma^2/2$.
+
+(b) Suppose $(\xi,\eta)$ are jointly normal. If $e^\xi$ and $e^\eta$ are uncorrelated, then so are $\xi$ and $\eta$.
+:::
+
+### (a)
+
+$\textbf{My idea:}$ For normal distribution $N(\mu,\sigma^2)$, the mgf is
+$$
+M_\eta(t)=\exp\{\mu t+\frac12\sigma^2t^2\},
+$$
+therefore we have by assumption
+$$
+E(e^\eta)=M_\eta(1)=\exp\{\mu+\frac12\sigma^2\}=1.
+$$
+By solving the equation, we have
+$$
+\mu=-\frac12\sigma^2.
+$$
+
+### (b)
+
+$\textbf{My idea:}$ For r.v.s $\xi$ an $\eta$, we have
+$$
+e^\xi=1+\xi+\frac{\xi^2}{2!}+\frac{\xi^3}{3!}\cdots\quad\text{a.e.}
+$$
+and
+$$
+e^\eta=1+\eta+\frac{\eta^2}{2!}+\frac{\eta^3}{3!}\cdots\quad\text{a.e.}
+$$
+Since we have
+$$
+\text{Cov}(e^\xi,e^\eta)=0,
+$$
+that is
+$$
+\text{Cov}(\sum_{n=0}^\infty\frac{\xi^n}{n!},\sum_{n=0}^\infty\frac{\eta^n}{n!})=0
+$$
+since covariance is bilinear, we have
+$$
+\sum_{n,m}^\infty\text{Cov}(\frac{\xi^n}{n!},\frac{\eta^m}{m!})=0,
+$$
+we can do this because $\xi$ and $\eta$ follow normal distribution, so they have $k$th order moment for any $k$, and since the sum is $0$, then each term should be $0$, that is
+$$
+\text{Cov}(\xi,\eta)=0.
+$$
+
+$\textbf{Answer:}$ Since $(\xi,\eta)$ is jointly normal, then $\xi$ and $\eta$ should be marginally normal, denote $\xi\sim N(\mu_1,\sigma_1^2)$ and $\eta\sim N(\mu_2,\sigma_2^2)$, so $\xi+\eta$ is also normal,and we have
+$$
+E(\xi+\eta)=\mu_1+\mu_2
+$$
+and
+$$
+\text{Var}(\xi+\eta)=\text{var}(\xi)+\text{Var}(\eta)+2\text{Cov}(\xi,\eta)=\sigma_1^2+\sigma_2^2+2\text{Cov}(\xi,\eta).
+$$
+and we have
+$$
+\begin{aligned}
+\text{Cov}(e^\xi,e^\eta)&=E(e^{\xi+\eta})-E(e^\xi)E(e^\eta)\\
+&=M_{\xi+\eta}(1)-M_{\xi}(1)M_{\eta}(1)\\
+&=\exp\{\mu_1+\mu_2+\frac12(\sigma_1^2+\sigma_2^2+2\text{Cov}(\xi,\eta))\}-\exp\{\mu_1+\frac12\sigma_1^2\}\exp\{\mu_2+\frac12\sigma_2^2\}\\
+&=\exp\{\mu_1+\mu_2+\frac12(\sigma_1^2+\sigma_2^2+2\text{Cov}(\xi,\eta))\}-\exp\{\mu_1+\mu_2+\frac12(\sigma_1^2+\sigma_2^2)\}=0.
+\end{aligned}
+$$
+That is, we have
+$$
+\exp\left\{(\mu_1+\mu_2+\frac12(\sigma_1^2+\sigma_2^2+2\text{Cov}(\xi,\eta)))-(\mu_1+\mu_2+\frac12(\sigma_1^2+\sigma_2^2))\right\}=1
+$$
+that is
+$$
+(\mu_1+\mu_2+\frac12(\sigma_1^2+\sigma_2^2+2\text{Cov}(\xi,\eta)))-(\mu_1+\mu_2+\frac12(\sigma_1^2+\sigma_2^2))=0
+$$
+so
+$$
+\text{Cov}(\xi,\eta)=0.
+$$
+
+$\textbf{Note:}$ What happened in __My idea__ is that, we cannot guarantee that when the sum is $0$, then every term is $0$ too.
+
+
+# Afterword
+
+Until now (2026-04-01), We have finished all the exercises in chapter 4, I thought it was essentially impossible when I started reading this chapter. We should now know that, as the style of exercises in this book, some exercises are actually the "introducers" for the concepts in later chapters, therefore we use lots of the "a.e." and "a.s." terms even if the idea of a.s. convergence will only be formally introduced in the beginning of chapter 5.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
