@@ -1,0 +1,44 @@
+# Chap 6, Convergence Concepts
+
+## Summary
+
+## Other Notes
+
+### Alternative proof of Proposition 6.1.1 
+In __Proposition 6.1.1__, the author explicitly construct an exception set for teaching propose, however we can do it in another way:
+
+For any constant $c$, we have 
+$$
+P(M_n\leq c)=P(\max_{1\leq i\leq n}X_n\leq c)=\prod_{i=1}^nP(X_i\leq c)=F^n(c)\to0.
+$$
+
+What we want to prove is
+$$
+P(M_n\to\infty)=1
+$$
+Since $M_n$ is increasing with $n$, so $M_n\to\sup_n M_n$, therefore it is suffice to prove
+$$
+P(\sup_n M_n=\infty)=1
+$$
+or
+$$
+P(\sup_n M_n<\infty)=0
+$$
+
+Note that
+$$
+\{\sup_n M_n<\infty\}=\bigcup_{m\in\mathbb Z}\bigcap_{n=1}^\infty\{M_n\leq m\}
+$$
+and for any $m$,
+$$
+P(\bigcap_{n=1}^\infty\{M_n\leq m\})=\lim_{n\to\infty}P(M_n\leq m)=0
+$$
+so
+$$
+P(\bigcup_{m\in\mathbb Z}\bigcap_{n=1}^\infty\{M_n\leq m\})\leq\sum_{m\in\mathbb Z}P(\bigcap_{n=1}^\infty\{M_n\leq m\})=0.
+$$
+Therefore $P(\sup_n M_n<\infty)=0$, that is
+$$
+M_n\to\infty\quad \text{a.s.}
+$$
+

@@ -3698,9 +3698,9 @@ $$
 $\textbf{Note:}$ What happened in __My idea__ is that, we cannot guarantee that when the sum is $0$, then every term is $0$ too.
 
 
-# Afterword
+### Afterword
 
-Until now (2026-04-01), We have finished all the exercises in chapter 4, I thought it was essentially impossible when I started reading this chapter. We should now know that, as the style of exercises in this book, some exercises are actually the "introducers" for the concepts in later chapters, therefore we use lots of the "a.e." and "a.s." terms even if the idea of a.s. convergence will only be formally introduced in the beginning of chapter 5.
+Until now (2026-04-01), We have finished all the exercises in chapter 5, I thought it was essentially impossible when I started reading this chapter. We should now know that, as the style of exercises in this book, some exercises are actually the "introducers" for the concepts in later chapters, therefore we use lots of the "a.e." and "a.s." terms even if the idea of a.s. convergence will only be formally introduced in the beginning of chapter 5.
 
 
 

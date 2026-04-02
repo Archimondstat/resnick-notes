@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chap 5, Integration and Expectation | Notes on A Probability Path (Resnick)</title>
   <meta name="description" content="Chap 5, Integration and Expectation | Notes on A Probability Path (Resnick)" />
-  <meta name="generator" content="bookdown 0.42 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.46 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chap 5, Integration and Expectation | Notes on A Probability Path (Resnick)" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="Zhanwen Peng" />
 
 
-<meta name="date" content="2026-04-01" />
+<meta name="date" content="2026-04-02" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -31,7 +31,7 @@
   
   
 <link rel="prev" href="chap-4-independence.html"/>
-<link rel="next" href="afterword.html"/>
+<link rel="next" href="chap-6-convergence-concepts.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -55,6 +55,7 @@
 
 
 <style type="text/css">
+html { -webkit-text-size-adjust: 100%; }
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -146,6 +147,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#change-log"><i class="fa fa-check"></i>Change Log</a>
 <ul>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#section"><i class="fa fa-check"></i>2026-01-31</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#section-1"><i class="fa fa-check"></i>2026-04-02</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="chap-1-sets-and-events.html"><a href="chap-1-sets-and-events.html"><i class="fa fa-check"></i>Chap 1, Sets and Events</a>
@@ -356,9 +358,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#a-17"><i class="fa fa-check"></i>(a)</a></li>
 <li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#b-17"><i class="fa fa-check"></i>(b)</a></li>
+<li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#afterword"><i class="fa fa-check"></i>Afterword</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="afterword.html"><a href="afterword.html"><i class="fa fa-check"></i>Afterword</a></li>
+<li class="chapter" data-level="" data-path="chap-6-convergence-concepts.html"><a href="chap-6-convergence-concepts.html"><i class="fa fa-check"></i>Chap 6, Convergence Concepts</a>
+<ul>
+<li class="chapter" data-level="" data-path="chap-6-convergence-concepts.html"><a href="chap-6-convergence-concepts.html#summary-2"><i class="fa fa-check"></i>Summary</a></li>
+<li class="chapter" data-level="" data-path="chap-6-convergence-concepts.html"><a href="chap-6-convergence-concepts.html#other-notes"><i class="fa fa-check"></i>Other Notes</a>
+<ul>
+<li class="chapter" data-level="" data-path="chap-6-convergence-concepts.html"><a href="chap-6-convergence-concepts.html#alternative-proof-of-proposition-6.1.1"><i class="fa fa-check"></i>Alternative proof of Proposition 6.1.1</a></li>
+</ul></li>
+</ul></li>
 </ul>
 
       </nav>
@@ -1827,13 +1837,13 @@ so we have <span class="math inline">\(\lambda\times\lambda(A)=\text{area of }A\
 <h2>Ex 12<a href="chap-5-integration-and-expectation.html#ex-12-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div class="problem">
 <ol start="12" style="list-style-type: decimal">
-<li>Suppose <span class="math inline">\(X\)</span> is an uncountable set and let <span class="math inline">\(\mathcal{B}\)</span> be the <span class="math inline">\(\sigma\)</span>-field of countable and co-countable (complements are countable) sets. Show that the diagonal <span class="math inline">\(\text{DIAG} := \{(x, x) : x \in X\} \notin \mathcal{B} \times \mathcal{B}\)</span> is <strong>not</strong> in the product <span class="math inline">\(\sigma\)</span>-field. However, every section of $ $ is measurable.
+<li>Suppose <span class="math inline">\(X\)</span> is an uncountable set and let <span class="math inline">\(\mathcal{B}\)</span> be the <span class="math inline">\(\sigma\)</span>-field of countable and co-countable (complements are countable) sets. Show that the diagonal <span class="math inline">\(\text{DIAG}  := \{(x, x) : x \in X\} \notin \mathcal{B} \times \mathcal{B}\)</span> is <strong>not</strong> in the product <span class="math inline">\(\sigma\)</span>-field. However, every section of $ $ is measurable.
 <ul>
 <li><strong>Hints</strong>:
 <ul>
 <li>Show that <span class="math inline">\(\mathcal{B} \times \mathcal{B} = \sigma(\{\{x\} \times X, X \times \{x\}, x \in X\})\)</span>.</li>
 <li>Review Exercise 12 in Chapter 2.</li>
-<li>Proceed by contradiction. Suppose <span class="math inline">\(\text{DIAG} \in \mathcal{B} \times \mathcal{B}\)</span>. Then there exists countable <span class="math inline">\(S \subset X\)</span> such that <span class="math inline">\(\text{DIAG} \in \sigma(\{\{x\} \times X, X \times \{x\}, x \in S\}) =: \mathcal{G}\)</span>.</li>
+<li>Proceed by contradiction. Suppose <span class="math inline">\(\text{DIAG}  \in \mathcal{B} \times \mathcal{B}\)</span>. Then there exists countable <span class="math inline">\(S \subset X\)</span> such that <span class="math inline">\(\text{DIAG}  \in \sigma(\{\{x\} \times X, X \times \{x\}, x \in S\}) =: \mathcal{G}\)</span>.</li>
 <li>Define <span class="math inline">\(\mathcal{P} := \{\{s\}, s \in S, S^c\}\)</span> and observe this is a partition of <span class="math inline">\(X\)</span>.</li>
 <li>Show it is impossible for <span class="math inline">\(\text{DIAG} \in \mathcal{G}\)</span>.</li>
 </ul></li>
@@ -3410,7 +3420,7 @@ Further, let
 <ol style="list-style-type: decimal">
 <li><p>Let <span class="math inline">\(\bigcup_{n=1}^\infty C_n=\Omega\)</span>, and let <span class="math inline">\(A_n=\bigcup_{i=1}^n C_i\)</span>, then <span class="math inline">\(\lim_{n\to\infty}A_n=\Omega\)</span>, therefore for any <span class="math inline">\(\varepsilon&gt;0\)</span>, there exists <span class="math inline">\(N&gt;0\)</span>, such that when <span class="math inline">\(n\geq N\)</span>, we have <span class="math inline">\(P(\Omega\Delta A_n)=P(\Omega\setminus A_n)&lt;\varepsilon\)</span>, so <span class="math inline">\(\Omega\in\mathcal G\)</span>,</p></li>
 <li><p>For <span class="math inline">\(A\in\mathcal G\)</span>, then for any <span class="math inline">\(\varepsilon&gt;0\)</span>, there exists <span class="math inline">\(A_\varepsilon\in\mathcal A\)</span> such that <span class="math inline">\(P(A\Delta A_\varepsilon)&lt;\varepsilon\)</span>, and note that <span class="math inline">\(A^c\Delta A_\varepsilon^c=A\Delta A_\varepsilon\)</span> and since <span class="math inline">\(A_\varepsilon\in\mathcal B\)</span>, <span class="math inline">\(A^c_\varepsilon\in\mathcal B\)</span>, therefore <span class="math inline">\(\mathcal G\)</span> is closed on complement,</p></li>
-<li><p>For <span class="math inline">\(A_n\in\mathcal G\)</span>, then for any <span class="math inline">\(\varepsilon&gt;0\)</span>, there exists <span class="math inline">\(A_{n,\varepsilon}\in\mathcal B\)</span> such that <span class="math inline">\(P(A_n\Delta A_{n,\varepsilon})&lt;\frac{\varepsilon}{2^n}\)</span>, since <span class="math inline">\((\bigcup_n^\infty A_n)\Delta(\bigcup_n^\infty A_{n,\varepsilon})\subseteq\bigcup_n^\infty (A_n\Delta A_{n,\varepsilon})\)</span>therefore
+<li><p>For <span class="math inline">\(A_n\in\mathcal G\)</span>, then for any <span class="math inline">\(\varepsilon&gt;0\)</span>, there exists <span class="math inline">\(A_{n,\varepsilon}\in\mathcal B\)</span> such that <span class="math inline">\(P(A_n\Delta A_{n,\varepsilon})&lt;\frac{\varepsilon}{2^n}\)</span>, since <span class="math inline">\((\bigcup_n^\infty A_n)\Delta(\bigcup_n^\infty A_{n,\varepsilon})\subseteq\bigcup_n^\infty (A_n\Delta  A_{n,\varepsilon})\)</span>therefore
 <span class="math display">\[
 P\left((\bigcup_n^\infty A_n)\Delta(\bigcup_n^\infty A_{n,\varepsilon})\right)\leq P(\bigcup_n^\infty (A_n\Delta  A_{n,\varepsilon}))&lt;\sum_{n=1}^\infty\frac\varepsilon{2^n}=\varepsilon.
 \]</span>
@@ -3812,6 +3822,11 @@ so
 \]</span></p>
 <p><span class="math inline">\(\textbf{Note:}\)</span> What happened in <strong>My idea</strong> is that, we cannot guarantee that when the sum is <span class="math inline">\(0\)</span>, then every term is <span class="math inline">\(0\)</span> too.</p>
 </div>
+<div id="afterword" class="section level3 hasAnchor">
+<h3>Afterword<a href="chap-5-integration-and-expectation.html#afterword" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Until now (2026-04-01), We have finished all the exercises in chapter 5, I thought it was essentially impossible when I started reading this chapter. We should now know that, as the style of exercises in this book, some exercises are actually the “introducers” for the concepts in later chapters, therefore we use lots of the “a.e.” and “a.s.” terms even if the idea of a.s. convergence will only be formally introduced in the beginning of chapter 5.</p>
+
+</div>
 </div>
 </div>
             </section>
@@ -3820,7 +3835,7 @@ so
         </div>
       </div>
 <a href="chap-4-independence.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="afterword.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="chap-6-convergence-concepts.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

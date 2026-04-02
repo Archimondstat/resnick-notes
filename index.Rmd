@@ -39,8 +39,8 @@ If you have any questions, corrections,  feel free to reach out:
 Starting from Chapter 5, I began writing my notes and following a new plan: instead of waiting until I finish the entire chapter to start the exercises, I now work on the corresponding exercises each time I finish reading a section (or a chunk) of the chapter. Also, I converted my R Markdown notes into a Bookdown project.
 
 
-
-
+### 2026-04-02 {-}
+In chapter 6, I added a section called __Other Notes__ for recording my own proof or other thing I want to write down.
 
 
 
