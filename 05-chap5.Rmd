@@ -250,8 +250,9 @@ So in chapter 5, what we learning is:
 
 3. 5.7 to 5.9: product spaces, sections, kernels, and the justification of iterated integration through Fubini/Tonelli.
 
+## Exercises
 
-## Ex 2
+### Ex 2
 ::: problem
 Argue without a computation that if $X\in L_2$ and $c\in\mathbb{R}$, then
 $\operatorname{Var}(c)=0$ and $\operatorname{Var}(X+c)=\operatorname{Var}(X)$.
@@ -271,7 +272,7 @@ Further, $X\in L_2$ ensure that the variance is finite.
 
 $\textbf{Note:}$ Additivity is not a general property.
 
-## Ex 4
+### Ex 4
 ::: problem
 Let $(X,Y)$ be uniformly distributed on the discrete points
 $(-1,0)$, $(1,0)$, $(0,1)$, $(0,-1)$.
@@ -288,7 +289,7 @@ $$
 for $E(XY)$, since $XY$ can only has value $0$, so $E(XY)=0$, therefore $E(XY)=E(X)E(Y)$.
 
 
-## Ex 1
+### Ex 1
 ::: problem
 Consider the triangle with vertices $(-1,0)$, $(1,0)$, $(0,1)$ and suppose $(X_1,X_2)$
 is a random vector uniformly distributed on this triangle. Compute $E(X_1+X_2)$.
@@ -319,7 +320,7 @@ E(X_1+X_2)=E(X_1)+E(X_2)=0+\tfrac13=\tfrac13.
 
 $\textbf{Note:}$ $X_1$ and $X_2$ are continuous r.v.s, we cannot use something like $P(X_1=-1)$ since it must be $0$.
 
-## Ex 3
+### Ex 3
 ::: problem
 Refer to Renyi's theorem 4.3.1 in Chapter 4. Let
 \[
@@ -346,7 +347,7 @@ $$
 
 $\textbf{Note:}$ When we discuss $\{L_1=n\}$, note that $X_2,X_3,\dots X_{n-1}$ cannot be record, and also, if we write  $L_1^{(n)}=\inf\{2\leq j\leq n:\ X_j\ \text{is a record}\}$, there could be not record, so it may take $\infty$ as value.
 
-## Ex 5
+### Ex 5
 ::: problem
 (a) If $F$ is a continuous distribution function, prove that
 $$\int_{\mathbb{R}} F(x) F(dx) = \frac{1}{2}.$$
@@ -366,7 +367,7 @@ Interpret the sum of expectations on the left as a probability.
 $$E(F(Y)) + E(G(X)) = 1 + P[X = Y].$$
 :::
 
-### (a)
+#### (a)
 $\textbf{My idea:}$ I may try to use Riemann–Stieltjes integral method to solve it, more precisely, since the distribution function is continuous,  it is meaningful/legitimate to perform integration by parts.
 $$
 \begin{aligned}
@@ -411,7 +412,7 @@ by symmetry, $P(X_1<X_2)=P(X_2<X_1)$, so $P(X_1\leq X_2)=P(X_1<X_2)=1/2$.
 
 $\textbf{Note:}$ My original idea fits the intuition, but not rigorous since conditional probability and conditional expectation are not defined yet, we will revisit this part after we learn Fubini's theorem, also, I replace the $|_R$ in $\textbf{My idea}$ part with $|_{-\infty}^{\infty}$. (2026-02-02).
 
-### (b)
+#### (b)
 $\textbf{My idea:}$ Using the same method from (a), for each atom $a$, the Riemann–Stieltjes integral on it is:
 $$
 \int_{a-}^a F(x)dF(x)=F^2(x)\big|_{a-}^a-\int_{a-}^a F(x)dF(x),
@@ -458,7 +459,7 @@ $$
 $$
 so $\frac{1}{2}(P(X=a))^2$ is stolen by the continuous assumption.
 
-### (c)
+#### (c)
 $\textbf{My idea:}$ let $a$ be an atom of $F(x)$, and $b$ be an atom of $G(x)$, and $b$ is not the atom of $F(x)$, $a$ is not the atom of $G(x)$, so 
 $$
 P(Y=a)=G(a)-G(a-)=0\quad\text{and}\quad P(X=b)=F(b)-F(b-)=0,
@@ -491,7 +492,7 @@ $$
 $$
 What happened in the $\textbf{My idea}$ part is that I incorrectly tried to apply the special formula from (b) (which is for $E(F(X))$) to the mixed terms $E(F(Y))$ and $E(G(X))$.
 
-### (d)
+#### (d)
 $\textbf{My idea:}$ By using the interpretation in (c), for independent r.v.s $X$ and $Y$, $E(F(Y))+E(G(X))$ can be seen as $P(X\leq Y)+P(Y\leq X)$, considering the common atom, we get $E(F(Y))+E(G(X))=P(X<Y)+P(Y<X)+P(X=Y)=1+P(X=Y)$.
 
 $\textbf{Answer:}$ (Lebesgue-Stieltjes version) We redo this part using integral form
@@ -509,7 +510,7 @@ where the sum may be taken over all $a\in\mathbb R$ (only atoms contribute).
 $\textbf{Note/Reflection:}$ In this note I want to summarize what we actually did in this exercise, that is, walked though a path from Riemann-Stieltjes to Lebesgue-Stieltjes integral. I used the continuous version of integration-by-parts to deal with the atom, and as we can see, half of the mass of the atom was stolen, and that is where we need the correction $\Delta F(a)$.
 
 
-## Ex 6 
+### Ex 6 
 (a-c at 2026-02-04), (d-e at 2026-02-13)
 
 ::: problem
@@ -554,7 +555,7 @@ is continuous.
 
 :::
 
-### (a)
+#### (a)
 $\textbf{My idea:}$ Let $X^+_n = X^+\mathbf{1}_{[|X|\geq n]}$, and $X^-_n = X^-\mathbf{1}_{[|X|\geq n]}$ since $X\in L_1$, then $X$ is essentially bounded, so  $X^+_n\downarrow0\,\text{(a.s.)}$ and $X^-_n\downarrow0\,\text{(a.s.)}$, by MCT, we have 
 $E(X^+_n)\downarrow0$ and $E(X^-_n)\downarrow0$, so 
 $$
@@ -576,7 +577,7 @@ so we have $\int_{\{|X|>n\}}XdP\to0$.
 
 $\textbf{Note:}$ When we have $X\in L_1$, it only indicates that $|X|<\infty$ a.s., since if $P(|X|=\infty)>0$, then we have $E(|X|)=\infty$, which makes $X$ out of $L_1$, it does **not** imply that $X$ is essentially bounded, the counter example is $\frac{1}{\sqrt x}$ on $(0,1]$. And note that I use the "decreasing version" of MCT in the **answer** part, even if we are safe in this exercise, we should keep in mind that there are extra condition, that is, we should guarantee that exists some $n$, such that $X_n\in L_1$, it is an analog to the "continuous from above" in measure, and that's why many texts state the increasing version first.
 
-### (b)
+#### (b)
 $\textbf{My idea:}$ Since $X\in L_1$, then for any $\varepsilon>0$, there exists $M>0$ such that $\int_{\{|X|>M\}}|X|dP<\varepsilon$ since from (a) we knew that $\int \left|X\mathbf{1}_{\{|X|>n\}}\right|dP\downarrow0$, so for such $M$, we have 
 $$
 \begin{aligned}
@@ -605,7 +606,7 @@ $\textbf{Note:}$ We cannot conclude that $|X|\mathbf{1}_{A_n}\to0$ from $P(A_n)\
 
 We need a counter example here:
 
-### (c)
+#### (c)
 $\textbf{My idea:}$ 
 
 "$\Rightarrow$": Suppose we have $\int_A|X|dP=\int|X|\mathbf{1}_AdP=0$, then for any $\varepsilon>0$, we have 
@@ -662,7 +663,7 @@ for the first part in RHS, $|X|$ is $0$ so the integral is $0$, and for the seco
 
 $\textbf{Note:}$ In the "$\Rightarrow$" part in **My idea**, we should see that even though $\int\mathbf{1}_{\{A\cap[0<|X|\leq\varepsilon]\}}dP\leq\int\mathbf{1}_{\{[0<|X|\leq\varepsilon]\}}dP$, but $P(0<|X|\leq\varepsilon)$ may not less or equal than $\varepsilon$, and in the "$\Leftarrow$" part, we assumed that $\int\mathbf{1}_{\{A\cap[|X|\leq M]\}}dP0$, this is also wrong, a counter example is that for $X(\omega)\equiv0$, then $P(|X|=0)=1$.
 
-### (d)
+#### (d)
 $\textbf{My idea:}$ Since $\text{Var}(X)=0$, that is 
 $$
 \int(X-E(X))^2dP=0,
@@ -673,7 +674,7 @@ $\textbf{Note:}$ There are some implicit assumption I didn't wrote up, even thou
 1. $X\in L_2$, so $E(X)$ exists and is finite, and $(X-E(X))^2\in L_1$;
 2. Since $(X-E(X))^2$ is nonnegative, $\int(X-E(X))^2dP=0$ means $(X-E(X))^2=0$ a.e..
 
-### (e)
+#### (e)
 $\textbf{My idea:}$ From the assumption we have 
 $$
 \begin{aligned}
@@ -711,7 +712,7 @@ $$
 
 $\textbf{Note:}$ In **my idea**, I said that "since $X\in L_1$, then $|X|\mathbb1_{A_n\Delta A}\in L_1$ and $|X|\mathbb1_{A_n\Delta A}\to0$ a.s. because $P(A_n\Delta A)\to0$.", this is not true, $P(A_n\Delta A)\to0$ only provides us convergence in probability/measure, not a.s. or pointwise.
 
-## Ex 10
+### Ex 10
 ::: problem
 For $X\ge 0$, let
 \[
@@ -755,7 +756,7 @@ Or we just consider the **Example 5.2.1 (Heavy Tails)** from the book, so we sho
 
 2. And also, the monotonicity of $X^*_n$ is not that trivial, we should specifically prove it: by using $\lceil 2x\rceil\leq2\lceil x\rceil$.
 
-## Ex 38
+### Ex 38
 ::: problem
 Use the Fatou Lemma to show the following: If $0 \leq X_n \rightarrow X$ and $\sup_n E(X_n) = K < \infty$, then $E(X) \leq K$ and $X \in L_1$.
 :::
@@ -772,7 +773,7 @@ so $X\in L_1$.
 
 $\textbf{Note:}$ This one is straight forward.
 
-## Ex 7
+### Ex 7
 ::: problem
 Suppose $X_n, n \geq 1$ and $X$ are uniformly bounded random variables; i.e. there exists a constant $K$ such that 
 $$|X_n| \vee |X| \leq K.$$
@@ -793,7 +794,7 @@ $$
 E(|X_n-X|)=E(Z_n)\to0.
 $$
 
-## Ex 8
+### Ex 8
 ::: problem
 Suppose $X, X_n, n \geq 1$ are random variables on the space $(\Omega, \mathcal{B}, P)$ and assume
 $$\sup_{\substack{\omega \in \Omega \\ n \geq 1}} |X_n(\omega)| < \infty;$$
@@ -808,7 +809,7 @@ If $\{X_n\}$ is uniformly bounded and $X_n \rightarrow X$, then $E(X_n) \rightar
 (Obviously, this follows from dominated convergence as in Exercise 7 above; the point is to use Egorov's theorem and not dominated convergence.)
 :::
 
-### (a)
+#### (a)
 $\textbf{My idea:}$ Since $X_n$ is uniformly bounded and $X_n\to X$ uniformly, because
 $$
 \begin{aligned}
@@ -826,7 +827,7 @@ $\textbf{Note:}$
 2. We can actually use DCT directly.
 
 
-### (b)
+#### (b)
 $\textbf{My idea:}$ We have $X_n$ is uniformly bounded and $X_n\to X$, then $X$ must also be bounded, since there exists $M>0$, such that for any $n$, $|X_n|\leq M$, then $|X|=|\lim_{n\to\infty} X|\leq M$, and it is suffice to prove $E(|X_n-X|)\to0$, since we are in probability space, $P(\Omega)=1$, so by Egorov's theorem, for any $\varepsilon>0$, there exist a set $\Lambda_\varepsilon$ such that $P(\Lambda_\varepsilon)<\varepsilon$ and 
 $$
 \sup_{\omega\in\Omega\setminus\Lambda_\varepsilon}|X(\omega)-X_n(\omega)|\to0\quad(n\to\infty),
@@ -846,7 +847,7 @@ $\textbf{Note:}$ Generally speaking, in a finite measure space, such as probabil
 
 
 
-## Ex 13
+### Ex 13
 ::: problem
 Suppose the probability space is the Lebesgue interval
 $$(\Omega = [0, 1], \mathcal{B}([0, 1]), \lambda)$$
@@ -880,7 +881,7 @@ E(S_n)\downarrow E(\limsup_{n\to\infty}X_n)=0,
 $$
 since $S_n$ is decreasing and dominated by $Z\in L_1$.
 
-## Ex 30
+### Ex 30
 ::: problem
 **Pratt's lemma.** The following variant of dominated convergence and Fatou is useful: Let $X_n, Y_n, X, Y$ be random variables on the probability space $(\Omega, \mathcal{B}, P)$ such that
 
@@ -928,7 +929,7 @@ Further, let $V_n=|X_n-X|\geq 0$, and $Y_n=Y=2Z\in L_1$, we have $E(|X_n-X|)\to0
 
 $\textbf{Note:}$ What happened in **my idea** is that, we don't have $X_n\leq Y$ pointwise or a.s., we only have $X_n\leq Y_n$ for each pair of $X_n,Y_n$.
 
-## Ex 36
+### Ex 36
 ::: problem
 **Beppo Levi Theorem.** Suppose for $n \geq 1$ that $X_n \in L_1$ are random variables such that
 $$\sup_{n \geq 1} E(X_n) < \infty.$$
@@ -954,7 +955,7 @@ that is, $E(X)=\lim_{n\to\infty}E(X_n)$ and $X\in L_1$.
 
 $\textbf{Note:}$ We actually don't need the subsequence trick here, and note that I incorrectly used the DCT in the end of **my idea**, but we didn't have $|X_n|\leq |X|$ because we don't have the nonnegative property here.
 
-## Ex 15
+### Ex 15
 ::: problem
 Suppose $X$ is a non-negative random variable satisfying 
 $$P[0 \leq X < \infty] = 1.$$
@@ -963,7 +964,7 @@ $$(a) \quad \lim_{n \rightarrow \infty} n E \left( \frac{1}{X} 1_{[X > n]} \righ
 $$(b) \quad \lim_{n \rightarrow \infty} n^{-1} E \left( \frac{1}{X} 1_{[X > n^{-1}]} \right) = 0.$$
 :::
 
-### (a)
+#### (a)
 $\textbf{My idea:}$ Since $P[0\leq X< \infty]=1$, that is $P[X=\infty]=0$.
 $$
 \begin{aligned}
@@ -981,7 +982,7 @@ $$
 
 $\textbf{Note:}$ I thought this part was good, but after I finished (b), I realized that the DCT can also be applied to (a).
 
-### (b)
+#### (b)
 $\textbf{My idea:}$ What I can figure out so far is that, I divide $[X>\frac1n]$ into two parts: $[\frac1n<X\leq\frac{1}{\sqrt{n}}]$ and $[X>\frac{1}{\sqrt n}]$, then in the second part, we have
 $$
 \begin{aligned}
@@ -1032,7 +1033,7 @@ $$
 $\textbf{Note:}$ This DCT version of solution is so straight forward, and my brain is hold by the idea from (a), let's try rewrite something like $a_nE(g(X)\mathbf{1}_{\{X\in A_n\}})$ into $E(f_n)$ form and check whether $f_n\to0$ a.s..
 
 
-## Ex 20
+### Ex 20
 ::: problem
 For a random variable $X$ with distribution $F$, define the moment generating function $\phi(\lambda)$ by
 $$\phi(\lambda) = E(e^{\lambda X}).$$
@@ -1050,7 +1051,7 @@ $$\phi(\lambda) = E(e^{\lambda X}).$$
  (e) If $F(I) = 0$, show $F_{\lambda}(I) = 0$ as well for $I$ a finite interval and $\lambda \in \Lambda$.
 :::
 
-### (a)
+#### (a)
 
 $\textbf{My idea:}$ Since $g(x)=e^{\lambda x}$ is a continuous function $\mathbb{R}\to\mathbb{R}$, then it is also a $\mathcal{B}(\mathbb{R})$/$\mathcal{B}(\mathbb{R})$ measurable function, by the transformation theorem, we have
 $$
@@ -1060,7 +1061,7 @@ $$
 \end{aligned}
 $$
 
-### (b)
+#### (b)
 
 $\textbf{My idea:}$ For $\lambda\in\text{int}\Lambda$, $e^{\lambda X}>0$, therefore 
 $$
@@ -1097,7 +1098,7 @@ since on $\{X>0\}$, we have $e^{\lambda_n X}\leq e^{(\lambda_0+\delta)X}$ and on
 
 $\textbf{Note:}$ We don't generally have $|e^{\lambda X}||(1-e^{\frac1n X})|\leq e^{\lambda X}$, instead, we should try to use the interior condition to construct the bounds for dominating function
 
-### (c)
+#### (c)
 $\textbf{Answer:}$ Let $X\sim\exp(\beta)$, then $\Lambda=(-\infty,\beta)$ and $\lambda_\infty=\beta$, however, $\phi(\beta)=\infty$, therefore $\lambda_\infty\not\in\Lambda$.
 
 Then define density function $f(x)=c\frac{e^{-\beta x}}{1+x^2}$, $x\geq0$, where $c$ is the normalizing constant, then
@@ -1108,7 +1109,7 @@ we cannot antiderivative this function, but we should see that when $\lambda\leq
 
 $\textbf{Note:}$ Because of the $e^{\lambda X}$, the exponential decreasing density will also be infinity at the boundary, so we need to add an extra polynomial them to control the boundary case.
 
-### (d)
+#### (d)
 $\textbf{My idea:}$ Since $F$ has a density $f$, therefore we have 
 $$
 \begin{aligned}
@@ -1124,7 +1125,7 @@ $$
 $$
 the notation $F(dx)=f(x)dx$ is shorthand for this. In chapter 10, the Radon–Nikodym theorem will justify writing $f=\frac{dF}{d\lambda}$.
 
-### (e) 
+#### (e) 
 $\textbf{My idea:}$ 
 (Version 1:)
 Since $F_\lambda$ is AC w.r.t. $F$, then we should have is $F(I)=0$, then $F_\lambda(I)=0$ as well. 
@@ -1139,7 +1140,7 @@ $$
 $\textbf{Note:}$ We should note that in (e), we actually don't have the density assumption, and also the absolutely continuous relation between measures is still not mentioned so far.
 
 
-## Ex 21
+### Ex 21
 ::: problem
 Suppose $\{p_k, k \geq 0\}$ is a probability mass function on $\{0, 1, \dots\}$ and define the generating function
 $$P(s) = \sum_{k=0}^{\infty} p_k s^k, \quad 0 \leq s \leq 1.$$
@@ -1229,7 +1230,7 @@ And I want to write down the scratch idea of version 2 here (since it took me tw
 3. Prove that function is summable/integrable;
 4. Use DCT.
 
-## Ex 16
+### Ex 16
 ::: problem
 (a) Suppose $-\infty<a\le b<\infty$. Show that the indicator function $\mathbf{1}_{(a,b]}(x)$ can be approximated by bounded and continuous functions; that is, show that there exist a sequence of continuous functions $0\le f_n\le 1$ such that
 \[
@@ -1252,7 +1253,7 @@ E\bigl(f_1(X_1)f_2(X_2)\bigr)=Ef_1(X_1)\,Ef_2(X_2).
 Show that the pair $\xi_\infty$ and $\eta_\infty$ are independent so that independence is preserved by taking limits.
 :::
 
-### (a)
+#### (a)
 $\textbf{My idea:}$ 
 Define $f_n(x)$ as
 $$
@@ -1297,7 +1298,7 @@ ggplot(df, aes(x = x, y = y, color = n)) +
 ```
 
 
-### (b)
+#### (b)
 $\textbf{My idea:}$ 
 
 "$\Rightarrow$": Suppose r.v.s $X_1$ and $X_2$ are independent, that is $\sigma(X_1)=X_1^{-1}(\mathcal{B}(\mathbb{R}))$ and $\sigma(X_2)=X_2^{-1}(\mathcal{B}(\mathbb{R}))$ are independent, then for any non-negative continuous function $f_1$, $f_2$, we have $\sigma(f_1(X_1))\subseteq\sigma(X_1)$ and $\sigma(f_2(X_2))\subseteq\sigma(X_2)$, so they are independent, which means $f_1(X_1)$ and $f_2(X_2)$ are independent r.v.s, therefore we have (we can prove it or use Example 5.9.2)
@@ -1405,7 +1406,7 @@ which is exactly independence of $X_1$ and $X_2$.
 $\textbf{Note:}$ __My idea__ is correct, but I kept the answer because it provide a $\pi-\lambda$ version of proof, but the core step is still the same: approximate indicators of half-open intervals (and hence rectangles) by bounded continuous functions, then pass to the limit with DCT.
 
 
-### (c)
+#### (c)
 $\textbf{My idea:}$ 
 According to (b), for any indicators $\mathbf{1}_{(a_1,b_1]}$ and $\mathbf{1}_{(a_2,b_2]}$, there exist non-negative continuous functions $f_m^{(1)}\to\mathbf{1}_{(a_1,b_1]}$ and $f_m^{(2)}\to\mathbf{1}_{(a_2,b_2]}$, firstly, since each of them are continuous, we have for each $m$,
 $$
@@ -1465,7 +1466,7 @@ $\textbf{Note:}$ __MY idea__ is correct, the answer is just another method. In f
 
 
 
-## Ex 18
+### Ex 18
 ::: problem
 Suppose $(\Omega, \mathcal{B}, P) = ((0, 1], \mathcal{B}((0, 1]), \lambda)$ where $\lambda$ is Lebesgue measure on $(0, 1]$. Let $\lambda \times \lambda$ be product measure on $(0, 1] \times (0, 1]$. Suppose that $A \subset (0, 1] \times (0, 1]$ is a rectangle whose sides are **NOT** parallel to the axes. Show that
 $$\lambda \times \lambda(A) = \text{area of } A.$$
@@ -1536,7 +1537,7 @@ And I summarize the correct idea of this exercise here:
 2. Show that the difference between their area goes to $0$.
 
 
-## Ex 23
+### Ex 23
 ::: problem
 Verify that the product $\sigma$-algebra is the smallest $\sigma$-algebra making the coordinate mappings $\pi_1, \pi_2$ measurable.
 :::
@@ -1549,7 +1550,7 @@ $\textbf{Answer:}$ For $\sigma$-algebra $\mathcal{B}$ on product space $\Omega_1
 $\textbf{Note:}$ In **my idea** part, I only proved that the strips are in $\mathcal{B}$, but what we finally need is that all the rectangles are in $\mathcal{B}$. Further, we should write down  $\pi_1$ and $\pi_2$ are $\mathcal{B}_1\times\mathcal{B}_2$-measurable even if we actually already knew it.
 
 
-## Ex 12
+### Ex 12
 ::: problem
 12. Suppose $X$ is an uncountable set and let $\mathcal{B}$ be the $\sigma$-field of countable and co-countable (complements are countable) sets. Show that the diagonal $\text{DIAG}  := \{(x, x) : x \in X\} \notin \mathcal{B} \times \mathcal{B}$ is **not** in the product $\sigma$-field. However, every section of $\text{DIAG} $ is measurable.
     * **Hints**:
@@ -1589,7 +1590,7 @@ $$
 which is measurable. 
 
 
-## Ex 17
+### Ex 17
 ::: problem
 $\textbf{Integration by parts.}$ Suppose $F$ and $G$ are two distribution functions with no common points of discontinuity in an interval $(a,b]$. Show
 \[
@@ -1808,7 +1809,7 @@ $$
 $$
 which is $0$ when there are no common discontinuities, This "upgrade to 2-D and integrate in two orders" idea remind me of the integral of $e^{-x^2}$ on $\mathbb{R}$, indeed, we can find the Taylor series and integral each part, but that requires knowledge from complex analysis.
 
-## Ex 27
+### Ex 27
 ::: problem
 $\textbf{Rapid variation.}$ A distribution tail $1-F(x)$ is called rapidly varying if
 \[
@@ -1947,7 +1948,7 @@ $\textbf{Note:}$ The interesting thing is that I was abusing L'Hopital's Rule be
 
 For the second part, I have to say it is the first time I met such idea.
 
-## Ex 11
+### Ex 11
 ::: problem
 If $X,Y$ are independent random variables and $E(X)$ exists, then for all
 $B\in\mathcal{B}(\mathbb{R})$, we have
@@ -2005,7 +2006,7 @@ $\textbf{Note:}$ **My idea** is correct. In fact, when a problem involves indepe
 Also, the author uses $F$ for both the distribution function and the induced measure (page 138), which can be confusing. Therefore, for a random variable $X$, I use $\mu_X$ for the induced measure and $F_X$ for the distribution function.
 
 
-## Ex 19
+### Ex 19
 ::: problem
 Define $(\Omega_i,\mathcal{B}_i,\mu_i)$, for $i=1,2$ as follows: Let $\mu_1$ be Lebesgue measure and $\mu_2$ counting measure so that $\mu_2(A)$ is the number of elements of $A$. Let
 \[
@@ -2037,7 +2038,7 @@ and
 
 :::
 
-### (a)
+#### (a)
 
 $\textbf{My idea:}$ 
 Rewrite $f$ as $f(x,y)=\mathbf1_{\{x=y\}}(x,y)$, then $\int_{\Omega_2}f(x,y)\mu_2(dy)$ is counting the points such that $x=y$, therefore it is $\infty$, so we have
@@ -2081,12 +2082,12 @@ $$
 \int_{\Omega_2}\left(\int_{\Omega_1}f(x,y)\mu_1(dx)\right)\mu_2(dy)=0.
 $$
 
-### (b)
+#### (b)
 $\textbf{My idea:}$  
 The two integrals are not equal. On $(0,1)$, the Lebesgue measure $\mu_1$ is finite, therefore $\sigma$-finite, however, since there are uncountble points in $(0,1)$, and $\mu_2$ is counting measure, so it is not $\sigma$-finite.
 
 
-## Ex 22
+### Ex 22
 ::: problem
 
 (a) For $X$, a positive random variable, use Fubini's theorem applied to $\sigma$-finite measures to prove
@@ -2123,7 +2124,7 @@ Show $E(X)=\infty$ but yet $xP[X>x]\to 0$ as $x\to\infty$.
 \]
 :::
 
-### (a) and (b)
+#### (a) and (b)
 $\textbf{My idea:}$ 
 Let's solve (a) and (b) together since (a) is a special case of (b), for any $\alpha>0$,
 $$
@@ -2143,7 +2144,7 @@ g(t):=\alpha t^{\alpha-1}\mathbf1_{\{t<x\}}
 $$
 on $[0,\infty)\times[0,\infty)$.
 
-### (c)
+#### (c)
 $\textbf{My idea:}$ 
 First, we can use (b) to rewrite $E(X^\alpha)$, for $\delta>0$, we have
 $$
@@ -2215,7 +2216,7 @@ $$
 $\textbf{Note:}$ __My idea__ is basically correct, but in fact we don't need to chop $\alpha\in(0,\infty)$ into 3 parts to discuss, further, method 2 told us that we can use the gamma function style integral to control $E(X^\alpha)$, that is, we don't event need to chop $[0,\infty)$ to pieces.
 
 
-### (d)
+#### (d)
 $\textbf{My idea:}$ Since $E(X^\delta)<\infty$ and $X\geq0$, that is
 $$
 \delta\int_{\mathbb R^+}x^{\delta-1} P[X>x]dx<\infty,
@@ -2260,7 +2261,7 @@ $$
 but for $x_n=n$, $f(x_n)=1$, therefore the limit does not exist.
 
 
-### (e)
+#### (e)
 $\textbf{My idea:}$ 
 According to (a), we have
 $$
@@ -2280,7 +2281,7 @@ $$
 $\textbf{Note:}$ By comparing (d) and (e), we note that $xP[X>x]\to0$ is much weaker than $E(X)<\infty$.
 
 
-### (f)
+#### (f)
 $\textbf{My idea:}$ Note that $P[|X|>\eta\sqrt x]=P[X^2>\eta^2x]=P[\frac{X^2}{\eta^2}>x]$, let $Y=\frac{X^2}{\eta^2}$,then for any $\eta>0$ we have $E(Y)<\infty$, by $(d)$, we get
 $$
 \lim_{x\to\infty}xP[Y>x]=0,
@@ -2290,7 +2291,7 @@ $$
 \lim_{x\to\infty}xP[|X|>\eta\sqrt x]=0.
 $$
 
-## Ex 24
+### Ex 24
 ::: problem
 Suppose $X_1,X_2$ are iid random variables with common $N(0,1)$ distribution. Define
 \[
@@ -2369,7 +2370,7 @@ $$
 so we get contradiction. In this example, $Y$ is integrable, even if $E(Y_n)\not\to E(Y)$.
 
 
-## Ex 35
+### Ex 35
 ::: problem
 Suppose $X,Y\in L_1$.
 
@@ -2381,7 +2382,7 @@ E(Y)-E(X)=\int_{\mathbb{R}}\bigl(P[X<x\leq Y]-P[Y<x\leq X]\bigr)\,dx.
 (b) The expected length of the random interval $(X,Y]$ is the integral with respect to $x$ of $P[x\in (X,Y]]$, the probability the random interval covers $x$.
 :::
 
-### (a)
+#### (a)
 $\textbf{My idea:}$ It seems that we should let $Z=Y-X$, and
 $$
 E(Y-X)=E(Z)=\int_{\Omega}ZdP
@@ -2424,7 +2425,7 @@ E(Y)-E(X)&=E(Y-X)\\
 \end{aligned}
 $$
 
-### (b)
+#### (b)
 
 $\textbf{Answer:}$ According to (a), for fixed $\omega$, the length of $(X(\omega),Y(\omega)]$ is $(Y(\omega)-X(\omega))^+=\int_{\mathbb R}\mathbf1_{\{X(\omega)<x\leq Y(\omega)\}}dx$, using Fubini, we have
 $$
@@ -2439,7 +2440,7 @@ $$
 $\textbf{Note:}$ The central point is to rewrite $(Y-X)^+$ and $(Y-X)^-$ as the lengths of random intervals, written in integral form via indicator functions, and then use Fubini's theorem to exchange expectation and integration.
 
 
-## Ex 28
+### Ex 28
 ::: problem
 Let $\{X_n,n\geq 1\}$ be a sequence of random variables. Show
 \[
@@ -2473,7 +2474,7 @@ $\textbf{Note:}$ __My idea__ is correct and I just polished it a little bit, but
 
 
 
-## Ex 26
+### Ex 26
 ::: problem
 Suppose $\{X_n,n\geq 1\}$ is a sequence of (not necessarily independent) Bernoulli random variables with
 \[
@@ -2514,7 +2515,7 @@ so after some point, $X_n$ are all $0$ with probability $1$.
 $\textbf{Note:}$ The idea is exactly from __Example 4.5.1__  in page 103.
 
 
-## Ex 29
+### Ex 29
 ::: problem
 Suppose $X_n$ is a sequence of random variables such that
 \[
@@ -2551,7 +2552,7 @@ so $E(|X_n|)\to\infty$, and tthere cannot exist an integrable function $Y\geq0$ 
 
 $\textbf{Note:}$ I accidentally miscalculate the value of $E(|X_n|)$, and this exercise tell us that if we want to apply DCT to $X_n$, then we actually need $|X_n|$ is uniformly bounded by some $0\leq Y\in L_1$.
 
-## Ex 32
+### Ex 32
 ::: problem
 (a) Suppose $X$ has possible values $\pm 1,\pm 2$ and that $X$ assumed each of these $4$ values with equal probability $1/4$. Define $Y=X^2$. Despite this functional relationship, show $X$ and $Y$ are uncorrelated; that is, show
 \[
@@ -2564,7 +2565,7 @@ $\textbf{Note:}$ I accidentally miscalculate the value of $E(|X_n|)$, and this e
 
 :::
 
-### (a)
+#### (a)
 $\textbf{My idea:}$ I skip the expression of $X$, $Y$ and $XY$ here, we have
 $$
 E(X)=(1-1+2-2)\cdot\frac14=0
@@ -2582,7 +2583,7 @@ Cov(X,Y)=E(XY)-E(X)E(Y)=0
 $$
 
 
-### (b)
+#### (b)
 $\textbf{My idea:}$ 
 $$
 \begin{aligned}
@@ -2594,13 +2595,13 @@ $$
 \end{aligned}
 $$
 
-### (c)
+#### (c)
 $\textbf{My idea:}$ According to (b), we shall see that even if the mean of rowing a dice is not zero, $X=U+V$ and $Y=U-V$ are still uncorrelated, however, note that $P(X=2)=\frac{1}{36}$, it means that we roll two $1$s, and $P(Y=0)=6\cdot\frac{1}{36}=\frac16$, but
 $$
 P(X=2,Y=0)=P(\text{roll two 1s})=\frac{1}{36}\neq P(X=2)P(Y=0).
 $$
 
-## Ex 33
+### Ex 33
 ::: problem
 Suppose $X,Y$ are two $L_2$ random variables such that $(X,Y)$ and $(-X,Y)$ have the same joint distributions. Show that $X$ and $Y$ are uncorrelated.
 :::
@@ -2636,7 +2637,7 @@ So $E(XY)=E(X)=0$, Therefore $\text{Cov}(X,Y)=E(XY)-E(X)E(Y)=0$.
 $\textbf{Note:}$ In __My idea__, I jumped to the conclusion too fast. In fact, the argument is not completely trivial: we must use the symmetry $(X,Y)\stackrel{d}{=}(−X,Y)$ together with the integrability of $X$ and $XY$ to justify taking expectations.
 
 
-## Ex 34
+### Ex 34
 ::: problem
 Suppose $\{X_n,n\geq 1\}$ are iid with $E(X_n)=0$, $\operatorname{Var}(X_n)=1$. Compute
 \[
@@ -2656,7 +2657,7 @@ $$
 
 $\textbf{Note:}$ __My idea__ may be compressed, but it is correct and I'll leave it as is.
 
-## Ex 31
+### Ex 31
 ::: problem
 If $X$ is a random variable, call $m$ a \emph{median} of $X$ if
 \[
@@ -2698,7 +2699,7 @@ E\left(\left(\sum_{i=1}^n \alpha_i X_i - X_{n+1}\right)^2\right)
 is minimized.
 :::
 
-### (a)
+#### (a)
 $\textbf{My idea:}$ Let $F^\leftarrow(y)=\inf\{s:F(s)\geq y\}$, then $m=F^\leftarrow(\frac12)$ exists, and $\{s:F(s)\geq y\}$ is closed because the right continuity of $F$, that is $P[X\leq m]=F(m)\geq\frac{1}{2}$, so $P[X>m]\leq\frac12$, if $F$ is continuous at $m$, than $P[X>m]=\frac12$, else if $F$ has mass on $m$, than $P[X>m]+P[X=m]\geq\frac12$, so $m$ is what we want.
 
 
@@ -2718,10 +2719,10 @@ so $m$ is what we want.
 
 $\textbf{Note:}$ The core of __My idea__ is correct, but we don't need to split into continuous and has mass situations.
 
-### (b)
+#### (b)
 $\textbf{My idea:}$ Consider $X$ follows Bernoulli distribution, $P[X=1]=P[X=0]=\frac12$, then $0$ and $1$ are both medians.
 
-### (c)
+#### (c)
 $\textbf{My idea:}$ Since $I$ is a closed interval, let $I=[a,b]$,
 
 1. Firstly, suppose $m>b$, according to the definition of median $m=\inf\{s:F(s)\geq\frac12\}$, for $b<m$, we must have $P(X\leq b)=F(b)<\frac12$, which is contracdicted to $P(X\in I)\geq \frac12$, so $m$ cannot at the right of $I$,
@@ -2754,7 +2755,7 @@ P(X\geq m)=1-P(X<m)\geq\frac12.
 $$
 Therefore $m$ is a median in $I$.
 
-### (d)
+#### (d)
 $\textbf{Answer:}$ Denote $E(x)$ as $\mu$ for simplicity.
 
 * If $m\geq \mu$, then on the event $\{X\geq m\}$, we have $(X-\mu)^2\geq(m-\mu)^2$, and since $\{X\geq m\}\subseteq\Omega$, we have
@@ -2790,7 +2791,7 @@ $$
 |m-\mu|\leq\sqrt{2Var(X)}.
 $$
 
-### (e)
+#### (e)
 $\textbf{My idea:}$ 
 $$
 \begin{aligned}
@@ -2860,7 +2861,7 @@ for all $a$.
 $\textbf{Note:}$ I think the idea in this kind of question should be linking the problem to the definition of median. In the __Answer__ part, I did try to take derivative on $a$ to get the minimum, but I occurred to me that $f(a)$ may not be differetiable at $a$, but we still can discuss the minimum using $f'_+$ and $f'_-$, but that makes the answer too tedious.
 
 
-### (f)
+#### (f)
 $\textbf{My idea:}$ For any $a$ we have
 $$
 \begin{aligned}
@@ -2872,7 +2873,7 @@ E((X-\mu)^2)&=E((X-a+a-\mu)^2)\\
 \end{aligned}
 $$
 
-### (g)
+#### (g)
 $\textbf{My idea:}$ It seems that it should be $\sum_{i=1}^n\frac1n X_i$.
 
 $\textbf{Answer:}$ Expand $E\left((\sum_{i=1}^n\alpha_iX_i-X_{n+1})^2\right)$, we have
@@ -2942,7 +2943,7 @@ otherwise, if $G$ is not invertible, that is, $\{X_n\}$ are linearly dependent, 
 
 Further, if we view $\{X_n\}$ as vectors, then we can assume that they are linearly independent W.L.G., since we can always find a subset of them such that they are linearly independent, and this subset is the basis on $\mathcal M=\text{span}\{X_1,\dots,X_n\}$, and in linear algebraic view, $\hat\alpha^T(X_1,\dots,X_n)$ is actually the project of $X_{n+1}$ on $\mathcal M$, which only depends on $\mathcal M$ itself and not depends on which basis we use, but be careful, it does not mean the solution is unique.
 
-## Ex 25
+### Ex 25
 ::: problem
 In cases where expectations are not guaranteed to exist, the following is a proposal for defining a central value. Suppose $F(x)$ is a strictly increasing and continuous distribution function. For example $F$ could be the standard normal distribution function. Define
 \[
@@ -3002,7 +3003,7 @@ so that $g(-x)=-g(x)$. Show
 \]
 :::
 
-### (a)
+#### (a)
 $\textbf{My idea:}$ Since $F$ is a strictly increasing continuous distribution function, then it is uniformly continuous on $\mathbb R$, that is, for any $\varepsilon>0$ and any $x,y\in \mathbb R$, there exists $\delta>0$, such that when $|x-y|<\delta$, we have $|F(x)-F(y)|<\varepsilon$. Therefore for $|\Delta|<\delta$, we have
 $$
 \begin{aligned}
@@ -3032,7 +3033,7 @@ $$
 
 $\textbf{Note:}$ __My idea__ is correct, The DCT proof is a cleaner probability-style argument.
 
-### (b)
+#### (b)
 $\textbf{My idea:}$ According (a), $\phi(\gamma)$ is continuous, and $|g(X-\gamma)|$ is bounded, therefore by DCT
 $$
 \begin{aligned}
@@ -3083,7 +3084,7 @@ Therefore $\lim_{\gamma\to-\infty}\phi(\gamma)=1$.
 $\textbf{Answer:}$ __My idea__ is correct, but needs adjustment. To study $\phi(\gamma)$ as $\gamma\to\pm\infty$, it is enough to let $\gamma_n\to\pm\infty$.
 
 
-### (c)
+#### (c)
 $\textbf{My idea:}$ For $\gamma_1<\gamma_2$ and any $\omega\in\Omega$, we have $X(\omega)-\gamma_1\geq X(\omega)-\gamma_2$, since $F$ is strictly increasing, we have 
 $$
 F(X(\omega)-\gamma_1)\geq F(X(\omega)-\gamma_2),
@@ -3099,7 +3100,7 @@ $$
 $$
 Therefore $\phi(\gamma)$ is non-increasing.
 
-### (d)
+#### (d)
 $\textbf{My idea:}$ According to (a) and (b), We knew that $\phi(\gamma)$ is continuous and $\lim_{\gamma\to\infty}\phi(\gamma)=-1$, $\lim_{\gamma\to-\infty}\phi(\gamma)=1$, and $0\in(-1,1)$, by intermediate value theorem, there exists $\gamma_0$ such that $\phi(\gamma_0)=0$. Suppose there exists $\gamma_1\neq\gamma_2$, such that $\phi(\gamma_1)=\phi(\gamma_2)=0$, according to (c), we can actually prove that $\phi(\gamma)$ is strictly decreasing:
 
 For $\gamma_1<\gamma_2$ and any $\omega\in\Omega$, we have $X(\omega)-\gamma_1> X(\omega)-\gamma_2$, since $F$ is strictly increasing, we have 
@@ -3117,7 +3118,7 @@ $$
 $$
 So we must have $\gamma_1=\gamma_2$.
 
-### (e)
+#### (e)
 $\textbf{My idea:}$ Let $Y=X+c$, then $Y$ is a r.v., denote its df as $F_Y$, then we have
 $$
 \begin{aligned}
@@ -3155,7 +3156,7 @@ $$
 
 $\textbf{Note:}$ I made a mistake that I thought $F$ changes with $X$, however we should treat $F$ as universal.
 
-### (f)
+#### (f)
 $\textbf{My idea:}$ Let $\phi_X(\gamma)=E(g(X-\gamma))$, then
 $$
 \begin{aligned}
@@ -3174,7 +3175,7 @@ $$
 -\gamma(X)=\gamma(-X).
 $$
 
-## Ex 14
+### Ex 14
 ::: problem
 Suppose $X \perp\!\!\!\perp Y$ and $h:\mathbb{R}^2\mapsto [0,\infty)$ is measurable. Define
 \[
@@ -3223,7 +3224,7 @@ $$
 
 $\textbf{Note:}$ __My idea__ is basically correct, but I didn't express the core idea: when $X$ and $Y$ are independent, then the law of their joint distribution $(X,Y)$ is the product of the marginal law, and I didn't mention the measurablity of $g$, besides, using $F_X$ and $F_Y$ to represent the law is confusing.
 
-## Ex 37
+### Ex 37
 ::: problem
 $\textbf{Mean Approximation Lemma.}$ Suppose that $X\in L_1(\Omega,\mathcal{B},P)$. For any
 $\epsilon>0$, there exists an integrable simple random variable $X_\epsilon$ such that
@@ -3381,7 +3382,7 @@ $$
 $\textbf{Note:}$ The first part of the question is easy since we already knew that we can use simple functions to approximate measurable/integrable functions, however, we should notice that the question requires us to approximate on $L_1$ instead of pointwise, and what happened in step 3 of __My idea__ is that, $\mathcal A$ is only a field, we cannot guarantee that countable union of subsets would not escape from it.
 
 
-## Ex 9
+### Ex 9
 ::: problem
 Use Fubini's theorem to show for a distribution function $F(x)$
 \[
@@ -3428,7 +3429,7 @@ $$
 \end{aligned}
 $$
 
-## Ex 39
+### Ex 39
 ::: problem
 A Poisson process $\{N(A,\omega),\,A\in\mathcal{B}(\mathbb{R}^2)\}$ on $\mathbb{R}^2$ with mean measure $\mu$ is defined to have the following properties:
 
@@ -3611,7 +3612,7 @@ $$
 
 $\textbf{Note:}$ I have almost get the full answer this time, what I have failed to recognized is that, for each fixed $\omega$, $N(A,\omega)$ is a counting measure on $\mathbb R^2$, and for each fixed measureable set $A$, $N(A,\omega)$ is a Poisson r.v. with parameter $\mu(A)$.
 
-## Ex 40
+### Ex 40
 ::: problem
 
 (a) Suppose $\eta$ is a $N(\mu,\sigma^2)$ random variable satisfying
@@ -3623,7 +3624,7 @@ Show $\mu=-\sigma^2/2$.
 (b) Suppose $(\xi,\eta)$ are jointly normal. If $e^\xi$ and $e^\eta$ are uncorrelated, then so are $\xi$ and $\eta$.
 :::
 
-### (a)
+#### (a)
 
 $\textbf{My idea:}$ For normal distribution $N(\mu,\sigma^2)$, the mgf is
 $$
@@ -3638,7 +3639,7 @@ $$
 \mu=-\frac12\sigma^2.
 $$
 
-### (b)
+#### (b)
 
 $\textbf{My idea:}$ For r.v.s $\xi$ an $\eta$, we have
 $$
@@ -3698,7 +3699,7 @@ $$
 $\textbf{Note:}$ What happened in __My idea__ is that, we cannot guarantee that when the sum is $0$, then every term is $0$ too.
 
 
-### Afterword
+## Afterword
 
 Until now (2026-04-01), We have finished all the exercises in chapter 5, I thought it was essentially impossible when I started reading this chapter. We should now know that, as the style of exercises in this book, some exercises are actually the "introducers" for the concepts in later chapters, therefore we use lots of the "a.e." and "a.s." terms even if the idea of a.s. convergence will only be formally introduced in the beginning of chapter 5.
 

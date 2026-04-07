@@ -40,7 +40,11 @@ Starting from Chapter 5, I began writing my notes and following a new plan: inst
 
 
 ### 2026-04-02 {-}
-In chapter 6, I added a section called __Other Notes__ for recording my own proof or other thing I want to write down.
+In chapter 6, I added a section called __Other Notes__ for recording other things I want to write down, including but not limit to:
+
+* Some alternative proofs, sometimes I may get lucky and think of some other proof for some theorems, that doesn't mean mine is better, it just means that I have different idea.
+
+* Some idea summary, sometimes the proof in the book may be too long so I write down something to summarize the idea.
 
 
 
