@@ -105,7 +105,7 @@ Thus $X_n\to X$ i.p.
 
 ### Proof idea summarize
 
-It is essentially impossible to recreate every proof in the book on my own, but I think it is still worthy summarzing the idea of proof using my own language.
+It is essentially impossible to recreate every proof in the book on my own, but I think it is still worthy summarizing the idea of proof using my own language.
 
 #### Theorem 6.3.1(a)
 We focus on the part that if $\{X_n\}$ is Cauchy in probability, then $\{X_n\}$ converges in probability.
@@ -396,4 +396,111 @@ $$
 
 So this exercise shows that convergence in probability is metrizable on $L^0$. In this sense, __Theorem 6.3.1__ can be viewed as a completeness statement for a metric generating convergence in probability.
 
+
+### EX 17
+::: problem
+In a discrete probability space, convergence in probability is equivalent to almost sure convergence.
+:::
+
+$\textbf{My idea:}$ Suppose $X_n\xrightarrow{P}X$, but $X_n\not\xrightarrow{a.s.}X$, then there exists $A\in\mathcal B$, $P(A)>0$ such that for $\omega\in A$, exists $\varepsilon_0>0$, for all $N>0$, exists $n_0\geq N$, such that
+$$
+|X_n(\omega)-X(\omega)|>\varepsilon_0.
+$$
+Since $\Omega$ is discrete, we always can pick an $\omega_0$ from $A$ such that $P(\omega_0)>0$, so for this $\omega_0$, there exists $\varepsilon_0>0$ for all $N>0$, we always have $n\geq N$ such that
+$$
+P(\{\omega_0:|X_n(\omega_0)-X(\omega_0)|>\varepsilon_0\})>0,
+$$
+that is, for $N=1$, there is $n_1$ such that $|X_{n_1}(\omega_0)-X(\omega_0)|>\varepsilon_0$, and for $N=n_1+1$, we also have $n_2$ such that $|X_{n_k}(\omega_0)-X(\omega_0)|>\varepsilon_0$, by doing so we explicitly construct a sub-sequence $X_{n_k}$, such that 
+$$
+P(\{\omega_0:|X_{n_k}(\omega_0)-X(\omega_0)|>\varepsilon_0\})>0
+$$
+then for this $\varepsilon_0$, it is contradict to 
+$$
+P(|X_n-X|>\varepsilon_0)\to0
+$$
+so $X_n\xrightarrow{a.s.}X$.
+
+Conversely, we already have $X_n\xrightarrow{a.s.}X\implies X_n\xrightarrow{P}X$.
+
+$\textbf{Answer:}$
+
+"$\Rightarrow$": It is a standard result that almost sure convergence implies convergence in probability in any probability space. Since $X_n \xrightarrow{a.s.} X$, for any $\varepsilon > 0$, $P(|X_n - X| > \varepsilon) \to 0$ as $n \to \infty$. Therefore, $X_n \xrightarrow{P} X$.
+
+"$\Leftarrow$": Assume $X_n \xrightarrow{P} X$. We want to show $X_n \xrightarrow{a.s.} X$ in a discrete probability space $\Omega$. 
+
+Suppose for the sake of contradiction that $X_n \not\xrightarrow{a.s.} X$. Let $A$ be the set of outcomes where convergence fails:
+$$
+A = \left\{\omega \in \Omega : \lim_{n \to \infty} X_n(\omega) \neq X(\omega)\right\}
+$$
+By our assumption that almost sure convergence fails, we have $P(A) > 0$.
+
+Since $\Omega$ is a discrete probability space, any event is composed of a countable union of disjoint singleton events. Therefore:
+$$
+P(A) = \sum_{\omega \in A} P(\{\omega\})
+$$
+Because $P(A) > 0$, there must exist at least one specific outcome $\omega_0 \in A$ such that $P(\{\omega_0\}) = p_0 > 0$.
+
+Since $\omega_0 \in A$, the deterministic sequence of real numbers $X_n(\omega_0)$ does not converge to $X(\omega_0)$. By the definition of non-convergence, there exists some $\varepsilon_0 > 0$ such that for any integer $N > 0$, there exists an $n \geq N$ satisfying:
+$$
+|X_n(\omega_0) - X(\omega_0)| \geq \varepsilon_0
+$$
+This allows us to explicitly construct a subsequence $n_k$ such that for all $k$:
+$$
+|X_{n_k}(\omega_0) - X(\omega_0)| \geq \varepsilon_0
+$$
+Now, consider the event $B_n = \{\omega \in \Omega : |X_n(\omega) - X(\omega)| \geq \varepsilon_0\}$. For every index in our subsequence $n_k$, the specific outcome $\omega_0$ is an element of $B_{n_k}$. By the monotonicity of probability measures, this implies:
+$$
+P(|X_{n_k} - X| \geq \varepsilon_0) \geq P(\{\omega_0\}) = p_0 > 0 \quad \text{for all } k
+$$
+Because there is a subsequence where the probability is bounded below by a strictly positive number $p_0$, the limit of the sequence of probabilities cannot be zero:
+$$
+\lim_{n \to \infty} P(|X_n - X| \geq \varepsilon_0) \neq 0
+$$
+This directly contradicts our initial assumption that $X_n \xrightarrow{P} X$. Therefore, our assumption that $X_n \not\xrightarrow{a.s.} X$ must be false, concluding that $X_n \xrightarrow{a.s.} X$.
+
+$\textbf{Note:}$ __My idea__ is correct, and I provide the formalized answer here.
+
+
+### EX 19
+::: problem
+If $0 \le X_n \le Y_n$ and $Y_n \xrightarrow{P} 0$, check $X_n \xrightarrow{P} 0$.
+:::
+
+$\textbf{My idea:}$ Since $0\leq X_n\leq Y_n$, so for all $\varepsilon>0$, we have
+$$
+\{X_n>\varepsilon\}\subseteq\{Y_n>\varepsilon\},
+$$
+and since $Y_n\xrightarrow{P}0$, we have
+$$
+0\leq P(X_n>\varepsilon)\leq P(Y_n>\varepsilon)\to0,
+$$
+that is, $X_n\xrightarrow{P}0$.
+
+$\textbf{Answer:}$
+
+Assume $0 \leq X_n \leq Y_n$ and $Y_n \xrightarrow{P} 0$. We wish to show $X_n \xrightarrow{P} 0$.
+
+Let $\varepsilon > 0$ be given. By the definition of convergence in probability, we must evaluate $\lim_{n \to \infty} P(|X_n - 0| > \varepsilon)$.
+
+Since $0 \leq X_n \leq Y_n$, both $X_n$ and $Y_n$ are non-negative random variables. Therefore, $|X_n| = X_n$ and $|Y_n| = Y_n$. We can rewrite our target probability as $P(X_n > \varepsilon)$.
+
+Consider the event $\{\omega \in \Omega : X_n(\omega) > \varepsilon\}$. Because $X_n(\omega) \leq Y_n(\omega)$ for all $\omega \in \Omega$, if $X_n(\omega) > \varepsilon$, it strictly follows that $Y_n(\omega) > \varepsilon$. This gives us the set inclusion:
+$$
+\{X_n > \varepsilon\} \subseteq \{Y_n > \varepsilon\}
+$$
+By the monotonicity property of probability measures, if $A \subseteq B$, then $P(A) \leq P(B)$. Applying this to our events yields:
+$$
+0 \leq P(X_n > \varepsilon) \leq P(Y_n > \varepsilon)
+$$
+We are given that $Y_n \xrightarrow{P} 0$, which means by definition $\lim_{n \to \infty} P(|Y_n| > \varepsilon) = 0$. Since $Y_n \geq 0$, this is equivalent to $\lim_{n \to \infty} P(Y_n > \varepsilon) = 0$.
+
+Taking the limit as $n \to \infty$ of our inequality:
+$$
+0 \leq \lim_{n \to \infty} P(X_n > \varepsilon) \leq \lim_{n \to \infty} P(Y_n > \varepsilon) = 0
+$$
+By the squeeze theorem, $\lim_{n \to \infty} P(X_n > \varepsilon) = 0$. 
+
+Therefore, $X_n \xrightarrow{P} 0$. 
+
+$\textbf{Note:}$ __My idea__ is correct, and I provide the formalized answer here.
 

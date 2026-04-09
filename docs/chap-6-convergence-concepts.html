@@ -23,7 +23,7 @@
 <meta name="author" content="Zhanwen Peng" />
 
 
-<meta name="date" content="2026-04-07" />
+<meta name="date" content="2026-04-09" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -330,6 +330,8 @@
 <li class="chapter" data-level="" data-path="chap-6-convergence-concepts.html"><a href="chap-6-convergence-concepts.html#c-13"><i class="fa fa-check"></i>(c)</a></li>
 <li class="chapter" data-level="" data-path="chap-6-convergence-concepts.html"><a href="chap-6-convergence-concepts.html#summary-3"><i class="fa fa-check"></i>Summary</a></li>
 </ul></li>
+<li class="chapter" data-level="" data-path="chap-6-convergence-concepts.html"><a href="chap-6-convergence-concepts.html#ex-17-2"><i class="fa fa-check"></i>EX 17</a></li>
+<li class="chapter" data-level="" data-path="chap-6-convergence-concepts.html"><a href="chap-6-convergence-concepts.html#ex-19-2"><i class="fa fa-check"></i>EX 19</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -454,7 +456,7 @@ so we have for any <span class="math inline">\(\varepsilon&gt;0\)</span>
 </div>
 <div id="proof-idea-summarize" class="section level3 hasAnchor">
 <h3>Proof idea summarize<a href="chap-6-convergence-concepts.html#proof-idea-summarize" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>It is essentially impossible to recreate every proof in the book on my own, but I think it is still worthy summarzing the idea of proof using my own language.</p>
+<p>It is essentially impossible to recreate every proof in the book on my own, but I think it is still worthy summarizing the idea of proof using my own language.</p>
 <div id="theorem-6.3.1a" class="section level4 hasAnchor">
 <h4>Theorem 6.3.1(a)<a href="chap-6-convergence-concepts.html#theorem-6.3.1a" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>We focus on the part that if <span class="math inline">\(\{X_n\}\)</span> is Cauchy in probability, then <span class="math inline">\(\{X_n\}\)</span> converges in probability.</p>
@@ -713,8 +715,98 @@ X_n\xrightarrow{P}X
 d(X_n,X)\to 0.
 \]</span></p>
 <p>So this exercise shows that convergence in probability is metrizable on <span class="math inline">\(L^0\)</span>. In this sense, <strong>Theorem 6.3.1</strong> can be viewed as a completeness statement for a metric generating convergence in probability.</p>
-
 </div>
+</div>
+<div id="ex-17-2" class="section level3 hasAnchor">
+<h3>EX 17<a href="chap-6-convergence-concepts.html#ex-17-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="problem">
+<p>In a discrete probability space, convergence in probability is equivalent to almost sure convergence.</p>
+</div>
+<p><span class="math inline">\(\textbf{My idea:}\)</span> Suppose <span class="math inline">\(X_n\xrightarrow{P}X\)</span>, but <span class="math inline">\(X_n\not\xrightarrow{a.s.}X\)</span>, then there exists <span class="math inline">\(A\in\mathcal B\)</span>, <span class="math inline">\(P(A)&gt;0\)</span> such that for <span class="math inline">\(\omega\in A\)</span>, exists <span class="math inline">\(\varepsilon_0&gt;0\)</span>, for all <span class="math inline">\(N&gt;0\)</span>, exists <span class="math inline">\(n_0\geq N\)</span>, such that
+<span class="math display">\[
+|X_n(\omega)-X(\omega)|&gt;\varepsilon_0.
+\]</span>
+Since <span class="math inline">\(\Omega\)</span> is discrete, we always can pick an <span class="math inline">\(\omega_0\)</span> from <span class="math inline">\(A\)</span> such that <span class="math inline">\(P(\omega_0)&gt;0\)</span>, so for this <span class="math inline">\(\omega_0\)</span>, there exists <span class="math inline">\(\varepsilon_0&gt;0\)</span> for all <span class="math inline">\(N&gt;0\)</span>, we always have <span class="math inline">\(n\geq N\)</span> such that
+<span class="math display">\[
+P(\{\omega_0:|X_n(\omega_0)-X(\omega_0)|&gt;\varepsilon_0\})&gt;0,
+\]</span>
+that is, for <span class="math inline">\(N=1\)</span>, there is <span class="math inline">\(n_1\)</span> such that <span class="math inline">\(|X_{n_1}(\omega_0)-X(\omega_0)|&gt;\varepsilon_0\)</span>, and for <span class="math inline">\(N=n_1+1\)</span>, we also have <span class="math inline">\(n_2\)</span> such that <span class="math inline">\(|X_{n_k}(\omega_0)-X(\omega_0)|&gt;\varepsilon_0\)</span>, by doing so we explicitly construct a sub-sequence <span class="math inline">\(X_{n_k}\)</span>, such that
+<span class="math display">\[
+P(\{\omega_0:|X_{n_k}(\omega_0)-X(\omega_0)|&gt;\varepsilon_0\})&gt;0
+\]</span>
+then for this <span class="math inline">\(\varepsilon_0\)</span>, it is contradict to
+<span class="math display">\[
+P(|X_n-X|&gt;\varepsilon_0)\to0
+\]</span>
+so <span class="math inline">\(X_n\xrightarrow{a.s.}X\)</span>.</p>
+<p>Conversely, we already have <span class="math inline">\(X_n\xrightarrow{a.s.}X\implies X_n\xrightarrow{P}X\)</span>.</p>
+<p><span class="math inline">\(\textbf{Answer:}\)</span></p>
+<p>“<span class="math inline">\(\Rightarrow\)</span>”: It is a standard result that almost sure convergence implies convergence in probability in any probability space. Since <span class="math inline">\(X_n \xrightarrow{a.s.} X\)</span>, for any <span class="math inline">\(\varepsilon &gt; 0\)</span>, <span class="math inline">\(P(|X_n - X| &gt; \varepsilon) \to 0\)</span> as <span class="math inline">\(n \to \infty\)</span>. Therefore, <span class="math inline">\(X_n \xrightarrow{P} X\)</span>.</p>
+<p>“<span class="math inline">\(\Leftarrow\)</span>”: Assume <span class="math inline">\(X_n \xrightarrow{P} X\)</span>. We want to show <span class="math inline">\(X_n \xrightarrow{a.s.} X\)</span> in a discrete probability space <span class="math inline">\(\Omega\)</span>.</p>
+<p>Suppose for the sake of contradiction that <span class="math inline">\(X_n \not\xrightarrow{a.s.} X\)</span>. Let <span class="math inline">\(A\)</span> be the set of outcomes where convergence fails:
+<span class="math display">\[
+A = \left\{\omega \in \Omega : \lim_{n \to \infty} X_n(\omega) \neq X(\omega)\right\}
+\]</span>
+By our assumption that almost sure convergence fails, we have <span class="math inline">\(P(A) &gt; 0\)</span>.</p>
+<p>Since <span class="math inline">\(\Omega\)</span> is a discrete probability space, any event is composed of a countable union of disjoint singleton events. Therefore:
+<span class="math display">\[
+P(A) = \sum_{\omega \in A} P(\{\omega\})
+\]</span>
+Because <span class="math inline">\(P(A) &gt; 0\)</span>, there must exist at least one specific outcome <span class="math inline">\(\omega_0 \in A\)</span> such that <span class="math inline">\(P(\{\omega_0\}) = p_0 &gt; 0\)</span>.</p>
+<p>Since <span class="math inline">\(\omega_0 \in A\)</span>, the deterministic sequence of real numbers <span class="math inline">\(X_n(\omega_0)\)</span> does not converge to <span class="math inline">\(X(\omega_0)\)</span>. By the definition of non-convergence, there exists some <span class="math inline">\(\varepsilon_0 &gt; 0\)</span> such that for any integer <span class="math inline">\(N &gt; 0\)</span>, there exists an <span class="math inline">\(n \geq N\)</span> satisfying:
+<span class="math display">\[
+|X_n(\omega_0) - X(\omega_0)| \geq \varepsilon_0
+\]</span>
+This allows us to explicitly construct a subsequence <span class="math inline">\(n_k\)</span> such that for all <span class="math inline">\(k\)</span>:
+<span class="math display">\[
+|X_{n_k}(\omega_0) - X(\omega_0)| \geq \varepsilon_0
+\]</span>
+Now, consider the event <span class="math inline">\(B_n = \{\omega \in \Omega : |X_n(\omega) - X(\omega)| \geq \varepsilon_0\}\)</span>. For every index in our subsequence <span class="math inline">\(n_k\)</span>, the specific outcome <span class="math inline">\(\omega_0\)</span> is an element of <span class="math inline">\(B_{n_k}\)</span>. By the monotonicity of probability measures, this implies:
+<span class="math display">\[
+P(|X_{n_k} - X| \geq \varepsilon_0) \geq P(\{\omega_0\}) = p_0 &gt; 0 \quad \text{for all } k
+\]</span>
+Because there is a subsequence where the probability is bounded below by a strictly positive number <span class="math inline">\(p_0\)</span>, the limit of the sequence of probabilities cannot be zero:
+<span class="math display">\[
+\lim_{n \to \infty} P(|X_n - X| \geq \varepsilon_0) \neq 0
+\]</span>
+This directly contradicts our initial assumption that <span class="math inline">\(X_n \xrightarrow{P} X\)</span>. Therefore, our assumption that <span class="math inline">\(X_n \not\xrightarrow{a.s.} X\)</span> must be false, concluding that <span class="math inline">\(X_n \xrightarrow{a.s.} X\)</span>.</p>
+<p><span class="math inline">\(\textbf{Note:}\)</span> <strong>My idea</strong> is correct, and I provide the formalized answer here.</p>
+</div>
+<div id="ex-19-2" class="section level3 hasAnchor">
+<h3>EX 19<a href="chap-6-convergence-concepts.html#ex-19-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="problem">
+<p>If <span class="math inline">\(0 \le X_n \le Y_n\)</span> and <span class="math inline">\(Y_n \xrightarrow{P} 0\)</span>, check <span class="math inline">\(X_n \xrightarrow{P} 0\)</span>.</p>
+</div>
+<p><span class="math inline">\(\textbf{My idea:}\)</span> Since <span class="math inline">\(0\leq X_n\leq Y_n\)</span>, so for all <span class="math inline">\(\varepsilon&gt;0\)</span>, we have
+<span class="math display">\[
+\{X_n&gt;\varepsilon\}\subseteq\{Y_n&gt;\varepsilon\},
+\]</span>
+and since <span class="math inline">\(Y_n\xrightarrow{P}0\)</span>, we have
+<span class="math display">\[
+0\leq P(X_n&gt;\varepsilon)\leq P(Y_n&gt;\varepsilon)\to0,
+\]</span>
+that is, <span class="math inline">\(X_n\xrightarrow{P}0\)</span>.</p>
+<p><span class="math inline">\(\textbf{Answer:}\)</span></p>
+<p>Assume <span class="math inline">\(0 \leq X_n \leq Y_n\)</span> and <span class="math inline">\(Y_n \xrightarrow{P} 0\)</span>. We wish to show <span class="math inline">\(X_n \xrightarrow{P} 0\)</span>.</p>
+<p>Let <span class="math inline">\(\varepsilon &gt; 0\)</span> be given. By the definition of convergence in probability, we must evaluate <span class="math inline">\(\lim_{n \to \infty} P(|X_n - 0| &gt; \varepsilon)\)</span>.</p>
+<p>Since <span class="math inline">\(0 \leq X_n \leq Y_n\)</span>, both <span class="math inline">\(X_n\)</span> and <span class="math inline">\(Y_n\)</span> are non-negative random variables. Therefore, <span class="math inline">\(|X_n| = X_n\)</span> and <span class="math inline">\(|Y_n| = Y_n\)</span>. We can rewrite our target probability as <span class="math inline">\(P(X_n &gt; \varepsilon)\)</span>.</p>
+<p>Consider the event <span class="math inline">\(\{\omega \in \Omega : X_n(\omega) &gt; \varepsilon\}\)</span>. Because <span class="math inline">\(X_n(\omega) \leq Y_n(\omega)\)</span> for all <span class="math inline">\(\omega \in \Omega\)</span>, if <span class="math inline">\(X_n(\omega) &gt; \varepsilon\)</span>, it strictly follows that <span class="math inline">\(Y_n(\omega) &gt; \varepsilon\)</span>. This gives us the set inclusion:
+<span class="math display">\[
+\{X_n &gt; \varepsilon\} \subseteq \{Y_n &gt; \varepsilon\}
+\]</span>
+By the monotonicity property of probability measures, if <span class="math inline">\(A \subseteq B\)</span>, then <span class="math inline">\(P(A) \leq P(B)\)</span>. Applying this to our events yields:
+<span class="math display">\[
+0 \leq P(X_n &gt; \varepsilon) \leq P(Y_n &gt; \varepsilon)
+\]</span>
+We are given that <span class="math inline">\(Y_n \xrightarrow{P} 0\)</span>, which means by definition <span class="math inline">\(\lim_{n \to \infty} P(|Y_n| &gt; \varepsilon) = 0\)</span>. Since <span class="math inline">\(Y_n \geq 0\)</span>, this is equivalent to <span class="math inline">\(\lim_{n \to \infty} P(Y_n &gt; \varepsilon) = 0\)</span>.</p>
+<p>Taking the limit as <span class="math inline">\(n \to \infty\)</span> of our inequality:
+<span class="math display">\[
+0 \leq \lim_{n \to \infty} P(X_n &gt; \varepsilon) \leq \lim_{n \to \infty} P(Y_n &gt; \varepsilon) = 0
+\]</span>
+By the squeeze theorem, <span class="math inline">\(\lim_{n \to \infty} P(X_n &gt; \varepsilon) = 0\)</span>.</p>
+<p>Therefore, <span class="math inline">\(X_n \xrightarrow{P} 0\)</span>.</p>
+<p><span class="math inline">\(\textbf{Note:}\)</span> <strong>My idea</strong> is correct, and I provide the formalized answer here.</p>
+
 </div>
 </div>
 </div>
