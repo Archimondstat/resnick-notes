@@ -12,6 +12,25 @@ knitr::opts_chunk$set(echo = TRUE)
 
 # About This Project
 
+These are my formal notes and exercise records while learning *A Probability Path* by Sidney Resnick. After finishing Chapters 1–3, I decided to start writing things down more systematically.
+
+**The Shift in Methodology**
+Initially, my protocol was to simply try an exercise, check the solution key when stuck, and redo it. However, as the material advanced, I realized that relying on instinct and comparing answers left too many logical gaps. In measure theory, standard mathematical intuition often becomes an active liability. Navigating these concepts requires treating every problem like a minefield, where the only safe path is built by explicitly citing basic axioms, definitions, and theorems. 
+
+To enforce this discipline, I evolved my approach into a strict, AI-assisted execution loop. Documenting completely wrong ideas is a core feature of this project—it maps exactly which traps my specific intuition is wired to fall into, allowing me to disarm them permanently.
+
+**The 5-Step AI-Assisted Protocol:**
+
+1.  **The Brain Dump ("My idea"):** I record my raw intuition, partial proofs, and algebraic sketches. The goal is to capture the initial logical engine, regardless of structural flaws.
+2.  **The Diagnostic & Hint Loop:** The AI evaluates my initial idea. 
+    * **If correct:** We proceed directly to Step 3.
+    * **If incorrect:** The AI is strictly forbidden from revealing the full path or formal answer. Instead, it provides the *minimum effective hint*—a single counterexample, a missing definition, or a targeted question. I iterate on my "Brain Dump" until the core logical engine functions correctly.
+3.  **The Autopsy & Formalization:** Once the foundational idea is sound, the AI and I explicitly dissect the logic. We identify the mechanical translation of algebraic variables into geometric sets and restructure the idea into a mathematically watertight LaTeX proof.
+4.  **The Physical Execution (The Redo):** With all reference materials and screens closed, I handwrite the fully formalized proof entirely from scratch on a blank page to build structural muscle memory.
+5.  **The Digital Record ("Answer"):** Only after the AI verifies my handwritten physical execution is flawless do I copy the generated LaTeX directly into my digital notes alongside my original (and sometimes heavily corrected) ideas. This maintains a complete, honest historical record of my progression.
+
+<div style="background-color: #f9f9f9; border-left: 4px solid #6c757d; padding: 15px; margin: 20px 0; border-radius: 4px;">
+**Original Protocol:**
 These are my Notes and exercise records while learning *A Probability
 Path* by Resnick.\
 After finishing Chapters 1–3, I decided to start writing things down
@@ -20,10 +39,10 @@ Here is the protocol I follow for exercises:
 
 -   I write down anything I can, even if I know something may be wrong.
 -   I compare with the solution and locate what went wrong.
--   I close the solution and redo the exercise until I can complete it
-    **entirely** on my own.
+-   I close the solution and redo the exercise until I can complete it  **entirely** on my own.
 
 I record both my first idea and the final correct solution here.
+</div>
 
 > **Note on Chapters 1–3:** I have already worked through the exercises for Chapters 1–3 during my initial study, so I will randomly or quasi-randomly select exercises from Chapters 1-3 to refill the blank, and may or may not write down notes for these chapters.
 
@@ -46,8 +65,8 @@ In chapter 6, I added a section called __Other Notes__ for recording other thing
 
 * Some idea summary, sometimes the proof in the book may be too long so I write down something to summarize the idea.
 
-
-
+### 2026-04-10 {-}
+Recently I realized that for some exercises I may be essentially correct, but I actually had left too many logical gaps, this is a dangerous signal indicating that I was doing it more by instinct than by logic, for some easy questions it could be easy to see through a path from the given condition to the required endpoint directly, however when dealing with advanced questions, it is just being a blind people trying to walk through a minefield, relying on instinct is not an option, the only canes we can use are basic axioms, definitions, theorems and logic, therefore I should try my best not merely just write down a skeletal outline as an answer, but explicitly justify every logical step in detail.
 
 
 

@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chap 6, Convergence Concepts | Notes on A Probability Path (Resnick)</title>
   <meta name="description" content="Chap 6, Convergence Concepts | Notes on A Probability Path (Resnick)" />
-  <meta name="generator" content="bookdown 0.46 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.42 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chap 6, Convergence Concepts | Notes on A Probability Path (Resnick)" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="Zhanwen Peng" />
 
 
-<meta name="date" content="2026-04-09" />
+<meta name="date" content="2026-04-10" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -83,6 +83,7 @@
 <ul>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#section"><i class="fa fa-check"></i>2026-01-31</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#section-1"><i class="fa fa-check"></i>2026-04-02</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#section-2"><i class="fa fa-check"></i>2026-04-10</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="chap-1-sets-and-events.html"><a href="chap-1-sets-and-events.html"><i class="fa fa-check"></i>Chap 1, Sets and Events</a>
@@ -332,6 +333,7 @@
 </ul></li>
 <li class="chapter" data-level="" data-path="chap-6-convergence-concepts.html"><a href="chap-6-convergence-concepts.html#ex-17-2"><i class="fa fa-check"></i>EX 17</a></li>
 <li class="chapter" data-level="" data-path="chap-6-convergence-concepts.html"><a href="chap-6-convergence-concepts.html#ex-19-2"><i class="fa fa-check"></i>EX 19</a></li>
+<li class="chapter" data-level="" data-path="chap-6-convergence-concepts.html"><a href="chap-6-convergence-concepts.html#ex-21-2"><i class="fa fa-check"></i>EX 21</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -806,6 +808,51 @@ We are given that <span class="math inline">\(Y_n \xrightarrow{P} 0\)</span>, wh
 By the squeeze theorem, <span class="math inline">\(\lim_{n \to \infty} P(X_n &gt; \varepsilon) = 0\)</span>.</p>
 <p>Therefore, <span class="math inline">\(X_n \xrightarrow{P} 0\)</span>.</p>
 <p><span class="math inline">\(\textbf{Note:}\)</span> <strong>My idea</strong> is correct, and I provide the formalized answer here.</p>
+</div>
+<div id="ex-21-2" class="section level3 hasAnchor">
+<h3>EX 21<a href="chap-6-convergence-concepts.html#ex-21-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="problem">
+<p>Recall the notation <span class="math inline">\(d(A, B) = P(A \triangle B)\)</span> for events <span class="math inline">\(A, B\)</span>. Prove
+<span class="math display">\[d(A_n, A) \to 0 \text{ iff } 1_{A_n} \xrightarrow{L_2} 1_A.\]</span></p>
+</div>
+<p><span class="math inline">\(\textbf{My idea:}\)</span> For probability space <span class="math inline">\((\Omega,\mathcal B,P)\)</span>, and <span class="math inline">\(A_n,A\in\mathcal B\)</span>, we have
+<span class="math display">\[
+\begin{aligned}
+d(A_n,A)&amp;=P(A_n\Delta A)\\
+&amp;=E(\mathbf1_{A_n\Delta A})\\
+&amp;=\int\mathbf1_{A_n\Delta A}dP\\
+&amp;=\int|\mathbf1_{A_n}-\mathbf1_{A}|dP\\
+&amp;=\int|\mathbf1_{A_n}-\mathbf1_{ A}|^2dP.\\
+\end{aligned}
+\]</span>
+therefore <span class="math inline">\(d(A_n,A)\to0\Leftrightarrow \mathbf1_{A_n}\xrightarrow{L_2}\mathbf1_{ A}\)</span>.</p>
+<p><span class="math inline">\(\textbf{Answer:}\)</span>
+Let <span class="math inline">\(d(A_n, A) = P(A_n \Delta A)\)</span> and assume <span class="math inline">\(d(A_n, A) \to 0\)</span> as <span class="math inline">\(n \to \infty\)</span>. We wish to determine the sense in which the sequence of indicator random variables <span class="math inline">\(\mathbf{1}_{A_n}\)</span> converges to <span class="math inline">\(\mathbf{1}_A\)</span>.</p>
+<p>First, observe the relationship between the indicator function of a symmetric difference and the difference of their respective indicator functions. For any <span class="math inline">\(\omega \in \Omega\)</span>:
+<span class="math display">\[
+\mathbf{1}_{A_n \Delta A}(\omega) = |\mathbf{1}_{A_n}(\omega) - \mathbf{1}_A(\omega)|
+\]</span>
+This holds because the absolute difference is <span class="math inline">\(1\)</span> if and only if <span class="math inline">\(\omega\)</span> belongs to exactly one of the sets <span class="math inline">\(A_n\)</span> or <span class="math inline">\(A\)</span>, which is the precise definition of the symmetric difference.</p>
+<p>Furthermore, since the expression <span class="math inline">\(|\mathbf{1}_{A_n}(\omega) - \mathbf{1}_A(\omega)|\)</span> only takes values in the set <span class="math inline">\(\{0, 1\}\)</span>, raising it to any power <span class="math inline">\(p \geq 1\)</span> leaves the value unchanged:
+<span class="math display">\[
+|\mathbf{1}_{A_n} - \mathbf{1}_A|^p = |\mathbf{1}_{A_n} - \mathbf{1}_A| = \mathbf{1}_{A_n \Delta A}
+\]</span>
+We can now evaluate the <span class="math inline">\(L_p\)</span> distance between the random variables:
+<span class="math display">\[
+\begin{aligned}
+E[|\mathbf{1}_{A_n} - \mathbf{1}_A|^p] &amp;= E[\mathbf{1}_{A_n \Delta A}] \\
+&amp;= \int \mathbf{1}_{A_n \Delta A} dP \\
+&amp;= P(A_n \Delta A) \\
+&amp;= d(A_n, A)
+\end{aligned}
+\]</span>
+Since we are given that <span class="math inline">\(d(A_n, A) \to 0\)</span>, it follows immediately that:
+<span class="math display">\[
+\lim_{n \to \infty} E[|\mathbf{1}_{A_n} - \mathbf{1}_A|^p] = 0
+\]</span>
+Therefore, the sequence of random variables <span class="math inline">\(\mathbf{1}_{A_n}\)</span> converges to <span class="math inline">\(\mathbf{1}_A\)</span> in <span class="math inline">\(L_p\)</span> for all <span class="math inline">\(p \geq 1\)</span> (including <span class="math inline">\(L_1\)</span> and <span class="math inline">\(L_2\)</span>).</p>
+<p>Consequently, since convergence in <span class="math inline">\(L_p\)</span> implies convergence in probability, we also have <span class="math inline">\(\mathbf{1}_{A_n} \xrightarrow{P} \mathbf{1}_A\)</span>. <span class="math inline">\(\square\)</span></p>
+<p><span class="math inline">\(\textbf{Note:}\)</span> <strong>My idea</strong> is correct, and I provide the formalized answer here. Also, the formalized answer cover the <span class="math inline">\(p&gt;0\)</span> situation.</p>
 
 </div>
 </div>

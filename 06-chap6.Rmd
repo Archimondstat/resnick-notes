@@ -504,3 +504,69 @@ Therefore, $X_n \xrightarrow{P} 0$.
 
 $\textbf{Note:}$ __My idea__ is correct, and I provide the formalized answer here.
 
+
+### EX 21
+::: problem
+Recall the notation $d(A, B) = P(A \triangle B)$ for events $A, B$. Prove
+$$d(A_n, A) \to 0 \text{ iff } 1_{A_n} \xrightarrow{L_2} 1_A.$$
+:::
+
+$\textbf{My idea:}$ For probability space $(\Omega,\mathcal B,P)$, and $A_n,A\in\mathcal B$, we have
+$$
+\begin{aligned}
+d(A_n,A)&=P(A_n\Delta A)\\
+&=E(\mathbf1_{A_n\Delta A})\\
+&=\int\mathbf1_{A_n\Delta A}dP\\
+&=\int|\mathbf1_{A_n}-\mathbf1_{A}|dP\\
+&=\int|\mathbf1_{A_n}-\mathbf1_{ A}|^2dP.\\
+\end{aligned}
+$$
+therefore $d(A_n,A)\to0\Leftrightarrow \mathbf1_{A_n}\xrightarrow{L_2}\mathbf1_{ A}$.
+
+$\textbf{Answer:}$
+Let $d(A_n, A) = P(A_n \Delta A)$ and assume $d(A_n, A) \to 0$ as $n \to \infty$. We wish to determine the sense in which the sequence of indicator random variables $\mathbf{1}_{A_n}$ converges to $\mathbf{1}_A$.
+
+First, observe the relationship between the indicator function of a symmetric difference and the difference of their respective indicator functions. For any $\omega \in \Omega$:
+$$
+\mathbf{1}_{A_n \Delta A}(\omega) = |\mathbf{1}_{A_n}(\omega) - \mathbf{1}_A(\omega)|
+$$
+This holds because the absolute difference is $1$ if and only if $\omega$ belongs to exactly one of the sets $A_n$ or $A$, which is the precise definition of the symmetric difference.
+
+Furthermore, since the expression $|\mathbf{1}_{A_n}(\omega) - \mathbf{1}_A(\omega)|$ only takes values in the set $\{0, 1\}$, raising it to any power $p \geq 1$ leaves the value unchanged:
+$$
+|\mathbf{1}_{A_n} - \mathbf{1}_A|^p = |\mathbf{1}_{A_n} - \mathbf{1}_A| = \mathbf{1}_{A_n \Delta A}
+$$
+We can now evaluate the $L_p$ distance between the random variables:
+$$
+\begin{aligned}
+E[|\mathbf{1}_{A_n} - \mathbf{1}_A|^p] &= E[\mathbf{1}_{A_n \Delta A}] \\
+&= \int \mathbf{1}_{A_n \Delta A} dP \\
+&= P(A_n \Delta A) \\
+&= d(A_n, A)
+\end{aligned}
+$$
+Since we are given that $d(A_n, A) \to 0$, it follows immediately that:
+$$
+\lim_{n \to \infty} E[|\mathbf{1}_{A_n} - \mathbf{1}_A|^p] = 0
+$$
+Therefore, the sequence of random variables $\mathbf{1}_{A_n}$ converges to $\mathbf{1}_A$ in $L_p$ for all $p \geq 1$ (including $L_1$ and $L_2$). 
+
+Consequently, since convergence in $L_p$ implies convergence in probability, we also have $\mathbf{1}_{A_n} \xrightarrow{P} \mathbf{1}_A$. $\square$
+
+$\textbf{Note:}$ __My idea__ is correct, and I provide the formalized answer here. Also, the formalized answer cover the $p>0$ situation.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
