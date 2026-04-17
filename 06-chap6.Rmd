@@ -1,6 +1,42 @@
 # Chap 6, Convergence Concepts
 
+
 ## Summary
+
+The main topic of this chapter is to discuss the relationship between different kinds of convergence, so the graph below will be updated as we go deeper into the chapter. Further, many of the exercises are also about this topic, so we will summarize them here.
+
+
+$$
+\begin{array}{ccccc}
+\text{Pointwise} & \xrightarrow{\text{Always}} & \text{Almost Sure (a.s.)} & \xrightarrow{\text{Always}} & \text{Probability (P)} \\
+& \xleftarrow[\text{Example 6.1.1}]{\text{Fails}} & & \xleftarrow[\text{Example 6.2.1}]{\text{Fails}} &
+\end{array}
+$$
+
+
+we can still recover a.s. convergence under extra conditions, such as:
+
+- \(\{X_n\}\) is monotone (Ex 1),
+- \(\Omega\) is discrete (Ex 17).
+
+Also, if \(X_n \xrightarrow{P} X\), then every subsequence contains a further subsequence converging a.s. to \(X\).
+
+Further, we get metrics that metrize convergence in probability on \(L^0\) modulo a.s. equality:
+
+1. 
+$$
+d(X,Y)=E\left(\frac{|X-Y|^p}{1+|X-Y|^p}\right), \qquad p>0
+$$
+(Ex 12),
+
+2.
+$$
+\rho(X,Y)=\inf\{\delta>0:\, P(|X-Y|\ge \delta)\le \delta\}
+$$
+(the Ky Fan metric, Ex 25).
+
+By Theorem 6.3.1, every sequence that is Cauchy in probability converges in probability, so any metric generating convergence in probability is complete.
+
 
 ## Other Notes
 
@@ -115,6 +151,58 @@ $$
 P(|X_{n_{k+1}}-X_{n_k}|>2^{-k})\le 2^{-k}.
 $$
 then by Borel-Cantelli, we get a exception set that this sub-sequence is not Cauchy. That is, we construct a sub-seq is Cauchy a.s., and by the completeness of the real numbers, we construct a convergent result $X$, then by triangle inequality, the total sequence converges to our $X$ i.p.
+
+
+#### Summary for Theorem 6.4.1
+
+What we have is:
+
+1. \(X_1,X_2,\dots\) are iid.
+2. \(F\) is strictly increasing at \(q:=F^{\leftarrow}(p)\), so for every \(\varepsilon>0\),
+   \[
+   F(q-\varepsilon)<p<F(q+\varepsilon).
+   \]
+
+What we want to show is:
+\[
+X^{(n)}_{[np]} \xrightarrow{P} F^{\leftarrow}(p).
+\]
+
+The idea is:
+
+1. By the definition of convergence in probability, divide
+   \[
+   P\left(\left|X^{(n)}_{[np]}-q\right|>\varepsilon\right)
+   \]
+   into two tails:
+   \[
+   P\left(X^{(n)}_{[np]}>q+\varepsilon\right)
+   \quad\text{and}\quad
+   P\left(X^{(n)}_{[np]}<q-\varepsilon\right).
+   \]
+
+2. Translate both tails into events involving \(F_n\), because we know
+   \[
+   F_n(x)\xrightarrow{P}F(x).
+   \]
+
+3. Use both
+   \[
+   F_n(x)\xrightarrow{P}F(x)
+   \quad\text{and}\quad
+   \frac{[np]}{n}\to p,
+   \]
+   together with
+   \[
+   F(q-\varepsilon)<p<F(q+\varepsilon),
+   \]
+   to create a fixed positive gap, then bound each tail by a probability of the form
+   \[
+   P\bigl(|F_n(x)-F(x)|>\text{positive constant}\bigr)\to0.
+   \]
+
+Further, the reason that we need \(F\) is strictly increasing is because we need something that is locally unique to converge to.
+
 
 ##  Exercises
 
@@ -556,17 +644,554 @@ Consequently, since convergence in $L_p$ implies convergence in probability, we 
 $\textbf{Note:}$ __My idea__ is correct, and I provide the formalized answer here. Also, the formalized answer cover the $p>0$ situation.
 
 
+### EX 24
+::: problem
+Recall a random vector $(X_n, Y_n)$ (that is, a random element of $\mathbb{R}^2$) converges in probability to a limit random vector $(X, Y)$ if
+$$d((X_n, Y_n), (X, Y)) \xrightarrow{P} 0$$
+where $d$ is the Euclidean metric on $\mathbb{R}^2$.
+
+(a) Prove
+$$(X_n, Y_n) \xrightarrow{P} (X, Y) \tag{6.23}$$
+iff
+$$X_n \xrightarrow{P} X \text{ and } Y_n \xrightarrow{P} Y.$$
+
+(b) If $f: \mathbb{R}^2 \mapsto \mathbb{R}^d$ is continuous ($d \ge 1$), (6.23) implies
+$$f(X_n, Y_n) \xrightarrow{P} f(X, Y).$$
+
+(c) If (6.23) holds, then
+$$(X_n + Y_n, X_n Y_n) \xrightarrow{P} (X + Y, XY).$$
+:::
+
+#### (a)
+$\textbf{My idea:}$ 
+
+"$\Rightarrow$":
+
+Since $(X_n,Y_n)\xrightarrow{P}(X,Y)$, then for any $\varepsilon>0$, we should have
+$$
+P(d((X_n,Y_n),(X,Y))>\varepsilon^2)\to0
+$$
+since $d$ is the Euclidean metric on $\mathbb R^2$, that is
+$$
+P(|X_n-X|^2+|Y_n-Y|^2>\varepsilon)\to0.
+$$
+So for fixed $\varepsilon>0$, denote 
+$$
+A_n:=\{\omega:|X_n(\omega)-X(\omega)|^2+|Y_n(\omega)-Y(\omega)|^2>\varepsilon\}
+$$
+Then 
+$$
+A_n^c=\{\omega:|X_n(\omega)-X(\omega)|^2+|Y_n(\omega)-Y(\omega)|^2\leq\varepsilon\}
+$$
+so if $\omega\in A_n^c$, because $|X_n(\omega)-X(\omega)|^2\geq0$ and $|Y_n(\omega)-Y(\omega)|^2\geq0$, we must have $|X_n(\omega)-X(\omega)|^2\leq\varepsilon$ and $|Y_n(\omega)-Y(\omega)|^2\leq\varepsilon$, so we have
+$$
+A_n^c\subseteq\{\omega:|X_n(\omega)-X(\omega)|^2\leq\varepsilon\}\cap\{\omega:|Y_n(\omega)-Y(\omega)|^2\leq\varepsilon\},
+$$
+taking complement in both sides, that is
+$$
+\{\omega:|X_n(\omega)-X(\omega)|^2>\varepsilon\}\cup\{\omega:|Y_n(\omega)-Y(\omega)|^2>\varepsilon\}\subseteq A_n.
+$$
+So
+$$
+\{\omega:|X_n(\omega)-X(\omega)|^2>\varepsilon\}\subseteq A_n
+$$
+and
+$$
+\{\omega:|Y_n(\omega)-Y(\omega)|^2>\varepsilon\}\subseteq A_n.
+$$
+Therefore we have
+$$
+0\leq P(|X_n-X|>\sqrt\varepsilon)\leq P(|X_n-X|^2+|Y_n-Y|^2>\varepsilon)\to0
+$$
+and 
+$$
+0\leq P(|Y_n-Y|>\sqrt\varepsilon)\leq P(|X_n-X|^2+|Y_n-Y|^2>\varepsilon)\to0.
+$$
+That is $X_n\xrightarrow{P}X$ and $Y_n\xrightarrow{P}Y$.
+
+"$\Leftarrow$":
+
+Similarly, since we have $X_n\xrightarrow{P}X$ and $Y_n\xrightarrow{P}Y$, then for any $\varepsilon>0$, we have
+$$
+P(|X_n-X|>\sqrt\frac\varepsilon2)\to0
+$$
+and
+$$
+P(|Y_n-Y|>\sqrt\frac\varepsilon2)\to0.
+$$
+For $\omega\in\{|X_n-X|\leq\sqrt\frac\varepsilon2\}\cap\{|Y_n-Y|\leq\sqrt\frac\varepsilon2\}$, we must have
+$$
+|X_n(\omega)-X(\omega)|^2+|Y_n(\omega)-Y(\omega)|^2\leq\varepsilon,
+$$
+so
+$$
+\{|X_n-X|\leq\sqrt\frac\varepsilon2\}\cap\{|Y_n-Y|\leq\sqrt\frac\varepsilon2\}\subseteq A_n^c,
+$$
+that is
+$$
+A_n\subseteq\{|X_n-X|>\sqrt\frac\varepsilon2\}\cup\{|Y_n-Y|>\sqrt\frac\varepsilon2\}
+$$
+so
+$$
+\begin{aligned}
+0\leq P(|X_n-X|^2+|Y_n-Y|^2>\varepsilon)&\leq P(\{|X_n-X|>\sqrt\frac\varepsilon2\}\cup\{|Y_n-Y|>\sqrt\frac\varepsilon2\})\\
+&\leq P(\{|X_n-X|>\sqrt\frac\varepsilon2\})+P(\{|Y_n-Y|>\sqrt\frac\varepsilon2\})\to0.
+\end{aligned}
+$$
+that is $(X_n,Y_n)\xrightarrow{P}(X,Y)$.
+
+$\textbf{Note:}$ __My idea__ is correct and rigorous.
+
+#### (b)
+$\textbf{My idea:}$ Let $\{f(X_{n_k},Y_{n_k})\}$ be a subsequence of $\{f(X_{n},Y_{n})\}$, so it suffices to find an a.s. convergence subsequence $\{f(X_{n_k(i)},Y_{n_k(i)})\}$ such that $f(X_{n_k(i)},Y_{n_k(i)})\xrightarrow{a.s.}f(X,Y)$, since we have $(X_n,Y_n)\xrightarrow{P}(X,Y)$, then for $(X_{n_k},Y_{n_k})$, we surely have a sub-subsequence $(X_{n_k(i)},Y_{n_k(i)})$ such that
+$$
+(X_{n_k(i)},Y_{n_k(i)})\xrightarrow{a.s.}(X,Y),
+$$
+since $f$ is continuous, we have
+$$
+f(X_{n_k(i)},Y_{n_k(i)})\xrightarrow{a.s.}f(X,Y),
+$$
+by __Theorem 6.3.1 (b)__, we have 
+$$f(X_n, Y_n) \xrightarrow{P} f(X, Y).$$
+
+$\textbf{Answer:}$ 
+
+We will use Theorem 6.3.1, which tells us that for random variables $\{Z_n\}$, 
+$Z_n \xrightarrow{P} Z$ if and only if for every subsequence $Z_{n_k}$ there exists a sub-subsequence $Z_{n_{k(i)}}$ such that $Z_{n_{k(i)}} \xrightarrow{a.s.} Z$.
+
+Let $\{f(X_{n_k}, Y_{n_k})\}$ be any subsequence of $\{f(X_n, Y_n)\}$. 
+Then $(X_{n_k}, Y_{n_k})$ is the corresponding subsequence of $(X_n, Y_n)$.
+
+Since $(X_n, Y_n) \xrightarrow{P} (X, Y)$, then for the subsequence $(X_{n_k}, Y_{n_k})$, there exists a sub-subsequence $(X_{n_{k(i)}}, Y_{n_{k(i)}})$ such that:
+$$
+(X_{n_{k(i)}}, Y_{n_{k(i)}}) \xrightarrow{a.s.} (X, Y)
+$$
+
+That is, there exists $N \in \mathcal{B}$ with $P(N) = 0$, such that $\forall \omega \in N^c$:
+$$
+(X_{n_{k(i)}}(\omega), Y_{n_{k(i)}}(\omega)) \to (X(\omega), Y(\omega)) \quad \text{pointwise.}
+$$
+
+Further, $f: \mathbb{R}^2 \to \mathbb{R}^d$ ($d \ge 1$) is continuous, so for $\omega \in N^c$:
+$$
+f(X_{n_{k(i)}}(\omega), Y_{n_{k(i)}}(\omega)) \to f(X(\omega), Y(\omega)) \quad \text{pointwise.}
+$$
+
+That is, 
+$$
+f(X_{n_{k(i)}}, Y_{n_{k(i)}}) \xrightarrow{a.s.} f(X, Y)
+$$
+
+By Theorem 6.3.1, we have:
+$$
+f(X_n, Y_n) \xrightarrow{P} f(X, Y)
+$$
+$\blacksquare$
+
+$\textbf{Note:}$ __My idea__ is essentially correct, however, in this exercise we cannot directly use __Corollary 6.3.1__, because in (b), our given function is $\mathbb R^2\to\mathbb R^d$, so we need to write the process specifically.
+
+
+#### (c)
+$\textbf{My idea:}$ let 
+$$
+f(x,y)=(x+y,xy)
+$$
+then $f:\mathbb R^2\to\mathbb R^2$ is continuous, by (b), we already have if (6.23) holds then
+$$
+(X_n+Y_n,X_nY_n)\xrightarrow{P}(X+Y,XY).
+$$
+
+$\textbf{Note:}$ __My idea__ is correct and rigorous.
+
+
+### EX 25
+::: problem
+For random variables $X, Y$ define
+$$
+\rho(X,Y)=\inf\{\delta>0:P[|X-Y|\ge \delta]\le \delta\}.
+$$
+
+(a) Show $\rho(X,Y)=0$ if and only if $P[X=Y]=1$. Form equivalence classes of random variables which are equal almost surely and show that $\rho$ is a metric on the space of such equivalence classes.
+
+(b) This metric metrizes convergence in probability:
+$$
+X_n \xrightarrow{P} X
+\quad \text{if and only if} \quad
+\rho(X_n,X)\to 0.
+$$
+
+(c) The metric is complete: Every Cauchy sequence is convergent.
+
+(d) It is impossible to metrize almost sure convergence.
+:::
+
+#### (a)
+$\textbf{My idea:}$ 
+
+"$\Rightarrow$": Suppose for r.v.s $X$ and $Y$ we have
+$$
+\rho(X,Y)=\inf\{\delta>0:P[|X-Y|\geq\delta]\leq\delta\}=0,
+$$
+what we want is $P[X=Y]=1$, which is equvilant to $P[X\neq Y]=0$, in countable form, that is we want to show that
+$$
+P(\bigcap_{k=1}^\infty\{\omega:|X(\omega)-Y(\omega)|\geq\frac1k\})=0
+$$
+but we already have that
+$$
+\inf\{\frac1k:P[|X-Y|\geq\frac1k]\leq\frac1k\}=0
+$$
+so we have 
+$$
+0\leq P(\bigcap_{k=1}^\infty\{|X-Y|\geq\frac1k\})\leq\liminf_{k\to\infty}P(\{|X-Y|\geq\frac1k\})\leq\liminf_{k\to\infty}\frac1k=0
+$$
+therefore $P(X=Y)=1$.
+
+"$\Leftarrow$": Since $P(X=Y)=1$, that is 
+$$
+P(|X-Y|\geq 0)=0
+$$
+so 
+$$
+\inf\{\delta>0:P[|X-Y|\geq\delta]\leq\delta\}=0
+$$
+
+Now we show that $\rho$ is a metric on $L^0$ modulo a.s.
+
+1. We already have $\rho(X,Y)=0$ iff $X=Y$ a.s., so $d(X,X)=0$ since $X=X$, 
+
+2. For $X\neq Y$ a.s., there exists $A\in\mathcal B$ such that $P(A)>0$, for all $\omega\in A$, $X(\omega)\neq Y(\omega)$ so for any $\delta$, $P(|X-Y|\geq\delta)$ cannot be less than $P(A)$, so $\rho(X,Y)>0$,
+
+3. surely we have $\rho(X,Y)=\rho(Y,X)$, since 
+$$
+\inf\{\delta>0:P[|X-Y|\geq\delta]\leq\delta\}=\inf\{\delta>0:P[|Y-X|\geq\delta]\leq\delta\}=0
+$$
+
+4. By triangle inequality of absolute value, for r.v.s $X,Y,Z$
+$$
+|X-Y|\leq |X-Z|+|Y-Z|,
+$$
+so
+$$
+\{|X-Y|<\delta\}\cap\{|X-Z|<\delta\}\subset\{|Z-Y|<2\delta\}
+$$
+that is
+$$
+\{|X-Y|\geq2\delta\}\subseteq\{|X-Z|\geq\delta\}\cup\{|Z-Y|\geq\delta\}
+$$
+so 
+$$
+P(|X-Y|\geq2\delta)\leq P(|X-Z|\geq\delta)+P(|Z-Y|\geq\delta)
+$$
+which means that
+$$
+\inf\{\delta>0:P[|X-Y|\geq\delta]\leq\delta\}\leq\inf\{\delta>0:P[|X-Z|\geq\delta]\leq\delta\}+\inf\{\delta>0:P[|Z-Y|\geq\delta]\leq\delta\}
+$$
+so the triangle inequality holds for $\rho$.
 
 
 
+$\textbf{Answer:}$
+
+"$\Rightarrow$" Firstly we have:
+$$
+\rho(X,Y) = \inf\{\delta>0: P(|X-Y| \geq \delta) \leq \delta\} = 0
+$$
+What we want to prove is $P(X=Y)=1$, that is $P(X \neq Y) = 0$.
+In countable form, it is to prove:
+$$
+P\left(\bigcup_{k=1}^\infty \{|X-Y| \geq \frac{1}{k}\}\right) = 0
+$$
+For each $k$, select $\delta_m \downarrow 0$, and $\delta_m \leq \frac{1}{k}$.
+So we have:
+$$
+\{|X-Y| \geq \frac{1}{k}\} \subseteq \{|X-Y| \geq \delta_m\}
+$$
+Therefore:
+$$
+0 \leq P(|X-Y| \geq \frac{1}{k}) \leq P(|X-Y| \geq \delta_m) \leq \delta_m \to 0
+$$
+So for each $k$, we have $P(|X-Y| \geq \frac{1}{k}) = 0$, therefore:
+$$
+0 \leq P\left(\bigcup_{k=1}^\infty \{|X-Y| \geq \frac{1}{k}\}\right) \leq \sum_{k=1}^\infty P(|X-Y| \geq \frac{1}{k}) = 0
+$$
+Hence $P(X \neq Y) = 0$.
+
+"$\Leftarrow$" Since we have $P(X \neq Y) = 0$, so $\forall \delta > 0$, we have:
+$$
+P(|X-Y| \geq \delta) = 0 \leq \delta
+$$
+So $0$ is the infimum of $\{\delta > 0: P(|X-Y| \geq \delta) \leq \delta\}$, that is:
+$$
+\rho(X,Y) = 0
+$$
+
+Here we prove that $\rho$ is a metric.
+
+1. The first part we have proven that $\rho(X,Y) = 0 \iff X=Y \text{ a.s.}$
+2. Since $|X-Y| = |Y-X|$, we have $\rho(X,Y) = \rho(Y,X)$.
+3. For r.v.s $X, Y, Z$, we want to show that:
+$$
+\rho(X,Y) \leq \rho(X,Z) + \rho(Z,Y)
+$$
+Select $\delta_1, \delta_2$ such that:
+$$
+P(|X-Z| \geq \delta_1) \leq \delta_1 \quad \text{and} \quad P(|Z-Y| \geq \delta_2) \leq \delta_2
+$$
+And we have:
+$$
+\{|X-Y| \geq \delta_1 + \delta_2\} \subseteq \{|X-Z| \geq \delta_1\} \cup \{|Z-Y| \geq \delta_2\}
+$$
+That is:
+$$
+P(|X-Y| \geq \delta_1 + \delta_2) \leq P(|X-Z| \geq \delta_1) + P(|Z-Y| \geq \delta_2) \leq \delta_1 + \delta_2
+$$
+so $\delta_1+\delta_2$ belongs to the admissible set for $\rho(X,Y)$, so we have
+$$
+\rho(X,Y) \leq \delta_1+\delta_2
+$$
+Taking the infimum on the right side, we have:
+$$
+\rho(X,Y) \leq \rho(X,Z) + \rho(Z,Y)
+$$
+$\blacksquare$
+
+$\textbf{Note:}$ The method in proving triangle inequality is a standard routine to deal with infimum.
+
+#### (b)
+
+$\textbf{My idea:}$ 
+$$
+X_n \xrightarrow{P} X,
+$$
+that is, for all $\varepsilon>0$, we have
+$$
+P(|X_n-X|>\varepsilon)\to 0.
+$$
+
+What we want to prove is
+$$
+\rho(X_n,X)\to 0.
+$$
+
+What we know is
+$$
+\rho(X_n,X)=\inf{\delta>0:P(|X_n-X|\ge \delta)\le \delta}.
+$$
+
+So for any $\delta>0$, select $\varepsilon>0$ such that $\varepsilon\le \delta$, so we have
+$$
+{|X_n-X|\ge \delta}\subseteq {|X_n-X|>\varepsilon}.
+$$
+
+Hence
+$$
+P(|X_n-X|\ge \delta)\le P(|X_n-X|>\varepsilon)\to 0.
+$$
+
+Also,
+$$
+P(|X_n-X|\ge \delta)\le P(|X_n-X|>\varepsilon)<\delta.
+$$
+
+Therefore,
+$$
+\inf{\delta>0:P(|X_n-X|\ge \delta)<\delta}=0.
+$$
+
+For the converse, when we have
+$$
+\rho(X_n,X)\to 0,
+$$
+that is,
+$$
+\inf{\delta>0:P(|X_n-X|\ge \delta)\le \delta}\to 0,
+$$
+then for any $\varepsilon>0$,
+$$
+P(|X_n-X|\ge \varepsilon)\to 0.
+$$
+$\textbf{Answer:}$ 
+
+"$\Rightarrow$" Assume $X_n \xrightarrow{P} X$. We want to show $\rho(X_n, X) \to 0$.
+Let $\varepsilon > 0$ be given. 
+By the definition of convergence in probability, we have:
+$$
+\lim_{n \to \infty} P(|X_n - X| \geq \varepsilon) = 0
+$$
+Thus, there exists an integer $N$ such that for all $n \geq N$:
+$$
+P(|X_n - X| \geq \varepsilon) \leq \varepsilon
+$$
+By the definition of $\rho$, the value $\varepsilon$ satisfies the condition in the set, meaning it is an upper bound for the infimum:
+$$
+\rho(X_n, X) = \inf\{\delta > 0 : P(|X_n - X| \geq \delta) \leq \delta\} \leq \varepsilon
+$$
+Since this holds for any $\varepsilon > 0$ for sufficiently large $n$, we have $\lim_{n \to \infty} \rho(X_n, X) = 0$.
+
+"$\Leftarrow$" Assume $\rho(X_n, X) \to 0$. We want to show $X_n \xrightarrow{P} X$, which means for any $\varepsilon > 0$, $P(|X_n - X| \geq \varepsilon) \to 0$.
+Let $\varepsilon > 0$ be given, and let $\eta$ be an arbitrary number such that $0 < \eta < \varepsilon$.
+Since $\rho(X_n, X) \to 0$, there exists an $N$ such that for all $n \geq N$, $\rho(X_n, X) < \eta$.
+Because the infimum is strictly less than $\eta$, there must exist some $\delta_n \in (0, \eta)$ such that:
+$$
+P(|X_n - X| \geq \delta_n) \leq \delta_n < \eta
+$$
+Since $\delta_n < \eta < \varepsilon$, we have the subset inclusion:
+$$
+\{|X_n - X| \geq \varepsilon\} \subseteq \{|X_n - X| \geq \delta_n\}
+$$
+Therefore, applying the probability measure:
+$$
+P(|X_n - X| \geq \varepsilon) \leq P(|X_n - X| \geq \delta_n) \leq \delta_n < \eta
+$$
+Since this holds for any arbitrary $\eta \in (0, \varepsilon)$ as $n \to \infty$, it must be that:
+$$
+\lim_{n \to \infty} P(|X_n - X| \geq \varepsilon) = 0
+$$
+Thus, $X_n \xrightarrow{P} X$.
+$\blacksquare$
+
+$\textbf{Note:}$ What we did here is actually purely use $\varepsilon-\delta$ language to show the limit is $0$.
+
+#### (c)
+
+$\textbf{My idea:}$ 
+
+For Cauchy sequence \(\{X_n\}\), that is
+\[
+\forall \varepsilon>0,\ \exists N>0,\ \text{s.t.}\ \forall n,m\ge N,\ \text{we have}
+\]
+\[
+\rho(X_n,X_m)<\varepsilon.
+\]
+
+What we need to show is that for this sequence, there exists \(X\), such that
+\[
+\rho(X_n,X)\to 0.
+\]
+
+By (b), we know that it is to show that there exists \(X\), such that
+\[
+X_n \xrightarrow{P} X.
+\]
+
+So what's left to be done is to show \(\{X_n\}\) is Cauchy in probability, since by Theorem 6.3.1, the limit exists.
+
+And what we need is:
+\[
+\forall \eta>0,\qquad P(|X_n-X_m|\ge \eta)
+\]
+can be arbitrarily small.
+
+So we can select \(\varepsilon\in(0,\eta)\), then for large \(n,m\), we have
+\[
+\rho(X_n,X_m)<\varepsilon,
+\]
+then we can select \(a_{n,m}\), such that \(a_{n,m}<\varepsilon\) and
+\[
+P(|X_n-X_m|\ge a_{n,m})\le a_{n,m}.
+\]
+
+Since \(\varepsilon<\eta\),
+\[
+P(|X_n-X_m|\ge \eta)\le P(|X_n-X_m|\ge a_{n,m})\le a_{n,m}\le \varepsilon.
+\]
+
+Since \(\varepsilon\) is arbitrary, we have that \(\{X_n\}\) is Cauchy in probability.
+
+So the metric is complete.
+
+$\textbf{Answer:}$ 
+\[
+\text{(c) For Cauchy sequence }\{X_n\}, \text{ that is } \forall \varepsilon>0,\ \exists N>0,\ \text{s.t. }\forall n,m>N,\ \text{we have}
+\]
+\[
+\rho(X_n,X_m)<\varepsilon.
+\]
+
+What we need to show is that for this sequence, there exists \(X\), such that
+\[
+\rho(X_n,X)\to 0.
+\]
+
+By (b), we know that it is to show that there exists \(X\), such that
+\[
+X_n \xrightarrow{P} X.
+\]
+
+So what's left to be done is to show \(\{X_n\}\) is Cauchy in probability, since by Theorem 6.3.1, the limit exists.
+
+And what we need is:
+\[
+\forall \eta,\gamma>0,\ \text{for large }n,m,\qquad P(|X_n-X_m|>\eta)<\gamma.
+\]
+
+So we can select
+\[
+\varepsilon\in(0,\min\{\eta,\gamma\}),
+\]
+then for large \(n,m\), we have
+\[
+\rho(X_n,X_m)<\varepsilon,
+\]
+then we can select \(a_{n,m}\), such that \(a_{n,m}<\varepsilon\) and
+\[
+P(|X_n-X_m|\ge a_{n,m})\le a_{n,m}.
+\]
+
+Since \(\varepsilon<\eta\),
+\[
+P(|X_n-X_m|\ge \eta)\le P(|X_n-X_m|\ge a_{n,m})\le a_{n,m}\le \varepsilon.
+\]
+
+Since \(\varepsilon\) is arbitrary, we have that \(\{X_n\}\) is Cauchy in probability.
+
+So the metric is complete.
+
+$\textbf{Note:}$ There are actually 2 things to control, so we need $\varepsilon\in(0,\min\{\eta,\gamma\})$
+
+#### (d)
+
+$\textbf{My idea:}$  Using __Example 6.2.1__ in page 170, or people call the typewritter sequence, we know that $X_n\xrightarrow{P}0$, but $X_n\not\xrightarrow{a.s.}0$, however, we can explicitly find a subsequence $X_1,X_4,X_7,...$ such that $X_{n_k}\xrightarrow{a.s.}0$. So if we can metrize almost sure convergence, for such $\{X_n\}$, all of its subsequences should not converge a.s..
 
 
+$\textbf{Answer:}$  Suppose there exists a metric $d$ metrizing a.s. convergence.
 
+Take the typewriter sequence $\{X_n\}$.
 
+We know that
+$$
+X_n \xrightarrow{P} 0, \quad \text{but} \quad X_n \not\to 0 \ \text{a.s.}
+$$
 
+Since $X_n \xrightarrow{P} 0$, every subsequence $\{X_{n_k}\}$ has a further subsequence $\{X_{n_{k(i)}}\}$ such that
+$$
+X_{n_{k(i)}} \xrightarrow{\text{a.s.}} 0,
+$$
+that is,
+$$
+d(X_{n_{k(i)}},0)\to 0.
+$$
 
+And we should have
+$$
+X_n \not\to 0 \ \text{a.s.} \Rightarrow d(X_n,0)\not\to 0.
+$$
 
+By the property of metric spaces, a sequence $x_n$ converges to $x$ if and only if every subsequence has a further subsequence converging to $x$.
 
+So we have
+$$
+d(X_n,0)\to 0,
+$$
+that is,
+$$
+X_n \xrightarrow{\text{a.s.}} 0.
+$$
 
+This contradicts $X_n \not\xrightarrow{\text{a.s.}} 0$. Therefore no such $d$ exists.
 
+$\textbf{Note:}$ The knowledge we use here is that, a sequence $x_n$ converges to $x$ if and only if every subsequence has a further subsequence converging to $x$.
 
+#### Summary
+
+What we discussed in part (a) of this exercise is called the Ky Fan Metric, and we should note that we didn't use any fancy technique, all we used are juse $\varepsilon-N$ and the definition of infimum.

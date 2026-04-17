@@ -23,7 +23,7 @@
 <meta name="author" content="Zhanwen Peng" />
 
 
-<meta name="date" content="2026-04-10" />
+<meta name="date" content="2026-04-17" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -313,6 +313,7 @@
 <li class="chapter" data-level="" data-path="chap-6-convergence-concepts.html"><a href="chap-6-convergence-concepts.html#proof-idea-summarize"><i class="fa fa-check"></i>Proof idea summarize</a>
 <ul>
 <li class="chapter" data-level="" data-path="chap-6-convergence-concepts.html"><a href="chap-6-convergence-concepts.html#theorem-6.3.1a"><i class="fa fa-check"></i>Theorem 6.3.1(a)</a></li>
+<li class="chapter" data-level="" data-path="chap-6-convergence-concepts.html"><a href="chap-6-convergence-concepts.html#summary-for-theorem-6.4.1"><i class="fa fa-check"></i>Summary for Theorem 6.4.1</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="chap-6-convergence-concepts.html"><a href="chap-6-convergence-concepts.html#exercises-1"><i class="fa fa-check"></i>Exercises</a>
@@ -334,6 +335,20 @@
 <li class="chapter" data-level="" data-path="chap-6-convergence-concepts.html"><a href="chap-6-convergence-concepts.html#ex-17-2"><i class="fa fa-check"></i>EX 17</a></li>
 <li class="chapter" data-level="" data-path="chap-6-convergence-concepts.html"><a href="chap-6-convergence-concepts.html#ex-19-2"><i class="fa fa-check"></i>EX 19</a></li>
 <li class="chapter" data-level="" data-path="chap-6-convergence-concepts.html"><a href="chap-6-convergence-concepts.html#ex-21-2"><i class="fa fa-check"></i>EX 21</a></li>
+<li class="chapter" data-level="" data-path="chap-6-convergence-concepts.html"><a href="chap-6-convergence-concepts.html#ex-24-2"><i class="fa fa-check"></i>EX 24</a>
+<ul>
+<li class="chapter" data-level="" data-path="chap-6-convergence-concepts.html"><a href="chap-6-convergence-concepts.html#a-20"><i class="fa fa-check"></i>(a)</a></li>
+<li class="chapter" data-level="" data-path="chap-6-convergence-concepts.html"><a href="chap-6-convergence-concepts.html#b-20"><i class="fa fa-check"></i>(b)</a></li>
+<li class="chapter" data-level="" data-path="chap-6-convergence-concepts.html"><a href="chap-6-convergence-concepts.html#c-14"><i class="fa fa-check"></i>(c)</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="chap-6-convergence-concepts.html"><a href="chap-6-convergence-concepts.html#ex-25-2"><i class="fa fa-check"></i>EX 25</a>
+<ul>
+<li class="chapter" data-level="" data-path="chap-6-convergence-concepts.html"><a href="chap-6-convergence-concepts.html#a-21"><i class="fa fa-check"></i>(a)</a></li>
+<li class="chapter" data-level="" data-path="chap-6-convergence-concepts.html"><a href="chap-6-convergence-concepts.html#b-21"><i class="fa fa-check"></i>(b)</a></li>
+<li class="chapter" data-level="" data-path="chap-6-convergence-concepts.html"><a href="chap-6-convergence-concepts.html#c-15"><i class="fa fa-check"></i>(c)</a></li>
+<li class="chapter" data-level="" data-path="chap-6-convergence-concepts.html"><a href="chap-6-convergence-concepts.html#d-9"><i class="fa fa-check"></i>(d)</a></li>
+<li class="chapter" data-level="" data-path="chap-6-convergence-concepts.html"><a href="chap-6-convergence-concepts.html#summary-4"><i class="fa fa-check"></i>Summary</a></li>
+</ul></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -357,6 +372,30 @@
 <h1>Chap 6, Convergence Concepts<a href="chap-6-convergence-concepts.html#chap-6-convergence-concepts" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <div id="summary-2" class="section level2 hasAnchor">
 <h2>Summary<a href="chap-6-convergence-concepts.html#summary-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><span class="math display">\[
+\begin{array}{ccccc}
+\text{Pointwise} &amp; \xrightarrow{\text{Always}} &amp; \text{Almost Sure (a.s.)} &amp; \xrightarrow{\text{Always}} &amp; \text{Probability (P)} \\
+&amp; \xleftarrow[\text{Example 6.1.1}]{\text{Fails}} &amp; &amp; \xleftarrow[\text{Example 6.2.1}]{\text{Fails}} &amp;
+\end{array}
+\]</span></p>
+<p>we can still recover a.s. convergence under extra conditions, such as:</p>
+<ul>
+<li><span class="math inline">\(\{X_n\}\)</span> is monotone (Ex 1),</li>
+<li><span class="math inline">\(\Omega\)</span> is discrete (Ex 17).</li>
+</ul>
+<p>Also, if <span class="math inline">\(X_n \xrightarrow{P} X\)</span>, then every subsequence contains a further subsequence converging a.s. to <span class="math inline">\(X\)</span>.</p>
+<p>Further, we get metrics that metrize convergence in probability on <span class="math inline">\(L^0\)</span> modulo a.s. equality:</p>
+<ol style="list-style-type: decimal">
+<li><p><span class="math display">\[
+d(X,Y)=E\left(\frac{|X-Y|^p}{1+|X-Y|^p}\right), \qquad p&gt;0
+\]</span>
+(Ex 12),</p></li>
+<li><p><span class="math display">\[
+\rho(X,Y)=\inf\{\delta&gt;0:\, P(|X-Y|\ge \delta)\le \delta\}
+\]</span>
+(the Ky Fan metric, Ex 25).</p></li>
+</ol>
+<p>By Theorem 6.3.1, every sequence that is Cauchy in probability converges in probability, so any metric generating convergence in probability is complete.</p>
 </div>
 <div id="other-notes" class="section level2 hasAnchor">
 <h2>Other Notes<a href="chap-6-convergence-concepts.html#other-notes" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -467,6 +506,52 @@ so we have for any <span class="math inline">\(\varepsilon&gt;0\)</span>
 P(|X_{n_{k+1}}-X_{n_k}|&gt;2^{-k})\le 2^{-k}.
 \]</span>
 then by Borel-Cantelli, we get a exception set that this sub-sequence is not Cauchy. That is, we construct a sub-seq is Cauchy a.s., and by the completeness of the real numbers, we construct a convergent result <span class="math inline">\(X\)</span>, then by triangle inequality, the total sequence converges to our <span class="math inline">\(X\)</span> i.p.</p>
+</div>
+<div id="summary-for-theorem-6.4.1" class="section level4 hasAnchor">
+<h4>Summary for Theorem 6.4.1<a href="chap-6-convergence-concepts.html#summary-for-theorem-6.4.1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>What we have is:</p>
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\(X_1,X_2,\dots\)</span> are iid.</li>
+<li><span class="math inline">\(F\)</span> is strictly increasing at <span class="math inline">\(q:=F^{\leftarrow}(p)\)</span>, so for every <span class="math inline">\(\varepsilon&gt;0\)</span>,
+<span class="math display">\[
+F(q-\varepsilon)&lt;p&lt;F(q+\varepsilon).
+\]</span></li>
+</ol>
+<p>What we want to show is:
+<span class="math display">\[
+X^{(n)}_{[np]} \xrightarrow{P} F^{\leftarrow}(p).
+\]</span></p>
+<p>The idea is:</p>
+<ol style="list-style-type: decimal">
+<li><p>By the definition of convergence in probability, divide
+<span class="math display">\[
+P\left(\left|X^{(n)}_{[np]}-q\right|&gt;\varepsilon\right)
+\]</span>
+into two tails:
+<span class="math display">\[
+P\left(X^{(n)}_{[np]}&gt;q+\varepsilon\right)
+\quad\text{and}\quad
+P\left(X^{(n)}_{[np]}&lt;q-\varepsilon\right).
+\]</span></p></li>
+<li><p>Translate both tails into events involving <span class="math inline">\(F_n\)</span>, because we know
+<span class="math display">\[
+F_n(x)\xrightarrow{P}F(x).
+\]</span></p></li>
+<li><p>Use both
+<span class="math display">\[
+F_n(x)\xrightarrow{P}F(x)
+\quad\text{and}\quad
+\frac{[np]}{n}\to p,
+\]</span>
+together with
+<span class="math display">\[
+F(q-\varepsilon)&lt;p&lt;F(q+\varepsilon),
+\]</span>
+to create a fixed positive gap, then bound each tail by a probability of the form
+<span class="math display">\[
+P\bigl(|F_n(x)-F(x)|&gt;\text{positive constant}\bigr)\to0.
+\]</span></p></li>
+</ol>
 </div>
 </div>
 </div>
@@ -853,7 +938,495 @@ Since we are given that <span class="math inline">\(d(A_n, A) \to 0\)</span>, it
 Therefore, the sequence of random variables <span class="math inline">\(\mathbf{1}_{A_n}\)</span> converges to <span class="math inline">\(\mathbf{1}_A\)</span> in <span class="math inline">\(L_p\)</span> for all <span class="math inline">\(p \geq 1\)</span> (including <span class="math inline">\(L_1\)</span> and <span class="math inline">\(L_2\)</span>).</p>
 <p>Consequently, since convergence in <span class="math inline">\(L_p\)</span> implies convergence in probability, we also have <span class="math inline">\(\mathbf{1}_{A_n} \xrightarrow{P} \mathbf{1}_A\)</span>. <span class="math inline">\(\square\)</span></p>
 <p><span class="math inline">\(\textbf{Note:}\)</span> <strong>My idea</strong> is correct, and I provide the formalized answer here. Also, the formalized answer cover the <span class="math inline">\(p&gt;0\)</span> situation.</p>
+</div>
+<div id="ex-24-2" class="section level3 hasAnchor">
+<h3>EX 24<a href="chap-6-convergence-concepts.html#ex-24-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="problem">
+<p>Recall a random vector <span class="math inline">\((X_n, Y_n)\)</span> (that is, a random element of <span class="math inline">\(\mathbb{R}^2\)</span>) converges in probability to a limit random vector <span class="math inline">\((X, Y)\)</span> if
+<span class="math display">\[d((X_n, Y_n), (X, Y)) \xrightarrow{P} 0\]</span>
+where <span class="math inline">\(d\)</span> is the Euclidean metric on <span class="math inline">\(\mathbb{R}^2\)</span>.</p>
+<ol style="list-style-type: lower-alpha">
+<li><p>Prove
+<span class="math display">\[(X_n, Y_n) \xrightarrow{P} (X, Y) \tag{6.23}\]</span>
+iff
+<span class="math display">\[X_n \xrightarrow{P} X \text{ and } Y_n \xrightarrow{P} Y.\]</span></p></li>
+<li><p>If <span class="math inline">\(f: \mathbb{R}^2 \mapsto \mathbb{R}^d\)</span> is continuous (<span class="math inline">\(d \ge 1\)</span>), (6.23) implies
+<span class="math display">\[f(X_n, Y_n) \xrightarrow{P} f(X, Y).\]</span></p></li>
+<li><p>If (6.23) holds, then
+<span class="math display">\[(X_n + Y_n, X_n Y_n) \xrightarrow{P} (X + Y, XY).\]</span></p></li>
+</ol>
+</div>
+<div id="a-20" class="section level4 hasAnchor">
+<h4>(a)<a href="chap-6-convergence-concepts.html#a-20" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p><span class="math inline">\(\textbf{My idea:}\)</span></p>
+<p>“<span class="math inline">\(\Rightarrow\)</span>”:</p>
+<p>Since <span class="math inline">\((X_n,Y_n)\xrightarrow{P}(X,Y)\)</span>, then for any <span class="math inline">\(\varepsilon&gt;0\)</span>, we should have
+<span class="math display">\[
+P(d((X_n,Y_n),(X,Y))&gt;\varepsilon^2)\to0
+\]</span>
+since <span class="math inline">\(d\)</span> is the Euclidean metric on <span class="math inline">\(\mathbb R^2\)</span>, that is
+<span class="math display">\[
+P(|X_n-X|^2+|Y_n-Y|^2&gt;\varepsilon)\to0.
+\]</span>
+So for fixed <span class="math inline">\(\varepsilon&gt;0\)</span>, denote
+<span class="math display">\[
+A_n:=\{\omega:|X_n(\omega)-X(\omega)|^2+|Y_n(\omega)-Y(\omega)|^2&gt;\varepsilon\}
+\]</span>
+Then
+<span class="math display">\[
+A_n^c=\{\omega:|X_n(\omega)-X(\omega)|^2+|Y_n(\omega)-Y(\omega)|^2\leq\varepsilon\}
+\]</span>
+so if <span class="math inline">\(\omega\in A_n^c\)</span>, because <span class="math inline">\(|X_n(\omega)-X(\omega)|^2\geq0\)</span> and <span class="math inline">\(|Y_n(\omega)-Y(\omega)|^2\geq0\)</span>, we must have <span class="math inline">\(|X_n(\omega)-X(\omega)|^2\leq\varepsilon\)</span> and <span class="math inline">\(|Y_n(\omega)-Y(\omega)|^2\leq\varepsilon\)</span>, so we have
+<span class="math display">\[
+A_n^c\subseteq\{\omega:|X_n(\omega)-X(\omega)|^2\leq\varepsilon\}\cap\{\omega:|Y_n(\omega)-Y(\omega)|^2\leq\varepsilon\},
+\]</span>
+taking complement in both sides, that is
+<span class="math display">\[
+\{\omega:|X_n(\omega)-X(\omega)|^2&gt;\varepsilon\}\cup\{\omega:|Y_n(\omega)-Y(\omega)|^2&gt;\varepsilon\}\subseteq A_n.
+\]</span>
+So
+<span class="math display">\[
+\{\omega:|X_n(\omega)-X(\omega)|^2&gt;\varepsilon\}\subseteq A_n
+\]</span>
+and
+<span class="math display">\[
+\{\omega:|Y_n(\omega)-Y(\omega)|^2&gt;\varepsilon\}\subseteq A_n.
+\]</span>
+Therefore we have
+<span class="math display">\[
+0\leq P(|X_n-X|&gt;\sqrt\varepsilon)\leq P(|X_n-X|^2+|Y_n-Y|^2&gt;\varepsilon)\to0
+\]</span>
+and
+<span class="math display">\[
+0\leq P(|Y_n-Y|&gt;\sqrt\varepsilon)\leq P(|X_n-X|^2+|Y_n-Y|^2&gt;\varepsilon)\to0.
+\]</span>
+That is <span class="math inline">\(X_n\xrightarrow{P}X\)</span> and <span class="math inline">\(Y_n\xrightarrow{P}Y\)</span>.</p>
+<p>“<span class="math inline">\(\Leftarrow\)</span>”:</p>
+<p>Similarly, since we have <span class="math inline">\(X_n\xrightarrow{P}X\)</span> and <span class="math inline">\(Y_n\xrightarrow{P}Y\)</span>, then for any <span class="math inline">\(\varepsilon&gt;0\)</span>, we have
+<span class="math display">\[
+P(|X_n-X|&gt;\sqrt\frac\varepsilon2)\to0
+\]</span>
+and
+<span class="math display">\[
+P(|Y_n-Y|&gt;\sqrt\frac\varepsilon2)\to0.
+\]</span>
+For <span class="math inline">\(\omega\in\{|X_n-X|\leq\sqrt\frac\varepsilon2\}\cap\{|Y_n-Y|\leq\sqrt\frac\varepsilon2\}\)</span>, we must have
+<span class="math display">\[
+|X_n(\omega)-X(\omega)|^2+|Y_n(\omega)-Y(\omega)|^2\leq\varepsilon,
+\]</span>
+so
+<span class="math display">\[
+\{|X_n-X|\leq\sqrt\frac\varepsilon2\}\cap\{|Y_n-Y|\leq\sqrt\frac\varepsilon2\}\subseteq A_n^c,
+\]</span>
+that is
+<span class="math display">\[
+A_n\subseteq\{|X_n-X|&gt;\sqrt\frac\varepsilon2\}\cup\{|Y_n-Y|&gt;\sqrt\frac\varepsilon2\}
+\]</span>
+so
+<span class="math display">\[
+\begin{aligned}
+0\leq P(|X_n-X|^2+|Y_n-Y|^2&gt;\varepsilon)&amp;\leq P(\{|X_n-X|&gt;\sqrt\frac\varepsilon2\}\cup\{|Y_n-Y|&gt;\sqrt\frac\varepsilon2\})\\
+&amp;\leq P(\{|X_n-X|&gt;\sqrt\frac\varepsilon2\})+P(\{|Y_n-Y|&gt;\sqrt\frac\varepsilon2\})\to0.
+\end{aligned}
+\]</span>
+that is <span class="math inline">\((X_n,Y_n)\xrightarrow{P}(X,Y)\)</span>.</p>
+<p><span class="math inline">\(\textbf{Note:}\)</span> <strong>My idea</strong> is correct and rigorous.</p>
+</div>
+<div id="b-20" class="section level4 hasAnchor">
+<h4>(b)<a href="chap-6-convergence-concepts.html#b-20" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p><span class="math inline">\(\textbf{My idea:}\)</span> Let <span class="math inline">\(\{f(X_{n_k},Y_{n_k})\}\)</span> be a subsequence of <span class="math inline">\(\{f(X_{n},Y_{n})\}\)</span>, so it suffices to find an a.s. convergence subsequence <span class="math inline">\(\{f(X_{n_k(i)},Y_{n_k(i)})\}\)</span> such that <span class="math inline">\(f(X_{n_k(i)},Y_{n_k(i)})\xrightarrow{a.s.}f(X,Y)\)</span>, since we have <span class="math inline">\((X_n,Y_n)\xrightarrow{P}(X,Y)\)</span>, then for <span class="math inline">\((X_{n_k},Y_{n_k})\)</span>, we surely have a sub-subsequence <span class="math inline">\((X_{n_k(i)},Y_{n_k(i)})\)</span> such that
+<span class="math display">\[
+(X_{n_k(i)},Y_{n_k(i)})\xrightarrow{a.s.}(X,Y),
+\]</span>
+since <span class="math inline">\(f\)</span> is continuous, we have
+<span class="math display">\[
+f(X_{n_k(i)},Y_{n_k(i)})\xrightarrow{a.s.}f(X,Y),
+\]</span>
+by <strong>Theorem 6.3.1 (b)</strong>, we have
+<span class="math display">\[f(X_n, Y_n) \xrightarrow{P} f(X, Y).\]</span></p>
+<p><span class="math inline">\(\textbf{Answer:}\)</span></p>
+<p>We will use Theorem 6.3.1, which tells us that for random variables <span class="math inline">\(\{Z_n\}\)</span>,
+<span class="math inline">\(Z_n \xrightarrow{P} Z\)</span> if and only if for every subsequence <span class="math inline">\(Z_{n_k}\)</span> there exists a sub-subsequence <span class="math inline">\(Z_{n_{k(i)}}\)</span> such that <span class="math inline">\(Z_{n_{k(i)}} \xrightarrow{a.s.} Z\)</span>.</p>
+<p>Let <span class="math inline">\(\{f(X_{n_k}, Y_{n_k})\}\)</span> be any subsequence of <span class="math inline">\(\{f(X_n, Y_n)\}\)</span>.
+Then <span class="math inline">\((X_{n_k}, Y_{n_k})\)</span> is the corresponding subsequence of <span class="math inline">\((X_n, Y_n)\)</span>.</p>
+<p>Since <span class="math inline">\((X_n, Y_n) \xrightarrow{P} (X, Y)\)</span>, then for the subsequence <span class="math inline">\((X_{n_k}, Y_{n_k})\)</span>, there exists a sub-subsequence <span class="math inline">\((X_{n_{k(i)}}, Y_{n_{k(i)}})\)</span> such that:
+<span class="math display">\[
+(X_{n_{k(i)}}, Y_{n_{k(i)}}) \xrightarrow{a.s.} (X, Y)
+\]</span></p>
+<p>That is, there exists <span class="math inline">\(N \in \mathcal{B}\)</span> with <span class="math inline">\(P(N) = 0\)</span>, such that <span class="math inline">\(\forall \omega \in N^c\)</span>:
+<span class="math display">\[
+(X_{n_{k(i)}}(\omega), Y_{n_{k(i)}}(\omega)) \to (X(\omega), Y(\omega)) \quad \text{pointwise.}
+\]</span></p>
+<p>Further, <span class="math inline">\(f: \mathbb{R}^2 \to \mathbb{R}^d\)</span> (<span class="math inline">\(d \ge 1\)</span>) is continuous, so for <span class="math inline">\(\omega \in N^c\)</span>:
+<span class="math display">\[
+f(X_{n_{k(i)}}(\omega), Y_{n_{k(i)}}(\omega)) \to f(X(\omega), Y(\omega)) \quad \text{pointwise.}
+\]</span></p>
+<p>That is,
+<span class="math display">\[
+f(X_{n_{k(i)}}, Y_{n_{k(i)}}) \xrightarrow{a.s.} f(X, Y)
+\]</span></p>
+<p>By Theorem 6.3.1, we have:
+<span class="math display">\[
+f(X_n, Y_n) \xrightarrow{P} f(X, Y)
+\]</span>
+<span class="math inline">\(\blacksquare\)</span></p>
+<p><span class="math inline">\(\textbf{Note:}\)</span> <strong>My idea</strong> is essentially correct, however, in this exercise we cannot directly use <strong>Corollary 6.3.1</strong>, because in (b), our given function is <span class="math inline">\(\mathbb R^2\to\mathbb R^d\)</span>, so we need to write the process specifically.</p>
+</div>
+<div id="c-14" class="section level4 hasAnchor">
+<h4>(c)<a href="chap-6-convergence-concepts.html#c-14" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p><span class="math inline">\(\textbf{My idea:}\)</span> let
+<span class="math display">\[
+f(x,y)=(x+y,xy)
+\]</span>
+then <span class="math inline">\(f:\mathbb R^2\to\mathbb R^2\)</span> is continuous, by (b), we already have if (6.23) holds then
+<span class="math display">\[
+(X_n+Y_n,X_nY_n)\xrightarrow{P}(X+Y,XY).
+\]</span></p>
+<p><span class="math inline">\(\textbf{Note:}\)</span> <strong>My idea</strong> is correct and rigorous.</p>
+</div>
+</div>
+<div id="ex-25-2" class="section level3 hasAnchor">
+<h3>EX 25<a href="chap-6-convergence-concepts.html#ex-25-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="problem">
+<p>For random variables <span class="math inline">\(X, Y\)</span> define
+<span class="math display">\[
+\rho(X,Y)=\inf\{\delta&gt;0:P[|X-Y|\ge \delta]\le \delta\}.
+\]</span></p>
+<ol style="list-style-type: lower-alpha">
+<li><p>Show <span class="math inline">\(\rho(X,Y)=0\)</span> if and only if <span class="math inline">\(P[X=Y]=1\)</span>. Form equivalence classes of random variables which are equal almost surely and show that <span class="math inline">\(\rho\)</span> is a metric on the space of such equivalence classes.</p></li>
+<li><p>This metric metrizes convergence in probability:
+<span class="math display">\[
+X_n \xrightarrow{P} X
+\quad \text{if and only if} \quad
+\rho(X_n,X)\to 0.
+\]</span></p></li>
+<li><p>The metric is complete: Every Cauchy sequence is convergent.</p></li>
+<li><p>It is impossible to metrize almost sure convergence.</p></li>
+</ol>
+</div>
+<div id="a-21" class="section level4 hasAnchor">
+<h4>(a)<a href="chap-6-convergence-concepts.html#a-21" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p><span class="math inline">\(\textbf{My idea:}\)</span></p>
+<p>“<span class="math inline">\(\Rightarrow\)</span>”: Suppose for r.v.s <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> we have
+<span class="math display">\[
+\rho(X,Y)=\inf\{\delta&gt;0:P[|X-Y|\geq\delta]\leq\delta\}=0,
+\]</span>
+what we want is <span class="math inline">\(P[X=Y]=1\)</span>, which is equvilant to <span class="math inline">\(P[X\neq Y]=0\)</span>, in countable form, that is we want to show that
+<span class="math display">\[
+P(\bigcap_{k=1}^\infty\{\omega:|X(\omega)-Y(\omega)|\geq\frac1k\})=0
+\]</span>
+but we already have that
+<span class="math display">\[
+\inf\{\frac1k:P[|X-Y|\geq\frac1k]\leq\frac1k\}=0
+\]</span>
+so we have
+<span class="math display">\[
+0\leq P(\bigcap_{k=1}^\infty\{|X-Y|\geq\frac1k\})\leq\liminf_{k\to\infty}P(\{|X-Y|\geq\frac1k\})\leq\liminf_{k\to\infty}\frac1k=0
+\]</span>
+therefore <span class="math inline">\(P(X=Y)=1\)</span>.</p>
+<p>“<span class="math inline">\(\Leftarrow\)</span>”: Since <span class="math inline">\(P(X=Y)=1\)</span>, that is
+<span class="math display">\[
+P(|X-Y|\geq 0)=0
+\]</span>
+so
+<span class="math display">\[
+\inf\{\delta&gt;0:P[|X-Y|\geq\delta]\leq\delta\}=0
+\]</span></p>
+<p>Now we show that <span class="math inline">\(\rho\)</span> is a metric on <span class="math inline">\(L^0\)</span> modulo a.s.</p>
+<ol style="list-style-type: decimal">
+<li><p>We already have <span class="math inline">\(\rho(X,Y)=0\)</span> iff <span class="math inline">\(X=Y\)</span> a.s., so <span class="math inline">\(d(X,X)=0\)</span> since <span class="math inline">\(X=X\)</span>,</p></li>
+<li><p>For <span class="math inline">\(X\neq Y\)</span> a.s., there exists <span class="math inline">\(A\in\mathcal B\)</span> such that <span class="math inline">\(P(A)&gt;0\)</span>, for all <span class="math inline">\(\omega\in A\)</span>, <span class="math inline">\(X(\omega)\neq Y(\omega)\)</span> so for any <span class="math inline">\(\delta\)</span>, <span class="math inline">\(P(|X-Y|\geq\delta)\)</span> cannot be less than <span class="math inline">\(P(A)\)</span>, so <span class="math inline">\(\rho(X,Y)&gt;0\)</span>,</p></li>
+<li><p>surely we have <span class="math inline">\(\rho(X,Y)=\rho(Y,X)\)</span>, since
+<span class="math display">\[
+\inf\{\delta&gt;0:P[|X-Y|\geq\delta]\leq\delta\}=\inf\{\delta&gt;0:P[|Y-X|\geq\delta]\leq\delta\}=0
+\]</span></p></li>
+<li><p>By triangle inequality of absolute value, for r.v.s <span class="math inline">\(X,Y,Z\)</span>
+<span class="math display">\[
+|X-Y|\leq |X-Z|+|Y-Z|,
+\]</span>
+so
+<span class="math display">\[
+\{|X-Y|&lt;\delta\}\cap\{|X-Z|&lt;\delta\}\subset\{|Z-Y|&lt;2\delta\}
+\]</span>
+that is
+<span class="math display">\[
+\{|X-Y|\geq2\delta\}\subseteq\{|X-Z|\geq\delta\}\cup\{|Z-Y|\geq\delta\}
+\]</span>
+so
+<span class="math display">\[
+P(|X-Y|\geq2\delta)\leq P(|X-Z|\geq\delta)+P(|Z-Y|\geq\delta)
+\]</span>
+which means that
+<span class="math display">\[
+\inf\{\delta&gt;0:P[|X-Y|\geq\delta]\leq\delta\}\leq\inf\{\delta&gt;0:P[|X-Z|\geq\delta]\leq\delta\}+\inf\{\delta&gt;0:P[|Z-Y|\geq\delta]\leq\delta\}
+\]</span>
+so the triangle inequality holds for <span class="math inline">\(\rho\)</span>.</p></li>
+</ol>
+<p><span class="math inline">\(\textbf{Answer:}\)</span></p>
+<p>“<span class="math inline">\(\Rightarrow\)</span>” Firstly we have:
+<span class="math display">\[
+\rho(X,Y) = \inf\{\delta&gt;0: P(|X-Y| \geq \delta) \leq \delta\} = 0
+\]</span>
+What we want to prove is <span class="math inline">\(P(X=Y)=1\)</span>, that is <span class="math inline">\(P(X \neq Y) = 0\)</span>.
+In countable form, it is to prove:
+<span class="math display">\[
+P\left(\bigcup_{k=1}^\infty \{|X-Y| \geq \frac{1}{k}\}\right) = 0
+\]</span>
+For each <span class="math inline">\(k\)</span>, select <span class="math inline">\(\delta_m \downarrow 0\)</span>, and <span class="math inline">\(\delta_m \leq \frac{1}{k}\)</span>.
+So we have:
+<span class="math display">\[
+\{|X-Y| \geq \frac{1}{k}\} \subseteq \{|X-Y| \geq \delta_m\}
+\]</span>
+Therefore:
+<span class="math display">\[
+0 \leq P(|X-Y| \geq \frac{1}{k}) \leq P(|X-Y| \geq \delta_m) \leq \delta_m \to 0
+\]</span>
+So for each <span class="math inline">\(k\)</span>, we have <span class="math inline">\(P(|X-Y| \geq \frac{1}{k}) = 0\)</span>, therefore:
+<span class="math display">\[
+0 \leq P\left(\bigcup_{k=1}^\infty \{|X-Y| \geq \frac{1}{k}\}\right) \leq \sum_{k=1}^\infty P(|X-Y| \geq \frac{1}{k}) = 0
+\]</span>
+Hence <span class="math inline">\(P(X \neq Y) = 0\)</span>.</p>
+<p>“<span class="math inline">\(\Leftarrow\)</span>” Since we have <span class="math inline">\(P(X \neq Y) = 0\)</span>, so <span class="math inline">\(\forall \delta &gt; 0\)</span>, we have:
+<span class="math display">\[
+P(|X-Y| \geq \delta) = 0 \leq \delta
+\]</span>
+So <span class="math inline">\(0\)</span> is the infimum of <span class="math inline">\(\{\delta &gt; 0: P(|X-Y| \geq \delta) \leq \delta\}\)</span>, that is:
+<span class="math display">\[
+\rho(X,Y) = 0
+\]</span></p>
+<p>Here we prove that <span class="math inline">\(\rho\)</span> is a metric.</p>
+<ol style="list-style-type: decimal">
+<li>The first part we have proven that <span class="math inline">\(\rho(X,Y) = 0 \iff X=Y \text{ a.s.}\)</span></li>
+<li>Since <span class="math inline">\(|X-Y| = |Y-X|\)</span>, we have <span class="math inline">\(\rho(X,Y) = \rho(Y,X)\)</span>.</li>
+<li>For r.v.s <span class="math inline">\(X, Y, Z\)</span>, we want to show that:
+<span class="math display">\[
+\rho(X,Y) \leq \rho(X,Z) + \rho(Z,Y)
+\]</span>
+Select <span class="math inline">\(\delta_1, \delta_2\)</span> such that:
+<span class="math display">\[
+P(|X-Z| \geq \delta_1) \leq \delta_1 \quad \text{and} \quad P(|Z-Y| \geq \delta_2) \leq \delta_2
+\]</span>
+And we have:
+<span class="math display">\[
+\{|X-Y| \geq \delta_1 + \delta_2\} \subseteq \{|X-Z| \geq \delta_1\} \cup \{|Z-Y| \geq \delta_2\}
+\]</span>
+That is:
+<span class="math display">\[
+P(|X-Y| \geq \delta_1 + \delta_2) \leq P(|X-Z| \geq \delta_1) + P(|Z-Y| \geq \delta_2) \leq \delta_1 + \delta_2
+\]</span>
+so <span class="math inline">\(\delta_1+\delta_2\)</span> belongs to the admissible set for <span class="math inline">\(\rho(X,Y)\)</span>, so we have
+<span class="math display">\[
+\rho(X,Y) \leq \delta_1+\delta_2
+\]</span>
+Taking the infimum on the right side, we have:
+<span class="math display">\[
+\rho(X,Y) \leq \rho(X,Z) + \rho(Z,Y)
+\]</span>
+<span class="math inline">\(\blacksquare\)</span></li>
+</ol>
+<p><span class="math inline">\(\textbf{Note:}\)</span> The method in proving triangle inequality is a standard routine to deal with infimum.</p>
+</div>
+<div id="b-21" class="section level4 hasAnchor">
+<h4>(b)<a href="chap-6-convergence-concepts.html#b-21" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p><span class="math inline">\(\textbf{My idea:}\)</span>
+<span class="math display">\[
+X_n \xrightarrow{P} X,
+\]</span>
+that is, for all <span class="math inline">\(\varepsilon&gt;0\)</span>, we have
+<span class="math display">\[
+P(|X_n-X|&gt;\varepsilon)\to 0.
+\]</span></p>
+<p>What we want to prove is
+<span class="math display">\[
+\rho(X_n,X)\to 0.
+\]</span></p>
+<p>What we know is
+<span class="math display">\[
+\rho(X_n,X)=\inf{\delta&gt;0:P(|X_n-X|\ge \delta)\le \delta}.
+\]</span></p>
+<p>So for any <span class="math inline">\(\delta&gt;0\)</span>, select <span class="math inline">\(\varepsilon&gt;0\)</span> such that <span class="math inline">\(\varepsilon\le \delta\)</span>, so we have
+<span class="math display">\[
+{|X_n-X|\ge \delta}\subseteq {|X_n-X|&gt;\varepsilon}.
+\]</span></p>
+<p>Hence
+<span class="math display">\[
+P(|X_n-X|\ge \delta)\le P(|X_n-X|&gt;\varepsilon)\to 0.
+\]</span></p>
+<p>Also,
+<span class="math display">\[
+P(|X_n-X|\ge \delta)\le P(|X_n-X|&gt;\varepsilon)&lt;\delta.
+\]</span></p>
+<p>Therefore,
+<span class="math display">\[
+\inf{\delta&gt;0:P(|X_n-X|\ge \delta)&lt;\delta}=0.
+\]</span></p>
+<p>For the converse, when we have
+<span class="math display">\[
+\rho(X_n,X)\to 0,
+\]</span>
+that is,
+<span class="math display">\[
+\inf{\delta&gt;0:P(|X_n-X|\ge \delta)\le \delta}\to 0,
+\]</span>
+then for any <span class="math inline">\(\varepsilon&gt;0\)</span>,
+<span class="math display">\[
+P(|X_n-X|\ge \varepsilon)\to 0.
+\]</span>
+<span class="math inline">\(\textbf{Answer:}\)</span></p>
+<p>“<span class="math inline">\(\Rightarrow\)</span>” Assume <span class="math inline">\(X_n \xrightarrow{P} X\)</span>. We want to show <span class="math inline">\(\rho(X_n, X) \to 0\)</span>.
+Let <span class="math inline">\(\varepsilon &gt; 0\)</span> be given.
+By the definition of convergence in probability, we have:
+<span class="math display">\[
+\lim_{n \to \infty} P(|X_n - X| \geq \varepsilon) = 0
+\]</span>
+Thus, there exists an integer <span class="math inline">\(N\)</span> such that for all <span class="math inline">\(n \geq N\)</span>:
+<span class="math display">\[
+P(|X_n - X| \geq \varepsilon) \leq \varepsilon
+\]</span>
+By the definition of <span class="math inline">\(\rho\)</span>, the value <span class="math inline">\(\varepsilon\)</span> satisfies the condition in the set, meaning it is an upper bound for the infimum:
+<span class="math display">\[
+\rho(X_n, X) = \inf\{\delta &gt; 0 : P(|X_n - X| \geq \delta) \leq \delta\} \leq \varepsilon
+\]</span>
+Since this holds for any <span class="math inline">\(\varepsilon &gt; 0\)</span> for sufficiently large <span class="math inline">\(n\)</span>, we have <span class="math inline">\(\lim_{n \to \infty} \rho(X_n, X) = 0\)</span>.</p>
+<p>“<span class="math inline">\(\Leftarrow\)</span>” Assume <span class="math inline">\(\rho(X_n, X) \to 0\)</span>. We want to show <span class="math inline">\(X_n \xrightarrow{P} X\)</span>, which means for any <span class="math inline">\(\varepsilon &gt; 0\)</span>, <span class="math inline">\(P(|X_n - X| \geq \varepsilon) \to 0\)</span>.
+Let <span class="math inline">\(\varepsilon &gt; 0\)</span> be given, and let <span class="math inline">\(\eta\)</span> be an arbitrary number such that <span class="math inline">\(0 &lt; \eta &lt; \varepsilon\)</span>.
+Since <span class="math inline">\(\rho(X_n, X) \to 0\)</span>, there exists an <span class="math inline">\(N\)</span> such that for all <span class="math inline">\(n \geq N\)</span>, <span class="math inline">\(\rho(X_n, X) &lt; \eta\)</span>.
+Because the infimum is strictly less than <span class="math inline">\(\eta\)</span>, there must exist some <span class="math inline">\(\delta_n \in (0, \eta)\)</span> such that:
+<span class="math display">\[
+P(|X_n - X| \geq \delta_n) \leq \delta_n &lt; \eta
+\]</span>
+Since <span class="math inline">\(\delta_n &lt; \eta &lt; \varepsilon\)</span>, we have the subset inclusion:
+<span class="math display">\[
+\{|X_n - X| \geq \varepsilon\} \subseteq \{|X_n - X| \geq \delta_n\}
+\]</span>
+Therefore, applying the probability measure:
+<span class="math display">\[
+P(|X_n - X| \geq \varepsilon) \leq P(|X_n - X| \geq \delta_n) \leq \delta_n &lt; \eta
+\]</span>
+Since this holds for any arbitrary <span class="math inline">\(\eta \in (0, \varepsilon)\)</span> as <span class="math inline">\(n \to \infty\)</span>, it must be that:
+<span class="math display">\[
+\lim_{n \to \infty} P(|X_n - X| \geq \varepsilon) = 0
+\]</span>
+Thus, <span class="math inline">\(X_n \xrightarrow{P} X\)</span>.
+<span class="math inline">\(\blacksquare\)</span></p>
+<p><span class="math inline">\(\textbf{Note:}\)</span> What we did here is actually purely use <span class="math inline">\(\varepsilon-\delta\)</span> language to show the limit is <span class="math inline">\(0\)</span>.</p>
+</div>
+<div id="c-15" class="section level4 hasAnchor">
+<h4>(c)<a href="chap-6-convergence-concepts.html#c-15" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p><span class="math inline">\(\textbf{My idea:}\)</span></p>
+<p>For Cauchy sequence <span class="math inline">\(\{X_n\}\)</span>, that is
+<span class="math display">\[
+\forall \varepsilon&gt;0,\ \exists N&gt;0,\ \text{s.t.}\ \forall n,m\ge N,\ \text{we have}
+\]</span>
+<span class="math display">\[
+\rho(X_n,X_m)&lt;\varepsilon.
+\]</span></p>
+<p>What we need to show is that for this sequence, there exists <span class="math inline">\(X\)</span>, such that
+<span class="math display">\[
+\rho(X_n,X)\to 0.
+\]</span></p>
+<p>By (b), we know that it is to show that there exists <span class="math inline">\(X\)</span>, such that
+<span class="math display">\[
+X_n \xrightarrow{P} X.
+\]</span></p>
+<p>So what’s left to be done is to show <span class="math inline">\(\{X_n\}\)</span> is Cauchy in probability, since by Theorem 6.3.1, the limit exists.</p>
+<p>And what we need is:
+<span class="math display">\[
+\forall \eta&gt;0,\qquad P(|X_n-X_m|\ge \eta)
+\]</span>
+can be arbitrarily small.</p>
+<p>So we can select <span class="math inline">\(\varepsilon\in(0,\eta)\)</span>, then for large <span class="math inline">\(n,m\)</span>, we have
+<span class="math display">\[
+\rho(X_n,X_m)&lt;\varepsilon,
+\]</span>
+then we can select <span class="math inline">\(a_{n,m}\)</span>, such that <span class="math inline">\(a_{n,m}&lt;\varepsilon\)</span> and
+<span class="math display">\[
+P(|X_n-X_m|\ge a_{n,m})\le a_{n,m}.
+\]</span></p>
+<p>Since <span class="math inline">\(\varepsilon&lt;\eta\)</span>,
+<span class="math display">\[
+P(|X_n-X_m|\ge \eta)\le P(|X_n-X_m|\ge a_{n,m})\le a_{n,m}\le \varepsilon.
+\]</span></p>
+<p>Since <span class="math inline">\(\varepsilon\)</span> is arbitrary, we have that <span class="math inline">\(\{X_n\}\)</span> is Cauchy in probability.</p>
+<p>So the metric is complete.</p>
+<p><span class="math inline">\(\textbf{Answer:}\)</span>
+<span class="math display">\[
+\text{(c) For Cauchy sequence }\{X_n\}, \text{ that is } \forall \varepsilon&gt;0,\ \exists N&gt;0,\ \text{s.t. }\forall n,m&gt;N,\ \text{we have}
+\]</span>
+<span class="math display">\[
+\rho(X_n,X_m)&lt;\varepsilon.
+\]</span></p>
+<p>What we need to show is that for this sequence, there exists <span class="math inline">\(X\)</span>, such that
+<span class="math display">\[
+\rho(X_n,X)\to 0.
+\]</span></p>
+<p>By (b), we know that it is to show that there exists <span class="math inline">\(X\)</span>, such that
+<span class="math display">\[
+X_n \xrightarrow{P} X.
+\]</span></p>
+<p>So what’s left to be done is to show <span class="math inline">\(\{X_n\}\)</span> is Cauchy in probability, since by Theorem 6.3.1, the limit exists.</p>
+<p>And what we need is:
+<span class="math display">\[
+\forall \eta,\gamma&gt;0,\ \text{for large }n,m,\qquad P(|X_n-X_m|&gt;\eta)&lt;\gamma.
+\]</span></p>
+<p>So we can select
+<span class="math display">\[
+\varepsilon\in(0,\min\{\eta,\gamma\}),
+\]</span>
+then for large <span class="math inline">\(n,m\)</span>, we have
+<span class="math display">\[
+\rho(X_n,X_m)&lt;\varepsilon,
+\]</span>
+then we can select <span class="math inline">\(a_{n,m}\)</span>, such that <span class="math inline">\(a_{n,m}&lt;\varepsilon\)</span> and
+<span class="math display">\[
+P(|X_n-X_m|\ge a_{n,m})\le a_{n,m}.
+\]</span></p>
+<p>Since <span class="math inline">\(\varepsilon&lt;\eta\)</span>,
+<span class="math display">\[
+P(|X_n-X_m|\ge \eta)\le P(|X_n-X_m|\ge a_{n,m})\le a_{n,m}\le \varepsilon.
+\]</span></p>
+<p>Since <span class="math inline">\(\varepsilon\)</span> is arbitrary, we have that <span class="math inline">\(\{X_n\}\)</span> is Cauchy in probability.</p>
+<p>So the metric is complete.</p>
+<p><span class="math inline">\(\textbf{Note:}\)</span> There are actually 2 things to control, so we need <span class="math inline">\(\varepsilon\in(0,\min\{\eta,\gamma\})\)</span></p>
+</div>
+<div id="d-9" class="section level4 hasAnchor">
+<h4>(d)<a href="chap-6-convergence-concepts.html#d-9" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p><span class="math inline">\(\textbf{My idea:}\)</span> Using <strong>Example 6.2.1</strong> in page 170, or people call the typewritter sequence, we know that <span class="math inline">\(X_n\xrightarrow{P}0\)</span>, but <span class="math inline">\(X_n\not\xrightarrow{a.s.}0\)</span>, however, we can explicitly find a subsequence <span class="math inline">\(X_1,X_4,X_7,...\)</span> such that <span class="math inline">\(X_{n_k}\xrightarrow{a.s.}0\)</span>. So if we can metrize almost sure convergence, for such <span class="math inline">\(\{X_n\}\)</span>, all of its subsequences should not converge a.s..</p>
+<p><span class="math inline">\(\textbf{Answer:}\)</span> Suppose there exists a metric <span class="math inline">\(d\)</span> metrizing a.s. convergence.</p>
+<p>Take the typewriter sequence <span class="math inline">\(\{X_n\}\)</span>.</p>
+<p>We know that
+<span class="math display">\[
+X_n \xrightarrow{P} 0, \quad \text{but} \quad X_n \not\to 0 \ \text{a.s.}
+\]</span></p>
+<p>Since <span class="math inline">\(X_n \xrightarrow{P} 0\)</span>, every subsequence <span class="math inline">\(\{X_{n_k}\}\)</span> has a further subsequence <span class="math inline">\(\{X_{n_{k(i)}}\}\)</span> such that
+<span class="math display">\[
+X_{n_{k(i)}} \xrightarrow{\text{a.s.}} 0,
+\]</span>
+that is,
+<span class="math display">\[
+d(X_{n_{k(i)}},0)\to 0.
+\]</span></p>
+<p>And we should have
+<span class="math display">\[
+X_n \not\to 0 \ \text{a.s.} \Rightarrow d(X_n,0)\not\to 0.
+\]</span></p>
+<p>By the property of metric spaces, a sequence <span class="math inline">\(x_n\)</span> converges to <span class="math inline">\(x\)</span> if and only if every subsequence has a further subsequence converging to <span class="math inline">\(x\)</span>.</p>
+<p>So we have
+<span class="math display">\[
+d(X_n,0)\to 0,
+\]</span>
+that is,
+<span class="math display">\[
+X_n \xrightarrow{\text{a.s.}} 0.
+\]</span></p>
+<p>This contradicts <span class="math inline">\(X_n \not\xrightarrow{\text{a.s.}} 0\)</span>. Therefore no such <span class="math inline">\(d\)</span> exists.</p>
+<p><span class="math inline">\(\textbf{Note:}\)</span> The knowledge we use here is that, a sequence <span class="math inline">\(x_n\)</span> converges to <span class="math inline">\(x\)</span> if and only if every subsequence has a further subsequence converging to <span class="math inline">\(x\)</span>.</p>
+</div>
+<div id="summary-4" class="section level4 hasAnchor">
+<h4>Summary<a href="chap-6-convergence-concepts.html#summary-4" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>What we discussed in part (a) of this exercise is called the Ky Fan Metric, and we should note that we didn’t use any fancy technique, all we used are juse <span class="math inline">\(\varepsilon-N\)</span> and the definition of infimum.</p>
 
+</div>
 </div>
 </div>
 </div>
