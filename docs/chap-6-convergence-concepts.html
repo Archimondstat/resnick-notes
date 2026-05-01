@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chap 6, Convergence Concepts | Notes on A Probability Path (Resnick)</title>
   <meta name="description" content="Chap 6, Convergence Concepts | Notes on A Probability Path (Resnick)" />
-  <meta name="generator" content="bookdown 0.42 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.46 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chap 6, Convergence Concepts | Notes on A Probability Path (Resnick)" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="Zhanwen Peng" />
 
 
-<meta name="date" content="2026-04-17" />
+<meta name="date" content="2026-05-01" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -309,6 +309,8 @@
 <ul>
 <li class="chapter" data-level="" data-path="chap-6-convergence-concepts.html"><a href="chap-6-convergence-concepts.html#proposition-6.1.1"><i class="fa fa-check"></i>Proposition 6.1.1</a></li>
 <li class="chapter" data-level="" data-path="chap-6-convergence-concepts.html"><a href="chap-6-convergence-concepts.html#theorem-6.2.1-convergence-a.s.-implies-convergence-i.p."><i class="fa fa-check"></i>Theorem 6.2.1 (Convergence a.s. implies convergence i.p.)</a></li>
+<li class="chapter" data-level="" data-path="chap-6-convergence-concepts.html"><a href="chap-6-convergence-concepts.html#theorem-6.6.1"><i class="fa fa-check"></i>Theorem 6.6.1</a></li>
+<li class="chapter" data-level="" data-path="chap-6-convergence-concepts.html"><a href="chap-6-convergence-concepts.html#theorem-6.6.2"><i class="fa fa-check"></i>Theorem 6.6.2</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="chap-6-convergence-concepts.html"><a href="chap-6-convergence-concepts.html#proof-idea-summarize"><i class="fa fa-check"></i>Proof idea summarize</a>
 <ul>
@@ -349,6 +351,7 @@
 <li class="chapter" data-level="" data-path="chap-6-convergence-concepts.html"><a href="chap-6-convergence-concepts.html#d-9"><i class="fa fa-check"></i>(d)</a></li>
 <li class="chapter" data-level="" data-path="chap-6-convergence-concepts.html"><a href="chap-6-convergence-concepts.html#summary-4"><i class="fa fa-check"></i>Summary</a></li>
 </ul></li>
+<li class="chapter" data-level="" data-path="chap-6-convergence-concepts.html"><a href="chap-6-convergence-concepts.html#ex-2-1"><i class="fa fa-check"></i>EX 2</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -372,6 +375,7 @@
 <h1>Chap 6, Convergence Concepts<a href="chap-6-convergence-concepts.html#chap-6-convergence-concepts" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <div id="summary-2" class="section level2 hasAnchor">
 <h2>Summary<a href="chap-6-convergence-concepts.html#summary-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The main topic of this chapter is to discuss the relationship between different kinds of convergence, so the graph below will be updated as we go deeper into the chapter. Further, many of the exercises are also about this topic, so we will summarize them here.</p>
 <p><span class="math display">\[
 \begin{array}{ccccc}
 \text{Pointwise} &amp; \xrightarrow{\text{Always}} &amp; \text{Almost Sure (a.s.)} &amp; \xrightarrow{\text{Always}} &amp; \text{Probability (P)} \\
@@ -494,6 +498,330 @@ so we have for any <span class="math inline">\(\varepsilon&gt;0\)</span>
 \]</span></p>
 <p>Thus <span class="math inline">\(X_n\to X\)</span> i.p.</p>
 </div>
+<div id="theorem-6.6.1" class="section level4 hasAnchor">
+<h4>Theorem 6.6.1<a href="chap-6-convergence-concepts.html#theorem-6.6.1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Strictly speaking I did not provide another proof of this theorem, however, I reverse the order of proving in the book, so I still record my proof here.</p>
+<div id="c-to-b" class="section level5 hasAnchor">
+<h5>(c) <span class="math inline">\(\to\)</span> (b)<a href="chap-6-convergence-concepts.html#c-to-b" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<p>What we have:</p>
+<ul>
+<li><span class="math inline">\(\{X_n\}\)</span> is uniformly integrable;</li>
+<li><span class="math inline">\(X_n \xrightarrow{P} X\)</span>.</li>
+</ul>
+<p>What we want:</p>
+<p><span class="math display">\[
+E|X_n-X_m| \to 0 \qquad (n,m\to\infty),
+\]</span></p>
+<p>that is, <span class="math inline">\(\{X_n\}\)</span> is <span class="math inline">\(L_1\)</span>-Cauchy.</p>
+<p>Fix <span class="math inline">\(\varepsilon&gt;0\)</span>, and define</p>
+<p><span class="math display">\[
+A_{n,m} := \{|X_n-X_m|&gt;\varepsilon\}.
+\]</span></p>
+<p>Then</p>
+<p><span class="math display">\[
+\int |X_n-X_m|\,dP
+=
+\int_{A_{n,m}^c} |X_n-X_m|\,dP
++
+\int_{A_{n,m}} |X_n-X_m|\,dP.
+\]</span></p>
+<p>On <span class="math inline">\(A_{n,m}^c\)</span>, we have <span class="math inline">\(|X_n-X_m|\le \varepsilon\)</span>, so</p>
+<p><span class="math display">\[
+\int_{A_{n,m}^c} |X_n-X_m|\,dP \le \varepsilon.
+\]</span></p>
+<p>Also, on <span class="math inline">\(A_{n,m}\)</span>,</p>
+<p><span class="math display">\[
+|X_n-X_m|\le |X_n|+|X_m|,
+\]</span></p>
+<p>so</p>
+<p><span class="math display">\[
+\int_{A_{n,m}} |X_n-X_m|\,dP
+\le
+\int_{A_{n,m}} |X_n|\,dP + \int_{A_{n,m}} |X_m|\,dP.
+\]</span></p>
+<p>Hence</p>
+<p><span class="math display">\[
+\int |X_n-X_m|\,dP
+\le
+\varepsilon
++
+\int_{A_{n,m}} |X_n|\,dP
++
+\int_{A_{n,m}} |X_m|\,dP.
+\]</span></p>
+<p>Since <span class="math inline">\(X_n \xrightarrow{P} X\)</span>, the sequence <span class="math inline">\(\{X_n\}\)</span> is Cauchy in probability, so</p>
+<p><span class="math display">\[
+P(A_{n,m}) = P(|X_n-X_m|&gt;\varepsilon)\to 0
+\qquad (n,m\to\infty).
+\]</span></p>
+<p>Since <span class="math inline">\(\{X_n\}\)</span> is uniformly integrable, by Theorem 6.5.1 it is uniformly absolutely continuous. Therefore, for the given <span class="math inline">\(\varepsilon&gt;0\)</span>, there exists <span class="math inline">\(\delta&gt;0\)</span> such that whenever <span class="math inline">\(P(A)&lt;\delta\)</span>,</p>
+<p><span class="math display">\[
+\sup_n \int_A |X_n|\,dP &lt; \varepsilon.
+\]</span></p>
+<p>Thus, for <span class="math inline">\(n,m\)</span> large enough so that <span class="math inline">\(P(A_{n,m})&lt;\delta\)</span>, we have</p>
+<p><span class="math display">\[
+\int_{A_{n,m}} |X_n|\,dP &lt; \varepsilon,
+\qquad
+\int_{A_{n,m}} |X_m|\,dP &lt; \varepsilon.
+\]</span></p>
+<p>Therefore,</p>
+<p><span class="math display">\[
+\int |X_n-X_m|\,dP
+&lt;
+\varepsilon+\varepsilon+\varepsilon
+=
+3\varepsilon
+\]</span></p>
+<p>for all sufficiently large <span class="math inline">\(n,m\)</span>. Hence</p>
+<p><span class="math display">\[
+E|X_n-X_m| \to 0,
+\]</span></p>
+<p>so <span class="math inline">\(\{X_n\}\)</span> is <span class="math inline">\(L_1\)</span>-Cauchy.</p>
+</div>
+<div id="a-to-c" class="section level5 hasAnchor">
+<h5>(a) <span class="math inline">\(\to\)</span> (c)<a href="chap-6-convergence-concepts.html#a-to-c" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<p>What we have:</p>
+<p><span class="math display">\[
+X_n \xrightarrow{L_1} X.
+\]</span></p>
+<p>What we want:</p>
+<ul>
+<li><span class="math inline">\(\{X_n\}\)</span> is uniformly integrable;</li>
+<li><span class="math inline">\(X_n \xrightarrow{P} X\)</span>.</li>
+</ul>
+<p>First, since <span class="math inline">\(X_n \xrightarrow{L_1} X\)</span>, we have</p>
+<p><span class="math display">\[
+E|X_n-X| \to 0.
+\]</span></p>
+<p>So for every <span class="math inline">\(\varepsilon&gt;0\)</span>, Markov’s inequality gives</p>
+<p><span class="math display">\[
+P(|X_n-X|&gt;\varepsilon)
+\le
+\frac{1}{\varepsilon} E|X_n-X|
+\to 0.
+\]</span></p>
+<p>Hence</p>
+<p><span class="math display">\[
+X_n \xrightarrow{P} X.
+\]</span></p>
+<p>Now we prove <span class="math inline">\(\{X_n\}\)</span> is uniformly integrable.</p>
+<p>First, for every <span class="math inline">\(n\)</span>,</p>
+<p><span class="math display">\[
+\int |X_n|\,dP
+\le
+\int |X_n-X|\,dP + \int |X|\,dP.
+\]</span></p>
+<p>Since <span class="math inline">\(\int |X_n-X|\,dP \to 0\)</span> and <span class="math inline">\(X\in L_1\)</span>, it follows that</p>
+<p><span class="math display">\[
+\sup_n \int |X_n|\,dP &lt; \infty.
+\]</span></p>
+<p>Next, we prove uniform absolute continuity.</p>
+<p>Fix <span class="math inline">\(\varepsilon&gt;0\)</span>. Since <span class="math inline">\(E|X_n-X|\to 0\)</span>, there exists <span class="math inline">\(N_\varepsilon\)</span> such that for all <span class="math inline">\(n\ge N_\varepsilon\)</span>,</p>
+<p><span class="math display">\[
+\int |X_n-X|\,dP &lt; \frac{\varepsilon}{2}.
+\]</span></p>
+<p>Therefore, for any <span class="math inline">\(A\in\mathcal{B}\)</span> and any <span class="math inline">\(n\ge N_\varepsilon\)</span>,</p>
+<p><span class="math display">\[
+\int_A |X_n|\,dP
+\le
+\int_A |X_n-X|\,dP + \int_A |X|\,dP
+\le
+\int |X_n-X|\,dP + \int_A |X|\,dP
+&lt;
+\frac{\varepsilon}{2} + \int_A |X|\,dP.
+\]</span></p>
+<p>Since <span class="math inline">\(X\in L_1\)</span>, the singleton family <span class="math inline">\(\{X\}\)</span> is uniformly integrable, so there exists <span class="math inline">\(\delta_1&gt;0\)</span> such that</p>
+<p><span class="math display">\[
+P(A)&lt;\delta_1
+\quad\Longrightarrow\quad
+\int_A |X|\,dP &lt; \frac{\varepsilon}{2}.
+\]</span></p>
+<p>Hence, if <span class="math inline">\(P(A)&lt;\delta_1\)</span>, then for all <span class="math inline">\(n\ge N_\varepsilon\)</span>,</p>
+<p><span class="math display">\[
+\int_A |X_n|\,dP &lt; \varepsilon.
+\]</span></p>
+<p>So we have shown</p>
+<p><span class="math display">\[
+\sup_{n\ge N_\varepsilon}\int_A |X_n|\,dP &lt; \varepsilon
+\qquad \text{whenever } P(A)&lt;\delta_1.
+\]</span></p>
+<p>Now consider the finite family</p>
+<p><span class="math display">\[
+\{|X_1|,\dots,|X_{N_\varepsilon-1}|\}.
+\]</span></p>
+<p>Since each <span class="math inline">\(X_n\in L_1\)</span> and the family is finite, it is uniformly integrable. Therefore, there exists <span class="math inline">\(\delta_2&gt;0\)</span> such that</p>
+<p><span class="math display">\[
+P(A)&lt;\delta_2
+\quad\Longrightarrow\quad
+\sup_{1\le n &lt; N_\varepsilon}\int_A |X_n|\,dP &lt; \varepsilon.
+\]</span></p>
+<p>Let</p>
+<p><span class="math display">\[
+\delta := \delta_1\wedge \delta_2.
+\]</span></p>
+<p>Then whenever <span class="math inline">\(P(A)&lt;\delta\)</span>, we have both</p>
+<p><span class="math display">\[
+\sup_{n\ge N_\varepsilon}\int_A |X_n|\,dP &lt; \varepsilon
+\]</span></p>
+<p>and</p>
+<p><span class="math display">\[
+\sup_{1\le n &lt; N_\varepsilon}\int_A |X_n|\,dP &lt; \varepsilon.
+\]</span></p>
+<p>Therefore,</p>
+<p><span class="math display">\[
+\sup_n \int_A |X_n|\,dP &lt; \varepsilon
+\qquad \text{whenever } P(A)&lt;\delta.
+\]</span></p>
+<p>So <span class="math inline">\(\{X_n\}\)</span> is uniformly absolutely continuous. Together with</p>
+<p><span class="math display">\[
+\sup_n E|X_n|&lt;\infty,
+\]</span></p>
+<p>Theorem 6.5.1 implies that <span class="math inline">\(\{X_n\}\)</span> is uniformly integrable.</p>
+<p>Hence we have proved:</p>
+<ul>
+<li><span class="math inline">\(\{X_n\}\)</span> is uniformly integrable;</li>
+<li><span class="math inline">\(X_n \xrightarrow{P} X\)</span>.</li>
+</ul>
+<p>That is, (c) holds.</p>
+</div>
+<div id="b-to-a" class="section level5 hasAnchor">
+<h5>(b) <span class="math inline">\(\to\)</span> (a)<a href="chap-6-convergence-concepts.html#b-to-a" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<p>We left this part in <strong>Theorem 6.6.2</strong></p>
+</div>
+</div>
+<div id="theorem-6.6.2" class="section level4 hasAnchor">
+<h4>Theorem 6.6.2<a href="chap-6-convergence-concepts.html#theorem-6.6.2" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div id="b-to-a-1" class="section level5 hasAnchor">
+<h5>(b) <span class="math inline">\(\to\)</span> (a)<a href="chap-6-convergence-concepts.html#b-to-a-1" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<p>Suppose <span class="math inline">\(\{X_n\}\)</span> is Cauchy in <span class="math inline">\(L_p\)</span>. We want to show that there exists <span class="math inline">\(X \in L_p\)</span> such that</p>
+<p><span class="math display">\[
+\|X_n-X\|_p \to 0.
+\]</span></p>
+<p>Since <span class="math inline">\(\{X_n\}\)</span> is Cauchy in <span class="math inline">\(L_p\)</span>, for each <span class="math inline">\(j \ge 1\)</span> there exists <span class="math inline">\(N_j\)</span> such that</p>
+<p><span class="math display">\[
+m,n \ge N_j
+\quad\Longrightarrow\quad
+\|X_n-X_m\|_p &lt; 2^{-j}.
+\]</span></p>
+<p>Without loss of generality, take <span class="math inline">\(N_1 &lt; N_2 &lt; \cdots\)</span>, and define</p>
+<p><span class="math display">\[
+n_j := N_j.
+\]</span></p>
+<p>Then <span class="math inline">\(n_j \to \infty\)</span>, and since both <span class="math inline">\(n_j\)</span> and <span class="math inline">\(n_{j+1}\)</span> are at least <span class="math inline">\(N_j\)</span>, we have</p>
+<p><span class="math display">\[
+\|X_{n_{j+1}}-X_{n_j}\|_p &lt; 2^{-j}
+\qquad (j \ge 1).
+\]</span></p>
+<p>Now define</p>
+<p><span class="math display">\[
+Y_K := \sum_{j=1}^K |X_{n_{j+1}}-X_{n_j}|,
+\qquad
+Y := \sum_{j=1}^\infty |X_{n_{j+1}}-X_{n_j}|.
+\]</span></p>
+<p>By Minkowski’s inequality,</p>
+<p><span class="math display">\[
+\|Y_K\|_p
+\le
+\sum_{j=1}^K \|X_{n_{j+1}}-X_{n_j}\|_p
+&lt;
+\sum_{j=1}^K 2^{-j}
+\le 1.
+\]</span></p>
+<p>Hence</p>
+<p><span class="math display">\[
+E(Y_K^p)=\|Y_K\|_p^p \le 1.
+\]</span></p>
+<p>Since <span class="math inline">\(Y_K \uparrow Y\)</span>, we also have <span class="math inline">\(Y_K^p \uparrow Y^p\)</span>, so by the Monotone Convergence Theorem,</p>
+<p><span class="math display">\[
+E(Y^p)=\lim_{K\to\infty} E(Y_K^p)\le 1.
+\]</span></p>
+<p>Therefore <span class="math inline">\(Y \in L_p\)</span>, and in particular <span class="math inline">\(Y&lt;\infty\)</span> almost surely.</p>
+<p>So for almost every <span class="math inline">\(\omega\)</span>,</p>
+<p><span class="math display">\[
+\sum_{j=1}^\infty |X_{n_{j+1}}(\omega)-X_{n_j}(\omega)|&lt;\infty.
+\]</span></p>
+<p>Hence the series</p>
+<p><span class="math display">\[
+\sum_{j=1}^\infty \bigl(X_{n_{j+1}}(\omega)-X_{n_j}(\omega)\bigr)
+\]</span></p>
+<p>converges absolutely, and therefore converges. Since its <span class="math inline">\(K\)</span>th partial sum is</p>
+<p><span class="math display">\[
+\sum_{j=1}^K (X_{n_{j+1}}-X_{n_j}) = X_{n_{K+1}}-X_{n_1},
+\]</span></p>
+<p>it follows that <span class="math inline">\(\{X_{n_j}\}\)</span> converges almost surely. Define</p>
+<p><span class="math display">\[
+X := \lim_{j\to\infty} X_{n_j}
+\qquad \text{a.e.}
+\]</span></p>
+<p>Next, for each <span class="math inline">\(K\)</span> we have</p>
+<p><span class="math display">\[
+X_{n_{K+1}}-X_{n_1}=\sum_{j=1}^K (X_{n_{j+1}}-X_{n_j}),
+\]</span></p>
+<p>so</p>
+<p><span class="math display">\[
+|X_{n_{K+1}}-X_{n_1}|
+\le
+\sum_{j=1}^K |X_{n_{j+1}}-X_{n_j}|
+\le Y.
+\]</span></p>
+<p>Passing to the limit <span class="math inline">\(K\to\infty\)</span>, we get</p>
+<p><span class="math display">\[
+|X-X_{n_1}| \le Y
+\qquad \text{a.e.}
+\]</span></p>
+<p>Hence</p>
+<p><span class="math display">\[
+|X| \le |X_{n_1}| + Y.
+\]</span></p>
+<p>Since <span class="math inline">\(X_{n_1} \in L_p\)</span> and <span class="math inline">\(Y \in L_p\)</span>, it follows that <span class="math inline">\(X \in L_p\)</span>.</p>
+<p>Now define the tails</p>
+<p><span class="math display">\[
+T_j := \sum_{k=j}^\infty |X_{n_{k+1}}-X_{n_k}|.
+\]</span></p>
+<p>Then <span class="math inline">\(T_j \downarrow 0\)</span> almost surely, and <span class="math inline">\(0 \le T_j \le Y\)</span>. Also,</p>
+<p><span class="math display">\[
+|X-X_{n_j}| \le T_j
+\qquad \text{a.e.}
+\]</span></p>
+<p>Therefore,</p>
+<p><span class="math display">\[
+|X-X_{n_j}|^p \le T_j^p \le Y^p.
+\]</span></p>
+<p>Since <span class="math inline">\(Y^p \in L_1\)</span> and <span class="math inline">\(T_j^p \to 0\)</span> almost surely, the Dominated Convergence Theorem gives</p>
+<p><span class="math display">\[
+E|X-X_{n_j}|^p \to 0.
+\]</span></p>
+<p>Thus</p>
+<p><span class="math display">\[
+\|X_{n_j}-X\|_p \to 0.
+\]</span></p>
+<p>Finally, we extend from the subsequence to the whole sequence. Fix <span class="math inline">\(\varepsilon&gt;0\)</span>. Since <span class="math inline">\(X_{n_j}\to X\)</span> in <span class="math inline">\(L_p\)</span>, there exists <span class="math inline">\(j\)</span> such that</p>
+<p><span class="math display">\[
+\|X_{n_j}-X\|_p &lt; \frac{\varepsilon}{2}.
+\]</span></p>
+<p>Since <span class="math inline">\(\{X_n\}\)</span> is Cauchy in <span class="math inline">\(L_p\)</span>, there exists <span class="math inline">\(N\)</span> such that</p>
+<p><span class="math display">\[
+m,n \ge N
+\quad\Longrightarrow\quad
+\|X_n-X_m\|_p &lt; \frac{\varepsilon}{2}.
+\]</span></p>
+<p>Choose <span class="math inline">\(j\)</span> large enough so that <span class="math inline">\(n_j \ge N\)</span>. Then for every <span class="math inline">\(n \ge N\)</span>,</p>
+<p><span class="math display">\[
+\|X_n-X\|_p
+\le
+\|X_n-X_{n_j}\|_p + \|X_{n_j}-X\|_p
+&lt;
+\frac{\varepsilon}{2} + \frac{\varepsilon}{2}
+=
+\varepsilon.
+\]</span></p>
+<p>Hence</p>
+<p><span class="math display">\[
+\|X_n-X\|_p \to 0.
+\]</span></p>
+<p>So <span class="math inline">\(\{X_n\}\)</span> converges in <span class="math inline">\(L_p\)</span>, and therefore <span class="math inline">\(L_p\)</span> is complete.</p>
+</div>
+</div>
 </div>
 <div id="proof-idea-summarize" class="section level3 hasAnchor">
 <h3>Proof idea summarize<a href="chap-6-convergence-concepts.html#proof-idea-summarize" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -552,6 +880,7 @@ to create a fixed positive gap, then bound each tail by a probability of the for
 P\bigl(|F_n(x)-F(x)|&gt;\text{positive constant}\bigr)\to0.
 \]</span></p></li>
 </ol>
+<p>Further, the reason that we need <span class="math inline">\(F\)</span> is strictly increasing is because we need something that is locally unique to converge to.</p>
 </div>
 </div>
 </div>
@@ -1425,8 +1754,88 @@ X_n \xrightarrow{\text{a.s.}} 0.
 <div id="summary-4" class="section level4 hasAnchor">
 <h4>Summary<a href="chap-6-convergence-concepts.html#summary-4" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>What we discussed in part (a) of this exercise is called the Ky Fan Metric, and we should note that we didn’t use any fancy technique, all we used are juse <span class="math inline">\(\varepsilon-N\)</span> and the definition of infimum.</p>
-
 </div>
+</div>
+<div id="ex-2-1" class="section level3 hasAnchor">
+<h3>EX 2<a href="chap-6-convergence-concepts.html#ex-2-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="problem">
+<p>Let <span class="math inline">\(\{X_n\}\)</span> be iid, <span class="math inline">\(EX_n=\mu\)</span>, <span class="math inline">\(\operatorname{Var}(X_n)=\sigma^2\)</span>. Set
+<span class="math display">\[
+\bar X = \sum_{i=1}^n X_i/n.
+\]</span>
+Show
+<span class="math display">\[
+\frac{1}{n}\sum_{i=1}^n (X_i-\bar X)^2 \xrightarrow{P} \sigma^2.
+\]</span></p>
+</div>
+<p><span class="math inline">\(\textbf{Answer:}\)</span></p>
+<p>Let <span class="math inline">\(\{X_i\}_{i\ge1}\)</span> be iid with <span class="math inline">\(E(X_1)=\mu\)</span> and <span class="math inline">\(\operatorname{Var}(X_1)=\sigma^2&lt;\infty\)</span>.</p>
+<p>Define
+<span class="math display">\[
+Y_n = \frac{1}{n}\sum_{i=1}^n (X_i - \bar X_n)^2,
+\quad \text{where} \quad
+\bar X_n = \frac{1}{n}\sum_{i=1}^n X_i.
+\]</span></p>
+<p>We want to show
+<span class="math display">\[
+Y_n \xrightarrow{P} \sigma^2.
+\]</span></p>
+<hr />
+<ul>
+<li>Step 1: Algebraic decomposition</li>
+</ul>
+<p>We write
+<span class="math display">\[
+Y_n
+= \frac{1}{n}\sum_{i=1}^n X_i^2 - \bar X_n^2.
+\]</span></p>
+<hr />
+<ul>
+<li>Step 2: Convergence of the first term</li>
+</ul>
+<p>Let <span class="math inline">\(Z_i = X_i^2\)</span>. Then <span class="math inline">\(\{Z_i\}\)</span> are iid and
+<span class="math display">\[
+E|Z_1| = E(X_1^2) &lt; \infty.
+\]</span></p>
+<p>By Khinchin’s Weak Law of Large Numbers (Chapter 7),
+<span class="math display">\[
+\frac{1}{n}\sum_{i=1}^n X_i^2
+= \frac{1}{n}\sum_{i=1}^n Z_i
+\xrightarrow{P} E(Z_1) = E(X_1^2).
+\]</span></p>
+<hr />
+<ul>
+<li>Step 3: Convergence of the second term</li>
+</ul>
+<p>By the Weak Law of Large Numbers (finite variance version),
+<span class="math display">\[
+\bar X_n \xrightarrow{P} \mu.
+\]</span></p>
+<p>Since <span class="math inline">\(x \mapsto x^2\)</span> is continuous, by the Continuous Mapping Theorem,
+<span class="math display">\[
+\bar X_n^2 \xrightarrow{P} \mu^2.
+\]</span></p>
+<hr />
+<ul>
+<li>Step 4: Conclusion</li>
+</ul>
+<p>Combining the two convergences,
+<span class="math display">\[
+Y_n
+= \frac{1}{n}\sum_{i=1}^n X_i^2 - \bar X_n^2
+\xrightarrow{P}
+E(X_1^2) - \mu^2.
+\]</span></p>
+<p>Since
+<span class="math display">\[
+E(X_1^2) - \mu^2 = \operatorname{Var}(X_1) = \sigma^2,
+\]</span></p>
+<p>we conclude
+<span class="math display">\[
+Y_n \xrightarrow{P} \sigma^2.
+\]</span></p>
+<p><span class="math inline">\(\textbf{Note:}\)</span> This exercise requires the knowledge from chapter 7, which is the Khintchin’s WLLN under the first moment hypothesis in page 205, if we don’t use it, we still need to use the truncation method to by pass the <span class="math inline">\(E(X_i^4)\)</span> situation.</p>
+
 </div>
 </div>
 </div>

@@ -139,6 +139,444 @@ $$
 
 Thus $X_n\to X$ i.p. 
 
+#### Theorem 6.6.1
+Strictly speaking I did not provide another proof of this theorem, however, I reverse the order of proving in the book, so I still record my proof here.
+
+##### (c) $\to$ (b)
+
+What we have:
+
+- $\{X_n\}$ is uniformly integrable;
+- $X_n \xrightarrow{P} X$.
+
+What we want:
+
+\[
+E|X_n-X_m| \to 0 \qquad (n,m\to\infty),
+\]
+
+that is, $\{X_n\}$ is $L_1$-Cauchy.
+
+Fix $\varepsilon>0$, and define
+
+\[
+A_{n,m} := \{|X_n-X_m|>\varepsilon\}.
+\]
+
+Then
+
+\[
+\int |X_n-X_m|\,dP
+=
+\int_{A_{n,m}^c} |X_n-X_m|\,dP
++
+\int_{A_{n,m}} |X_n-X_m|\,dP.
+\]
+
+On $A_{n,m}^c$, we have $|X_n-X_m|\le \varepsilon$, so
+
+\[
+\int_{A_{n,m}^c} |X_n-X_m|\,dP \le \varepsilon.
+\]
+
+Also, on $A_{n,m}$,
+
+\[
+|X_n-X_m|\le |X_n|+|X_m|,
+\]
+
+so
+
+\[
+\int_{A_{n,m}} |X_n-X_m|\,dP
+\le
+\int_{A_{n,m}} |X_n|\,dP + \int_{A_{n,m}} |X_m|\,dP.
+\]
+
+Hence
+
+\[
+\int |X_n-X_m|\,dP
+\le
+\varepsilon
++
+\int_{A_{n,m}} |X_n|\,dP
++
+\int_{A_{n,m}} |X_m|\,dP.
+\]
+
+Since $X_n \xrightarrow{P} X$, the sequence $\{X_n\}$ is Cauchy in probability, so
+
+\[
+P(A_{n,m}) = P(|X_n-X_m|>\varepsilon)\to 0
+\qquad (n,m\to\infty).
+\]
+
+Since $\{X_n\}$ is uniformly integrable, by Theorem 6.5.1 it is uniformly absolutely continuous. Therefore, for the given $\varepsilon>0$, there exists $\delta>0$ such that whenever $P(A)<\delta$,
+
+\[
+\sup_n \int_A |X_n|\,dP < \varepsilon.
+\]
+
+Thus, for $n,m$ large enough so that $P(A_{n,m})<\delta$, we have
+
+\[
+\int_{A_{n,m}} |X_n|\,dP < \varepsilon,
+\qquad
+\int_{A_{n,m}} |X_m|\,dP < \varepsilon.
+\]
+
+Therefore,
+
+\[
+\int |X_n-X_m|\,dP
+<
+\varepsilon+\varepsilon+\varepsilon
+=
+3\varepsilon
+\]
+
+for all sufficiently large $n,m$. Hence
+
+\[
+E|X_n-X_m| \to 0,
+\]
+
+so $\{X_n\}$ is $L_1$-Cauchy.
+
+##### (a) $\to$ (c)
+
+What we have:
+
+\[
+X_n \xrightarrow{L_1} X.
+\]
+
+What we want:
+
+- $\{X_n\}$ is uniformly integrable;
+- $X_n \xrightarrow{P} X$.
+
+First, since $X_n \xrightarrow{L_1} X$, we have
+
+\[
+E|X_n-X| \to 0.
+\]
+
+So for every $\varepsilon>0$, Markov's inequality gives
+
+\[
+P(|X_n-X|>\varepsilon)
+\le
+\frac{1}{\varepsilon} E|X_n-X|
+\to 0.
+\]
+
+Hence
+
+\[
+X_n \xrightarrow{P} X.
+\]
+
+Now we prove $\{X_n\}$ is uniformly integrable.
+
+First, for every $n$,
+
+\[
+\int |X_n|\,dP
+\le
+\int |X_n-X|\,dP + \int |X|\,dP.
+\]
+
+Since $\int |X_n-X|\,dP \to 0$ and $X\in L_1$, it follows that
+
+\[
+\sup_n \int |X_n|\,dP < \infty.
+\]
+
+Next, we prove uniform absolute continuity.
+
+Fix $\varepsilon>0$. Since $E|X_n-X|\to 0$, there exists $N_\varepsilon$ such that for all $n\ge N_\varepsilon$,
+
+\[
+\int |X_n-X|\,dP < \frac{\varepsilon}{2}.
+\]
+
+Therefore, for any $A\in\mathcal{B}$ and any $n\ge N_\varepsilon$,
+
+\[
+\int_A |X_n|\,dP
+\le
+\int_A |X_n-X|\,dP + \int_A |X|\,dP
+\le
+\int |X_n-X|\,dP + \int_A |X|\,dP
+<
+\frac{\varepsilon}{2} + \int_A |X|\,dP.
+\]
+
+Since $X\in L_1$, the singleton family $\{X\}$ is uniformly integrable, so there exists $\delta_1>0$ such that
+
+\[
+P(A)<\delta_1
+\quad\Longrightarrow\quad
+\int_A |X|\,dP < \frac{\varepsilon}{2}.
+\]
+
+Hence, if $P(A)<\delta_1$, then for all $n\ge N_\varepsilon$,
+
+\[
+\int_A |X_n|\,dP < \varepsilon.
+\]
+
+So we have shown
+
+\[
+\sup_{n\ge N_\varepsilon}\int_A |X_n|\,dP < \varepsilon
+\qquad \text{whenever } P(A)<\delta_1.
+\]
+
+Now consider the finite family
+
+\[
+\{|X_1|,\dots,|X_{N_\varepsilon-1}|\}.
+\]
+
+Since each $X_n\in L_1$ and the family is finite, it is uniformly integrable. Therefore, there exists $\delta_2>0$ such that
+
+\[
+P(A)<\delta_2
+\quad\Longrightarrow\quad
+\sup_{1\le n < N_\varepsilon}\int_A |X_n|\,dP < \varepsilon.
+\]
+
+Let
+
+\[
+\delta := \delta_1\wedge \delta_2.
+\]
+
+Then whenever $P(A)<\delta$, we have both
+
+\[
+\sup_{n\ge N_\varepsilon}\int_A |X_n|\,dP < \varepsilon
+\]
+
+and
+
+\[
+\sup_{1\le n < N_\varepsilon}\int_A |X_n|\,dP < \varepsilon.
+\]
+
+Therefore,
+
+\[
+\sup_n \int_A |X_n|\,dP < \varepsilon
+\qquad \text{whenever } P(A)<\delta.
+\]
+
+So $\{X_n\}$ is uniformly absolutely continuous. Together with
+
+\[
+\sup_n E|X_n|<\infty,
+\]
+
+Theorem 6.5.1 implies that $\{X_n\}$ is uniformly integrable.
+
+Hence we have proved:
+
+- $\{X_n\}$ is uniformly integrable;
+- $X_n \xrightarrow{P} X$.
+
+That is, (c) holds.
+
+##### (b) $\to$ (a)
+We left this part in __Theorem 6.6.2__
+
+#### Theorem 6.6.2
+##### (b) $\to$ (a)
+
+Suppose $\{X_n\}$ is Cauchy in $L_p$. We want to show that there exists $X \in L_p$ such that
+
+\[
+\|X_n-X\|_p \to 0.
+\]
+
+Since $\{X_n\}$ is Cauchy in $L_p$, for each $j \ge 1$ there exists $N_j$ such that
+
+\[
+m,n \ge N_j
+\quad\Longrightarrow\quad
+\|X_n-X_m\|_p < 2^{-j}.
+\]
+
+Without loss of generality, take $N_1 < N_2 < \cdots$, and define
+
+\[
+n_j := N_j.
+\]
+
+Then $n_j \to \infty$, and since both $n_j$ and $n_{j+1}$ are at least $N_j$, we have
+
+\[
+\|X_{n_{j+1}}-X_{n_j}\|_p < 2^{-j}
+\qquad (j \ge 1).
+\]
+
+Now define
+
+\[
+Y_K := \sum_{j=1}^K |X_{n_{j+1}}-X_{n_j}|,
+\qquad
+Y := \sum_{j=1}^\infty |X_{n_{j+1}}-X_{n_j}|.
+\]
+
+By Minkowski's inequality,
+
+\[
+\|Y_K\|_p
+\le
+\sum_{j=1}^K \|X_{n_{j+1}}-X_{n_j}\|_p
+<
+\sum_{j=1}^K 2^{-j}
+\le 1.
+\]
+
+Hence
+
+\[
+E(Y_K^p)=\|Y_K\|_p^p \le 1.
+\]
+
+Since $Y_K \uparrow Y$, we also have $Y_K^p \uparrow Y^p$, so by the Monotone Convergence Theorem,
+
+\[
+E(Y^p)=\lim_{K\to\infty} E(Y_K^p)\le 1.
+\]
+
+Therefore $Y \in L_p$, and in particular $Y<\infty$ almost surely.
+
+So for almost every $\omega$,
+
+\[
+\sum_{j=1}^\infty |X_{n_{j+1}}(\omega)-X_{n_j}(\omega)|<\infty.
+\]
+
+Hence the series
+
+\[
+\sum_{j=1}^\infty \bigl(X_{n_{j+1}}(\omega)-X_{n_j}(\omega)\bigr)
+\]
+
+converges absolutely, and therefore converges. Since its $K$th partial sum is
+
+\[
+\sum_{j=1}^K (X_{n_{j+1}}-X_{n_j}) = X_{n_{K+1}}-X_{n_1},
+\]
+
+it follows that $\{X_{n_j}\}$ converges almost surely. Define
+
+\[
+X := \lim_{j\to\infty} X_{n_j}
+\qquad \text{a.e.}
+\]
+
+Next, for each $K$ we have
+
+\[
+X_{n_{K+1}}-X_{n_1}=\sum_{j=1}^K (X_{n_{j+1}}-X_{n_j}),
+\]
+
+so
+
+\[
+|X_{n_{K+1}}-X_{n_1}|
+\le
+\sum_{j=1}^K |X_{n_{j+1}}-X_{n_j}|
+\le Y.
+\]
+
+Passing to the limit $K\to\infty$, we get
+
+\[
+|X-X_{n_1}| \le Y
+\qquad \text{a.e.}
+\]
+
+Hence
+
+\[
+|X| \le |X_{n_1}| + Y.
+\]
+
+Since $X_{n_1} \in L_p$ and $Y \in L_p$, it follows that $X \in L_p$.
+
+Now define the tails
+
+\[
+T_j := \sum_{k=j}^\infty |X_{n_{k+1}}-X_{n_k}|.
+\]
+
+Then $T_j \downarrow 0$ almost surely, and $0 \le T_j \le Y$. Also,
+
+\[
+|X-X_{n_j}| \le T_j
+\qquad \text{a.e.}
+\]
+
+Therefore,
+
+\[
+|X-X_{n_j}|^p \le T_j^p \le Y^p.
+\]
+
+Since $Y^p \in L_1$ and $T_j^p \to 0$ almost surely, the Dominated Convergence Theorem gives
+
+\[
+E|X-X_{n_j}|^p \to 0.
+\]
+
+Thus
+
+\[
+\|X_{n_j}-X\|_p \to 0.
+\]
+
+Finally, we extend from the subsequence to the whole sequence. Fix $\varepsilon>0$. Since $X_{n_j}\to X$ in $L_p$, there exists $j$ such that
+
+\[
+\|X_{n_j}-X\|_p < \frac{\varepsilon}{2}.
+\]
+
+Since $\{X_n\}$ is Cauchy in $L_p$, there exists $N$ such that
+
+\[
+m,n \ge N
+\quad\Longrightarrow\quad
+\|X_n-X_m\|_p < \frac{\varepsilon}{2}.
+\]
+
+Choose $j$ large enough so that $n_j \ge N$. Then for every $n \ge N$,
+
+\[
+\|X_n-X\|_p
+\le
+\|X_n-X_{n_j}\|_p + \|X_{n_j}-X\|_p
+<
+\frac{\varepsilon}{2} + \frac{\varepsilon}{2}
+=
+\varepsilon.
+\]
+
+Hence
+
+\[
+\|X_n-X\|_p \to 0.
+\]
+
+So $\{X_n\}$ converges in $L_p$, and therefore $L_p$ is complete.
+
+
+
 ### Proof idea summarize
 
 It is essentially impossible to recreate every proof in the book on my own, but I think it is still worthy summarizing the idea of proof using my own language.
@@ -1195,3 +1633,95 @@ $\textbf{Note:}$ The knowledge we use here is that, a sequence $x_n$ converges t
 #### Summary
 
 What we discussed in part (a) of this exercise is called the Ky Fan Metric, and we should note that we didn't use any fancy technique, all we used are juse $\varepsilon-N$ and the definition of infimum.
+
+### EX 2
+::: problem
+Let \(\{X_n\}\) be iid, \(EX_n=\mu\), \(\operatorname{Var}(X_n)=\sigma^2\). Set
+\[
+\bar X = \sum_{i=1}^n X_i/n.
+\]
+Show
+\[
+\frac{1}{n}\sum_{i=1}^n (X_i-\bar X)^2 \xrightarrow{P} \sigma^2.
+\]
+:::
+
+$\textbf{Answer:}$ 
+
+Let $\{X_i\}_{i\ge1}$ be iid with $E(X_1)=\mu$ and $\operatorname{Var}(X_1)=\sigma^2<\infty$.
+
+Define
+\[
+Y_n = \frac{1}{n}\sum_{i=1}^n (X_i - \bar X_n)^2,
+\quad \text{where} \quad
+\bar X_n = \frac{1}{n}\sum_{i=1}^n X_i.
+\]
+
+We want to show
+\[
+Y_n \xrightarrow{P} \sigma^2.
+\]
+
+---
+
+* Step 1: Algebraic decomposition
+
+We write
+\[
+Y_n
+= \frac{1}{n}\sum_{i=1}^n X_i^2 - \bar X_n^2.
+\]
+
+---
+
+* Step 2: Convergence of the first term
+
+Let $Z_i = X_i^2$. Then $\{Z_i\}$ are iid and
+\[
+E|Z_1| = E(X_1^2) < \infty.
+\]
+
+By Khinchin’s Weak Law of Large Numbers (Chapter 7),
+\[
+\frac{1}{n}\sum_{i=1}^n X_i^2
+= \frac{1}{n}\sum_{i=1}^n Z_i
+\xrightarrow{P} E(Z_1) = E(X_1^2).
+\]
+
+---
+
+* Step 3: Convergence of the second term
+
+By the Weak Law of Large Numbers (finite variance version),
+\[
+\bar X_n \xrightarrow{P} \mu.
+\]
+
+Since $x \mapsto x^2$ is continuous, by the Continuous Mapping Theorem,
+\[
+\bar X_n^2 \xrightarrow{P} \mu^2.
+\]
+
+---
+
+* Step 4: Conclusion
+
+Combining the two convergences,
+\[
+Y_n
+= \frac{1}{n}\sum_{i=1}^n X_i^2 - \bar X_n^2
+\xrightarrow{P}
+E(X_1^2) - \mu^2.
+\]
+
+Since
+\[
+E(X_1^2) - \mu^2 = \operatorname{Var}(X_1) = \sigma^2,
+\]
+
+we conclude
+\[
+Y_n \xrightarrow{P} \sigma^2.
+\]
+
+$\textbf{Note:}$ This exercise requires the knowledge from chapter 7, which is the Khintchin's WLLN under the first moment hypothesis in page 205, if we don't use it, we still need to use the truncation method to by pass the $E(X_i^4)$ situation.
