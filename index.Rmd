@@ -68,6 +68,7 @@ In chapter 6, I added a section called __Other Notes__ for recording other thing
 ### 2026-04-10 {-}
 Recently I realized that for some exercises I may be essentially correct, but I actually had left too many logical gaps, this is a dangerous signal indicating that I was doing it more by instinct than by logic, for some easy questions it could be easy to see through a path from the given condition to the required endpoint directly, however when dealing with advanced questions, it is just being a blind people trying to walk through a minefield, relying on instinct is not an option, the only canes we can use are basic axioms, definitions, theorems and logic, therefore I should try my best not merely just write down a skeletal outline as an answer, but explicitly justify every logical step in detail.
 
-
-
+### 2026-05-1 {-}
+From Chapter 6 onward, initial ideas will be written on paper.  
+Uploaded images are treated as Step 1 (Brain dump) unless explicitly stated otherwise.
 

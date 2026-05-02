@@ -23,7 +23,7 @@
 <meta name="author" content="Zhanwen Peng" />
 
 
-<meta name="date" content="2026-05-01" />
+<meta name="date" content="2026-05-02" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -352,6 +352,7 @@
 <li class="chapter" data-level="" data-path="chap-6-convergence-concepts.html"><a href="chap-6-convergence-concepts.html#summary-4"><i class="fa fa-check"></i>Summary</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="chap-6-convergence-concepts.html"><a href="chap-6-convergence-concepts.html#ex-2-1"><i class="fa fa-check"></i>EX 2</a></li>
+<li class="chapter" data-level="" data-path="chap-6-convergence-concepts.html"><a href="chap-6-convergence-concepts.html#ex-4-1"><i class="fa fa-check"></i>EX 4</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -1835,6 +1836,44 @@ E(X_1^2) - \mu^2 = \operatorname{Var}(X_1) = \sigma^2,
 Y_n \xrightarrow{P} \sigma^2.
 \]</span></p>
 <p><span class="math inline">\(\textbf{Note:}\)</span> This exercise requires the knowledge from chapter 7, which is the Khintchin’s WLLN under the first moment hypothesis in page 205, if we don’t use it, we still need to use the truncation method to by pass the <span class="math inline">\(E(X_i^4)\)</span> situation.</p>
+</div>
+<div id="ex-4-1" class="section level3 hasAnchor">
+<h3>EX 4<a href="chap-6-convergence-concepts.html#ex-4-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="problem">
+
+</div>
+<p><span class="math inline">\(\textbf{Answer:}\)</span></p>
+<p>Let <span class="math inline">\(S_n=\sum_{i=1}^n a_i X_i\)</span>, where <span class="math inline">\(\{X_i\}\)</span> are iid with <span class="math inline">\(E(X_i)=0\)</span>, <span class="math inline">\(\operatorname{Var}(X_i)=\sigma^2\)</span>.</p>
+<hr />
+<p>(<span class="math inline">\(\Leftarrow\)</span>)</p>
+<p>Assume <span class="math inline">\(\sum_{i=1}^\infty a_i^2&lt;\infty\)</span>.</p>
+<p>For <span class="math inline">\(n&gt;m\)</span>,
+<span class="math display">\[
+E(S_n-S_m)^2
+=E\left(\sum_{i=m+1}^n a_i X_i\right)^2
+=\sum_{i=m+1}^n a_i^2 E(X_i^2)
+=\sigma^2\sum_{i=m+1}^n a_i^2.
+\]</span></p>
+<p>Thus <span class="math inline">\(E(S_n-S_m)^2\to0\)</span>, so <span class="math inline">\(\{S_n\}\)</span> is Cauchy in <span class="math inline">\(L_2\)</span>.<br />
+Since <span class="math inline">\(L_2\)</span> is complete, <span class="math inline">\(S_n\)</span> converges in <span class="math inline">\(L_2\)</span>.</p>
+<hr />
+<p>(<span class="math inline">\(\Rightarrow\)</span>)</p>
+<p>Assume <span class="math inline">\(S_n\)</span> converges in <span class="math inline">\(L_2\)</span>. Then
+<span class="math display">\[
+E(S_n-S_m)^2\to0.
+\]</span></p>
+<p>But
+<span class="math display">\[
+E(S_n-S_m)^2=\sigma^2\sum_{i=m+1}^n a_i^2,
+\]</span>
+so
+<span class="math display">\[
+\sum_{i=m+1}^n a_i^2\to0.
+\]</span></p>
+<p>Thus <span class="math inline">\(A_n=\sum_{i=1}^n a_i^2\)</span> is Cauchy in <span class="math inline">\(\mathbb{R}\)</span>, hence
+<span class="math display">\[
+\sum_{i=1}^\infty a_i^2&lt;\infty.
+\]</span></p>
 
 </div>
 </div>
