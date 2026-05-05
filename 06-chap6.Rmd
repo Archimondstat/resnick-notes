@@ -644,7 +644,7 @@ Further, the reason that we need \(F\) is strictly increasing is because we need
 
 ##  Exercises
 
-### EX 1
+### Ex 1
 ::: problem
 (a) Let $\{X_n\}$ be a monotone sequence of random variables. If
 \[
@@ -819,7 +819,7 @@ P(|Y_n-x_0|>\varepsilon)&=P(\{Y_n>\varepsilon+x_0\}\cup\{Y_n<x_0-\varepsilon\})\
 $$
 so $Y_n\xrightarrow{P}x_0$, and $Y_n$ is increasing with $n$, by (a), we have $Y_n\xrightarrow{a.s.}x_0$.
 
-### EX 12
+### Ex 12
 ::: problem
 Let $\{X_n\}$ be a sequence of random variables.
 
@@ -923,7 +923,7 @@ $$
 So this exercise shows that convergence in probability is metrizable on $L^0$. In this sense, __Theorem 6.3.1__ can be viewed as a completeness statement for a metric generating convergence in probability.
 
 
-### EX 17
+### Ex 17
 ::: problem
 In a discrete probability space, convergence in probability is equivalent to almost sure convergence.
 :::
@@ -987,7 +987,7 @@ This directly contradicts our initial assumption that $X_n \xrightarrow{P} X$. T
 $\textbf{Note:}$ __My idea__ is correct, and I provide the formalized answer here.
 
 
-### EX 19
+### Ex 19
 ::: problem
 If $0 \le X_n \le Y_n$ and $Y_n \xrightarrow{P} 0$, check $X_n \xrightarrow{P} 0$.
 :::
@@ -1031,7 +1031,7 @@ Therefore, $X_n \xrightarrow{P} 0$.
 $\textbf{Note:}$ __My idea__ is correct, and I provide the formalized answer here.
 
 
-### EX 21
+### Ex 21
 ::: problem
 Recall the notation $d(A, B) = P(A \triangle B)$ for events $A, B$. Prove
 $$d(A_n, A) \to 0 \text{ iff } 1_{A_n} \xrightarrow{L_2} 1_A.$$
@@ -1082,7 +1082,7 @@ Consequently, since convergence in $L_p$ implies convergence in probability, we 
 $\textbf{Note:}$ __My idea__ is correct, and I provide the formalized answer here. Also, the formalized answer cover the $p>0$ situation.
 
 
-### EX 24
+### Ex 24
 ::: problem
 Recall a random vector $(X_n, Y_n)$ (that is, a random element of $\mathbb{R}^2$) converges in probability to a limit random vector $(X, Y)$ if
 $$d((X_n, Y_n), (X, Y)) \xrightarrow{P} 0$$
@@ -1242,7 +1242,7 @@ $$
 $\textbf{Note:}$ __My idea__ is correct and rigorous.
 
 
-### EX 25
+### Ex 25
 ::: problem
 For random variables $X, Y$ define
 $$
@@ -1634,7 +1634,7 @@ $\textbf{Note:}$ The knowledge we use here is that, a sequence $x_n$ converges t
 
 What we discussed in part (a) of this exercise is called the Ky Fan Metric, and we should note that we didn't use any fancy technique, all we used are juse $\varepsilon-N$ and the definition of infimum.
 
-### EX 2
+### Ex 2
 ::: problem
 Let \(\{X_n\}\) be iid, \(EX_n=\mu\), \(\operatorname{Var}(X_n)=\sigma^2\). Set
 \[
@@ -1662,7 +1662,7 @@ We want to show
 Y_n \xrightarrow{P} \sigma^2.
 \]
 
----
+
 
 * Step 1: Algebraic decomposition
 
@@ -1672,7 +1672,7 @@ Y_n
 = \frac{1}{n}\sum_{i=1}^n X_i^2 - \bar X_n^2.
 \]
 
----
+
 
 * Step 2: Convergence of the first term
 
@@ -1688,7 +1688,6 @@ By Khinchin’s Weak Law of Large Numbers (Chapter 7),
 \xrightarrow{P} E(Z_1) = E(X_1^2).
 \]
 
----
 
 * Step 3: Convergence of the second term
 
@@ -1702,7 +1701,6 @@ Since $x \mapsto x^2$ is continuous, by the Continuous Mapping Theorem,
 \bar X_n^2 \xrightarrow{P} \mu^2.
 \]
 
----
 
 * Step 4: Conclusion
 
@@ -1726,16 +1724,15 @@ Y_n \xrightarrow{P} \sigma^2.
 
 $\textbf{Note:}$ This exercise requires the knowledge from chapter 7, which is the Khintchin's WLLN under the first moment hypothesis in page 205, if we don't use it, we still need to use the truncation method to by pass the $E(X_i^4)$ situation.
 
-### EX 4
+### Ex 4
 ::: problem
-
+Let $\{X_n, n \ge 1\}$ be iid, $EX_n = 0, EX_n^2 = \sigma^2$. Let $a_n \in \mathbb{R}$ for $n \ge 1$. Set $S_n = \sum_{i=1}^n a_iX_i$. Prove $\{S_n\}$ is $L_2$-convergent iff $\sum_{i=1}^\infty a_i^2 < \infty$.
 :::
 
 $\textbf{Answer:}$ 
 
 Let $S_n=\sum_{i=1}^n a_i X_i$, where $\{X_i\}$ are iid with $E(X_i)=0$, $\operatorname{Var}(X_i)=\sigma^2$.
 
----
 
 ($\Leftarrow$)
 
@@ -1776,6 +1773,186 @@ Thus $A_n=\sum_{i=1}^n a_i^2$ is Cauchy in $\mathbb{R}$, hence
 \]
 
 
+### Ex 5
+::: problem
+Suppose $\{X_n\}$ is iid. Show $\{n^{-1}S_n, n \ge 1\}$ is ui provided $X_i \in L_1$.
+:::
+
+$\textbf{Answer:}$ 
+
+
+Let $S_n=\sum_{i=1}^n X_i$, where $\{X_n\}$ are iid and $X_n\in L_1$.
+
+We want to show $\left\{\frac{S_n}{n}\right\}$ is uniformly integrable.
+
+
+Since $\{X_n\}\in L_1$ and iid, for each $X_i$, the integral $\int_A|X_i|dP$ absolutely continuous w.r.t. P, that is:
+\[
+\forall \varepsilon>0,\ \exists \delta>0,\ \text{if } A\in\mathcal{B} \text{ and } P(A)<\delta,
+\text{ we have } \int_A |X_i|\,dP < \varepsilon/2.
+\]
+
+Then for $A\in\mathcal{B}$,
+\[
+\int_A \left|\frac{S_n}{n}\right| dP
+=
+\int_A \left|\frac{1}{n}\sum_{i=1}^n X_i\right| dP
+\le
+\frac{1}{n}\sum_{i=1}^n \int_A |X_i| dP.
+\]
+
+Now decompose
+\[
+|X_i| = |X_i|1_{\{|X_i|\le K\}} + |X_i|1_{\{|X_i|>K\}}.
+\]
+
+Then
+\[
+\int_A |X_i| dP
+=
+\int_A |X_i|1_{\{|X_i|\le K\}} dP
++
+\int_A |X_i|1_{\{|X_i|>K\}} dP.
+\]
+
+So
+\[
+\int_A \left|\frac{S_n}{n}\right| dP
+\le
+K P(A)
++
+\frac{1}{n}\sum_{i=1}^n \int |X_i|1_{\{|X_i|>K\}} dP.
+\]
+
+Since $\{X_i\}$ are iid,
+\[
+\frac{1}{n}\sum_{i=1}^n E\left(|X_i|1_{\{|X_i|>K\}}\right)
+=
+E\left(|X_1|1_{\{|X_1|>K\}}\right).
+\]
+
+Since $X_1\in L_1$, we can select $K$ large enough such that
+\[
+E\left(|X_1|1_{\{|X_1|>K\}}\right) < \varepsilon/2.
+\]
+
+Then for fixed $\varepsilon>0$, we can choose $\delta$ such that
+\[
+K P(A) < \varepsilon/2.
+\]
+
+Thus we have
+\[
+\sup_n \int_A \left|\frac{S_n}{n}\right| dP
+\le
+K P(A) + E\left(|X_1|1_{\{|X_1|>K\}}\right)
+< \varepsilon.
+\]
+
+And for $A=\Omega$, we have
+\[
+\sup_n E\left|\frac{S_n}{n}\right|
+\le
+\frac{1}{n}\sum_{i=1}^n E|X_i|
+=
+E|X_1| < \infty.
+\]
+
+Hence $\left\{\frac{S_n}{n}\right\}$ is uniformly integrable.
+
+$\textbf{Note:}$ 
+
+At the early version of my idea, I wrote something like this:
+\[
+\sup_n \int_A \left|\frac{S_n}{n}\right| dP
+\le
+\frac{1}{n}\sum_{i=1}^n \int_A |X_i| dP
+=
+\int_A |X_1| dP.
+\]
+
+To see what is going wrong here, we need to re-investigate the iid concept, which is not formally introduced in our book.
+
+If $\{X_n\}$ are identically independently distributed (iid), firstly it means for every $n$,
+\[
+P\circ X_n^{-1}
+\]
+induces the same distribution function. Therefore we have
+\[
+E(X_n) = \int X_n dP = \int x F_n(dx) = \int x F_1(dx),
+\]
+and for any measurable function $g$,
+\[
+E(g(X_n)) = \int g(X_n) dP = \int g(x) F_n(dx) = \int g(x) F_1(dx).
+\]
+
+For the independent part, it means for $A_i \in \sigma(X_i)$, $A_i$ should be independent of $\sigma(X_j)$, $i\ne j$.
+
+That means we cannot use the same $A\in\mathcal{B}$ to apply on each $X_i$ to get
+\[
+\int_A |X_i| dP.
+\]
+
+What we can do instead is to use truncation to control
+\[
+\int_A \left|\frac{S_n}{n}\right| dP.
+\]
+
+Since for fixed $K$,
+\[
+E\left(|X_i|1_{\{|X_i|>K\}}\right)
+\]
+are the same, and also
+\[
+E\left(|X_i|1_{\{|X_i|\le K\}}\right),
+\]
+we can control the integral.
+
+So for
+\[
+\int_A |X_i| dP = E(|X_i|1_A),
+\]
+the issue is that $1_A$ is not a function of $X_i$.
+
+::: problem
+Let $\{X_n\}$ be ui and let $X\in L_1$. Show $\{X_n-X\}$ is ui.
+:::
+
+$\textbf{Answer:}$
+
+Since $\{X_n\}$ is ui, we have
+\[
+\sup_n E|X_n|<\infty
+\]
+and for every $\varepsilon>0$, there exists $\delta_1>0$ such that if $A\in\mathcal B$ and $P(A)<\delta_1$, then
+\[
+\sup_n\int_A |X_n|\,dP<\varepsilon/2.
+\]
+
+Since $X\in L_1$, there exists $\delta_2>0$ such that if $A\in\mathcal B$ and $P(A)<\delta_2$, then
+\[
+\int_A |X|\,dP<\varepsilon/2.
+\]
+
+Let $\delta=\min\{\delta_1,\delta_2\}$. Then for $A\in\mathcal B$, if $P(A)<\delta$, we have
+\[
+\sup_n\int_A |X_n-X|\,dP
+\le
+\sup_n\int_A |X_n|\,dP+\int_A |X|\,dP
+<
+\varepsilon.
+\]
+
+Further,
+\[
+\sup_n E|X_n-X|
+\le
+\sup_n E|X_n|+E|X|<\infty.
+\]
+
+Hence $\{X_n-X\}$ is ui.
+
+$\textbf{Note:}$ I get passed at my first try.
 
 
 

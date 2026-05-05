@@ -70,5 +70,5 @@ Recently I realized that for some exercises I may be essentially correct, but I 
 
 ### 2026-05-1 {-}
 From Chapter 6 onward, initial ideas will be written on paper.  
-Uploaded images are treated as Step 1 (Brain dump) unless explicitly stated otherwise.
+Uploaded images are treated as Step 1 (Brain dump) unless explicitly stated otherwise. 
 
