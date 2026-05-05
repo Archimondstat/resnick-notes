@@ -23,7 +23,7 @@
 <meta name="author" content="Zhanwen Peng" />
 
 
-<meta name="date" content="2026-05-05" />
+<meta name="date" content="2026-05-06" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -355,6 +355,8 @@
 <li class="chapter" data-level="" data-path="chap-6-convergence-concepts.html"><a href="chap-6-convergence-concepts.html#ex-2-1"><i class="fa fa-check"></i>Ex 2</a></li>
 <li class="chapter" data-level="" data-path="chap-6-convergence-concepts.html"><a href="chap-6-convergence-concepts.html#ex-4-1"><i class="fa fa-check"></i>Ex 4</a></li>
 <li class="chapter" data-level="" data-path="chap-6-convergence-concepts.html"><a href="chap-6-convergence-concepts.html#ex-5-1"><i class="fa fa-check"></i>Ex 5</a></li>
+<li class="chapter" data-level="" data-path="chap-6-convergence-concepts.html"><a href="chap-6-convergence-concepts.html#ex-6-1"><i class="fa fa-check"></i>Ex 6</a></li>
+<li class="chapter" data-level="" data-path="chap-6-convergence-concepts.html"><a href="chap-6-convergence-concepts.html#ex-8-1"><i class="fa fa-check"></i>Ex 8</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -1988,6 +1990,9 @@ we can control the integral.</p>
 \int_A |X_i| dP = E(|X_i|1_A),
 \]</span>
 the issue is that <span class="math inline">\(1_A\)</span> is not a function of <span class="math inline">\(X_i\)</span>.</p>
+</div>
+<div id="ex-6-1" class="section level3 hasAnchor">
+<h3>Ex 6<a href="chap-6-convergence-concepts.html#ex-6-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div class="problem">
 <p>Let <span class="math inline">\(\{X_n\}\)</span> be ui and let <span class="math inline">\(X\in L_1\)</span>. Show <span class="math inline">\(\{X_n-X\}\)</span> is ui.</p>
 </div>
@@ -2019,6 +2024,52 @@ and for every <span class="math inline">\(\varepsilon&gt;0\)</span>, there exist
 \sup_n E|X_n|+E|X|&lt;\infty.
 \]</span></p>
 <p>Hence <span class="math inline">\(\{X_n-X\}\)</span> is ui.</p>
+<p><span class="math inline">\(\textbf{Note:}\)</span> I get passed at my first try.</p>
+</div>
+<div id="ex-8-1" class="section level3 hasAnchor">
+<h3>Ex 8<a href="chap-6-convergence-concepts.html#ex-8-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="problem">
+<p>Suppose <span class="math inline">\(\{X_n\}\)</span> and <span class="math inline">\(\{Y_n\}\)</span> are ui in the same probability space. Show <span class="math inline">\(\{X_n+Y_n\}\)</span> is ui.</p>
+</div>
+<p><span class="math inline">\(\textbf{Answer:}\)</span></p>
+<p>Since <span class="math inline">\(\{X_n\}\)</span> and <span class="math inline">\(\{Y_n\}\)</span> are ui, for every <span class="math inline">\(\varepsilon&gt;0\)</span>, there exists <span class="math inline">\(\delta_1(\varepsilon)&gt;0\)</span>, such that for <span class="math inline">\(A\in\mathcal{B}\)</span>, if <span class="math inline">\(P(A)&lt;\delta_1\)</span>, then
+<span class="math display">\[
+\sup_n \int_A |X_n|\,dP &lt; \frac{\varepsilon}{2}.
+\]</span></p>
+<p>And there exists <span class="math inline">\(\delta_2(\varepsilon)&gt;0\)</span>, such that for <span class="math inline">\(A\in\mathcal{B}\)</span>, if <span class="math inline">\(P(A)&lt;\delta_2\)</span>, then
+<span class="math display">\[
+\sup_n \int_A |Y_n|\,dP &lt; \frac{\varepsilon}{2}.
+\]</span></p>
+<p>Let
+<span class="math display">\[
+\delta=\min\{\delta_1,\delta_2\}.
+\]</span></p>
+<p>Then for <span class="math inline">\(A\in\mathcal{B}\)</span>, if <span class="math inline">\(P(A)&lt;\delta\)</span>, we have
+<span class="math display">\[
+\sup_n \int_A |X_n+Y_n|\,dP
+\le
+\sup_n\left(
+\int_A |X_n|\,dP+\int_A |Y_n|\,dP
+\right)
+\]</span>
+<span class="math display">\[
+\le
+\sup_n\int_A |X_n|\,dP
++
+\sup_n\int_A |Y_n|\,dP
+&lt;
+\frac{\varepsilon}{2}+\frac{\varepsilon}{2}
+=
+\varepsilon.
+\]</span></p>
+<p>And
+<span class="math display">\[
+\sup_n E|X_n+Y_n|
+\le
+\sup_n E|X_n|+\sup_n E|Y_n|
+&lt;\infty.
+\]</span></p>
+<p>So <span class="math inline">\(\{X_n+Y_n\}\)</span> is ui.</p>
 <p><span class="math inline">\(\textbf{Note:}\)</span> I get passed at my first try.</p>
 
 </div>

@@ -1914,6 +1914,7 @@ So for
 \]
 the issue is that $1_A$ is not a function of $X_i$.
 
+### Ex 6
 ::: problem
 Let $\{X_n\}$ be ui and let $X\in L_1$. Show $\{X_n-X\}$ is ui.
 :::
@@ -1955,4 +1956,55 @@ Hence $\{X_n-X\}$ is ui.
 $\textbf{Note:}$ I get passed at my first try.
 
 
+### Ex 8
+::: problem
+Suppose $\{X_n\}$ and $\{Y_n\}$ are ui in the same probability space. Show $\{X_n+Y_n\}$ is ui.
+:::
 
+$\textbf{Answer:}$
+
+Since $\{X_n\}$ and $\{Y_n\}$ are ui, for every $\varepsilon>0$, there exists $\delta_1(\varepsilon)>0$, such that for $A\in\mathcal{B}$, if $P(A)<\delta_1$, then
+\[
+\sup_n \int_A |X_n|\,dP < \frac{\varepsilon}{2}.
+\]
+
+And there exists $\delta_2(\varepsilon)>0$, such that for $A\in\mathcal{B}$, if $P(A)<\delta_2$, then
+\[
+\sup_n \int_A |Y_n|\,dP < \frac{\varepsilon}{2}.
+\]
+
+Let
+\[
+\delta=\min\{\delta_1,\delta_2\}.
+\]
+
+Then for $A\in\mathcal{B}$, if $P(A)<\delta$, we have
+\[
+\sup_n \int_A |X_n+Y_n|\,dP
+\le
+\sup_n\left(
+\int_A |X_n|\,dP+\int_A |Y_n|\,dP
+\right)
+\]
+\[
+\le
+\sup_n\int_A |X_n|\,dP
++
+\sup_n\int_A |Y_n|\,dP
+<
+\frac{\varepsilon}{2}+\frac{\varepsilon}{2}
+=
+\varepsilon.
+\]
+
+And
+\[
+\sup_n E|X_n+Y_n|
+\le
+\sup_n E|X_n|+\sup_n E|Y_n|
+<\infty.
+\]
+
+So $\{X_n+Y_n\}$ is ui.
+
+$\textbf{Note:}$ I get passed at my first try.
