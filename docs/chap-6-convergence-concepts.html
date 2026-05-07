@@ -23,7 +23,7 @@
 <meta name="author" content="Zhanwen Peng" />
 
 
-<meta name="date" content="2026-05-06" />
+<meta name="date" content="2026-05-07" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -357,6 +357,12 @@
 <li class="chapter" data-level="" data-path="chap-6-convergence-concepts.html"><a href="chap-6-convergence-concepts.html#ex-5-1"><i class="fa fa-check"></i>Ex 5</a></li>
 <li class="chapter" data-level="" data-path="chap-6-convergence-concepts.html"><a href="chap-6-convergence-concepts.html#ex-6-1"><i class="fa fa-check"></i>Ex 6</a></li>
 <li class="chapter" data-level="" data-path="chap-6-convergence-concepts.html"><a href="chap-6-convergence-concepts.html#ex-8-1"><i class="fa fa-check"></i>Ex 8</a></li>
+<li class="chapter" data-level="" data-path="chap-6-convergence-concepts.html"><a href="chap-6-convergence-concepts.html#ex-3-1"><i class="fa fa-check"></i>Ex 3</a>
+<ul>
+<li class="chapter" data-level="" data-path="chap-6-convergence-concepts.html"><a href="chap-6-convergence-concepts.html#a-22"><i class="fa fa-check"></i>(a)</a></li>
+<li class="chapter" data-level="" data-path="chap-6-convergence-concepts.html"><a href="chap-6-convergence-concepts.html#b-22"><i class="fa fa-check"></i>(b)</a></li>
+<li class="chapter" data-level="" data-path="chap-6-convergence-concepts.html"><a href="chap-6-convergence-concepts.html#c-16"><i class="fa fa-check"></i>(c)</a></li>
+</ul></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -2071,7 +2077,112 @@ and for every <span class="math inline">\(\varepsilon&gt;0\)</span>, there exist
 \]</span></p>
 <p>So <span class="math inline">\(\{X_n+Y_n\}\)</span> is ui.</p>
 <p><span class="math inline">\(\textbf{Note:}\)</span> I get passed at my first try.</p>
+</div>
+<div id="ex-3-1" class="section level3 hasAnchor">
+<h3>Ex 3<a href="chap-6-convergence-concepts.html#ex-3-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="problem">
+<p>Suppose <span class="math inline">\(X\ge 0\)</span>, <span class="math inline">\(Y\ge 0\)</span>, and <span class="math inline">\(p\ge 0\)</span>.</p>
+<ol style="list-style-type: lower-alpha">
+<li><p>Prove
+<span class="math display">\[
+E((X+Y)^p)\le 2^p\{E(X^p)+E(Y^p)\}.
+\]</span></p></li>
+<li><p>If <span class="math inline">\(p&gt;1\)</span>, replace <span class="math inline">\(2^p\)</span> by <span class="math inline">\(2^{p-1}\)</span>.</p></li>
+<li><p>If <span class="math inline">\(0\le p\le 1\)</span>, replace <span class="math inline">\(2^p\)</span> by <span class="math inline">\(1\)</span>.</p></li>
+</ol>
+</div>
+<p><span class="math inline">\(\textbf{Answer:}\)</span></p>
+<div id="a-22" class="section level4 hasAnchor">
+<h4>(a)<a href="chap-6-convergence-concepts.html#a-22" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Since
+<span class="math display">\[
+X+Y\le 2\max(X,Y),
+\]</span>
+we have
+<span class="math display">\[
+(X+Y)^p\le (2\max(X,Y))^p
+=2^p(\max(X,Y))^p.
+\]</span></p>
+<p>Also,
+<span class="math display">\[
+(\max(X,Y))^p\le X^p+Y^p.
+\]</span></p>
+<p>Therefore,
+<span class="math display">\[
+(X+Y)^p\le 2^p(X^p+Y^p).
+\]</span></p>
+<p>Taking expectation on both sides,
+<span class="math display">\[
+E((X+Y)^p)\le 2^p\{E(X^p)+E(Y^p)\}.
+\]</span></p>
+</div>
+<div id="b-22" class="section level4 hasAnchor">
+<h4>(b)<a href="chap-6-convergence-concepts.html#b-22" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Let <span class="math inline">\(f(x)=x^p\)</span>, <span class="math inline">\(x\ge0\)</span>. When <span class="math inline">\(p&gt;1\)</span>, <span class="math inline">\(f\)</span> is convex.</p>
+<p>By Jensen’s inequality,
+<span class="math display">\[
+\left(\frac X2+\frac Y2\right)^p
+\le
+\frac12X^p+\frac12Y^p.
+\]</span></p>
+<p>Thus
+<span class="math display">\[
+\left(\frac{X+Y}{2}\right)^p
+\le
+\frac12(X^p+Y^p),
+\]</span>
+so
+<span class="math display">\[
+(X+Y)^p
+\le
+2^{p-1}(X^p+Y^p).
+\]</span></p>
+<p>Taking expectation,
+<span class="math display">\[
+E((X+Y)^p)
+\le
+2^{p-1}\{E(X^p)+E(Y^p)\}.
+\]</span></p>
+</div>
+<div id="c-16" class="section level4 hasAnchor">
+<h4>(c)<a href="chap-6-convergence-concepts.html#c-16" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>When <span class="math inline">\(X(\omega)+Y(\omega)=0\)</span>, both sides are <span class="math inline">\(0\)</span>, so the inequality holds.</p>
+<p>When <span class="math inline">\(X(\omega)+Y(\omega)&gt;0\)</span>, we have
+<span class="math display">\[
+0\le \frac{X}{X+Y}\le 1,
+\qquad
+0\le \frac{Y}{X+Y}\le 1.
+\]</span></p>
+<p>Since <span class="math inline">\(0\le p\le 1\)</span>, for <span class="math inline">\(0\le t\le 1\)</span>,
+<span class="math display">\[
+t^p\ge t.
+\]</span></p>
+<p>So
+<span class="math display">\[
+\left(\frac{X}{X+Y}\right)^p
++
+\left(\frac{Y}{X+Y}\right)^p
+\ge
+\frac{X}{X+Y}
++
+\frac{Y}{X+Y}
+=
+1.
+\]</span></p>
+<p>Multiplying by <span class="math inline">\((X+Y)^p\)</span>, we get
+<span class="math display">\[
+X^p+Y^p\ge (X+Y)^p.
+\]</span></p>
+<p>Therefore,
+<span class="math display">\[
+(X+Y)^p\le X^p+Y^p.
+\]</span></p>
+<p>Taking expectation,
+<span class="math display">\[
+E((X+Y)^p)\le E(X^p)+E(Y^p).
+\]</span></p>
 
+</div>
 </div>
 </div>
 </div>

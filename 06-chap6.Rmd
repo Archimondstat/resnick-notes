@@ -2008,3 +2008,121 @@ And
 So $\{X_n+Y_n\}$ is ui.
 
 $\textbf{Note:}$ I get passed at my first try.
+
+### Ex 3
+::: problem
+Suppose $X\ge 0$, $Y\ge 0$, and $p\ge 0$.
+
+(a) Prove
+\[
+E((X+Y)^p)\le 2^p\{E(X^p)+E(Y^p)\}.
+\]
+
+(b) If $p>1$, replace $2^p$ by $2^{p-1}$.
+
+(c) If $0\le p\le 1$, replace $2^p$ by $1$.
+:::
+
+$\textbf{Answer:}$
+
+#### (a)
+
+Since
+\[
+X+Y\le 2\max(X,Y),
+\]
+we have
+\[
+(X+Y)^p\le (2\max(X,Y))^p
+=2^p(\max(X,Y))^p.
+\]
+
+Also,
+\[
+(\max(X,Y))^p\le X^p+Y^p.
+\]
+
+Therefore,
+\[
+(X+Y)^p\le 2^p(X^p+Y^p).
+\]
+
+Taking expectation on both sides,
+\[
+E((X+Y)^p)\le 2^p\{E(X^p)+E(Y^p)\}.
+\]
+
+#### (b)
+
+Let $f(x)=x^p$, $x\ge0$. When $p>1$, $f$ is convex.
+
+By Jensen's inequality,
+\[
+\left(\frac X2+\frac Y2\right)^p
+\le
+\frac12X^p+\frac12Y^p.
+\]
+
+Thus
+\[
+\left(\frac{X+Y}{2}\right)^p
+\le
+\frac12(X^p+Y^p),
+\]
+so
+\[
+(X+Y)^p
+\le
+2^{p-1}(X^p+Y^p).
+\]
+
+Taking expectation,
+\[
+E((X+Y)^p)
+\le
+2^{p-1}\{E(X^p)+E(Y^p)\}.
+\]
+
+#### (c)
+
+When $X(\omega)+Y(\omega)=0$, both sides are $0$, so the inequality holds.
+
+When $X(\omega)+Y(\omega)>0$, we have
+\[
+0\le \frac{X}{X+Y}\le 1,
+\qquad
+0\le \frac{Y}{X+Y}\le 1.
+\]
+
+Since $0\le p\le 1$, for $0\le t\le 1$,
+\[
+t^p\ge t.
+\]
+
+So
+\[
+\left(\frac{X}{X+Y}\right)^p
++
+\left(\frac{Y}{X+Y}\right)^p
+\ge
+\frac{X}{X+Y}
++
+\frac{Y}{X+Y}
+=
+1.
+\]
+
+Multiplying by $(X+Y)^p$, we get
+\[
+X^p+Y^p\ge (X+Y)^p.
+\]
+
+Therefore,
+\[
+(X+Y)^p\le X^p+Y^p.
+\]
+
+Taking expectation,
+\[
+E((X+Y)^p)\le E(X^p)+E(Y^p).
+\]
