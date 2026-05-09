@@ -2126,3 +2126,155 @@ Taking expectation,
 \[
 E((X+Y)^p)\le E(X^p)+E(Y^p).
 \]
+
+### Ex 9
+::: problem
+When is there equality in the Schwartz Inequality? (Examine the derivation of the Schwartz Inequality.)
+:::
+
+$\textbf{Answer:}$
+
+Let $X,Y\in L_2$. Define
+\[
+q(t)=E[(X-tY)^2].
+\]
+
+Then for every $t\in\mathbb R$,
+\[
+q(t)\ge 0.
+\]
+
+Expanding,
+\[
+q(t)
+=
+E(X^2)-2tE(XY)+t^2E(Y^2).
+\]
+
+So the quadratic
+\[
+E(Y^2)t^2-2E(XY)t+E(X^2)
+\]
+is always nonnegative.
+
+If $E(Y^2)>0$, then its discriminant must satisfy
+\[
+[-2E(XY)]^2-4E(Y^2)E(X^2)\le 0.
+\]
+
+Thus
+\[
+(E(XY))^2\le E(X^2)E(Y^2).
+\]
+
+Equality holds iff the discriminant is $0$, that is,
+\[
+[-2E(XY)]^2-4E(Y^2)E(X^2)=0.
+\]
+
+In this case, there exists $t_0\in\mathbb R$ such that
+\[
+E[(X-t_0Y)^2]=0.
+\]
+
+Since
+\[
+(X-t_0Y)^2\ge 0,
+\]
+we have
+\[
+X=t_0Y \quad a.e.
+\]
+
+If $E(Y^2)=0$, then
+\[
+Y=0 \quad a.e.,
+\]
+so equality also holds.
+
+Therefore, equality in Schwartz Inequality holds iff $X$ and $Y$ are linearly dependent a.e., that is,
+\[
+\exists a,b\in\mathbb R,\quad (a,b)\ne(0,0),
+\quad\text{such that}\quad
+aX+bY=0\quad a.e.
+\]
+
+### Ex 10
+::: problem
+Suppose $\{X_n\}$ is a sequence for which there exists an increasing function
+\[
+f: [0,\infty) \mapsto [0,\infty)
+\]
+such that $f(x)/x\to\infty$ as $x\to\infty$ and
+\[
+\sup_{n\ge1}E(f(|X_n|))<\infty.
+\]
+Show $\{X_n\}$ is ui.
+
+Specialize to the case where $f(x)=x^p$ for $p>1$ or $f(x)=x(\log x)^+$.
+:::
+
+$\textbf{Answer:}$
+
+Let
+\[
+M=\sup_{n\ge1}E(f(|X_n|))<\infty.
+\]
+
+If $M=0$, the result is trivial.
+
+When $M>0$, since
+\[
+\frac{f(x)}{x}\to\infty,
+\]
+we have
+\[
+\frac{x}{f(x)}\to0.
+\]
+
+So for every $\varepsilon>0$, there exists $N>0$ such that for $x>N$,
+\[
+0<\frac{x}{f(x)}<\frac{\varepsilon}{M}.
+\]
+
+Thus, when $K>N$, we have
+\[
+\sup_n\int_{\{|X_n|>K\}} |X_n|\,dP
+=
+\sup_n\int_{\{|X_n|>K\}}
+\frac{|X_n|}{f(|X_n|)}f(|X_n|)\,dP.
+\]
+
+Since on $\{|X_n|>K\}$,
+\[
+\frac{|X_n|}{f(|X_n|)}<\frac{\varepsilon}{M},
+\]
+we have
+\[
+\sup_n\int_{\{|X_n|>K\}} |X_n|\,dP
+\le
+\frac{\varepsilon}{M}
+\sup_n\int_{\{|X_n|>K\}} f(|X_n|)\,dP.
+\]
+
+Hence
+\[
+\sup_n\int_{\{|X_n|>K\}} |X_n|\,dP
+\le
+\frac{\varepsilon}{M}
+\sup_n E(f(|X_n|))
+=
+\varepsilon.
+\]
+
+Therefore
+\[
+\sup_n\int_{\{|X_n|>K\}} |X_n|\,dP\to0
+\quad\text{as }K\to\infty.
+\]
+
+So $\{X_n\}$ is ui.
+
+$\textbf{Note:}$ I left the specialized cases.
+
+
