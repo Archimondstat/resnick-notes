@@ -2199,15 +2199,15 @@ Therefore, equality in Schwartz Inequality holds iff $X$ and $Y$ are linearly de
 aX+bY=0\quad a.e.
 \]
 
-### Ex 10
+### EX 10
 ::: problem
 Suppose $\{X_n\}$ is a sequence for which there exists an increasing function
 \[
-f: [0,\infty) \mapsto [0,\infty)
+f:[0,\infty)\mapsto[0,\infty)
 \]
 such that $f(x)/x\to\infty$ as $x\to\infty$ and
 \[
-\sup_{n\ge1}E(f(|X_n|))<\infty.
+\sup_{n\geq 1}E(f(|X_n|))<\infty.
 \]
 Show $\{X_n\}$ is ui.
 
@@ -2216,53 +2216,88 @@ Specialize to the case where $f(x)=x^p$ for $p>1$ or $f(x)=x(\log x)^+$.
 
 $\textbf{Answer:}$
 
-Let
+Since
 \[
-M=\sup_{n\ge1}E(f(|X_n|))<\infty.
-\]
-
-If $M=0$, the result is trivial.
-
-When $M>0$, since
-\[
-\frac{f(x)}{x}\to\infty,
+\frac{f(x)}{x}\to\infty \qquad (x\to\infty),
 \]
 we have
 \[
-\frac{x}{f(x)}\to0.
+\frac{x}{f(x)}\to 0 \qquad (x\to\infty).
 \]
 
-So for every $\varepsilon>0$, there exists $N>0$ such that for $x>N$,
+Let
+\[
+M=\sup_n E(f(|X_n|))<\infty.
+\]
+
+When $M=0$, this means for each $n$,
+\[
+E(f(|X_n|))=0.
+\]
+Thus
+\[
+f(|X_n|)=0 \qquad a.e.
+\]
+Since $f(x)/x\to\infty$, there exists $K>0$ such that $f(K)>0$. Since $f$ is increasing, for $x>K$ we have
+\[
+f(x)\ge f(K)>0.
+\]
+Hence
+\[
+P(|X_n|>K)=0,
+\]
+so
+\[
+\sup_n\int_{\{|X_n|>K\}}|X_n|\,dP=0.
+\]
+Therefore $\{X_n\}$ is ui.
+
+Now suppose $M>0$.
+
+Firstly we show that $X_n\in L_1$. Since
+\[
+\frac{x}{f(x)}\to0,
+\]
+there exist $N>0$ and $C>0$ such that for $x>N$,
+\[
+x\le C f(x).
+\]
+Hence
+\[
+E(|X_n|)
+=
+E(|X_n|1_{\{|X_n|\le N\}})
++
+E(|X_n|1_{\{|X_n|>N\}})
+\]
+\[
+\le
+N + C E(f(|X_n|))
+\le
+N+CM<\infty.
+\]
+So $\{X_n\}\subset L_1$.
+
+Now let $\varepsilon>0$. Since
+\[
+\frac{x}{f(x)}\to0,
+\]
+there exists $N>0$ such that for $x>N$,
 \[
 0<\frac{x}{f(x)}<\frac{\varepsilon}{M}.
 \]
-
-Thus, when $K>N$, we have
+Thus for $K>N$,
 \[
 \sup_n\int_{\{|X_n|>K\}} |X_n|\,dP
 =
 \sup_n\int_{\{|X_n|>K\}}
-\frac{|X_n|}{f(|X_n|)}f(|X_n|)\,dP.
+\frac{|X_n|}{f(|X_n|)}f(|X_n|)\,dP
 \]
-
-Since on $\{|X_n|>K\}$,
 \[
-\frac{|X_n|}{f(|X_n|)}<\frac{\varepsilon}{M},
-\]
-we have
-\[
-\sup_n\int_{\{|X_n|>K\}} |X_n|\,dP
 \le
-\frac{\varepsilon}{M}
-\sup_n\int_{\{|X_n|>K\}} f(|X_n|)\,dP.
-\]
-
-Hence
-\[
-\sup_n\int_{\{|X_n|>K\}} |X_n|\,dP
+\frac{\varepsilon}{M}\sup_n\int_{\{|X_n|>K\}} f(|X_n|)\,dP
 \le
-\frac{\varepsilon}{M}
-\sup_n E(f(|X_n|))
+\frac{\varepsilon}{M}\sup_n E(f(|X_n|))
 =
 \varepsilon.
 \]
@@ -2270,10 +2305,29 @@ Hence
 Therefore
 \[
 \sup_n\int_{\{|X_n|>K\}} |X_n|\,dP\to0
-\quad\text{as }K\to\infty.
+\qquad (K\to\infty).
 \]
-
 So $\{X_n\}$ is ui.
+
+For the special case $f(x)=x^p$ with $p>1$, we have
+\[
+\frac{f(x)}{x}=x^{p-1}\to\infty.
+\]
+Hence if
+\[
+\sup_n E(|X_n|^p)<\infty,
+\]
+then $\{X_n\}$ is ui.
+
+For the special case $f(x)=x(\log x)^+$, we have
+\[
+\frac{f(x)}{x}=(\log x)^+\to\infty.
+\]
+Hence if
+\[
+\sup_n E\bigl(|X_n|(\log |X_n|)^+\bigr)<\infty,
+\]
+then $\{X_n\}$ is ui.
 
 $\textbf{Note:}$ I left the specialized cases.
 

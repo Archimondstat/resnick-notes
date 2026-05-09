@@ -364,7 +364,7 @@
 <li class="chapter" data-level="" data-path="chap-6-convergence-concepts.html"><a href="chap-6-convergence-concepts.html#c-16"><i class="fa fa-check"></i>(c)</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="chap-6-convergence-concepts.html"><a href="chap-6-convergence-concepts.html#ex-9-1"><i class="fa fa-check"></i>Ex 9</a></li>
-<li class="chapter" data-level="" data-path="chap-6-convergence-concepts.html"><a href="chap-6-convergence-concepts.html#ex-10-2"><i class="fa fa-check"></i>Ex 10</a></li>
+<li class="chapter" data-level="" data-path="chap-6-convergence-concepts.html"><a href="chap-6-convergence-concepts.html#ex-10-2"><i class="fa fa-check"></i>EX 10</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -2247,70 +2247,124 @@ aX+bY=0\quad a.e.
 \]</span></p>
 </div>
 <div id="ex-10-2" class="section level3 hasAnchor">
-<h3>Ex 10<a href="chap-6-convergence-concepts.html#ex-10-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<h3>EX 10<a href="chap-6-convergence-concepts.html#ex-10-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div class="problem">
 <p>Suppose <span class="math inline">\(\{X_n\}\)</span> is a sequence for which there exists an increasing function
 <span class="math display">\[
-f: [0,\infty) \mapsto [0,\infty)
+f:[0,\infty)\mapsto[0,\infty)
 \]</span>
 such that <span class="math inline">\(f(x)/x\to\infty\)</span> as <span class="math inline">\(x\to\infty\)</span> and
 <span class="math display">\[
-\sup_{n\ge1}E(f(|X_n|))&lt;\infty.
+\sup_{n\geq 1}E(f(|X_n|))&lt;\infty.
 \]</span>
 Show <span class="math inline">\(\{X_n\}\)</span> is ui.</p>
 <p>Specialize to the case where <span class="math inline">\(f(x)=x^p\)</span> for <span class="math inline">\(p&gt;1\)</span> or <span class="math inline">\(f(x)=x(\log x)^+\)</span>.</p>
 </div>
 <p><span class="math inline">\(\textbf{Answer:}\)</span></p>
-<p>Let
+<p>Since
 <span class="math display">\[
-M=\sup_{n\ge1}E(f(|X_n|))&lt;\infty.
-\]</span></p>
-<p>If <span class="math inline">\(M=0\)</span>, the result is trivial.</p>
-<p>When <span class="math inline">\(M&gt;0\)</span>, since
-<span class="math display">\[
-\frac{f(x)}{x}\to\infty,
+\frac{f(x)}{x}\to\infty \qquad (x\to\infty),
 \]</span>
 we have
 <span class="math display">\[
-\frac{x}{f(x)}\to0.
+\frac{x}{f(x)}\to 0 \qquad (x\to\infty).
 \]</span></p>
-<p>So for every <span class="math inline">\(\varepsilon&gt;0\)</span>, there exists <span class="math inline">\(N&gt;0\)</span> such that for <span class="math inline">\(x&gt;N\)</span>,
+<p>Let
+<span class="math display">\[
+M=\sup_n E(f(|X_n|))&lt;\infty.
+\]</span></p>
+<p>When <span class="math inline">\(M=0\)</span>, this means for each <span class="math inline">\(n\)</span>,
+<span class="math display">\[
+E(f(|X_n|))=0.
+\]</span>
+Thus
+<span class="math display">\[
+f(|X_n|)=0 \qquad a.e.
+\]</span>
+Since <span class="math inline">\(f(x)/x\to\infty\)</span>, there exists <span class="math inline">\(K&gt;0\)</span> such that <span class="math inline">\(f(K)&gt;0\)</span>. Since <span class="math inline">\(f\)</span> is increasing, for <span class="math inline">\(x&gt;K\)</span> we have
+<span class="math display">\[
+f(x)\ge f(K)&gt;0.
+\]</span>
+Hence
+<span class="math display">\[
+P(|X_n|&gt;K)=0,
+\]</span>
+so
+<span class="math display">\[
+\sup_n\int_{\{|X_n|&gt;K\}}|X_n|\,dP=0.
+\]</span>
+Therefore <span class="math inline">\(\{X_n\}\)</span> is ui.</p>
+<p>Now suppose <span class="math inline">\(M&gt;0\)</span>.</p>
+<p>Firstly we show that <span class="math inline">\(X_n\in L_1\)</span>. Since
+<span class="math display">\[
+\frac{x}{f(x)}\to0,
+\]</span>
+there exist <span class="math inline">\(N&gt;0\)</span> and <span class="math inline">\(C&gt;0\)</span> such that for <span class="math inline">\(x&gt;N\)</span>,
+<span class="math display">\[
+x\le C f(x).
+\]</span>
+Hence
+<span class="math display">\[
+E(|X_n|)
+=
+E(|X_n|1_{\{|X_n|\le N\}})
++
+E(|X_n|1_{\{|X_n|&gt;N\}})
+\]</span>
+<span class="math display">\[
+\le
+N + C E(f(|X_n|))
+\le
+N+CM&lt;\infty.
+\]</span>
+So <span class="math inline">\(\{X_n\}\subset L_1\)</span>.</p>
+<p>Now let <span class="math inline">\(\varepsilon&gt;0\)</span>. Since
+<span class="math display">\[
+\frac{x}{f(x)}\to0,
+\]</span>
+there exists <span class="math inline">\(N&gt;0\)</span> such that for <span class="math inline">\(x&gt;N\)</span>,
 <span class="math display">\[
 0&lt;\frac{x}{f(x)}&lt;\frac{\varepsilon}{M}.
-\]</span></p>
-<p>Thus, when <span class="math inline">\(K&gt;N\)</span>, we have
+\]</span>
+Thus for <span class="math inline">\(K&gt;N\)</span>,
 <span class="math display">\[
 \sup_n\int_{\{|X_n|&gt;K\}} |X_n|\,dP
 =
 \sup_n\int_{\{|X_n|&gt;K\}}
-\frac{|X_n|}{f(|X_n|)}f(|X_n|)\,dP.
-\]</span></p>
-<p>Since on <span class="math inline">\(\{|X_n|&gt;K\}\)</span>,
-<span class="math display">\[
-\frac{|X_n|}{f(|X_n|)}&lt;\frac{\varepsilon}{M},
+\frac{|X_n|}{f(|X_n|)}f(|X_n|)\,dP
 \]</span>
-we have
 <span class="math display">\[
-\sup_n\int_{\{|X_n|&gt;K\}} |X_n|\,dP
 \le
-\frac{\varepsilon}{M}
-\sup_n\int_{\{|X_n|&gt;K\}} f(|X_n|)\,dP.
-\]</span></p>
-<p>Hence
-<span class="math display">\[
-\sup_n\int_{\{|X_n|&gt;K\}} |X_n|\,dP
+\frac{\varepsilon}{M}\sup_n\int_{\{|X_n|&gt;K\}} f(|X_n|)\,dP
 \le
-\frac{\varepsilon}{M}
-\sup_n E(f(|X_n|))
+\frac{\varepsilon}{M}\sup_n E(f(|X_n|))
 =
 \varepsilon.
 \]</span></p>
 <p>Therefore
 <span class="math display">\[
 \sup_n\int_{\{|X_n|&gt;K\}} |X_n|\,dP\to0
-\quad\text{as }K\to\infty.
-\]</span></p>
-<p>So <span class="math inline">\(\{X_n\}\)</span> is ui.</p>
+\qquad (K\to\infty).
+\]</span>
+So <span class="math inline">\(\{X_n\}\)</span> is ui.</p>
+<p>For the special case <span class="math inline">\(f(x)=x^p\)</span> with <span class="math inline">\(p&gt;1\)</span>, we have
+<span class="math display">\[
+\frac{f(x)}{x}=x^{p-1}\to\infty.
+\]</span>
+Hence if
+<span class="math display">\[
+\sup_n E(|X_n|^p)&lt;\infty,
+\]</span>
+then <span class="math inline">\(\{X_n\}\)</span> is ui.</p>
+<p>For the special case <span class="math inline">\(f(x)=x(\log x)^+\)</span>, we have
+<span class="math display">\[
+\frac{f(x)}{x}=(\log x)^+\to\infty.
+\]</span>
+Hence if
+<span class="math display">\[
+\sup_n E\bigl(|X_n|(\log |X_n|)^+\bigr)&lt;\infty,
+\]</span>
+then <span class="math inline">\(\{X_n\}\)</span> is ui.</p>
 <p><span class="math inline">\(\textbf{Note:}\)</span> I left the specialized cases.</p>
 
 </div>
