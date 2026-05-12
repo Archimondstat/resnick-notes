@@ -2331,4 +2331,996 @@ then $\{X_n\}$ is ui.
 
 $\textbf{Note:}$ I left the specialized cases.
 
+### Ex 15
+::: problem
+Suppose $X_n\geq 0$ for $n\geq 0$ and $X_n \xrightarrow{P} X_0$ and also $E(X_n)\to E(X_0)$. Show $X_n\to X_0$ in $L_1$. (Hint: Try considering $(X_0-X_n)^+$.)
+:::
 
+$\textbf{Answer:}$
+
+Following the hint, we have
+\[
+0\leq (X_0-X_n)^+ \leq X_0.
+\]
+
+And since
+\[
+X_n\xrightarrow{P}X_0,
+\]
+we have
+\[
+(X_0-X_n)^+ \xrightarrow{P}0.
+\]
+
+By DCT in convergence in probability version,
+\[
+E((X_0-X_n)^+)\to 0.
+\]
+
+Note that
+\[
+X_n-X_0=(X_n-X_0)^+-(X_0-X_n)^+.
+\]
+
+So
+\[
+E(X_n)-E(X_0)
+=
+E((X_n-X_0)^+)-E((X_0-X_n)^+).
+\]
+
+Therefore,
+\[
+E((X_n-X_0)^+)
+=
+E(X_n)-E(X_0)+E((X_0-X_n)^+).
+\]
+
+Since
+\[
+E(X_n)\to E(X_0)
+\]
+and
+\[
+E((X_0-X_n)^+)\to 0,
+\]
+we have
+\[
+E((X_n-X_0)^+)\to 0.
+\]
+
+Finally,
+\[
+E|X_n-X_0|
+=
+E((X_n-X_0)^+)+E((X_0-X_n)^+)\to 0.
+\]
+
+Hence
+\[
+X_n\to X_0
+\]
+in $L_1$.
+
+### Ex 16
+::: problem
+For any sequence of random variables $\{X_n\}$ set $S_n=\sum_{i=1}^n X_i$.
+
+(a) Show $X_n \xrightarrow{a.s.} 0$ implies $S_n/n \xrightarrow{a.s.}0$.
+
+(b) Show $X_n \xrightarrow{L_p} 0$ implies $S_n/n \xrightarrow{L_p}0$ for any $p\geq 1$.
+
+(c) Show $X_n \xrightarrow{P} 0$ does NOT imply $S_n/n \xrightarrow{P}0$. (Try $X_n=2^n$ with probability $n^{-1}$ and $=0$ with probability $1-n^{-1}$. Alternatively look at functions on $[0,1]$ which are indicators of $[i/n,(i+1)/n]$.)
+
+(d) Show $S_n/n \xrightarrow{P}0$ implies $X_n/n \xrightarrow{P}0$.
+:::
+
+$\textbf{Answer:}$
+
+#### (a)
+
+Since
+\[
+X_n\xrightarrow{a.s.}0,
+\]
+there exists $A\in\mathcal B$ such that $P(A)=0$ and for every $\omega\in A^c$,
+\[
+X_n(\omega)\to0.
+\]
+
+Fix $\omega\in A^c$. For every $\varepsilon>0$, there exists
+\[
+K=K(\omega,\varepsilon)
+\]
+such that for $i>K$,
+\[
+|X_i(\omega)|<\frac{\varepsilon}{2}.
+\]
+
+For $n>K$, we have
+\[
+\left|\frac{S_n(\omega)}{n}\right|
+=
+\left|
+\frac{X_1(\omega)+\cdots+X_K(\omega)}{n}
++
+\frac{X_{K+1}(\omega)+\cdots+X_n(\omega)}{n}
+\right|.
+\]
+
+Thus
+\[
+\left|\frac{S_n(\omega)}{n}\right|
+\le
+\left|
+\frac{X_1(\omega)+\cdots+X_K(\omega)}{n}
+\right|
++
+\left|
+\frac{X_{K+1}(\omega)+\cdots+X_n(\omega)}{n}
+\right|.
+\]
+
+For the first part of RHS, since $K$ is fixed, we can select large $n$ such that
+\[
+\left|
+\frac{X_1(\omega)+\cdots+X_K(\omega)}{n}
+\right|
+<
+\frac{\varepsilon}{2}.
+\]
+
+For the second part, we have
+\[
+\left|
+\frac{X_{K+1}(\omega)+\cdots+X_n(\omega)}{n}
+\right|
+\le
+\frac{n-K}{n}\frac{\varepsilon}{2}
+<
+\frac{\varepsilon}{2}.
+\]
+
+So for large $n$,
+\[
+\left|\frac{S_n(\omega)}{n}\right|<\varepsilon.
+\]
+
+Therefore, for every $\omega\in A^c$,
+\[
+\frac{S_n(\omega)}{n}\to0.
+\]
+
+Hence
+\[
+\frac{S_n}{n}\xrightarrow{a.s.}0.
+\]
+
+#### (b)
+
+For $p\geq 1$, suppose
+\[
+X_n\xrightarrow{L_p}0.
+\]
+
+That is,
+\[
+\|X_n\|_p\to0.
+\]
+
+By Minkowski's inequality,
+\[
+\left\|\frac{S_n}{n}\right\|_p
+=
+\left\|
+\frac{1}{n}\sum_{i=1}^n X_i
+\right\|_p
+\le
+\frac{1}{n}\sum_{i=1}^n \|X_i\|_p.
+\]
+
+Since
+\[
+\|X_i\|_p\to0,
+\]
+by the Cesaro argument used in (a),
+\[
+\frac{1}{n}\sum_{i=1}^n \|X_i\|_p\to0.
+\]
+
+Thus
+\[
+\left\|\frac{S_n}{n}\right\|_p\to0.
+\]
+
+Hence
+\[
+\frac{S_n}{n}\xrightarrow{L_p}0.
+\]
+
+#### (c)
+
+Let
+\[
+(\Omega,\mathcal B,P)=((0,1],\mathcal B((0,1]),\lambda).
+\]
+
+Define the sequence block by block:
+\[
+X_1=1_{(0,1]},
+\]
+\[
+X_2=2\cdot 1_{(0,1/2]},\qquad
+X_3=2\cdot 1_{(1/2,1]},
+\]
+\[
+X_4=3\cdot 1_{(0,1/3]},\qquad
+X_5=3\cdot 1_{(1/3,2/3]},\qquad
+X_6=3\cdot 1_{(2/3,1]},
+\]
+and so on.
+
+In general, let
+\[
+N_m=1+2+\cdots+m=\frac{m(m+1)}2.
+\]
+For block $m$, define
+\[
+X_{N_{m-1}+j}
+=
+m\cdot 1_{\left((j-1)/m,j/m\right]},
+\qquad j=1,\ldots,m.
+\]
+
+For $X_n$ in block $m$, if $m>\varepsilon$, then
+\[
+P(|X_n|>\varepsilon)=P(X_n\neq0)=\frac1m.
+\]
+
+Since $m\to\infty$ as $n\to\infty$, we have
+\[
+P(|X_n|>\varepsilon)\to0.
+\]
+
+Therefore
+\[
+X_n\xrightarrow{P}0.
+\]
+
+But at the end of block $m$, we have
+\[
+S_{N_m}
+=
+1+2+\cdots+m
+=
+N_m
+\]
+pointwise.
+
+Thus
+\[
+\frac{S_{N_m}}{N_m}=1.
+\]
+
+Therefore,
+\[
+P\left(\left|\frac{S_{N_m}}{N_m}\right|>\frac12\right)=1
+\]
+for every $m$.
+
+Hence
+\[
+\frac{S_n}{n}
+\]
+does not converge to $0$ in probability.
+
+So
+\[
+X_n\xrightarrow{P}0
+\]
+does NOT imply
+\[
+\frac{S_n}{n}\xrightarrow{P}0.
+\]
+
+#### (d)
+
+Since
+\[
+X_n=S_n-S_{n-1},
+\]
+we have
+\[
+\frac{X_n}{n}
+=
+\frac{S_n-S_{n-1}}{n}
+=
+\frac{S_n}{n}
+-
+\frac{n-1}{n}\frac{S_{n-1}}{n-1}.
+\]
+
+Since
+\[
+\frac{S_n}{n}\xrightarrow{P}0,
+\]
+by shifting the index,
+\[
+\frac{S_{n-1}}{n-1}\xrightarrow{P}0.
+\]
+
+Also,
+\[
+\frac{n-1}{n}\to1.
+\]
+
+Thus
+\[
+\frac{n-1}{n}\frac{S_{n-1}}{n-1}
+\xrightarrow{P}0.
+\]
+
+Therefore,
+\[
+\frac{X_n}{n}
+=
+\frac{S_n}{n}
+-
+\frac{n-1}{n}\frac{S_{n-1}}{n-1}
+\xrightarrow{P}0.
+\]
+
+### Ex 18
+::: problem
+Suppose $\{X_n\}$ is an uncorrelated sequence, meaning
+\[
+\operatorname{Cov}(X_i,X_j)=0,\quad i\ne j.
+\]
+If there exists a constant $c>0$ such that $\operatorname{Var}(X_n)\le c$ for all $n\ge1$, then for any $\alpha>1/2$ we have
+\[
+\frac{\sum_{i=1}^n X_i}{n^\alpha}\to0
+\]
+in $L_2$.
+:::
+
+$\textbf{Warning:}$
+The statement of the exercise without centralization is not generally true.
+
+For example, let
+\[
+X_n\equiv 1.
+\]
+
+Then
+\[
+\operatorname{Var}(X_n)=0
+\]
+and
+\[
+\operatorname{Cov}(X_i,X_j)=0,\qquad i\ne j.
+\]
+
+But
+\[
+\frac{\sum_{i=1}^n X_i}{n^\alpha}
+=
+\frac{n}{n^\alpha}
+=
+n^{1-\alpha}.
+\]
+
+When
+\[
+\frac12<\alpha<1,
+\]
+we have
+\[
+n^{1-\alpha}\not\to0.
+\]
+
+So without an extra assumption on $E(X_n)$, we can only prove the centralized version:
+\[
+\frac{1}{n^\alpha}\sum_{i=1}^n (X_i-\mu_i)
+\xrightarrow{L_2}0.
+\]
+
+For a fixed $\alpha>1/2$, the missing mean term must satisfy
+\[
+\frac{1}{n^\alpha}\sum_{i=1}^n E(X_i)\to0.
+\]
+
+A clean sufficient assumption is
+\[
+E(X_i)=0,\qquad \forall i.
+\]
+
+The answer below proves the centralized version. If one additionally assumes $E(X_i)=0$ for all $i$, then it proves the original statement.
+
+$\textbf{Answer:}$
+
+Let
+\[
+\mu_i=E(X_i).
+\]
+
+First consider the centralized version:
+\[
+\frac{1}{n^\alpha}\sum_{i=1}^n (X_i-\mu_i).
+\]
+
+We have
+\[
+E\left[
+\left(
+\frac{1}{n^\alpha}\sum_{i=1}^n (X_i-\mu_i)
+\right)^2
+\right]
+=
+\frac{1}{n^{2\alpha}}
+E\left[
+\left(
+\sum_{i=1}^n (X_i-\mu_i)
+\right)^2
+\right].
+\]
+
+Expanding the square,
+\[
+E\left[
+\left(
+\sum_{i=1}^n (X_i-\mu_i)
+\right)^2
+\right]
+=
+\sum_{i=1}^n E((X_i-\mu_i)^2)
++
+\sum_{i\ne j}E((X_i-\mu_i)(X_j-\mu_j)).
+\]
+
+Since $\{X_n\}$ is uncorrelated,
+\[
+E((X_i-\mu_i)(X_j-\mu_j))
+=
+\operatorname{Cov}(X_i,X_j)
+=
+0,
+\qquad i\ne j.
+\]
+
+Therefore,
+\[
+E\left[
+\left(
+\sum_{i=1}^n (X_i-\mu_i)
+\right)^2
+\right]
+=
+\sum_{i=1}^n \operatorname{Var}(X_i)
+\le nc.
+\]
+
+Thus
+\[
+E\left[
+\left(
+\frac{1}{n^\alpha}\sum_{i=1}^n (X_i-\mu_i)
+\right)^2
+\right]
+\le
+\frac{nc}{n^{2\alpha}}
+=
+\frac{c}{n^{2\alpha-1}}
+\to0,
+\]
+since
+\[
+\alpha>\frac12.
+\]
+
+Hence
+\[
+\frac{1}{n^\alpha}\sum_{i=1}^n (X_i-\mu_i)
+\xrightarrow{L_2}0.
+\]
+
+$\textbf{Note:}$ I spent almost 2 hours on this exercise, but it did not occur to me that I should try to construct counter example to judge whether the conditions are enough to prove what's required.
+
+### Ex 20
+::: problem
+Suppose \(E(X^2)=1\) and \(E|X|\ge a>0\). Prove that for \(0\le \lambda\le 1\),
+\[
+P(|X|\ge \lambda a)\ge (1-\lambda)^2a^2.
+\]
+:::
+
+$\textbf{Answer:}$
+
+Let
+\[
+A=\{|X|\ge \lambda a\}.
+\]
+
+Then
+\[
+E|X|
+=
+E\bigl(|X|1_A\bigr)
++
+E\bigl(|X|1_{A^c}\bigr).
+\]
+
+On \(A^c\), we have
+\[
+|X|<\lambda a.
+\]
+
+Therefore,
+\[
+E\bigl(|X|1_{A^c}\bigr)
+\le
+\lambda a.
+\]
+
+For the first term, by the Cauchy--Schwarz inequality,
+\[
+E\bigl(|X|1_A\bigr)
+\le
+\sqrt{E(X^2)}\sqrt{E(1_A^2)}.
+\]
+
+Since
+\[
+E(X^2)=1
+\]
+and
+\[
+1_A^2=1_A,
+\]
+we get
+\[
+E\bigl(|X|1_A\bigr)
+\le
+\sqrt{P(A)}.
+\]
+
+Thus
+\[
+a
+\le
+E|X|
+\le
+\sqrt{P(A)}+\lambda a.
+\]
+
+Hence
+\[
+(1-\lambda)a
+\le
+\sqrt{P(A)}.
+\]
+
+Squaring both sides gives
+\[
+P(A)\ge (1-\lambda)^2a^2.
+\]
+
+That is,
+\[
+P(|X|\ge \lambda a)\ge (1-\lambda)^2a^2.
+\]
+
+$\textbf{Note:}$ It seems that when we meet something like $P(|X|>a)$, besides Markov or Chebyshev, we can try to link to $E(|X|)$ using indicator function.
+
+### Ex 22
+::: problem
+Suppose \(\{X_n,n\ge 1\}\) are independent non-negative random variables satisfying
+\[
+E(X_n)=\mu_n,\qquad \operatorname{Var}(X_n)=\sigma_n^2.
+\]
+
+Define for \(n\ge 1\),
+\[
+S_n=\sum_{i=1}^n X_i
+\]
+and suppose
+\[
+\sum_{n=1}^{\infty}\mu_n=\infty
+\]
+and
+\[
+\sigma_n^2\le c\mu_n
+\]
+for some \(c>0\) and all \(n\). Show
+\[
+\frac{S_n}{E(S_n)}\xrightarrow{P}1.
+\]
+:::
+
+
+$\textbf{Answer:}$
+
+Since
+\[
+S_n=\sum_{i=1}^n X_i,
+\]
+we have
+\[
+E(S_n)
+=
+\sum_{i=1}^n E(X_i)
+=
+\sum_{i=1}^n \mu_i.
+\]
+
+Therefore,
+\[
+E\left(\frac{S_n}{E(S_n)}\right)=1.
+\]
+
+For any \(\varepsilon>0\), by Chebyshev's inequality,
+\[
+P\left(
+\left|
+\frac{S_n}{E(S_n)}-1
+\right|>\varepsilon
+\right)
+\le
+\frac{1}{\varepsilon^2}
+\operatorname{Var}\left(
+\frac{S_n}{E(S_n)}
+\right).
+\]
+
+Since \(E(S_n)\) is deterministic,
+\[
+\operatorname{Var}\left(
+\frac{S_n}{E(S_n)}
+\right)
+=
+\frac{\operatorname{Var}(S_n)}
+{\{E(S_n)\}^2}.
+\]
+
+By independence,
+\[
+\operatorname{Var}(S_n)
+=
+\sum_{i=1}^n \operatorname{Var}(X_i)
+=
+\sum_{i=1}^n \sigma_i^2.
+\]
+
+Using the assumption
+\[
+\sigma_i^2\le c\mu_i,
+\]
+we get
+\[
+\operatorname{Var}(S_n)
+\le
+c\sum_{i=1}^n \mu_i.
+\]
+
+Thus
+\[
+P\left(
+\left|
+\frac{S_n}{E(S_n)}-1
+\right|>\varepsilon
+\right)
+\le
+\frac{1}{\varepsilon^2}
+\frac{
+c\sum_{i=1}^n\mu_i
+}{
+\left(\sum_{i=1}^n\mu_i\right)^2
+}.
+\]
+
+Hence
+\[
+P\left(
+\left|
+\frac{S_n}{E(S_n)}-1
+\right|>\varepsilon
+\right)
+\le
+\frac{c}
+{\varepsilon^2\sum_{i=1}^n\mu_i}.
+\]
+
+Since
+\[
+\sum_{i=1}^{\infty}\mu_i=\infty,
+\]
+we have
+\[
+\sum_{i=1}^n\mu_i\to\infty.
+\]
+
+Therefore,
+\[
+\frac{c}
+{\varepsilon^2\sum_{i=1}^n\mu_i}
+\to0.
+\]
+
+So for every \(\varepsilon>0\),
+\[
+P\left(
+\left|
+\frac{S_n}{E(S_n)}-1
+\right|>\varepsilon
+\right)
+\to0.
+\]
+
+Hence
+\[
+\frac{S_n}{E(S_n)}\xrightarrow{P}1.
+\]
+
+$\textbf{Note:}$ It is easy to link the converges in probability to Chebyshev's inequality.
+
+### Ex 30
+::: problem
+The space \(L_\infty\): For a random variable \(X\) define
+\[
+\|X\|_\infty=\sup\{x:P[|X|>x]>0\}.
+\]
+Let \(L_\infty\) be the set of all random variables \(X\) for which \(\|X\|_\infty<\infty\).
+
+(a) Show that for a random variable \(X\) and \(1<p<q<\infty\)
+\[
+0\le \|X\|_1\le \|X\|_p\le \|X\|_q\le \|X\|_\infty.
+\]
+
+(b) For \(1<p<q<\infty\), show
+\[
+L_\infty\subset L_q\subset L_p\subset L_1.
+\]
+
+(c) Show Holder's inequality holds in the form
+\[
+E(|XY|)\le \|X\|_1\|Y\|_\infty.
+\]
+
+(d) Show Minkowski's inequality holds in the form
+\[
+\|X+Y\|_\infty\le \|X\|_\infty+\|Y\|_\infty.
+\]
+:::
+
+$\textbf{Answer:}$
+
+#### (a)
+
+By Example 6.5.2, for \(1<p<q<\infty\), we already have
+\[
+0\le \|X\|_1\le \|X\|_p\le \|X\|_q.
+\]
+
+So what remains is to prove
+\[
+\|X\|_q\le \|X\|_\infty.
+\]
+
+Let
+\[
+M=\|X\|_\infty.
+\]
+
+If \(M=\infty\), then
+\[
+\|X\|_q\le \|X\|_\infty
+\]
+is trivial.
+
+Now suppose
+\[
+M<\infty.
+\]
+
+We first show that
+\[
+|X|\le M
+\]
+a.e.
+
+Suppose not. Then
+\[
+P(|X|>M)>0.
+\]
+
+But
+\[
+\{|X|>M\}
+=
+\bigcup_{n=1}^{\infty}
+\left\{|X|>M+\frac1n\right\}.
+\]
+
+Therefore, there exists some \(n\ge1\) such that
+\[
+P\left(|X|>M+\frac1n\right)>0.
+\]
+
+Thus
+\[
+M+\frac1n\in \{x:P[|X|>x]>0\},
+\]
+which contradicts
+\[
+M=\sup\{x:P[|X|>x]>0\}.
+\]
+
+Hence
+\[
+P(|X|>M)=0,
+\]
+so
+\[
+|X|\le M
+\]
+a.e.
+
+Therefore,
+\[
+|X|^q\le M^q
+\]
+a.e. Hence
+\[
+E|X|^q\le M^q.
+\]
+
+Taking the \(q\)-th root gives
+\[
+\|X\|_q\le M=\|X\|_\infty.
+\]
+
+Thus
+\[
+0\le \|X\|_1\le \|X\|_p\le \|X\|_q\le \|X\|_\infty.
+\]
+
+#### (b)
+
+From part (a), if \(X\in L_\infty\), then
+\[
+\|X\|_q\le \|X\|_\infty<\infty.
+\]
+
+So
+\[
+X\in L_q.
+\]
+
+Thus
+\[
+L_\infty\subset L_q.
+\]
+
+Similarly, if \(X\in L_q\), then
+\[
+\|X\|_p\le \|X\|_q<\infty,
+\]
+so
+\[
+X\in L_p.
+\]
+
+Thus
+\[
+L_q\subset L_p.
+\]
+
+Finally, if \(X\in L_p\), then
+\[
+\|X\|_1\le \|X\|_p<\infty,
+\]
+so
+\[
+X\in L_1.
+\]
+
+Therefore,
+\[
+L_\infty\subset L_q\subset L_p\subset L_1.
+\]
+
+#### (c)
+
+Let
+\[
+M=\|Y\|_\infty.
+\]
+
+If \(M=\infty\), the result is trivial. Suppose
+\[
+M<\infty.
+\]
+
+By the argument in part (a),
+\[
+|Y|\le M
+\]
+a.e.
+
+Therefore,
+\[
+|XY|\le |X|M
+\]
+a.e.
+
+Taking expectations gives
+\[
+E(|XY|)
+\le
+E(|X|M).
+\]
+
+Since \(M\) is a constant,
+\[
+E(|X|M)
+=
+M E|X|.
+\]
+
+Thus
+\[
+E(|XY|)
+\le
+\|Y\|_\infty \|X\|_1.
+\]
+
+Hence
+\[
+E(|XY|)
+\le
+\|X\|_1\|Y\|_\infty.
+\]
+
+#### (d)
+
+If either \(\|X\|_\infty=\infty\) or \(\|Y\|_\infty=\infty\), the result is trivial.
+
+Now suppose
+\[
+\|X\|_\infty<\infty,
+\qquad
+\|Y\|_\infty<\infty.
+\]
+
+By part (a),
+\[
+|X|\le \|X\|_\infty
+\]
+a.e., and
+\[
+|Y|\le \|Y\|_\infty
+\]
+a.e.
+
+Therefore, outside a null set,
+\[
+|X+Y|
+\le
+|X|+|Y|
+\le
+\|X\|_\infty+\|Y\|_\infty.
+\]
+
+Hence
+\[
+|X+Y|
+\le
+\|X\|_\infty+\|Y\|_\infty
+\]
+a.e.
+
+It follows that
+\[
+\|X+Y\|_\infty
+\le
+\|X\|_\infty+\|Y\|_\infty.
+\]

@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chap 6, Convergence Concepts | Notes on A Probability Path (Resnick)</title>
   <meta name="description" content="Chap 6, Convergence Concepts | Notes on A Probability Path (Resnick)" />
-  <meta name="generator" content="bookdown 0.42 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.46 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chap 6, Convergence Concepts | Notes on A Probability Path (Resnick)" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="Zhanwen Peng" />
 
 
-<meta name="date" content="2026-05-09" />
+<meta name="date" content="2026-05-12" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -365,6 +365,24 @@
 </ul></li>
 <li class="chapter" data-level="" data-path="chap-6-convergence-concepts.html"><a href="chap-6-convergence-concepts.html#ex-9-1"><i class="fa fa-check"></i>Ex 9</a></li>
 <li class="chapter" data-level="" data-path="chap-6-convergence-concepts.html"><a href="chap-6-convergence-concepts.html#ex-10-2"><i class="fa fa-check"></i>EX 10</a></li>
+<li class="chapter" data-level="" data-path="chap-6-convergence-concepts.html"><a href="chap-6-convergence-concepts.html#ex-15-2"><i class="fa fa-check"></i>Ex 15</a></li>
+<li class="chapter" data-level="" data-path="chap-6-convergence-concepts.html"><a href="chap-6-convergence-concepts.html#ex-16-2"><i class="fa fa-check"></i>Ex 16</a>
+<ul>
+<li class="chapter" data-level="" data-path="chap-6-convergence-concepts.html"><a href="chap-6-convergence-concepts.html#a-23"><i class="fa fa-check"></i>(a)</a></li>
+<li class="chapter" data-level="" data-path="chap-6-convergence-concepts.html"><a href="chap-6-convergence-concepts.html#b-23"><i class="fa fa-check"></i>(b)</a></li>
+<li class="chapter" data-level="" data-path="chap-6-convergence-concepts.html"><a href="chap-6-convergence-concepts.html#c-17"><i class="fa fa-check"></i>(c)</a></li>
+<li class="chapter" data-level="" data-path="chap-6-convergence-concepts.html"><a href="chap-6-convergence-concepts.html#d-10"><i class="fa fa-check"></i>(d)</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="chap-6-convergence-concepts.html"><a href="chap-6-convergence-concepts.html#ex-18-2"><i class="fa fa-check"></i>Ex 18</a></li>
+<li class="chapter" data-level="" data-path="chap-6-convergence-concepts.html"><a href="chap-6-convergence-concepts.html#ex-20-2"><i class="fa fa-check"></i>Ex 20</a></li>
+<li class="chapter" data-level="" data-path="chap-6-convergence-concepts.html"><a href="chap-6-convergence-concepts.html#ex-22-2"><i class="fa fa-check"></i>Ex 22</a></li>
+<li class="chapter" data-level="" data-path="chap-6-convergence-concepts.html"><a href="chap-6-convergence-concepts.html#ex-30-2"><i class="fa fa-check"></i>Ex 30</a>
+<ul>
+<li class="chapter" data-level="" data-path="chap-6-convergence-concepts.html"><a href="chap-6-convergence-concepts.html#a-24"><i class="fa fa-check"></i>(a)</a></li>
+<li class="chapter" data-level="" data-path="chap-6-convergence-concepts.html"><a href="chap-6-convergence-concepts.html#b-24"><i class="fa fa-check"></i>(b)</a></li>
+<li class="chapter" data-level="" data-path="chap-6-convergence-concepts.html"><a href="chap-6-convergence-concepts.html#c-18"><i class="fa fa-check"></i>(c)</a></li>
+<li class="chapter" data-level="" data-path="chap-6-convergence-concepts.html"><a href="chap-6-convergence-concepts.html#d-11"><i class="fa fa-check"></i>(d)</a></li>
+</ul></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -2366,7 +2384,886 @@ Hence if
 \]</span>
 then <span class="math inline">\(\{X_n\}\)</span> is ui.</p>
 <p><span class="math inline">\(\textbf{Note:}\)</span> I left the specialized cases.</p>
+</div>
+<div id="ex-15-2" class="section level3 hasAnchor">
+<h3>Ex 15<a href="chap-6-convergence-concepts.html#ex-15-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="problem">
+<p>Suppose <span class="math inline">\(X_n\geq 0\)</span> for <span class="math inline">\(n\geq 0\)</span> and <span class="math inline">\(X_n \xrightarrow{P} X_0\)</span> and also <span class="math inline">\(E(X_n)\to E(X_0)\)</span>. Show <span class="math inline">\(X_n\to X_0\)</span> in <span class="math inline">\(L_1\)</span>. (Hint: Try considering <span class="math inline">\((X_0-X_n)^+\)</span>.)</p>
+</div>
+<p><span class="math inline">\(\textbf{Answer:}\)</span></p>
+<p>Following the hint, we have
+<span class="math display">\[
+0\leq (X_0-X_n)^+ \leq X_0.
+\]</span></p>
+<p>And since
+<span class="math display">\[
+X_n\xrightarrow{P}X_0,
+\]</span>
+we have
+<span class="math display">\[
+(X_0-X_n)^+ \xrightarrow{P}0.
+\]</span></p>
+<p>By DCT in convergence in probability version,
+<span class="math display">\[
+E((X_0-X_n)^+)\to 0.
+\]</span></p>
+<p>Note that
+<span class="math display">\[
+X_n-X_0=(X_n-X_0)^+-(X_0-X_n)^+.
+\]</span></p>
+<p>So
+<span class="math display">\[
+E(X_n)-E(X_0)
+=
+E((X_n-X_0)^+)-E((X_0-X_n)^+).
+\]</span></p>
+<p>Therefore,
+<span class="math display">\[
+E((X_n-X_0)^+)
+=
+E(X_n)-E(X_0)+E((X_0-X_n)^+).
+\]</span></p>
+<p>Since
+<span class="math display">\[
+E(X_n)\to E(X_0)
+\]</span>
+and
+<span class="math display">\[
+E((X_0-X_n)^+)\to 0,
+\]</span>
+we have
+<span class="math display">\[
+E((X_n-X_0)^+)\to 0.
+\]</span></p>
+<p>Finally,
+<span class="math display">\[
+E|X_n-X_0|
+=
+E((X_n-X_0)^+)+E((X_0-X_n)^+)\to 0.
+\]</span></p>
+<p>Hence
+<span class="math display">\[
+X_n\to X_0
+\]</span>
+in <span class="math inline">\(L_1\)</span>.</p>
+</div>
+<div id="ex-16-2" class="section level3 hasAnchor">
+<h3>Ex 16<a href="chap-6-convergence-concepts.html#ex-16-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="problem">
+<p>For any sequence of random variables <span class="math inline">\(\{X_n\}\)</span> set <span class="math inline">\(S_n=\sum_{i=1}^n X_i\)</span>.</p>
+<ol style="list-style-type: lower-alpha">
+<li><p>Show <span class="math inline">\(X_n \xrightarrow{a.s.} 0\)</span> implies <span class="math inline">\(S_n/n \xrightarrow{a.s.}0\)</span>.</p></li>
+<li><p>Show <span class="math inline">\(X_n \xrightarrow{L_p} 0\)</span> implies <span class="math inline">\(S_n/n \xrightarrow{L_p}0\)</span> for any <span class="math inline">\(p\geq 1\)</span>.</p></li>
+<li><p>Show <span class="math inline">\(X_n \xrightarrow{P} 0\)</span> does NOT imply <span class="math inline">\(S_n/n \xrightarrow{P}0\)</span>. (Try <span class="math inline">\(X_n=2^n\)</span> with probability <span class="math inline">\(n^{-1}\)</span> and <span class="math inline">\(=0\)</span> with probability <span class="math inline">\(1-n^{-1}\)</span>. Alternatively look at functions on <span class="math inline">\([0,1]\)</span> which are indicators of <span class="math inline">\([i/n,(i+1)/n]\)</span>.)</p></li>
+<li><p>Show <span class="math inline">\(S_n/n \xrightarrow{P}0\)</span> implies <span class="math inline">\(X_n/n \xrightarrow{P}0\)</span>.</p></li>
+</ol>
+</div>
+<p><span class="math inline">\(\textbf{Answer:}\)</span></p>
+<div id="a-23" class="section level4 hasAnchor">
+<h4>(a)<a href="chap-6-convergence-concepts.html#a-23" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Since
+<span class="math display">\[
+X_n\xrightarrow{a.s.}0,
+\]</span>
+there exists <span class="math inline">\(A\in\mathcal B\)</span> such that <span class="math inline">\(P(A)=0\)</span> and for every <span class="math inline">\(\omega\in A^c\)</span>,
+<span class="math display">\[
+X_n(\omega)\to0.
+\]</span></p>
+<p>Fix <span class="math inline">\(\omega\in A^c\)</span>. For every <span class="math inline">\(\varepsilon&gt;0\)</span>, there exists
+<span class="math display">\[
+K=K(\omega,\varepsilon)
+\]</span>
+such that for <span class="math inline">\(i&gt;K\)</span>,
+<span class="math display">\[
+|X_i(\omega)|&lt;\frac{\varepsilon}{2}.
+\]</span></p>
+<p>For <span class="math inline">\(n&gt;K\)</span>, we have
+<span class="math display">\[
+\left|\frac{S_n(\omega)}{n}\right|
+=
+\left|
+\frac{X_1(\omega)+\cdots+X_K(\omega)}{n}
++
+\frac{X_{K+1}(\omega)+\cdots+X_n(\omega)}{n}
+\right|.
+\]</span></p>
+<p>Thus
+<span class="math display">\[
+\left|\frac{S_n(\omega)}{n}\right|
+\le
+\left|
+\frac{X_1(\omega)+\cdots+X_K(\omega)}{n}
+\right|
++
+\left|
+\frac{X_{K+1}(\omega)+\cdots+X_n(\omega)}{n}
+\right|.
+\]</span></p>
+<p>For the first part of RHS, since <span class="math inline">\(K\)</span> is fixed, we can select large <span class="math inline">\(n\)</span> such that
+<span class="math display">\[
+\left|
+\frac{X_1(\omega)+\cdots+X_K(\omega)}{n}
+\right|
+&lt;
+\frac{\varepsilon}{2}.
+\]</span></p>
+<p>For the second part, we have
+<span class="math display">\[
+\left|
+\frac{X_{K+1}(\omega)+\cdots+X_n(\omega)}{n}
+\right|
+\le
+\frac{n-K}{n}\frac{\varepsilon}{2}
+&lt;
+\frac{\varepsilon}{2}.
+\]</span></p>
+<p>So for large <span class="math inline">\(n\)</span>,
+<span class="math display">\[
+\left|\frac{S_n(\omega)}{n}\right|&lt;\varepsilon.
+\]</span></p>
+<p>Therefore, for every <span class="math inline">\(\omega\in A^c\)</span>,
+<span class="math display">\[
+\frac{S_n(\omega)}{n}\to0.
+\]</span></p>
+<p>Hence
+<span class="math display">\[
+\frac{S_n}{n}\xrightarrow{a.s.}0.
+\]</span></p>
+</div>
+<div id="b-23" class="section level4 hasAnchor">
+<h4>(b)<a href="chap-6-convergence-concepts.html#b-23" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>For <span class="math inline">\(p\geq 1\)</span>, suppose
+<span class="math display">\[
+X_n\xrightarrow{L_p}0.
+\]</span></p>
+<p>That is,
+<span class="math display">\[
+\|X_n\|_p\to0.
+\]</span></p>
+<p>By Minkowski’s inequality,
+<span class="math display">\[
+\left\|\frac{S_n}{n}\right\|_p
+=
+\left\|
+\frac{1}{n}\sum_{i=1}^n X_i
+\right\|_p
+\le
+\frac{1}{n}\sum_{i=1}^n \|X_i\|_p.
+\]</span></p>
+<p>Since
+<span class="math display">\[
+\|X_i\|_p\to0,
+\]</span>
+by the Cesaro argument used in (a),
+<span class="math display">\[
+\frac{1}{n}\sum_{i=1}^n \|X_i\|_p\to0.
+\]</span></p>
+<p>Thus
+<span class="math display">\[
+\left\|\frac{S_n}{n}\right\|_p\to0.
+\]</span></p>
+<p>Hence
+<span class="math display">\[
+\frac{S_n}{n}\xrightarrow{L_p}0.
+\]</span></p>
+</div>
+<div id="c-17" class="section level4 hasAnchor">
+<h4>(c)<a href="chap-6-convergence-concepts.html#c-17" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Let
+<span class="math display">\[
+(\Omega,\mathcal B,P)=((0,1],\mathcal B((0,1]),\lambda).
+\]</span></p>
+<p>Define the sequence block by block:
+<span class="math display">\[
+X_1=1_{(0,1]},
+\]</span>
+<span class="math display">\[
+X_2=2\cdot 1_{(0,1/2]},\qquad
+X_3=2\cdot 1_{(1/2,1]},
+\]</span>
+<span class="math display">\[
+X_4=3\cdot 1_{(0,1/3]},\qquad
+X_5=3\cdot 1_{(1/3,2/3]},\qquad
+X_6=3\cdot 1_{(2/3,1]},
+\]</span>
+and so on.</p>
+<p>In general, let
+<span class="math display">\[
+N_m=1+2+\cdots+m=\frac{m(m+1)}2.
+\]</span>
+For block <span class="math inline">\(m\)</span>, define
+<span class="math display">\[
+X_{N_{m-1}+j}
+=
+m\cdot 1_{\left((j-1)/m,j/m\right]},
+\qquad j=1,\ldots,m.
+\]</span></p>
+<p>For <span class="math inline">\(X_n\)</span> in block <span class="math inline">\(m\)</span>, if <span class="math inline">\(m&gt;\varepsilon\)</span>, then
+<span class="math display">\[
+P(|X_n|&gt;\varepsilon)=P(X_n\neq0)=\frac1m.
+\]</span></p>
+<p>Since <span class="math inline">\(m\to\infty\)</span> as <span class="math inline">\(n\to\infty\)</span>, we have
+<span class="math display">\[
+P(|X_n|&gt;\varepsilon)\to0.
+\]</span></p>
+<p>Therefore
+<span class="math display">\[
+X_n\xrightarrow{P}0.
+\]</span></p>
+<p>But at the end of block <span class="math inline">\(m\)</span>, we have
+<span class="math display">\[
+S_{N_m}
+=
+1+2+\cdots+m
+=
+N_m
+\]</span>
+pointwise.</p>
+<p>Thus
+<span class="math display">\[
+\frac{S_{N_m}}{N_m}=1.
+\]</span></p>
+<p>Therefore,
+<span class="math display">\[
+P\left(\left|\frac{S_{N_m}}{N_m}\right|&gt;\frac12\right)=1
+\]</span>
+for every <span class="math inline">\(m\)</span>.</p>
+<p>Hence
+<span class="math display">\[
+\frac{S_n}{n}
+\]</span>
+does not converge to <span class="math inline">\(0\)</span> in probability.</p>
+<p>So
+<span class="math display">\[
+X_n\xrightarrow{P}0
+\]</span>
+does NOT imply
+<span class="math display">\[
+\frac{S_n}{n}\xrightarrow{P}0.
+\]</span></p>
+</div>
+<div id="d-10" class="section level4 hasAnchor">
+<h4>(d)<a href="chap-6-convergence-concepts.html#d-10" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Since
+<span class="math display">\[
+X_n=S_n-S_{n-1},
+\]</span>
+we have
+<span class="math display">\[
+\frac{X_n}{n}
+=
+\frac{S_n-S_{n-1}}{n}
+=
+\frac{S_n}{n}
+-
+\frac{n-1}{n}\frac{S_{n-1}}{n-1}.
+\]</span></p>
+<p>Since
+<span class="math display">\[
+\frac{S_n}{n}\xrightarrow{P}0,
+\]</span>
+by shifting the index,
+<span class="math display">\[
+\frac{S_{n-1}}{n-1}\xrightarrow{P}0.
+\]</span></p>
+<p>Also,
+<span class="math display">\[
+\frac{n-1}{n}\to1.
+\]</span></p>
+<p>Thus
+<span class="math display">\[
+\frac{n-1}{n}\frac{S_{n-1}}{n-1}
+\xrightarrow{P}0.
+\]</span></p>
+<p>Therefore,
+<span class="math display">\[
+\frac{X_n}{n}
+=
+\frac{S_n}{n}
+-
+\frac{n-1}{n}\frac{S_{n-1}}{n-1}
+\xrightarrow{P}0.
+\]</span></p>
+</div>
+</div>
+<div id="ex-18-2" class="section level3 hasAnchor">
+<h3>Ex 18<a href="chap-6-convergence-concepts.html#ex-18-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="problem">
+<p>Suppose <span class="math inline">\(\{X_n\}\)</span> is an uncorrelated sequence, meaning
+<span class="math display">\[
+\operatorname{Cov}(X_i,X_j)=0,\quad i\ne j.
+\]</span>
+If there exists a constant <span class="math inline">\(c&gt;0\)</span> such that <span class="math inline">\(\operatorname{Var}(X_n)\le c\)</span> for all <span class="math inline">\(n\ge1\)</span>, then for any <span class="math inline">\(\alpha&gt;1/2\)</span> we have
+<span class="math display">\[
+\frac{\sum_{i=1}^n X_i}{n^\alpha}\to0
+\]</span>
+in <span class="math inline">\(L_2\)</span>.</p>
+</div>
+<p><span class="math inline">\(\textbf{Warning:}\)</span>
+The statement of the exercise without centralization is not generally true.</p>
+<p>For example, let
+<span class="math display">\[
+X_n\equiv 1.
+\]</span></p>
+<p>Then
+<span class="math display">\[
+\operatorname{Var}(X_n)=0
+\]</span>
+and
+<span class="math display">\[
+\operatorname{Cov}(X_i,X_j)=0,\qquad i\ne j.
+\]</span></p>
+<p>But
+<span class="math display">\[
+\frac{\sum_{i=1}^n X_i}{n^\alpha}
+=
+\frac{n}{n^\alpha}
+=
+n^{1-\alpha}.
+\]</span></p>
+<p>When
+<span class="math display">\[
+\frac12&lt;\alpha&lt;1,
+\]</span>
+we have
+<span class="math display">\[
+n^{1-\alpha}\not\to0.
+\]</span></p>
+<p>So without an extra assumption on <span class="math inline">\(E(X_n)\)</span>, we can only prove the centralized version:
+<span class="math display">\[
+\frac{1}{n^\alpha}\sum_{i=1}^n (X_i-\mu_i)
+\xrightarrow{L_2}0.
+\]</span></p>
+<p>For a fixed <span class="math inline">\(\alpha&gt;1/2\)</span>, the missing mean term must satisfy
+<span class="math display">\[
+\frac{1}{n^\alpha}\sum_{i=1}^n E(X_i)\to0.
+\]</span></p>
+<p>A clean sufficient assumption is
+<span class="math display">\[
+E(X_i)=0,\qquad \forall i.
+\]</span></p>
+<p>The answer below proves the centralized version. If one additionally assumes <span class="math inline">\(E(X_i)=0\)</span> for all <span class="math inline">\(i\)</span>, then it proves the original statement.</p>
+<p><span class="math inline">\(\textbf{Answer:}\)</span></p>
+<p>Let
+<span class="math display">\[
+\mu_i=E(X_i).
+\]</span></p>
+<p>First consider the centralized version:
+<span class="math display">\[
+\frac{1}{n^\alpha}\sum_{i=1}^n (X_i-\mu_i).
+\]</span></p>
+<p>We have
+<span class="math display">\[
+E\left[
+\left(
+\frac{1}{n^\alpha}\sum_{i=1}^n (X_i-\mu_i)
+\right)^2
+\right]
+=
+\frac{1}{n^{2\alpha}}
+E\left[
+\left(
+\sum_{i=1}^n (X_i-\mu_i)
+\right)^2
+\right].
+\]</span></p>
+<p>Expanding the square,
+<span class="math display">\[
+E\left[
+\left(
+\sum_{i=1}^n (X_i-\mu_i)
+\right)^2
+\right]
+=
+\sum_{i=1}^n E((X_i-\mu_i)^2)
++
+\sum_{i\ne j}E((X_i-\mu_i)(X_j-\mu_j)).
+\]</span></p>
+<p>Since <span class="math inline">\(\{X_n\}\)</span> is uncorrelated,
+<span class="math display">\[
+E((X_i-\mu_i)(X_j-\mu_j))
+=
+\operatorname{Cov}(X_i,X_j)
+=
+0,
+\qquad i\ne j.
+\]</span></p>
+<p>Therefore,
+<span class="math display">\[
+E\left[
+\left(
+\sum_{i=1}^n (X_i-\mu_i)
+\right)^2
+\right]
+=
+\sum_{i=1}^n \operatorname{Var}(X_i)
+\le nc.
+\]</span></p>
+<p>Thus
+<span class="math display">\[
+E\left[
+\left(
+\frac{1}{n^\alpha}\sum_{i=1}^n (X_i-\mu_i)
+\right)^2
+\right]
+\le
+\frac{nc}{n^{2\alpha}}
+=
+\frac{c}{n^{2\alpha-1}}
+\to0,
+\]</span>
+since
+<span class="math display">\[
+\alpha&gt;\frac12.
+\]</span></p>
+<p>Hence
+<span class="math display">\[
+\frac{1}{n^\alpha}\sum_{i=1}^n (X_i-\mu_i)
+\xrightarrow{L_2}0.
+\]</span></p>
+<p><span class="math inline">\(\textbf{Note:}\)</span> I spent almost 2 hours on this exercise, but it did not occur to me that I should try to construct counter example to judge whether the conditions are enough to prove what’s required.</p>
+</div>
+<div id="ex-20-2" class="section level3 hasAnchor">
+<h3>Ex 20<a href="chap-6-convergence-concepts.html#ex-20-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="problem">
+<p>Suppose <span class="math inline">\(E(X^2)=1\)</span> and <span class="math inline">\(E|X|\ge a&gt;0\)</span>. Prove that for <span class="math inline">\(0\le \lambda\le 1\)</span>,
+<span class="math display">\[
+P(|X|\ge \lambda a)\ge (1-\lambda)^2a^2.
+\]</span></p>
+</div>
+<p><span class="math inline">\(\textbf{Answer:}\)</span></p>
+<p>Let
+<span class="math display">\[
+A=\{|X|\ge \lambda a\}.
+\]</span></p>
+<p>Then
+<span class="math display">\[
+E|X|
+=
+E\bigl(|X|1_A\bigr)
++
+E\bigl(|X|1_{A^c}\bigr).
+\]</span></p>
+<p>On <span class="math inline">\(A^c\)</span>, we have
+<span class="math display">\[
+|X|&lt;\lambda a.
+\]</span></p>
+<p>Therefore,
+<span class="math display">\[
+E\bigl(|X|1_{A^c}\bigr)
+\le
+\lambda a.
+\]</span></p>
+<p>For the first term, by the Cauchy–Schwarz inequality,
+<span class="math display">\[
+E\bigl(|X|1_A\bigr)
+\le
+\sqrt{E(X^2)}\sqrt{E(1_A^2)}.
+\]</span></p>
+<p>Since
+<span class="math display">\[
+E(X^2)=1
+\]</span>
+and
+<span class="math display">\[
+1_A^2=1_A,
+\]</span>
+we get
+<span class="math display">\[
+E\bigl(|X|1_A\bigr)
+\le
+\sqrt{P(A)}.
+\]</span></p>
+<p>Thus
+<span class="math display">\[
+a
+\le
+E|X|
+\le
+\sqrt{P(A)}+\lambda a.
+\]</span></p>
+<p>Hence
+<span class="math display">\[
+(1-\lambda)a
+\le
+\sqrt{P(A)}.
+\]</span></p>
+<p>Squaring both sides gives
+<span class="math display">\[
+P(A)\ge (1-\lambda)^2a^2.
+\]</span></p>
+<p>That is,
+<span class="math display">\[
+P(|X|\ge \lambda a)\ge (1-\lambda)^2a^2.
+\]</span></p>
+<p><span class="math inline">\(\textbf{Note:}\)</span> It seems that when we meet something like <span class="math inline">\(P(|X|&gt;a)\)</span>, besides Markov or Chebyshev, we can try to link to <span class="math inline">\(E(|X|)\)</span> using indicator function.</p>
+</div>
+<div id="ex-22-2" class="section level3 hasAnchor">
+<h3>Ex 22<a href="chap-6-convergence-concepts.html#ex-22-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="problem">
+<p>Suppose <span class="math inline">\(\{X_n,n\ge 1\}\)</span> are independent non-negative random variables satisfying
+<span class="math display">\[
+E(X_n)=\mu_n,\qquad \operatorname{Var}(X_n)=\sigma_n^2.
+\]</span></p>
+<p>Define for <span class="math inline">\(n\ge 1\)</span>,
+<span class="math display">\[
+S_n=\sum_{i=1}^n X_i
+\]</span>
+and suppose
+<span class="math display">\[
+\sum_{n=1}^{\infty}\mu_n=\infty
+\]</span>
+and
+<span class="math display">\[
+\sigma_n^2\le c\mu_n
+\]</span>
+for some <span class="math inline">\(c&gt;0\)</span> and all <span class="math inline">\(n\)</span>. Show
+<span class="math display">\[
+\frac{S_n}{E(S_n)}\xrightarrow{P}1.
+\]</span></p>
+</div>
+<p><span class="math inline">\(\textbf{Answer:}\)</span></p>
+<p>Since
+<span class="math display">\[
+S_n=\sum_{i=1}^n X_i,
+\]</span>
+we have
+<span class="math display">\[
+E(S_n)
+=
+\sum_{i=1}^n E(X_i)
+=
+\sum_{i=1}^n \mu_i.
+\]</span></p>
+<p>Therefore,
+<span class="math display">\[
+E\left(\frac{S_n}{E(S_n)}\right)=1.
+\]</span></p>
+<p>For any <span class="math inline">\(\varepsilon&gt;0\)</span>, by Chebyshev’s inequality,
+<span class="math display">\[
+P\left(
+\left|
+\frac{S_n}{E(S_n)}-1
+\right|&gt;\varepsilon
+\right)
+\le
+\frac{1}{\varepsilon^2}
+\operatorname{Var}\left(
+\frac{S_n}{E(S_n)}
+\right).
+\]</span></p>
+<p>Since <span class="math inline">\(E(S_n)\)</span> is deterministic,
+<span class="math display">\[
+\operatorname{Var}\left(
+\frac{S_n}{E(S_n)}
+\right)
+=
+\frac{\operatorname{Var}(S_n)}
+{\{E(S_n)\}^2}.
+\]</span></p>
+<p>By independence,
+<span class="math display">\[
+\operatorname{Var}(S_n)
+=
+\sum_{i=1}^n \operatorname{Var}(X_i)
+=
+\sum_{i=1}^n \sigma_i^2.
+\]</span></p>
+<p>Using the assumption
+<span class="math display">\[
+\sigma_i^2\le c\mu_i,
+\]</span>
+we get
+<span class="math display">\[
+\operatorname{Var}(S_n)
+\le
+c\sum_{i=1}^n \mu_i.
+\]</span></p>
+<p>Thus
+<span class="math display">\[
+P\left(
+\left|
+\frac{S_n}{E(S_n)}-1
+\right|&gt;\varepsilon
+\right)
+\le
+\frac{1}{\varepsilon^2}
+\frac{
+c\sum_{i=1}^n\mu_i
+}{
+\left(\sum_{i=1}^n\mu_i\right)^2
+}.
+\]</span></p>
+<p>Hence
+<span class="math display">\[
+P\left(
+\left|
+\frac{S_n}{E(S_n)}-1
+\right|&gt;\varepsilon
+\right)
+\le
+\frac{c}
+{\varepsilon^2\sum_{i=1}^n\mu_i}.
+\]</span></p>
+<p>Since
+<span class="math display">\[
+\sum_{i=1}^{\infty}\mu_i=\infty,
+\]</span>
+we have
+<span class="math display">\[
+\sum_{i=1}^n\mu_i\to\infty.
+\]</span></p>
+<p>Therefore,
+<span class="math display">\[
+\frac{c}
+{\varepsilon^2\sum_{i=1}^n\mu_i}
+\to0.
+\]</span></p>
+<p>So for every <span class="math inline">\(\varepsilon&gt;0\)</span>,
+<span class="math display">\[
+P\left(
+\left|
+\frac{S_n}{E(S_n)}-1
+\right|&gt;\varepsilon
+\right)
+\to0.
+\]</span></p>
+<p>Hence
+<span class="math display">\[
+\frac{S_n}{E(S_n)}\xrightarrow{P}1.
+\]</span></p>
+<p><span class="math inline">\(\textbf{Note:}\)</span> It is easy to link the converges in probability to Chebyshev’s inequality.</p>
+</div>
+<div id="ex-30-2" class="section level3 hasAnchor">
+<h3>Ex 30<a href="chap-6-convergence-concepts.html#ex-30-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="problem">
+<p>The space <span class="math inline">\(L_\infty\)</span>: For a random variable <span class="math inline">\(X\)</span> define
+<span class="math display">\[
+\|X\|_\infty=\sup\{x:P[|X|&gt;x]&gt;0\}.
+\]</span>
+Let <span class="math inline">\(L_\infty\)</span> be the set of all random variables <span class="math inline">\(X\)</span> for which <span class="math inline">\(\|X\|_\infty&lt;\infty\)</span>.</p>
+<ol style="list-style-type: lower-alpha">
+<li><p>Show that for a random variable <span class="math inline">\(X\)</span> and <span class="math inline">\(1&lt;p&lt;q&lt;\infty\)</span>
+<span class="math display">\[
+0\le \|X\|_1\le \|X\|_p\le \|X\|_q\le \|X\|_\infty.
+\]</span></p></li>
+<li><p>For <span class="math inline">\(1&lt;p&lt;q&lt;\infty\)</span>, show
+<span class="math display">\[
+L_\infty\subset L_q\subset L_p\subset L_1.
+\]</span></p></li>
+<li><p>Show Holder’s inequality holds in the form
+<span class="math display">\[
+E(|XY|)\le \|X\|_1\|Y\|_\infty.
+\]</span></p></li>
+<li><p>Show Minkowski’s inequality holds in the form
+<span class="math display">\[
+\|X+Y\|_\infty\le \|X\|_\infty+\|Y\|_\infty.
+\]</span></p></li>
+</ol>
+</div>
+<p><span class="math inline">\(\textbf{Answer:}\)</span></p>
+<div id="a-24" class="section level4 hasAnchor">
+<h4>(a)<a href="chap-6-convergence-concepts.html#a-24" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>By Example 6.5.2, for <span class="math inline">\(1&lt;p&lt;q&lt;\infty\)</span>, we already have
+<span class="math display">\[
+0\le \|X\|_1\le \|X\|_p\le \|X\|_q.
+\]</span></p>
+<p>So what remains is to prove
+<span class="math display">\[
+\|X\|_q\le \|X\|_\infty.
+\]</span></p>
+<p>Let
+<span class="math display">\[
+M=\|X\|_\infty.
+\]</span></p>
+<p>If <span class="math inline">\(M=\infty\)</span>, then
+<span class="math display">\[
+\|X\|_q\le \|X\|_\infty
+\]</span>
+is trivial.</p>
+<p>Now suppose
+<span class="math display">\[
+M&lt;\infty.
+\]</span></p>
+<p>We first show that
+<span class="math display">\[
+|X|\le M
+\]</span>
+a.e.</p>
+<p>Suppose not. Then
+<span class="math display">\[
+P(|X|&gt;M)&gt;0.
+\]</span></p>
+<p>But
+<span class="math display">\[
+\{|X|&gt;M\}
+=
+\bigcup_{n=1}^{\infty}
+\left\{|X|&gt;M+\frac1n\right\}.
+\]</span></p>
+<p>Therefore, there exists some <span class="math inline">\(n\ge1\)</span> such that
+<span class="math display">\[
+P\left(|X|&gt;M+\frac1n\right)&gt;0.
+\]</span></p>
+<p>Thus
+<span class="math display">\[
+M+\frac1n\in \{x:P[|X|&gt;x]&gt;0\},
+\]</span>
+which contradicts
+<span class="math display">\[
+M=\sup\{x:P[|X|&gt;x]&gt;0\}.
+\]</span></p>
+<p>Hence
+<span class="math display">\[
+P(|X|&gt;M)=0,
+\]</span>
+so
+<span class="math display">\[
+|X|\le M
+\]</span>
+a.e.</p>
+<p>Therefore,
+<span class="math display">\[
+|X|^q\le M^q
+\]</span>
+a.e. Hence
+<span class="math display">\[
+E|X|^q\le M^q.
+\]</span></p>
+<p>Taking the <span class="math inline">\(q\)</span>-th root gives
+<span class="math display">\[
+\|X\|_q\le M=\|X\|_\infty.
+\]</span></p>
+<p>Thus
+<span class="math display">\[
+0\le \|X\|_1\le \|X\|_p\le \|X\|_q\le \|X\|_\infty.
+\]</span></p>
+</div>
+<div id="b-24" class="section level4 hasAnchor">
+<h4>(b)<a href="chap-6-convergence-concepts.html#b-24" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>From part (a), if <span class="math inline">\(X\in L_\infty\)</span>, then
+<span class="math display">\[
+\|X\|_q\le \|X\|_\infty&lt;\infty.
+\]</span></p>
+<p>So
+<span class="math display">\[
+X\in L_q.
+\]</span></p>
+<p>Thus
+<span class="math display">\[
+L_\infty\subset L_q.
+\]</span></p>
+<p>Similarly, if <span class="math inline">\(X\in L_q\)</span>, then
+<span class="math display">\[
+\|X\|_p\le \|X\|_q&lt;\infty,
+\]</span>
+so
+<span class="math display">\[
+X\in L_p.
+\]</span></p>
+<p>Thus
+<span class="math display">\[
+L_q\subset L_p.
+\]</span></p>
+<p>Finally, if <span class="math inline">\(X\in L_p\)</span>, then
+<span class="math display">\[
+\|X\|_1\le \|X\|_p&lt;\infty,
+\]</span>
+so
+<span class="math display">\[
+X\in L_1.
+\]</span></p>
+<p>Therefore,
+<span class="math display">\[
+L_\infty\subset L_q\subset L_p\subset L_1.
+\]</span></p>
+</div>
+<div id="c-18" class="section level4 hasAnchor">
+<h4>(c)<a href="chap-6-convergence-concepts.html#c-18" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Let
+<span class="math display">\[
+M=\|Y\|_\infty.
+\]</span></p>
+<p>If <span class="math inline">\(M=\infty\)</span>, the result is trivial. Suppose
+<span class="math display">\[
+M&lt;\infty.
+\]</span></p>
+<p>By the argument in part (a),
+<span class="math display">\[
+|Y|\le M
+\]</span>
+a.e.</p>
+<p>Therefore,
+<span class="math display">\[
+|XY|\le |X|M
+\]</span>
+a.e.</p>
+<p>Taking expectations gives
+<span class="math display">\[
+E(|XY|)
+\le
+E(|X|M).
+\]</span></p>
+<p>Since <span class="math inline">\(M\)</span> is a constant,
+<span class="math display">\[
+E(|X|M)
+=
+M E|X|.
+\]</span></p>
+<p>Thus
+<span class="math display">\[
+E(|XY|)
+\le
+\|Y\|_\infty \|X\|_1.
+\]</span></p>
+<p>Hence
+<span class="math display">\[
+E(|XY|)
+\le
+\|X\|_1\|Y\|_\infty.
+\]</span></p>
+</div>
+<div id="d-11" class="section level4 hasAnchor">
+<h4>(d)<a href="chap-6-convergence-concepts.html#d-11" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>If either <span class="math inline">\(\|X\|_\infty=\infty\)</span> or <span class="math inline">\(\|Y\|_\infty=\infty\)</span>, the result is trivial.</p>
+<p>Now suppose
+<span class="math display">\[
+\|X\|_\infty&lt;\infty,
+\qquad
+\|Y\|_\infty&lt;\infty.
+\]</span></p>
+<p>By part (a),
+<span class="math display">\[
+|X|\le \|X\|_\infty
+\]</span>
+a.e., and
+<span class="math display">\[
+|Y|\le \|Y\|_\infty
+\]</span>
+a.e.</p>
+<p>Therefore, outside a null set,
+<span class="math display">\[
+|X+Y|
+\le
+|X|+|Y|
+\le
+\|X\|_\infty+\|Y\|_\infty.
+\]</span></p>
+<p>Hence
+<span class="math display">\[
+|X+Y|
+\le
+\|X\|_\infty+\|Y\|_\infty
+\]</span>
+a.e.</p>
+<p>It follows that
+<span class="math display">\[
+\|X+Y\|_\infty
+\le
+\|X\|_\infty+\|Y\|_\infty.
+\]</span></p>
 
+</div>
 </div>
 </div>
 </div>
