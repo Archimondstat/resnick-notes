@@ -3324,3 +3324,1114 @@ It follows that
 \le
 \|X\|_\infty+\|Y\|_\infty.
 \]
+
+### Ex 11
+::: problem
+Suppose \(\{X_n,n\ge 1\}\) are iid and non-negative and define \(M_n=\vee_{i=1}^nX_i\).
+
+(a) Check that
+\[
+P[M_n>x]\le nP[X_1>x].
+\]
+
+(b) If \(E(X_1^p)<\infty\), then \(M_n/n^{1/p}\xrightarrow{P}0\).
+
+(c) If in addition to being iid, the sequence \(\{X_n\}\) is non-negative, show
+\[
+M_n/n\xrightarrow{P}0
+\]
+iff
+\[
+nP[X_1>n]\to0,\qquad as\ n\to\infty.
+\]
+
+(d) Review the definition of rapid variation in Exercise 27 of Chapter 5. Prove there exists a sequence \(b(n)\to\infty\) such that
+\[
+M_n/b(n)\xrightarrow{P}1,\qquad n\to\infty,
+\]
+iff \(1-F(x):=P[X_1>x]\) is rapidly varying at \(\infty\). In this case, we may take
+\[
+b(n)=\left(\frac{1}{1-F}\right)^{\leftarrow}(n)
+\]
+to be the \(1-\frac1n\) quantile of \(F\).
+
+(e) Now suppose \(\{X_n\}\) is an arbitrary sequence of non-negative random variables. Show that
+\[
+E(M_n1_{[M_n>a]})
+\le
+\sum_{k=1}^n E(X_k1_{[X_k\ge a]}).
+\]
+If, in addition, \(\{X_n\}\) is ui, show
+\[
+E(M_n)/n\to0.
+\]
+:::
+
+$\textbf{Answer:}$
+
+#### (a)
+
+Since
+\[
+M_n=\bigvee_{i=1}^n X_i,
+\]
+we have
+\[
+[M_n>x]
+=
+\left[\bigvee_{i=1}^n X_i>x\right].
+\]
+
+This implies
+\[
+[M_n>x]
+=
+\bigcup_{i=1}^n [X_i>x].
+\]
+
+Therefore, by subadditivity,
+\[
+P[M_n>x]
+=
+P\left(\bigcup_{i=1}^n [X_i>x]\right)
+\le
+\sum_{i=1}^n P[X_i>x].
+\]
+
+Since \(\{X_i\}\) are iid,
+\[
+P[X_i>x]=P[X_1>x],
+\qquad i=1,\ldots,n.
+\]
+
+Thus
+\[
+P[M_n>x]
+\le
+nP[X_1>x].
+\]
+
+#### (b)
+
+Assume
+\[
+E(X_1^p)<\infty.
+\]
+
+We want to show
+\[
+\frac{M_n}{n^{1/p}}\xrightarrow{P}0.
+\]
+
+Fix \(\varepsilon>0\). By part (a),
+\[
+P\left(\frac{M_n}{n^{1/p}}>\varepsilon\right)
+=
+P(M_n>\varepsilon n^{1/p})
+\le
+nP(X_1>\varepsilon n^{1/p}).
+\]
+
+It remains to show
+\[
+nP(X_1>\varepsilon n^{1/p})\to0.
+\]
+
+On the event
+\[
+\{X_1>\varepsilon n^{1/p}\},
+\]
+we have
+\[
+X_1^p>\varepsilon^p n.
+\]
+
+Therefore,
+\[
+\varepsilon^p n 1_{\{X_1>\varepsilon n^{1/p}\}}
+\le
+X_1^p1_{\{X_1>\varepsilon n^{1/p}\}}.
+\]
+
+Taking expectations gives
+\[
+\varepsilon^p nP(X_1>\varepsilon n^{1/p})
+\le
+E\left[
+X_1^p1_{\{X_1>\varepsilon n^{1/p}\}}
+\right].
+\]
+
+Since
+\[
+X_1^p\in L_1
+\]
+and
+\[
+1_{\{X_1>\varepsilon n^{1/p}\}}\downarrow 0,
+\]
+we have
+\[
+E\left[
+X_1^p1_{\{X_1>\varepsilon n^{1/p}\}}
+\right]\to0.
+\]
+
+Thus
+\[
+\varepsilon^p nP(X_1>\varepsilon n^{1/p})\to0.
+\]
+
+Since \(\varepsilon>0\) is fixed,
+\[
+nP(X_1>\varepsilon n^{1/p})\to0.
+\]
+
+Hence
+\[
+P\left(\frac{M_n}{n^{1/p}}>\varepsilon\right)\to0.
+\]
+
+Therefore,
+\[
+\frac{M_n}{n^{1/p}}\xrightarrow{P}0.
+\]
+
+#### (c)
+
+We prove both directions.
+
+First suppose
+\[
+\frac{M_n}{n}\xrightarrow{P}0.
+\]
+
+Taking \(\varepsilon=1\), we have
+\[
+P\left(\frac{M_n}{n}>1\right)
+=
+P(M_n>n)
+\to0.
+\]
+
+Thus
+\[
+P(M_n\le n)\to1.
+\]
+
+Since
+\[
+M_n\le n
+\]
+if and only if
+\[
+X_1\le n,\ldots,X_n\le n,
+\]
+independence gives
+\[
+P(M_n\le n)
+=
+P(X_1\le n,\ldots,X_n\le n)
+=
+P(X_1\le n)^n.
+\]
+
+Let
+\[
+a_n=P(X_1>n).
+\]
+
+Then
+\[
+P(X_1\le n)=1-a_n,
+\]
+so
+\[
+(1-a_n)^n\to1.
+\]
+
+Also,
+\[
+a_n=P(X_1>n)\le P(M_n>n)\to0.
+\]
+
+Taking logs,
+\[
+n\log(1-a_n)\to0.
+\]
+
+Since \(a_n\to0\),
+\[
+\log(1-a_n)\sim -a_n.
+\]
+
+Therefore,
+\[
+na_n\to0.
+\]
+
+That is,
+\[
+nP(X_1>n)\to0.
+\]
+
+Conversely, suppose
+\[
+nP(X_1>n)\to0.
+\]
+
+Fix \(\varepsilon>0\). By part (a),
+\[
+P\left(\frac{M_n}{n}>\varepsilon\right)
+=
+P(M_n>n\varepsilon)
+\le
+nP(X_1>n\varepsilon).
+\]
+
+Let
+\[
+k_n=\lfloor n\varepsilon\rfloor.
+\]
+
+Then
+\[
+k_n\to\infty.
+\]
+
+For large \(n\),
+\[
+k_n\le n\varepsilon,
+\]
+so
+\[
+P(X_1>n\varepsilon)\le P(X_1>k_n).
+\]
+
+Hence
+\[
+nP(X_1>n\varepsilon)
+\le
+nP(X_1>k_n)
+=
+\frac{n}{k_n}k_nP(X_1>k_n).
+\]
+
+Since
+\[
+\frac{n}{k_n}\to\frac1\varepsilon
+\]
+and
+\[
+k_nP(X_1>k_n)\to0,
+\]
+we get
+\[
+nP(X_1>n\varepsilon)\to0.
+\]
+
+Therefore,
+\[
+P\left(\frac{M_n}{n}>\varepsilon\right)\to0.
+\]
+
+Hence
+\[
+\frac{M_n}{n}\xrightarrow{P}0.
+\]
+
+#### (d)
+
+Let
+\[
+S(x)=1-F(x)=P(X_1>x).
+\]
+
+Rapid variation of \(S\) at \(\infty\) means that for every fixed \(x>0\),
+\[
+\frac{S(tx)}{S(t)}
+\to
+\begin{cases}
+\infty, & 0<x<1,\\[4pt]
+0, & x>1,
+\end{cases}
+\qquad t\to\infty.
+\]
+
+We prove
+\[
+\exists b(n)\to\infty
+\quad\text{such that}\quad
+\frac{M_n}{b(n)}\xrightarrow{P}1
+\]
+if and only if \(S\) is rapidly varying at \(\infty\).
+
+First assume \(S\) is rapidly varying at \(\infty\).
+
+Define
+\[
+b(n)=\left(\frac1S\right)^{\leftarrow}(n),
+\]
+that is,
+\[
+b(n)=\inf\{x:S(x)\le 1/n\}.
+\]
+
+This is the \(1-\frac1n\) quantile of \(F\). Since \(S(x)\to0\), we have
+\[
+b(n)\to\infty.
+\]
+
+From the definition of \(b(n)\),
+\[
+S(b(n))\le \frac1n.
+\]
+
+Also, if \(y<b(n)\), then
+\[
+S(y)>\frac1n.
+\]
+
+We show
+\[
+\frac{M_n}{b(n)}\xrightarrow{P}1.
+\]
+
+Fix \(0<\varepsilon<1\). It is enough to show
+\[
+P(M_n>(1+\varepsilon)b(n))\to0
+\]
+and
+\[
+P(M_n\le (1-\varepsilon)b(n))\to0.
+\]
+
+For the upper side, by part (a),
+\[
+P(M_n>(1+\varepsilon)b(n))
+\le
+nP(X_1>(1+\varepsilon)b(n)).
+\]
+
+Thus
+\[
+P(M_n>(1+\varepsilon)b(n))
+\le
+nS((1+\varepsilon)b(n)).
+\]
+
+Now
+\[
+nS((1+\varepsilon)b(n))
+=
+nS(b(n))
+\frac{S((1+\varepsilon)b(n))}{S(b(n))}.
+\]
+
+Since
+\[
+nS(b(n))\le1
+\]
+and, by rapid variation,
+\[
+\frac{S((1+\varepsilon)b(n))}{S(b(n))}\to0,
+\]
+we get
+\[
+nS((1+\varepsilon)b(n))\to0.
+\]
+
+Therefore,
+\[
+P(M_n>(1+\varepsilon)b(n))\to0.
+\]
+
+For the lower side,
+\[
+P(M_n\le (1-\varepsilon)b(n))
+=
+P(X_1\le (1-\varepsilon)b(n),\ldots,X_n\le (1-\varepsilon)b(n)).
+\]
+
+By independence,
+\[
+P(M_n\le (1-\varepsilon)b(n))
+=
+\{1-S((1-\varepsilon)b(n))\}^n.
+\]
+
+It is enough to show
+\[
+nS((1-\varepsilon)b(n))\to\infty.
+\]
+
+Let
+\[
+c_1=1-\varepsilon,
+\qquad
+c_2=1-\frac{\varepsilon}{2}.
+\]
+
+Then
+\[
+0<c_1<c_2<1.
+\]
+
+For large \(n\),
+\[
+c_2b(n)<b(n).
+\]
+
+Therefore, by the definition of \(b(n)\),
+\[
+S(c_2b(n))>\frac1n.
+\]
+
+Hence
+\[
+nS(c_2b(n))>1.
+\]
+
+Now
+\[
+nS(c_1b(n))
+=
+nS(c_2b(n))
+\frac{S(c_1b(n))}{S(c_2b(n))}.
+\]
+
+Since
+\[
+\frac{c_1}{c_2}<1,
+\]
+rapid variation gives
+\[
+\frac{S(c_1b(n))}{S(c_2b(n))}
+=
+\frac{
+S\left(\frac{c_1}{c_2}c_2b(n)\right)
+}{
+S(c_2b(n))
+}
+\to\infty.
+\]
+
+Therefore,
+\[
+nS(c_1b(n))\to\infty.
+\]
+
+That is,
+\[
+nS((1-\varepsilon)b(n))\to\infty.
+\]
+
+Hence
+\[
+P(M_n\le (1-\varepsilon)b(n))
+=
+\{1-S((1-\varepsilon)b(n))\}^n
+\le
+\exp\{-nS((1-\varepsilon)b(n))\}
+\to0.
+\]
+
+Thus
+\[
+P\left(
+1-\varepsilon
+<
+\frac{M_n}{b(n)}
+\le
+1+\varepsilon
+\right)\to1.
+\]
+
+Therefore,
+\[
+\frac{M_n}{b(n)}\xrightarrow{P}1.
+\]
+
+Conversely, suppose there exists \(b(n)\to\infty\) such that
+\[
+\frac{M_n}{b(n)}\xrightarrow{P}1.
+\]
+
+We first prove two consequences.
+
+Fix \(x>1\). Then
+\[
+P\left(\frac{M_n}{b(n)}>x\right)\to0.
+\]
+
+That is,
+\[
+P(M_n>xb(n))\to0.
+\]
+
+But
+\[
+P(M_n\le xb(n))
+=
+\{1-S(xb(n))\}^n.
+\]
+
+Hence
+\[
+P(M_n>xb(n))
+=
+1-\{1-S(xb(n))\}^n.
+\]
+
+So
+\[
+1-\{1-S(xb(n))\}^n\to0.
+\]
+
+This implies
+\[
+nS(xb(n))\to0.
+\]
+
+Indeed, since
+\[
+(1-u)^n\le e^{-nu},
+\]
+we get
+\[
+1-\{1-S(xb(n))\}^n
+\ge
+1-e^{-nS(xb(n))}.
+\]
+
+Therefore, if the left-hand side tends to \(0\), then
+\[
+1-e^{-nS(xb(n))}\to0,
+\]
+and hence
+\[
+nS(xb(n))\to0.
+\]
+
+So for every \(x>1\),
+\[
+nS(xb(n))\to0.
+\]
+
+Now fix \(0<x<1\). Then
+\[
+P\left(\frac{M_n}{b(n)}\le x\right)\to0.
+\]
+
+That is,
+\[
+P(M_n\le xb(n))\to0.
+\]
+
+By independence,
+\[
+P(M_n\le xb(n))
+=
+\{1-S(xb(n))\}^n.
+\]
+
+Therefore,
+\[
+\{1-S(xb(n))\}^n\to0.
+\]
+
+This implies
+\[
+nS(xb(n))\to\infty.
+\]
+
+To see this, suppose not. Then along some subsequence,
+\[
+nS(xb(n))\le C
+\]
+for some finite constant \(C\).
+
+If \(S(xb(n))\not\to0\), then
+\[
+nS(xb(n))\to\infty,
+\]
+which contradicts the boundedness along the subsequence.
+
+So along this subsequence,
+\[
+S(xb(n))\to0.
+\]
+
+For small \(u\),
+\[
+\log(1-u)\ge -2u.
+\]
+
+Thus
+\[
+\{1-S(xb(n))\}^n
+=
+\exp\{n\log(1-S(xb(n)))\}
+\ge
+\exp\{-2nS(xb(n))\}
+\ge
+e^{-2C},
+\]
+which cannot converge to \(0\). This is a contradiction.
+
+Hence, for every \(0<x<1\),
+\[
+nS(xb(n))\to\infty.
+\]
+
+So we have proved
+\[
+nS(xb(n))
+\to
+\begin{cases}
+\infty, & 0<x<1,\\[4pt]
+0, & x>1.
+\end{cases}
+\tag{1}
+\]
+
+Now let \(t\to\infty\). Define
+\[
+n(t)=\left\lfloor \frac1{S(t)}\right\rfloor.
+\]
+
+Then
+\[
+n(t)S(t)\to1.
+\]
+
+We claim that
+\[
+\frac{t}{b(n(t))}\to1.
+\]
+
+Suppose not.
+
+First, suppose along some subsequence,
+\[
+t\ge (1+\delta)b(n(t))
+\]
+for some \(\delta>0\). Since \(S\) is decreasing,
+\[
+S(t)\le S((1+\delta)b(n(t))).
+\]
+
+Therefore,
+\[
+n(t)S(t)
+\le
+n(t)S((1+\delta)b(n(t))).
+\]
+
+By (1), since \(1+\delta>1\),
+\[
+n(t)S((1+\delta)b(n(t)))\to0.
+\]
+
+Thus
+\[
+n(t)S(t)\to0,
+\]
+which contradicts
+\[
+n(t)S(t)\to1.
+\]
+
+Next, suppose along some subsequence,
+\[
+t\le (1-\delta)b(n(t))
+\]
+for some \(0<\delta<1\). Since \(S\) is decreasing,
+\[
+S(t)\ge S((1-\delta)b(n(t))).
+\]
+
+Therefore,
+\[
+n(t)S(t)
+\ge
+n(t)S((1-\delta)b(n(t))).
+\]
+
+By (1), since \(1-\delta<1\),
+\[
+n(t)S((1-\delta)b(n(t)))\to\infty.
+\]
+
+Thus
+\[
+n(t)S(t)\to\infty,
+\]
+which again contradicts
+\[
+n(t)S(t)\to1.
+\]
+
+Therefore,
+\[
+\frac{t}{b(n(t))}\to1.
+\]
+
+Now fix \(x>1\). Choose \(y\) such that
+\[
+1<y<x.
+\]
+
+Since
+\[
+\frac{t}{b(n(t))}\to1,
+\]
+we have, for large \(t\),
+\[
+xt\ge yb(n(t)).
+\]
+
+Since \(S\) is decreasing,
+\[
+S(xt)\le S(yb(n(t))).
+\]
+
+Therefore,
+\[
+\frac{S(xt)}{S(t)}
+=
+\frac{n(t)S(xt)}{n(t)S(t)}
+\le
+\frac{n(t)S(yb(n(t)))}{n(t)S(t)}.
+\]
+
+By (1), since \(y>1\),
+\[
+n(t)S(yb(n(t)))\to0.
+\]
+
+Also,
+\[
+n(t)S(t)\to1.
+\]
+
+Hence
+\[
+\frac{S(xt)}{S(t)}\to0.
+\]
+
+Now fix \(0<x<1\). Choose \(y\) such that
+\[
+x<y<1.
+\]
+
+Since
+\[
+\frac{t}{b(n(t))}\to1,
+\]
+we have, for large \(t\),
+\[
+xt\le yb(n(t)).
+\]
+
+Since \(S\) is decreasing,
+\[
+S(xt)\ge S(yb(n(t))).
+\]
+
+Therefore,
+\[
+\frac{S(xt)}{S(t)}
+=
+\frac{n(t)S(xt)}{n(t)S(t)}
+\ge
+\frac{n(t)S(yb(n(t)))}{n(t)S(t)}.
+\]
+
+By (1), since \(0<y<1\),
+\[
+n(t)S(yb(n(t)))\to\infty.
+\]
+
+Also,
+\[
+n(t)S(t)\to1.
+\]
+
+Thus
+\[
+\frac{S(xt)}{S(t)}\to\infty.
+\]
+
+Therefore,
+\[
+\frac{S(xt)}{S(t)}
+\to
+\begin{cases}
+\infty, & 0<x<1,\\[4pt]
+0, & x>1.
+\end{cases}
+\]
+
+So \(S=1-F\) is rapidly varying at \(\infty\).
+
+#### (e)
+
+Now suppose \(\{X_n\}\) is an arbitrary sequence of non-negative random variables.
+
+For each \(\omega\), if
+\[
+M_n(\omega)\le a,
+\]
+then
+\[
+M_n(\omega)1_{\{M_n>a\}}(\omega)=0.
+\]
+
+If
+\[
+M_n(\omega)>a,
+\]
+then there exists \(k\in\{1,\ldots,n\}\) such that
+\[
+X_k(\omega)=M_n(\omega).
+\]
+
+For this \(k\), we have
+\[
+X_k(\omega)\ge a,
+\]
+and therefore
+\[
+X_k(\omega)1_{\{X_k\ge a\}}(\omega)=M_n(\omega).
+\]
+
+All other terms are non-negative, so
+\[
+M_n(\omega)1_{\{M_n>a\}}(\omega)
+\le
+\sum_{k=1}^n X_k(\omega)1_{\{X_k\ge a\}}(\omega).
+\]
+
+Hence, pointwise,
+\[
+M_n1_{\{M_n>a\}}
+\le
+\sum_{k=1}^n X_k1_{\{X_k\ge a\}}.
+\]
+
+Taking expectations gives
+\[
+E(M_n1_{\{M_n>a\}})
+\le
+\sum_{k=1}^n E(X_k1_{\{X_k\ge a\}}).
+\]
+
+Now assume in addition that \(\{X_n\}\) is uniformly integrable.
+
+For fixed \(a>0\), split
+\[
+M_n
+=
+M_n1_{\{M_n>a\}}
++
+M_n1_{\{M_n\le a\}}.
+\]
+
+Since
+\[
+M_n1_{\{M_n\le a\}}\le a,
+\]
+we get
+\[
+E(M_n)
+\le
+E(M_n1_{\{M_n>a\}})+a.
+\]
+
+Using the inequality proved above,
+\[
+E(M_n)
+\le
+\sum_{k=1}^n E(X_k1_{\{X_k\ge a\}})+a.
+\]
+
+Divide by \(n\):
+\[
+\frac{E(M_n)}{n}
+\le
+\frac1n
+\sum_{k=1}^n E(X_k1_{\{X_k\ge a\}})
++
+\frac{a}{n}.
+\]
+
+Since \(\{X_n\}\) is uniformly integrable and non-negative, for every \(\varepsilon>0\), we can choose \(a\) large enough such that
+\[
+\sup_{k\ge1}E(X_k1_{\{X_k\ge a\}})
+<
+\frac{\varepsilon}{2}.
+\]
+
+Then
+\[
+\frac1n
+\sum_{k=1}^n E(X_k1_{\{X_k\ge a\}})
+\le
+\frac{\varepsilon}{2}.
+\]
+
+For this fixed \(a\), choose \(n\) large enough such that
+\[
+\frac{a}{n}<\frac{\varepsilon}{2}.
+\]
+
+Therefore,
+\[
+\frac{E(M_n)}{n}
+<
+\varepsilon.
+\]
+
+Hence
+\[
+\frac{E(M_n)}{n}\to0.
+\]
+
+
+### Ex 13
+::: problem
+Suppose $\{X_n,n\ge 1\}$ are identically distributed with finite variance. Show that
+\[
+nP[|X_1|\ge \varepsilon\sqrt n]\to 0
+\]
+and
+\[
+\frac{\bigvee_{i=1}^n |X_i|}{\sqrt n}\xrightarrow{P}0.
+\]
+:::
+
+$\textbf{Answer:}$
+
+Since $X_1$ has finite variance, we have
+\[
+E(X_1^2)<\infty.
+\]
+
+Fix $\varepsilon>0$. On the event
+\[
+\{|X_1|\ge \varepsilon\sqrt n\},
+\]
+we have
+\[
+X_1^2\ge \varepsilon^2 n.
+\]
+
+Therefore,
+\[
+\varepsilon^2 n1_{\{|X_1|\ge \varepsilon\sqrt n\}}
+\le
+X_1^2 1_{\{|X_1|\ge \varepsilon\sqrt n\}}.
+\]
+
+Taking expectations gives
+\[
+\varepsilon^2 nP[|X_1|\ge \varepsilon\sqrt n]
+\le
+E\left(X_1^2 1_{\{|X_1|\ge \varepsilon\sqrt n\}}\right).
+\]
+
+Since
+\[
+X_1^2\in L_1
+\]
+and
+\[
+1_{\{|X_1|\ge \varepsilon\sqrt n\}}\downarrow 0,
+\]
+we have
+\[
+E\left(X_1^2 1_{\{|X_1|\ge \varepsilon\sqrt n\}}\right)\to0.
+\]
+
+Thus
+\[
+\varepsilon^2 nP[|X_1|\ge \varepsilon\sqrt n]\to0.
+\]
+
+Since $\varepsilon>0$ is fixed,
+\[
+nP[|X_1|\ge \varepsilon\sqrt n]\to0.
+\]
+
+Now we prove
+\[
+\frac{\bigvee_{i=1}^n |X_i|}{\sqrt n}\xrightarrow{P}0.
+\]
+
+For fixed $\varepsilon>0$,
+\[
+P\left(
+\frac{\bigvee_{i=1}^n |X_i|}{\sqrt n}>\varepsilon
+\right)
+=
+P\left(
+\bigvee_{i=1}^n |X_i|>\varepsilon\sqrt n
+\right).
+\]
+
+This event can be written as
+\[
+\left[
+\bigvee_{i=1}^n |X_i|>\varepsilon\sqrt n
+\right]
+=
+\bigcup_{i=1}^n
+\{|X_i|>\varepsilon\sqrt n\}.
+\]
+
+Therefore, by subadditivity,
+\[
+P\left(
+\bigvee_{i=1}^n |X_i|>\varepsilon\sqrt n
+\right)
+\le
+\sum_{i=1}^n P(|X_i|>\varepsilon\sqrt n).
+\]
+
+Since $\{X_i\}$ are identically distributed,
+\[
+P(|X_i|>\varepsilon\sqrt n)
+=
+P(|X_1|>\varepsilon\sqrt n),
+\qquad i=1,\ldots,n.
+\]
+
+Hence
+\[
+P\left(
+\frac{\bigvee_{i=1}^n |X_i|}{\sqrt n}>\varepsilon
+\right)
+\le
+nP(|X_1|>\varepsilon\sqrt n).
+\]
+
+Since
+\[
+P(|X_1|>\varepsilon\sqrt n)
+\le
+P(|X_1|\ge \varepsilon\sqrt n),
+\]
+we get
+\[
+P\left(
+\frac{\bigvee_{i=1}^n |X_i|}{\sqrt n}>\varepsilon
+\right)
+\le
+nP(|X_1|\ge \varepsilon\sqrt n)\to0.
+\]
+
+Therefore,
+\[
+\frac{\bigvee_{i=1}^n |X_i|}{\sqrt n}\xrightarrow{P}0.
+\]

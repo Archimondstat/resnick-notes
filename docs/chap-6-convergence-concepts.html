@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chap 6, Convergence Concepts | Notes on A Probability Path (Resnick)</title>
   <meta name="description" content="Chap 6, Convergence Concepts | Notes on A Probability Path (Resnick)" />
-  <meta name="generator" content="bookdown 0.46 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.42 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chap 6, Convergence Concepts | Notes on A Probability Path (Resnick)" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="Zhanwen Peng" />
 
 
-<meta name="date" content="2026-05-12" />
+<meta name="date" content="2026-05-18" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -383,6 +383,15 @@
 <li class="chapter" data-level="" data-path="chap-6-convergence-concepts.html"><a href="chap-6-convergence-concepts.html#c-18"><i class="fa fa-check"></i>(c)</a></li>
 <li class="chapter" data-level="" data-path="chap-6-convergence-concepts.html"><a href="chap-6-convergence-concepts.html#d-11"><i class="fa fa-check"></i>(d)</a></li>
 </ul></li>
+<li class="chapter" data-level="" data-path="chap-6-convergence-concepts.html"><a href="chap-6-convergence-concepts.html#ex-11-2"><i class="fa fa-check"></i>Ex 11</a>
+<ul>
+<li class="chapter" data-level="" data-path="chap-6-convergence-concepts.html"><a href="chap-6-convergence-concepts.html#a-25"><i class="fa fa-check"></i>(a)</a></li>
+<li class="chapter" data-level="" data-path="chap-6-convergence-concepts.html"><a href="chap-6-convergence-concepts.html#b-25"><i class="fa fa-check"></i>(b)</a></li>
+<li class="chapter" data-level="" data-path="chap-6-convergence-concepts.html"><a href="chap-6-convergence-concepts.html#c-19"><i class="fa fa-check"></i>(c)</a></li>
+<li class="chapter" data-level="" data-path="chap-6-convergence-concepts.html"><a href="chap-6-convergence-concepts.html#d-12"><i class="fa fa-check"></i>(d)</a></li>
+<li class="chapter" data-level="" data-path="chap-6-convergence-concepts.html"><a href="chap-6-convergence-concepts.html#e-6"><i class="fa fa-check"></i>(e)</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="chap-6-convergence-concepts.html"><a href="chap-6-convergence-concepts.html#ex-13-2"><i class="fa fa-check"></i>Ex 13</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -3262,8 +3271,968 @@ a.e.</p>
 \le
 \|X\|_\infty+\|Y\|_\infty.
 \]</span></p>
-
 </div>
+</div>
+<div id="ex-11-2" class="section level3 hasAnchor">
+<h3>Ex 11<a href="chap-6-convergence-concepts.html#ex-11-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="problem">
+<p>Suppose <span class="math inline">\(\{X_n,n\ge 1\}\)</span> are iid and non-negative and define <span class="math inline">\(M_n=\vee_{i=1}^nX_i\)</span>.</p>
+<ol style="list-style-type: lower-alpha">
+<li><p>Check that
+<span class="math display">\[
+P[M_n&gt;x]\le nP[X_1&gt;x].
+\]</span></p></li>
+<li><p>If <span class="math inline">\(E(X_1^p)&lt;\infty\)</span>, then <span class="math inline">\(M_n/n^{1/p}\xrightarrow{P}0\)</span>.</p></li>
+<li><p>If in addition to being iid, the sequence <span class="math inline">\(\{X_n\}\)</span> is non-negative, show
+<span class="math display">\[
+M_n/n\xrightarrow{P}0
+\]</span>
+iff
+<span class="math display">\[
+nP[X_1&gt;n]\to0,\qquad as\ n\to\infty.
+\]</span></p></li>
+<li><p>Review the definition of rapid variation in Exercise 27 of Chapter 5. Prove there exists a sequence <span class="math inline">\(b(n)\to\infty\)</span> such that
+<span class="math display">\[
+M_n/b(n)\xrightarrow{P}1,\qquad n\to\infty,
+\]</span>
+iff <span class="math inline">\(1-F(x):=P[X_1&gt;x]\)</span> is rapidly varying at <span class="math inline">\(\infty\)</span>. In this case, we may take
+<span class="math display">\[
+b(n)=\left(\frac{1}{1-F}\right)^{\leftarrow}(n)
+\]</span>
+to be the <span class="math inline">\(1-\frac1n\)</span> quantile of <span class="math inline">\(F\)</span>.</p></li>
+<li><p>Now suppose <span class="math inline">\(\{X_n\}\)</span> is an arbitrary sequence of non-negative random variables. Show that
+<span class="math display">\[
+E(M_n1_{[M_n&gt;a]})
+\le
+\sum_{k=1}^n E(X_k1_{[X_k\ge a]}).
+\]</span>
+If, in addition, <span class="math inline">\(\{X_n\}\)</span> is ui, show
+<span class="math display">\[
+E(M_n)/n\to0.
+\]</span></p></li>
+</ol>
+</div>
+<p><span class="math inline">\(\textbf{Answer:}\)</span></p>
+<div id="a-25" class="section level4 hasAnchor">
+<h4>(a)<a href="chap-6-convergence-concepts.html#a-25" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Since
+<span class="math display">\[
+M_n=\bigvee_{i=1}^n X_i,
+\]</span>
+we have
+<span class="math display">\[
+[M_n&gt;x]
+=
+\left[\bigvee_{i=1}^n X_i&gt;x\right].
+\]</span></p>
+<p>This implies
+<span class="math display">\[
+[M_n&gt;x]
+=
+\bigcup_{i=1}^n [X_i&gt;x].
+\]</span></p>
+<p>Therefore, by subadditivity,
+<span class="math display">\[
+P[M_n&gt;x]
+=
+P\left(\bigcup_{i=1}^n [X_i&gt;x]\right)
+\le
+\sum_{i=1}^n P[X_i&gt;x].
+\]</span></p>
+<p>Since <span class="math inline">\(\{X_i\}\)</span> are iid,
+<span class="math display">\[
+P[X_i&gt;x]=P[X_1&gt;x],
+\qquad i=1,\ldots,n.
+\]</span></p>
+<p>Thus
+<span class="math display">\[
+P[M_n&gt;x]
+\le
+nP[X_1&gt;x].
+\]</span></p>
+</div>
+<div id="b-25" class="section level4 hasAnchor">
+<h4>(b)<a href="chap-6-convergence-concepts.html#b-25" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Assume
+<span class="math display">\[
+E(X_1^p)&lt;\infty.
+\]</span></p>
+<p>We want to show
+<span class="math display">\[
+\frac{M_n}{n^{1/p}}\xrightarrow{P}0.
+\]</span></p>
+<p>Fix <span class="math inline">\(\varepsilon&gt;0\)</span>. By part (a),
+<span class="math display">\[
+P\left(\frac{M_n}{n^{1/p}}&gt;\varepsilon\right)
+=
+P(M_n&gt;\varepsilon n^{1/p})
+\le
+nP(X_1&gt;\varepsilon n^{1/p}).
+\]</span></p>
+<p>It remains to show
+<span class="math display">\[
+nP(X_1&gt;\varepsilon n^{1/p})\to0.
+\]</span></p>
+<p>On the event
+<span class="math display">\[
+\{X_1&gt;\varepsilon n^{1/p}\},
+\]</span>
+we have
+<span class="math display">\[
+X_1^p&gt;\varepsilon^p n.
+\]</span></p>
+<p>Therefore,
+<span class="math display">\[
+\varepsilon^p n 1_{\{X_1&gt;\varepsilon n^{1/p}\}}
+\le
+X_1^p1_{\{X_1&gt;\varepsilon n^{1/p}\}}.
+\]</span></p>
+<p>Taking expectations gives
+<span class="math display">\[
+\varepsilon^p nP(X_1&gt;\varepsilon n^{1/p})
+\le
+E\left[
+X_1^p1_{\{X_1&gt;\varepsilon n^{1/p}\}}
+\right].
+\]</span></p>
+<p>Since
+<span class="math display">\[
+X_1^p\in L_1
+\]</span>
+and
+<span class="math display">\[
+1_{\{X_1&gt;\varepsilon n^{1/p}\}}\downarrow 0,
+\]</span>
+we have
+<span class="math display">\[
+E\left[
+X_1^p1_{\{X_1&gt;\varepsilon n^{1/p}\}}
+\right]\to0.
+\]</span></p>
+<p>Thus
+<span class="math display">\[
+\varepsilon^p nP(X_1&gt;\varepsilon n^{1/p})\to0.
+\]</span></p>
+<p>Since <span class="math inline">\(\varepsilon&gt;0\)</span> is fixed,
+<span class="math display">\[
+nP(X_1&gt;\varepsilon n^{1/p})\to0.
+\]</span></p>
+<p>Hence
+<span class="math display">\[
+P\left(\frac{M_n}{n^{1/p}}&gt;\varepsilon\right)\to0.
+\]</span></p>
+<p>Therefore,
+<span class="math display">\[
+\frac{M_n}{n^{1/p}}\xrightarrow{P}0.
+\]</span></p>
+</div>
+<div id="c-19" class="section level4 hasAnchor">
+<h4>(c)<a href="chap-6-convergence-concepts.html#c-19" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>We prove both directions.</p>
+<p>First suppose
+<span class="math display">\[
+\frac{M_n}{n}\xrightarrow{P}0.
+\]</span></p>
+<p>Taking <span class="math inline">\(\varepsilon=1\)</span>, we have
+<span class="math display">\[
+P\left(\frac{M_n}{n}&gt;1\right)
+=
+P(M_n&gt;n)
+\to0.
+\]</span></p>
+<p>Thus
+<span class="math display">\[
+P(M_n\le n)\to1.
+\]</span></p>
+<p>Since
+<span class="math display">\[
+M_n\le n
+\]</span>
+if and only if
+<span class="math display">\[
+X_1\le n,\ldots,X_n\le n,
+\]</span>
+independence gives
+<span class="math display">\[
+P(M_n\le n)
+=
+P(X_1\le n,\ldots,X_n\le n)
+=
+P(X_1\le n)^n.
+\]</span></p>
+<p>Let
+<span class="math display">\[
+a_n=P(X_1&gt;n).
+\]</span></p>
+<p>Then
+<span class="math display">\[
+P(X_1\le n)=1-a_n,
+\]</span>
+so
+<span class="math display">\[
+(1-a_n)^n\to1.
+\]</span></p>
+<p>Also,
+<span class="math display">\[
+a_n=P(X_1&gt;n)\le P(M_n&gt;n)\to0.
+\]</span></p>
+<p>Taking logs,
+<span class="math display">\[
+n\log(1-a_n)\to0.
+\]</span></p>
+<p>Since <span class="math inline">\(a_n\to0\)</span>,
+<span class="math display">\[
+\log(1-a_n)\sim -a_n.
+\]</span></p>
+<p>Therefore,
+<span class="math display">\[
+na_n\to0.
+\]</span></p>
+<p>That is,
+<span class="math display">\[
+nP(X_1&gt;n)\to0.
+\]</span></p>
+<p>Conversely, suppose
+<span class="math display">\[
+nP(X_1&gt;n)\to0.
+\]</span></p>
+<p>Fix <span class="math inline">\(\varepsilon&gt;0\)</span>. By part (a),
+<span class="math display">\[
+P\left(\frac{M_n}{n}&gt;\varepsilon\right)
+=
+P(M_n&gt;n\varepsilon)
+\le
+nP(X_1&gt;n\varepsilon).
+\]</span></p>
+<p>Let
+<span class="math display">\[
+k_n=\lfloor n\varepsilon\rfloor.
+\]</span></p>
+<p>Then
+<span class="math display">\[
+k_n\to\infty.
+\]</span></p>
+<p>For large <span class="math inline">\(n\)</span>,
+<span class="math display">\[
+k_n\le n\varepsilon,
+\]</span>
+so
+<span class="math display">\[
+P(X_1&gt;n\varepsilon)\le P(X_1&gt;k_n).
+\]</span></p>
+<p>Hence
+<span class="math display">\[
+nP(X_1&gt;n\varepsilon)
+\le
+nP(X_1&gt;k_n)
+=
+\frac{n}{k_n}k_nP(X_1&gt;k_n).
+\]</span></p>
+<p>Since
+<span class="math display">\[
+\frac{n}{k_n}\to\frac1\varepsilon
+\]</span>
+and
+<span class="math display">\[
+k_nP(X_1&gt;k_n)\to0,
+\]</span>
+we get
+<span class="math display">\[
+nP(X_1&gt;n\varepsilon)\to0.
+\]</span></p>
+<p>Therefore,
+<span class="math display">\[
+P\left(\frac{M_n}{n}&gt;\varepsilon\right)\to0.
+\]</span></p>
+<p>Hence
+<span class="math display">\[
+\frac{M_n}{n}\xrightarrow{P}0.
+\]</span></p>
+</div>
+<div id="d-12" class="section level4 hasAnchor">
+<h4>(d)<a href="chap-6-convergence-concepts.html#d-12" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Let
+<span class="math display">\[
+S(x)=1-F(x)=P(X_1&gt;x).
+\]</span></p>
+<p>Rapid variation of <span class="math inline">\(S\)</span> at <span class="math inline">\(\infty\)</span> means that for every fixed <span class="math inline">\(x&gt;0\)</span>,
+<span class="math display">\[
+\frac{S(tx)}{S(t)}
+\to
+\begin{cases}
+\infty, &amp; 0&lt;x&lt;1,\\[4pt]
+0, &amp; x&gt;1,
+\end{cases}
+\qquad t\to\infty.
+\]</span></p>
+<p>We prove
+<span class="math display">\[
+\exists b(n)\to\infty
+\quad\text{such that}\quad
+\frac{M_n}{b(n)}\xrightarrow{P}1
+\]</span>
+if and only if <span class="math inline">\(S\)</span> is rapidly varying at <span class="math inline">\(\infty\)</span>.</p>
+<p>First assume <span class="math inline">\(S\)</span> is rapidly varying at <span class="math inline">\(\infty\)</span>.</p>
+<p>Define
+<span class="math display">\[
+b(n)=\left(\frac1S\right)^{\leftarrow}(n),
+\]</span>
+that is,
+<span class="math display">\[
+b(n)=\inf\{x:S(x)\le 1/n\}.
+\]</span></p>
+<p>This is the <span class="math inline">\(1-\frac1n\)</span> quantile of <span class="math inline">\(F\)</span>. Since <span class="math inline">\(S(x)\to0\)</span>, we have
+<span class="math display">\[
+b(n)\to\infty.
+\]</span></p>
+<p>From the definition of <span class="math inline">\(b(n)\)</span>,
+<span class="math display">\[
+S(b(n))\le \frac1n.
+\]</span></p>
+<p>Also, if <span class="math inline">\(y&lt;b(n)\)</span>, then
+<span class="math display">\[
+S(y)&gt;\frac1n.
+\]</span></p>
+<p>We show
+<span class="math display">\[
+\frac{M_n}{b(n)}\xrightarrow{P}1.
+\]</span></p>
+<p>Fix <span class="math inline">\(0&lt;\varepsilon&lt;1\)</span>. It is enough to show
+<span class="math display">\[
+P(M_n&gt;(1+\varepsilon)b(n))\to0
+\]</span>
+and
+<span class="math display">\[
+P(M_n\le (1-\varepsilon)b(n))\to0.
+\]</span></p>
+<p>For the upper side, by part (a),
+<span class="math display">\[
+P(M_n&gt;(1+\varepsilon)b(n))
+\le
+nP(X_1&gt;(1+\varepsilon)b(n)).
+\]</span></p>
+<p>Thus
+<span class="math display">\[
+P(M_n&gt;(1+\varepsilon)b(n))
+\le
+nS((1+\varepsilon)b(n)).
+\]</span></p>
+<p>Now
+<span class="math display">\[
+nS((1+\varepsilon)b(n))
+=
+nS(b(n))
+\frac{S((1+\varepsilon)b(n))}{S(b(n))}.
+\]</span></p>
+<p>Since
+<span class="math display">\[
+nS(b(n))\le1
+\]</span>
+and, by rapid variation,
+<span class="math display">\[
+\frac{S((1+\varepsilon)b(n))}{S(b(n))}\to0,
+\]</span>
+we get
+<span class="math display">\[
+nS((1+\varepsilon)b(n))\to0.
+\]</span></p>
+<p>Therefore,
+<span class="math display">\[
+P(M_n&gt;(1+\varepsilon)b(n))\to0.
+\]</span></p>
+<p>For the lower side,
+<span class="math display">\[
+P(M_n\le (1-\varepsilon)b(n))
+=
+P(X_1\le (1-\varepsilon)b(n),\ldots,X_n\le (1-\varepsilon)b(n)).
+\]</span></p>
+<p>By independence,
+<span class="math display">\[
+P(M_n\le (1-\varepsilon)b(n))
+=
+\{1-S((1-\varepsilon)b(n))\}^n.
+\]</span></p>
+<p>It is enough to show
+<span class="math display">\[
+nS((1-\varepsilon)b(n))\to\infty.
+\]</span></p>
+<p>Let
+<span class="math display">\[
+c_1=1-\varepsilon,
+\qquad
+c_2=1-\frac{\varepsilon}{2}.
+\]</span></p>
+<p>Then
+<span class="math display">\[
+0&lt;c_1&lt;c_2&lt;1.
+\]</span></p>
+<p>For large <span class="math inline">\(n\)</span>,
+<span class="math display">\[
+c_2b(n)&lt;b(n).
+\]</span></p>
+<p>Therefore, by the definition of <span class="math inline">\(b(n)\)</span>,
+<span class="math display">\[
+S(c_2b(n))&gt;\frac1n.
+\]</span></p>
+<p>Hence
+<span class="math display">\[
+nS(c_2b(n))&gt;1.
+\]</span></p>
+<p>Now
+<span class="math display">\[
+nS(c_1b(n))
+=
+nS(c_2b(n))
+\frac{S(c_1b(n))}{S(c_2b(n))}.
+\]</span></p>
+<p>Since
+<span class="math display">\[
+\frac{c_1}{c_2}&lt;1,
+\]</span>
+rapid variation gives
+<span class="math display">\[
+\frac{S(c_1b(n))}{S(c_2b(n))}
+=
+\frac{
+S\left(\frac{c_1}{c_2}c_2b(n)\right)
+}{
+S(c_2b(n))
+}
+\to\infty.
+\]</span></p>
+<p>Therefore,
+<span class="math display">\[
+nS(c_1b(n))\to\infty.
+\]</span></p>
+<p>That is,
+<span class="math display">\[
+nS((1-\varepsilon)b(n))\to\infty.
+\]</span></p>
+<p>Hence
+<span class="math display">\[
+P(M_n\le (1-\varepsilon)b(n))
+=
+\{1-S((1-\varepsilon)b(n))\}^n
+\le
+\exp\{-nS((1-\varepsilon)b(n))\}
+\to0.
+\]</span></p>
+<p>Thus
+<span class="math display">\[
+P\left(
+1-\varepsilon
+&lt;
+\frac{M_n}{b(n)}
+\le
+1+\varepsilon
+\right)\to1.
+\]</span></p>
+<p>Therefore,
+<span class="math display">\[
+\frac{M_n}{b(n)}\xrightarrow{P}1.
+\]</span></p>
+<p>Conversely, suppose there exists <span class="math inline">\(b(n)\to\infty\)</span> such that
+<span class="math display">\[
+\frac{M_n}{b(n)}\xrightarrow{P}1.
+\]</span></p>
+<p>We first prove two consequences.</p>
+<p>Fix <span class="math inline">\(x&gt;1\)</span>. Then
+<span class="math display">\[
+P\left(\frac{M_n}{b(n)}&gt;x\right)\to0.
+\]</span></p>
+<p>That is,
+<span class="math display">\[
+P(M_n&gt;xb(n))\to0.
+\]</span></p>
+<p>But
+<span class="math display">\[
+P(M_n\le xb(n))
+=
+\{1-S(xb(n))\}^n.
+\]</span></p>
+<p>Hence
+<span class="math display">\[
+P(M_n&gt;xb(n))
+=
+1-\{1-S(xb(n))\}^n.
+\]</span></p>
+<p>So
+<span class="math display">\[
+1-\{1-S(xb(n))\}^n\to0.
+\]</span></p>
+<p>This implies
+<span class="math display">\[
+nS(xb(n))\to0.
+\]</span></p>
+<p>Indeed, since
+<span class="math display">\[
+(1-u)^n\le e^{-nu},
+\]</span>
+we get
+<span class="math display">\[
+1-\{1-S(xb(n))\}^n
+\ge
+1-e^{-nS(xb(n))}.
+\]</span></p>
+<p>Therefore, if the left-hand side tends to <span class="math inline">\(0\)</span>, then
+<span class="math display">\[
+1-e^{-nS(xb(n))}\to0,
+\]</span>
+and hence
+<span class="math display">\[
+nS(xb(n))\to0.
+\]</span></p>
+<p>So for every <span class="math inline">\(x&gt;1\)</span>,
+<span class="math display">\[
+nS(xb(n))\to0.
+\]</span></p>
+<p>Now fix <span class="math inline">\(0&lt;x&lt;1\)</span>. Then
+<span class="math display">\[
+P\left(\frac{M_n}{b(n)}\le x\right)\to0.
+\]</span></p>
+<p>That is,
+<span class="math display">\[
+P(M_n\le xb(n))\to0.
+\]</span></p>
+<p>By independence,
+<span class="math display">\[
+P(M_n\le xb(n))
+=
+\{1-S(xb(n))\}^n.
+\]</span></p>
+<p>Therefore,
+<span class="math display">\[
+\{1-S(xb(n))\}^n\to0.
+\]</span></p>
+<p>This implies
+<span class="math display">\[
+nS(xb(n))\to\infty.
+\]</span></p>
+<p>To see this, suppose not. Then along some subsequence,
+<span class="math display">\[
+nS(xb(n))\le C
+\]</span>
+for some finite constant <span class="math inline">\(C\)</span>.</p>
+<p>If <span class="math inline">\(S(xb(n))\not\to0\)</span>, then
+<span class="math display">\[
+nS(xb(n))\to\infty,
+\]</span>
+which contradicts the boundedness along the subsequence.</p>
+<p>So along this subsequence,
+<span class="math display">\[
+S(xb(n))\to0.
+\]</span></p>
+<p>For small <span class="math inline">\(u\)</span>,
+<span class="math display">\[
+\log(1-u)\ge -2u.
+\]</span></p>
+<p>Thus
+<span class="math display">\[
+\{1-S(xb(n))\}^n
+=
+\exp\{n\log(1-S(xb(n)))\}
+\ge
+\exp\{-2nS(xb(n))\}
+\ge
+e^{-2C},
+\]</span>
+which cannot converge to <span class="math inline">\(0\)</span>. This is a contradiction.</p>
+<p>Hence, for every <span class="math inline">\(0&lt;x&lt;1\)</span>,
+<span class="math display">\[
+nS(xb(n))\to\infty.
+\]</span></p>
+<p>So we have proved
+<span class="math display">\[
+nS(xb(n))
+\to
+\begin{cases}
+\infty, &amp; 0&lt;x&lt;1,\\[4pt]
+0, &amp; x&gt;1.
+\end{cases}
+\tag{1}
+\]</span></p>
+<p>Now let <span class="math inline">\(t\to\infty\)</span>. Define
+<span class="math display">\[
+n(t)=\left\lfloor \frac1{S(t)}\right\rfloor.
+\]</span></p>
+<p>Then
+<span class="math display">\[
+n(t)S(t)\to1.
+\]</span></p>
+<p>We claim that
+<span class="math display">\[
+\frac{t}{b(n(t))}\to1.
+\]</span></p>
+<p>Suppose not.</p>
+<p>First, suppose along some subsequence,
+<span class="math display">\[
+t\ge (1+\delta)b(n(t))
+\]</span>
+for some <span class="math inline">\(\delta&gt;0\)</span>. Since <span class="math inline">\(S\)</span> is decreasing,
+<span class="math display">\[
+S(t)\le S((1+\delta)b(n(t))).
+\]</span></p>
+<p>Therefore,
+<span class="math display">\[
+n(t)S(t)
+\le
+n(t)S((1+\delta)b(n(t))).
+\]</span></p>
+<p>By (1), since <span class="math inline">\(1+\delta&gt;1\)</span>,
+<span class="math display">\[
+n(t)S((1+\delta)b(n(t)))\to0.
+\]</span></p>
+<p>Thus
+<span class="math display">\[
+n(t)S(t)\to0,
+\]</span>
+which contradicts
+<span class="math display">\[
+n(t)S(t)\to1.
+\]</span></p>
+<p>Next, suppose along some subsequence,
+<span class="math display">\[
+t\le (1-\delta)b(n(t))
+\]</span>
+for some <span class="math inline">\(0&lt;\delta&lt;1\)</span>. Since <span class="math inline">\(S\)</span> is decreasing,
+<span class="math display">\[
+S(t)\ge S((1-\delta)b(n(t))).
+\]</span></p>
+<p>Therefore,
+<span class="math display">\[
+n(t)S(t)
+\ge
+n(t)S((1-\delta)b(n(t))).
+\]</span></p>
+<p>By (1), since <span class="math inline">\(1-\delta&lt;1\)</span>,
+<span class="math display">\[
+n(t)S((1-\delta)b(n(t)))\to\infty.
+\]</span></p>
+<p>Thus
+<span class="math display">\[
+n(t)S(t)\to\infty,
+\]</span>
+which again contradicts
+<span class="math display">\[
+n(t)S(t)\to1.
+\]</span></p>
+<p>Therefore,
+<span class="math display">\[
+\frac{t}{b(n(t))}\to1.
+\]</span></p>
+<p>Now fix <span class="math inline">\(x&gt;1\)</span>. Choose <span class="math inline">\(y\)</span> such that
+<span class="math display">\[
+1&lt;y&lt;x.
+\]</span></p>
+<p>Since
+<span class="math display">\[
+\frac{t}{b(n(t))}\to1,
+\]</span>
+we have, for large <span class="math inline">\(t\)</span>,
+<span class="math display">\[
+xt\ge yb(n(t)).
+\]</span></p>
+<p>Since <span class="math inline">\(S\)</span> is decreasing,
+<span class="math display">\[
+S(xt)\le S(yb(n(t))).
+\]</span></p>
+<p>Therefore,
+<span class="math display">\[
+\frac{S(xt)}{S(t)}
+=
+\frac{n(t)S(xt)}{n(t)S(t)}
+\le
+\frac{n(t)S(yb(n(t)))}{n(t)S(t)}.
+\]</span></p>
+<p>By (1), since <span class="math inline">\(y&gt;1\)</span>,
+<span class="math display">\[
+n(t)S(yb(n(t)))\to0.
+\]</span></p>
+<p>Also,
+<span class="math display">\[
+n(t)S(t)\to1.
+\]</span></p>
+<p>Hence
+<span class="math display">\[
+\frac{S(xt)}{S(t)}\to0.
+\]</span></p>
+<p>Now fix <span class="math inline">\(0&lt;x&lt;1\)</span>. Choose <span class="math inline">\(y\)</span> such that
+<span class="math display">\[
+x&lt;y&lt;1.
+\]</span></p>
+<p>Since
+<span class="math display">\[
+\frac{t}{b(n(t))}\to1,
+\]</span>
+we have, for large <span class="math inline">\(t\)</span>,
+<span class="math display">\[
+xt\le yb(n(t)).
+\]</span></p>
+<p>Since <span class="math inline">\(S\)</span> is decreasing,
+<span class="math display">\[
+S(xt)\ge S(yb(n(t))).
+\]</span></p>
+<p>Therefore,
+<span class="math display">\[
+\frac{S(xt)}{S(t)}
+=
+\frac{n(t)S(xt)}{n(t)S(t)}
+\ge
+\frac{n(t)S(yb(n(t)))}{n(t)S(t)}.
+\]</span></p>
+<p>By (1), since <span class="math inline">\(0&lt;y&lt;1\)</span>,
+<span class="math display">\[
+n(t)S(yb(n(t)))\to\infty.
+\]</span></p>
+<p>Also,
+<span class="math display">\[
+n(t)S(t)\to1.
+\]</span></p>
+<p>Thus
+<span class="math display">\[
+\frac{S(xt)}{S(t)}\to\infty.
+\]</span></p>
+<p>Therefore,
+<span class="math display">\[
+\frac{S(xt)}{S(t)}
+\to
+\begin{cases}
+\infty, &amp; 0&lt;x&lt;1,\\[4pt]
+0, &amp; x&gt;1.
+\end{cases}
+\]</span></p>
+<p>So <span class="math inline">\(S=1-F\)</span> is rapidly varying at <span class="math inline">\(\infty\)</span>.</p>
+</div>
+<div id="e-6" class="section level4 hasAnchor">
+<h4>(e)<a href="chap-6-convergence-concepts.html#e-6" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Now suppose <span class="math inline">\(\{X_n\}\)</span> is an arbitrary sequence of non-negative random variables.</p>
+<p>For each <span class="math inline">\(\omega\)</span>, if
+<span class="math display">\[
+M_n(\omega)\le a,
+\]</span>
+then
+<span class="math display">\[
+M_n(\omega)1_{\{M_n&gt;a\}}(\omega)=0.
+\]</span></p>
+<p>If
+<span class="math display">\[
+M_n(\omega)&gt;a,
+\]</span>
+then there exists <span class="math inline">\(k\in\{1,\ldots,n\}\)</span> such that
+<span class="math display">\[
+X_k(\omega)=M_n(\omega).
+\]</span></p>
+<p>For this <span class="math inline">\(k\)</span>, we have
+<span class="math display">\[
+X_k(\omega)\ge a,
+\]</span>
+and therefore
+<span class="math display">\[
+X_k(\omega)1_{\{X_k\ge a\}}(\omega)=M_n(\omega).
+\]</span></p>
+<p>All other terms are non-negative, so
+<span class="math display">\[
+M_n(\omega)1_{\{M_n&gt;a\}}(\omega)
+\le
+\sum_{k=1}^n X_k(\omega)1_{\{X_k\ge a\}}(\omega).
+\]</span></p>
+<p>Hence, pointwise,
+<span class="math display">\[
+M_n1_{\{M_n&gt;a\}}
+\le
+\sum_{k=1}^n X_k1_{\{X_k\ge a\}}.
+\]</span></p>
+<p>Taking expectations gives
+<span class="math display">\[
+E(M_n1_{\{M_n&gt;a\}})
+\le
+\sum_{k=1}^n E(X_k1_{\{X_k\ge a\}}).
+\]</span></p>
+<p>Now assume in addition that <span class="math inline">\(\{X_n\}\)</span> is uniformly integrable.</p>
+<p>For fixed <span class="math inline">\(a&gt;0\)</span>, split
+<span class="math display">\[
+M_n
+=
+M_n1_{\{M_n&gt;a\}}
++
+M_n1_{\{M_n\le a\}}.
+\]</span></p>
+<p>Since
+<span class="math display">\[
+M_n1_{\{M_n\le a\}}\le a,
+\]</span>
+we get
+<span class="math display">\[
+E(M_n)
+\le
+E(M_n1_{\{M_n&gt;a\}})+a.
+\]</span></p>
+<p>Using the inequality proved above,
+<span class="math display">\[
+E(M_n)
+\le
+\sum_{k=1}^n E(X_k1_{\{X_k\ge a\}})+a.
+\]</span></p>
+<p>Divide by <span class="math inline">\(n\)</span>:
+<span class="math display">\[
+\frac{E(M_n)}{n}
+\le
+\frac1n
+\sum_{k=1}^n E(X_k1_{\{X_k\ge a\}})
++
+\frac{a}{n}.
+\]</span></p>
+<p>Since <span class="math inline">\(\{X_n\}\)</span> is uniformly integrable and non-negative, for every <span class="math inline">\(\varepsilon&gt;0\)</span>, we can choose <span class="math inline">\(a\)</span> large enough such that
+<span class="math display">\[
+\sup_{k\ge1}E(X_k1_{\{X_k\ge a\}})
+&lt;
+\frac{\varepsilon}{2}.
+\]</span></p>
+<p>Then
+<span class="math display">\[
+\frac1n
+\sum_{k=1}^n E(X_k1_{\{X_k\ge a\}})
+\le
+\frac{\varepsilon}{2}.
+\]</span></p>
+<p>For this fixed <span class="math inline">\(a\)</span>, choose <span class="math inline">\(n\)</span> large enough such that
+<span class="math display">\[
+\frac{a}{n}&lt;\frac{\varepsilon}{2}.
+\]</span></p>
+<p>Therefore,
+<span class="math display">\[
+\frac{E(M_n)}{n}
+&lt;
+\varepsilon.
+\]</span></p>
+<p>Hence
+<span class="math display">\[
+\frac{E(M_n)}{n}\to0.
+\]</span></p>
+</div>
+</div>
+<div id="ex-13-2" class="section level3 hasAnchor">
+<h3>Ex 13<a href="chap-6-convergence-concepts.html#ex-13-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="problem">
+<p>Suppose <span class="math inline">\(\{X_n,n\ge 1\}\)</span> are identically distributed with finite variance. Show that
+<span class="math display">\[
+nP[|X_1|\ge \varepsilon\sqrt n]\to 0
+\]</span>
+and
+<span class="math display">\[
+\frac{\bigvee_{i=1}^n |X_i|}{\sqrt n}\xrightarrow{P}0.
+\]</span></p>
+</div>
+<p><span class="math inline">\(\textbf{Answer:}\)</span></p>
+<p>Since <span class="math inline">\(X_1\)</span> has finite variance, we have
+<span class="math display">\[
+E(X_1^2)&lt;\infty.
+\]</span></p>
+<p>Fix <span class="math inline">\(\varepsilon&gt;0\)</span>. On the event
+<span class="math display">\[
+\{|X_1|\ge \varepsilon\sqrt n\},
+\]</span>
+we have
+<span class="math display">\[
+X_1^2\ge \varepsilon^2 n.
+\]</span></p>
+<p>Therefore,
+<span class="math display">\[
+\varepsilon^2 n1_{\{|X_1|\ge \varepsilon\sqrt n\}}
+\le
+X_1^2 1_{\{|X_1|\ge \varepsilon\sqrt n\}}.
+\]</span></p>
+<p>Taking expectations gives
+<span class="math display">\[
+\varepsilon^2 nP[|X_1|\ge \varepsilon\sqrt n]
+\le
+E\left(X_1^2 1_{\{|X_1|\ge \varepsilon\sqrt n\}}\right).
+\]</span></p>
+<p>Since
+<span class="math display">\[
+X_1^2\in L_1
+\]</span>
+and
+<span class="math display">\[
+1_{\{|X_1|\ge \varepsilon\sqrt n\}}\downarrow 0,
+\]</span>
+we have
+<span class="math display">\[
+E\left(X_1^2 1_{\{|X_1|\ge \varepsilon\sqrt n\}}\right)\to0.
+\]</span></p>
+<p>Thus
+<span class="math display">\[
+\varepsilon^2 nP[|X_1|\ge \varepsilon\sqrt n]\to0.
+\]</span></p>
+<p>Since <span class="math inline">\(\varepsilon&gt;0\)</span> is fixed,
+<span class="math display">\[
+nP[|X_1|\ge \varepsilon\sqrt n]\to0.
+\]</span></p>
+<p>Now we prove
+<span class="math display">\[
+\frac{\bigvee_{i=1}^n |X_i|}{\sqrt n}\xrightarrow{P}0.
+\]</span></p>
+<p>For fixed <span class="math inline">\(\varepsilon&gt;0\)</span>,
+<span class="math display">\[
+P\left(
+\frac{\bigvee_{i=1}^n |X_i|}{\sqrt n}&gt;\varepsilon
+\right)
+=
+P\left(
+\bigvee_{i=1}^n |X_i|&gt;\varepsilon\sqrt n
+\right).
+\]</span></p>
+<p>This event can be written as
+<span class="math display">\[
+\left[
+\bigvee_{i=1}^n |X_i|&gt;\varepsilon\sqrt n
+\right]
+=
+\bigcup_{i=1}^n
+\{|X_i|&gt;\varepsilon\sqrt n\}.
+\]</span></p>
+<p>Therefore, by subadditivity,
+<span class="math display">\[
+P\left(
+\bigvee_{i=1}^n |X_i|&gt;\varepsilon\sqrt n
+\right)
+\le
+\sum_{i=1}^n P(|X_i|&gt;\varepsilon\sqrt n).
+\]</span></p>
+<p>Since <span class="math inline">\(\{X_i\}\)</span> are identically distributed,
+<span class="math display">\[
+P(|X_i|&gt;\varepsilon\sqrt n)
+=
+P(|X_1|&gt;\varepsilon\sqrt n),
+\qquad i=1,\ldots,n.
+\]</span></p>
+<p>Hence
+<span class="math display">\[
+P\left(
+\frac{\bigvee_{i=1}^n |X_i|}{\sqrt n}&gt;\varepsilon
+\right)
+\le
+nP(|X_1|&gt;\varepsilon\sqrt n).
+\]</span></p>
+<p>Since
+<span class="math display">\[
+P(|X_1|&gt;\varepsilon\sqrt n)
+\le
+P(|X_1|\ge \varepsilon\sqrt n),
+\]</span>
+we get
+<span class="math display">\[
+P\left(
+\frac{\bigvee_{i=1}^n |X_i|}{\sqrt n}&gt;\varepsilon
+\right)
+\le
+nP(|X_1|\ge \varepsilon\sqrt n)\to0.
+\]</span></p>
+<p>Therefore,
+<span class="math display">\[
+\frac{\bigvee_{i=1}^n |X_i|}{\sqrt n}\xrightarrow{P}0.
+\]</span></p>
+
 </div>
 </div>
 </div>
