@@ -4435,3 +4435,1177 @@ Therefore,
 \[
 \frac{\bigvee_{i=1}^n |X_i|}{\sqrt n}\xrightarrow{P}0.
 \]
+
+### Ex 14
+::: problem
+Suppose \(\{X_k\}\) are independent with
+\[
+P[X_k=k^2]=\frac{1}{k^2},
+\qquad
+P[X_k=-1]=1-\frac{1}{k^2}.
+\]
+Show
+\[
+\sum_{i=1}^n X_i\to -\infty
+\]
+almost surely as \(n\to\infty\).
+:::
+
+$\textbf{Answer:}$
+
+For \(k\ge2\), define
+\[
+B_k=\bigcap_{m=k}^{\infty}\{X_m=-1\}.
+\]
+
+Since the random variables are independent,
+\[
+P(B_k)
+=
+P\left(\bigcap_{m=k}^{\infty}\{X_m=-1\}\right)
+=
+\prod_{m=k}^{\infty}P(X_m=-1).
+\]
+
+By the assumption,
+\[
+P(X_m=-1)=1-\frac1{m^2}.
+\]
+
+Therefore,
+\[
+P(B_k)
+=
+\prod_{m=k}^{\infty}
+\left(1-\frac1{m^2}\right).
+\]
+
+For \(N\ge k\),
+\[
+\prod_{m=k}^{N}
+\left(1-\frac1{m^2}\right)
+=
+\prod_{m=k}^{N}
+\frac{(m-1)(m+1)}{m^2}.
+\]
+
+This product telescopes:
+\[
+\prod_{m=k}^{N}
+\frac{(m-1)(m+1)}{m^2}
+=
+\frac{k-1}{k}\cdot \frac{N+1}{N}.
+\]
+
+Letting \(N\to\infty\), we get
+\[
+P(B_k)
+=
+\frac{k-1}{k}.
+\]
+
+Now define
+\[
+B=\bigcup_{k=2}^{\infty}B_k.
+\]
+
+Since
+\[
+B_k\uparrow B,
+\]
+we have
+\[
+P(B)
+=
+\lim_{k\to\infty}P(B_k)
+=
+\lim_{k\to\infty}\frac{k-1}{k}
+=
+1.
+\]
+
+Thus, with probability one, there exists some \(k(\omega)\ge2\) such that for all
+\[
+m\ge k(\omega),
+\]
+we have
+\[
+X_m(\omega)=-1.
+\]
+
+For \(\omega\in B\), if \(n\ge k(\omega)\), then
+\[
+\sum_{i=1}^n X_i(\omega)
+=
+\sum_{i=1}^{k(\omega)-1}X_i(\omega)
++
+\sum_{i=k(\omega)}^n X_i(\omega).
+\]
+
+Since
+\[
+X_i(\omega)=-1,
+\qquad i\ge k(\omega),
+\]
+we have
+\[
+\sum_{i=k(\omega)}^n X_i(\omega)
+=
+-(n-k(\omega)+1).
+\]
+
+Hence
+\[
+\sum_{i=1}^n X_i(\omega)
+=
+\sum_{i=1}^{k(\omega)-1}X_i(\omega)
+-
+(n-k(\omega)+1).
+\]
+
+The first term is a finite constant depending on \(\omega\), while
+\[
+-(n-k(\omega)+1)\to-\infty.
+\]
+
+Therefore,
+\[
+\sum_{i=1}^n X_i(\omega)\to-\infty
+\]
+for every \(\omega\in B\).
+
+Since
+\[
+P(B)=1,
+\]
+we conclude
+\[
+\sum_{i=1}^n X_i\to-\infty
+\]
+almost surely as \(n\to\infty\).
+
+$\textbf{Note:}$ In my initial idea, I used the set 
+$$
+A=\bigcap_{n=2}^\infty{X_n=-1}
+$$
+
+However, we will end up with $P(A)=\frac12$.
+
+### Ex 14
+::: problem
+Suppose \(\{X_k\}\) are independent with
+\[
+P[X_k=k^2]=\frac{1}{k^2},
+\qquad
+P[X_k=-1]=1-\frac{1}{k^2}.
+\]
+Show
+\[
+\sum_{i=1}^n X_i\to -\infty
+\]
+almost surely as \(n\to\infty\).
+:::
+
+$\textbf{Answer:}$
+
+For \(k\ge2\), define
+\[
+B_k=\bigcap_{m=k}^{\infty}\{X_m=-1\}.
+\]
+
+Since the random variables are independent,
+\[
+P(B_k)
+=
+P\left(\bigcap_{m=k}^{\infty}\{X_m=-1\}\right)
+=
+\prod_{m=k}^{\infty}P(X_m=-1).
+\]
+
+By the assumption,
+\[
+P(X_m=-1)=1-\frac1{m^2}.
+\]
+
+Therefore,
+\[
+P(B_k)
+=
+\prod_{m=k}^{\infty}
+\left(1-\frac1{m^2}\right).
+\]
+
+For \(N\ge k\),
+\[
+\prod_{m=k}^{N}
+\left(1-\frac1{m^2}\right)
+=
+\prod_{m=k}^{N}
+\frac{(m-1)(m+1)}{m^2}.
+\]
+
+This product telescopes:
+\[
+\prod_{m=k}^{N}
+\frac{(m-1)(m+1)}{m^2}
+=
+\frac{k-1}{k}\cdot \frac{N+1}{N}.
+\]
+
+Letting \(N\to\infty\), we get
+\[
+P(B_k)
+=
+\frac{k-1}{k}.
+\]
+
+Now define
+\[
+B=\bigcup_{k=2}^{\infty}B_k.
+\]
+
+Since
+\[
+B_k\uparrow B,
+\]
+we have
+\[
+P(B)
+=
+\lim_{k\to\infty}P(B_k)
+=
+\lim_{k\to\infty}\frac{k-1}{k}
+=
+1.
+\]
+
+Thus, with probability one, there exists some \(k(\omega)\ge2\) such that for all
+\[
+m\ge k(\omega),
+\]
+we have
+\[
+X_m(\omega)=-1.
+\]
+
+For \(\omega\in B\), if \(n\ge k(\omega)\), then
+\[
+\sum_{i=1}^n X_i(\omega)
+=
+\sum_{i=1}^{k(\omega)-1}X_i(\omega)
++
+\sum_{i=k(\omega)}^n X_i(\omega).
+\]
+
+Since
+\[
+X_i(\omega)=-1,
+\qquad i\ge k(\omega),
+\]
+we have
+\[
+\sum_{i=k(\omega)}^n X_i(\omega)
+=
+-(n-k(\omega)+1).
+\]
+
+Hence
+\[
+\sum_{i=1}^n X_i(\omega)
+=
+\sum_{i=1}^{k(\omega)-1}X_i(\omega)
+-
+(n-k(\omega)+1).
+\]
+
+The first term is a finite constant depending on \(\omega\), while
+\[
+-(n-k(\omega)+1)\to-\infty.
+\]
+
+Therefore,
+\[
+\sum_{i=1}^n X_i(\omega)\to-\infty
+\]
+for every \(\omega\in B\).
+
+Since
+\[
+P(B)=1,
+\]
+we conclude
+\[
+\sum_{i=1}^n X_i\to-\infty
+\]
+almost surely as \(n\to\infty\).
+
+### Ex 26
+::: problem
+Let the probability space be the Lebesgue interval; that is, the unit interval with Lebesgue measure.
+
+(a) Define
+\[
+X_n=\frac{n}{\log n}1_{(0,n^{-1})},\qquad n\ge3.
+\]
+Then \(\{X_n\}\) is ui, \(E(X_n)\to0\) but there is no integrable \(Y\) which dominates \(\{X_n\}\).
+
+(b) Define
+\[
+X_n=n1_{(0,n^{-1})}-n1_{(n^{-1},2n^{-1})}.
+\]
+Then \(\{X_n\}\) is not ui but \(X_n\xrightarrow{P}0\) and \(E(X_n)\to0\).
+:::
+
+$\textbf{Answer:}$
+
+#### (a)
+
+Define
+\[
+X_n=\frac{n}{\log n}1_{(0,1/n)},\qquad n\ge3.
+\]
+
+First,
+\[
+E(X_n)
+=
+\int_0^1 \frac{n}{\log n}1_{(0,1/n)}\,d\lambda
+=
+\frac{n}{\log n}\cdot \frac1n
+=
+\frac1{\log n}
+\to0.
+\]
+
+Now we show that \(\{X_n\}\) is uniformly integrable.
+
+For \(a>0\),
+\[
+E\left(|X_n|1_{\{|X_n|>a\}}\right)
+=
+\int_{\{|X_n|>a\}}
+\frac{n}{\log n}1_{(0,1/n)}\,d\lambda.
+\]
+
+Since
+\[
+X_n=\frac{n}{\log n}
+\]
+on \((0,1/n)\), we have
+\[
+\{|X_n|>a\}
+=
+\left\{\frac{n}{\log n}>a\right\}\cap (0,1/n).
+\]
+
+Therefore,
+\[
+E\left(|X_n|1_{\{|X_n|>a\}}\right)
+=
+\frac1{\log n}
+1_{\{n/\log n>a\}}.
+\]
+
+Hence
+\[
+\sup_{n\ge3}E\left(|X_n|1_{\{|X_n|>a\}}\right)
+=
+\sup_{\{n\ge3:n/\log n>a\}}\frac1{\log n}.
+\]
+
+As \(a\to\infty\), the condition
+\[
+\frac{n}{\log n}>a
+\]
+forces \(n\to\infty\). Hence
+\[
+\sup_{\{n\ge3:n/\log n>a\}}\frac1{\log n}
+\to0.
+\]
+
+Thus
+\[
+\sup_{n\ge3}E\left(|X_n|1_{\{|X_n|>a\}}\right)\to0.
+\]
+
+Therefore \(\{X_n\}\) is ui.
+
+It remains to show that there is no integrable \(Y\) dominating \(\{X_n\}\).
+
+Suppose, for contradiction, that there exists \(Y\in L_1\) such that
+\[
+|X_n|\le Y,
+\qquad n\ge3.
+\]
+
+Since \(X_n\ge0\), this means
+\[
+X_n\le Y,
+\qquad n\ge3.
+\]
+
+For each \(i\ge3\), on the interval
+\[
+\left(\frac1{i+1},\frac1i\right),
+\]
+we have
+\[
+X_i=\frac{i}{\log i}.
+\]
+
+Therefore,
+\[
+Y
+\ge
+\frac{i}{\log i}
+\]
+on
+\[
+\left(\frac1{i+1},\frac1i\right),
+\qquad i\ge3.
+\]
+
+Define
+\[
+Z
+=
+\sum_{i=3}^{\infty}
+\frac{i}{\log i}
+1_{\left(\frac1{i+1},\frac1i\right)}.
+\]
+
+Then
+\[
+Z\le Y
+\]
+a.e.
+
+For \(m\ge3\), define
+\[
+Z_m
+=
+\sum_{i=3}^{m}
+\frac{i}{\log i}
+1_{\left(\frac1{i+1},\frac1i\right)}.
+\]
+
+Then
+\[
+Z_m\uparrow Z.
+\]
+
+By the Monotone Convergence Theorem,
+\[
+E(Z)
+=
+\lim_{m\to\infty}E(Z_m).
+\]
+
+Now
+\[
+E(Z_m)
+=
+\sum_{i=3}^{m}
+\frac{i}{\log i}
+\lambda\left(\frac1{i+1},\frac1i\right).
+\]
+
+Since
+\[
+\lambda\left(\frac1{i+1},\frac1i\right)
+=
+\frac1i-\frac1{i+1}
+=
+\frac1{i(i+1)},
+\]
+we get
+\[
+E(Z_m)
+=
+\sum_{i=3}^{m}
+\frac{i}{\log i}
+\cdot
+\frac1{i(i+1)}.
+\]
+
+Thus
+\[
+E(Z_m)
+=
+\sum_{i=3}^{m}
+\frac1{(i+1)\log i}.
+\]
+
+Therefore,
+\[
+E(Z)
+=
+\sum_{i=3}^{\infty}
+\frac1{(i+1)\log i}
+=
+\infty.
+\]
+
+Since
+\[
+0\le Z\le Y,
+\]
+we get
+\[
+E(Y)\ge E(Z)=\infty.
+\]
+
+This contradicts \(Y\in L_1\). Hence no integrable \(Y\) dominates \(\{X_n\}\).
+
+#### (b)
+
+Define
+\[
+X_n
+=
+n1_{(0,1/n)}
+-
+n1_{(1/n,2/n)}.
+\]
+
+Then
+\[
+|X_n|
+=
+n1_{(0,1/n)}
++
+n1_{(1/n,2/n)}
+=
+n1_{(0,2/n)}.
+\]
+
+We first show that \(\{X_n\}\) is not ui.
+
+For fixed \(a>0\), choose \(n>a\). Then
+\[
+\{|X_n|>a\}
+=
+(0,2/n).
+\]
+
+Therefore,
+\[
+E\left(|X_n|1_{\{|X_n|>a\}}\right)
+=
+\int_{(0,2/n)}n\,d\lambda
+=
+n\cdot \frac2n
+=
+2.
+\]
+
+Hence, for every \(a>0\),
+\[
+\sup_n E\left(|X_n|1_{\{|X_n|>a\}}\right)
+\ge2.
+\]
+
+So
+\[
+\sup_n E\left(|X_n|1_{\{|X_n|>a\}}\right)
+\not\to0.
+\]
+
+Therefore \(\{X_n\}\) is not ui.
+
+Next we show
+\[
+X_n\xrightarrow{P}0.
+\]
+
+Fix \(\varepsilon>0\). For large \(n\), \(n>\varepsilon\). Then
+\[
+P(|X_n|>\varepsilon)
+=
+P((0,2/n))
+=
+\frac2n
+\to0.
+\]
+
+Hence
+\[
+X_n\xrightarrow{P}0.
+\]
+
+Finally,
+\[
+E(X_n)
+=
+\int_0^1
+\left[
+n1_{(0,1/n)}
+-
+n1_{(1/n,2/n)}
+\right]d\lambda.
+\]
+
+Thus
+\[
+E(X_n)
+=
+n\lambda(0,1/n)
+-
+n\lambda(1/n,2/n).
+\]
+
+Since
+\[
+\lambda(0,1/n)=\frac1n
+\]
+and
+\[
+\lambda(1/n,2/n)=\frac1n,
+\]
+we get
+\[
+E(X_n)
+=
+n\cdot\frac1n
+-
+n\cdot\frac1n
+=
+0.
+\]
+
+Therefore,
+\[
+E(X_n)\to0.
+\]
+
+### Ex 27
+::: problem
+Let \(X\in L_1\), and define
+\[
+\chi(p)=\|X\|_p,\qquad p\ge1.
+\]
+Let
+\[
+p_0=\sup\{p\ge1:\|X\|_p<\infty\}.
+\]
+Show that \(\chi(p)\) is continuous on \([1,p_0)\). Also discuss the convexity statement involving \(p\mapsto \log\|X\|_p\).
+:::
+
+$\textbf{Answer:}$
+
+Let
+\[
+\chi(p)=\|X\|_p=\left(E|X|^p\right)^{1/p}.
+\]
+
+We first prove that \(\chi\) is continuous on \([1,p_0)\).
+
+Fix
+\[
+p\in[1,p_0).
+\]
+
+Let \(\{p_n\}\subseteq [1,p_0)\) satisfy
+\[
+p_n\to p.
+\]
+
+Since
+\[
+p<p_0,
+\]
+there exists \(q\) such that
+\[
+p<q<p_0.
+\]
+
+Then for all sufficiently large \(n\),
+\[
+p_n\le q.
+\]
+
+For such \(n\), we have
+\[
+|X|^{p_n}\le 1+|X|^q.
+\]
+
+Since
+\[
+q<p_0,
+\]
+we have
+\[
+E|X|^q<\infty.
+\]
+
+Thus
+\[
+1+|X|^q\in L_1.
+\]
+
+Also,
+\[
+|X|^{p_n}\to |X|^p
+\]
+pointwise.
+
+Therefore, by the Dominated Convergence Theorem,
+\[
+E|X|^{p_n}\to E|X|^p.
+\]
+
+Hence
+\[
+\left(E|X|^{p_n}\right)^{1/p_n}
+\to
+\left(E|X|^p\right)^{1/p}.
+\]
+
+That is,
+\[
+\|X\|_{p_n}\to \|X\|_p.
+\]
+
+Therefore,
+\[
+\chi(p_n)\to\chi(p),
+\]
+so \(\chi\) is continuous at \(p\).
+
+Since \(p\in[1,p_0)\) was arbitrary, \(\chi\) is continuous on \([1,p_0)\).
+
+$\textbf{Warning:}$
+
+The usual Hölder argument proves that
+\[
+p\mapsto \log E|X|^p
+\]
+is convex. It does not generally prove that
+\[
+p\mapsto \log\|X\|_p
+=
+\frac1p\log E|X|^p
+\]
+is convex.
+
+Indeed, for \(p_1,p_2\in[1,p_0)\) and \(\lambda\in(0,1)\), define
+\[
+p=\lambda p_1+(1-\lambda)p_2.
+\]
+
+Then
+\[
+|X|^p
+=
+|X|^{\lambda p_1+(1-\lambda)p_2}
+=
+|X|^{\lambda p_1}|X|^{(1-\lambda)p_2}.
+\]
+
+Use Hölder's inequality with conjugate exponents
+\[
+r=\frac1\lambda,
+\qquad
+s=\frac1{1-\lambda}.
+\]
+
+Then
+\[
+\frac1r+\frac1s
+=
+\lambda+(1-\lambda)
+=
+1.
+\]
+
+So
+\[
+E|X|^p
+=
+E\left(|X|^{\lambda p_1}|X|^{(1-\lambda)p_2}\right)
+\le
+\left(E|X|^{p_1}\right)^\lambda
+\left(E|X|^{p_2}\right)^{1-\lambda}.
+\]
+
+Taking logarithms gives
+\[
+\log E|X|^p
+\le
+\lambda\log E|X|^{p_1}
++
+(1-\lambda)\log E|X|^{p_2}.
+\]
+
+Therefore,
+\[
+p\mapsto \log E|X|^p
+\]
+is convex on \([1,p_0)\).
+
+Equivalently,
+\[
+E|X|^p
+\]
+is log-convex in \(p\).
+
+In terms of \(L_p\)-norms, this gives
+\[
+\|X\|_p^p
+\le
+\left(\|X\|_{p_1}^{p_1}\right)^\lambda
+\left(\|X\|_{p_2}^{p_2}\right)^{1-\lambda}.
+\]
+
+That is,
+\[
+\|X\|_p
+\le
+\|X\|_{p_1}^{\lambda p_1/p}
+\|X\|_{p_2}^{(1-\lambda)p_2/p}.
+\]
+
+This is the interpolation inequality obtained from Hölder's inequality.
+
+### Ex 28
+::: problem
+Suppose \(u\) is a continuous and increasing mapping of \([0,\infty]\) onto \([0,\infty]\). Let \(u^{-1}\) be its inverse function. Define, for \(x\ge0\),
+\[
+U(x)=\int_0^x u(s)\,ds,
+\qquad
+V(x)=\int_0^x u^{-1}(s)\,ds.
+\]
+
+Show
+\[
+xy\le U(x)+V(y),
+\qquad x,y\in[0,\infty].
+\]
+
+Hence, for two random variables \(X,Y\) on the same probability space, \(XY\) is integrable if
+\[
+U(|X|)\in L_1
+\qquad\text{and}\qquad
+V(|Y|)\in L_1.
+\]
+
+Specialize to the case where
+\[
+u(x)=x^{p-1},
+\qquad p>1.
+\]
+:::
+
+$\textbf{Answer:}$
+
+First consider
+\[
+x,y\in(0,\infty).
+\]
+
+Fix
+\[
+x_0\in(0,\infty),
+\]
+and let
+\[
+y_0=u(x_0).
+\]
+
+Since \(u\) is increasing and continuous, \(u^{-1}\) is also increasing. Also,
+\[
+U(x)=\int_0^x u(s)\,ds,
+\qquad
+V(y)=\int_0^y u^{-1}(s)\,ds.
+\]
+
+We prove
+\[
+x_0y\le U(x_0)+V(y)
+\]
+by considering three cases.
+
+* Case 1: \(y=y_0\)
+
+Since
+\[
+y_0=u(x_0),
+\]
+the rectangle with side lengths \(x_0\) and \(y_0\) is divided by the curve \(y=u(x)\) into two regions. Hence
+\[
+x_0y_0=U(x_0)+V(y_0).
+\]
+
+Therefore,
+\[
+x_0y=U(x_0)+V(y).
+\]
+
+* Case 2: \(y<y_0\)
+
+Let
+\[
+a=u^{-1}(y).
+\]
+
+Then
+\[
+a<x_0.
+\]
+
+Since \(y=u(a)\), we have
+\[
+ay=U(a)+V(y).
+\]
+
+Therefore,
+\[
+x_0y
+=
+ay+(x_0-a)y
+=
+U(a)+V(y)+(x_0-a)y.
+\]
+
+Since \(u\) is increasing, for \(s\in[a,x_0]\),
+\[
+u(s)\ge u(a)=y.
+\]
+
+Thus
+\[
+(x_0-a)y
+\le
+\int_a^{x_0}u(s)\,ds.
+\]
+
+Hence
+\[
+x_0y
+\le
+U(a)+V(y)+\int_a^{x_0}u(s)\,ds.
+\]
+
+Since
+\[
+U(x_0)=U(a)+\int_a^{x_0}u(s)\,ds,
+\]
+we get
+\[
+x_0y\le U(x_0)+V(y).
+\]
+
+* Case 3: \(y>y_0\)
+
+Since
+\[
+x_0y_0=U(x_0)+V(y_0),
+\]
+we have
+\[
+x_0y
+=
+x_0y_0+x_0(y-y_0)
+=
+U(x_0)+V(y_0)+x_0(y-y_0).
+\]
+
+For \(s\in[y_0,y]\), since \(u^{-1}\) is increasing,
+\[
+u^{-1}(s)\ge u^{-1}(y_0)=x_0.
+\]
+
+Therefore,
+\[
+x_0(y-y_0)
+\le
+\int_{y_0}^{y}u^{-1}(s)\,ds.
+\]
+
+Hence
+\[
+x_0y
+\le
+U(x_0)+V(y_0)+\int_{y_0}^{y}u^{-1}(s)\,ds.
+\]
+
+Since
+\[
+V(y)=V(y_0)+\int_{y_0}^{y}u^{-1}(s)\,ds,
+\]
+we get
+\[
+x_0y\le U(x_0)+V(y).
+\]
+
+Combining the three cases, for all
+\[
+x,y\in(0,\infty),
+\]
+we have
+\[
+xy\le U(x)+V(y).
+\]
+
+The cases \(x=0\) or \(y=0\) are immediate. The endpoint or infinite cases follow by monotone limiting from the finite positive case. Therefore,
+\[
+xy\le U(x)+V(y),
+\qquad x,y\in[0,\infty].
+\]
+
+Now let \(X,Y\) be random variables on the same probability space. Applying the inequality with
+\[
+x=|X|,
+\qquad
+y=|Y|,
+\]
+we get
+\[
+|XY|
+=
+|X||Y|
+\le
+U(|X|)+V(|Y|).
+\]
+
+If
+\[
+U(|X|)\in L_1
+\qquad\text{and}\qquad
+V(|Y|)\in L_1,
+\]
+then
+\[
+E[U(|X|)]<\infty
+\qquad\text{and}\qquad
+E[V(|Y|)]<\infty.
+\]
+
+Therefore,
+\[
+E|XY|
+\le
+E[U(|X|)]+E[V(|Y|)]
+<\infty.
+\]
+
+Thus
+\[
+XY\in L_1.
+\]
+
+Now specialize to
+\[
+u(x)=x^{p-1},
+\qquad p>1.
+\]
+
+Then
+\[
+u^{-1}(y)=y^{1/(p-1)}.
+\]
+
+So
+\[
+U(x)
+=
+\int_0^x s^{p-1}\,ds
+=
+\frac{x^p}{p}.
+\]
+
+Also,
+\[
+V(y)
+=
+\int_0^y s^{1/(p-1)}\,ds.
+\]
+
+Since
+\[
+\frac{1}{p-1}+1
+=
+\frac{p}{p-1},
+\]
+we get
+\[
+V(y)
+=
+\frac{p-1}{p}y^{p/(p-1)}.
+\]
+
+Let
+\[
+q=\frac{p}{p-1}.
+\]
+
+Then
+\[
+\frac1p+\frac1q
+=
+\frac1p+\frac{p-1}{p}
+=
+1.
+\]
+
+Also,
+\[
+\frac{p-1}{p}
+=
+\frac1q.
+\]
+
+Thus
+\[
+V(y)=\frac{y^q}{q}.
+\]
+
+Young's inequality becomes
+\[
+xy
+\le
+\frac{x^p}{p}
++
+\frac{y^q}{q}.
+\]
+
+Applying this to
+\[
+x=|X|,
+\qquad
+y=|Y|,
+\]
+we obtain
+\[
+|XY|
+\le
+\frac{|X|^p}{p}
++
+\frac{|Y|^q}{q}.
+\]
+
+Taking expectations gives
+\[
+E|XY|
+\le
+\frac1pE|X|^p
++
+\frac1qE|Y|^q.
+\]
+
+Therefore, if
+\[
+X\in L_p
+\qquad\text{and}\qquad
+Y\in L_q,
+\]
+where
+\[
+\frac1p+\frac1q=1,
+\]
+then
+\[
+XY\in L_1.
+\]
+
+$\textbf{Note:}$ What we have done in this exercise is called the Young's Inequality, and we can deduce Holder's Inequality from it.

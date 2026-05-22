@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chap 6, Convergence Concepts | Notes on A Probability Path (Resnick)</title>
   <meta name="description" content="Chap 6, Convergence Concepts | Notes on A Probability Path (Resnick)" />
-  <meta name="generator" content="bookdown 0.42 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.46 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chap 6, Convergence Concepts | Notes on A Probability Path (Resnick)" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="Zhanwen Peng" />
 
 
-<meta name="date" content="2026-05-18" />
+<meta name="date" content="2026-05-22" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -392,6 +392,15 @@
 <li class="chapter" data-level="" data-path="chap-6-convergence-concepts.html"><a href="chap-6-convergence-concepts.html#e-6"><i class="fa fa-check"></i>(e)</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="chap-6-convergence-concepts.html"><a href="chap-6-convergence-concepts.html#ex-13-2"><i class="fa fa-check"></i>Ex 13</a></li>
+<li class="chapter" data-level="" data-path="chap-6-convergence-concepts.html"><a href="chap-6-convergence-concepts.html#ex-14-2"><i class="fa fa-check"></i>Ex 14</a></li>
+<li class="chapter" data-level="" data-path="chap-6-convergence-concepts.html"><a href="chap-6-convergence-concepts.html#ex-14-3"><i class="fa fa-check"></i>Ex 14</a></li>
+<li class="chapter" data-level="" data-path="chap-6-convergence-concepts.html"><a href="chap-6-convergence-concepts.html#ex-26-2"><i class="fa fa-check"></i>Ex 26</a>
+<ul>
+<li class="chapter" data-level="" data-path="chap-6-convergence-concepts.html"><a href="chap-6-convergence-concepts.html#a-26"><i class="fa fa-check"></i>(a)</a></li>
+<li class="chapter" data-level="" data-path="chap-6-convergence-concepts.html"><a href="chap-6-convergence-concepts.html#b-26"><i class="fa fa-check"></i>(b)</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="chap-6-convergence-concepts.html"><a href="chap-6-convergence-concepts.html#ex-27-2"><i class="fa fa-check"></i>Ex 27</a></li>
+<li class="chapter" data-level="" data-path="chap-6-convergence-concepts.html"><a href="chap-6-convergence-concepts.html#ex-28-2"><i class="fa fa-check"></i>Ex 28</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -4232,6 +4241,1040 @@ nP(|X_1|\ge \varepsilon\sqrt n)\to0.
 <span class="math display">\[
 \frac{\bigvee_{i=1}^n |X_i|}{\sqrt n}\xrightarrow{P}0.
 \]</span></p>
+</div>
+<div id="ex-14-2" class="section level3 hasAnchor">
+<h3>Ex 14<a href="chap-6-convergence-concepts.html#ex-14-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="problem">
+<p>Suppose <span class="math inline">\(\{X_k\}\)</span> are independent with
+<span class="math display">\[
+P[X_k=k^2]=\frac{1}{k^2},
+\qquad
+P[X_k=-1]=1-\frac{1}{k^2}.
+\]</span>
+Show
+<span class="math display">\[
+\sum_{i=1}^n X_i\to -\infty
+\]</span>
+almost surely as <span class="math inline">\(n\to\infty\)</span>.</p>
+</div>
+<p><span class="math inline">\(\textbf{Answer:}\)</span></p>
+<p>For <span class="math inline">\(k\ge2\)</span>, define
+<span class="math display">\[
+B_k=\bigcap_{m=k}^{\infty}\{X_m=-1\}.
+\]</span></p>
+<p>Since the random variables are independent,
+<span class="math display">\[
+P(B_k)
+=
+P\left(\bigcap_{m=k}^{\infty}\{X_m=-1\}\right)
+=
+\prod_{m=k}^{\infty}P(X_m=-1).
+\]</span></p>
+<p>By the assumption,
+<span class="math display">\[
+P(X_m=-1)=1-\frac1{m^2}.
+\]</span></p>
+<p>Therefore,
+<span class="math display">\[
+P(B_k)
+=
+\prod_{m=k}^{\infty}
+\left(1-\frac1{m^2}\right).
+\]</span></p>
+<p>For <span class="math inline">\(N\ge k\)</span>,
+<span class="math display">\[
+\prod_{m=k}^{N}
+\left(1-\frac1{m^2}\right)
+=
+\prod_{m=k}^{N}
+\frac{(m-1)(m+1)}{m^2}.
+\]</span></p>
+<p>This product telescopes:
+<span class="math display">\[
+\prod_{m=k}^{N}
+\frac{(m-1)(m+1)}{m^2}
+=
+\frac{k-1}{k}\cdot \frac{N+1}{N}.
+\]</span></p>
+<p>Letting <span class="math inline">\(N\to\infty\)</span>, we get
+<span class="math display">\[
+P(B_k)
+=
+\frac{k-1}{k}.
+\]</span></p>
+<p>Now define
+<span class="math display">\[
+B=\bigcup_{k=2}^{\infty}B_k.
+\]</span></p>
+<p>Since
+<span class="math display">\[
+B_k\uparrow B,
+\]</span>
+we have
+<span class="math display">\[
+P(B)
+=
+\lim_{k\to\infty}P(B_k)
+=
+\lim_{k\to\infty}\frac{k-1}{k}
+=
+1.
+\]</span></p>
+<p>Thus, with probability one, there exists some <span class="math inline">\(k(\omega)\ge2\)</span> such that for all
+<span class="math display">\[
+m\ge k(\omega),
+\]</span>
+we have
+<span class="math display">\[
+X_m(\omega)=-1.
+\]</span></p>
+<p>For <span class="math inline">\(\omega\in B\)</span>, if <span class="math inline">\(n\ge k(\omega)\)</span>, then
+<span class="math display">\[
+\sum_{i=1}^n X_i(\omega)
+=
+\sum_{i=1}^{k(\omega)-1}X_i(\omega)
++
+\sum_{i=k(\omega)}^n X_i(\omega).
+\]</span></p>
+<p>Since
+<span class="math display">\[
+X_i(\omega)=-1,
+\qquad i\ge k(\omega),
+\]</span>
+we have
+<span class="math display">\[
+\sum_{i=k(\omega)}^n X_i(\omega)
+=
+-(n-k(\omega)+1).
+\]</span></p>
+<p>Hence
+<span class="math display">\[
+\sum_{i=1}^n X_i(\omega)
+=
+\sum_{i=1}^{k(\omega)-1}X_i(\omega)
+-
+(n-k(\omega)+1).
+\]</span></p>
+<p>The first term is a finite constant depending on <span class="math inline">\(\omega\)</span>, while
+<span class="math display">\[
+-(n-k(\omega)+1)\to-\infty.
+\]</span></p>
+<p>Therefore,
+<span class="math display">\[
+\sum_{i=1}^n X_i(\omega)\to-\infty
+\]</span>
+for every <span class="math inline">\(\omega\in B\)</span>.</p>
+<p>Since
+<span class="math display">\[
+P(B)=1,
+\]</span>
+we conclude
+<span class="math display">\[
+\sum_{i=1}^n X_i\to-\infty
+\]</span>
+almost surely as <span class="math inline">\(n\to\infty\)</span>.</p>
+<p><span class="math inline">\(\textbf{Note:}\)</span> In my initial idea, I used the set
+<span class="math display">\[
+A=\bigcap_{n=2}^\infty{X_n=-1}
+\]</span></p>
+<p>However, we will end up with <span class="math inline">\(P(A)=\frac12\)</span>.</p>
+</div>
+<div id="ex-14-3" class="section level3 hasAnchor">
+<h3>Ex 14<a href="chap-6-convergence-concepts.html#ex-14-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="problem">
+<p>Suppose <span class="math inline">\(\{X_k\}\)</span> are independent with
+<span class="math display">\[
+P[X_k=k^2]=\frac{1}{k^2},
+\qquad
+P[X_k=-1]=1-\frac{1}{k^2}.
+\]</span>
+Show
+<span class="math display">\[
+\sum_{i=1}^n X_i\to -\infty
+\]</span>
+almost surely as <span class="math inline">\(n\to\infty\)</span>.</p>
+</div>
+<p><span class="math inline">\(\textbf{Answer:}\)</span></p>
+<p>For <span class="math inline">\(k\ge2\)</span>, define
+<span class="math display">\[
+B_k=\bigcap_{m=k}^{\infty}\{X_m=-1\}.
+\]</span></p>
+<p>Since the random variables are independent,
+<span class="math display">\[
+P(B_k)
+=
+P\left(\bigcap_{m=k}^{\infty}\{X_m=-1\}\right)
+=
+\prod_{m=k}^{\infty}P(X_m=-1).
+\]</span></p>
+<p>By the assumption,
+<span class="math display">\[
+P(X_m=-1)=1-\frac1{m^2}.
+\]</span></p>
+<p>Therefore,
+<span class="math display">\[
+P(B_k)
+=
+\prod_{m=k}^{\infty}
+\left(1-\frac1{m^2}\right).
+\]</span></p>
+<p>For <span class="math inline">\(N\ge k\)</span>,
+<span class="math display">\[
+\prod_{m=k}^{N}
+\left(1-\frac1{m^2}\right)
+=
+\prod_{m=k}^{N}
+\frac{(m-1)(m+1)}{m^2}.
+\]</span></p>
+<p>This product telescopes:
+<span class="math display">\[
+\prod_{m=k}^{N}
+\frac{(m-1)(m+1)}{m^2}
+=
+\frac{k-1}{k}\cdot \frac{N+1}{N}.
+\]</span></p>
+<p>Letting <span class="math inline">\(N\to\infty\)</span>, we get
+<span class="math display">\[
+P(B_k)
+=
+\frac{k-1}{k}.
+\]</span></p>
+<p>Now define
+<span class="math display">\[
+B=\bigcup_{k=2}^{\infty}B_k.
+\]</span></p>
+<p>Since
+<span class="math display">\[
+B_k\uparrow B,
+\]</span>
+we have
+<span class="math display">\[
+P(B)
+=
+\lim_{k\to\infty}P(B_k)
+=
+\lim_{k\to\infty}\frac{k-1}{k}
+=
+1.
+\]</span></p>
+<p>Thus, with probability one, there exists some <span class="math inline">\(k(\omega)\ge2\)</span> such that for all
+<span class="math display">\[
+m\ge k(\omega),
+\]</span>
+we have
+<span class="math display">\[
+X_m(\omega)=-1.
+\]</span></p>
+<p>For <span class="math inline">\(\omega\in B\)</span>, if <span class="math inline">\(n\ge k(\omega)\)</span>, then
+<span class="math display">\[
+\sum_{i=1}^n X_i(\omega)
+=
+\sum_{i=1}^{k(\omega)-1}X_i(\omega)
++
+\sum_{i=k(\omega)}^n X_i(\omega).
+\]</span></p>
+<p>Since
+<span class="math display">\[
+X_i(\omega)=-1,
+\qquad i\ge k(\omega),
+\]</span>
+we have
+<span class="math display">\[
+\sum_{i=k(\omega)}^n X_i(\omega)
+=
+-(n-k(\omega)+1).
+\]</span></p>
+<p>Hence
+<span class="math display">\[
+\sum_{i=1}^n X_i(\omega)
+=
+\sum_{i=1}^{k(\omega)-1}X_i(\omega)
+-
+(n-k(\omega)+1).
+\]</span></p>
+<p>The first term is a finite constant depending on <span class="math inline">\(\omega\)</span>, while
+<span class="math display">\[
+-(n-k(\omega)+1)\to-\infty.
+\]</span></p>
+<p>Therefore,
+<span class="math display">\[
+\sum_{i=1}^n X_i(\omega)\to-\infty
+\]</span>
+for every <span class="math inline">\(\omega\in B\)</span>.</p>
+<p>Since
+<span class="math display">\[
+P(B)=1,
+\]</span>
+we conclude
+<span class="math display">\[
+\sum_{i=1}^n X_i\to-\infty
+\]</span>
+almost surely as <span class="math inline">\(n\to\infty\)</span>.</p>
+</div>
+<div id="ex-26-2" class="section level3 hasAnchor">
+<h3>Ex 26<a href="chap-6-convergence-concepts.html#ex-26-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="problem">
+<p>Let the probability space be the Lebesgue interval; that is, the unit interval with Lebesgue measure.</p>
+<ol style="list-style-type: lower-alpha">
+<li><p>Define
+<span class="math display">\[
+X_n=\frac{n}{\log n}1_{(0,n^{-1})},\qquad n\ge3.
+\]</span>
+Then <span class="math inline">\(\{X_n\}\)</span> is ui, <span class="math inline">\(E(X_n)\to0\)</span> but there is no integrable <span class="math inline">\(Y\)</span> which dominates <span class="math inline">\(\{X_n\}\)</span>.</p></li>
+<li><p>Define
+<span class="math display">\[
+X_n=n1_{(0,n^{-1})}-n1_{(n^{-1},2n^{-1})}.
+\]</span>
+Then <span class="math inline">\(\{X_n\}\)</span> is not ui but <span class="math inline">\(X_n\xrightarrow{P}0\)</span> and <span class="math inline">\(E(X_n)\to0\)</span>.</p></li>
+</ol>
+</div>
+<p><span class="math inline">\(\textbf{Answer:}\)</span></p>
+<div id="a-26" class="section level4 hasAnchor">
+<h4>(a)<a href="chap-6-convergence-concepts.html#a-26" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Define
+<span class="math display">\[
+X_n=\frac{n}{\log n}1_{(0,1/n)},\qquad n\ge3.
+\]</span></p>
+<p>First,
+<span class="math display">\[
+E(X_n)
+=
+\int_0^1 \frac{n}{\log n}1_{(0,1/n)}\,d\lambda
+=
+\frac{n}{\log n}\cdot \frac1n
+=
+\frac1{\log n}
+\to0.
+\]</span></p>
+<p>Now we show that <span class="math inline">\(\{X_n\}\)</span> is uniformly integrable.</p>
+<p>For <span class="math inline">\(a&gt;0\)</span>,
+<span class="math display">\[
+E\left(|X_n|1_{\{|X_n|&gt;a\}}\right)
+=
+\int_{\{|X_n|&gt;a\}}
+\frac{n}{\log n}1_{(0,1/n)}\,d\lambda.
+\]</span></p>
+<p>Since
+<span class="math display">\[
+X_n=\frac{n}{\log n}
+\]</span>
+on <span class="math inline">\((0,1/n)\)</span>, we have
+<span class="math display">\[
+\{|X_n|&gt;a\}
+=
+\left\{\frac{n}{\log n}&gt;a\right\}\cap (0,1/n).
+\]</span></p>
+<p>Therefore,
+<span class="math display">\[
+E\left(|X_n|1_{\{|X_n|&gt;a\}}\right)
+=
+\frac1{\log n}
+1_{\{n/\log n&gt;a\}}.
+\]</span></p>
+<p>Hence
+<span class="math display">\[
+\sup_{n\ge3}E\left(|X_n|1_{\{|X_n|&gt;a\}}\right)
+=
+\sup_{\{n\ge3:n/\log n&gt;a\}}\frac1{\log n}.
+\]</span></p>
+<p>As <span class="math inline">\(a\to\infty\)</span>, the condition
+<span class="math display">\[
+\frac{n}{\log n}&gt;a
+\]</span>
+forces <span class="math inline">\(n\to\infty\)</span>. Hence
+<span class="math display">\[
+\sup_{\{n\ge3:n/\log n&gt;a\}}\frac1{\log n}
+\to0.
+\]</span></p>
+<p>Thus
+<span class="math display">\[
+\sup_{n\ge3}E\left(|X_n|1_{\{|X_n|&gt;a\}}\right)\to0.
+\]</span></p>
+<p>Therefore <span class="math inline">\(\{X_n\}\)</span> is ui.</p>
+<p>It remains to show that there is no integrable <span class="math inline">\(Y\)</span> dominating <span class="math inline">\(\{X_n\}\)</span>.</p>
+<p>Suppose, for contradiction, that there exists <span class="math inline">\(Y\in L_1\)</span> such that
+<span class="math display">\[
+|X_n|\le Y,
+\qquad n\ge3.
+\]</span></p>
+<p>Since <span class="math inline">\(X_n\ge0\)</span>, this means
+<span class="math display">\[
+X_n\le Y,
+\qquad n\ge3.
+\]</span></p>
+<p>For each <span class="math inline">\(i\ge3\)</span>, on the interval
+<span class="math display">\[
+\left(\frac1{i+1},\frac1i\right),
+\]</span>
+we have
+<span class="math display">\[
+X_i=\frac{i}{\log i}.
+\]</span></p>
+<p>Therefore,
+<span class="math display">\[
+Y
+\ge
+\frac{i}{\log i}
+\]</span>
+on
+<span class="math display">\[
+\left(\frac1{i+1},\frac1i\right),
+\qquad i\ge3.
+\]</span></p>
+<p>Define
+<span class="math display">\[
+Z
+=
+\sum_{i=3}^{\infty}
+\frac{i}{\log i}
+1_{\left(\frac1{i+1},\frac1i\right)}.
+\]</span></p>
+<p>Then
+<span class="math display">\[
+Z\le Y
+\]</span>
+a.e.</p>
+<p>For <span class="math inline">\(m\ge3\)</span>, define
+<span class="math display">\[
+Z_m
+=
+\sum_{i=3}^{m}
+\frac{i}{\log i}
+1_{\left(\frac1{i+1},\frac1i\right)}.
+\]</span></p>
+<p>Then
+<span class="math display">\[
+Z_m\uparrow Z.
+\]</span></p>
+<p>By the Monotone Convergence Theorem,
+<span class="math display">\[
+E(Z)
+=
+\lim_{m\to\infty}E(Z_m).
+\]</span></p>
+<p>Now
+<span class="math display">\[
+E(Z_m)
+=
+\sum_{i=3}^{m}
+\frac{i}{\log i}
+\lambda\left(\frac1{i+1},\frac1i\right).
+\]</span></p>
+<p>Since
+<span class="math display">\[
+\lambda\left(\frac1{i+1},\frac1i\right)
+=
+\frac1i-\frac1{i+1}
+=
+\frac1{i(i+1)},
+\]</span>
+we get
+<span class="math display">\[
+E(Z_m)
+=
+\sum_{i=3}^{m}
+\frac{i}{\log i}
+\cdot
+\frac1{i(i+1)}.
+\]</span></p>
+<p>Thus
+<span class="math display">\[
+E(Z_m)
+=
+\sum_{i=3}^{m}
+\frac1{(i+1)\log i}.
+\]</span></p>
+<p>Therefore,
+<span class="math display">\[
+E(Z)
+=
+\sum_{i=3}^{\infty}
+\frac1{(i+1)\log i}
+=
+\infty.
+\]</span></p>
+<p>Since
+<span class="math display">\[
+0\le Z\le Y,
+\]</span>
+we get
+<span class="math display">\[
+E(Y)\ge E(Z)=\infty.
+\]</span></p>
+<p>This contradicts <span class="math inline">\(Y\in L_1\)</span>. Hence no integrable <span class="math inline">\(Y\)</span> dominates <span class="math inline">\(\{X_n\}\)</span>.</p>
+</div>
+<div id="b-26" class="section level4 hasAnchor">
+<h4>(b)<a href="chap-6-convergence-concepts.html#b-26" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Define
+<span class="math display">\[
+X_n
+=
+n1_{(0,1/n)}
+-
+n1_{(1/n,2/n)}.
+\]</span></p>
+<p>Then
+<span class="math display">\[
+|X_n|
+=
+n1_{(0,1/n)}
++
+n1_{(1/n,2/n)}
+=
+n1_{(0,2/n)}.
+\]</span></p>
+<p>We first show that <span class="math inline">\(\{X_n\}\)</span> is not ui.</p>
+<p>For fixed <span class="math inline">\(a&gt;0\)</span>, choose <span class="math inline">\(n&gt;a\)</span>. Then
+<span class="math display">\[
+\{|X_n|&gt;a\}
+=
+(0,2/n).
+\]</span></p>
+<p>Therefore,
+<span class="math display">\[
+E\left(|X_n|1_{\{|X_n|&gt;a\}}\right)
+=
+\int_{(0,2/n)}n\,d\lambda
+=
+n\cdot \frac2n
+=
+2.
+\]</span></p>
+<p>Hence, for every <span class="math inline">\(a&gt;0\)</span>,
+<span class="math display">\[
+\sup_n E\left(|X_n|1_{\{|X_n|&gt;a\}}\right)
+\ge2.
+\]</span></p>
+<p>So
+<span class="math display">\[
+\sup_n E\left(|X_n|1_{\{|X_n|&gt;a\}}\right)
+\not\to0.
+\]</span></p>
+<p>Therefore <span class="math inline">\(\{X_n\}\)</span> is not ui.</p>
+<p>Next we show
+<span class="math display">\[
+X_n\xrightarrow{P}0.
+\]</span></p>
+<p>Fix <span class="math inline">\(\varepsilon&gt;0\)</span>. For large <span class="math inline">\(n\)</span>, <span class="math inline">\(n&gt;\varepsilon\)</span>. Then
+<span class="math display">\[
+P(|X_n|&gt;\varepsilon)
+=
+P((0,2/n))
+=
+\frac2n
+\to0.
+\]</span></p>
+<p>Hence
+<span class="math display">\[
+X_n\xrightarrow{P}0.
+\]</span></p>
+<p>Finally,
+<span class="math display">\[
+E(X_n)
+=
+\int_0^1
+\left[
+n1_{(0,1/n)}
+-
+n1_{(1/n,2/n)}
+\right]d\lambda.
+\]</span></p>
+<p>Thus
+<span class="math display">\[
+E(X_n)
+=
+n\lambda(0,1/n)
+-
+n\lambda(1/n,2/n).
+\]</span></p>
+<p>Since
+<span class="math display">\[
+\lambda(0,1/n)=\frac1n
+\]</span>
+and
+<span class="math display">\[
+\lambda(1/n,2/n)=\frac1n,
+\]</span>
+we get
+<span class="math display">\[
+E(X_n)
+=
+n\cdot\frac1n
+-
+n\cdot\frac1n
+=
+0.
+\]</span></p>
+<p>Therefore,
+<span class="math display">\[
+E(X_n)\to0.
+\]</span></p>
+</div>
+</div>
+<div id="ex-27-2" class="section level3 hasAnchor">
+<h3>Ex 27<a href="chap-6-convergence-concepts.html#ex-27-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="problem">
+<p>Let <span class="math inline">\(X\in L_1\)</span>, and define
+<span class="math display">\[
+\chi(p)=\|X\|_p,\qquad p\ge1.
+\]</span>
+Let
+<span class="math display">\[
+p_0=\sup\{p\ge1:\|X\|_p&lt;\infty\}.
+\]</span>
+Show that <span class="math inline">\(\chi(p)\)</span> is continuous on <span class="math inline">\([1,p_0)\)</span>. Also discuss the convexity statement involving <span class="math inline">\(p\mapsto \log\|X\|_p\)</span>.</p>
+</div>
+<p><span class="math inline">\(\textbf{Answer:}\)</span></p>
+<p>Let
+<span class="math display">\[
+\chi(p)=\|X\|_p=\left(E|X|^p\right)^{1/p}.
+\]</span></p>
+<p>We first prove that <span class="math inline">\(\chi\)</span> is continuous on <span class="math inline">\([1,p_0)\)</span>.</p>
+<p>Fix
+<span class="math display">\[
+p\in[1,p_0).
+\]</span></p>
+<p>Let <span class="math inline">\(\{p_n\}\subseteq [1,p_0)\)</span> satisfy
+<span class="math display">\[
+p_n\to p.
+\]</span></p>
+<p>Since
+<span class="math display">\[
+p&lt;p_0,
+\]</span>
+there exists <span class="math inline">\(q\)</span> such that
+<span class="math display">\[
+p&lt;q&lt;p_0.
+\]</span></p>
+<p>Then for all sufficiently large <span class="math inline">\(n\)</span>,
+<span class="math display">\[
+p_n\le q.
+\]</span></p>
+<p>For such <span class="math inline">\(n\)</span>, we have
+<span class="math display">\[
+|X|^{p_n}\le 1+|X|^q.
+\]</span></p>
+<p>Since
+<span class="math display">\[
+q&lt;p_0,
+\]</span>
+we have
+<span class="math display">\[
+E|X|^q&lt;\infty.
+\]</span></p>
+<p>Thus
+<span class="math display">\[
+1+|X|^q\in L_1.
+\]</span></p>
+<p>Also,
+<span class="math display">\[
+|X|^{p_n}\to |X|^p
+\]</span>
+pointwise.</p>
+<p>Therefore, by the Dominated Convergence Theorem,
+<span class="math display">\[
+E|X|^{p_n}\to E|X|^p.
+\]</span></p>
+<p>Hence
+<span class="math display">\[
+\left(E|X|^{p_n}\right)^{1/p_n}
+\to
+\left(E|X|^p\right)^{1/p}.
+\]</span></p>
+<p>That is,
+<span class="math display">\[
+\|X\|_{p_n}\to \|X\|_p.
+\]</span></p>
+<p>Therefore,
+<span class="math display">\[
+\chi(p_n)\to\chi(p),
+\]</span>
+so <span class="math inline">\(\chi\)</span> is continuous at <span class="math inline">\(p\)</span>.</p>
+<p>Since <span class="math inline">\(p\in[1,p_0)\)</span> was arbitrary, <span class="math inline">\(\chi\)</span> is continuous on <span class="math inline">\([1,p_0)\)</span>.</p>
+<p><span class="math inline">\(\textbf{Warning:}\)</span></p>
+<p>The usual Hölder argument proves that
+<span class="math display">\[
+p\mapsto \log E|X|^p
+\]</span>
+is convex. It does not generally prove that
+<span class="math display">\[
+p\mapsto \log\|X\|_p
+=
+\frac1p\log E|X|^p
+\]</span>
+is convex.</p>
+<p>Indeed, for <span class="math inline">\(p_1,p_2\in[1,p_0)\)</span> and <span class="math inline">\(\lambda\in(0,1)\)</span>, define
+<span class="math display">\[
+p=\lambda p_1+(1-\lambda)p_2.
+\]</span></p>
+<p>Then
+<span class="math display">\[
+|X|^p
+=
+|X|^{\lambda p_1+(1-\lambda)p_2}
+=
+|X|^{\lambda p_1}|X|^{(1-\lambda)p_2}.
+\]</span></p>
+<p>Use Hölder’s inequality with conjugate exponents
+<span class="math display">\[
+r=\frac1\lambda,
+\qquad
+s=\frac1{1-\lambda}.
+\]</span></p>
+<p>Then
+<span class="math display">\[
+\frac1r+\frac1s
+=
+\lambda+(1-\lambda)
+=
+1.
+\]</span></p>
+<p>So
+<span class="math display">\[
+E|X|^p
+=
+E\left(|X|^{\lambda p_1}|X|^{(1-\lambda)p_2}\right)
+\le
+\left(E|X|^{p_1}\right)^\lambda
+\left(E|X|^{p_2}\right)^{1-\lambda}.
+\]</span></p>
+<p>Taking logarithms gives
+<span class="math display">\[
+\log E|X|^p
+\le
+\lambda\log E|X|^{p_1}
++
+(1-\lambda)\log E|X|^{p_2}.
+\]</span></p>
+<p>Therefore,
+<span class="math display">\[
+p\mapsto \log E|X|^p
+\]</span>
+is convex on <span class="math inline">\([1,p_0)\)</span>.</p>
+<p>Equivalently,
+<span class="math display">\[
+E|X|^p
+\]</span>
+is log-convex in <span class="math inline">\(p\)</span>.</p>
+<p>In terms of <span class="math inline">\(L_p\)</span>-norms, this gives
+<span class="math display">\[
+\|X\|_p^p
+\le
+\left(\|X\|_{p_1}^{p_1}\right)^\lambda
+\left(\|X\|_{p_2}^{p_2}\right)^{1-\lambda}.
+\]</span></p>
+<p>That is,
+<span class="math display">\[
+\|X\|_p
+\le
+\|X\|_{p_1}^{\lambda p_1/p}
+\|X\|_{p_2}^{(1-\lambda)p_2/p}.
+\]</span></p>
+<p>This is the interpolation inequality obtained from Hölder’s inequality.</p>
+</div>
+<div id="ex-28-2" class="section level3 hasAnchor">
+<h3>Ex 28<a href="chap-6-convergence-concepts.html#ex-28-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="problem">
+<p>Suppose <span class="math inline">\(u\)</span> is a continuous and increasing mapping of <span class="math inline">\([0,\infty]\)</span> onto <span class="math inline">\([0,\infty]\)</span>. Let <span class="math inline">\(u^{-1}\)</span> be its inverse function. Define, for <span class="math inline">\(x\ge0\)</span>,
+<span class="math display">\[
+U(x)=\int_0^x u(s)\,ds,
+\qquad
+V(x)=\int_0^x u^{-1}(s)\,ds.
+\]</span></p>
+<p>Show
+<span class="math display">\[
+xy\le U(x)+V(y),
+\qquad x,y\in[0,\infty].
+\]</span></p>
+<p>Hence, for two random variables <span class="math inline">\(X,Y\)</span> on the same probability space, <span class="math inline">\(XY\)</span> is integrable if
+<span class="math display">\[
+U(|X|)\in L_1
+\qquad\text{and}\qquad
+V(|Y|)\in L_1.
+\]</span></p>
+<p>Specialize to the case where
+<span class="math display">\[
+u(x)=x^{p-1},
+\qquad p&gt;1.
+\]</span></p>
+</div>
+<p><span class="math inline">\(\textbf{Answer:}\)</span></p>
+<p>First consider
+<span class="math display">\[
+x,y\in(0,\infty).
+\]</span></p>
+<p>Fix
+<span class="math display">\[
+x_0\in(0,\infty),
+\]</span>
+and let
+<span class="math display">\[
+y_0=u(x_0).
+\]</span></p>
+<p>Since <span class="math inline">\(u\)</span> is increasing and continuous, <span class="math inline">\(u^{-1}\)</span> is also increasing. Also,
+<span class="math display">\[
+U(x)=\int_0^x u(s)\,ds,
+\qquad
+V(y)=\int_0^y u^{-1}(s)\,ds.
+\]</span></p>
+<p>We prove
+<span class="math display">\[
+x_0y\le U(x_0)+V(y)
+\]</span>
+by considering three cases.</p>
+<ul>
+<li>Case 1: <span class="math inline">\(y=y_0\)</span></li>
+</ul>
+<p>Since
+<span class="math display">\[
+y_0=u(x_0),
+\]</span>
+the rectangle with side lengths <span class="math inline">\(x_0\)</span> and <span class="math inline">\(y_0\)</span> is divided by the curve <span class="math inline">\(y=u(x)\)</span> into two regions. Hence
+<span class="math display">\[
+x_0y_0=U(x_0)+V(y_0).
+\]</span></p>
+<p>Therefore,
+<span class="math display">\[
+x_0y=U(x_0)+V(y).
+\]</span></p>
+<ul>
+<li>Case 2: <span class="math inline">\(y&lt;y_0\)</span></li>
+</ul>
+<p>Let
+<span class="math display">\[
+a=u^{-1}(y).
+\]</span></p>
+<p>Then
+<span class="math display">\[
+a&lt;x_0.
+\]</span></p>
+<p>Since <span class="math inline">\(y=u(a)\)</span>, we have
+<span class="math display">\[
+ay=U(a)+V(y).
+\]</span></p>
+<p>Therefore,
+<span class="math display">\[
+x_0y
+=
+ay+(x_0-a)y
+=
+U(a)+V(y)+(x_0-a)y.
+\]</span></p>
+<p>Since <span class="math inline">\(u\)</span> is increasing, for <span class="math inline">\(s\in[a,x_0]\)</span>,
+<span class="math display">\[
+u(s)\ge u(a)=y.
+\]</span></p>
+<p>Thus
+<span class="math display">\[
+(x_0-a)y
+\le
+\int_a^{x_0}u(s)\,ds.
+\]</span></p>
+<p>Hence
+<span class="math display">\[
+x_0y
+\le
+U(a)+V(y)+\int_a^{x_0}u(s)\,ds.
+\]</span></p>
+<p>Since
+<span class="math display">\[
+U(x_0)=U(a)+\int_a^{x_0}u(s)\,ds,
+\]</span>
+we get
+<span class="math display">\[
+x_0y\le U(x_0)+V(y).
+\]</span></p>
+<ul>
+<li>Case 3: <span class="math inline">\(y&gt;y_0\)</span></li>
+</ul>
+<p>Since
+<span class="math display">\[
+x_0y_0=U(x_0)+V(y_0),
+\]</span>
+we have
+<span class="math display">\[
+x_0y
+=
+x_0y_0+x_0(y-y_0)
+=
+U(x_0)+V(y_0)+x_0(y-y_0).
+\]</span></p>
+<p>For <span class="math inline">\(s\in[y_0,y]\)</span>, since <span class="math inline">\(u^{-1}\)</span> is increasing,
+<span class="math display">\[
+u^{-1}(s)\ge u^{-1}(y_0)=x_0.
+\]</span></p>
+<p>Therefore,
+<span class="math display">\[
+x_0(y-y_0)
+\le
+\int_{y_0}^{y}u^{-1}(s)\,ds.
+\]</span></p>
+<p>Hence
+<span class="math display">\[
+x_0y
+\le
+U(x_0)+V(y_0)+\int_{y_0}^{y}u^{-1}(s)\,ds.
+\]</span></p>
+<p>Since
+<span class="math display">\[
+V(y)=V(y_0)+\int_{y_0}^{y}u^{-1}(s)\,ds,
+\]</span>
+we get
+<span class="math display">\[
+x_0y\le U(x_0)+V(y).
+\]</span></p>
+<p>Combining the three cases, for all
+<span class="math display">\[
+x,y\in(0,\infty),
+\]</span>
+we have
+<span class="math display">\[
+xy\le U(x)+V(y).
+\]</span></p>
+<p>The cases <span class="math inline">\(x=0\)</span> or <span class="math inline">\(y=0\)</span> are immediate. The endpoint or infinite cases follow by monotone limiting from the finite positive case. Therefore,
+<span class="math display">\[
+xy\le U(x)+V(y),
+\qquad x,y\in[0,\infty].
+\]</span></p>
+<p>Now let <span class="math inline">\(X,Y\)</span> be random variables on the same probability space. Applying the inequality with
+<span class="math display">\[
+x=|X|,
+\qquad
+y=|Y|,
+\]</span>
+we get
+<span class="math display">\[
+|XY|
+=
+|X||Y|
+\le
+U(|X|)+V(|Y|).
+\]</span></p>
+<p>If
+<span class="math display">\[
+U(|X|)\in L_1
+\qquad\text{and}\qquad
+V(|Y|)\in L_1,
+\]</span>
+then
+<span class="math display">\[
+E[U(|X|)]&lt;\infty
+\qquad\text{and}\qquad
+E[V(|Y|)]&lt;\infty.
+\]</span></p>
+<p>Therefore,
+<span class="math display">\[
+E|XY|
+\le
+E[U(|X|)]+E[V(|Y|)]
+&lt;\infty.
+\]</span></p>
+<p>Thus
+<span class="math display">\[
+XY\in L_1.
+\]</span></p>
+<p>Now specialize to
+<span class="math display">\[
+u(x)=x^{p-1},
+\qquad p&gt;1.
+\]</span></p>
+<p>Then
+<span class="math display">\[
+u^{-1}(y)=y^{1/(p-1)}.
+\]</span></p>
+<p>So
+<span class="math display">\[
+U(x)
+=
+\int_0^x s^{p-1}\,ds
+=
+\frac{x^p}{p}.
+\]</span></p>
+<p>Also,
+<span class="math display">\[
+V(y)
+=
+\int_0^y s^{1/(p-1)}\,ds.
+\]</span></p>
+<p>Since
+<span class="math display">\[
+\frac{1}{p-1}+1
+=
+\frac{p}{p-1},
+\]</span>
+we get
+<span class="math display">\[
+V(y)
+=
+\frac{p-1}{p}y^{p/(p-1)}.
+\]</span></p>
+<p>Let
+<span class="math display">\[
+q=\frac{p}{p-1}.
+\]</span></p>
+<p>Then
+<span class="math display">\[
+\frac1p+\frac1q
+=
+\frac1p+\frac{p-1}{p}
+=
+1.
+\]</span></p>
+<p>Also,
+<span class="math display">\[
+\frac{p-1}{p}
+=
+\frac1q.
+\]</span></p>
+<p>Thus
+<span class="math display">\[
+V(y)=\frac{y^q}{q}.
+\]</span></p>
+<p>Young’s inequality becomes
+<span class="math display">\[
+xy
+\le
+\frac{x^p}{p}
++
+\frac{y^q}{q}.
+\]</span></p>
+<p>Applying this to
+<span class="math display">\[
+x=|X|,
+\qquad
+y=|Y|,
+\]</span>
+we obtain
+<span class="math display">\[
+|XY|
+\le
+\frac{|X|^p}{p}
++
+\frac{|Y|^q}{q}.
+\]</span></p>
+<p>Taking expectations gives
+<span class="math display">\[
+E|XY|
+\le
+\frac1pE|X|^p
++
+\frac1qE|Y|^q.
+\]</span></p>
+<p>Therefore, if
+<span class="math display">\[
+X\in L_p
+\qquad\text{and}\qquad
+Y\in L_q,
+\]</span>
+where
+<span class="math display">\[
+\frac1p+\frac1q=1,
+\]</span>
+then
+<span class="math display">\[
+XY\in L_1.
+\]</span></p>
+<p><span class="math inline">\(\textbf{Note:}\)</span> What we have done in this exercise is called the Young’s Inequality, and we can deduce Holder’s Inequality from it.</p>
 
 </div>
 </div>
