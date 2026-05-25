@@ -5591,6 +5591,184 @@ E|XY|
 \frac1pE|X|^p
 +
 \frac1qE|Y|^q.
+
+### Ex 23
+::: problem
+A classical transform result says the following: Suppose \(u_n\ge0\) and
+\[
+u_n\to u
+\]
+as \(n\to\infty\). For \(0<s<1\), define the generating function
+\[
+U(s)=\sum_{n=0}^{\infty}u_ns^n.
+\]
+
+Show that
+\[
+\lim_{s\to1}(1-s)U(s)=u
+\]
+by the following relatively painless method which uses convergence in probability: Let \(T(s)\) be a geometric random variable satisfying
+\[
+P[T(s)=n]=(1-s)s^n.
+\]
+Then \(T(s)\to\infty\). What is \(E(u_{T(s)})\)?
+:::
+
+$\textbf{Answer:}$
+
+Let \(T(s)\) be a geometric random variable such that
+\[
+P[T(s)=n]=(1-s)s^n,
+\qquad n=0,1,2,\dots.
+\]
+
+First we show that
+\[
+T(s)\xrightarrow{P}\infty
+\qquad\text{as }s\to1.
+\]
+
+For any positive integer \(M\),
+\[
+P(T(s)\ge M)
+=
+(1-s)\sum_{n=M}^{\infty}s^n.
+\]
+
+Since
+\[
+\sum_{n=M}^{\infty}s^n
+=
+\frac{s^M}{1-s},
+\]
+we get
+\[
+P(T(s)\ge M)
+=
+(1-s)\frac{s^M}{1-s}
+=
+s^M.
+\]
+
+Therefore,
+\[
+\lim_{s\to1}P(T(s)\ge M)
+=
+\lim_{s\to1}s^M
+=
+1.
+\]
+
+Hence
+\[
+T(s)\xrightarrow{P}\infty.
+\]
+
+Now compute \(E(u_{T(s)})\). Since \(T(s)\) takes values in \(\{0,1,2,\dots\}\),
+\[
+E(u_{T(s)})
+=
+\sum_{n=0}^{\infty}u_nP(T(s)=n).
+\]
+
+Using
+\[
+P(T(s)=n)=(1-s)s^n,
+\]
+we have
+\[
+E(u_{T(s)})
+=
+\sum_{n=0}^{\infty}u_n(1-s)s^n.
+\]
+
+Thus
+\[
+E(u_{T(s)})
+=
+(1-s)\sum_{n=0}^{\infty}u_ns^n.
+\]
+
+By the definition of \(U(s)\),
+\[
+U(s)=\sum_{n=0}^{\infty}u_ns^n.
+\]
+
+Therefore,
+\[
+E(u_{T(s)})=(1-s)U(s).
+\]
+
+It remains to show that
+\[
+E(u_{T(s)})\to u.
+\]
+
+Since
+\[
+u_n\to u,
+\]
+for every \(\varepsilon>0\), there exists \(N\) such that
+\[
+n\ge N
+\implies
+|u_n-u|<\varepsilon.
+\]
+
+Therefore,
+\[
+P(|u_{T(s)}-u|>\varepsilon)
+\le
+P(T(s)<N).
+\]
+
+But
+\[
+P(T(s)\ge N)=s^N,
+\]
+so
+\[
+P(T(s)<N)=1-s^N\to0
+\]
+as \(s\to1\).
+
+Hence
+\[
+u_{T(s)}\xrightarrow{P}u.
+\]
+
+Since \(u_n\to u\), the sequence \(\{u_n\}\) is bounded. Hence there exists \(C<\infty\) such that
+\[
+|u_n|\le C,
+\qquad n\ge0.
+\]
+
+Thus
+\[
+|u_{T(s)}|\le C.
+\]
+
+By Corollary 6.3.2, the dominated convergence theorem for convergence in probability,
+\[
+u_{T(s)}\xrightarrow{P}u
+\]
+and
+\[
+|u_{T(s)}|\le C\in L_1
+\]
+imply
+\[
+E(u_{T(s)})\to E(u)=u.
+\]
+
+Since
+\[
+E(u_{T(s)})=(1-s)U(s),
+\]
+we conclude that
+\[
+\lim_{s\to1}(1-s)U(s)=u.
+\]
 \]
 
 Therefore, if
@@ -5609,3 +5787,304 @@ XY\in L_1.
 \]
 
 $\textbf{Note:}$ What we have done in this exercise is called the Young's Inequality, and we can deduce Holder's Inequality from it.
+
+### Ex 29
+::: problem
+Suppose the probability space is
+\[
+((0,1],\mathcal B((0,1]),\lambda),
+\]
+where \(\lambda\) is Lebesgue measure. Define the interval
+\[
+A_n:=\left[2^{-p}q,2^{-p}(q+1)\right],
+\]
+where
+\[
+2^p+q=n
+\]
+is the decomposition of \(n\) such that \(p\) and \(q\) are integers satisfying
+\[
+p\ge0,\qquad 0\le q<2^p.
+\]
+Show
+\[
+1_{A_n}\xrightarrow{P}0
+\]
+but
+\[
+\limsup_{n\to\infty}1_{A_n}=1,
+\qquad
+\liminf_{n\to\infty}1_{A_n}=0.
+\]
+:::
+
+$\textbf{Answer:}$
+
+For each \(n\), write
+\[
+n=2^p+q,
+\]
+where
+\[
+p\ge0,\qquad 0\le q<2^p.
+\]
+
+Then
+\[
+A_n
+=
+\left[ \frac{q}{2^p},\frac{q+1}{2^p}\right].
+\]
+
+Since the underlying space is
+\[
+\Omega=(0,1],
+\]
+we understand \(A_n\) as
+\[
+A_n\cap\Omega.
+\]
+
+Thus
+\[
+\lambda(A_n)=\frac1{2^p}.
+\]
+
+1. Convergence in probability
+
+We first show
+\[
+1_{A_n}\xrightarrow{P}0.
+\]
+
+Let \(\varepsilon>0\).
+
+If \(\varepsilon\ge1\), then
+\[
+P(1_{A_n}>\varepsilon)=0.
+\]
+
+If \(0<\varepsilon<1\), then
+\[
+P(1_{A_n}>\varepsilon)
+=
+P(A_n)
+=
+\lambda(A_n)
+=
+\frac1{2^p}.
+\]
+
+Since
+\[
+n=2^p+q
+\]
+and
+\[
+0\le q<2^p,
+\]
+we have
+\[
+2^p\le n<2^{p+1}.
+\]
+
+Therefore, as \(n\to\infty\),
+\[
+p\to\infty.
+\]
+
+Hence
+\[
+\frac1{2^p}\to0.
+\]
+
+So for every \(\varepsilon>0\),
+\[
+P(1_{A_n}>\varepsilon)\to0.
+\]
+
+Therefore,
+\[
+1_{A_n}\xrightarrow{P}0.
+\]
+
+2. The limsup
+
+We have
+\[
+\limsup_{n\to\infty}A_n
+=
+\bigcap_{n=1}^{\infty}
+\bigcup_{k=n}^{\infty}A_k.
+\]
+
+We show that
+\[
+\limsup_{n\to\infty}A_n=\Omega.
+\]
+
+Fix \(n\). Choose \(p\) large enough such that
+\[
+2^p>n.
+\]
+
+Then the whole \(p\)-th dyadic block
+\[
+A_{2^p+q}
+=
+\left[\frac q{2^p},\frac{q+1}{2^p}\right],
+\qquad q=0,1,\dots,2^p-1,
+\]
+appears in the tail
+\[
+\{A_k:k\ge n\}.
+\]
+
+Moreover,
+\[
+\bigcup_{q=0}^{2^p-1}
+\left[\frac q{2^p},\frac{q+1}{2^p}\right]
+=
+[0,1].
+\]
+
+Intersecting with the underlying space \(\Omega=(0,1]\), this gives
+\[
+\bigcup_{q=0}^{2^p-1}A_{2^p+q}
+=
+\Omega.
+\]
+
+Since this whole block is contained in the tail,
+\[
+\Omega
+=
+\bigcup_{q=0}^{2^p-1}A_{2^p+q}
+\subseteq
+\bigcup_{k=n}^{\infty}A_k.
+\]
+
+The reverse inclusion is automatic because each \(A_k\subseteq\Omega\). Hence
+\[
+\bigcup_{k=n}^{\infty}A_k=\Omega.
+\]
+
+Since this holds for every \(n\),
+\[
+\limsup_{n\to\infty}A_n
+=
+\bigcap_{n=1}^{\infty}\Omega
+=
+\Omega.
+\]
+
+Therefore,
+\[
+\limsup_{n\to\infty}1_{A_n}
+=
+1_{\limsup A_n}
+=
+1_{\Omega}
+=
+1.
+\]
+
+3. The liminf
+
+We have
+\[
+\liminf_{n\to\infty}A_n
+=
+\bigcup_{n=1}^{\infty}
+\bigcap_{k=n}^{\infty}A_k.
+\]
+
+We show that
+\[
+\liminf_{n\to\infty}A_n=\varnothing.
+\]
+
+Fix \(n\). Choose \(p\) large enough such that
+\[
+p\ge2
+\]
+and
+\[
+2^p>n.
+\]
+
+Then the whole \(p\)-th dyadic block appears in the tail
+\[
+\{A_k:k\ge n\}.
+\]
+
+In particular, the tail contains both intervals
+\[
+A_{2^p}
+=
+\left[0,\frac1{2^p}\right]
+\]
+and
+\[
+A_{2^p+2^p-1}
+=
+\left[\frac{2^p-1}{2^p},1\right].
+\]
+
+Since \(p\ge2\), these two intervals are disjoint. Therefore,
+\[
+\left[0,\frac1{2^p}\right]
+\cap
+\left[\frac{2^p-1}{2^p},1\right]
+=
+\varnothing.
+\]
+
+Since both intervals appear in the tail, we have
+\[
+\bigcap_{k=n}^{\infty}A_k
+\subseteq
+\left[0,\frac1{2^p}\right]
+\cap
+\left[\frac{2^p-1}{2^p},1\right]
+=
+\varnothing.
+\]
+
+Hence
+\[
+\bigcap_{k=n}^{\infty}A_k=\varnothing.
+\]
+
+Since this holds for every \(n\),
+\[
+\liminf_{n\to\infty}A_n
+=
+\bigcup_{n=1}^{\infty}\varnothing
+=
+\varnothing.
+\]
+
+Therefore,
+\[
+\liminf_{n\to\infty}1_{A_n}
+=
+1_{\liminf A_n}
+=
+1_{\varnothing}
+=
+0.
+\]
+
+Thus,
+\[
+1_{A_n}\xrightarrow{P}0,
+\]
+but
+\[
+\limsup_{n\to\infty}1_{A_n}=1
+\]
+and
+\[
+\liminf_{n\to\infty}1_{A_n}=0.
+\]
