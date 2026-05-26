@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chap 6, Convergence Concepts | Notes on A Probability Path (Resnick)</title>
   <meta name="description" content="Chap 6, Convergence Concepts | Notes on A Probability Path (Resnick)" />
-  <meta name="generator" content="bookdown 0.46 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.42 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chap 6, Convergence Concepts | Notes on A Probability Path (Resnick)" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="Zhanwen Peng" />
 
 
-<meta name="date" content="2026-05-25" />
+<meta name="date" content="2026-05-26" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -403,6 +403,7 @@
 <li class="chapter" data-level="" data-path="chap-6-convergence-concepts.html"><a href="chap-6-convergence-concepts.html#ex-28-2"><i class="fa fa-check"></i>Ex 28</a></li>
 <li class="chapter" data-level="" data-path="chap-6-convergence-concepts.html"><a href="chap-6-convergence-concepts.html#ex-23-2"><i class="fa fa-check"></i>Ex 23</a></li>
 <li class="chapter" data-level="" data-path="chap-6-convergence-concepts.html"><a href="chap-6-convergence-concepts.html#ex-29-2"><i class="fa fa-check"></i>Ex 29</a></li>
+<li class="chapter" data-level="" data-path="chap-6-convergence-concepts.html"><a href="chap-6-convergence-concepts.html#ex-33-1"><i class="fa fa-check"></i>Ex 33</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -5702,6 +5703,82 @@ but
 and
 <span class="math display">\[
 \liminf_{n\to\infty}1_{A_n}=0.
+\]</span></p>
+</div>
+<div id="ex-33-1" class="section level3 hasAnchor">
+<h3>Ex 33<a href="chap-6-convergence-concepts.html#ex-33-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="problem">
+<p>Suppose <span class="math inline">\(\{X_{n,k}:1\le k\le n,\ n\ge1\}\)</span> is a triangular array of non-negative random variables. For <span class="math inline">\(n\ge1\)</span>, set
+<span class="math display">\[
+S_n=\sum_{i=1}^n X_{n,i},
+\qquad
+M_n=\max_{1\le i\le n}X_{n,i}.
+\]</span>
+Show that
+<span class="math display">\[
+M_n\xrightarrow{P}0
+\]</span>
+implies
+<span class="math display">\[
+\frac{S_n}{n}\xrightarrow{P}0.
+\]</span></p>
+</div>
+<p><span class="math inline">\(\textbf{Answer:}\)</span></p>
+<p>Since
+<span class="math display">\[
+M_n=\max_{1\le i\le n}X_{n,i},
+\]</span>
+we have, for every <span class="math inline">\(i=1,\dots,n\)</span>,
+<span class="math display">\[
+X_{n,i}\le M_n.
+\]</span></p>
+<p>Because the random variables are non-negative,
+<span class="math display">\[
+0\le X_{n,i}\le M_n.
+\]</span></p>
+<p>Therefore,
+<span class="math display">\[
+0
+\le
+\frac{S_n}{n}
+=
+\frac1n\sum_{i=1}^n X_{n,i}
+\le
+\frac1n\sum_{i=1}^n M_n
+=
+M_n.
+\]</span></p>
+<p>Now fix <span class="math inline">\(\varepsilon&gt;0\)</span>. From
+<span class="math display">\[
+0\le \frac{S_n}{n}\le M_n,
+\]</span>
+we get
+<span class="math display">\[
+\left\{\frac{S_n}{n}&gt;\varepsilon\right\}
+\subseteq
+\{M_n&gt;\varepsilon\}.
+\]</span></p>
+<p>Hence
+<span class="math display">\[
+P\left(\frac{S_n}{n}&gt;\varepsilon\right)
+\le
+P(M_n&gt;\varepsilon).
+\]</span></p>
+<p>Since
+<span class="math display">\[
+M_n\xrightarrow{P}0,
+\]</span>
+we have
+<span class="math display">\[
+P(M_n&gt;\varepsilon)\to0.
+\]</span></p>
+<p>Therefore,
+<span class="math display">\[
+P\left(\frac{S_n}{n}&gt;\varepsilon\right)\to0.
+\]</span></p>
+<p>Since this holds for every <span class="math inline">\(\varepsilon&gt;0\)</span>,
+<span class="math display">\[
+\frac{S_n}{n}\xrightarrow{P}0.
 \]</span></p>
 
 </div>

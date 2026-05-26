@@ -6088,3 +6088,87 @@ and
 \[
 \liminf_{n\to\infty}1_{A_n}=0.
 \]
+
+### Ex 33
+::: problem
+Suppose \(\{X_{n,k}:1\le k\le n,\ n\ge1\}\) is a triangular array of non-negative random variables. For \(n\ge1\), set
+\[
+S_n=\sum_{i=1}^n X_{n,i},
+\qquad
+M_n=\max_{1\le i\le n}X_{n,i}.
+\]
+Show that
+\[
+M_n\xrightarrow{P}0
+\]
+implies
+\[
+\frac{S_n}{n}\xrightarrow{P}0.
+\]
+:::
+
+$\textbf{Answer:}$
+
+Since
+\[
+M_n=\max_{1\le i\le n}X_{n,i},
+\]
+we have, for every \(i=1,\dots,n\),
+\[
+X_{n,i}\le M_n.
+\]
+
+Because the random variables are non-negative,
+\[
+0\le X_{n,i}\le M_n.
+\]
+
+Therefore,
+\[
+0
+\le
+\frac{S_n}{n}
+=
+\frac1n\sum_{i=1}^n X_{n,i}
+\le
+\frac1n\sum_{i=1}^n M_n
+=
+M_n.
+\]
+
+Now fix \(\varepsilon>0\). From
+\[
+0\le \frac{S_n}{n}\le M_n,
+\]
+we get
+\[
+\left\{\frac{S_n}{n}>\varepsilon\right\}
+\subseteq
+\{M_n>\varepsilon\}.
+\]
+
+Hence
+\[
+P\left(\frac{S_n}{n}>\varepsilon\right)
+\le
+P(M_n>\varepsilon).
+\]
+
+Since
+\[
+M_n\xrightarrow{P}0,
+\]
+we have
+\[
+P(M_n>\varepsilon)\to0.
+\]
+
+Therefore,
+\[
+P\left(\frac{S_n}{n}>\varepsilon\right)\to0.
+\]
+
+Since this holds for every \(\varepsilon>0\),
+\[
+\frac{S_n}{n}\xrightarrow{P}0.
+\]
