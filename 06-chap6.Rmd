@@ -6172,3 +6172,352 @@ Since this holds for every \(\varepsilon>0\),
 \[
 \frac{S_n}{n}\xrightarrow{P}0.
 \]
+
+### Ex 31
+::: problem
+Recall the definition of median from Exercise 31 of Chapter 5.
+
+(a)
+
+Let \(\{X_n,n\ge1\}\) be a sequence of random variables such that there exists a sequence of constants \(\{c_n\}\) with the property that
+\[
+X_n-c_n\xrightarrow{P}0.
+\]
+If \(m(X_n)\) is a median of \(X_n\), show
+\[
+X_n-m(X_n)\xrightarrow{P}0
+\]
+and
+\[
+c_n-m(X_n)\to0.
+\]
+
+(b)
+
+If there exists a random variable \(X\) with a unique median such that
+\[
+X_n\xrightarrow{P}X,
+\]
+then
+\[
+m(X_n)\to m(X).
+\]
+:::
+
+$\textbf{Answer:}$
+
+Let
+\[
+m_n=m(X_n).
+\]
+
+Recall that \(m_n\) is a median of \(X_n\), so
+\[
+P(X_n\ge m_n)\ge \frac12
+\]
+and
+\[
+P(X_n\le m_n)\ge \frac12.
+\]
+
+#### (a)
+
+First we show that
+\[
+c_n-m_n\to0.
+\]
+
+Suppose not. Then there exists \(\varepsilon_0>0\) such that
+\[
+|c_n-m_n|\ge \varepsilon_0
+\]
+infinitely often.
+
+Hence, along a subsequence, one of the following two cases occurs:
+
+\[
+m_n\ge c_n+\varepsilon_0
+\]
+or
+\[
+m_n\le c_n-\varepsilon_0.
+\]
+
+First suppose that
+\[
+m_n\ge c_n+\varepsilon_0
+\]
+along a subsequence.
+
+Since \(m_n\) is a median of \(X_n\),
+\[
+P(X_n\ge m_n)\ge \frac12.
+\]
+
+Also,
+\[
+\{X_n\ge m_n\}
+\subseteq
+\{X_n\ge c_n+\varepsilon_0\}.
+\]
+
+Therefore,
+\[
+P(X_n-c_n\ge \varepsilon_0)
+\ge
+P(X_n\ge m_n)
+\ge
+\frac12.
+\]
+
+This contradicts
+\[
+X_n-c_n\xrightarrow{P}0.
+\]
+
+Next suppose that
+\[
+m_n\le c_n-\varepsilon_0
+\]
+along a subsequence.
+
+Since \(m_n\) is a median of \(X_n\),
+\[
+P(X_n\le m_n)\ge \frac12.
+\]
+
+Also,
+\[
+\{X_n\le m_n\}
+\subseteq
+\{X_n\le c_n-\varepsilon_0\}.
+\]
+
+Therefore,
+\[
+P(X_n-c_n\le -\varepsilon_0)
+\ge
+P(X_n\le m_n)
+\ge
+\frac12.
+\]
+
+This also contradicts
+\[
+X_n-c_n\xrightarrow{P}0.
+\]
+
+Thus both alternatives are impossible, and hence
+\[
+c_n-m_n\to0.
+\]
+
+Now we show that
+\[
+X_n-m_n\xrightarrow{P}0.
+\]
+
+By the triangle inequality,
+\[
+|X_n-m_n|
+=
+|X_n-c_n+c_n-m_n|
+\le
+|X_n-c_n|+|c_n-m_n|.
+\]
+
+Fix \(\varepsilon>0\). Since
+\[
+c_n-m_n\to0,
+\]
+for all sufficiently large \(n\),
+\[
+|c_n-m_n|<\frac{\varepsilon}{2}.
+\]
+
+Therefore, for all sufficiently large \(n\),
+\[
+\{|X_n-m_n|>\varepsilon\}
+\subseteq
+\left\{|X_n-c_n|>\frac{\varepsilon}{2}\right\}.
+\]
+
+Hence
+\[
+P(|X_n-m_n|>\varepsilon)
+\le
+P\left(|X_n-c_n|>\frac{\varepsilon}{2}\right).
+\]
+
+Since
+\[
+X_n-c_n\xrightarrow{P}0,
+\]
+we have
+\[
+P\left(|X_n-c_n|>\frac{\varepsilon}{2}\right)\to0.
+\]
+
+Therefore,
+\[
+P(|X_n-m_n|>\varepsilon)\to0.
+\]
+
+Since this holds for every \(\varepsilon>0\),
+\[
+X_n-m(X_n)\xrightarrow{P}0.
+\]
+
+#### (b)
+
+Let
+\[
+m=m(X).
+\]
+
+Assume that \(m\) is the unique median of \(X\). We prove
+\[
+m_n\to m.
+\]
+
+Suppose not. Then there exists \(\varepsilon_0>0\) and a subsequence such that one of the following two alternatives holds:
+
+\[
+m_n\ge m+\varepsilon_0
+\]
+or
+\[
+m_n\le m-\varepsilon_0.
+\]
+
+First suppose that
+\[
+m_n\ge m+\varepsilon_0
+\]
+along a subsequence.
+
+Since \(m_n\) is a median of \(X_n\),
+\[
+P(X_n\ge m_n)\ge \frac12.
+\]
+
+Thus
+\[
+P(X_n\ge m+\varepsilon_0)
+\ge
+P(X_n\ge m_n)
+\ge
+\frac12.
+\]
+
+On the other hand,
+\[
+\{X_n\ge m+\varepsilon_0\}
+\subseteq
+\left\{X\ge m+\frac{\varepsilon_0}{2}\right\}
+\cup
+\left\{|X_n-X|\ge \frac{\varepsilon_0}{2}\right\}.
+\]
+
+Therefore,
+\[
+P(X_n\ge m+\varepsilon_0)
+\le
+P\left(X\ge m+\frac{\varepsilon_0}{2}\right)
++
+P\left(|X_n-X|\ge \frac{\varepsilon_0}{2}\right).
+\]
+
+Since
+\[
+X_n\xrightarrow{P}X,
+\]
+we have
+\[
+P\left(|X_n-X|\ge \frac{\varepsilon_0}{2}\right)\to0.
+\]
+
+Also, since \(m\) is the unique median of \(X\),
+\[
+P\left(X\ge m+\frac{\varepsilon_0}{2}\right)<\frac12.
+\]
+
+Hence, for all sufficiently large \(n\) along the subsequence,
+\[
+P(X_n\ge m+\varepsilon_0)<\frac12.
+\]
+
+This contradicts
+\[
+P(X_n\ge m+\varepsilon_0)\ge \frac12.
+\]
+
+Next suppose that
+\[
+m_n\le m-\varepsilon_0
+\]
+along a subsequence.
+
+Since \(m_n\) is a median of \(X_n\),
+\[
+P(X_n\le m_n)\ge \frac12.
+\]
+
+Thus
+\[
+P(X_n\le m-\varepsilon_0)
+\ge
+P(X_n\le m_n)
+\ge
+\frac12.
+\]
+
+But
+\[
+\{X_n\le m-\varepsilon_0\}
+\subseteq
+\left\{X\le m-\frac{\varepsilon_0}{2}\right\}
+\cup
+\left\{|X_n-X|\ge \frac{\varepsilon_0}{2}\right\}.
+\]
+
+Therefore,
+\[
+P(X_n\le m-\varepsilon_0)
+\le
+P\left(X\le m-\frac{\varepsilon_0}{2}\right)
++
+P\left(|X_n-X|\ge \frac{\varepsilon_0}{2}\right).
+\]
+
+Again,
+\[
+P\left(|X_n-X|\ge \frac{\varepsilon_0}{2}\right)\to0.
+\]
+
+Since \(m\) is the unique median of \(X\),
+\[
+P\left(X\le m-\frac{\varepsilon_0}{2}\right)<\frac12.
+\]
+
+Hence, for all sufficiently large \(n\) along the subsequence,
+\[
+P(X_n\le m-\varepsilon_0)<\frac12.
+\]
+
+This contradicts
+\[
+P(X_n\le m-\varepsilon_0)\ge \frac12.
+\]
+
+Therefore both alternatives are impossible. Hence
+\[
+m_n\to m.
+\]
+
+That is,
+\[
+m(X_n)\to m(X).
+\]
+
+

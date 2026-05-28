@@ -23,7 +23,7 @@
 <meta name="author" content="Zhanwen Peng" />
 
 
-<meta name="date" content="2026-05-26" />
+<meta name="date" content="2026-05-28" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -404,6 +404,11 @@
 <li class="chapter" data-level="" data-path="chap-6-convergence-concepts.html"><a href="chap-6-convergence-concepts.html#ex-23-2"><i class="fa fa-check"></i>Ex 23</a></li>
 <li class="chapter" data-level="" data-path="chap-6-convergence-concepts.html"><a href="chap-6-convergence-concepts.html#ex-29-2"><i class="fa fa-check"></i>Ex 29</a></li>
 <li class="chapter" data-level="" data-path="chap-6-convergence-concepts.html"><a href="chap-6-convergence-concepts.html#ex-33-1"><i class="fa fa-check"></i>Ex 33</a></li>
+<li class="chapter" data-level="" data-path="chap-6-convergence-concepts.html"><a href="chap-6-convergence-concepts.html#ex-31-2"><i class="fa fa-check"></i>Ex 31</a>
+<ul>
+<li class="chapter" data-level="" data-path="chap-6-convergence-concepts.html"><a href="chap-6-convergence-concepts.html#a-27"><i class="fa fa-check"></i>(a)</a></li>
+<li class="chapter" data-level="" data-path="chap-6-convergence-concepts.html"><a href="chap-6-convergence-concepts.html#b-27"><i class="fa fa-check"></i>(b)</a></li>
+</ul></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -5780,7 +5785,307 @@ P\left(\frac{S_n}{n}&gt;\varepsilon\right)\to0.
 <span class="math display">\[
 \frac{S_n}{n}\xrightarrow{P}0.
 \]</span></p>
+</div>
+<div id="ex-31-2" class="section level3 hasAnchor">
+<h3>Ex 31<a href="chap-6-convergence-concepts.html#ex-31-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="problem">
+<p>Recall the definition of median from Exercise 31 of Chapter 5.</p>
+<ol style="list-style-type: lower-alpha">
+<li></li>
+</ol>
+<p>Let <span class="math inline">\(\{X_n,n\ge1\}\)</span> be a sequence of random variables such that there exists a sequence of constants <span class="math inline">\(\{c_n\}\)</span> with the property that
+<span class="math display">\[
+X_n-c_n\xrightarrow{P}0.
+\]</span>
+If <span class="math inline">\(m(X_n)\)</span> is a median of <span class="math inline">\(X_n\)</span>, show
+<span class="math display">\[
+X_n-m(X_n)\xrightarrow{P}0
+\]</span>
+and
+<span class="math display">\[
+c_n-m(X_n)\to0.
+\]</span></p>
+<ol start="2" style="list-style-type: lower-alpha">
+<li></li>
+</ol>
+<p>If there exists a random variable <span class="math inline">\(X\)</span> with a unique median such that
+<span class="math display">\[
+X_n\xrightarrow{P}X,
+\]</span>
+then
+<span class="math display">\[
+m(X_n)\to m(X).
+\]</span></p>
+</div>
+<p><span class="math inline">\(\textbf{Answer:}\)</span></p>
+<p>Let
+<span class="math display">\[
+m_n=m(X_n).
+\]</span></p>
+<p>Recall that <span class="math inline">\(m_n\)</span> is a median of <span class="math inline">\(X_n\)</span>, so
+<span class="math display">\[
+P(X_n\ge m_n)\ge \frac12
+\]</span>
+and
+<span class="math display">\[
+P(X_n\le m_n)\ge \frac12.
+\]</span></p>
+<div id="a-27" class="section level4 hasAnchor">
+<h4>(a)<a href="chap-6-convergence-concepts.html#a-27" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>First we show that
+<span class="math display">\[
+c_n-m_n\to0.
+\]</span></p>
+<p>Suppose not. Then there exists <span class="math inline">\(\varepsilon_0&gt;0\)</span> such that
+<span class="math display">\[
+|c_n-m_n|\ge \varepsilon_0
+\]</span>
+infinitely often.</p>
+<p>Hence, along a subsequence, one of the following two cases occurs:</p>
+<p><span class="math display">\[
+m_n\ge c_n+\varepsilon_0
+\]</span>
+or
+<span class="math display">\[
+m_n\le c_n-\varepsilon_0.
+\]</span></p>
+<p>First suppose that
+<span class="math display">\[
+m_n\ge c_n+\varepsilon_0
+\]</span>
+along a subsequence.</p>
+<p>Since <span class="math inline">\(m_n\)</span> is a median of <span class="math inline">\(X_n\)</span>,
+<span class="math display">\[
+P(X_n\ge m_n)\ge \frac12.
+\]</span></p>
+<p>Also,
+<span class="math display">\[
+\{X_n\ge m_n\}
+\subseteq
+\{X_n\ge c_n+\varepsilon_0\}.
+\]</span></p>
+<p>Therefore,
+<span class="math display">\[
+P(X_n-c_n\ge \varepsilon_0)
+\ge
+P(X_n\ge m_n)
+\ge
+\frac12.
+\]</span></p>
+<p>This contradicts
+<span class="math display">\[
+X_n-c_n\xrightarrow{P}0.
+\]</span></p>
+<p>Next suppose that
+<span class="math display">\[
+m_n\le c_n-\varepsilon_0
+\]</span>
+along a subsequence.</p>
+<p>Since <span class="math inline">\(m_n\)</span> is a median of <span class="math inline">\(X_n\)</span>,
+<span class="math display">\[
+P(X_n\le m_n)\ge \frac12.
+\]</span></p>
+<p>Also,
+<span class="math display">\[
+\{X_n\le m_n\}
+\subseteq
+\{X_n\le c_n-\varepsilon_0\}.
+\]</span></p>
+<p>Therefore,
+<span class="math display">\[
+P(X_n-c_n\le -\varepsilon_0)
+\ge
+P(X_n\le m_n)
+\ge
+\frac12.
+\]</span></p>
+<p>This also contradicts
+<span class="math display">\[
+X_n-c_n\xrightarrow{P}0.
+\]</span></p>
+<p>Thus both alternatives are impossible, and hence
+<span class="math display">\[
+c_n-m_n\to0.
+\]</span></p>
+<p>Now we show that
+<span class="math display">\[
+X_n-m_n\xrightarrow{P}0.
+\]</span></p>
+<p>By the triangle inequality,
+<span class="math display">\[
+|X_n-m_n|
+=
+|X_n-c_n+c_n-m_n|
+\le
+|X_n-c_n|+|c_n-m_n|.
+\]</span></p>
+<p>Fix <span class="math inline">\(\varepsilon&gt;0\)</span>. Since
+<span class="math display">\[
+c_n-m_n\to0,
+\]</span>
+for all sufficiently large <span class="math inline">\(n\)</span>,
+<span class="math display">\[
+|c_n-m_n|&lt;\frac{\varepsilon}{2}.
+\]</span></p>
+<p>Therefore, for all sufficiently large <span class="math inline">\(n\)</span>,
+<span class="math display">\[
+\{|X_n-m_n|&gt;\varepsilon\}
+\subseteq
+\left\{|X_n-c_n|&gt;\frac{\varepsilon}{2}\right\}.
+\]</span></p>
+<p>Hence
+<span class="math display">\[
+P(|X_n-m_n|&gt;\varepsilon)
+\le
+P\left(|X_n-c_n|&gt;\frac{\varepsilon}{2}\right).
+\]</span></p>
+<p>Since
+<span class="math display">\[
+X_n-c_n\xrightarrow{P}0,
+\]</span>
+we have
+<span class="math display">\[
+P\left(|X_n-c_n|&gt;\frac{\varepsilon}{2}\right)\to0.
+\]</span></p>
+<p>Therefore,
+<span class="math display">\[
+P(|X_n-m_n|&gt;\varepsilon)\to0.
+\]</span></p>
+<p>Since this holds for every <span class="math inline">\(\varepsilon&gt;0\)</span>,
+<span class="math display">\[
+X_n-m(X_n)\xrightarrow{P}0.
+\]</span></p>
+</div>
+<div id="b-27" class="section level4 hasAnchor">
+<h4>(b)<a href="chap-6-convergence-concepts.html#b-27" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Let
+<span class="math display">\[
+m=m(X).
+\]</span></p>
+<p>Assume that <span class="math inline">\(m\)</span> is the unique median of <span class="math inline">\(X\)</span>. We prove
+<span class="math display">\[
+m_n\to m.
+\]</span></p>
+<p>Suppose not. Then there exists <span class="math inline">\(\varepsilon_0&gt;0\)</span> and a subsequence such that one of the following two alternatives holds:</p>
+<p><span class="math display">\[
+m_n\ge m+\varepsilon_0
+\]</span>
+or
+<span class="math display">\[
+m_n\le m-\varepsilon_0.
+\]</span></p>
+<p>First suppose that
+<span class="math display">\[
+m_n\ge m+\varepsilon_0
+\]</span>
+along a subsequence.</p>
+<p>Since <span class="math inline">\(m_n\)</span> is a median of <span class="math inline">\(X_n\)</span>,
+<span class="math display">\[
+P(X_n\ge m_n)\ge \frac12.
+\]</span></p>
+<p>Thus
+<span class="math display">\[
+P(X_n\ge m+\varepsilon_0)
+\ge
+P(X_n\ge m_n)
+\ge
+\frac12.
+\]</span></p>
+<p>On the other hand,
+<span class="math display">\[
+\{X_n\ge m+\varepsilon_0\}
+\subseteq
+\left\{X\ge m+\frac{\varepsilon_0}{2}\right\}
+\cup
+\left\{|X_n-X|\ge \frac{\varepsilon_0}{2}\right\}.
+\]</span></p>
+<p>Therefore,
+<span class="math display">\[
+P(X_n\ge m+\varepsilon_0)
+\le
+P\left(X\ge m+\frac{\varepsilon_0}{2}\right)
++
+P\left(|X_n-X|\ge \frac{\varepsilon_0}{2}\right).
+\]</span></p>
+<p>Since
+<span class="math display">\[
+X_n\xrightarrow{P}X,
+\]</span>
+we have
+<span class="math display">\[
+P\left(|X_n-X|\ge \frac{\varepsilon_0}{2}\right)\to0.
+\]</span></p>
+<p>Also, since <span class="math inline">\(m\)</span> is the unique median of <span class="math inline">\(X\)</span>,
+<span class="math display">\[
+P\left(X\ge m+\frac{\varepsilon_0}{2}\right)&lt;\frac12.
+\]</span></p>
+<p>Hence, for all sufficiently large <span class="math inline">\(n\)</span> along the subsequence,
+<span class="math display">\[
+P(X_n\ge m+\varepsilon_0)&lt;\frac12.
+\]</span></p>
+<p>This contradicts
+<span class="math display">\[
+P(X_n\ge m+\varepsilon_0)\ge \frac12.
+\]</span></p>
+<p>Next suppose that
+<span class="math display">\[
+m_n\le m-\varepsilon_0
+\]</span>
+along a subsequence.</p>
+<p>Since <span class="math inline">\(m_n\)</span> is a median of <span class="math inline">\(X_n\)</span>,
+<span class="math display">\[
+P(X_n\le m_n)\ge \frac12.
+\]</span></p>
+<p>Thus
+<span class="math display">\[
+P(X_n\le m-\varepsilon_0)
+\ge
+P(X_n\le m_n)
+\ge
+\frac12.
+\]</span></p>
+<p>But
+<span class="math display">\[
+\{X_n\le m-\varepsilon_0\}
+\subseteq
+\left\{X\le m-\frac{\varepsilon_0}{2}\right\}
+\cup
+\left\{|X_n-X|\ge \frac{\varepsilon_0}{2}\right\}.
+\]</span></p>
+<p>Therefore,
+<span class="math display">\[
+P(X_n\le m-\varepsilon_0)
+\le
+P\left(X\le m-\frac{\varepsilon_0}{2}\right)
++
+P\left(|X_n-X|\ge \frac{\varepsilon_0}{2}\right).
+\]</span></p>
+<p>Again,
+<span class="math display">\[
+P\left(|X_n-X|\ge \frac{\varepsilon_0}{2}\right)\to0.
+\]</span></p>
+<p>Since <span class="math inline">\(m\)</span> is the unique median of <span class="math inline">\(X\)</span>,
+<span class="math display">\[
+P\left(X\le m-\frac{\varepsilon_0}{2}\right)&lt;\frac12.
+\]</span></p>
+<p>Hence, for all sufficiently large <span class="math inline">\(n\)</span> along the subsequence,
+<span class="math display">\[
+P(X_n\le m-\varepsilon_0)&lt;\frac12.
+\]</span></p>
+<p>This contradicts
+<span class="math display">\[
+P(X_n\le m-\varepsilon_0)\ge \frac12.
+\]</span></p>
+<p>Therefore both alternatives are impossible. Hence
+<span class="math display">\[
+m_n\to m.
+\]</span></p>
+<p>That is,
+<span class="math display">\[
+m(X_n)\to m(X).
+\]</span></p>
 
+</div>
 </div>
 </div>
 </div>
