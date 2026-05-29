@@ -6521,3 +6521,203 @@ m(X_n)\to m(X).
 \]
 
 
+### Ex 32
+::: problem
+For a random variable \(X\), let \(\gamma(X)\) be the central value defined in Exercise 25 of Chapter 5.
+
+For a sequence of random variables \(\{X_n,n\ge0\}\), suppose there exists a sequence of constants \(\{c_n\}\) such that
+\[
+X_n-c_n\to X_0
+\]
+almost surely.
+
+Show
+\[
+\lim_{n\to\infty}\left(X_n-\gamma(X_n)\right)
+\]
+exists and is finite almost surely, where \(\gamma(X_n)\) is the unique root of the equation
+\[
+E[\arctan(X-\gamma)]=0.
+\]
+
+Show
+\[
+\lim_{n\to\infty}\left(c_n-\gamma(X_n)\right)
+\]
+exists and is finite.
+:::
+
+$\textbf{Answer:}$
+
+Let
+\[
+g(x)=\arctan x.
+\]
+
+By Exercise 25 of Chapter 5, the central value satisfies the shift property
+\[
+\gamma(X_n)-c_n=\gamma(X_n-c_n).
+\]
+
+Define
+\[
+Z_n=X_n-c_n.
+\]
+
+Then the assumption becomes
+\[
+Z_n\to X_0
+\quad a.s.
+\]
+
+So it is natural to prove
+\[
+\gamma(Z_n)\to\gamma(X_0).
+\]
+
+Since \(g=\arctan\) is bounded and continuous, for every fixed \(r\in\mathbb R\),
+\[
+g(Z_n-r)\to g(X_0-r)
+\quad a.s.
+\]
+
+Also,
+\[
+|g(Z_n-r)|\le \frac{\pi}{2}.
+\]
+
+Thus, by the Dominated Convergence Theorem,
+\[
+E[g(Z_n-r)]\to E[g(X_0-r)]
+\]
+for every fixed \(r\in\mathbb R\).
+
+Let
+\[
+a=\gamma(X_0).
+\]
+
+Then
+\[
+E[g(X_0-a)]=0.
+\]
+
+By Exercise 25 of Chapter 5, the function
+\[
+r\mapsto E[g(X_0-r)]
+\]
+is continuous and non-increasing, and its root is unique.
+
+Therefore, for every \(\varepsilon>0\),
+\[
+E[g(X_0-(a-\varepsilon))]>0
+\]
+and
+\[
+E[g(X_0-(a+\varepsilon))]<0.
+\]
+
+By the convergence just proved, we have
+\[
+E[g(Z_n-(a-\varepsilon))]
+\to
+E[g(X_0-(a-\varepsilon))]
+\]
+and
+\[
+E[g(Z_n-(a+\varepsilon))]
+\to
+E[g(X_0-(a+\varepsilon))].
+\]
+
+Hence, for all sufficiently large \(n\),
+\[
+E[g(Z_n-(a-\varepsilon))]>0
+\]
+and
+\[
+E[g(Z_n-(a+\varepsilon))]<0.
+\]
+
+For each fixed \(n\), the function
+\[
+r\mapsto E[g(Z_n-r)]
+\]
+is continuous and non-increasing, and its unique root is
+\[
+\gamma(Z_n).
+\]
+
+Therefore, for all sufficiently large \(n\),
+\[
+a-\varepsilon
+<
+\gamma(Z_n)
+<
+a+\varepsilon.
+\]
+
+Since \(\varepsilon>0\) was arbitrary,
+\[
+\gamma(Z_n)\to a.
+\]
+
+That is,
+\[
+\gamma(X_n-c_n)\to\gamma(X_0).
+\]
+
+Now, using the shift property,
+\[
+c_n-\gamma(X_n)
+=
+-\left(\gamma(X_n)-c_n\right)
+=
+-\gamma(X_n-c_n).
+\]
+
+Thus
+\[
+c_n-\gamma(X_n)
+\to
+-\gamma(X_0).
+\]
+
+Therefore,
+\[
+\lim_{n\to\infty}\left(c_n-\gamma(X_n)\right)
+\]
+exists and is finite.
+
+Finally,
+\[
+X_n-\gamma(X_n)
+=
+(X_n-c_n)+(c_n-\gamma(X_n)).
+\]
+
+We already know
+\[
+X_n-c_n\to X_0
+\quad a.s.,
+\]
+and
+\[
+c_n-\gamma(X_n)\to-\gamma(X_0).
+\]
+
+Therefore,
+\[
+X_n-\gamma(X_n)
+\to
+X_0-\gamma(X_0)
+\quad a.s.
+\]
+
+Hence
+\[
+\lim_{n\to\infty}\left(X_n-\gamma(X_n)\right)
+\]
+exists and is finite almost surely.
+
+$\textbf{Note:}$ We should note that when $E(g(Z_n-\gamma))\to E(g(X_0-\gamma))$, the convergence of their root is not trivial, we need to go back to use $\varepsilon-N$ language and the monotonicity of $E(g(Z_n-\gamma))$ to prove it.

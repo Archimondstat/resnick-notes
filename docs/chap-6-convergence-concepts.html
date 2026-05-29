@@ -23,7 +23,7 @@
 <meta name="author" content="Zhanwen Peng" />
 
 
-<meta name="date" content="2026-05-28" />
+<meta name="date" content="2026-05-29" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -409,6 +409,7 @@
 <li class="chapter" data-level="" data-path="chap-6-convergence-concepts.html"><a href="chap-6-convergence-concepts.html#a-27"><i class="fa fa-check"></i>(a)</a></li>
 <li class="chapter" data-level="" data-path="chap-6-convergence-concepts.html"><a href="chap-6-convergence-concepts.html#b-27"><i class="fa fa-check"></i>(b)</a></li>
 </ul></li>
+<li class="chapter" data-level="" data-path="chap-6-convergence-concepts.html"><a href="chap-6-convergence-concepts.html#ex-32-2"><i class="fa fa-check"></i>Ex 32</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -6084,8 +6085,180 @@ m_n\to m.
 <span class="math display">\[
 m(X_n)\to m(X).
 \]</span></p>
-
 </div>
+</div>
+<div id="ex-32-2" class="section level3 hasAnchor">
+<h3>Ex 32<a href="chap-6-convergence-concepts.html#ex-32-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="problem">
+<p>For a random variable <span class="math inline">\(X\)</span>, let <span class="math inline">\(\gamma(X)\)</span> be the central value defined in Exercise 25 of Chapter 5.</p>
+<p>For a sequence of random variables <span class="math inline">\(\{X_n,n\ge0\}\)</span>, suppose there exists a sequence of constants <span class="math inline">\(\{c_n\}\)</span> such that
+<span class="math display">\[
+X_n-c_n\to X_0
+\]</span>
+almost surely.</p>
+<p>Show
+<span class="math display">\[
+\lim_{n\to\infty}\left(X_n-\gamma(X_n)\right)
+\]</span>
+exists and is finite almost surely, where <span class="math inline">\(\gamma(X_n)\)</span> is the unique root of the equation
+<span class="math display">\[
+E[\arctan(X-\gamma)]=0.
+\]</span></p>
+<p>Show
+<span class="math display">\[
+\lim_{n\to\infty}\left(c_n-\gamma(X_n)\right)
+\]</span>
+exists and is finite.</p>
+</div>
+<p><span class="math inline">\(\textbf{Answer:}\)</span></p>
+<p>Let
+<span class="math display">\[
+g(x)=\arctan x.
+\]</span></p>
+<p>By Exercise 25 of Chapter 5, the central value satisfies the shift property
+<span class="math display">\[
+\gamma(X_n)-c_n=\gamma(X_n-c_n).
+\]</span></p>
+<p>Define
+<span class="math display">\[
+Z_n=X_n-c_n.
+\]</span></p>
+<p>Then the assumption becomes
+<span class="math display">\[
+Z_n\to X_0
+\quad a.s.
+\]</span></p>
+<p>So it is natural to prove
+<span class="math display">\[
+\gamma(Z_n)\to\gamma(X_0).
+\]</span></p>
+<p>Since <span class="math inline">\(g=\arctan\)</span> is bounded and continuous, for every fixed <span class="math inline">\(r\in\mathbb R\)</span>,
+<span class="math display">\[
+g(Z_n-r)\to g(X_0-r)
+\quad a.s.
+\]</span></p>
+<p>Also,
+<span class="math display">\[
+|g(Z_n-r)|\le \frac{\pi}{2}.
+\]</span></p>
+<p>Thus, by the Dominated Convergence Theorem,
+<span class="math display">\[
+E[g(Z_n-r)]\to E[g(X_0-r)]
+\]</span>
+for every fixed <span class="math inline">\(r\in\mathbb R\)</span>.</p>
+<p>Let
+<span class="math display">\[
+a=\gamma(X_0).
+\]</span></p>
+<p>Then
+<span class="math display">\[
+E[g(X_0-a)]=0.
+\]</span></p>
+<p>By Exercise 25 of Chapter 5, the function
+<span class="math display">\[
+r\mapsto E[g(X_0-r)]
+\]</span>
+is continuous and non-increasing, and its root is unique.</p>
+<p>Therefore, for every <span class="math inline">\(\varepsilon&gt;0\)</span>,
+<span class="math display">\[
+E[g(X_0-(a-\varepsilon))]&gt;0
+\]</span>
+and
+<span class="math display">\[
+E[g(X_0-(a+\varepsilon))]&lt;0.
+\]</span></p>
+<p>By the convergence just proved, we have
+<span class="math display">\[
+E[g(Z_n-(a-\varepsilon))]
+\to
+E[g(X_0-(a-\varepsilon))]
+\]</span>
+and
+<span class="math display">\[
+E[g(Z_n-(a+\varepsilon))]
+\to
+E[g(X_0-(a+\varepsilon))].
+\]</span></p>
+<p>Hence, for all sufficiently large <span class="math inline">\(n\)</span>,
+<span class="math display">\[
+E[g(Z_n-(a-\varepsilon))]&gt;0
+\]</span>
+and
+<span class="math display">\[
+E[g(Z_n-(a+\varepsilon))]&lt;0.
+\]</span></p>
+<p>For each fixed <span class="math inline">\(n\)</span>, the function
+<span class="math display">\[
+r\mapsto E[g(Z_n-r)]
+\]</span>
+is continuous and non-increasing, and its unique root is
+<span class="math display">\[
+\gamma(Z_n).
+\]</span></p>
+<p>Therefore, for all sufficiently large <span class="math inline">\(n\)</span>,
+<span class="math display">\[
+a-\varepsilon
+&lt;
+\gamma(Z_n)
+&lt;
+a+\varepsilon.
+\]</span></p>
+<p>Since <span class="math inline">\(\varepsilon&gt;0\)</span> was arbitrary,
+<span class="math display">\[
+\gamma(Z_n)\to a.
+\]</span></p>
+<p>That is,
+<span class="math display">\[
+\gamma(X_n-c_n)\to\gamma(X_0).
+\]</span></p>
+<p>Now, using the shift property,
+<span class="math display">\[
+c_n-\gamma(X_n)
+=
+-\left(\gamma(X_n)-c_n\right)
+=
+-\gamma(X_n-c_n).
+\]</span></p>
+<p>Thus
+<span class="math display">\[
+c_n-\gamma(X_n)
+\to
+-\gamma(X_0).
+\]</span></p>
+<p>Therefore,
+<span class="math display">\[
+\lim_{n\to\infty}\left(c_n-\gamma(X_n)\right)
+\]</span>
+exists and is finite.</p>
+<p>Finally,
+<span class="math display">\[
+X_n-\gamma(X_n)
+=
+(X_n-c_n)+(c_n-\gamma(X_n)).
+\]</span></p>
+<p>We already know
+<span class="math display">\[
+X_n-c_n\to X_0
+\quad a.s.,
+\]</span>
+and
+<span class="math display">\[
+c_n-\gamma(X_n)\to-\gamma(X_0).
+\]</span></p>
+<p>Therefore,
+<span class="math display">\[
+X_n-\gamma(X_n)
+\to
+X_0-\gamma(X_0)
+\quad a.s.
+\]</span></p>
+<p>Hence
+<span class="math display">\[
+\lim_{n\to\infty}\left(X_n-\gamma(X_n)\right)
+\]</span>
+exists and is finite almost surely.</p>
+<p><span class="math inline">\(\textbf{Note:}\)</span> We should note that when <span class="math inline">\(E(g(Z_n-\gamma))\to E(g(X_0-\gamma))\)</span>, the convergence of their root is not trivial, we need to go back to use <span class="math inline">\(\varepsilon-N\)</span> language and the monotonicity of <span class="math inline">\(E(g(Z_n-\gamma))\)</span> to prove it.</p>
+
 </div>
 </div>
 </div>
