@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chap 7, Laws of Large Numbers and Sums of Independent Random Variables | Notes on A Probability Path (Resnick)</title>
+  <meta name="description" content="Chap 7, Laws of Large Numbers and Sums of Independent Random Variables | Notes on A Probability Path (Resnick)" />
+  <meta name="generator" content="bookdown 0.46 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chap 7, Laws of Large Numbers and Sums of Independent Random Variables | Notes on A Probability Path (Resnick)" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chap 7, Laws of Large Numbers and Sums of Independent Random Variables | Notes on A Probability Path (Resnick)" />
+  
+  
+  
+
+<meta name="author" content="Zhanwen Peng" />
+
+
+<meta name="date" content="2026-06-04" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="chap-6-convergence-concepts.html"/>
+
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="styles.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">A Probability Path Notes</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>About This Project</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#contact"><i class="fa fa-check"></i>Contact</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#change-log"><i class="fa fa-check"></i>Change Log</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#section"><i class="fa fa-check"></i>2026-01-31</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#section-1"><i class="fa fa-check"></i>2026-04-02</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#section-2"><i class="fa fa-check"></i>2026-04-10</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#section-3"><i class="fa fa-check"></i>2026-05-1</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="chap-1-sets-and-events.html"><a href="chap-1-sets-and-events.html"><i class="fa fa-check"></i>Chap 1, Sets and Events</a>
+<ul>
+<li class="chapter" data-level="" data-path="chap-1-sets-and-events.html"><a href="chap-1-sets-and-events.html#pre"><i class="fa fa-check"></i>Pre</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="chap-2-probability-spaces.html"><a href="chap-2-probability-spaces.html"><i class="fa fa-check"></i>Chap 2, Probability Spaces</a>
+<ul>
+<li class="chapter" data-level="" data-path="chap-2-probability-spaces.html"><a href="chap-2-probability-spaces.html#pre-1"><i class="fa fa-check"></i>Pre</a></li>
+<li class="chapter" data-level="" data-path="chap-2-probability-spaces.html"><a href="chap-2-probability-spaces.html#ex-12"><i class="fa fa-check"></i>Ex 12</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="chap-3-random-variables-elements-and-measurable-maps.html"><a href="chap-3-random-variables-elements-and-measurable-maps.html"><i class="fa fa-check"></i>Chap 3, Random Variables, Elements, and Measurable Maps</a>
+<ul>
+<li class="chapter" data-level="" data-path="chap-3-random-variables-elements-and-measurable-maps.html"><a href="chap-3-random-variables-elements-and-measurable-maps.html#pre-2"><i class="fa fa-check"></i>Pre</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="chap-4-independence.html"><a href="chap-4-independence.html"><i class="fa fa-check"></i>Chap 4, Independence</a>
+<ul>
+<li class="chapter" data-level="" data-path="chap-4-independence.html"><a href="chap-4-independence.html#summary"><i class="fa fa-check"></i>Summary</a></li>
+<li class="chapter" data-level="" data-path="chap-4-independence.html"><a href="chap-4-independence.html#ex-10"><i class="fa fa-check"></i>Ex 10</a></li>
+<li class="chapter" data-level="" data-path="chap-4-independence.html"><a href="chap-4-independence.html#ex-11"><i class="fa fa-check"></i>Ex 11</a></li>
+<li class="chapter" data-level="" data-path="chap-4-independence.html"><a href="chap-4-independence.html#ex-12-1"><i class="fa fa-check"></i>Ex 12</a></li>
+<li class="chapter" data-level="" data-path="chap-4-independence.html"><a href="chap-4-independence.html#ex-13"><i class="fa fa-check"></i>Ex 13</a></li>
+<li class="chapter" data-level="" data-path="chap-4-independence.html"><a href="chap-4-independence.html#ex-14"><i class="fa fa-check"></i>Ex 14</a></li>
+<li class="chapter" data-level="" data-path="chap-4-independence.html"><a href="chap-4-independence.html#ex-15"><i class="fa fa-check"></i>Ex 15</a>
+<ul>
+<li class="chapter" data-level="" data-path="chap-4-independence.html"><a href="chap-4-independence.html#a"><i class="fa fa-check"></i>(a)</a></li>
+<li class="chapter" data-level="" data-path="chap-4-independence.html"><a href="chap-4-independence.html#b"><i class="fa fa-check"></i>(b)</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="chap-4-independence.html"><a href="chap-4-independence.html#ex-16"><i class="fa fa-check"></i>Ex 16</a></li>
+<li class="chapter" data-level="" data-path="chap-4-independence.html"><a href="chap-4-independence.html#ex-17"><i class="fa fa-check"></i>Ex 17</a>
+<ul>
+<li class="chapter" data-level="" data-path="chap-4-independence.html"><a href="chap-4-independence.html#a-1"><i class="fa fa-check"></i>(a)</a></li>
+<li class="chapter" data-level="" data-path="chap-4-independence.html"><a href="chap-4-independence.html#b-1"><i class="fa fa-check"></i>(b)</a></li>
+<li class="chapter" data-level="" data-path="chap-4-independence.html"><a href="chap-4-independence.html#c"><i class="fa fa-check"></i>(c)</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="chap-4-independence.html"><a href="chap-4-independence.html#ex-18"><i class="fa fa-check"></i>Ex 18</a></li>
+<li class="chapter" data-level="" data-path="chap-4-independence.html"><a href="chap-4-independence.html#ex-19"><i class="fa fa-check"></i>Ex 19</a></li>
+<li class="chapter" data-level="" data-path="chap-4-independence.html"><a href="chap-4-independence.html#ex-20"><i class="fa fa-check"></i>Ex 20</a>
+<ul>
+<li class="chapter" data-level="" data-path="chap-4-independence.html"><a href="chap-4-independence.html#a-2"><i class="fa fa-check"></i>(a)</a></li>
+<li class="chapter" data-level="" data-path="chap-4-independence.html"><a href="chap-4-independence.html#b-2"><i class="fa fa-check"></i>(b)</a></li>
+<li class="chapter" data-level="" data-path="chap-4-independence.html"><a href="chap-4-independence.html#c-1"><i class="fa fa-check"></i>(c)</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="chap-4-independence.html"><a href="chap-4-independence.html#ex-21"><i class="fa fa-check"></i>Ex 21</a>
+<ul>
+<li class="chapter" data-level="" data-path="chap-4-independence.html"><a href="chap-4-independence.html#a-3"><i class="fa fa-check"></i>(a)</a></li>
+<li class="chapter" data-level="" data-path="chap-4-independence.html"><a href="chap-4-independence.html#b-3"><i class="fa fa-check"></i>(b)</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="chap-4-independence.html"><a href="chap-4-independence.html#ex-22"><i class="fa fa-check"></i>Ex 22</a></li>
+<li class="chapter" data-level="" data-path="chap-4-independence.html"><a href="chap-4-independence.html#ex-23"><i class="fa fa-check"></i>Ex 23</a>
+<ul>
+<li class="chapter" data-level="" data-path="chap-4-independence.html"><a href="chap-4-independence.html#a-4"><i class="fa fa-check"></i>(a)</a></li>
+<li class="chapter" data-level="" data-path="chap-4-independence.html"><a href="chap-4-independence.html#b-4"><i class="fa fa-check"></i>(b)</a></li>
+<li class="chapter" data-level="" data-path="chap-4-independence.html"><a href="chap-4-independence.html#c-2"><i class="fa fa-check"></i>(c)</a></li>
+<li class="chapter" data-level="" data-path="chap-4-independence.html"><a href="chap-4-independence.html#d"><i class="fa fa-check"></i>(d)</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="chap-4-independence.html"><a href="chap-4-independence.html#ex-24"><i class="fa fa-check"></i>Ex 24</a></li>
+<li class="chapter" data-level="" data-path="chap-4-independence.html"><a href="chap-4-independence.html#ex-25"><i class="fa fa-check"></i>Ex 25</a></li>
+<li class="chapter" data-level="" data-path="chap-4-independence.html"><a href="chap-4-independence.html#ex-26"><i class="fa fa-check"></i>Ex 26</a></li>
+<li class="chapter" data-level="" data-path="chap-4-independence.html"><a href="chap-4-independence.html#ex-27"><i class="fa fa-check"></i>Ex 27</a></li>
+<li class="chapter" data-level="" data-path="chap-4-independence.html"><a href="chap-4-independence.html#ex-28"><i class="fa fa-check"></i>Ex 28</a></li>
+<li class="chapter" data-level="" data-path="chap-4-independence.html"><a href="chap-4-independence.html#ex-29"><i class="fa fa-check"></i>Ex 29</a></li>
+<li class="chapter" data-level="" data-path="chap-4-independence.html"><a href="chap-4-independence.html#ex-30"><i class="fa fa-check"></i>Ex 30</a>
+<ul>
+<li class="chapter" data-level="" data-path="chap-4-independence.html"><a href="chap-4-independence.html#a-5"><i class="fa fa-check"></i>(a)</a></li>
+<li class="chapter" data-level="" data-path="chap-4-independence.html"><a href="chap-4-independence.html#b-5"><i class="fa fa-check"></i>(b)</a></li>
+<li class="chapter" data-level="" data-path="chap-4-independence.html"><a href="chap-4-independence.html#c-3"><i class="fa fa-check"></i>(c)</a></li>
+<li class="chapter" data-level="" data-path="chap-4-independence.html"><a href="chap-4-independence.html#d-1"><i class="fa fa-check"></i>(d)</a></li>
+<li class="chapter" data-level="" data-path="chap-4-independence.html"><a href="chap-4-independence.html#e"><i class="fa fa-check"></i>(e)</a></li>
+<li class="chapter" data-level="" data-path="chap-4-independence.html"><a href="chap-4-independence.html#f"><i class="fa fa-check"></i>(f)</a></li>
+<li class="chapter" data-level="" data-path="chap-4-independence.html"><a href="chap-4-independence.html#g"><i class="fa fa-check"></i>(g)</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="chap-4-independence.html"><a href="chap-4-independence.html#ex-31"><i class="fa fa-check"></i>Ex 31</a></li>
+<li class="chapter" data-level="" data-path="chap-4-independence.html"><a href="chap-4-independence.html#ex-32"><i class="fa fa-check"></i>Ex 32</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html"><i class="fa fa-check"></i>Chap 5, Integration and Expectation</a>
+<ul>
+<li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#summary-1"><i class="fa fa-check"></i>Summary</a>
+<ul>
+<li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#summary-from-5.1-to-5.3"><i class="fa fa-check"></i>Summary from 5.1 to 5.3</a>
+<ul>
+<li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#simple-functions-as-the-basic-building-blocks"><i class="fa fa-check"></i>Simple functions as the basic building blocks</a></li>
+<li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#theorem-5.1.1-measurability-theorem-approximation-by-simple-functions"><i class="fa fa-check"></i>Theorem 5.1.1 (Measurability Theorem): approximation by simple functions</a></li>
+<li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#defining-expectation-via-extension-from-simple-functions"><i class="fa fa-check"></i>Defining expectation via extension from simple functions</a></li>
+<li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#why-monotone-convergence-is-central"><i class="fa fa-check"></i>Why monotone convergence is central</a></li>
+<li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#markovs-inequality-probability-via-indicators-and-expectation"><i class="fa fa-check"></i>Markov’s inequality: probability via indicators and expectation</a></li>
+<li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#from-mct-to-dct-5.3"><i class="fa fa-check"></i>From MCT to DCT (5.3)</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#summary-from-5.4-to-5.6"><i class="fa fa-check"></i>Summary from 5.4 to 5.6</a>
+<ul>
+<li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#indefinite-integrals"><i class="fa fa-check"></i>5.4 Indefinite integrals</a></li>
+<li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#transformation-theorem"><i class="fa fa-check"></i>5.5 Transformation theorem</a></li>
+<li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#lebesgue-meets-riemann"><i class="fa fa-check"></i>5.6 Lebesgue Meets Riemann</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#summary-from-5.7-to-5.9"><i class="fa fa-check"></i>Summary from 5.7 to 5.9</a></li>
+<li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#big-picture"><i class="fa fa-check"></i>Big picture</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#exercises"><i class="fa fa-check"></i>Exercises</a>
+<ul>
+<li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#ex-2"><i class="fa fa-check"></i>Ex 2</a></li>
+<li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#ex-4"><i class="fa fa-check"></i>Ex 4</a></li>
+<li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#ex-1"><i class="fa fa-check"></i>Ex 1</a></li>
+<li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#ex-3"><i class="fa fa-check"></i>Ex 3</a></li>
+<li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#ex-5"><i class="fa fa-check"></i>Ex 5</a>
+<ul>
+<li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#a-6"><i class="fa fa-check"></i>(a)</a></li>
+<li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#b-6"><i class="fa fa-check"></i>(b)</a></li>
+<li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#c-4"><i class="fa fa-check"></i>(c)</a></li>
+<li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#d-2"><i class="fa fa-check"></i>(d)</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#ex-6"><i class="fa fa-check"></i>Ex 6</a>
+<ul>
+<li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#a-7"><i class="fa fa-check"></i>(a)</a></li>
+<li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#b-7"><i class="fa fa-check"></i>(b)</a></li>
+<li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#c-5"><i class="fa fa-check"></i>(c)</a></li>
+<li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#d-3"><i class="fa fa-check"></i>(d)</a></li>
+<li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#e-1"><i class="fa fa-check"></i>(e)</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#ex-10-1"><i class="fa fa-check"></i>Ex 10</a></li>
+<li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#ex-38"><i class="fa fa-check"></i>Ex 38</a></li>
+<li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#ex-7"><i class="fa fa-check"></i>Ex 7</a></li>
+<li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#ex-8"><i class="fa fa-check"></i>Ex 8</a>
+<ul>
+<li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#a-8"><i class="fa fa-check"></i>(a)</a></li>
+<li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#b-8"><i class="fa fa-check"></i>(b)</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#ex-13-1"><i class="fa fa-check"></i>Ex 13</a></li>
+<li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#ex-30-1"><i class="fa fa-check"></i>Ex 30</a></li>
+<li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#ex-36"><i class="fa fa-check"></i>Ex 36</a></li>
+<li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#ex-15-1"><i class="fa fa-check"></i>Ex 15</a>
+<ul>
+<li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#a-9"><i class="fa fa-check"></i>(a)</a></li>
+<li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#b-9"><i class="fa fa-check"></i>(b)</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#ex-20-1"><i class="fa fa-check"></i>Ex 20</a>
+<ul>
+<li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#a-10"><i class="fa fa-check"></i>(a)</a></li>
+<li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#b-10"><i class="fa fa-check"></i>(b)</a></li>
+<li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#c-6"><i class="fa fa-check"></i>(c)</a></li>
+<li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#d-4"><i class="fa fa-check"></i>(d)</a></li>
+<li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#e-2"><i class="fa fa-check"></i>(e)</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#ex-21-1"><i class="fa fa-check"></i>Ex 21</a></li>
+<li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#ex-16-1"><i class="fa fa-check"></i>Ex 16</a>
+<ul>
+<li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#a-11"><i class="fa fa-check"></i>(a)</a></li>
+<li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#b-11"><i class="fa fa-check"></i>(b)</a></li>
+<li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#c-7"><i class="fa fa-check"></i>(c)</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#ex-18-1"><i class="fa fa-check"></i>Ex 18</a></li>
+<li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#ex-23-1"><i class="fa fa-check"></i>Ex 23</a></li>
+<li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#ex-12-2"><i class="fa fa-check"></i>Ex 12</a></li>
+<li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#ex-17-1"><i class="fa fa-check"></i>Ex 17</a></li>
+<li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#ex-27-1"><i class="fa fa-check"></i>Ex 27</a></li>
+<li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#ex-11-1"><i class="fa fa-check"></i>Ex 11</a></li>
+<li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#ex-19-1"><i class="fa fa-check"></i>Ex 19</a>
+<ul>
+<li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#a-12"><i class="fa fa-check"></i>(a)</a></li>
+<li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#b-12"><i class="fa fa-check"></i>(b)</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#ex-22-1"><i class="fa fa-check"></i>Ex 22</a>
+<ul>
+<li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#a-and-b"><i class="fa fa-check"></i>(a) and (b)</a></li>
+<li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#c-8"><i class="fa fa-check"></i>(c)</a></li>
+<li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#d-5"><i class="fa fa-check"></i>(d)</a></li>
+<li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#e-3"><i class="fa fa-check"></i>(e)</a></li>
+<li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#f-1"><i class="fa fa-check"></i>(f)</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#ex-24-1"><i class="fa fa-check"></i>Ex 24</a></li>
+<li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#ex-35"><i class="fa fa-check"></i>Ex 35</a>
+<ul>
+<li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#a-13"><i class="fa fa-check"></i>(a)</a></li>
+<li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#b-13"><i class="fa fa-check"></i>(b)</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#ex-28-1"><i class="fa fa-check"></i>Ex 28</a></li>
+<li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#ex-26-1"><i class="fa fa-check"></i>Ex 26</a></li>
+<li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#ex-29-1"><i class="fa fa-check"></i>Ex 29</a></li>
+<li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#ex-32-1"><i class="fa fa-check"></i>Ex 32</a>
+<ul>
+<li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#a-14"><i class="fa fa-check"></i>(a)</a></li>
+<li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#b-14"><i class="fa fa-check"></i>(b)</a></li>
+<li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#c-9"><i class="fa fa-check"></i>(c)</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#ex-33"><i class="fa fa-check"></i>Ex 33</a></li>
+<li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#ex-34"><i class="fa fa-check"></i>Ex 34</a></li>
+<li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#ex-31-1"><i class="fa fa-check"></i>Ex 31</a>
+<ul>
+<li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#a-15"><i class="fa fa-check"></i>(a)</a></li>
+<li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#b-15"><i class="fa fa-check"></i>(b)</a></li>
+<li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#c-10"><i class="fa fa-check"></i>(c)</a></li>
+<li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#d-6"><i class="fa fa-check"></i>(d)</a></li>
+<li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#e-4"><i class="fa fa-check"></i>(e)</a></li>
+<li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#f-2"><i class="fa fa-check"></i>(f)</a></li>
+<li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#g-1"><i class="fa fa-check"></i>(g)</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#ex-25-1"><i class="fa fa-check"></i>Ex 25</a>
+<ul>
+<li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#a-16"><i class="fa fa-check"></i>(a)</a></li>
+<li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#b-16"><i class="fa fa-check"></i>(b)</a></li>
+<li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#c-11"><i class="fa fa-check"></i>(c)</a></li>
+<li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#d-7"><i class="fa fa-check"></i>(d)</a></li>
+<li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#e-5"><i class="fa fa-check"></i>(e)</a></li>
+<li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#f-3"><i class="fa fa-check"></i>(f)</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#ex-14-1"><i class="fa fa-check"></i>Ex 14</a></li>
+<li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#ex-37"><i class="fa fa-check"></i>Ex 37</a></li>
+<li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#ex-9"><i class="fa fa-check"></i>Ex 9</a></li>
+<li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#ex-39"><i class="fa fa-check"></i>Ex 39</a></li>
+<li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#ex-40"><i class="fa fa-check"></i>Ex 40</a>
+<ul>
+<li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#a-17"><i class="fa fa-check"></i>(a)</a></li>
+<li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#b-17"><i class="fa fa-check"></i>(b)</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="chap-5-integration-and-expectation.html"><a href="chap-5-integration-and-expectation.html#afterword"><i class="fa fa-check"></i>Afterword</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="chap-6-convergence-concepts.html"><a href="chap-6-convergence-concepts.html"><i class="fa fa-check"></i>Chap 6, Convergence Concepts</a>
+<ul>
+<li class="chapter" data-level="" data-path="chap-6-convergence-concepts.html"><a href="chap-6-convergence-concepts.html#summary-2"><i class="fa fa-check"></i>Summary</a></li>
+<li class="chapter" data-level="" data-path="chap-6-convergence-concepts.html"><a href="chap-6-convergence-concepts.html#other-notes"><i class="fa fa-check"></i>Other Notes</a>
+<ul>
+<li class="chapter" data-level="" data-path="chap-6-convergence-concepts.html"><a href="chap-6-convergence-concepts.html#alternative-proof"><i class="fa fa-check"></i>Alternative proof</a>
+<ul>
+<li class="chapter" data-level="" data-path="chap-6-convergence-concepts.html"><a href="chap-6-convergence-concepts.html#proposition-6.1.1"><i class="fa fa-check"></i>Proposition 6.1.1</a></li>
+<li class="chapter" data-level="" data-path="chap-6-convergence-concepts.html"><a href="chap-6-convergence-concepts.html#theorem-6.2.1-convergence-a.s.-implies-convergence-i.p."><i class="fa fa-check"></i>Theorem 6.2.1 (Convergence a.s. implies convergence i.p.)</a></li>
+<li class="chapter" data-level="" data-path="chap-6-convergence-concepts.html"><a href="chap-6-convergence-concepts.html#theorem-6.6.1"><i class="fa fa-check"></i>Theorem 6.6.1</a></li>
+<li class="chapter" data-level="" data-path="chap-6-convergence-concepts.html"><a href="chap-6-convergence-concepts.html#theorem-6.6.2"><i class="fa fa-check"></i>Theorem 6.6.2</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="chap-6-convergence-concepts.html"><a href="chap-6-convergence-concepts.html#proof-idea-summarize"><i class="fa fa-check"></i>Proof idea summarize</a>
+<ul>
+<li class="chapter" data-level="" data-path="chap-6-convergence-concepts.html"><a href="chap-6-convergence-concepts.html#theorem-6.3.1a"><i class="fa fa-check"></i>Theorem 6.3.1(a)</a></li>
+<li class="chapter" data-level="" data-path="chap-6-convergence-concepts.html"><a href="chap-6-convergence-concepts.html#summary-for-theorem-6.4.1"><i class="fa fa-check"></i>Summary for Theorem 6.4.1</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="chap-6-convergence-concepts.html"><a href="chap-6-convergence-concepts.html#exercises-1"><i class="fa fa-check"></i>Exercises</a>
+<ul>
+<li class="chapter" data-level="" data-path="chap-6-convergence-concepts.html"><a href="chap-6-convergence-concepts.html#ex-1-1"><i class="fa fa-check"></i>Ex 1</a>
+<ul>
+<li class="chapter" data-level="" data-path="chap-6-convergence-concepts.html"><a href="chap-6-convergence-concepts.html#a-18"><i class="fa fa-check"></i>(a)</a></li>
+<li class="chapter" data-level="" data-path="chap-6-convergence-concepts.html"><a href="chap-6-convergence-concepts.html#b-18"><i class="fa fa-check"></i>(b)</a></li>
+<li class="chapter" data-level="" data-path="chap-6-convergence-concepts.html"><a href="chap-6-convergence-concepts.html#c-12"><i class="fa fa-check"></i>(c)</a></li>
+<li class="chapter" data-level="" data-path="chap-6-convergence-concepts.html"><a href="chap-6-convergence-concepts.html#d-8"><i class="fa fa-check"></i>(d)</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="chap-6-convergence-concepts.html"><a href="chap-6-convergence-concepts.html#ex-12-3"><i class="fa fa-check"></i>Ex 12</a>
+<ul>
+<li class="chapter" data-level="" data-path="chap-6-convergence-concepts.html"><a href="chap-6-convergence-concepts.html#a-19"><i class="fa fa-check"></i>(a)</a></li>
+<li class="chapter" data-level="" data-path="chap-6-convergence-concepts.html"><a href="chap-6-convergence-concepts.html#b-19"><i class="fa fa-check"></i>(b)</a></li>
+<li class="chapter" data-level="" data-path="chap-6-convergence-concepts.html"><a href="chap-6-convergence-concepts.html#c-13"><i class="fa fa-check"></i>(c)</a></li>
+<li class="chapter" data-level="" data-path="chap-6-convergence-concepts.html"><a href="chap-6-convergence-concepts.html#summary-3"><i class="fa fa-check"></i>Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="chap-6-convergence-concepts.html"><a href="chap-6-convergence-concepts.html#ex-17-2"><i class="fa fa-check"></i>Ex 17</a></li>
+<li class="chapter" data-level="" data-path="chap-6-convergence-concepts.html"><a href="chap-6-convergence-concepts.html#ex-19-2"><i class="fa fa-check"></i>Ex 19</a></li>
+<li class="chapter" data-level="" data-path="chap-6-convergence-concepts.html"><a href="chap-6-convergence-concepts.html#ex-21-2"><i class="fa fa-check"></i>Ex 21</a></li>
+<li class="chapter" data-level="" data-path="chap-6-convergence-concepts.html"><a href="chap-6-convergence-concepts.html#ex-24-2"><i class="fa fa-check"></i>Ex 24</a>
+<ul>
+<li class="chapter" data-level="" data-path="chap-6-convergence-concepts.html"><a href="chap-6-convergence-concepts.html#a-20"><i class="fa fa-check"></i>(a)</a></li>
+<li class="chapter" data-level="" data-path="chap-6-convergence-concepts.html"><a href="chap-6-convergence-concepts.html#b-20"><i class="fa fa-check"></i>(b)</a></li>
+<li class="chapter" data-level="" data-path="chap-6-convergence-concepts.html"><a href="chap-6-convergence-concepts.html#c-14"><i class="fa fa-check"></i>(c)</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="chap-6-convergence-concepts.html"><a href="chap-6-convergence-concepts.html#ex-25-2"><i class="fa fa-check"></i>Ex 25</a>
+<ul>
+<li class="chapter" data-level="" data-path="chap-6-convergence-concepts.html"><a href="chap-6-convergence-concepts.html#a-21"><i class="fa fa-check"></i>(a)</a></li>
+<li class="chapter" data-level="" data-path="chap-6-convergence-concepts.html"><a href="chap-6-convergence-concepts.html#b-21"><i class="fa fa-check"></i>(b)</a></li>
+<li class="chapter" data-level="" data-path="chap-6-convergence-concepts.html"><a href="chap-6-convergence-concepts.html#c-15"><i class="fa fa-check"></i>(c)</a></li>
+<li class="chapter" data-level="" data-path="chap-6-convergence-concepts.html"><a href="chap-6-convergence-concepts.html#d-9"><i class="fa fa-check"></i>(d)</a></li>
+<li class="chapter" data-level="" data-path="chap-6-convergence-concepts.html"><a href="chap-6-convergence-concepts.html#summary-4"><i class="fa fa-check"></i>Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="chap-6-convergence-concepts.html"><a href="chap-6-convergence-concepts.html#ex-2-1"><i class="fa fa-check"></i>Ex 2</a></li>
+<li class="chapter" data-level="" data-path="chap-6-convergence-concepts.html"><a href="chap-6-convergence-concepts.html#ex-4-1"><i class="fa fa-check"></i>Ex 4</a></li>
+<li class="chapter" data-level="" data-path="chap-6-convergence-concepts.html"><a href="chap-6-convergence-concepts.html#ex-5-1"><i class="fa fa-check"></i>Ex 5</a></li>
+<li class="chapter" data-level="" data-path="chap-6-convergence-concepts.html"><a href="chap-6-convergence-concepts.html#ex-6-1"><i class="fa fa-check"></i>Ex 6</a></li>
+<li class="chapter" data-level="" data-path="chap-6-convergence-concepts.html"><a href="chap-6-convergence-concepts.html#ex-8-1"><i class="fa fa-check"></i>Ex 8</a></li>
+<li class="chapter" data-level="" data-path="chap-6-convergence-concepts.html"><a href="chap-6-convergence-concepts.html#ex-3-1"><i class="fa fa-check"></i>Ex 3</a>
+<ul>
+<li class="chapter" data-level="" data-path="chap-6-convergence-concepts.html"><a href="chap-6-convergence-concepts.html#a-22"><i class="fa fa-check"></i>(a)</a></li>
+<li class="chapter" data-level="" data-path="chap-6-convergence-concepts.html"><a href="chap-6-convergence-concepts.html#b-22"><i class="fa fa-check"></i>(b)</a></li>
+<li class="chapter" data-level="" data-path="chap-6-convergence-concepts.html"><a href="chap-6-convergence-concepts.html#c-16"><i class="fa fa-check"></i>(c)</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="chap-6-convergence-concepts.html"><a href="chap-6-convergence-concepts.html#ex-9-1"><i class="fa fa-check"></i>Ex 9</a></li>
+<li class="chapter" data-level="" data-path="chap-6-convergence-concepts.html"><a href="chap-6-convergence-concepts.html#ex-10-2"><i class="fa fa-check"></i>EX 10</a></li>
+<li class="chapter" data-level="" data-path="chap-6-convergence-concepts.html"><a href="chap-6-convergence-concepts.html#ex-15-2"><i class="fa fa-check"></i>Ex 15</a></li>
+<li class="chapter" data-level="" data-path="chap-6-convergence-concepts.html"><a href="chap-6-convergence-concepts.html#ex-16-2"><i class="fa fa-check"></i>Ex 16</a>
+<ul>
+<li class="chapter" data-level="" data-path="chap-6-convergence-concepts.html"><a href="chap-6-convergence-concepts.html#a-23"><i class="fa fa-check"></i>(a)</a></li>
+<li class="chapter" data-level="" data-path="chap-6-convergence-concepts.html"><a href="chap-6-convergence-concepts.html#b-23"><i class="fa fa-check"></i>(b)</a></li>
+<li class="chapter" data-level="" data-path="chap-6-convergence-concepts.html"><a href="chap-6-convergence-concepts.html#c-17"><i class="fa fa-check"></i>(c)</a></li>
+<li class="chapter" data-level="" data-path="chap-6-convergence-concepts.html"><a href="chap-6-convergence-concepts.html#d-10"><i class="fa fa-check"></i>(d)</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="chap-6-convergence-concepts.html"><a href="chap-6-convergence-concepts.html#ex-18-2"><i class="fa fa-check"></i>Ex 18</a></li>
+<li class="chapter" data-level="" data-path="chap-6-convergence-concepts.html"><a href="chap-6-convergence-concepts.html#ex-20-2"><i class="fa fa-check"></i>Ex 20</a></li>
+<li class="chapter" data-level="" data-path="chap-6-convergence-concepts.html"><a href="chap-6-convergence-concepts.html#ex-22-2"><i class="fa fa-check"></i>Ex 22</a></li>
+<li class="chapter" data-level="" data-path="chap-6-convergence-concepts.html"><a href="chap-6-convergence-concepts.html#ex-30-2"><i class="fa fa-check"></i>Ex 30</a>
+<ul>
+<li class="chapter" data-level="" data-path="chap-6-convergence-concepts.html"><a href="chap-6-convergence-concepts.html#a-24"><i class="fa fa-check"></i>(a)</a></li>
+<li class="chapter" data-level="" data-path="chap-6-convergence-concepts.html"><a href="chap-6-convergence-concepts.html#b-24"><i class="fa fa-check"></i>(b)</a></li>
+<li class="chapter" data-level="" data-path="chap-6-convergence-concepts.html"><a href="chap-6-convergence-concepts.html#c-18"><i class="fa fa-check"></i>(c)</a></li>
+<li class="chapter" data-level="" data-path="chap-6-convergence-concepts.html"><a href="chap-6-convergence-concepts.html#d-11"><i class="fa fa-check"></i>(d)</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="chap-6-convergence-concepts.html"><a href="chap-6-convergence-concepts.html#ex-11-2"><i class="fa fa-check"></i>Ex 11</a>
+<ul>
+<li class="chapter" data-level="" data-path="chap-6-convergence-concepts.html"><a href="chap-6-convergence-concepts.html#a-25"><i class="fa fa-check"></i>(a)</a></li>
+<li class="chapter" data-level="" data-path="chap-6-convergence-concepts.html"><a href="chap-6-convergence-concepts.html#b-25"><i class="fa fa-check"></i>(b)</a></li>
+<li class="chapter" data-level="" data-path="chap-6-convergence-concepts.html"><a href="chap-6-convergence-concepts.html#c-19"><i class="fa fa-check"></i>(c)</a></li>
+<li class="chapter" data-level="" data-path="chap-6-convergence-concepts.html"><a href="chap-6-convergence-concepts.html#d-12"><i class="fa fa-check"></i>(d)</a></li>
+<li class="chapter" data-level="" data-path="chap-6-convergence-concepts.html"><a href="chap-6-convergence-concepts.html#e-6"><i class="fa fa-check"></i>(e)</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="chap-6-convergence-concepts.html"><a href="chap-6-convergence-concepts.html#ex-13-2"><i class="fa fa-check"></i>Ex 13</a></li>
+<li class="chapter" data-level="" data-path="chap-6-convergence-concepts.html"><a href="chap-6-convergence-concepts.html#ex-14-2"><i class="fa fa-check"></i>Ex 14</a></li>
+<li class="chapter" data-level="" data-path="chap-6-convergence-concepts.html"><a href="chap-6-convergence-concepts.html#ex-14-3"><i class="fa fa-check"></i>Ex 14</a></li>
+<li class="chapter" data-level="" data-path="chap-6-convergence-concepts.html"><a href="chap-6-convergence-concepts.html#ex-26-2"><i class="fa fa-check"></i>Ex 26</a>
+<ul>
+<li class="chapter" data-level="" data-path="chap-6-convergence-concepts.html"><a href="chap-6-convergence-concepts.html#a-26"><i class="fa fa-check"></i>(a)</a></li>
+<li class="chapter" data-level="" data-path="chap-6-convergence-concepts.html"><a href="chap-6-convergence-concepts.html#b-26"><i class="fa fa-check"></i>(b)</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="chap-6-convergence-concepts.html"><a href="chap-6-convergence-concepts.html#ex-27-2"><i class="fa fa-check"></i>Ex 27</a></li>
+<li class="chapter" data-level="" data-path="chap-6-convergence-concepts.html"><a href="chap-6-convergence-concepts.html#ex-28-2"><i class="fa fa-check"></i>Ex 28</a></li>
+<li class="chapter" data-level="" data-path="chap-6-convergence-concepts.html"><a href="chap-6-convergence-concepts.html#ex-23-2"><i class="fa fa-check"></i>Ex 23</a></li>
+<li class="chapter" data-level="" data-path="chap-6-convergence-concepts.html"><a href="chap-6-convergence-concepts.html#ex-29-2"><i class="fa fa-check"></i>Ex 29</a></li>
+<li class="chapter" data-level="" data-path="chap-6-convergence-concepts.html"><a href="chap-6-convergence-concepts.html#ex-33-1"><i class="fa fa-check"></i>Ex 33</a></li>
+<li class="chapter" data-level="" data-path="chap-6-convergence-concepts.html"><a href="chap-6-convergence-concepts.html#ex-31-2"><i class="fa fa-check"></i>Ex 31</a>
+<ul>
+<li class="chapter" data-level="" data-path="chap-6-convergence-concepts.html"><a href="chap-6-convergence-concepts.html#a-27"><i class="fa fa-check"></i>(a)</a></li>
+<li class="chapter" data-level="" data-path="chap-6-convergence-concepts.html"><a href="chap-6-convergence-concepts.html#b-27"><i class="fa fa-check"></i>(b)</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="chap-6-convergence-concepts.html"><a href="chap-6-convergence-concepts.html#ex-32-2"><i class="fa fa-check"></i>Ex 32</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html"><a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html"><i class="fa fa-check"></i>Chap 7, Laws of Large Numbers and Sums of Independent Random Variables</a>
+<ul>
+<li class="chapter" data-level="" data-path="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html"><a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#summary-5"><i class="fa fa-check"></i>Summary</a></li>
+<li class="chapter" data-level="" data-path="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html"><a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#exercises-2"><i class="fa fa-check"></i>Exercises</a>
+<ul>
+<li class="chapter" data-level="" data-path="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html"><a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#ex-2-2"><i class="fa fa-check"></i>Ex 2</a></li>
+<li class="chapter" data-level="" data-path="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html"><a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#ex-3-2"><i class="fa fa-check"></i>Ex 3</a></li>
+</ul></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Notes on A Probability Path (Resnick)</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables" class="section level1 hasAnchor">
+<h1>Chap 7, Laws of Large Numbers and Sums of Independent Random Variables<a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="summary-5" class="section level2 hasAnchor">
+<h2>Summary<a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#summary-5" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+</div>
+<div id="exercises-2" class="section level2 hasAnchor">
+<h2>Exercises<a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#exercises-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="ex-2-2" class="section level3 hasAnchor">
+<h3>Ex 2<a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#ex-2-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="problem">
+<p>Let <span class="math inline">\(\{X_n\}\)</span> be iid, <span class="math inline">\(EX_n=\mu\)</span>, <span class="math inline">\(\operatorname{Var}(X_n)=\sigma^2\)</span>. Set</p>
+<p><span class="math display">\[
+\bar X=\frac{\sum_{i=1}^n X_i}{n}.
+\]</span></p>
+<p>Show that</p>
+<p><span class="math display">\[
+\frac1n\sum_{i=1}^n (X_i-\bar X)^2 \xrightarrow{P} \sigma^2.
+\]</span></p>
+</div>
+<p><span class="math inline">\(\textbf{Answer:}\)</span></p>
+<p>We first use the identity</p>
+<p><span class="math display">\[
+\frac1n\sum_{i=1}^n (X_i-\bar X)^2
+=
+\frac1n\sum_{i=1}^n X_i^2-\bar X^2.
+\]</span></p>
+<p>Since</p>
+<p><span class="math display">\[
+\operatorname{Var}(X_1)=\sigma^2&lt;\infty,
+\]</span></p>
+<p>we have</p>
+<p><span class="math display">\[
+E(X_1^2)&lt;\infty.
+\]</span></p>
+<p>Also, since <span class="math inline">\(\{X_i\}\)</span> are iid, <span class="math inline">\(\{X_i^2\}\)</span> are iid. Therefore, by Khintchin’s WLLN,</p>
+<p><span class="math display">\[
+\frac1n\sum_{i=1}^n X_i^2
+\xrightarrow{P}
+E(X_1^2).
+\]</span></p>
+<p>Again by Khintchin’s WLLN,</p>
+<p><span class="math display">\[
+\bar X
+=
+\frac1n\sum_{i=1}^n X_i
+\xrightarrow{P}
+E(X_1)=\mu.
+\]</span></p>
+<p>Since <span class="math inline">\(f(x)=x^2\)</span> is continuous, we have</p>
+<p><span class="math display">\[
+\bar X^2
+\xrightarrow{P}
+\mu^2.
+\]</span></p>
+<p>Hence</p>
+<p><span class="math display">\[
+\frac1n\sum_{i=1}^n (X_i-\bar X)^2
+=
+\frac1n\sum_{i=1}^n X_i^2-\bar X^2
+\xrightarrow{P}
+E(X_1^2)-\mu^2.
+\]</span></p>
+<p>But</p>
+<p><span class="math display">\[
+E(X_1^2)-\mu^2
+=
+\operatorname{Var}(X_1)
+=
+\sigma^2.
+\]</span></p>
+<p>Therefore,</p>
+<p><span class="math display">\[
+\frac1n\sum_{i=1}^n (X_i-\bar X)^2
+\xrightarrow{P}
+\sigma^2.
+\]</span></p>
+</div>
+<div id="ex-3-2" class="section level3 hasAnchor">
+<h3>Ex 3<a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#ex-3-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="problem">
+<p>Occupancy problems. Randomly distribute <span class="math inline">\(r\)</span> balls in <span class="math inline">\(n\)</span> boxes so that the sample space <span class="math inline">\(\Omega\)</span> consists of <span class="math inline">\(n^r\)</span> equally likely elements. Write</p>
+<p><span class="math display">\[
+N_n=\sum_{i=1}^n 1_{[\text{\(i\)th box is empty}]}
+\]</span></p>
+<p>for the number of empty boxes. Check</p>
+<p><span class="math display">\[
+P[\text{\(i\)th box is empty}]
+=
+\left(1-\frac1n\right)^r
+\]</span></p>
+<p>so that</p>
+<p><span class="math display">\[
+E(N_n)=n(1-n^{-1})^r.
+\]</span></p>
+<p>Check that as <span class="math inline">\(r/n\to c\)</span></p>
+<p><span class="math display">\[
+E(N_n)/n\to e^{-c}
+\]</span></p>
+<p><span class="math display">\[
+N_n/n\xrightarrow{P}e^{-c}.
+\]</span></p>
+<p>For the second result, compute <span class="math inline">\(\operatorname{Var}(N_n)\)</span> and show <span class="math inline">\(\operatorname{Var}(N_n/n)\to0\)</span>.</p>
+</div>
+<p><span class="math inline">\(\textbf{Answer:}\)</span></p>
+<p>Let</p>
+<p><span class="math display">\[
+I_i=1_{[\text{\(i\)th box is empty}]}.
+\]</span></p>
+<p>Then</p>
+<p><span class="math display">\[
+N_n=\sum_{i=1}^n I_i.
+\]</span></p>
+<p>For a fixed box <span class="math inline">\(i\)</span>, one ball avoids box <span class="math inline">\(i\)</span> with probability</p>
+<p><span class="math display">\[
+1-\frac1n.
+\]</span></p>
+<p>Since there are <span class="math inline">\(r\)</span> balls,</p>
+<p><span class="math display">\[
+P[I_i=1]
+=
+P[\text{\(i\)th box is empty}]
+=
+\left(1-\frac1n\right)^r.
+\]</span></p>
+<p>Therefore,</p>
+<p><span class="math display">\[
+E(N_n)
+=
+E\left(\sum_{i=1}^n I_i\right)
+=
+\sum_{i=1}^n E(I_i)
+=
+n\left(1-\frac1n\right)^r.
+\]</span></p>
+<p>Hence</p>
+<p><span class="math display">\[
+\frac{E(N_n)}{n}
+=
+\left(1-\frac1n\right)^r
+=
+\left[\left(1-\frac1n\right)^n\right]^{r/n}
+\to e^{-c},
+\]</span></p>
+<p>since <span class="math inline">\(r/n\to c\)</span>.</p>
+<p>Now we compute the variance. Since <span class="math inline">\(I_i^2=I_i\)</span>,</p>
+<p><span class="math display">\[
+\operatorname{Var}(I_i)
+=
+E(I_i^2)-[E(I_i)]^2
+=
+E(I_i)-[E(I_i)]^2.
+\]</span></p>
+<p>Thus</p>
+<p><span class="math display">\[
+\operatorname{Var}(I_i)
+=
+\left(1-\frac1n\right)^r
+-
+\left(1-\frac1n\right)^{2r}.
+\]</span></p>
+<p>For <span class="math inline">\(i\ne j\)</span>,</p>
+<p><span class="math display">\[
+E(I_iI_j)
+=
+P[I_i=1,I_j=1].
+\]</span></p>
+<p>The event <span class="math inline">\(\{I_i=1,I_j=1\}\)</span> means that both the <span class="math inline">\(i\)</span>th and <span class="math inline">\(j\)</span>th boxes are empty. For one ball to avoid both boxes, the probability is</p>
+<p><span class="math display">\[
+1-\frac2n.
+\]</span></p>
+<p>Therefore,</p>
+<p><span class="math display">\[
+E(I_iI_j)
+=
+\left(1-\frac2n\right)^r.
+\]</span></p>
+<p>So</p>
+<p><span class="math display">\[
+\operatorname{Cov}(I_i,I_j)
+=
+E(I_iI_j)-E(I_i)E(I_j)
+=
+\left(1-\frac2n\right)^r
+-
+\left(1-\frac1n\right)^{2r}.
+\]</span></p>
+<p>Therefore,</p>
+<p><span class="math display">\[
+\operatorname{Var}(N_n)
+=
+\operatorname{Var}\left(\sum_{i=1}^n I_i\right)
+=
+\sum_{i=1}^n \operatorname{Var}(I_i)
++
+\sum_{i\ne j}\operatorname{Cov}(I_i,I_j).
+\]</span></p>
+<p>Hence</p>
+<p><span class="math display">\[
+\operatorname{Var}(N_n)
+=
+n\left[
+\left(1-\frac1n\right)^r
+-
+\left(1-\frac1n\right)^{2r}
+\right]
++
+n(n-1)
+\left[
+\left(1-\frac2n\right)^r
+-
+\left(1-\frac1n\right)^{2r}
+\right].
+\]</span></p>
+<p>Dividing by <span class="math inline">\(n^2\)</span>,</p>
+<p><span class="math display">\[
+\operatorname{Var}\left(\frac{N_n}{n}\right)
+=
+\frac1n
+\left[
+\left(1-\frac1n\right)^r
+-
+\left(1-\frac1n\right)^{2r}
+\right]
++
+\frac{n-1}{n}
+\left[
+\left(1-\frac2n\right)^r
+-
+\left(1-\frac1n\right)^{2r}
+\right].
+\]</span></p>
+<p>For the first term,</p>
+<p><span class="math display">\[
+0
+\le
+\frac1n
+\left[
+\left(1-\frac1n\right)^r
+-
+\left(1-\frac1n\right)^{2r}
+\right]
+\le
+\frac1n
+\to0.
+\]</span></p>
+<p>For the second term, since <span class="math inline">\(r/n\to c\)</span>,</p>
+<p><span class="math display">\[
+\left(1-\frac2n\right)^r
+\to e^{-2c},
+\]</span></p>
+<p>and</p>
+<p><span class="math display">\[
+\left(1-\frac1n\right)^{2r}
+=
+\left[\left(1-\frac1n\right)^n\right]^{2r/n}
+\to e^{-2c}.
+\]</span></p>
+<p>Therefore,</p>
+<p><span class="math display">\[
+\left(1-\frac2n\right)^r
+-
+\left(1-\frac1n\right)^{2r}
+\to0.
+\]</span></p>
+<p>Thus</p>
+<p><span class="math display">\[
+\operatorname{Var}\left(\frac{N_n}{n}\right)\to0.
+\]</span></p>
+<p>By Chebyshev’s inequality, for every <span class="math inline">\(\varepsilon&gt;0\)</span>,</p>
+<p><span class="math display">\[
+P\left[
+\left|
+\frac{N_n}{n}
+-
+\frac{E(N_n)}{n}
+\right|
+&gt;
+\varepsilon
+\right]
+\le
+\frac{\operatorname{Var}(N_n/n)}{\varepsilon^2}
+\to0.
+\]</span></p>
+<p>So</p>
+<p><span class="math display">\[
+\frac{N_n}{n}
+-
+\frac{E(N_n)}{n}
+\xrightarrow{P}0.
+\]</span></p>
+<p>Since</p>
+<p><span class="math display">\[
+\frac{E(N_n)}{n}\to e^{-c},
+\]</span></p>
+<p>we conclude that</p>
+<p><span class="math display">\[
+\frac{N_n}{n}
+\xrightarrow{P}
+e^{-c}.
+\]</span></p>
+<p><span class="math inline">\(\textbf{Note:}\)</span> In this exercise, we cannot apply Khintchin’s WLLN directly to</p>
+<p><span class="math display">\[
+\frac{N_n}{n}
+=
+\frac1n\sum_{i=1}^n I_i,
+\qquad
+I_i=1_{[\text{\(i\)th box is empty}]}.
+\]</span></p>
+<p>Although the <span class="math inline">\(I_i\)</span>’s have the same distribution, they are not independent. Indeed, for <span class="math inline">\(i\ne j\)</span>,</p>
+<p><span class="math display">\[
+P(I_i=1,I_j=1)
+=
+\left(1-\frac2n\right)^r
+\ne
+\left(1-\frac1n\right)^{2r}
+=
+P(I_i=1)P(I_j=1).
+\]</span></p>
+<p>Therefore, instead of using Khintchin’s WLLN directly, we follow the hint: compute <span class="math inline">\(\operatorname{Var}(N_n)\)</span>, show</p>
+<p><span class="math display">\[
+\operatorname{Var}\left(\frac{N_n}{n}\right)\to0,
+\]</span></p>
+<p>and then use Chebyshev’s inequality.</p>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="chap-6-convergence-concepts.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+  "sharing": null,
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": null,
+    "text": null
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": {},
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "section"
+  }
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

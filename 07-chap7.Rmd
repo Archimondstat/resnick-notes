@@ -1,0 +1,410 @@
+# Chap 7, Laws of Large Numbers and Sums of Independent Random Variables
+
+## Summary
+
+
+##  Exercises
+### Ex 2
+
+::: problem
+Let \(\{X_n\}\) be iid, \(EX_n=\mu\), \(\operatorname{Var}(X_n)=\sigma^2\). Set
+
+\[
+\bar X=\frac{\sum_{i=1}^n X_i}{n}.
+\]
+
+Show that
+
+\[
+\frac1n\sum_{i=1}^n (X_i-\bar X)^2 \xrightarrow{P} \sigma^2.
+\]
+:::
+
+$\textbf{Answer:}$
+
+We first use the identity
+
+\[
+\frac1n\sum_{i=1}^n (X_i-\bar X)^2
+=
+\frac1n\sum_{i=1}^n X_i^2-\bar X^2.
+\]
+
+Since
+
+\[
+\operatorname{Var}(X_1)=\sigma^2<\infty,
+\]
+
+we have
+
+\[
+E(X_1^2)<\infty.
+\]
+
+Also, since \(\{X_i\}\) are iid, \(\{X_i^2\}\) are iid. Therefore, by Khintchin's WLLN,
+
+\[
+\frac1n\sum_{i=1}^n X_i^2
+\xrightarrow{P}
+E(X_1^2).
+\]
+
+Again by Khintchin's WLLN,
+
+\[
+\bar X
+=
+\frac1n\sum_{i=1}^n X_i
+\xrightarrow{P}
+E(X_1)=\mu.
+\]
+
+Since \(f(x)=x^2\) is continuous, we have
+
+\[
+\bar X^2
+\xrightarrow{P}
+\mu^2.
+\]
+
+Hence
+
+\[
+\frac1n\sum_{i=1}^n (X_i-\bar X)^2
+=
+\frac1n\sum_{i=1}^n X_i^2-\bar X^2
+\xrightarrow{P}
+E(X_1^2)-\mu^2.
+\]
+
+But
+
+\[
+E(X_1^2)-\mu^2
+=
+\operatorname{Var}(X_1)
+=
+\sigma^2.
+\]
+
+Therefore,
+
+\[
+\frac1n\sum_{i=1}^n (X_i-\bar X)^2
+\xrightarrow{P}
+\sigma^2.
+\]
+
+### Ex 3
+
+::: problem
+Occupancy problems. Randomly distribute \(r\) balls in \(n\) boxes so that the sample space \(\Omega\) consists of \(n^r\) equally likely elements. Write
+
+\[
+N_n=\sum_{i=1}^n 1_{[\text{\(i\)th box is empty}]}
+\]
+
+for the number of empty boxes. Check
+
+\[
+P[\text{\(i\)th box is empty}]
+=
+\left(1-\frac1n\right)^r
+\]
+
+so that
+
+\[
+E(N_n)=n(1-n^{-1})^r.
+\]
+
+Check that as \(r/n\to c\)
+
+\[
+E(N_n)/n\to e^{-c}
+\]
+
+\[
+N_n/n\xrightarrow{P}e^{-c}.
+\]
+
+For the second result, compute \(\operatorname{Var}(N_n)\) and show \(\operatorname{Var}(N_n/n)\to0\).
+:::
+
+$\textbf{Answer:}$
+
+Let
+
+\[
+I_i=1_{[\text{\(i\)th box is empty}]}.
+\]
+
+Then
+
+\[
+N_n=\sum_{i=1}^n I_i.
+\]
+
+For a fixed box \(i\), one ball avoids box \(i\) with probability
+
+\[
+1-\frac1n.
+\]
+
+Since there are \(r\) balls,
+
+\[
+P[I_i=1]
+=
+P[\text{\(i\)th box is empty}]
+=
+\left(1-\frac1n\right)^r.
+\]
+
+Therefore,
+
+\[
+E(N_n)
+=
+E\left(\sum_{i=1}^n I_i\right)
+=
+\sum_{i=1}^n E(I_i)
+=
+n\left(1-\frac1n\right)^r.
+\]
+
+Hence
+
+\[
+\frac{E(N_n)}{n}
+=
+\left(1-\frac1n\right)^r
+=
+\left[\left(1-\frac1n\right)^n\right]^{r/n}
+\to e^{-c},
+\]
+
+since \(r/n\to c\).
+
+Now we compute the variance. Since \(I_i^2=I_i\),
+
+\[
+\operatorname{Var}(I_i)
+=
+E(I_i^2)-[E(I_i)]^2
+=
+E(I_i)-[E(I_i)]^2.
+\]
+
+Thus
+
+\[
+\operatorname{Var}(I_i)
+=
+\left(1-\frac1n\right)^r
+-
+\left(1-\frac1n\right)^{2r}.
+\]
+
+For \(i\ne j\),
+
+\[
+E(I_iI_j)
+=
+P[I_i=1,I_j=1].
+\]
+
+The event \(\{I_i=1,I_j=1\}\) means that both the \(i\)th and \(j\)th boxes are empty. For one ball to avoid both boxes, the probability is
+
+\[
+1-\frac2n.
+\]
+
+Therefore,
+
+\[
+E(I_iI_j)
+=
+\left(1-\frac2n\right)^r.
+\]
+
+So
+
+\[
+\operatorname{Cov}(I_i,I_j)
+=
+E(I_iI_j)-E(I_i)E(I_j)
+=
+\left(1-\frac2n\right)^r
+-
+\left(1-\frac1n\right)^{2r}.
+\]
+
+Therefore,
+
+\[
+\operatorname{Var}(N_n)
+=
+\operatorname{Var}\left(\sum_{i=1}^n I_i\right)
+=
+\sum_{i=1}^n \operatorname{Var}(I_i)
++
+\sum_{i\ne j}\operatorname{Cov}(I_i,I_j).
+\]
+
+Hence
+
+\[
+\operatorname{Var}(N_n)
+=
+n\left[
+\left(1-\frac1n\right)^r
+-
+\left(1-\frac1n\right)^{2r}
+\right]
++
+n(n-1)
+\left[
+\left(1-\frac2n\right)^r
+-
+\left(1-\frac1n\right)^{2r}
+\right].
+\]
+
+Dividing by \(n^2\),
+
+\[
+\operatorname{Var}\left(\frac{N_n}{n}\right)
+=
+\frac1n
+\left[
+\left(1-\frac1n\right)^r
+-
+\left(1-\frac1n\right)^{2r}
+\right]
++
+\frac{n-1}{n}
+\left[
+\left(1-\frac2n\right)^r
+-
+\left(1-\frac1n\right)^{2r}
+\right].
+\]
+
+For the first term,
+
+\[
+0
+\le
+\frac1n
+\left[
+\left(1-\frac1n\right)^r
+-
+\left(1-\frac1n\right)^{2r}
+\right]
+\le
+\frac1n
+\to0.
+\]
+
+For the second term, since \(r/n\to c\),
+
+\[
+\left(1-\frac2n\right)^r
+\to e^{-2c},
+\]
+
+and
+
+\[
+\left(1-\frac1n\right)^{2r}
+=
+\left[\left(1-\frac1n\right)^n\right]^{2r/n}
+\to e^{-2c}.
+\]
+
+Therefore,
+
+\[
+\left(1-\frac2n\right)^r
+-
+\left(1-\frac1n\right)^{2r}
+\to0.
+\]
+
+Thus
+
+\[
+\operatorname{Var}\left(\frac{N_n}{n}\right)\to0.
+\]
+
+By Chebyshev's inequality, for every \(\varepsilon>0\),
+
+\[
+P\left[
+\left|
+\frac{N_n}{n}
+-
+\frac{E(N_n)}{n}
+\right|
+>
+\varepsilon
+\right]
+\le
+\frac{\operatorname{Var}(N_n/n)}{\varepsilon^2}
+\to0.
+\]
+
+So
+
+\[
+\frac{N_n}{n}
+-
+\frac{E(N_n)}{n}
+\xrightarrow{P}0.
+\]
+
+Since
+
+\[
+\frac{E(N_n)}{n}\to e^{-c},
+\]
+
+we conclude that
+
+\[
+\frac{N_n}{n}
+\xrightarrow{P}
+e^{-c}.
+\]
+
+$\textbf{Note:}$ In this exercise, we cannot apply Khintchin's WLLN directly to
+
+\[
+\frac{N_n}{n}
+=
+\frac1n\sum_{i=1}^n I_i,
+\qquad
+I_i=1_{[\text{\(i\)th box is empty}]}.
+\]
+
+Although the \(I_i\)'s have the same distribution, they are not independent. Indeed, for \(i\ne j\),
+
+\[
+P(I_i=1,I_j=1)
+=
+\left(1-\frac2n\right)^r
+\ne
+\left(1-\frac1n\right)^{2r}
+=
+P(I_i=1)P(I_j=1).
+\]
+
+Therefore, instead of using Khintchin's WLLN directly, we follow the hint: compute \(\operatorname{Var}(N_n)\), show
+
+\[
+\operatorname{Var}\left(\frac{N_n}{n}\right)\to0,
+\]
+
+and then use Chebyshev's inequality.
