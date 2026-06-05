@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chap 7, Laws of Large Numbers and Sums of Independent Random Variables | Notes on A Probability Path (Resnick)</title>
-  <meta name="description" content="Chap 7, Laws of Large Numbers and Sums of Independent Random Variables | Notes on A Probability Path (Resnick)" />
+  <title>Exercise-State Ladder | Notes on A Probability Path (Resnick)</title>
+  <meta name="description" content="Exercise-State Ladder | Notes on A Probability Path (Resnick)" />
   <meta name="generator" content="bookdown 0.42 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chap 7, Laws of Large Numbers and Sums of Independent Random Variables | Notes on A Probability Path (Resnick)" />
+  <meta property="og:title" content="Exercise-State Ladder | Notes on A Probability Path (Resnick)" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chap 7, Laws of Large Numbers and Sums of Independent Random Variables | Notes on A Probability Path (Resnick)" />
+  <meta name="twitter:title" content="Exercise-State Ladder | Notes on A Probability Path (Resnick)" />
   
   
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="chap-6-convergence-concepts.html"/>
-
+<link rel="prev" href="index.html"/>
+<link rel="next" href="chap-1-sets-and-events.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -76,15 +76,22 @@
 <li><a href="./">A Probability Path Notes</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>About This Project</a>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>About This Project</a></li>
+<li class="chapter" data-level="" data-path="exercise-state-ladder.html"><a href="exercise-state-ladder.html"><i class="fa fa-check"></i>Exercise-State Ladder</a>
 <ul>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#contact"><i class="fa fa-check"></i>Contact</a></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#change-log"><i class="fa fa-check"></i>Change Log</a>
+<li class="chapter" data-level="" data-path="exercise-state-ladder.html"><a href="exercise-state-ladder.html#level-1-total-ignorance"><i class="fa fa-check"></i>Level 1 — Total Ignorance</a></li>
+<li class="chapter" data-level="" data-path="exercise-state-ladder.html"><a href="exercise-state-ladder.html#level-2-spark-without-ignition"><i class="fa fa-check"></i>Level 2 — Spark Without Ignition</a></li>
+<li class="chapter" data-level="" data-path="exercise-state-ladder.html"><a href="exercise-state-ladder.html#level-3-skeleton-built-missing-muscle"><i class="fa fa-check"></i>Level 3 — Skeleton Built, Missing Muscle</a></li>
+<li class="chapter" data-level="" data-path="exercise-state-ladder.html"><a href="exercise-state-ladder.html#level-4-crack-it"><i class="fa fa-check"></i>Level 4 — Crack It</a>
 <ul>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#section"><i class="fa fa-check"></i>2026-01-31</a></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#section-1"><i class="fa fa-check"></i>2026-04-02</a></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#section-2"><i class="fa fa-check"></i>2026-04-10</a></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#section-3"><i class="fa fa-check"></i>2026-05-1</a></li>
+<li class="chapter" data-level="" data-path="exercise-state-ladder.html"><a href="exercise-state-ladder.html#contact"><i class="fa fa-check"></i>Contact</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="exercise-state-ladder.html"><a href="exercise-state-ladder.html#change-log"><i class="fa fa-check"></i>Change Log</a>
+<ul>
+<li class="chapter" data-level="" data-path="exercise-state-ladder.html"><a href="exercise-state-ladder.html#section"><i class="fa fa-check"></i>2026-01-31</a></li>
+<li class="chapter" data-level="" data-path="exercise-state-ladder.html"><a href="exercise-state-ladder.html#section-1"><i class="fa fa-check"></i>2026-04-02</a></li>
+<li class="chapter" data-level="" data-path="exercise-state-ladder.html"><a href="exercise-state-ladder.html#section-2"><i class="fa fa-check"></i>2026-04-10</a></li>
+<li class="chapter" data-level="" data-path="exercise-state-ladder.html"><a href="exercise-state-ladder.html#section-3"><i class="fa fa-check"></i>2026-05-1</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="chap-1-sets-and-events.html"><a href="chap-1-sets-and-events.html"><i class="fa fa-check"></i>Chap 1, Sets and Events</a>
@@ -439,411 +446,97 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables" class="section level1 hasAnchor">
-<h1>Chap 7, Laws of Large Numbers and Sums of Independent Random Variables<a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<div id="summary-5" class="section level2 hasAnchor">
-<h2>Summary<a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#summary-5" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="exercise-state-ladder" class="section level1 hasAnchor">
+<h1>Exercise-State Ladder<a href="exercise-state-ladder.html#exercise-state-ladder" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>This is a framework to describe our progress on probability exercises.</p>
+<hr />
+<div id="level-1-total-ignorance" class="section level2 hasAnchor">
+<h2>Level 1 — Total Ignorance<a href="exercise-state-ladder.html#level-1-total-ignorance" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<blockquote>
+<p>“I cannot write down anything meaningful.”</p>
+</blockquote>
+<p><strong>State:</strong> No operational entry point; definitions not alive.<br />
+<strong>Symptoms:</strong> Random theorem attempts, blank page.<br />
+<strong>Action:</strong> Write down assumptions, target, and definitions to start Stage 2.</p>
+<hr />
 </div>
-<div id="exercises-2" class="section level2 hasAnchor">
-<h2>Exercises<a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#exercises-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div id="ex-2-2" class="section level3 hasAnchor">
-<h3>Ex 2<a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#ex-2-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="problem">
-<p>Let <span class="math inline">\(\{X_n\}\)</span> be iid, <span class="math inline">\(EX_n=\mu\)</span>, <span class="math inline">\(\operatorname{Var}(X_n)=\sigma^2\)</span>. Set</p>
-<p><span class="math display">\[
-\bar X=\frac{\sum_{i=1}^n X_i}{n}.
-\]</span></p>
-<p>Show that</p>
-<p><span class="math display">\[
-\frac1n\sum_{i=1}^n (X_i-\bar X)^2 \xrightarrow{P} \sigma^2.
-\]</span></p>
+<div id="level-2-spark-without-ignition" class="section level2 hasAnchor">
+<h2>Level 2 — Spark Without Ignition<a href="exercise-state-ladder.html#level-2-spark-without-ignition" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<blockquote>
+<p>“A blurry picture appears, but I cannot draw it.”</p>
+</blockquote>
+<p><strong>State:</strong> Intuition exists without executable structure.<br />
+<strong>Symptoms:</strong> “Maybe use DCT,” “Some truncation should work.”<br />
+<strong>Action:</strong> Expand vague picture into explicit objects (variables, events, decompositions).<br />
+<strong>Goal:</strong> Identify the theorem family and problem type.</p>
+<hr />
 </div>
-<p><span class="math inline">\(\textbf{Answer:}\)</span></p>
-<p>We first use the identity</p>
-<p><span class="math display">\[
-\frac1n\sum_{i=1}^n (X_i-\bar X)^2
-=
-\frac1n\sum_{i=1}^n X_i^2-\bar X^2.
-\]</span></p>
-<p>Since</p>
-<p><span class="math display">\[
-\operatorname{Var}(X_1)=\sigma^2&lt;\infty,
-\]</span></p>
-<p>we have</p>
-<p><span class="math display">\[
-E(X_1^2)&lt;\infty.
-\]</span></p>
-<p>Also, since <span class="math inline">\(\{X_i\}\)</span> are iid, <span class="math inline">\(\{X_i^2\}\)</span> are iid. Therefore, by Khintchin’s WLLN,</p>
-<p><span class="math display">\[
-\frac1n\sum_{i=1}^n X_i^2
-\xrightarrow{P}
-E(X_1^2).
-\]</span></p>
-<p>Again by Khintchin’s WLLN,</p>
-<p><span class="math display">\[
-\bar X
-=
-\frac1n\sum_{i=1}^n X_i
-\xrightarrow{P}
-E(X_1)=\mu.
-\]</span></p>
-<p>Since <span class="math inline">\(f(x)=x^2\)</span> is continuous, we have</p>
-<p><span class="math display">\[
-\bar X^2
-\xrightarrow{P}
-\mu^2.
-\]</span></p>
-<p>Hence</p>
-<p><span class="math display">\[
-\frac1n\sum_{i=1}^n (X_i-\bar X)^2
-=
-\frac1n\sum_{i=1}^n X_i^2-\bar X^2
-\xrightarrow{P}
-E(X_1^2)-\mu^2.
-\]</span></p>
-<p>But</p>
-<p><span class="math display">\[
-E(X_1^2)-\mu^2
-=
-\operatorname{Var}(X_1)
-=
-\sigma^2.
-\]</span></p>
-<p>Therefore,</p>
-<p><span class="math display">\[
-\frac1n\sum_{i=1}^n (X_i-\bar X)^2
-\xrightarrow{P}
-\sigma^2.
-\]</span></p>
+<div id="level-3-skeleton-built-missing-muscle" class="section level2 hasAnchor">
+<h2>Level 3 — Skeleton Built, Missing Muscle<a href="exercise-state-ladder.html#level-3-skeleton-built-missing-muscle" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<blockquote>
+<p>“I am on the correct path, but I lack the key mechanism.”</p>
+</blockquote>
+<p><strong>State:</strong> Global structure mostly correct; missing one local mechanism.<br />
+<strong>Action:</strong> Formally write down all conditions required to apply the theorem or method.<br />
+<strong>Examples:</strong><br />
+- Identifying dominating variables<br />
+- Subsequence extraction<br />
+- Checking independence<br />
+- Constructing auxiliary terms</p>
+<p><strong>Goal:</strong> Convert intuition into executable proof plan.</p>
+<hr />
 </div>
-<div id="ex-3-2" class="section level3 hasAnchor">
-<h3>Ex 3<a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#ex-3-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="problem">
-<p>Occupancy problems. Randomly distribute <span class="math inline">\(r\)</span> balls in <span class="math inline">\(n\)</span> boxes so that the sample space <span class="math inline">\(\Omega\)</span> consists of <span class="math inline">\(n^r\)</span> equally likely elements. Write</p>
-<p><span class="math display">\[
-N_n=\sum_{i=1}^n 1_{[\text{\(i\)th box is empty}]}
-\]</span></p>
-<p>for the number of empty boxes. Check</p>
-<p><span class="math display">\[
-P[\text{\(i\)th box is empty}]
-=
-\left(1-\frac1n\right)^r
-\]</span></p>
-<p>so that</p>
-<p><span class="math display">\[
-E(N_n)=n(1-n^{-1})^r.
-\]</span></p>
-<p>Check that as <span class="math inline">\(r/n\to c\)</span></p>
-<p><span class="math display">\[
-E(N_n)/n\to e^{-c}
-\]</span></p>
-<p><span class="math display">\[
-N_n/n\xrightarrow{P}e^{-c}.
-\]</span></p>
-<p>For the second result, compute <span class="math inline">\(\operatorname{Var}(N_n)\)</span> and show <span class="math inline">\(\operatorname{Var}(N_n/n)\to0\)</span>.</p>
+<div id="level-4-crack-it" class="section level2 hasAnchor">
+<h2>Level 4 — Crack It<a href="exercise-state-ladder.html#level-4-crack-it" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The proof is essentially correct. Sublevels describe depth of mastery:</p>
+<ul>
+<li><strong>4A — Route Found:</strong> Strategy correct, details may be loose.<br />
+</li>
+<li><strong>4B — Fully Justified:</strong> Every step defensible, no hand-waving.<br />
+</li>
+<li><strong>4C — Reproducible:</strong> Can reconstruct later from memory.<br />
+</li>
+<li><strong>4D — Flexible Ownership:</strong> Can modify, generalize, or adapt proof.<br />
+</li>
+<li><strong>4E — Structural Recognition:</strong> Can recognize same pattern in other exercises.</li>
+</ul>
+<hr />
+<p><strong>Meta-observation:</strong><br />
+- Stage 1 → 2 is cheap: just writing the exercise often gives basic understanding.<br />
+- Stage 2 → 3 is harder: requires formal recognition of all conditions needed to solve the problem.<br />
+- Stage 3 → 4A often requires one key insight (inequality, decomposition, or theorem condition).</p>
+<p>This ladder is especially useful for measure-theoretic probability exercises like those in Resnick’s <em>A Probability Path</em>.</p>
+<blockquote>
+<p><strong>Note on Chapters 1–3:</strong> I have already worked through the exercises for Chapters 1–3 during my initial study, so I will randomly or quasi-randomly select exercises from Chapters 1-3 to refill the blank, and may or may not write down notes for these chapters.</p>
+</blockquote>
+<div id="contact" class="section level3 unnumbered hasAnchor">
+<h3>Contact<a href="exercise-state-ladder.html#contact" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>If you have any questions, corrections, feel free to reach out:</p>
+<p><strong>Email:</strong> <code>archimondstat@gmail.com</code></p>
 </div>
-<p><span class="math inline">\(\textbf{Answer:}\)</span></p>
-<p>Let</p>
-<p><span class="math display">\[
-I_i=1_{[\text{\(i\)th box is empty}]}.
-\]</span></p>
-<p>Then</p>
-<p><span class="math display">\[
-N_n=\sum_{i=1}^n I_i.
-\]</span></p>
-<p>For a fixed box <span class="math inline">\(i\)</span>, one ball avoids box <span class="math inline">\(i\)</span> with probability</p>
-<p><span class="math display">\[
-1-\frac1n.
-\]</span></p>
-<p>Since there are <span class="math inline">\(r\)</span> balls,</p>
-<p><span class="math display">\[
-P[I_i=1]
-=
-P[\text{\(i\)th box is empty}]
-=
-\left(1-\frac1n\right)^r.
-\]</span></p>
-<p>Therefore,</p>
-<p><span class="math display">\[
-E(N_n)
-=
-E\left(\sum_{i=1}^n I_i\right)
-=
-\sum_{i=1}^n E(I_i)
-=
-n\left(1-\frac1n\right)^r.
-\]</span></p>
-<p>Hence</p>
-<p><span class="math display">\[
-\frac{E(N_n)}{n}
-=
-\left(1-\frac1n\right)^r
-=
-\left[\left(1-\frac1n\right)^n\right]^{r/n}
-\to e^{-c},
-\]</span></p>
-<p>since <span class="math inline">\(r/n\to c\)</span>.</p>
-<p>Now we compute the variance. Since <span class="math inline">\(I_i^2=I_i\)</span>,</p>
-<p><span class="math display">\[
-\operatorname{Var}(I_i)
-=
-E(I_i^2)-[E(I_i)]^2
-=
-E(I_i)-[E(I_i)]^2.
-\]</span></p>
-<p>Thus</p>
-<p><span class="math display">\[
-\operatorname{Var}(I_i)
-=
-\left(1-\frac1n\right)^r
--
-\left(1-\frac1n\right)^{2r}.
-\]</span></p>
-<p>For <span class="math inline">\(i\ne j\)</span>,</p>
-<p><span class="math display">\[
-E(I_iI_j)
-=
-P[I_i=1,I_j=1].
-\]</span></p>
-<p>The event <span class="math inline">\(\{I_i=1,I_j=1\}\)</span> means that both the <span class="math inline">\(i\)</span>th and <span class="math inline">\(j\)</span>th boxes are empty. For one ball to avoid both boxes, the probability is</p>
-<p><span class="math display">\[
-1-\frac2n.
-\]</span></p>
-<p>Therefore,</p>
-<p><span class="math display">\[
-E(I_iI_j)
-=
-\left(1-\frac2n\right)^r.
-\]</span></p>
-<p>So</p>
-<p><span class="math display">\[
-\operatorname{Cov}(I_i,I_j)
-=
-E(I_iI_j)-E(I_i)E(I_j)
-=
-\left(1-\frac2n\right)^r
--
-\left(1-\frac1n\right)^{2r}.
-\]</span></p>
-<p>Therefore,</p>
-<p><span class="math display">\[
-\operatorname{Var}(N_n)
-=
-\operatorname{Var}\left(\sum_{i=1}^n I_i\right)
-=
-\sum_{i=1}^n \operatorname{Var}(I_i)
-+
-\sum_{i\ne j}\operatorname{Cov}(I_i,I_j).
-\]</span></p>
-<p>Hence</p>
-<p><span class="math display">\[
-\operatorname{Var}(N_n)
-=
-n\left[
-\left(1-\frac1n\right)^r
--
-\left(1-\frac1n\right)^{2r}
-\right]
-+
-n(n-1)
-\left[
-\left(1-\frac2n\right)^r
--
-\left(1-\frac1n\right)^{2r}
-\right].
-\]</span></p>
-<p>Dividing by <span class="math inline">\(n^2\)</span>,</p>
-<p><span class="math display">\[
-\operatorname{Var}\left(\frac{N_n}{n}\right)
-=
-\frac1n
-\left[
-\left(1-\frac1n\right)^r
--
-\left(1-\frac1n\right)^{2r}
-\right]
-+
-\frac{n-1}{n}
-\left[
-\left(1-\frac2n\right)^r
--
-\left(1-\frac1n\right)^{2r}
-\right].
-\]</span></p>
-<p>For the first term,</p>
-<p><span class="math display">\[
-0
-\le
-\frac1n
-\left[
-\left(1-\frac1n\right)^r
--
-\left(1-\frac1n\right)^{2r}
-\right]
-\le
-\frac1n
-\to0.
-\]</span></p>
-<p>For the second term, since <span class="math inline">\(r/n\to c\)</span>,</p>
-<p><span class="math display">\[
-\left(1-\frac2n\right)^r
-\to e^{-2c},
-\]</span></p>
-<p>and</p>
-<p><span class="math display">\[
-\left(1-\frac1n\right)^{2r}
-=
-\left[\left(1-\frac1n\right)^n\right]^{2r/n}
-\to e^{-2c}.
-\]</span></p>
-<p>Therefore,</p>
-<p><span class="math display">\[
-\left(1-\frac2n\right)^r
--
-\left(1-\frac1n\right)^{2r}
-\to0.
-\]</span></p>
-<p>Thus</p>
-<p><span class="math display">\[
-\operatorname{Var}\left(\frac{N_n}{n}\right)\to0.
-\]</span></p>
-<p>By Chebyshev’s inequality, for every <span class="math inline">\(\varepsilon&gt;0\)</span>,</p>
-<p><span class="math display">\[
-P\left[
-\left|
-\frac{N_n}{n}
--
-\frac{E(N_n)}{n}
-\right|
-&gt;
-\varepsilon
-\right]
-\le
-\frac{\operatorname{Var}(N_n/n)}{\varepsilon^2}
-\to0.
-\]</span></p>
-<p>So</p>
-<p><span class="math display">\[
-\frac{N_n}{n}
--
-\frac{E(N_n)}{n}
-\xrightarrow{P}0.
-\]</span></p>
-<p>Since</p>
-<p><span class="math display">\[
-\frac{E(N_n)}{n}\to e^{-c},
-\]</span></p>
-<p>we conclude that</p>
-<p><span class="math display">\[
-\frac{N_n}{n}
-\xrightarrow{P}
-e^{-c}.
-\]</span></p>
-<p><span class="math inline">\(\textbf{Note:}\)</span> In this exercise, we cannot apply Khintchin’s WLLN directly to</p>
-<p><span class="math display">\[
-\frac{N_n}{n}
-=
-\frac1n\sum_{i=1}^n I_i,
-\qquad
-I_i=1_{[\text{\(i\)th box is empty}]}.
-\]</span></p>
-<p>Although the <span class="math inline">\(I_i\)</span>’s have the same distribution, they are not independent. Indeed, for <span class="math inline">\(i\ne j\)</span>,</p>
-<p><span class="math display">\[
-P(I_i=1,I_j=1)
-=
-\left(1-\frac2n\right)^r
-\ne
-\left(1-\frac1n\right)^{2r}
-=
-P(I_i=1)P(I_j=1).
-\]</span></p>
-<p>Therefore, instead of using Khintchin’s WLLN directly, we follow the hint: compute <span class="math inline">\(\operatorname{Var}(N_n)\)</span>, show</p>
-<p><span class="math display">\[
-\operatorname{Var}\left(\frac{N_n}{n}\right)\to0,
-\]</span></p>
-<p>and then use Chebyshev’s inequality.</p>
 </div>
-<div id="ex-4-2" class="section level3 hasAnchor">
-<h3>Ex 4<a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#ex-4-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="problem">
-<p>Suppose <span class="math inline">\(g:[0,1]\to \mathbb{R}\)</span> is measurable and Lebesgue integrable. Let <span class="math inline">\(\{U_n,n\ge 1\}\)</span> be iid uniform random variables and define <span class="math inline">\(X_i=g(U_i)\)</span>. In what sense does <span class="math inline">\(\sum_{i=1}^n X_i/n\)</span> approximate <span class="math inline">\(\int_0^1 g(x)dx\)</span>? (This offers a way to approximate the integral by Monte Carlo methods.) How would one guarantee a desired degree of precision?</p>
+<div id="change-log" class="section level2 unnumbered hasAnchor">
+<h2>Change Log<a href="exercise-state-ladder.html#change-log" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="section" class="section level3 unnumbered hasAnchor">
+<h3>2026-01-31<a href="exercise-state-ladder.html#section" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Starting from Chapter 5, I began writing my notes and following a new plan: instead of waiting until I finish the entire chapter to start the exercises, I now work on the corresponding exercises each time I finish reading a section (or a chunk) of the chapter. Also, I converted my R Markdown notes into a Bookdown project.</p>
 </div>
-<p><span class="math inline">\(\textbf{Answer:}\)</span></p>
-<p><span class="math inline">\(\textbf{Pre-learning:}\)</span> By Kolmogorov’s SLLN, if <span class="math inline">\(\{X_n,n\ge1\}\)</span> are iid and</p>
-<p><span class="math display">\[
-E|X_1|&lt;\infty,
-\]</span></p>
-<p>then</p>
-<p><span class="math display">\[
-\frac1n\sum_{i=1}^n X_i
-\xrightarrow{a.s.}
-E(X_1).
-\]</span></p>
-<p>Now let</p>
-<p><span class="math display">\[
-X_i=g(U_i),
-\]</span></p>
-<p>where <span class="math inline">\(\{U_i,i\ge1\}\)</span> are iid uniform random variables on <span class="math inline">\([0,1]\)</span>.</p>
-<p>Since <span class="math inline">\(g\)</span> is measurable, <span class="math inline">\(X_i=g(U_i)\)</span> is a random variable. Since the <span class="math inline">\(U_i\)</span>’s are iid, the <span class="math inline">\(X_i\)</span>’s are also iid.</p>
-<p>Also, since <span class="math inline">\(g\)</span> is Lebesgue integrable,</p>
-<p><span class="math display">\[
-E|X_i|
-=
-E|g(U_i)|
-=
-\int_0^1 |g(x)|\,dx
-&lt;\infty.
-\]</span></p>
-<p>Moreover,</p>
-<p><span class="math display">\[
-E(X_i)
-=
-E[g(U_i)]
-=
-\int_0^1 g(x)\,dx.
-\]</span></p>
-<p>Therefore, by Kolmogorov’s SLLN,</p>
-<p><span class="math display">\[
-\frac1n\sum_{i=1}^n X_i
-=
-\frac1n\sum_{i=1}^n g(U_i)
-\xrightarrow{a.s.}
-E(X_1)
-=
-\int_0^1 g(x)\,dx.
-\]</span></p>
-<p>Thus <span class="math inline">\(\sum_{i=1}^n X_i/n\)</span> approximates <span class="math inline">\(\int_0^1 g(x)dx\)</span> in the almost sure sense. Since almost sure convergence implies convergence in probability, we also have</p>
-<p><span class="math display">\[
-\frac1n\sum_{i=1}^n X_i
-\xrightarrow{P}
-\int_0^1 g(x)\,dx.
-\]</span></p>
-<p>To guarantee a desired degree of precision, we can state the guarantee in an <span class="math inline">\((\varepsilon,\delta)\)</span> sense. For any <span class="math inline">\(\varepsilon&gt;0\)</span> and <span class="math inline">\(\delta&gt;0\)</span>, since</p>
-<p><span class="math display">\[
-\frac1n\sum_{i=1}^n X_i
-\xrightarrow{P}
-\int_0^1 g(x)\,dx,
-\]</span></p>
-<p>there exists <span class="math inline">\(N&gt;0\)</span> such that for all <span class="math inline">\(n&gt;N\)</span>,</p>
-<p><span class="math display">\[
-P\left[
-\left|
-\frac1n\sum_{i=1}^n X_i
--
-\int_0^1 g(x)\,dx
-\right|
-&gt;
-\varepsilon
-\right]
-&lt;
-\delta.
-\]</span></p>
-<p>So, by choosing <span class="math inline">\(n\)</span> sufficiently large, the Monte Carlo approximation can be made accurate within error <span class="math inline">\(\varepsilon\)</span> with probability at least <span class="math inline">\(1-\delta\)</span>.</p>
-<p><span class="math inline">\(\textbf{Note:}\)</span> In this exercise, I used a theorem not yet covered in our reading order, namely Theorem 7.5.1. I treat this as a pre-learning step.</p>
-<p>Further, the SLLN gives the stronger asymptotic statement, namely almost sure convergence. The <span class="math inline">\((\varepsilon,\delta)\)</span> statement is the practical probability guarantee. Under only <span class="math inline">\(g\in L^1[0,1]\)</span>, this guarantees the existence of a sufficiently large <span class="math inline">\(n\)</span>, but it does not give an explicit computable formula for <span class="math inline">\(n\)</span>. For an explicit Chebyshev-type bound, one would need a stronger assumption such as</p>
-<p><span class="math display">\[
-E[g(U)^2]&lt;\infty.
-\]</span></p>
+<div id="section-1" class="section level3 unnumbered hasAnchor">
+<h3>2026-04-02<a href="exercise-state-ladder.html#section-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>In chapter 6, I added a section called <strong>Other Notes</strong> for recording other things I want to write down, including but not limit to:</p>
+<ul>
+<li><p>Some alternative proofs, sometimes I may get lucky and think of some other proof for some theorems, that doesn’t mean mine is better, it just means that I have different idea.</p></li>
+<li><p>Some idea summary, sometimes the proof in the book may be too long so I write down something to summarize the idea.</p></li>
+</ul>
+</div>
+<div id="section-2" class="section level3 unnumbered hasAnchor">
+<h3>2026-04-10<a href="exercise-state-ladder.html#section-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Recently I realized that for some exercises I may be essentially correct, but I actually had left too many logical gaps, this is a dangerous signal indicating that I was doing it more by instinct than by logic, for some easy questions it could be easy to see through a path from the given condition to the required endpoint directly, however when dealing with advanced questions, it is just being a blind people trying to walk through a minefield, relying on instinct is not an option, the only canes we can use are basic axioms, definitions, theorems and logic, therefore I should try my best not merely just write down a skeletal outline as an answer, but explicitly justify every logical step in detail.</p>
+</div>
+<div id="section-3" class="section level3 unnumbered hasAnchor">
+<h3>2026-05-1<a href="exercise-state-ladder.html#section-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>From Chapter 6 onward, initial ideas will be written on paper.<br />
+Uploaded images are treated as Step 1 (Brain dump) unless explicitly stated otherwise.</p>
 
 </div>
 </div>
@@ -853,8 +546,8 @@ E[g(U)^2]&lt;\infty.
           </div>
         </div>
       </div>
-<a href="chap-6-convergence-concepts.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="chap-1-sets-and-events.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

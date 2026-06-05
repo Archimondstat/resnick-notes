@@ -6721,3 +6721,5 @@ Hence
 exists and is finite almost surely.
 
 $\textbf{Note:}$ We should note that when $E(g(Z_n-\gamma))\to E(g(X_0-\gamma))$, the convergence of their root is not trivial, we need to go back to use $\varepsilon-N$ language and the monotonicity of $E(g(Z_n-\gamma))$ to prove it.
+
+

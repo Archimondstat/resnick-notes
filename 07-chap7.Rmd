@@ -408,3 +408,110 @@ Therefore, instead of using Khintchin's WLLN directly, we follow the hint: compu
 \]
 
 and then use Chebyshev's inequality.
+
+### Ex 4
+
+::: problem
+Suppose \(g:[0,1]\to \mathbb{R}\) is measurable and Lebesgue integrable. Let \(\{U_n,n\ge 1\}\) be iid uniform random variables and define \(X_i=g(U_i)\). In what sense does \(\sum_{i=1}^n X_i/n\) approximate \(\int_0^1 g(x)dx\)? (This offers a way to approximate the integral by Monte Carlo methods.) How would one guarantee a desired degree of precision?
+:::
+
+$\textbf{Answer:}$
+
+$\textbf{Pre-learning:}$ By Kolmogorov's SLLN, if \(\{X_n,n\ge1\}\) are iid and
+
+\[
+E|X_1|<\infty,
+\]
+
+then
+
+\[
+\frac1n\sum_{i=1}^n X_i
+\xrightarrow{a.s.}
+E(X_1).
+\]
+
+Now let
+
+\[
+X_i=g(U_i),
+\]
+
+where \(\{U_i,i\ge1\}\) are iid uniform random variables on \([0,1]\).
+
+Since \(g\) is measurable, \(X_i=g(U_i)\) is a random variable. Since the \(U_i\)'s are iid, the \(X_i\)'s are also iid.
+
+Also, since \(g\) is Lebesgue integrable,
+
+\[
+E|X_i|
+=
+E|g(U_i)|
+=
+\int_0^1 |g(x)|\,dx
+<\infty.
+\]
+
+Moreover,
+
+\[
+E(X_i)
+=
+E[g(U_i)]
+=
+\int_0^1 g(x)\,dx.
+\]
+
+Therefore, by Kolmogorov's SLLN,
+
+\[
+\frac1n\sum_{i=1}^n X_i
+=
+\frac1n\sum_{i=1}^n g(U_i)
+\xrightarrow{a.s.}
+E(X_1)
+=
+\int_0^1 g(x)\,dx.
+\]
+
+Thus \(\sum_{i=1}^n X_i/n\) approximates \(\int_0^1 g(x)dx\) in the almost sure sense. Since almost sure convergence implies convergence in probability, we also have
+
+\[
+\frac1n\sum_{i=1}^n X_i
+\xrightarrow{P}
+\int_0^1 g(x)\,dx.
+\]
+
+To guarantee a desired degree of precision, we can state the guarantee in an \((\varepsilon,\delta)\) sense. For any \(\varepsilon>0\) and \(\delta>0\), since
+
+\[
+\frac1n\sum_{i=1}^n X_i
+\xrightarrow{P}
+\int_0^1 g(x)\,dx,
+\]
+
+there exists \(N>0\) such that for all \(n>N\),
+
+\[
+P\left[
+\left|
+\frac1n\sum_{i=1}^n X_i
+-
+\int_0^1 g(x)\,dx
+\right|
+>
+\varepsilon
+\right]
+<
+\delta.
+\]
+
+So, by choosing \(n\) sufficiently large, the Monte Carlo approximation can be made accurate within error \(\varepsilon\) with probability at least \(1-\delta\).
+
+$\textbf{Note:}$ In this exercise, I used a theorem not yet covered in our reading order, namely Theorem 7.5.1. I treat this as a pre-learning step.
+
+Further, the SLLN gives the stronger asymptotic statement, namely almost sure convergence. The \((\varepsilon,\delta)\) statement is the practical probability guarantee. Under only \(g\in L^1[0,1]\), this guarantees the existence of a sufficiently large \(n\), but it does not give an explicit computable formula for \(n\). For an explicit Chebyshev-type bound, one would need a stronger assumption such as
+
+\[
+E[g(U)^2]<\infty.
+\]
