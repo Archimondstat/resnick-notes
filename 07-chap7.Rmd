@@ -515,3 +515,438 @@ Further, the SLLN gives the stronger asymptotic statement, namely almost sure co
 \[
 E[g(U)^2]<\infty.
 \]
+
+### Ex 21
+
+::: problem
+Suppose \(\{X_n(\theta), n\ge 1\}\) are iid with common exponential distribution with mean \(\theta\). Then
+
+\[
+\sum_{i=1}^n X_i(\theta)/n \xrightarrow{P} \theta.
+\]
+
+Show for any \(u:\mathbb{R}_+\mapsto \mathbb{R}_+\) which is bounded and continuous that
+
+\[
+\int_0^\infty
+u(y)e^{-ny\theta^{-1}}
+\frac{(ny\theta^{-1})^{n-1}}{(n-1)!}
+n\theta^{-1}\,dy
+\to u(\theta).
+\]
+
+Show this convergence is uniform on finite \(\theta\)-intervals. (Compare this with the Bernstein polynomials of item 6.3 on page 176.)
+:::
+
+$\textbf{Answer:}$
+
+Let
+
+\[
+S_n=\sum_{i=1}^n X_i(\theta),
+\qquad
+Y_n=\frac{S_n}{n}.
+\]
+
+Since \(X_i(\theta)\) are iid exponential random variables with mean \(\theta\), we have
+
+\[
+S_n\sim \operatorname{Gamma}(n,\theta),
+\]
+
+with density
+
+\[
+f_{S_n}(x)
+=
+e^{-x\theta^{-1}}
+\frac{x^{n-1}\theta^{-n}}{(n-1)!},
+\qquad x>0.
+\]
+
+Now
+
+\[
+P(Y_n\le y)
+=
+P(S_n\le ny).
+\]
+
+Therefore the density of \(Y_n\) is
+
+\[
+f_{Y_n}(y)
+=
+n f_{S_n}(ny).
+\]
+
+Hence
+
+\[
+f_{Y_n}(y)
+=
+n e^{-ny\theta^{-1}}
+\frac{(ny)^{n-1}\theta^{-n}}{(n-1)!}.
+\]
+
+Since
+
+\[
+n(ny)^{n-1}\theta^{-n}
+=
+n\theta^{-1}(ny\theta^{-1})^{n-1},
+\]
+
+we get
+
+\[
+f_{Y_n}(y)
+=
+e^{-ny\theta^{-1}}
+\frac{(ny\theta^{-1})^{n-1}}{(n-1)!}
+n\theta^{-1},
+\qquad y>0.
+\]
+
+Thus the integral in the exercise is
+
+\[
+\int_0^\infty
+u(y)e^{-ny\theta^{-1}}
+\frac{(ny\theta^{-1})^{n-1}}{(n-1)!}
+n\theta^{-1}\,dy
+=
+E_\theta[u(Y_n)].
+\]
+
+So it is enough to prove
+
+\[
+E_\theta[u(Y_n)]\to u(\theta).
+\]
+
+Since
+
+\[
+Y_n=\frac1n\sum_{i=1}^n X_i(\theta),
+\]
+
+and
+
+\[
+E_\theta[X_1(\theta)]=\theta,
+\]
+
+we have
+
+\[
+Y_n\xrightarrow{P_\theta}\theta.
+\]
+
+Fix \(\varepsilon>0\). Since \(u\) is continuous at \(\theta\), there exists \(\delta>0\) such that
+
+\[
+|y-\theta|<\delta
+\]
+
+implies
+
+\[
+|u(y)-u(\theta)|<\frac{\varepsilon}{2}.
+\]
+
+Then
+
+\[
+\begin{aligned}
+|E_\theta[u(Y_n)]-u(\theta)|
+&=
+|E_\theta[u(Y_n)-u(\theta)]| \\
+&\le
+E_\theta|u(Y_n)-u(\theta)| \\
+&=
+E_\theta\left[
+|u(Y_n)-u(\theta)|1_{\{|Y_n-\theta|<\delta\}}
+\right] \\
+&\quad+
+E_\theta\left[
+|u(Y_n)-u(\theta)|1_{\{|Y_n-\theta|\ge \delta\}}
+\right].
+\end{aligned}
+\]
+
+For the first term,
+
+\[
+E_\theta\left[
+|u(Y_n)-u(\theta)|1_{\{|Y_n-\theta|<\delta\}}
+\right]
+\le
+\frac{\varepsilon}{2}.
+\]
+
+For the second term, since \(u\) is bounded,
+
+\[
+|u(Y_n)-u(\theta)|
+\le
+2\|u\|_\infty.
+\]
+
+Therefore
+
+\[
+E_\theta\left[
+|u(Y_n)-u(\theta)|1_{\{|Y_n-\theta|\ge \delta\}}
+\right]
+\le
+2\|u\|_\infty
+P_\theta(|Y_n-\theta|\ge \delta).
+\]
+
+Since
+
+\[
+Y_n\xrightarrow{P_\theta}\theta,
+\]
+
+we have
+
+\[
+P_\theta(|Y_n-\theta|\ge \delta)\to0.
+\]
+
+Thus, for sufficiently large \(n\),
+
+\[
+2\|u\|_\infty
+P_\theta(|Y_n-\theta|\ge \delta)
+<
+\frac{\varepsilon}{2}.
+\]
+
+Hence
+
+\[
+|E_\theta[u(Y_n)]-u(\theta)|<\varepsilon
+\]
+
+for sufficiently large \(n\). Therefore
+
+\[
+E_\theta[u(Y_n)]\to u(\theta).
+\]
+
+Equivalently,
+
+\[
+\int_0^\infty
+u(y)e^{-ny\theta^{-1}}
+\frac{(ny\theta^{-1})^{n-1}}{(n-1)!}
+n\theta^{-1}\,dy
+\to u(\theta).
+\]
+
+Now we prove the convergence is uniform on finite \(\theta\)-intervals. Fix \(T<\infty\). We want to show
+
+\[
+\sup_{0<\theta\le T}
+|E_\theta[u(Y_n)]-u(\theta)|
+\to0.
+\]
+
+Let \(\eta>0\). Then
+
+\[
+\begin{aligned}
+|E_\theta[u(Y_n)]-u(\theta)|
+&\le
+E_\theta|u(Y_n)-u(\theta)| \\
+&=
+E_\theta\left[
+|u(Y_n)-u(\theta)|1_{\{|Y_n-\theta|<\eta\}}
+\right] \\
+&\quad+
+E_\theta\left[
+|u(Y_n)-u(\theta)|1_{\{|Y_n-\theta|\ge\eta\}}
+\right].
+\end{aligned}
+\]
+
+For the first term, if
+
+\[
+0<\theta\le T
+\]
+
+and
+
+\[
+|Y_n-\theta|<\eta,
+\]
+
+then
+
+\[
+Y_n\in[0,T+\eta].
+\]
+
+Since \(u\) is continuous, it is uniformly continuous on the compact interval \([0,T+\eta]\). Define
+
+\[
+\omega_T(\eta)
+=
+\sup_{\substack{x,y\in[0,T+\eta]\\ |x-y|<\eta}}
+|u(x)-u(y)|.
+\]
+
+Then
+
+\[
+\omega_T(\eta)\to0
+\qquad
+\text{as }\eta\downarrow0.
+\]
+
+Therefore,
+
+\[
+E_\theta\left[
+|u(Y_n)-u(\theta)|1_{\{|Y_n-\theta|<\eta\}}
+\right]
+\le
+\omega_T(\eta),
+\]
+
+uniformly for \(0<\theta\le T\).
+
+For the second term,
+
+\[
+E_\theta\left[
+|u(Y_n)-u(\theta)|1_{\{|Y_n-\theta|\ge\eta\}}
+\right]
+\le
+2\|u\|_\infty
+P_\theta(|Y_n-\theta|\ge\eta).
+\]
+
+Now
+
+\[
+E_\theta(Y_n)=\theta.
+\]
+
+Also,
+
+\[
+\operatorname{Var}_\theta(X_i(\theta))=\theta^2.
+\]
+
+Hence
+
+\[
+\operatorname{Var}_\theta(S_n)=n\theta^2,
+\]
+
+and so
+
+\[
+\operatorname{Var}_\theta(Y_n)
+=
+\operatorname{Var}_\theta\left(\frac{S_n}{n}\right)
+=
+\frac{\theta^2}{n}.
+\]
+
+By Chebyshev's inequality,
+
+\[
+P_\theta(|Y_n-\theta|\ge\eta)
+\le
+\frac{\operatorname{Var}_\theta(Y_n)}{\eta^2}
+=
+\frac{\theta^2}{n\eta^2}.
+\]
+
+For \(0<\theta\le T\),
+
+\[
+\frac{\theta^2}{n\eta^2}
+\le
+\frac{T^2}{n\eta^2}.
+\]
+
+Therefore,
+
+\[
+P_\theta(|Y_n-\theta|\ge\eta)
+\le
+\frac{T^2}{n\eta^2},
+\]
+
+uniformly for \(0<\theta\le T\).
+
+Combining the two bounds, we get
+
+\[
+|E_\theta[u(Y_n)]-u(\theta)|
+\le
+\omega_T(\eta)
++
+2\|u\|_\infty
+\frac{T^2}{n\eta^2}.
+\]
+
+Taking the supremum over \(0<\theta\le T\),
+
+\[
+\sup_{0<\theta\le T}
+|E_\theta[u(Y_n)]-u(\theta)|
+\le
+\omega_T(\eta)
++
+2\|u\|_\infty
+\frac{T^2}{n\eta^2}.
+\]
+
+Let \(\varepsilon>0\). First choose \(\eta>0\) such that
+
+\[
+\omega_T(\eta)<\frac{\varepsilon}{2}.
+\]
+
+Then, for this fixed \(\eta\), choose \(n\) large enough such that
+
+\[
+2\|u\|_\infty
+\frac{T^2}{n\eta^2}
+<
+\frac{\varepsilon}{2}.
+\]
+
+Therefore, for sufficiently large \(n\),
+
+\[
+\sup_{0<\theta\le T}
+|E_\theta[u(Y_n)]-u(\theta)|
+<
+\varepsilon.
+\]
+
+Hence
+
+\[
+\sup_{0<\theta\le T}
+\left|
+\int_0^\infty
+u(y)e^{-ny\theta^{-1}}
+\frac{(ny\theta^{-1})^{n-1}}{(n-1)!}
+n\theta^{-1}\,dy
+-
+u(\theta)
+\right|
+\to0.
+\]
+
+Thus the convergence is uniform on finite \(\theta\)-intervals. 

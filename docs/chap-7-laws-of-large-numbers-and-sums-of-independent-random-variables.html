@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chap 7, Laws of Large Numbers and Sums of Independent Random Variables | Notes on A Probability Path (Resnick)</title>
   <meta name="description" content="Chap 7, Laws of Large Numbers and Sums of Independent Random Variables | Notes on A Probability Path (Resnick)" />
-  <meta name="generator" content="bookdown 0.42 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.46 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chap 7, Laws of Large Numbers and Sums of Independent Random Variables | Notes on A Probability Path (Resnick)" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="Zhanwen Peng" />
 
 
-<meta name="date" content="2026-06-05" />
+<meta name="date" content="2026-06-09" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -78,13 +78,21 @@
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>About This Project</a>
 <ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#exercise-state-ladder"><i class="fa fa-check"></i>Exercise-State Ladder</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#level-1-total-ignorance"><i class="fa fa-check"></i>Level 1 — Total Ignorance</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#level-2-spark-without-ignition"><i class="fa fa-check"></i>Level 2 — Spark Without Ignition</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#level-3-skeleton-built-missing-muscle"><i class="fa fa-check"></i>Level 3 — Skeleton Built, Missing Muscle</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#level-4-crack-it"><i class="fa fa-check"></i>Level 4 — Crack It</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#contact"><i class="fa fa-check"></i>Contact</a></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#change-log"><i class="fa fa-check"></i>Change Log</a>
 <ul>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#section"><i class="fa fa-check"></i>2026-01-31</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#section-1"><i class="fa fa-check"></i>2026-04-02</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#section-2"><i class="fa fa-check"></i>2026-04-10</a></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#section-3"><i class="fa fa-check"></i>2026-05-1</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#section-3"><i class="fa fa-check"></i>2026-05-01</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#section-4"><i class="fa fa-check"></i>2026-06-05</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="chap-1-sets-and-events.html"><a href="chap-1-sets-and-events.html"><i class="fa fa-check"></i>Chap 1, Sets and Events</a>
@@ -420,6 +428,7 @@
 <li class="chapter" data-level="" data-path="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html"><a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#ex-2-2"><i class="fa fa-check"></i>Ex 2</a></li>
 <li class="chapter" data-level="" data-path="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html"><a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#ex-3-2"><i class="fa fa-check"></i>Ex 3</a></li>
 <li class="chapter" data-level="" data-path="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html"><a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#ex-4-2"><i class="fa fa-check"></i>Ex 4</a></li>
+<li class="chapter" data-level="" data-path="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html"><a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#ex-21-3"><i class="fa fa-check"></i>Ex 21</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -844,6 +853,339 @@ P\left[
 <p><span class="math display">\[
 E[g(U)^2]&lt;\infty.
 \]</span></p>
+</div>
+<div id="ex-21-3" class="section level3 hasAnchor">
+<h3>Ex 21<a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#ex-21-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="problem">
+<p>Suppose <span class="math inline">\(\{X_n(\theta), n\ge 1\}\)</span> are iid with common exponential distribution with mean <span class="math inline">\(\theta\)</span>. Then</p>
+<p><span class="math display">\[
+\sum_{i=1}^n X_i(\theta)/n \xrightarrow{P} \theta.
+\]</span></p>
+<p>Show for any <span class="math inline">\(u:\mathbb{R}_+\mapsto \mathbb{R}_+\)</span> which is bounded and continuous that</p>
+<p><span class="math display">\[
+\int_0^\infty
+u(y)e^{-ny\theta^{-1}}
+\frac{(ny\theta^{-1})^{n-1}}{(n-1)!}
+n\theta^{-1}\,dy
+\to u(\theta).
+\]</span></p>
+<p>Show this convergence is uniform on finite <span class="math inline">\(\theta\)</span>-intervals. (Compare this with the Bernstein polynomials of item 6.3 on page 176.)</p>
+</div>
+<p><span class="math inline">\(\textbf{Answer:}\)</span></p>
+<p>Let</p>
+<p><span class="math display">\[
+S_n=\sum_{i=1}^n X_i(\theta),
+\qquad
+Y_n=\frac{S_n}{n}.
+\]</span></p>
+<p>Since <span class="math inline">\(X_i(\theta)\)</span> are iid exponential random variables with mean <span class="math inline">\(\theta\)</span>, we have</p>
+<p><span class="math display">\[
+S_n\sim \operatorname{Gamma}(n,\theta),
+\]</span></p>
+<p>with density</p>
+<p><span class="math display">\[
+f_{S_n}(x)
+=
+e^{-x\theta^{-1}}
+\frac{x^{n-1}\theta^{-n}}{(n-1)!},
+\qquad x&gt;0.
+\]</span></p>
+<p>Now</p>
+<p><span class="math display">\[
+P(Y_n\le y)
+=
+P(S_n\le ny).
+\]</span></p>
+<p>Therefore the density of <span class="math inline">\(Y_n\)</span> is</p>
+<p><span class="math display">\[
+f_{Y_n}(y)
+=
+n f_{S_n}(ny).
+\]</span></p>
+<p>Hence</p>
+<p><span class="math display">\[
+f_{Y_n}(y)
+=
+n e^{-ny\theta^{-1}}
+\frac{(ny)^{n-1}\theta^{-n}}{(n-1)!}.
+\]</span></p>
+<p>Since</p>
+<p><span class="math display">\[
+n(ny)^{n-1}\theta^{-n}
+=
+n\theta^{-1}(ny\theta^{-1})^{n-1},
+\]</span></p>
+<p>we get</p>
+<p><span class="math display">\[
+f_{Y_n}(y)
+=
+e^{-ny\theta^{-1}}
+\frac{(ny\theta^{-1})^{n-1}}{(n-1)!}
+n\theta^{-1},
+\qquad y&gt;0.
+\]</span></p>
+<p>Thus the integral in the exercise is</p>
+<p><span class="math display">\[
+\int_0^\infty
+u(y)e^{-ny\theta^{-1}}
+\frac{(ny\theta^{-1})^{n-1}}{(n-1)!}
+n\theta^{-1}\,dy
+=
+E_\theta[u(Y_n)].
+\]</span></p>
+<p>So it is enough to prove</p>
+<p><span class="math display">\[
+E_\theta[u(Y_n)]\to u(\theta).
+\]</span></p>
+<p>Since</p>
+<p><span class="math display">\[
+Y_n=\frac1n\sum_{i=1}^n X_i(\theta),
+\]</span></p>
+<p>and</p>
+<p><span class="math display">\[
+E_\theta[X_1(\theta)]=\theta,
+\]</span></p>
+<p>we have</p>
+<p><span class="math display">\[
+Y_n\xrightarrow{P_\theta}\theta.
+\]</span></p>
+<p>Fix <span class="math inline">\(\varepsilon&gt;0\)</span>. Since <span class="math inline">\(u\)</span> is continuous at <span class="math inline">\(\theta\)</span>, there exists <span class="math inline">\(\delta&gt;0\)</span> such that</p>
+<p><span class="math display">\[
+|y-\theta|&lt;\delta
+\]</span></p>
+<p>implies</p>
+<p><span class="math display">\[
+|u(y)-u(\theta)|&lt;\frac{\varepsilon}{2}.
+\]</span></p>
+<p>Then</p>
+<p><span class="math display">\[
+\begin{aligned}
+|E_\theta[u(Y_n)]-u(\theta)|
+&amp;=
+|E_\theta[u(Y_n)-u(\theta)]| \\
+&amp;\le
+E_\theta|u(Y_n)-u(\theta)| \\
+&amp;=
+E_\theta\left[
+|u(Y_n)-u(\theta)|1_{\{|Y_n-\theta|&lt;\delta\}}
+\right] \\
+&amp;\quad+
+E_\theta\left[
+|u(Y_n)-u(\theta)|1_{\{|Y_n-\theta|\ge \delta\}}
+\right].
+\end{aligned}
+\]</span></p>
+<p>For the first term,</p>
+<p><span class="math display">\[
+E_\theta\left[
+|u(Y_n)-u(\theta)|1_{\{|Y_n-\theta|&lt;\delta\}}
+\right]
+\le
+\frac{\varepsilon}{2}.
+\]</span></p>
+<p>For the second term, since <span class="math inline">\(u\)</span> is bounded,</p>
+<p><span class="math display">\[
+|u(Y_n)-u(\theta)|
+\le
+2\|u\|_\infty.
+\]</span></p>
+<p>Therefore</p>
+<p><span class="math display">\[
+E_\theta\left[
+|u(Y_n)-u(\theta)|1_{\{|Y_n-\theta|\ge \delta\}}
+\right]
+\le
+2\|u\|_\infty
+P_\theta(|Y_n-\theta|\ge \delta).
+\]</span></p>
+<p>Since</p>
+<p><span class="math display">\[
+Y_n\xrightarrow{P_\theta}\theta,
+\]</span></p>
+<p>we have</p>
+<p><span class="math display">\[
+P_\theta(|Y_n-\theta|\ge \delta)\to0.
+\]</span></p>
+<p>Thus, for sufficiently large <span class="math inline">\(n\)</span>,</p>
+<p><span class="math display">\[
+2\|u\|_\infty
+P_\theta(|Y_n-\theta|\ge \delta)
+&lt;
+\frac{\varepsilon}{2}.
+\]</span></p>
+<p>Hence</p>
+<p><span class="math display">\[
+|E_\theta[u(Y_n)]-u(\theta)|&lt;\varepsilon
+\]</span></p>
+<p>for sufficiently large <span class="math inline">\(n\)</span>. Therefore</p>
+<p><span class="math display">\[
+E_\theta[u(Y_n)]\to u(\theta).
+\]</span></p>
+<p>Equivalently,</p>
+<p><span class="math display">\[
+\int_0^\infty
+u(y)e^{-ny\theta^{-1}}
+\frac{(ny\theta^{-1})^{n-1}}{(n-1)!}
+n\theta^{-1}\,dy
+\to u(\theta).
+\]</span></p>
+<p>Now we prove the convergence is uniform on finite <span class="math inline">\(\theta\)</span>-intervals. Fix <span class="math inline">\(T&lt;\infty\)</span>. We want to show</p>
+<p><span class="math display">\[
+\sup_{0&lt;\theta\le T}
+|E_\theta[u(Y_n)]-u(\theta)|
+\to0.
+\]</span></p>
+<p>Let <span class="math inline">\(\eta&gt;0\)</span>. Then</p>
+<p><span class="math display">\[
+\begin{aligned}
+|E_\theta[u(Y_n)]-u(\theta)|
+&amp;\le
+E_\theta|u(Y_n)-u(\theta)| \\
+&amp;=
+E_\theta\left[
+|u(Y_n)-u(\theta)|1_{\{|Y_n-\theta|&lt;\eta\}}
+\right] \\
+&amp;\quad+
+E_\theta\left[
+|u(Y_n)-u(\theta)|1_{\{|Y_n-\theta|\ge\eta\}}
+\right].
+\end{aligned}
+\]</span></p>
+<p>For the first term, if</p>
+<p><span class="math display">\[
+0&lt;\theta\le T
+\]</span></p>
+<p>and</p>
+<p><span class="math display">\[
+|Y_n-\theta|&lt;\eta,
+\]</span></p>
+<p>then</p>
+<p><span class="math display">\[
+Y_n\in[0,T+\eta].
+\]</span></p>
+<p>Since <span class="math inline">\(u\)</span> is continuous, it is uniformly continuous on the compact interval <span class="math inline">\([0,T+\eta]\)</span>. Define</p>
+<p><span class="math display">\[
+\omega_T(\eta)
+=
+\sup_{\substack{x,y\in[0,T+\eta]\\ |x-y|&lt;\eta}}
+|u(x)-u(y)|.
+\]</span></p>
+<p>Then</p>
+<p><span class="math display">\[
+\omega_T(\eta)\to0
+\qquad
+\text{as }\eta\downarrow0.
+\]</span></p>
+<p>Therefore,</p>
+<p><span class="math display">\[
+E_\theta\left[
+|u(Y_n)-u(\theta)|1_{\{|Y_n-\theta|&lt;\eta\}}
+\right]
+\le
+\omega_T(\eta),
+\]</span></p>
+<p>uniformly for <span class="math inline">\(0&lt;\theta\le T\)</span>.</p>
+<p>For the second term,</p>
+<p><span class="math display">\[
+E_\theta\left[
+|u(Y_n)-u(\theta)|1_{\{|Y_n-\theta|\ge\eta\}}
+\right]
+\le
+2\|u\|_\infty
+P_\theta(|Y_n-\theta|\ge\eta).
+\]</span></p>
+<p>Now</p>
+<p><span class="math display">\[
+E_\theta(Y_n)=\theta.
+\]</span></p>
+<p>Also,</p>
+<p><span class="math display">\[
+\operatorname{Var}_\theta(X_i(\theta))=\theta^2.
+\]</span></p>
+<p>Hence</p>
+<p><span class="math display">\[
+\operatorname{Var}_\theta(S_n)=n\theta^2,
+\]</span></p>
+<p>and so</p>
+<p><span class="math display">\[
+\operatorname{Var}_\theta(Y_n)
+=
+\operatorname{Var}_\theta\left(\frac{S_n}{n}\right)
+=
+\frac{\theta^2}{n}.
+\]</span></p>
+<p>By Chebyshev’s inequality,</p>
+<p><span class="math display">\[
+P_\theta(|Y_n-\theta|\ge\eta)
+\le
+\frac{\operatorname{Var}_\theta(Y_n)}{\eta^2}
+=
+\frac{\theta^2}{n\eta^2}.
+\]</span></p>
+<p>For <span class="math inline">\(0&lt;\theta\le T\)</span>,</p>
+<p><span class="math display">\[
+\frac{\theta^2}{n\eta^2}
+\le
+\frac{T^2}{n\eta^2}.
+\]</span></p>
+<p>Therefore,</p>
+<p><span class="math display">\[
+P_\theta(|Y_n-\theta|\ge\eta)
+\le
+\frac{T^2}{n\eta^2},
+\]</span></p>
+<p>uniformly for <span class="math inline">\(0&lt;\theta\le T\)</span>.</p>
+<p>Combining the two bounds, we get</p>
+<p><span class="math display">\[
+|E_\theta[u(Y_n)]-u(\theta)|
+\le
+\omega_T(\eta)
++
+2\|u\|_\infty
+\frac{T^2}{n\eta^2}.
+\]</span></p>
+<p>Taking the supremum over <span class="math inline">\(0&lt;\theta\le T\)</span>,</p>
+<p><span class="math display">\[
+\sup_{0&lt;\theta\le T}
+|E_\theta[u(Y_n)]-u(\theta)|
+\le
+\omega_T(\eta)
++
+2\|u\|_\infty
+\frac{T^2}{n\eta^2}.
+\]</span></p>
+<p>Let <span class="math inline">\(\varepsilon&gt;0\)</span>. First choose <span class="math inline">\(\eta&gt;0\)</span> such that</p>
+<p><span class="math display">\[
+\omega_T(\eta)&lt;\frac{\varepsilon}{2}.
+\]</span></p>
+<p>Then, for this fixed <span class="math inline">\(\eta\)</span>, choose <span class="math inline">\(n\)</span> large enough such that</p>
+<p><span class="math display">\[
+2\|u\|_\infty
+\frac{T^2}{n\eta^2}
+&lt;
+\frac{\varepsilon}{2}.
+\]</span></p>
+<p>Therefore, for sufficiently large <span class="math inline">\(n\)</span>,</p>
+<p><span class="math display">\[
+\sup_{0&lt;\theta\le T}
+|E_\theta[u(Y_n)]-u(\theta)|
+&lt;
+\varepsilon.
+\]</span></p>
+<p>Hence</p>
+<p><span class="math display">\[
+\sup_{0&lt;\theta\le T}
+\left|
+\int_0^\infty
+u(y)e^{-ny\theta^{-1}}
+\frac{(ny\theta^{-1})^{n-1}}{(n-1)!}
+n\theta^{-1}\,dy
+-
+u(\theta)
+\right|
+\to0.
+\]</span></p>
+<p>Thus the convergence is uniform on finite <span class="math inline">\(\theta\)</span>-intervals.</p>
 
 </div>
 </div>
