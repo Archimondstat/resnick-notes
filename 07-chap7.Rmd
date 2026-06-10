@@ -950,3 +950,512 @@ u(\theta)
 \]
 
 Thus the convergence is uniform on finite \(\theta\)-intervals. 
+
+### Ex 22
+
+::: problem
+The WLLN and inversion of Laplace transforms. Let \(X\ge 0\) be a nonnegative random variable with distribution function \(F\) and Laplace transform
+
+\[
+\hat F(\lambda)
+=
+E(e^{-\lambda X})
+=
+\int_{[0,\infty)} e^{-\lambda x}F(dx).
+\]
+
+Show that \(F\) determines \(F\) using the weak law of large numbers and the following steps.
+
+(a) Show
+
+\[
+\hat F^{(k)}(\lambda)
+=
+\int_{[0,\infty)}
+(-1)^k x^k e^{-\lambda x}F(dx).
+\]
+
+(b) Suppose \(\{\xi_n(\theta),n\ge1\}\) are iid non-negative random variables with a Poisson distribution, parameter \(\theta>0\). Use the weak law of large numbers to prove
+
+\[
+\lim_{n\to\infty}
+P\left[
+\sum_{i=1}^n \xi_i(\theta)/n\le x
+\right]
+=
+\begin{cases}
+1, & \text{if } x>\theta,\\
+0, & \text{if } x<\theta,
+\end{cases}
+\]
+
+and therefore
+
+\[
+\lim_{n\to\infty}
+\sum_{j\le nx} e^{-n\theta}\frac{(n\theta)^j}{j!}
+=
+\begin{cases}
+1, & \text{if } x>\theta,\\
+0, & \text{if } x<\theta.
+\end{cases}
+\]
+
+(c) Conclude for any \(x\ge0\) which is a point of continuity of \(F\) that
+
+\[
+\sum_{j\le nx}
+\frac{(-1)^j}{j!}n^j\hat F^{(j)}(n)
+\to F(x).
+\]
+:::
+
+$\textbf{Answer:}$
+
+(a) For \(k\ge0\), define
+
+\[
+G_k(\lambda)
+=
+\int_{[0,\infty)}
+(-1)^k x^k e^{-\lambda x}F(dx),
+\qquad \lambda>0.
+\]
+
+Then
+
+\[
+G_0(\lambda)=\hat F(\lambda).
+\]
+
+We first show that
+
+\[
+G_{k-1}'(\lambda)=G_k(\lambda).
+\]
+
+Fix \(0<a<b<\infty\). Since \(F\) is a probability measure and
+
+\[
+\sup_{x\ge0} x^k e^{-ax}<\infty,
+\]
+
+we have
+
+\[
+\int_a^b\int_{[0,\infty)}
+\left|(-1)^k x^k e^{-\lambda x}\right|F(dx)d\lambda
+<\infty.
+\]
+
+Therefore, by Fubini's theorem,
+
+\[
+\begin{aligned}
+\int_a^b G_k(\lambda)d\lambda
+&=
+\int_a^b
+\int_{[0,\infty)}
+(-1)^k x^k e^{-\lambda x}F(dx)d\lambda \\
+&=
+\int_{[0,\infty)}
+\int_a^b
+(-1)^k x^k e^{-\lambda x}d\lambda
+F(dx).
+\end{aligned}
+\]
+
+For \(k\ge1\),
+
+\[
+\int_a^b
+(-1)^k x^k e^{-\lambda x}d\lambda
+=
+\left[
+(-1)^{k-1}x^{k-1}e^{-\lambda x}
+\right]_a^b.
+\]
+
+Thus
+
+\[
+\int_a^b G_k(\lambda)d\lambda
+=
+\int_{[0,\infty)}
+(-1)^{k-1}x^{k-1}
+\left(e^{-bx}-e^{-ax}\right)
+F(dx).
+\]
+
+Hence
+
+\[
+\int_a^b G_k(\lambda)d\lambda
+=
+G_{k-1}(b)-G_{k-1}(a).
+\]
+
+Therefore \(G_{k-1}\) is absolutely continuous on every finite interval \([a,b]\subset(0,\infty)\), and
+
+\[
+G_{k-1}'(\lambda)=G_k(\lambda)
+\]
+
+almost everywhere.
+
+Also, each \(G_k\) is continuous. Indeed, if \(\lambda_m\to\lambda>0\), then for all large \(m\),
+
+\[
+\lambda_m>\frac{\lambda}{2},
+\]
+
+and therefore
+
+\[
+x^k e^{-\lambda_m x}
+\le
+x^k e^{-(\lambda/2)x}.
+\]
+
+Since
+
+\[
+\sup_{x\ge0} x^k e^{-(\lambda/2)x}<\infty,
+\]
+
+the dominating function is integrable with respect to \(F(dx)\). By dominated convergence,
+
+\[
+G_k(\lambda_m)\to G_k(\lambda).
+\]
+
+Since \(G_k\) is continuous, the derivative identity holds everywhere. Therefore, by induction,
+
+\[
+\hat F^{(k)}(\lambda)=G_k(\lambda).
+\]
+
+That is,
+
+\[
+\hat F^{(k)}(\lambda)
+=
+\int_{[0,\infty)}
+(-1)^k x^k e^{-\lambda x}F(dx).
+\]
+
+(b) Let
+
+\[
+Y_n=\frac1n\sum_{i=1}^n \xi_i(\theta).
+\]
+
+Since
+
+\[
+E[\xi_i(\theta)]=\theta,
+\]
+
+the WLLN gives
+
+\[
+Y_n\xrightarrow{P}\theta.
+\]
+
+If \(x>\theta\), then \(x-\theta>0\), so
+
+\[
+P(Y_n\le x)
+=
+1-P(Y_n>x)
+\ge
+1-P(|Y_n-\theta|>x-\theta).
+\]
+
+Since
+
+\[
+P(|Y_n-\theta|>x-\theta)\to0,
+\]
+
+we get
+
+\[
+P(Y_n\le x)\to1.
+\]
+
+If \(x<\theta\), then \(\theta-x>0\), and
+
+\[
+P(Y_n\le x)
+\le
+P(|Y_n-\theta|\ge \theta-x)
+\to0.
+\]
+
+Therefore,
+
+\[
+\lim_{n\to\infty}
+P(Y_n\le x)
+=
+\begin{cases}
+1, & \text{if }x>\theta,\\
+0, & \text{if }x<\theta.
+\end{cases}
+\]
+
+Since the sum of independent Poisson random variables is Poisson,
+
+\[
+\sum_{i=1}^n \xi_i(\theta)\sim \operatorname{Poisson}(n\theta).
+\]
+
+Hence
+
+\[
+P(Y_n\le x)
+=
+P\left(\sum_{i=1}^n \xi_i(\theta)\le nx\right)
+=
+\sum_{j\le nx} e^{-n\theta}\frac{(n\theta)^j}{j!}.
+\]
+
+Thus
+
+\[
+\lim_{n\to\infty}
+\sum_{j\le nx} e^{-n\theta}\frac{(n\theta)^j}{j!}
+=
+\begin{cases}
+1, & \text{if }x>\theta,\\
+0, & \text{if }x<\theta.
+\end{cases}
+\]
+
+(c) By part (a),
+
+\[
+\hat F^{(j)}(n)
+=
+\int_{[0,\infty)}
+(-1)^j y^j e^{-ny}F(dy).
+\]
+
+Therefore,
+
+\[
+\frac{(-1)^j}{j!}n^j\hat F^{(j)}(n)
+=
+\int_{[0,\infty)}
+e^{-ny}\frac{(ny)^j}{j!}F(dy).
+\]
+
+Since the sum over \(j\le nx\) is finite, we may interchange the finite sum and the integral:
+
+\[
+\begin{aligned}
+\sum_{j\le nx}
+\frac{(-1)^j}{j!}n^j\hat F^{(j)}(n)
+&=
+\sum_{j\le nx}
+\int_{[0,\infty)}
+e^{-ny}\frac{(ny)^j}{j!}F(dy) \\
+&=
+\int_{[0,\infty)}
+\sum_{j\le nx}
+e^{-ny}\frac{(ny)^j}{j!}F(dy).
+\end{aligned}
+\]
+
+For fixed \(y\ge0\), the inner sum is
+
+\[
+\sum_{j\le nx}
+e^{-ny}\frac{(ny)^j}{j!}.
+\]
+
+This is the distribution function of a Poisson random variable with parameter \(ny\). Equivalently, if
+
+\[
+\xi_1(y),\dots,\xi_n(y)
+\]
+
+are iid Poisson random variables with parameter \(y\), then
+
+\[
+\sum_{j\le nx}
+e^{-ny}\frac{(ny)^j}{j!}
+=
+P\left[
+\frac1n\sum_{i=1}^n \xi_i(y)\le x
+\right].
+\]
+
+By part (b), for fixed \(y\),
+
+\[
+P\left[
+\frac1n\sum_{i=1}^n \xi_i(y)\le x
+\right]
+\to
+\begin{cases}
+1, & \text{if }x>y,\\
+0, & \text{if }x<y.
+\end{cases}
+\]
+
+Thus the integrand converges to
+
+\[
+1_{\{y<x\}}
+\]
+
+for every \(y\ne x\).
+
+The integrand is bounded by \(1\). Since \(x\) is a continuity point of \(F\),
+
+\[
+F(\{x\})=0.
+\]
+
+Therefore, by dominated convergence,
+
+\[
+\int_{[0,\infty)}
+\sum_{j\le nx}
+e^{-ny}\frac{(ny)^j}{j!}F(dy)
+\to
+\int_{[0,\infty)}
+1_{\{y<x\}}F(dy).
+\]
+
+But
+
+\[
+\int_{[0,\infty)}
+1_{\{y<x\}}F(dy)
+=
+F(x-).
+\]
+
+Since \(x\) is a point of continuity of \(F\),
+
+\[
+F(x-)=F(x).
+\]
+
+Therefore,
+
+\[
+\sum_{j\le nx}
+\frac{(-1)^j}{j!}n^j\hat F^{(j)}(n)
+\to F(x).
+\]
+
+$\textbf{Note:}$ For (a), we can also use the definition to prove:For \(k\ge0\), define
+
+\[
+G_k(\lambda)
+=
+\int_{[0,\infty)}
+(-1)^k x^k e^{-\lambda x}F(dx),
+\qquad \lambda>0.
+\]
+
+Then
+
+\[
+G_0(\lambda)=\hat F(\lambda).
+\]
+
+We show that
+
+\[
+G_k'(\lambda)=G_{k+1}(\lambda).
+\]
+
+For \(h\ne0\),
+
+\[
+\frac{G_k(\lambda+h)-G_k(\lambda)}{h}
+=
+\int_{[0,\infty)}
+(-1)^k x^k e^{-\lambda x}
+\frac{e^{-hx}-1}{h}
+F(dx).
+\]
+
+For each fixed \(x\ge0\),
+
+\[
+\frac{e^{-hx}-1}{h}\to -x
+\qquad\text{as }h\to0.
+\]
+
+Therefore the integrand converges pointwise to
+
+\[
+(-1)^{k+1}x^{k+1}e^{-\lambda x}.
+\]
+
+It remains to justify passing the limit through the integral. Take \(|h|<\lambda/2\). By the mean value theorem,
+
+\[
+\left|
+\frac{e^{-hx}-1}{h}
+\right|
+\le
+x e^{|h|x}.
+\]
+
+Hence
+
+\[
+\left|
+(-1)^k x^k e^{-\lambda x}
+\frac{e^{-hx}-1}{h}
+\right|
+\le
+x^{k+1}e^{-(\lambda-|h|)x}
+\le
+x^{k+1}e^{-(\lambda/2)x}.
+\]
+
+Since
+
+\[
+\sup_{x\ge0}x^{k+1}e^{-(\lambda/2)x}<\infty,
+\]
+
+the function
+
+\[
+x^{k+1}e^{-(\lambda/2)x}
+\]
+
+is integrable with respect to the probability measure \(F(dx)\). Therefore, by dominated convergence,
+
+\[
+G_k'(\lambda)
+=
+\int_{[0,\infty)}
+(-1)^{k+1}x^{k+1}e^{-\lambda x}F(dx)
+=
+G_{k+1}(\lambda).
+\]
+
+Since \(G_0=\hat F\), induction gives
+
+\[
+\hat F^{(k)}(\lambda)=G_k(\lambda).
+\]
+
+Therefore,
+
+\[
+\hat F^{(k)}(\lambda)
+=
+\int_{[0,\infty)}
+(-1)^k x^k e^{-\lambda x}F(dx).
+\]

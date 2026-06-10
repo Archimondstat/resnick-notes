@@ -23,7 +23,7 @@
 <meta name="author" content="Zhanwen Peng" />
 
 
-<meta name="date" content="2026-06-09" />
+<meta name="date" content="2026-06-11" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -429,6 +429,7 @@
 <li class="chapter" data-level="" data-path="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html"><a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#ex-3-2"><i class="fa fa-check"></i>Ex 3</a></li>
 <li class="chapter" data-level="" data-path="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html"><a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#ex-4-2"><i class="fa fa-check"></i>Ex 4</a></li>
 <li class="chapter" data-level="" data-path="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html"><a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#ex-21-3"><i class="fa fa-check"></i>Ex 21</a></li>
+<li class="chapter" data-level="" data-path="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html"><a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#ex-22-3"><i class="fa fa-check"></i>Ex 22</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -1186,6 +1187,408 @@ u(\theta)
 \to0.
 \]</span></p>
 <p>Thus the convergence is uniform on finite <span class="math inline">\(\theta\)</span>-intervals.</p>
+</div>
+<div id="ex-22-3" class="section level3 hasAnchor">
+<h3>Ex 22<a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#ex-22-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="problem">
+<p>The WLLN and inversion of Laplace transforms. Let <span class="math inline">\(X\ge 0\)</span> be a nonnegative random variable with distribution function <span class="math inline">\(F\)</span> and Laplace transform</p>
+<p><span class="math display">\[
+\hat F(\lambda)
+=
+E(e^{-\lambda X})
+=
+\int_{[0,\infty)} e^{-\lambda x}F(dx).
+\]</span></p>
+<p>Show that <span class="math inline">\(F\)</span> determines <span class="math inline">\(F\)</span> using the weak law of large numbers and the following steps.</p>
+<ol style="list-style-type: lower-alpha">
+<li>Show</li>
+</ol>
+<p><span class="math display">\[
+\hat F^{(k)}(\lambda)
+=
+\int_{[0,\infty)}
+(-1)^k x^k e^{-\lambda x}F(dx).
+\]</span></p>
+<ol start="2" style="list-style-type: lower-alpha">
+<li>Suppose <span class="math inline">\(\{\xi_n(\theta),n\ge1\}\)</span> are iid non-negative random variables with a Poisson distribution, parameter <span class="math inline">\(\theta&gt;0\)</span>. Use the weak law of large numbers to prove</li>
+</ol>
+<p><span class="math display">\[
+\lim_{n\to\infty}
+P\left[
+\sum_{i=1}^n \xi_i(\theta)/n\le x
+\right]
+=
+\begin{cases}
+1, &amp; \text{if } x&gt;\theta,\\
+0, &amp; \text{if } x&lt;\theta,
+\end{cases}
+\]</span></p>
+<p>and therefore</p>
+<p><span class="math display">\[
+\lim_{n\to\infty}
+\sum_{j\le nx} e^{-n\theta}\frac{(n\theta)^j}{j!}
+=
+\begin{cases}
+1, &amp; \text{if } x&gt;\theta,\\
+0, &amp; \text{if } x&lt;\theta.
+\end{cases}
+\]</span></p>
+<ol start="3" style="list-style-type: lower-alpha">
+<li>Conclude for any <span class="math inline">\(x\ge0\)</span> which is a point of continuity of <span class="math inline">\(F\)</span> that</li>
+</ol>
+<p><span class="math display">\[
+\sum_{j\le nx}
+\frac{(-1)^j}{j!}n^j\hat F^{(j)}(n)
+\to F(x).
+\]</span></p>
+</div>
+<p><span class="math inline">\(\textbf{Answer:}\)</span></p>
+<ol style="list-style-type: lower-alpha">
+<li>For <span class="math inline">\(k\ge0\)</span>, define</li>
+</ol>
+<p><span class="math display">\[
+G_k(\lambda)
+=
+\int_{[0,\infty)}
+(-1)^k x^k e^{-\lambda x}F(dx),
+\qquad \lambda&gt;0.
+\]</span></p>
+<p>Then</p>
+<p><span class="math display">\[
+G_0(\lambda)=\hat F(\lambda).
+\]</span></p>
+<p>We first show that</p>
+<p><span class="math display">\[
+G_{k-1}&#39;(\lambda)=G_k(\lambda).
+\]</span></p>
+<p>Fix <span class="math inline">\(0&lt;a&lt;b&lt;\infty\)</span>. Since <span class="math inline">\(F\)</span> is a probability measure and</p>
+<p><span class="math display">\[
+\sup_{x\ge0} x^k e^{-ax}&lt;\infty,
+\]</span></p>
+<p>we have</p>
+<p><span class="math display">\[
+\int_a^b\int_{[0,\infty)}
+\left|(-1)^k x^k e^{-\lambda x}\right|F(dx)d\lambda
+&lt;\infty.
+\]</span></p>
+<p>Therefore, by Fubini’s theorem,</p>
+<p><span class="math display">\[
+\begin{aligned}
+\int_a^b G_k(\lambda)d\lambda
+&amp;=
+\int_a^b
+\int_{[0,\infty)}
+(-1)^k x^k e^{-\lambda x}F(dx)d\lambda \\
+&amp;=
+\int_{[0,\infty)}
+\int_a^b
+(-1)^k x^k e^{-\lambda x}d\lambda
+F(dx).
+\end{aligned}
+\]</span></p>
+<p>For <span class="math inline">\(k\ge1\)</span>,</p>
+<p><span class="math display">\[
+\int_a^b
+(-1)^k x^k e^{-\lambda x}d\lambda
+=
+\left[
+(-1)^{k-1}x^{k-1}e^{-\lambda x}
+\right]_a^b.
+\]</span></p>
+<p>Thus</p>
+<p><span class="math display">\[
+\int_a^b G_k(\lambda)d\lambda
+=
+\int_{[0,\infty)}
+(-1)^{k-1}x^{k-1}
+\left(e^{-bx}-e^{-ax}\right)
+F(dx).
+\]</span></p>
+<p>Hence</p>
+<p><span class="math display">\[
+\int_a^b G_k(\lambda)d\lambda
+=
+G_{k-1}(b)-G_{k-1}(a).
+\]</span></p>
+<p>Therefore <span class="math inline">\(G_{k-1}\)</span> is absolutely continuous on every finite interval <span class="math inline">\([a,b]\subset(0,\infty)\)</span>, and</p>
+<p><span class="math display">\[
+G_{k-1}&#39;(\lambda)=G_k(\lambda)
+\]</span></p>
+<p>almost everywhere.</p>
+<p>Also, each <span class="math inline">\(G_k\)</span> is continuous. Indeed, if <span class="math inline">\(\lambda_m\to\lambda&gt;0\)</span>, then for all large <span class="math inline">\(m\)</span>,</p>
+<p><span class="math display">\[
+\lambda_m&gt;\frac{\lambda}{2},
+\]</span></p>
+<p>and therefore</p>
+<p><span class="math display">\[
+x^k e^{-\lambda_m x}
+\le
+x^k e^{-(\lambda/2)x}.
+\]</span></p>
+<p>Since</p>
+<p><span class="math display">\[
+\sup_{x\ge0} x^k e^{-(\lambda/2)x}&lt;\infty,
+\]</span></p>
+<p>the dominating function is integrable with respect to <span class="math inline">\(F(dx)\)</span>. By dominated convergence,</p>
+<p><span class="math display">\[
+G_k(\lambda_m)\to G_k(\lambda).
+\]</span></p>
+<p>Since <span class="math inline">\(G_k\)</span> is continuous, the derivative identity holds everywhere. Therefore, by induction,</p>
+<p><span class="math display">\[
+\hat F^{(k)}(\lambda)=G_k(\lambda).
+\]</span></p>
+<p>That is,</p>
+<p><span class="math display">\[
+\hat F^{(k)}(\lambda)
+=
+\int_{[0,\infty)}
+(-1)^k x^k e^{-\lambda x}F(dx).
+\]</span></p>
+<ol start="2" style="list-style-type: lower-alpha">
+<li>Let</li>
+</ol>
+<p><span class="math display">\[
+Y_n=\frac1n\sum_{i=1}^n \xi_i(\theta).
+\]</span></p>
+<p>Since</p>
+<p><span class="math display">\[
+E[\xi_i(\theta)]=\theta,
+\]</span></p>
+<p>the WLLN gives</p>
+<p><span class="math display">\[
+Y_n\xrightarrow{P}\theta.
+\]</span></p>
+<p>If <span class="math inline">\(x&gt;\theta\)</span>, then <span class="math inline">\(x-\theta&gt;0\)</span>, so</p>
+<p><span class="math display">\[
+P(Y_n\le x)
+=
+1-P(Y_n&gt;x)
+\ge
+1-P(|Y_n-\theta|&gt;x-\theta).
+\]</span></p>
+<p>Since</p>
+<p><span class="math display">\[
+P(|Y_n-\theta|&gt;x-\theta)\to0,
+\]</span></p>
+<p>we get</p>
+<p><span class="math display">\[
+P(Y_n\le x)\to1.
+\]</span></p>
+<p>If <span class="math inline">\(x&lt;\theta\)</span>, then <span class="math inline">\(\theta-x&gt;0\)</span>, and</p>
+<p><span class="math display">\[
+P(Y_n\le x)
+\le
+P(|Y_n-\theta|\ge \theta-x)
+\to0.
+\]</span></p>
+<p>Therefore,</p>
+<p><span class="math display">\[
+\lim_{n\to\infty}
+P(Y_n\le x)
+=
+\begin{cases}
+1, &amp; \text{if }x&gt;\theta,\\
+0, &amp; \text{if }x&lt;\theta.
+\end{cases}
+\]</span></p>
+<p>Since the sum of independent Poisson random variables is Poisson,</p>
+<p><span class="math display">\[
+\sum_{i=1}^n \xi_i(\theta)\sim \operatorname{Poisson}(n\theta).
+\]</span></p>
+<p>Hence</p>
+<p><span class="math display">\[
+P(Y_n\le x)
+=
+P\left(\sum_{i=1}^n \xi_i(\theta)\le nx\right)
+=
+\sum_{j\le nx} e^{-n\theta}\frac{(n\theta)^j}{j!}.
+\]</span></p>
+<p>Thus</p>
+<p><span class="math display">\[
+\lim_{n\to\infty}
+\sum_{j\le nx} e^{-n\theta}\frac{(n\theta)^j}{j!}
+=
+\begin{cases}
+1, &amp; \text{if }x&gt;\theta,\\
+0, &amp; \text{if }x&lt;\theta.
+\end{cases}
+\]</span></p>
+<ol start="3" style="list-style-type: lower-alpha">
+<li>By part (a),</li>
+</ol>
+<p><span class="math display">\[
+\hat F^{(j)}(n)
+=
+\int_{[0,\infty)}
+(-1)^j y^j e^{-ny}F(dy).
+\]</span></p>
+<p>Therefore,</p>
+<p><span class="math display">\[
+\frac{(-1)^j}{j!}n^j\hat F^{(j)}(n)
+=
+\int_{[0,\infty)}
+e^{-ny}\frac{(ny)^j}{j!}F(dy).
+\]</span></p>
+<p>Since the sum over <span class="math inline">\(j\le nx\)</span> is finite, we may interchange the finite sum and the integral:</p>
+<p><span class="math display">\[
+\begin{aligned}
+\sum_{j\le nx}
+\frac{(-1)^j}{j!}n^j\hat F^{(j)}(n)
+&amp;=
+\sum_{j\le nx}
+\int_{[0,\infty)}
+e^{-ny}\frac{(ny)^j}{j!}F(dy) \\
+&amp;=
+\int_{[0,\infty)}
+\sum_{j\le nx}
+e^{-ny}\frac{(ny)^j}{j!}F(dy).
+\end{aligned}
+\]</span></p>
+<p>For fixed <span class="math inline">\(y\ge0\)</span>, the inner sum is</p>
+<p><span class="math display">\[
+\sum_{j\le nx}
+e^{-ny}\frac{(ny)^j}{j!}.
+\]</span></p>
+<p>This is the distribution function of a Poisson random variable with parameter <span class="math inline">\(ny\)</span>. Equivalently, if</p>
+<p><span class="math display">\[
+\xi_1(y),\dots,\xi_n(y)
+\]</span></p>
+<p>are iid Poisson random variables with parameter <span class="math inline">\(y\)</span>, then</p>
+<p><span class="math display">\[
+\sum_{j\le nx}
+e^{-ny}\frac{(ny)^j}{j!}
+=
+P\left[
+\frac1n\sum_{i=1}^n \xi_i(y)\le x
+\right].
+\]</span></p>
+<p>By part (b), for fixed <span class="math inline">\(y\)</span>,</p>
+<p><span class="math display">\[
+P\left[
+\frac1n\sum_{i=1}^n \xi_i(y)\le x
+\right]
+\to
+\begin{cases}
+1, &amp; \text{if }x&gt;y,\\
+0, &amp; \text{if }x&lt;y.
+\end{cases}
+\]</span></p>
+<p>Thus the integrand converges to</p>
+<p><span class="math display">\[
+1_{\{y&lt;x\}}
+\]</span></p>
+<p>for every <span class="math inline">\(y\ne x\)</span>.</p>
+<p>The integrand is bounded by <span class="math inline">\(1\)</span>. Since <span class="math inline">\(x\)</span> is a continuity point of <span class="math inline">\(F\)</span>,</p>
+<p><span class="math display">\[
+F(\{x\})=0.
+\]</span></p>
+<p>Therefore, by dominated convergence,</p>
+<p><span class="math display">\[
+\int_{[0,\infty)}
+\sum_{j\le nx}
+e^{-ny}\frac{(ny)^j}{j!}F(dy)
+\to
+\int_{[0,\infty)}
+1_{\{y&lt;x\}}F(dy).
+\]</span></p>
+<p>But</p>
+<p><span class="math display">\[
+\int_{[0,\infty)}
+1_{\{y&lt;x\}}F(dy)
+=
+F(x-).
+\]</span></p>
+<p>Since <span class="math inline">\(x\)</span> is a point of continuity of <span class="math inline">\(F\)</span>,</p>
+<p><span class="math display">\[
+F(x-)=F(x).
+\]</span></p>
+<p>Therefore,</p>
+<p><span class="math display">\[
+\sum_{j\le nx}
+\frac{(-1)^j}{j!}n^j\hat F^{(j)}(n)
+\to F(x).
+\]</span></p>
+<p><span class="math inline">\(\textbf{Note:}\)</span> For (a), we can also use the definition to prove:For <span class="math inline">\(k\ge0\)</span>, define</p>
+<p><span class="math display">\[
+G_k(\lambda)
+=
+\int_{[0,\infty)}
+(-1)^k x^k e^{-\lambda x}F(dx),
+\qquad \lambda&gt;0.
+\]</span></p>
+<p>Then</p>
+<p><span class="math display">\[
+G_0(\lambda)=\hat F(\lambda).
+\]</span></p>
+<p>We show that</p>
+<p><span class="math display">\[
+G_k&#39;(\lambda)=G_{k+1}(\lambda).
+\]</span></p>
+<p>For <span class="math inline">\(h\ne0\)</span>,</p>
+<p><span class="math display">\[
+\frac{G_k(\lambda+h)-G_k(\lambda)}{h}
+=
+\int_{[0,\infty)}
+(-1)^k x^k e^{-\lambda x}
+\frac{e^{-hx}-1}{h}
+F(dx).
+\]</span></p>
+<p>For each fixed <span class="math inline">\(x\ge0\)</span>,</p>
+<p><span class="math display">\[
+\frac{e^{-hx}-1}{h}\to -x
+\qquad\text{as }h\to0.
+\]</span></p>
+<p>Therefore the integrand converges pointwise to</p>
+<p><span class="math display">\[
+(-1)^{k+1}x^{k+1}e^{-\lambda x}.
+\]</span></p>
+<p>It remains to justify passing the limit through the integral. Take <span class="math inline">\(|h|&lt;\lambda/2\)</span>. By the mean value theorem,</p>
+<p><span class="math display">\[
+\left|
+\frac{e^{-hx}-1}{h}
+\right|
+\le
+x e^{|h|x}.
+\]</span></p>
+<p>Hence</p>
+<p><span class="math display">\[
+\left|
+(-1)^k x^k e^{-\lambda x}
+\frac{e^{-hx}-1}{h}
+\right|
+\le
+x^{k+1}e^{-(\lambda-|h|)x}
+\le
+x^{k+1}e^{-(\lambda/2)x}.
+\]</span></p>
+<p>Since</p>
+<p><span class="math display">\[
+\sup_{x\ge0}x^{k+1}e^{-(\lambda/2)x}&lt;\infty,
+\]</span></p>
+<p>the function</p>
+<p><span class="math display">\[
+x^{k+1}e^{-(\lambda/2)x}
+\]</span></p>
+<p>is integrable with respect to the probability measure <span class="math inline">\(F(dx)\)</span>. Therefore, by dominated convergence,</p>
+<p><span class="math display">\[
+G_k&#39;(\lambda)
+=
+\int_{[0,\infty)}
+(-1)^{k+1}x^{k+1}e^{-\lambda x}F(dx)
+=
+G_{k+1}(\lambda).
+\]</span></p>
+<p>Since <span class="math inline">\(G_0=\hat F\)</span>, induction gives</p>
+<p><span class="math display">\[
+\hat F^{(k)}(\lambda)=G_k(\lambda).
+\]</span></p>
+<p>Therefore,</p>
+<p><span class="math display">\[
+\hat F^{(k)}(\lambda)
+=
+\int_{[0,\infty)}
+(-1)^k x^k e^{-\lambda x}F(dx).
+\]</span></p>
 
 </div>
 </div>
