@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chap 7, Laws of Large Numbers and Sums of Independent Random Variables | Notes on A Probability Path (Resnick)</title>
   <meta name="description" content="Chap 7, Laws of Large Numbers and Sums of Independent Random Variables | Notes on A Probability Path (Resnick)" />
-  <meta name="generator" content="bookdown 0.46 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.42 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chap 7, Laws of Large Numbers and Sums of Independent Random Variables | Notes on A Probability Path (Resnick)" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="Zhanwen Peng" />
 
 
-<meta name="date" content="2026-06-11" />
+<meta name="date" content="2026-06-15" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -430,6 +430,7 @@
 <li class="chapter" data-level="" data-path="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html"><a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#ex-4-2"><i class="fa fa-check"></i>Ex 4</a></li>
 <li class="chapter" data-level="" data-path="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html"><a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#ex-21-3"><i class="fa fa-check"></i>Ex 21</a></li>
 <li class="chapter" data-level="" data-path="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html"><a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#ex-22-3"><i class="fa fa-check"></i>Ex 22</a></li>
+<li class="chapter" data-level="" data-path="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html"><a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#ex-23-3"><i class="fa fa-check"></i>Ex 23</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -1588,6 +1589,161 @@ G_{k+1}(\lambda).
 =
 \int_{[0,\infty)}
 (-1)^k x^k e^{-\lambda x}F(dx).
+\]</span></p>
+</div>
+<div id="ex-23-3" class="section level3 hasAnchor">
+<h3>Ex 23<a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#ex-23-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="problem">
+<p>Suppose <span class="math inline">\(\{X_n,n\ge1\}\)</span> are iid and uniformly distributed on <span class="math inline">\((-1,1)\)</span>. What is <span class="math inline">\(E(X_1^2)\)</span>? Verify</p>
+<p><span class="math display">\[
+\sum_{i=1}^n X_i^2/n\xrightarrow{P}\frac13
+\]</span></p>
+<p>so that if we define</p>
+<p><span class="math display">\[
+\|X_n\|_n=\left(\sum_{i=1}^n X_i^2\right)^{1/2},
+\]</span></p>
+<p>then</p>
+<p><span class="math display">\[
+\|X_n\|_n/\sqrt n\xrightarrow{P}\sqrt{\frac13}.
+\]</span></p>
+<p>Now define the <span class="math inline">\(n\)</span>-dimensional annulus</p>
+<p><span class="math display">\[
+B_{n,\delta}
+:=
+\left\{
+x\in\mathbb R^n:
+\sqrt{\frac13}-\delta
+&lt;
+\frac{\|x\|_n}{\sqrt n}
+&lt;
+\sqrt{\frac13}+\delta
+\right\}.
+\]</span></p>
+<p>Further define the <span class="math inline">\(n\)</span>-dimensional cube</p>
+<p><span class="math display">\[
+I_n=(-1,1)^n
+:=
+\left\{
+x\in\mathbb R^n:
+\bigvee_{i=1}^n |x_i|&lt;1
+\right\}.
+\]</span></p>
+<p>If <span class="math inline">\(\lambda_n\)</span> is <span class="math inline">\(n\)</span>-dimensional Lebesgue measure, show that</p>
+<p><span class="math display">\[
+2^{-n}\lambda_n(B_{n,\delta}\cap I_n)\to1.
+\]</span></p>
+<p>This gives the curious result that for large <span class="math inline">\(n\)</span>, the cube is well approximated by the annulus.</p>
+</div>
+<p><span class="math inline">\(\textbf{Answer:}\)</span></p>
+<p>Since</p>
+<p><span class="math display">\[
+X_1\sim \operatorname{Unif}(-1,1),
+\]</span></p>
+<p>we have</p>
+<p><span class="math display">\[
+E(X_1^2)
+=
+\int_{-1}^1 x^2\frac12\,dx
+=
+\frac12\cdot \frac{2}{3}
+=
+\frac13.
+\]</span></p>
+<p>Since <span class="math inline">\(\{X_i^2\}\)</span> are iid and</p>
+<p><span class="math display">\[
+E(X_i^2)=\frac13&lt;\infty,
+\]</span></p>
+<p>by the WLLN,</p>
+<p><span class="math display">\[
+\frac1n\sum_{i=1}^n X_i^2
+\xrightarrow{P}
+\frac13.
+\]</span></p>
+<p>Therefore,</p>
+<p><span class="math display">\[
+\frac{\|X_n\|_n}{\sqrt n}
+=
+\left(
+\frac1n\sum_{i=1}^n X_i^2
+\right)^{1/2}
+\xrightarrow{P}
+\sqrt{\frac13},
+\]</span></p>
+<p>because <span class="math inline">\(x\mapsto \sqrt{x}\)</span> is continuous on <span class="math inline">\([0,\infty)\)</span>.</p>
+<p>Now let</p>
+<p><span class="math display">\[
+Y_n=(X_1,\dots,X_n).
+\]</span></p>
+<p>Then <span class="math inline">\(Y_n\)</span> is uniformly distributed on</p>
+<p><span class="math display">\[
+I_n=(-1,1)^n.
+\]</span></p>
+<p>Therefore, for any measurable set <span class="math inline">\(A\subseteq I_n\)</span>,</p>
+<p><span class="math display">\[
+P(Y_n\in A)
+=
+\frac{\lambda_n(A)}{\lambda_n(I_n)}.
+\]</span></p>
+<p>Since</p>
+<p><span class="math display">\[
+\lambda_n(I_n)=2^n,
+\]</span></p>
+<p>we have</p>
+<p><span class="math display">\[
+P(Y_n\in A)
+=
+2^{-n}\lambda_n(A).
+\]</span></p>
+<p>Take</p>
+<p><span class="math display">\[
+A=B_{n,\delta}\cap I_n.
+\]</span></p>
+<p>Then</p>
+<p><span class="math display">\[
+P(Y_n\in B_{n,\delta}\cap I_n)
+=
+2^{-n}\lambda_n(B_{n,\delta}\cap I_n).
+\]</span></p>
+<p>But <span class="math inline">\(Y_n\in I_n\)</span> always, so</p>
+<p><span class="math display">\[
+P(Y_n\in B_{n,\delta}\cap I_n)
+=
+P(Y_n\in B_{n,\delta}).
+\]</span></p>
+<p>By definition of <span class="math inline">\(B_{n,\delta}\)</span>,</p>
+<p><span class="math display">\[
+\{Y_n\in B_{n,\delta}\}
+=
+\left\{
+\sqrt{\frac13}-\delta
+&lt;
+\frac{\|Y_n\|_n}{\sqrt n}
+&lt;
+\sqrt{\frac13}+\delta
+\right\}.
+\]</span></p>
+<p>Since</p>
+<p><span class="math display">\[
+\frac{\|Y_n\|_n}{\sqrt n}
+\xrightarrow{P}
+\sqrt{\frac13},
+\]</span></p>
+<p>we get</p>
+<p><span class="math display">\[
+P(Y_n\in B_{n,\delta})\to1.
+\]</span></p>
+<p>Therefore,</p>
+<p><span class="math display">\[
+2^{-n}\lambda_n(B_{n,\delta}\cap I_n)
+=
+P(Y_n\in B_{n,\delta}\cap I_n)
+=
+P(Y_n\in B_{n,\delta})
+\to1.
+\]</span></p>
+<p>Hence</p>
+<p><span class="math display">\[
+2^{-n}\lambda_n(B_{n,\delta}\cap I_n)\to1.
 \]</span></p>
 
 </div>

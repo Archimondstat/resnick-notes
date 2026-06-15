@@ -516,6 +516,8 @@ Further, the SLLN gives the stronger asymptotic statement, namely almost sure co
 E[g(U)^2]<\infty.
 \]
 
+
+
 ### Ex 21
 
 ::: problem
@@ -1458,4 +1460,209 @@ Therefore,
 =
 \int_{[0,\infty)}
 (-1)^k x^k e^{-\lambda x}F(dx).
+\]
+
+### Ex 23
+
+::: problem
+Suppose \(\{X_n,n\ge1\}\) are iid and uniformly distributed on \((-1,1)\). What is \(E(X_1^2)\)? Verify
+
+\[
+\sum_{i=1}^n X_i^2/n\xrightarrow{P}\frac13
+\]
+
+so that if we define
+
+\[
+\|X_n\|_n=\left(\sum_{i=1}^n X_i^2\right)^{1/2},
+\]
+
+then
+
+\[
+\|X_n\|_n/\sqrt n\xrightarrow{P}\sqrt{\frac13}.
+\]
+
+Now define the \(n\)-dimensional annulus
+
+\[
+B_{n,\delta}
+:=
+\left\{
+x\in\mathbb R^n:
+\sqrt{\frac13}-\delta
+<
+\frac{\|x\|_n}{\sqrt n}
+<
+\sqrt{\frac13}+\delta
+\right\}.
+\]
+
+Further define the \(n\)-dimensional cube
+
+\[
+I_n=(-1,1)^n
+:=
+\left\{
+x\in\mathbb R^n:
+\bigvee_{i=1}^n |x_i|<1
+\right\}.
+\]
+
+If \(\lambda_n\) is \(n\)-dimensional Lebesgue measure, show that
+
+\[
+2^{-n}\lambda_n(B_{n,\delta}\cap I_n)\to1.
+\]
+
+This gives the curious result that for large \(n\), the cube is well approximated by the annulus.
+:::
+
+$\textbf{Answer:}$
+
+Since
+
+\[
+X_1\sim \operatorname{Unif}(-1,1),
+\]
+
+we have
+
+\[
+E(X_1^2)
+=
+\int_{-1}^1 x^2\frac12\,dx
+=
+\frac12\cdot \frac{2}{3}
+=
+\frac13.
+\]
+
+Since \(\{X_i^2\}\) are iid and
+
+\[
+E(X_i^2)=\frac13<\infty,
+\]
+
+by the WLLN,
+
+\[
+\frac1n\sum_{i=1}^n X_i^2
+\xrightarrow{P}
+\frac13.
+\]
+
+Therefore,
+
+\[
+\frac{\|X_n\|_n}{\sqrt n}
+=
+\left(
+\frac1n\sum_{i=1}^n X_i^2
+\right)^{1/2}
+\xrightarrow{P}
+\sqrt{\frac13},
+\]
+
+because \(x\mapsto \sqrt{x}\) is continuous on \([0,\infty)\).
+
+Now let
+
+\[
+Y_n=(X_1,\dots,X_n).
+\]
+
+Then \(Y_n\) is uniformly distributed on
+
+\[
+I_n=(-1,1)^n.
+\]
+
+Therefore, for any measurable set \(A\subseteq I_n\),
+
+\[
+P(Y_n\in A)
+=
+\frac{\lambda_n(A)}{\lambda_n(I_n)}.
+\]
+
+Since
+
+\[
+\lambda_n(I_n)=2^n,
+\]
+
+we have
+
+\[
+P(Y_n\in A)
+=
+2^{-n}\lambda_n(A).
+\]
+
+Take
+
+\[
+A=B_{n,\delta}\cap I_n.
+\]
+
+Then
+
+\[
+P(Y_n\in B_{n,\delta}\cap I_n)
+=
+2^{-n}\lambda_n(B_{n,\delta}\cap I_n).
+\]
+
+But \(Y_n\in I_n\) always, so
+
+\[
+P(Y_n\in B_{n,\delta}\cap I_n)
+=
+P(Y_n\in B_{n,\delta}).
+\]
+
+By definition of \(B_{n,\delta}\),
+
+\[
+\{Y_n\in B_{n,\delta}\}
+=
+\left\{
+\sqrt{\frac13}-\delta
+<
+\frac{\|Y_n\|_n}{\sqrt n}
+<
+\sqrt{\frac13}+\delta
+\right\}.
+\]
+
+Since
+
+\[
+\frac{\|Y_n\|_n}{\sqrt n}
+\xrightarrow{P}
+\sqrt{\frac13},
+\]
+
+we get
+
+\[
+P(Y_n\in B_{n,\delta})\to1.
+\]
+
+Therefore,
+
+\[
+2^{-n}\lambda_n(B_{n,\delta}\cap I_n)
+=
+P(Y_n\in B_{n,\delta}\cap I_n)
+=
+P(Y_n\in B_{n,\delta})
+\to1.
+\]
+
+Hence
+
+\[
+2^{-n}\lambda_n(B_{n,\delta}\cap I_n)\to1.
 \]
