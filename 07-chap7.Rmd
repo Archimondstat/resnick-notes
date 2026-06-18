@@ -1666,3 +1666,488 @@ Hence
 \[
 2^{-n}\lambda_n(B_{n,\delta}\cap I_n)\to1.
 \]
+
+### Ex 27
+
+::: problem
+More applications of WLLN.
+
+(a) Suppose \(u(x,y)\) is continuous on the triangle
+
+\[
+\operatorname{TRI}
+:=
+\{(x,y):x\ge0,\ y\ge0,\ x+y=1\}.
+\]
+
+Show that uniformly on \(\operatorname{TRI}\)
+
+\[
+\sum_{j+k\le n}
+u\left(\frac jn,\frac kn\right)
+\frac{n!}{j!k!(n-j-k)!}
+x^jy^k(1-x-y)^{n-j-k}
+\longrightarrow u(x,y).
+\]
+
+(b) Suppose \(u:[0,\infty)\mapsto\mathbb R\) is continuous with
+
+\[
+\lim_{x\to\infty}u(x)=:u(\infty)
+\]
+
+existing finite. Show \(u\) can be approximated uniformly by linear combinations of \(e^{nx}\).
+:::
+
+$\textbf{Answer:}$
+
+(a) The multinomial expression naturally corresponds to the closed triangle
+
+\[
+\operatorname{TRI}
+=
+\{(x,y):x\ge0,\ y\ge0,\ x+y\le1\}.
+\]
+
+Fix \((x,y)\in\operatorname{TRI}\). Let \(\{A_i\}_{i\ge1}\) be iid random variables with three possible outcomes \(a_1,a_2,a_3\), satisfying
+
+\[
+P(A_i=a_1)=x,
+\]
+
+\[
+P(A_i=a_2)=y,
+\]
+
+and
+
+\[
+P(A_i=a_3)=1-x-y.
+\]
+
+Let \(J_n\) be the number of occurrences of \(a_1\) among \(A_1,\ldots,A_n\), and let \(K_n\) be the number of occurrences of \(a_2\). Then
+
+\[
+(J_n,K_n,n-J_n-K_n)
+\]
+
+has a multinomial distribution with parameters
+
+\[
+(n;x,y,1-x-y).
+\]
+
+Therefore,
+
+\[
+P(J_n=j,K_n=k)
+=
+\frac{n!}{j!k!(n-j-k)!}
+x^jy^k(1-x-y)^{n-j-k},
+\]
+
+for \(j,k\ge0\) and \(j+k\le n\). Hence
+
+\[
+\begin{aligned}
+&\sum_{j+k\le n}
+u\left(\frac jn,\frac kn\right)
+\frac{n!}{j!k!(n-j-k)!}
+x^jy^k(1-x-y)^{n-j-k} \\
+&\qquad=
+E_{x,y}\left[
+u\left(\frac{J_n}{n},\frac{K_n}{n}\right)
+\right].
+\end{aligned}
+\]
+
+Since
+
+\[
+\frac{J_n}{n}
+=
+\frac1n\sum_{i=1}^n 1_{\{A_i=a_1\}},
+\]
+
+the WLLN gives
+
+\[
+\frac{J_n}{n}\xrightarrow{P}x.
+\]
+
+Similarly,
+
+\[
+\frac{K_n}{n}\xrightarrow{P}y.
+\]
+
+For every \(\delta>0\),
+
+\[
+\begin{aligned}
+&P_{x,y}\left(
+\left|\frac{J_n}{n}-x\right|>\delta
+\text{ or }
+\left|\frac{K_n}{n}-y\right|>\delta
+\right) \\
+&\qquad\le
+P_{x,y}\left(
+\left|\frac{J_n}{n}-x\right|>\delta
+\right)
++
+P_{x,y}\left(
+\left|\frac{K_n}{n}-y\right|>\delta
+\right)
+\to0.
+\end{aligned}
+\]
+
+Thus
+
+\[
+\left(\frac{J_n}{n},\frac{K_n}{n}\right)
+\xrightarrow{P}
+(x,y).
+\]
+
+We now prove that the convergence of expectations is uniform over
+\(\operatorname{TRI}\).
+
+Since \(\operatorname{TRI}\) is compact and \(u\) is continuous, \(u\) is bounded and uniformly continuous on \(\operatorname{TRI}\). Let
+
+\[
+\|u\|_\infty
+=
+\sup_{(x,y)\in\operatorname{TRI}}|u(x,y)|.
+\]
+
+For \(\delta>0\), define
+
+\[
+A_{n,\delta}
+=
+\left\{
+\left|\frac{J_n}{n}-x\right|\le\delta,\ 
+\left|\frac{K_n}{n}-y\right|\le\delta
+\right\}.
+\]
+
+Then
+
+\[
+\begin{aligned}
+&\left|
+E_{x,y}\left[
+u\left(\frac{J_n}{n},\frac{K_n}{n}\right)
+\right]
+-u(x,y)
+\right| \\
+&\le
+E_{x,y}\left[
+\left|
+u\left(\frac{J_n}{n},\frac{K_n}{n}\right)-u(x,y)
+\right|
+1_{A_{n,\delta}}
+\right] \\
+&\quad+
+E_{x,y}\left[
+\left|
+u\left(\frac{J_n}{n},\frac{K_n}{n}\right)-u(x,y)
+\right|
+1_{A_{n,\delta}^c}
+\right].
+\end{aligned}
+\]
+
+Define
+
+\[
+\omega(\delta)
+=
+\sup_{\substack{(s,t),(x,y)\in\operatorname{TRI}\\
+|s-x|\le\delta,\ |t-y|\le\delta}}
+|u(s,t)-u(x,y)|.
+\]
+
+By uniform continuity,
+
+\[
+\omega(\delta)\to0
+\qquad\text{as }\delta\downarrow0.
+\]
+
+Therefore,
+
+\[
+E_{x,y}\left[
+\left|
+u\left(\frac{J_n}{n},\frac{K_n}{n}\right)-u(x,y)
+\right|
+1_{A_{n,\delta}}
+\right]
+\le
+\omega(\delta).
+\]
+
+For the second term,
+
+\[
+\begin{aligned}
+&E_{x,y}\left[
+\left|
+u\left(\frac{J_n}{n},\frac{K_n}{n}\right)-u(x,y)
+\right|
+1_{A_{n,\delta}^c}
+\right] \\
+&\qquad\le
+2\|u\|_\infty P_{x,y}(A_{n,\delta}^c).
+\end{aligned}
+\]
+
+By the union bound,
+
+\[
+\begin{aligned}
+P_{x,y}(A_{n,\delta}^c)
+&\le
+P_{x,y}\left(
+\left|\frac{J_n}{n}-x\right|>\delta
+\right) \\
+&\quad+
+P_{x,y}\left(
+\left|\frac{K_n}{n}-y\right|>\delta
+\right).
+\end{aligned}
+\]
+
+Since \(J_n\sim\operatorname{Binomial}(n,x)\),
+
+\[
+\operatorname{Var}_{x,y}\left(\frac{J_n}{n}\right)
+=
+\frac{x(1-x)}{n}
+\le
+\frac{1}{4n}.
+\]
+
+Similarly,
+
+\[
+\operatorname{Var}_{x,y}\left(\frac{K_n}{n}\right)
+=
+\frac{y(1-y)}{n}
+\le
+\frac{1}{4n}.
+\]
+
+Therefore, by Chebyshev's inequality,
+
+\[
+P_{x,y}(A_{n,\delta}^c)
+\le
+\frac{1}{4n\delta^2}
++
+\frac{1}{4n\delta^2}
+=
+\frac{1}{2n\delta^2}.
+\]
+
+Thus
+
+\[
+\left|
+E_{x,y}\left[
+u\left(\frac{J_n}{n},\frac{K_n}{n}\right)
+\right]
+-u(x,y)
+\right|
+\le
+\omega(\delta)
++
+\frac{\|u\|_\infty}{n\delta^2},
+\]
+
+uniformly over \((x,y)\in\operatorname{TRI}\).
+
+Taking the supremum,
+
+\[
+\begin{aligned}
+&\sup_{(x,y)\in\operatorname{TRI}}
+\left|
+E_{x,y}\left[
+u\left(\frac{J_n}{n},\frac{K_n}{n}\right)
+\right]
+-u(x,y)
+\right| \\
+&\qquad\le
+\omega(\delta)
++
+\frac{\|u\|_\infty}{n\delta^2}.
+\end{aligned}
+\]
+
+Given \(\varepsilon>0\), first choose \(\delta>0\) such that
+
+\[
+\omega(\delta)<\frac{\varepsilon}{2}.
+\]
+
+Then choose \(n\) sufficiently large that
+
+\[
+\frac{\|u\|_\infty}{n\delta^2}
+<
+\frac{\varepsilon}{2}.
+\]
+
+Therefore,
+
+\[
+\sup_{(x,y)\in\operatorname{TRI}}
+\left|
+E_{x,y}\left[
+u\left(\frac{J_n}{n},\frac{K_n}{n}\right)
+\right]
+-u(x,y)
+\right|
+\to0.
+\]
+
+Hence
+
+\[
+\sum_{j+k\le n}
+u\left(\frac jn,\frac kn\right)
+\frac{n!}{j!k!(n-j-k)!}
+x^jy^k(1-x-y)^{n-j-k}
+\longrightarrow u(x,y)
+\]
+
+uniformly on \(\operatorname{TRI}\).
+
+(b) Let
+
+\[
+t=e^{-x}.
+\]
+
+Then
+
+\[
+x=-\log t,
+\]
+
+and \(x\in[0,\infty)\) corresponds to \(t\in(0,1]\).
+
+Define \(v:[0,1]\to\mathbb R\) by
+
+\[
+v(t)
+=
+\begin{cases}
+u(-\log t), & 0<t\le1,\\
+u(\infty), & t=0.
+\end{cases}
+\]
+
+Since
+
+\[
+\lim_{x\to\infty}u(x)=u(\infty),
+\]
+
+we have
+
+\[
+\lim_{t\downarrow0}v(t)=u(\infty)=v(0).
+\]
+
+Therefore \(v\) is continuous on \([0,1]\).
+
+Define the Bernstein polynomial
+
+\[
+B_nv(t)
+=
+\sum_{k=0}^n
+v\left(\frac{k}{n}\right)
+\binom nk
+t^k(1-t)^{n-k}.
+\]
+
+By Bernstein's approximation theorem,
+
+\[
+\sup_{t\in[0,1]}|B_nv(t)-v(t)|\to0.
+\]
+
+Now define
+
+\[
+p_n(x)=B_nv(e^{-x}).
+\]
+
+Then
+
+\[
+p_n(x)
+=
+\sum_{k=0}^n
+v\left(\frac{k}{n}\right)
+\binom nk
+e^{-kx}(1-e^{-x})^{n-k}.
+\]
+
+For each \(k\),
+
+\[
+(1-e^{-x})^{n-k}
+=
+\sum_{i=0}^{n-k}
+\binom{n-k}{i}
+(-1)^i e^{-ix}.
+\]
+
+Therefore,
+
+\[
+p_n(x)
+=
+\sum_{k=0}^n
+\sum_{i=0}^{n-k}
+v\left(\frac{k}{n}\right)
+\binom nk
+\binom{n-k}{i}
+(-1)^i e^{-(k+i)x}.
+\]
+
+Hence \(p_n\) is a finite linear combination of
+
+\[
+1,e^{-x},e^{-2x},\ldots,e^{-nx}.
+\]
+
+Equivalently, these are functions \(e^{mx}\) with
+
+\[
+m\in\{0,-1,-2,\ldots,-n\}.
+\]
+
+Finally,
+
+\[
+\begin{aligned}
+\sup_{x\ge0}|p_n(x)-u(x)|
+&=
+\sup_{x\ge0}
+|B_nv(e^{-x})-v(e^{-x})| \\
+&\le
+\sup_{t\in[0,1]}
+|B_nv(t)-v(t)| \\
+&\to0.
+\end{aligned}
+\]
+
+Therefore \(u\) can be approximated uniformly on \([0,\infty)\) by finite linear combinations of \(e^{mx}\) with non-positive integer \(m\).
+

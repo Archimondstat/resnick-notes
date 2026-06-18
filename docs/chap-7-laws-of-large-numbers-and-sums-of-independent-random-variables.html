@@ -23,7 +23,7 @@
 <meta name="author" content="Zhanwen Peng" />
 
 
-<meta name="date" content="2026-06-15" />
+<meta name="date" content="2026-06-18" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -431,6 +431,7 @@
 <li class="chapter" data-level="" data-path="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html"><a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#ex-21-3"><i class="fa fa-check"></i>Ex 21</a></li>
 <li class="chapter" data-level="" data-path="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html"><a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#ex-22-3"><i class="fa fa-check"></i>Ex 22</a></li>
 <li class="chapter" data-level="" data-path="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html"><a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#ex-23-3"><i class="fa fa-check"></i>Ex 23</a></li>
+<li class="chapter" data-level="" data-path="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html"><a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#ex-27-3"><i class="fa fa-check"></i>Ex 27</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -1745,6 +1746,397 @@ P(Y_n\in B_{n,\delta})
 <p><span class="math display">\[
 2^{-n}\lambda_n(B_{n,\delta}\cap I_n)\to1.
 \]</span></p>
+</div>
+<div id="ex-27-3" class="section level3 hasAnchor">
+<h3>Ex 27<a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#ex-27-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="problem">
+<p>More applications of WLLN.</p>
+<ol style="list-style-type: lower-alpha">
+<li>Suppose <span class="math inline">\(u(x,y)\)</span> is continuous on the triangle</li>
+</ol>
+<p><span class="math display">\[
+\operatorname{TRI}
+:=
+\{(x,y):x\ge0,\ y\ge0,\ x+y=1\}.
+\]</span></p>
+<p>Show that uniformly on <span class="math inline">\(\operatorname{TRI}\)</span></p>
+<p><span class="math display">\[
+\sum_{j+k\le n}
+u\left(\frac jn,\frac kn\right)
+\frac{n!}{j!k!(n-j-k)!}
+x^jy^k(1-x-y)^{n-j-k}
+\longrightarrow u(x,y).
+\]</span></p>
+<ol start="2" style="list-style-type: lower-alpha">
+<li>Suppose <span class="math inline">\(u:[0,\infty)\mapsto\mathbb R\)</span> is continuous with</li>
+</ol>
+<p><span class="math display">\[
+\lim_{x\to\infty}u(x)=:u(\infty)
+\]</span></p>
+<p>existing finite. Show <span class="math inline">\(u\)</span> can be approximated uniformly by linear combinations of <span class="math inline">\(e^{nx}\)</span>.</p>
+</div>
+<p><span class="math inline">\(\textbf{Answer:}\)</span></p>
+<ol style="list-style-type: lower-alpha">
+<li>The multinomial expression naturally corresponds to the closed triangle</li>
+</ol>
+<p><span class="math display">\[
+\operatorname{TRI}
+=
+\{(x,y):x\ge0,\ y\ge0,\ x+y\le1\}.
+\]</span></p>
+<p>Fix <span class="math inline">\((x,y)\in\operatorname{TRI}\)</span>. Let <span class="math inline">\(\{A_i\}_{i\ge1}\)</span> be iid random variables with three possible outcomes <span class="math inline">\(a_1,a_2,a_3\)</span>, satisfying</p>
+<p><span class="math display">\[
+P(A_i=a_1)=x,
+\]</span></p>
+<p><span class="math display">\[
+P(A_i=a_2)=y,
+\]</span></p>
+<p>and</p>
+<p><span class="math display">\[
+P(A_i=a_3)=1-x-y.
+\]</span></p>
+<p>Let <span class="math inline">\(J_n\)</span> be the number of occurrences of <span class="math inline">\(a_1\)</span> among <span class="math inline">\(A_1,\ldots,A_n\)</span>, and let <span class="math inline">\(K_n\)</span> be the number of occurrences of <span class="math inline">\(a_2\)</span>. Then</p>
+<p><span class="math display">\[
+(J_n,K_n,n-J_n-K_n)
+\]</span></p>
+<p>has a multinomial distribution with parameters</p>
+<p><span class="math display">\[
+(n;x,y,1-x-y).
+\]</span></p>
+<p>Therefore,</p>
+<p><span class="math display">\[
+P(J_n=j,K_n=k)
+=
+\frac{n!}{j!k!(n-j-k)!}
+x^jy^k(1-x-y)^{n-j-k},
+\]</span></p>
+<p>for <span class="math inline">\(j,k\ge0\)</span> and <span class="math inline">\(j+k\le n\)</span>. Hence</p>
+<p><span class="math display">\[
+\begin{aligned}
+&amp;\sum_{j+k\le n}
+u\left(\frac jn,\frac kn\right)
+\frac{n!}{j!k!(n-j-k)!}
+x^jy^k(1-x-y)^{n-j-k} \\
+&amp;\qquad=
+E_{x,y}\left[
+u\left(\frac{J_n}{n},\frac{K_n}{n}\right)
+\right].
+\end{aligned}
+\]</span></p>
+<p>Since</p>
+<p><span class="math display">\[
+\frac{J_n}{n}
+=
+\frac1n\sum_{i=1}^n 1_{\{A_i=a_1\}},
+\]</span></p>
+<p>the WLLN gives</p>
+<p><span class="math display">\[
+\frac{J_n}{n}\xrightarrow{P}x.
+\]</span></p>
+<p>Similarly,</p>
+<p><span class="math display">\[
+\frac{K_n}{n}\xrightarrow{P}y.
+\]</span></p>
+<p>For every <span class="math inline">\(\delta&gt;0\)</span>,</p>
+<p><span class="math display">\[
+\begin{aligned}
+&amp;P_{x,y}\left(
+\left|\frac{J_n}{n}-x\right|&gt;\delta
+\text{ or }
+\left|\frac{K_n}{n}-y\right|&gt;\delta
+\right) \\
+&amp;\qquad\le
+P_{x,y}\left(
+\left|\frac{J_n}{n}-x\right|&gt;\delta
+\right)
++
+P_{x,y}\left(
+\left|\frac{K_n}{n}-y\right|&gt;\delta
+\right)
+\to0.
+\end{aligned}
+\]</span></p>
+<p>Thus</p>
+<p><span class="math display">\[
+\left(\frac{J_n}{n},\frac{K_n}{n}\right)
+\xrightarrow{P}
+(x,y).
+\]</span></p>
+<p>We now prove that the convergence of expectations is uniform over
+<span class="math inline">\(\operatorname{TRI}\)</span>.</p>
+<p>Since <span class="math inline">\(\operatorname{TRI}\)</span> is compact and <span class="math inline">\(u\)</span> is continuous, <span class="math inline">\(u\)</span> is bounded and uniformly continuous on <span class="math inline">\(\operatorname{TRI}\)</span>. Let</p>
+<p><span class="math display">\[
+\|u\|_\infty
+=
+\sup_{(x,y)\in\operatorname{TRI}}|u(x,y)|.
+\]</span></p>
+<p>For <span class="math inline">\(\delta&gt;0\)</span>, define</p>
+<p><span class="math display">\[
+A_{n,\delta}
+=
+\left\{
+\left|\frac{J_n}{n}-x\right|\le\delta,\
+\left|\frac{K_n}{n}-y\right|\le\delta
+\right\}.
+\]</span></p>
+<p>Then</p>
+<p><span class="math display">\[
+\begin{aligned}
+&amp;\left|
+E_{x,y}\left[
+u\left(\frac{J_n}{n},\frac{K_n}{n}\right)
+\right]
+-u(x,y)
+\right| \\
+&amp;\le
+E_{x,y}\left[
+\left|
+u\left(\frac{J_n}{n},\frac{K_n}{n}\right)-u(x,y)
+\right|
+1_{A_{n,\delta}}
+\right] \\
+&amp;\quad+
+E_{x,y}\left[
+\left|
+u\left(\frac{J_n}{n},\frac{K_n}{n}\right)-u(x,y)
+\right|
+1_{A_{n,\delta}^c}
+\right].
+\end{aligned}
+\]</span></p>
+<p>Define</p>
+<p><span class="math display">\[
+\omega(\delta)
+=
+\sup_{\substack{(s,t),(x,y)\in\operatorname{TRI}\\
+|s-x|\le\delta,\ |t-y|\le\delta}}
+|u(s,t)-u(x,y)|.
+\]</span></p>
+<p>By uniform continuity,</p>
+<p><span class="math display">\[
+\omega(\delta)\to0
+\qquad\text{as }\delta\downarrow0.
+\]</span></p>
+<p>Therefore,</p>
+<p><span class="math display">\[
+E_{x,y}\left[
+\left|
+u\left(\frac{J_n}{n},\frac{K_n}{n}\right)-u(x,y)
+\right|
+1_{A_{n,\delta}}
+\right]
+\le
+\omega(\delta).
+\]</span></p>
+<p>For the second term,</p>
+<p><span class="math display">\[
+\begin{aligned}
+&amp;E_{x,y}\left[
+\left|
+u\left(\frac{J_n}{n},\frac{K_n}{n}\right)-u(x,y)
+\right|
+1_{A_{n,\delta}^c}
+\right] \\
+&amp;\qquad\le
+2\|u\|_\infty P_{x,y}(A_{n,\delta}^c).
+\end{aligned}
+\]</span></p>
+<p>By the union bound,</p>
+<p><span class="math display">\[
+\begin{aligned}
+P_{x,y}(A_{n,\delta}^c)
+&amp;\le
+P_{x,y}\left(
+\left|\frac{J_n}{n}-x\right|&gt;\delta
+\right) \\
+&amp;\quad+
+P_{x,y}\left(
+\left|\frac{K_n}{n}-y\right|&gt;\delta
+\right).
+\end{aligned}
+\]</span></p>
+<p>Since <span class="math inline">\(J_n\sim\operatorname{Binomial}(n,x)\)</span>,</p>
+<p><span class="math display">\[
+\operatorname{Var}_{x,y}\left(\frac{J_n}{n}\right)
+=
+\frac{x(1-x)}{n}
+\le
+\frac{1}{4n}.
+\]</span></p>
+<p>Similarly,</p>
+<p><span class="math display">\[
+\operatorname{Var}_{x,y}\left(\frac{K_n}{n}\right)
+=
+\frac{y(1-y)}{n}
+\le
+\frac{1}{4n}.
+\]</span></p>
+<p>Therefore, by Chebyshev’s inequality,</p>
+<p><span class="math display">\[
+P_{x,y}(A_{n,\delta}^c)
+\le
+\frac{1}{4n\delta^2}
++
+\frac{1}{4n\delta^2}
+=
+\frac{1}{2n\delta^2}.
+\]</span></p>
+<p>Thus</p>
+<p><span class="math display">\[
+\left|
+E_{x,y}\left[
+u\left(\frac{J_n}{n},\frac{K_n}{n}\right)
+\right]
+-u(x,y)
+\right|
+\le
+\omega(\delta)
++
+\frac{\|u\|_\infty}{n\delta^2},
+\]</span></p>
+<p>uniformly over <span class="math inline">\((x,y)\in\operatorname{TRI}\)</span>.</p>
+<p>Taking the supremum,</p>
+<p><span class="math display">\[
+\begin{aligned}
+&amp;\sup_{(x,y)\in\operatorname{TRI}}
+\left|
+E_{x,y}\left[
+u\left(\frac{J_n}{n},\frac{K_n}{n}\right)
+\right]
+-u(x,y)
+\right| \\
+&amp;\qquad\le
+\omega(\delta)
++
+\frac{\|u\|_\infty}{n\delta^2}.
+\end{aligned}
+\]</span></p>
+<p>Given <span class="math inline">\(\varepsilon&gt;0\)</span>, first choose <span class="math inline">\(\delta&gt;0\)</span> such that</p>
+<p><span class="math display">\[
+\omega(\delta)&lt;\frac{\varepsilon}{2}.
+\]</span></p>
+<p>Then choose <span class="math inline">\(n\)</span> sufficiently large that</p>
+<p><span class="math display">\[
+\frac{\|u\|_\infty}{n\delta^2}
+&lt;
+\frac{\varepsilon}{2}.
+\]</span></p>
+<p>Therefore,</p>
+<p><span class="math display">\[
+\sup_{(x,y)\in\operatorname{TRI}}
+\left|
+E_{x,y}\left[
+u\left(\frac{J_n}{n},\frac{K_n}{n}\right)
+\right]
+-u(x,y)
+\right|
+\to0.
+\]</span></p>
+<p>Hence</p>
+<p><span class="math display">\[
+\sum_{j+k\le n}
+u\left(\frac jn,\frac kn\right)
+\frac{n!}{j!k!(n-j-k)!}
+x^jy^k(1-x-y)^{n-j-k}
+\longrightarrow u(x,y)
+\]</span></p>
+<p>uniformly on <span class="math inline">\(\operatorname{TRI}\)</span>.</p>
+<ol start="2" style="list-style-type: lower-alpha">
+<li>Let</li>
+</ol>
+<p><span class="math display">\[
+t=e^{-x}.
+\]</span></p>
+<p>Then</p>
+<p><span class="math display">\[
+x=-\log t,
+\]</span></p>
+<p>and <span class="math inline">\(x\in[0,\infty)\)</span> corresponds to <span class="math inline">\(t\in(0,1]\)</span>.</p>
+<p>Define <span class="math inline">\(v:[0,1]\to\mathbb R\)</span> by</p>
+<p><span class="math display">\[
+v(t)
+=
+\begin{cases}
+u(-\log t), &amp; 0&lt;t\le1,\\
+u(\infty), &amp; t=0.
+\end{cases}
+\]</span></p>
+<p>Since</p>
+<p><span class="math display">\[
+\lim_{x\to\infty}u(x)=u(\infty),
+\]</span></p>
+<p>we have</p>
+<p><span class="math display">\[
+\lim_{t\downarrow0}v(t)=u(\infty)=v(0).
+\]</span></p>
+<p>Therefore <span class="math inline">\(v\)</span> is continuous on <span class="math inline">\([0,1]\)</span>.</p>
+<p>Define the Bernstein polynomial</p>
+<p><span class="math display">\[
+B_nv(t)
+=
+\sum_{k=0}^n
+v\left(\frac{k}{n}\right)
+\binom nk
+t^k(1-t)^{n-k}.
+\]</span></p>
+<p>By Bernstein’s approximation theorem,</p>
+<p><span class="math display">\[
+\sup_{t\in[0,1]}|B_nv(t)-v(t)|\to0.
+\]</span></p>
+<p>Now define</p>
+<p><span class="math display">\[
+p_n(x)=B_nv(e^{-x}).
+\]</span></p>
+<p>Then</p>
+<p><span class="math display">\[
+p_n(x)
+=
+\sum_{k=0}^n
+v\left(\frac{k}{n}\right)
+\binom nk
+e^{-kx}(1-e^{-x})^{n-k}.
+\]</span></p>
+<p>For each <span class="math inline">\(k\)</span>,</p>
+<p><span class="math display">\[
+(1-e^{-x})^{n-k}
+=
+\sum_{i=0}^{n-k}
+\binom{n-k}{i}
+(-1)^i e^{-ix}.
+\]</span></p>
+<p>Therefore,</p>
+<p><span class="math display">\[
+p_n(x)
+=
+\sum_{k=0}^n
+\sum_{i=0}^{n-k}
+v\left(\frac{k}{n}\right)
+\binom nk
+\binom{n-k}{i}
+(-1)^i e^{-(k+i)x}.
+\]</span></p>
+<p>Hence <span class="math inline">\(p_n\)</span> is a finite linear combination of</p>
+<p><span class="math display">\[
+1,e^{-x},e^{-2x},\ldots,e^{-nx}.
+\]</span></p>
+<p>Equivalently, these are functions <span class="math inline">\(e^{mx}\)</span> with</p>
+<p><span class="math display">\[
+m\in\{0,-1,-2,\ldots,-n\}.
+\]</span></p>
+<p>Finally,</p>
+<p><span class="math display">\[
+\begin{aligned}
+\sup_{x\ge0}|p_n(x)-u(x)|
+&amp;=
+\sup_{x\ge0}
+|B_nv(e^{-x})-v(e^{-x})| \\
+&amp;\le
+\sup_{t\in[0,1]}
+|B_nv(t)-v(t)| \\
+&amp;\to0.
+\end{aligned}
+\]</span></p>
+<p>Therefore <span class="math inline">\(u\)</span> can be approximated uniformly on <span class="math inline">\([0,\infty)\)</span> by finite linear combinations of <span class="math inline">\(e^{mx}\)</span> with non-positive integer <span class="math inline">\(m\)</span>.</p>
 
 </div>
 </div>
