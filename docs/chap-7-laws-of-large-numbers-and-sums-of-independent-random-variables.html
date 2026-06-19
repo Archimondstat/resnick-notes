@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chap 7, Laws of Large Numbers and Sums of Independent Random Variables | Notes on A Probability Path (Resnick)</title>
   <meta name="description" content="Chap 7, Laws of Large Numbers and Sums of Independent Random Variables | Notes on A Probability Path (Resnick)" />
-  <meta name="generator" content="bookdown 0.42 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.46 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chap 7, Laws of Large Numbers and Sums of Independent Random Variables | Notes on A Probability Path (Resnick)" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="Zhanwen Peng" />
 
 
-<meta name="date" content="2026-06-18" />
+<meta name="date" content="2026-06-19" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -422,7 +422,10 @@
 </ul></li>
 <li class="chapter" data-level="" data-path="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html"><a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html"><i class="fa fa-check"></i>Chap 7, Laws of Large Numbers and Sums of Independent Random Variables</a>
 <ul>
-<li class="chapter" data-level="" data-path="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html"><a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#summary-5"><i class="fa fa-check"></i>Summary</a></li>
+<li class="chapter" data-level="" data-path="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html"><a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#summary-5"><i class="fa fa-check"></i>Summary</a>
+<ul>
+<li class="chapter" data-level="" data-path="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html"><a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#section-5"><i class="fa fa-check"></i>7.1–7.2</a></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html"><a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#exercises-2"><i class="fa fa-check"></i>Exercises</a>
 <ul>
 <li class="chapter" data-level="" data-path="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html"><a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#ex-2-2"><i class="fa fa-check"></i>Ex 2</a></li>
@@ -455,6 +458,35 @@
 <h1>Chap 7, Laws of Large Numbers and Sums of Independent Random Variables<a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <div id="summary-5" class="section level2 hasAnchor">
 <h2>Summary<a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#summary-5" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="section-5" class="section level3 hasAnchor">
+<h3>7.1–7.2<a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#section-5" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>From this chapter on, we start to study the asymptotic behaviour of random sums and sample means, such as</p>
+<p><span class="math display">\[
+\sum_{i=1}^n X_i,
+\qquad
+\frac1n\sum_{i=1}^n X_i.
+\]</span></p>
+<p>Unlike the previous chapters, for arbitrary iid random variables <span class="math inline">\(\{X_n\}\)</span>, we may not have finite first or second moments. Therefore, instead of attacking the original sequence directly, we introduce a truncated sequence</p>
+<p><span class="math display">\[
+X_n \mathbf1_{\{|X_n|\le n\}}.
+\]</span></p>
+<p>The truncation level is chosen carefully so that the probability of truncation can be controlled.</p>
+<p>This naturally introduces the idea of <strong>tail equivalence</strong>. Even though two random variable sequences may be different,</p>
+<p><span class="math display">\[
+\sum_{n=1}^\infty P(X_n\neq X_n&#39;)&lt;\infty,
+\]</span></p>
+<p>implies, by the Borel–Cantelli lemma, that they differ only finitely many times with probability one. In other words, they are eventually identical almost surely and therefore share the same asymptotic behaviour.</p>
+<p>Proposition 7.1.1 provides the theoretical foundation for this idea. It allows us to first study the sum or sample mean of a truncated random variable sequence, which is usually easier to handle, and then transfer the result back to the original sequence.</p>
+<p>In fact, one of the main ideas of this chapter is not to fight heavy tails directly, but to replace a difficult sequence by an asymptotically equivalent and more manageable one.</p>
+<p>Section 7.2 develops the Generalized Weak Law of Large Numbers. The truncated variables possess the moment properties needed for the ordinary WLLN, even when the original random variables may not have finite mean or variance.</p>
+<p>The proof strategy is actually very simple:</p>
+<ol style="list-style-type: decimal">
+<li>Construct a truncated sequence.</li>
+<li>Apply the ordinary WLLN to the truncated sample mean.</li>
+<li>Show that the original and truncated sample means are tail equivalent.</li>
+<li>Transfer the convergence result back to the original sample mean.</li>
+</ol>
+</div>
 </div>
 <div id="exercises-2" class="section level2 hasAnchor">
 <h2>Exercises<a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#exercises-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>

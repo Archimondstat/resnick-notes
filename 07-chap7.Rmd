@@ -1,6 +1,43 @@
 # Chap 7, Laws of Large Numbers and Sums of Independent Random Variables
 
 ## Summary
+### 7.1--7.2
+From this chapter on, we start to study the asymptotic behaviour of random sums and sample means, such as
+
+$$
+\sum_{i=1}^n X_i,
+\qquad
+\frac1n\sum_{i=1}^n X_i.
+$$
+
+Unlike the previous chapters, for arbitrary iid random variables $\{X_n\}$, we may not have finite first or second moments. Therefore, instead of attacking the original sequence directly, we introduce a truncated sequence
+
+$$
+X_n \mathbf1_{\{|X_n|\le n\}}.
+$$
+
+The truncation level is chosen carefully so that the probability of truncation can be controlled.
+
+This naturally introduces the idea of **tail equivalence**. Even though two random variable sequences may be different,
+
+$$
+\sum_{n=1}^\infty P(X_n\neq X_n')<\infty,
+$$
+
+implies, by the Borel--Cantelli lemma, that they differ only finitely many times with probability one. In other words, they are eventually identical almost surely and therefore share the same asymptotic behaviour.
+
+Proposition 7.1.1 provides the theoretical foundation for this idea. It allows us to first study the sum or sample mean of a truncated random variable sequence, which is usually easier to handle, and then transfer the result back to the original sequence.
+
+In fact, one of the main ideas of this chapter is not to fight heavy tails directly, but to replace a difficult sequence by an asymptotically equivalent and more manageable one.
+
+Section 7.2 develops the Generalized Weak Law of Large Numbers. The truncated variables possess the moment properties needed for the ordinary WLLN, even when the original random variables may not have finite mean or variance.
+
+The proof strategy is actually very simple:
+
+1. Construct a truncated sequence.
+2. Apply the ordinary WLLN to the truncated sample mean.
+3. Show that the original and truncated sample means are tail equivalent.
+4. Transfer the convergence result back to the original sample mean.
 
 
 ##  Exercises
