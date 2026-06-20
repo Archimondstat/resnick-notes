@@ -2188,3 +2188,311 @@ Finally,
 
 Therefore \(u\) can be approximated uniformly on \([0,\infty)\) by finite linear combinations of \(e^{mx}\) with non-positive integer \(m\).
 
+### Ex 28
+
+::: problem
+Suppose \(\{X_n,n\ge1\}\) are uncorrelated random variables satisfying
+
+\[
+E(X_n)=\mu,
+\qquad
+\operatorname{Var}(X_n)\le C,
+\qquad
+\operatorname{Cov}(X_i,X_j)=0,\quad i\ne j.
+\]
+
+Show that as \(n\to\infty\),
+
+\[
+\sum_{i=1}^n X_i/n\to\mu
+\]
+
+in probability and in \(L^2\).
+
+Now suppose \(E(X_n)=0\) and
+
+\[
+E(X_iX_j)\le \rho(i-j),
+\qquad i>j,
+\]
+
+and
+
+\[
+\rho(n)\to0
+\]
+
+as \(n\to\infty\). Show
+
+\[
+\sum_{i=1}^n X_i/n\xrightarrow{P}0.
+\]
+:::
+
+$\textbf{Answer:}$
+
+Let
+
+\[
+S_n=\sum_{i=1}^n X_i,
+\qquad
+Y_n=\frac{S_n}{n}.
+\]
+
+Since
+
+\[
+E(X_i)=\mu,
+\]
+
+we have
+
+\[
+E(Y_n)=\mu.
+\]
+
+Also,
+
+\[
+\begin{aligned}
+\operatorname{Var}(Y_n)
+&=
+\frac{1}{n^2}\operatorname{Var}(S_n) \\
+&=
+\frac{1}{n^2}
+\left[
+\sum_{i=1}^n\operatorname{Var}(X_i)
++
+2\sum_{1\le j<i\le n}\operatorname{Cov}(X_i,X_j)
+\right].
+\end{aligned}
+\]
+
+Since the \(X_i\)'s are uncorrelated,
+
+\[
+\operatorname{Cov}(X_i,X_j)=0,
+\qquad i\ne j.
+\]
+
+Therefore,
+
+\[
+\operatorname{Var}(Y_n)
+=
+\frac{1}{n^2}
+\sum_{i=1}^n\operatorname{Var}(X_i).
+\]
+
+Since
+
+\[
+\operatorname{Var}(X_i)\le C,
+\]
+
+we get
+
+\[
+\operatorname{Var}(Y_n)
+\le
+\frac{1}{n^2}\sum_{i=1}^n C
+=
+\frac{C}{n}
+\to0.
+\]
+
+Hence, for every \(\varepsilon>0\), Chebyshev's inequality gives
+
+\[
+P(|Y_n-\mu|>\varepsilon)
+\le
+\frac{\operatorname{Var}(Y_n)}{\varepsilon^2}
+\le
+\frac{C}{n\varepsilon^2}
+\to0.
+\]
+
+Therefore,
+
+\[
+Y_n\xrightarrow{P}\mu.
+\]
+
+Also,
+
+\[
+E[(Y_n-\mu)^2]
+=
+\operatorname{Var}(Y_n)
+\le
+\frac{C}{n}
+\to0.
+\]
+
+Therefore,
+
+\[
+Y_n\xrightarrow{L^2}\mu.
+\]
+
+Now suppose
+
+\[
+E(X_i)=0
+\]
+
+and
+
+\[
+E(X_iX_j)\le \rho(i-j),
+\qquad i>j,
+\]
+
+where
+
+\[
+\rho(n)\to0.
+\]
+
+Again let
+
+\[
+Y_n=\frac1n\sum_{i=1}^n X_i.
+\]
+
+Since \(E(X_i)=0\),
+
+\[
+E(Y_n)=0.
+\]
+
+Also,
+
+\[
+\begin{aligned}
+\operatorname{Var}(Y_n)
+&=
+\frac{1}{n^2}
+\left[
+\sum_{i=1}^n\operatorname{Var}(X_i)
++
+2\sum_{1\le j<i\le n}\operatorname{Cov}(X_i,X_j)
+\right] \\
+&=
+\frac{1}{n^2}
+\left[
+\sum_{i=1}^n\operatorname{Var}(X_i)
++
+2\sum_{1\le j<i\le n}E(X_iX_j)
+\right].
+\end{aligned}
+\]
+
+Therefore,
+
+\[
+\operatorname{Var}(Y_n)
+\le
+\frac{1}{n^2}
+\sum_{i=1}^n\operatorname{Var}(X_i)
++
+\frac{2}{n^2}
+\sum_{1\le j<i\le n}\rho(i-j).
+\]
+
+The first term satisfies
+
+\[
+\frac{1}{n^2}
+\sum_{i=1}^n\operatorname{Var}(X_i)
+\le
+\frac{C}{n}.
+\]
+
+For the second term, group the pairs \((i,j)\) according to the lag
+
+\[
+k=i-j.
+\]
+
+For each \(k=1,\ldots,n-1\), there are exactly
+
+\[
+n-k
+\]
+
+pairs \((i,j)\) satisfying
+
+\[
+1\le j<i\le n,
+\qquad
+i-j=k.
+\]
+
+Therefore,
+
+\[
+\sum_{1\le j<i\le n}\rho(i-j)
+=
+\sum_{k=1}^{n-1}(n-k)\rho(k).
+\]
+
+Hence,
+
+\[
+\begin{aligned}
+\operatorname{Var}(Y_n)
+&\le
+\frac{C}{n}
++
+\frac{2}{n^2}
+\sum_{k=1}^{n-1}(n-k)\rho(k) \\
+&\le
+\frac{C}{n}
++
+\frac{2}{n^2}
+\sum_{k=1}^{n-1}n\rho(k) \\
+&=
+\frac{C}{n}
++
+\frac{2}{n}
+\sum_{k=1}^{n-1}\rho(k).
+\end{aligned}
+\]
+
+Since
+
+\[
+\rho(k)\to0,
+\]
+
+we have
+
+\[
+\frac1n\sum_{k=1}^{n-1}\rho(k)\to0.
+\]
+
+Therefore,
+
+\[
+\operatorname{Var}(Y_n)\to0.
+\]
+
+Finally, for every \(\varepsilon>0\), Chebyshev's inequality gives
+
+\[
+P(|Y_n|>\varepsilon)
+=
+P(|Y_n-E(Y_n)|>\varepsilon)
+\le
+\frac{\operatorname{Var}(Y_n)}{\varepsilon^2}
+\to0.
+\]
+
+Hence,
+
+\[
+\frac1n\sum_{i=1}^n X_i
+\xrightarrow{P}
+0.
+\]
