@@ -1051,7 +1051,8 @@ and therefore
 
 $\textbf{Answer:}$
 
-(a) For \(k\ge0\), define
+#### (a)
+For \(k\ge0\), define
 
 \[
 G_k(\lambda)
@@ -1183,7 +1184,8 @@ That is,
 (-1)^k x^k e^{-\lambda x}F(dx).
 \]
 
-(b) Let
+#### (b) 
+Let
 
 \[
 Y_n=\frac1n\sum_{i=1}^n \xi_i(\theta).
@@ -1272,7 +1274,8 @@ Thus
 \end{cases}
 \]
 
-(c) By part (a),
+#### (c)
+By part (a),
 
 \[
 \hat F^{(j)}(n)
@@ -2495,4 +2498,715 @@ Hence,
 \frac1n\sum_{i=1}^n X_i
 \xrightarrow{P}
 0.
+\]
+
+### Ex 1
+
+::: problem
+Random signs. Does
+
+\[
+\sum_n \frac1n
+\]
+
+converge? Does
+
+\[
+\sum_n \frac{(-1)^n}{n}
+\]
+
+converge? Let \(\{X_n\}\) be iid with
+
+\[
+P[X_n=\pm1]=\frac12.
+\]
+
+Does
+
+\[
+\sum_n\frac{X_n}{n}
+\]
+
+converge?
+:::
+
+$\textbf{Answer:}$
+
+The harmonic series
+
+\[
+\sum_{n=1}^{\infty}\frac1n
+\]
+
+diverges.
+
+The alternating harmonic series
+
+\[
+\sum_{n=1}^{\infty}\frac{(-1)^n}{n}
+\]
+
+converges by the alternating-series test. However,
+
+\[
+\sum_{n=1}^{\infty}\left|\frac{(-1)^n}{n}\right|
+=
+\sum_{n=1}^{\infty}\frac1n
+=
+\infty,
+\]
+
+so it converges conditionally.
+
+Now let \(\{X_n\}\) be iid with
+
+\[
+P[X_n=1]=P[X_n=-1)=\frac12.
+\]
+
+Define
+
+\[
+Z_n=\frac{X_n}{n}.
+\]
+
+Since the \(X_n\)'s are independent, the \(Z_n\)'s are independent. Also,
+
+\[
+E(Z_n)
+=
+\frac1nE(X_n)
+=
+0,
+\]
+
+and
+
+\[
+\operatorname{Var}(Z_n)
+=
+\frac1{n^2}\operatorname{Var}(X_n)
+=
+\frac1{n^2}.
+\]
+
+Therefore,
+
+\[
+\sum_{n=1}^{\infty}\operatorname{Var}(Z_n)
+=
+\sum_{n=1}^{\infty}\frac1{n^2}
+<
+\infty.
+\]
+
+By the Kolmogorov convergence criterion,
+
+\[
+\sum_{n=1}^{\infty}\bigl(Z_n-E(Z_n)\bigr)
+\]
+
+converges almost surely. Since \(E(Z_n)=0\),
+
+\[
+\sum_{n=1}^{\infty}\frac{X_n}{n}
+\]
+
+converges almost surely.
+
+Moreover, since \(|X_n|=1\),
+
+\[
+\sum_{n=1}^{\infty}\left|\frac{X_n}{n}\right|
+=
+\sum_{n=1}^{\infty}\frac1n
+=
+\infty
+\]
+
+for every \(\omega\). Thus
+
+\[
+\sum_{n=1}^{\infty}\frac{X_n}{n}
+\]
+
+converges conditionally almost surely.
+
+### Ex 5
+
+::: problem
+(a) Let \(\{X_n,n\ge1\}\) be iid, \(EX_n=0\), \(EX_n^2=\sigma^2\). Let \(a_n\in\mathbb R\) for \(n\ge1\). Set
+
+\[
+S_n=\sum_{i=1}^n a_iX_i.
+\]
+
+Prove \(\{S_n\}\) is \(L^2\)-convergent iff
+
+\[
+\sum_{n=1}^{\infty}a_n^2<\infty.
+\]
+
+If
+
+\[
+\sum_{n=1}^{\infty}a_n^2<\infty,
+\]
+
+then \(\{S_n,n\ge1\}\) is almost surely convergent.
+
+(b) Suppose \(\{X_n,n\ge1\}\) are arbitrary random variables such that
+
+\[
+\sum_n \pm X_n
+\]
+
+converges almost surely for all choices \(\pm1\). Show
+
+\[
+\sum_n X_n^2<\infty
+\]
+
+almost surely. (Hint: Consider \(\sum_n B_n(t)X_n(\omega)\) where the random variables \(\{B_n,n\ge1\}\) are coin tossing or Bernoulli random variables. Apply Fubini on the space of \((t,\omega)\).)
+
+(c) Suppose \(\{B_n,n\ge1\}\) are iid with possible values \(\{1,-1\}\) and
+
+\[
+P[B_n=\pm1]=\frac12.
+\]
+
+Show for constants \(a_n\) that
+
+\[
+\sum_n a_nB_n
+\]
+
+converges iff
+
+\[
+\sum_n a_n^2<\infty.
+\]
+
+(d) Show
+
+\[
+\sum_n B_nn^{-\theta}
+\]
+
+converges a.s. iff \(\theta>1/2\).
+:::
+
+$\textbf{Answer:}$
+
+#### (a) 
+Suppose first that \(\sigma^2>0\). For \(n\ge m\),
+
+\[
+S_n-S_m
+=
+\sum_{i=m+1}^n a_iX_i.
+\]
+
+Since the \(X_i\)'s are independent and centered,
+
+\[
+\begin{aligned}
+\|S_n-S_m\|_2^2
+&=
+E\left[
+\left(
+\sum_{i=m+1}^n a_iX_i
+\right)^2
+\right] \\
+&=
+\operatorname{Var}
+\left(
+\sum_{i=m+1}^n a_iX_i
+\right) \\
+&=
+\sigma^2\sum_{i=m+1}^n a_i^2.
+\end{aligned}
+\]
+
+Thus \(\{S_n\}\) is \(L^2\)-Cauchy iff
+
+\[
+\sum_{i=m+1}^n a_i^2\to0
+\qquad\text{as }m,n\to\infty.
+\]
+
+This holds iff
+
+\[
+\sum_{n=1}^{\infty}a_n^2<\infty.
+\]
+
+Since \(L^2\) is complete,
+
+\[
+\{S_n\}\text{ is \(L^2\)-convergent}
+\iff
+\sum_{n=1}^{\infty}a_n^2<\infty.
+\]
+
+If
+
+\[
+\sum_{n=1}^{\infty}a_n^2<\infty,
+\]
+
+then
+
+\[
+E(a_nX_n)=0
+\]
+
+and
+
+\[
+\operatorname{Var}(a_nX_n)
+=
+\sigma^2a_n^2.
+\]
+
+Therefore,
+
+\[
+\sum_{n=1}^{\infty}\operatorname{Var}(a_nX_n)
+=
+\sigma^2\sum_{n=1}^{\infty}a_n^2
+<
+\infty.
+\]
+
+By the Kolmogorov convergence criterion,
+
+\[
+\sum_{n=1}^{\infty}a_nX_n
+\]
+
+converges almost surely.
+
+If \(\sigma^2=0\), then \(X_n=0\) almost surely for every \(n\), so \(S_n=0\) almost surely for every \(n\).
+
+#### (b) 
+Let the original random variables \(\{X_n\}\) be defined on
+
+\[
+(\Omega,\mathcal F,P).
+\]
+
+Construct a second probability space for random signs. Let
+
+\[
+T=\{-1,1\}^{\mathbb N},
+\]
+
+and let
+
+\[
+B_n:T\to\{-1,1\},
+\qquad
+B_n(t)=t_n,
+\]
+
+be the \(n\)th coordinate map.
+
+Let \(\nu\) be the fair-coin probability measure on \(\{-1,1\}\), so that
+
+\[
+\nu(\{1\})=\nu(\{-1\})=\frac12.
+\]
+
+Let
+
+\[
+\mathcal T=\mathcal B(\{-1,1\})^{\otimes\mathbb N},
+\qquad
+Q=\nu^{\otimes\mathbb N}.
+\]
+
+Then \(\{B_n\}\) are iid fair signs under \(Q\).
+
+Consider the product probability space
+
+\[
+(T\times\Omega,\mathcal T\otimes\mathcal F,Q\otimes P).
+\]
+
+Define
+
+\[
+Y_n(t,\omega)=B_n(t)X_n(\omega),
+\]
+
+and let
+
+\[
+S_N(t,\omega)=\sum_{n=1}^N B_n(t)X_n(\omega).
+\]
+
+Define
+
+\[
+A=
+\left\{
+(t,\omega):
+\sum_{n=1}^{\infty}B_n(t)X_n(\omega)
+\text{ converges}
+\right\}.
+\]
+
+Equivalently,
+
+\[
+A
+=
+\bigcap_{r=1}^{\infty}
+\bigcup_{N=1}^{\infty}
+\bigcap_{m,n\ge N}
+\left\{
+(t,\omega):
+|S_m(t,\omega)-S_n(t,\omega)|<\frac1r
+\right\},
+\]
+
+so
+
+\[
+A\in\mathcal T\otimes\mathcal F.
+\]
+
+For fixed \(t\in T\), \(\{B_n(t)\}\) is a deterministic sequence of signs. By assumption,
+
+\[
+P(A_t)=1,
+\]
+
+where
+
+\[
+A_t
+=
+\{\omega:(t,\omega)\in A\}.
+\]
+
+Therefore,
+
+\[
+\begin{aligned}
+(Q\otimes P)(A)
+&=
+\int_T P(A_t)\,Q(dt) \\
+&=
+\int_T1\,Q(dt) \\
+&=
+1.
+\end{aligned}
+\]
+
+For fixed \(\omega\in\Omega\), define
+
+\[
+A^\omega
+=
+\{t:(t,\omega)\in A\}.
+\]
+
+By Fubini,
+
+\[
+1
+=
+(Q\otimes P)(A)
+=
+\int_\Omega Q(A^\omega)\,P(d\omega).
+\]
+
+Since
+
+\[
+0\le Q(A^\omega)\le1,
+\]
+
+it follows that
+
+\[
+Q(A^\omega)=1
+\]
+
+for \(P\)-almost every \(\omega\). Define
+
+\[
+\Omega_0
+=
+\{\omega:Q(A^\omega)=1\}.
+\]
+
+Then
+
+\[
+P(\Omega_0)=1.
+\]
+
+Fix \(\omega_0\in\Omega_0\), and set
+
+\[
+a_n=X_n(\omega_0).
+\]
+
+Then
+
+\[
+\sum_{n=1}^{\infty}a_nB_n(t)
+\]
+
+converges for \(Q\)-almost every \(t\).
+
+Choose \(t_0\in A^{\omega_0}\). Since the series converges,
+
+\[
+a_nB_n(t_0)\to0.
+\]
+
+Because
+
+\[
+|B_n(t_0)|=1,
+\]
+
+we obtain
+
+\[
+|a_n|\to0.
+\]
+
+Hence \(\{a_n\}\) is bounded. Define, on the sign space,
+
+\[
+Z_n(t)=a_nB_n(t).
+\]
+
+Then \(\{Z_n\}\) are independent under \(Q\), and
+
+\[
+E_Q(Z_n)=0,
+\]
+
+\[
+\operatorname{Var}_Q(Z_n)=a_n^2.
+\]
+
+Also, \(\{Z_n\}\) is uniformly bounded, and
+
+\[
+\sum_{n=1}^{\infty}Z_n(t)
+\]
+
+converges \(Q\)-almost surely.
+
+By Lemma 7.6.1,
+
+\[
+\sum_{n=1}^{\infty}\operatorname{Var}_Q(Z_n)<\infty.
+\]
+
+Therefore,
+
+\[
+\sum_{n=1}^{\infty}a_n^2<\infty.
+\]
+
+Since
+
+\[
+a_n=X_n(\omega_0),
+\]
+
+we have
+
+\[
+\sum_{n=1}^{\infty}X_n(\omega_0)^2<\infty.
+\]
+
+Since \(\omega_0\) was arbitrary in \(\Omega_0\), and
+
+\[
+P(\Omega_0)=1,
+\]
+
+we conclude
+
+\[
+\sum_{n=1}^{\infty}X_n^2<\infty
+\qquad\text{almost surely.}
+\]
+
+#### (c)
+Suppose first that
+
+\[
+\sum_{n=1}^{\infty}a_n^2<\infty.
+\]
+
+Since
+
+\[
+E(B_n)=0
+\]
+
+and
+
+\[
+\operatorname{Var}(B_n)=1,
+\]
+
+we have
+
+\[
+E(a_nB_n)=0
+\]
+
+and
+
+\[
+\operatorname{Var}(a_nB_n)=a_n^2.
+\]
+
+Therefore,
+
+\[
+\sum_{n=1}^{\infty}\operatorname{Var}(a_nB_n)
+=
+\sum_{n=1}^{\infty}a_n^2
+<
+\infty.
+\]
+
+By the Kolmogorov convergence criterion,
+
+\[
+\sum_{n=1}^{\infty}a_nB_n
+\]
+
+converges almost surely.
+
+Conversely, suppose
+
+\[
+\sum_{n=1}^{\infty}a_nB_n
+\]
+
+converges almost surely. Define
+
+\[
+X_n=a_nB_n.
+\]
+
+Let
+
+\[
+\varepsilon=(\varepsilon_1,\varepsilon_2,\ldots),
+\qquad
+\varepsilon_n\in\{-1,1\},
+\]
+
+be an arbitrary deterministic sign sequence. Then
+
+\[
+\sum_n\varepsilon_nX_n
+=
+\sum_n a_n(\varepsilon_nB_n).
+\]
+
+Since \(\{\varepsilon_nB_n\}_{n\ge1}\) has the same joint distribution as \(\{B_n\}_{n\ge1}\),
+
+\[
+\sum_n a_n(\varepsilon_nB_n)
+\]
+
+converges almost surely.
+
+Thus the hypothesis of part (b) applies to the sequence
+
+\[
+X_n=a_nB_n.
+\]
+
+Therefore,
+
+\[
+\sum_{n=1}^{\infty}X_n^2<\infty
+\qquad\text{almost surely.}
+\]
+
+But
+
+\[
+X_n^2
+=
+a_n^2B_n^2
+=
+a_n^2.
+\]
+
+Hence
+
+\[
+\sum_{n=1}^{\infty}a_n^2<\infty.
+\]
+
+Therefore,
+
+\[
+\sum_n a_nB_n
+\text{ converges almost surely}
+\iff
+\sum_n a_n^2<\infty.
+\]
+
+#### (d) 
+Set
+
+\[
+a_n=n^{-\theta}.
+\]
+
+By part (c),
+
+\[
+\sum_n B_nn^{-\theta}
+\]
+
+converges almost surely iff
+
+\[
+\sum_{n=1}^{\infty}a_n^2
+=
+\sum_{n=1}^{\infty}n^{-2\theta}
+<\infty.
+\]
+
+By the \(p\)-series criterion,
+
+\[
+\sum_{n=1}^{\infty}n^{-2\theta}<\infty
+\]
+
+iff
+
+\[
+2\theta>1.
+\]
+
+Therefore,
+
+\[
+\sum_nB_nn^{-\theta}
+\]
+
+converges almost surely iff
+
+\[
+\theta>\frac12.
 \]
