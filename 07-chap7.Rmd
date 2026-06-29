@@ -3210,3 +3210,705 @@ converges almost surely iff
 \[
 \theta>\frac12.
 \]
+
+### Ex 7
+
+::: problem
+Let \(\{E_n\}\) be events.
+
+(a) Verify
+
+\[
+\sum_{k=1}^n 1_{E_k}
+=
+1_{\bigcup_{k=1}^nE_k}
+\sum_{k=1}^n1_{E_k}
+\]
+
+and then, using the Schwartz inequality, prove that
+
+\[
+P\left(\bigcup_{k=1}^n E_k\right)
+\ge
+\frac{
+\left(
+E\left(\sum_{k=1}^n1_{E_k}\right)
+\right)^2
+}{
+E\left(
+\sum_{k=1}^n1_{E_k}
+\right)^2
+}.
+\]
+
+(b) Deduce from this that if
+
+(i) $\qquad\sum_nP(E_n)=\infty$,
+
+
+and
+
+(ii)$\qquad\text{there exists }c>0\text{ such that for all }m<n,\text{ we have}$
+
+\[
+P(E_mE_n)
+\le
+cP(E_m)P(E_{n-m}),
+\]
+
+then
+
+(iii)$\qquad P\left(\limsup_{n\to\infty}E_n\right)>0$.
+
+Thus, we get a partial converse to Borel-Cantelli: if (iii) fails, that is, if $P\left(\limsup_{n\to\infty}E_n\right)=0$,
+
+and (ii) holds, then (i) fails so that \(\sum_nP(E_n)<\infty\).
+
+(c) Let \(\{Y_n,n\ge1\}\) be iid positive random variables with common distribution function \(G\) and suppose \(\{X_n,n\ge1\}\) is a sequence of iid positive random variables with common distribution \(F\). Suppose \(\{X_n\}\) and \(\{Y_n\}\) are independent. Prove using Borel-Cantelli that if for all \(\varepsilon>0\)
+
+\[
+\int_0^\infty
+\frac{G(dy)}
+{1-F(\varepsilon y)}
+<\infty,
+\]
+
+then as \(n\to\infty\)
+
+\[
+\frac{Y_n}{\bigvee_{i=1}^nX_i}
+\to0,
+\]
+
+almost surely. Prove the converse using the converse to Borel-Cantelli proved in (b) above.
+:::
+
+$\textbf{Answer:}$
+
+#### (a) 
+Let
+
+\[
+U_n=\bigcup_{k=1}^nE_k,
+\qquad
+S_n=\sum_{k=1}^n1_{E_k}.
+\]
+
+If \(\omega\in U_n\), then \(\omega\in E_k\) for at least one \(k\), and hence
+
+\[
+1_{U_n}(\omega)=1.
+\]
+
+Therefore,
+
+\[
+1_{U_n}(\omega)S_n(\omega)=S_n(\omega).
+\]
+
+If \(\omega\notin U_n\), then \(\omega\notin E_k\) for every \(k\), so
+
+\[
+S_n(\omega)=0
+\]
+
+and again
+
+\[
+1_{U_n}(\omega)S_n(\omega)=S_n(\omega).
+\]
+
+Thus,
+
+\[
+S_n=1_{U_n}S_n.
+\]
+
+By the Schwartz inequality,
+
+\[
+\left(E[1_{U_n}S_n]\right)^2
+\le
+E[1_{U_n}^2]E[S_n^2].
+\]
+
+Since
+
+\[
+1_{U_n}^2=1_{U_n}
+\]
+
+and
+
+\[
+1_{U_n}S_n=S_n,
+\]
+
+we get
+
+\[
+\left(E[S_n]\right)^2
+\le
+P(U_n)E[S_n^2].
+\]
+
+Therefore,
+
+\[
+P\left(\bigcup_{k=1}^nE_k\right)
+\ge
+\frac{
+\left(
+E\left(\sum_{k=1}^n1_{E_k}\right)
+\right)^2
+}{
+E\left(
+\sum_{k=1}^n1_{E_k}
+\right)^2
+}.
+\]
+
+#### (b)
+Write
+
+\[
+p_k=P(E_k),
+\]
+
+and, for \(m\le n\), define
+
+\[
+A_{m,n}
+=
+\sum_{k=m}^np_k,
+\qquad
+B_{m,n}
+=
+\sum_{r=1}^{n-m}p_r.
+\]
+
+Also define
+
+\[
+U_{m,n}
+=
+\bigcup_{k=m}^nE_k.
+\]
+
+Applying part (a) to the block
+
+\[
+E_m,E_{m+1},\ldots,E_n,
+\]
+
+gives
+
+\[
+P(U_{m,n})
+\ge
+\frac{A_{m,n}^2}
+{
+E\left[
+\left(
+\sum_{k=m}^n1_{E_k}
+\right)^2
+\right]
+}.
+\]
+
+Now,
+
+\[
+\begin{aligned}
+E\left[
+\left(
+\sum_{k=m}^n1_{E_k}
+\right)^2
+\right]
+&=
+\sum_{k=m}^nP(E_k)
++
+2\sum_{m\le i<j\le n}P(E_i\cap E_j) \\
+&=
+A_{m,n}
++
+2\sum_{m\le i<j\le n}P(E_i\cap E_j).
+\end{aligned}
+\]
+
+By assumption (ii),
+
+\[
+\sum_{m\le i<j\le n}P(E_i\cap E_j)
+\le
+c\sum_{m\le i<j\le n}p_ip_{j-i}.
+\]
+
+Reindex the latter sum by
+
+\[
+r=j-i.
+\]
+
+Then
+
+\[
+\begin{aligned}
+\sum_{m\le i<j\le n}p_ip_{j-i}
+&=
+\sum_{i=m}^{n-1}\sum_{r=1}^{n-i}p_ip_r \\
+&\le
+\left(\sum_{i=m}^np_i\right)
+\left(\sum_{r=1}^{n-m}p_r\right) \\
+&=
+A_{m,n}B_{m,n}.
+\end{aligned}
+\]
+
+Thus,
+
+\[
+E\left[
+\left(
+\sum_{k=m}^n1_{E_k}
+\right)^2
+\right]
+\le
+A_{m,n}+2cA_{m,n}B_{m,n}.
+\]
+
+Let
+
+\[
+C=\max(c,1).
+\]
+
+Then the same condition remains true with \(C\) in place of \(c\), and
+
+\[
+P(U_{m,n})
+\ge
+\frac{A_{m,n}^2}
+{A_{m,n}+2CA_{m,n}B_{m,n}}
+=
+\frac{A_{m,n}}
+{1+2CB_{m,n}}.
+\tag{1}
+\]
+
+Fix \(m\). Since
+
+\[
+\sum_{k=1}^\infty p_k=\infty,
+\]
+
+we have
+
+\[
+A_{m,n}\to\infty
+\]
+
+and
+
+\[
+B_{m,n}\to\infty
+\]
+
+as \(n\to\infty\).
+
+Also,
+
+\[
+\begin{aligned}
+A_{m,n}-B_{m,n}
+&=
+\sum_{k=m}^np_k-\sum_{r=1}^{n-m}p_r \\
+&=
+\sum_{k=n-m+1}^np_k
+-
+\sum_{r=1}^{m-1}p_r.
+\end{aligned}
+\]
+
+For fixed \(m\), the first sum has only \(m\) terms, while the second sum is fixed. Hence
+
+\[
+A_{m,n}-B_{m,n}=O_m(1).
+\]
+
+Therefore,
+
+\[
+\frac{A_{m,n}}{B_{m,n}}\to1.
+\]
+
+Using (1),
+
+\[
+\begin{aligned}
+\liminf_{n\to\infty}P(U_{m,n})
+&\ge
+\liminf_{n\to\infty}
+\frac{A_{m,n}}
+{1+2CB_{m,n}} \\
+&=
+\liminf_{n\to\infty}
+\frac{A_{m,n}/B_{m,n}}
+{1/B_{m,n}+2C} \\
+&=
+\frac1{2C}.
+\end{aligned}
+\]
+
+Now define
+
+\[
+U_m=\bigcup_{k=m}^\infty E_k.
+\]
+
+Since
+
+\[
+U_{m,n}\uparrow U_m
+\qquad\text{as }n\to\infty,
+\]
+
+we have
+
+\[
+P(U_m)\ge\frac1{2C}.
+\]
+
+Finally,
+
+\[
+U_m\downarrow\limsup_{n\to\infty}E_n
+\qquad\text{as }m\to\infty.
+\]
+
+Therefore,
+
+\[
+\begin{aligned}
+P\left(\limsup_{n\to\infty}E_n\right)
+&=
+\lim_{m\to\infty}P(U_m) \\
+&\ge
+\frac1{2C}
+>
+0.
+\end{aligned}
+\]
+
+Thus,
+
+\[
+P\left(\limsup_{n\to\infty}E_n\right)>0.
+\]
+
+#### (c) 
+Let
+
+\[
+M_n=\bigvee_{i=1}^nX_i.
+\]
+
+First assume that for every \(\varepsilon>0\),
+
+\[
+\int_0^\infty
+\frac{G(dy)}
+{1-F(\varepsilon y)}
+<\infty.
+\]
+
+For \(\delta>0\), define
+
+\[
+A_n(\delta)
+=
+\left\{
+\frac{Y_n}{M_n}\ge\delta
+\right\}
+=
+\{Y_n\ge\delta M_n\}.
+\]
+
+Condition on \(Y_n=y\). Since \(Y_n\) is independent of
+\(X_1,\ldots,X_n\),
+
+\[
+\begin{aligned}
+P(A_n(\delta)\mid Y_n=y)
+&=
+P\left(M_n\le\frac{y}{\delta}\right) \\
+&=
+F\left(\frac{y}{\delta}\right)^n.
+\end{aligned}
+\]
+
+Therefore,
+
+\[
+P(A_n(\delta))
+=
+\int_0^\infty
+F\left(\frac{y}{\delta}\right)^n
+\,G(dy).
+\]
+
+By Tonelli's theorem,
+
+\[
+\begin{aligned}
+\sum_{n=1}^\infty P(A_n(\delta))
+&=
+\int_0^\infty
+\sum_{n=1}^\infty
+F\left(\frac{y}{\delta}\right)^n
+\,G(dy) \\
+&=
+\int_0^\infty
+\frac{F(y/\delta)}
+{1-F(y/\delta)}
+\,G(dy) \\
+&\le
+\int_0^\infty
+\frac{G(dy)}
+{1-F(y/\delta)}
+<\infty.
+\end{aligned}
+\]
+
+The final integral is finite by the assumption, with
+
+\[
+\varepsilon=\frac1\delta.
+\]
+
+By Borel-Cantelli,
+
+\[
+P(A_n(\delta)\text{ i.o.})=0.
+\]
+
+Apply this with
+
+\[
+\delta=\frac1k,
+\qquad
+k=1,2,\ldots.
+\]
+
+Then, with probability one, for every \(k\), eventually
+
+\[
+\frac{Y_n}{M_n}<\frac1k.
+\]
+
+Given \(\varepsilon>0\), choose \(k\) such that
+
+\[
+\frac1k<\varepsilon.
+\]
+
+Then eventually
+
+\[
+0\le\frac{Y_n}{M_n}<\frac1k<\varepsilon.
+\]
+
+Hence
+
+\[
+\frac{Y_n}{M_n}\to0
+\qquad\text{almost surely.}
+\]
+
+Conversely, suppose
+
+\[
+\frac{Y_n}{M_n}\to0
+\qquad\text{almost surely.}
+\]
+
+Fix \(\delta>0\), and again define
+
+\[
+A_n(\delta)
+=
+\left\{
+\frac{Y_n}{M_n}\ge\delta
+\right\}.
+\]
+
+Then
+
+\[
+P(A_n(\delta)\text{ i.o.})=0.
+\tag{2}
+\]
+
+We now verify condition (ii) from part (b).
+
+The key is to divide the \(X\)'s into the first block
+
+\[
+X_1,\ldots,X_m,
+\]
+
+and the fresh block
+
+\[
+X_{m+1},\ldots,X_n.
+\]
+
+For \(m<n\), define
+
+\[
+M_{m,n}
+=
+\max(X_{m+1},\ldots,X_n).
+\]
+
+Since
+
+\[
+M_n=\max(M_m,M_{m,n}),
+\]
+
+we have
+
+\[
+A_n(\delta)
+\subseteq
+\{Y_n\ge\delta M_{m,n}\}.
+\]
+
+Therefore,
+
+\[
+A_m(\delta)\cap A_n(\delta)
+\subseteq
+A_m(\delta)
+\cap
+\{Y_n\ge\delta M_{m,n}\}.
+\]
+
+Now,
+
+\[
+A_m(\delta)
+\in
+\sigma(Y_m,X_1,\ldots,X_m),
+\]
+
+while
+
+\[
+\{Y_n\ge\delta M_{m,n}\}
+\in
+\sigma(Y_n,X_{m+1},\ldots,X_n).
+\]
+
+These two sigma-fields are independent. Hence,
+
+\[
+\begin{aligned}
+P(A_m(\delta)\cap A_n(\delta))
+&\le
+P(A_m(\delta))
+P(Y_n\ge\delta M_{m,n}).
+\end{aligned}
+\]
+
+By the iid assumptions,
+
+\[
+(Y_n,M_{m,n})
+\overset{d}{=}
+(Y_{n-m},M_{n-m}).
+\]
+
+Thus,
+
+\[
+P(Y_n\ge\delta M_{m,n})
+=
+P(A_{n-m}(\delta)).
+\]
+
+Therefore,
+
+\[
+P(A_m(\delta)\cap A_n(\delta))
+\le
+P(A_m(\delta))P(A_{n-m}(\delta)).
+\]
+
+So condition (ii) of part (b) holds with \(c=1\).
+
+Since (2) holds, the partial converse to Borel-Cantelli from part (b) gives
+
+\[
+\sum_{n=1}^\infty P(A_n(\delta))<\infty.
+\]
+
+Using the previous calculation and Tonelli's theorem,
+
+\[
+\begin{aligned}
+\sum_{n=1}^\infty P(A_n(\delta))
+&=
+\int_0^\infty
+\frac{F(y/\delta)}
+{1-F(y/\delta)}
+\,G(dy)
+<\infty.
+\end{aligned}
+\]
+
+Since
+
+\[
+\frac1{1-F(y/\delta)}
+=
+1+
+\frac{F(y/\delta)}
+{1-F(y/\delta)},
+\]
+
+and \(G\) is a probability measure,
+
+\[
+\begin{aligned}
+\int_0^\infty
+\frac{G(dy)}
+{1-F(y/\delta)}
+&=
+1+
+\int_0^\infty
+\frac{F(y/\delta)}
+{1-F(y/\delta)}
+\,G(dy) \\
+&<
+\infty.
+\end{aligned}
+\]
+
+Finally, set
+
+\[
+\varepsilon=\frac1\delta.
+\]
+
+Since \(\delta>0\) was arbitrary,
+
+\[
+\int_0^\infty
+\frac{G(dy)}
+{1-F(\varepsilon y)}
+<\infty
+\]
+
+for every \(\varepsilon>0\).

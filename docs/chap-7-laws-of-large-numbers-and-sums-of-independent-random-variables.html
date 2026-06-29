@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chap 7, Laws of Large Numbers and Sums of Independent Random Variables | Notes on A Probability Path (Resnick)</title>
   <meta name="description" content="Chap 7, Laws of Large Numbers and Sums of Independent Random Variables | Notes on A Probability Path (Resnick)" />
-  <meta name="generator" content="bookdown 0.42 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.46 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chap 7, Laws of Large Numbers and Sums of Independent Random Variables | Notes on A Probability Path (Resnick)" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="Zhanwen Peng" />
 
 
-<meta name="date" content="2026-06-26" />
+<meta name="date" content="2026-06-30" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -448,6 +448,12 @@
 <li class="chapter" data-level="" data-path="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html"><a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#b-29"><i class="fa fa-check"></i>(b)</a></li>
 <li class="chapter" data-level="" data-path="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html"><a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#c-21"><i class="fa fa-check"></i>(c)</a></li>
 <li class="chapter" data-level="" data-path="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html"><a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#d-13"><i class="fa fa-check"></i>(d)</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html"><a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#ex-7-1"><i class="fa fa-check"></i>Ex 7</a>
+<ul>
+<li class="chapter" data-level="" data-path="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html"><a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#a-30"><i class="fa fa-check"></i>(a)</a></li>
+<li class="chapter" data-level="" data-path="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html"><a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#b-30"><i class="fa fa-check"></i>(b)</a></li>
+<li class="chapter" data-level="" data-path="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html"><a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#c-22"><i class="fa fa-check"></i>(c)</a></li>
 </ul></li>
 </ul></li>
 </ul></li>
@@ -2947,6 +2953,556 @@ a_n=n^{-\theta}.
 <p><span class="math display">\[
 \theta&gt;\frac12.
 \]</span></p>
+</div>
+</div>
+<div id="ex-7-1" class="section level3 hasAnchor">
+<h3>Ex 7<a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#ex-7-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="problem">
+<p>Let <span class="math inline">\(\{E_n\}\)</span> be events.</p>
+<ol style="list-style-type: lower-alpha">
+<li>Verify</li>
+</ol>
+<p><span class="math display">\[
+\sum_{k=1}^n 1_{E_k}
+=
+1_{\bigcup_{k=1}^nE_k}
+\sum_{k=1}^n1_{E_k}
+\]</span></p>
+<p>and then, using the Schwartz inequality, prove that</p>
+<p><span class="math display">\[
+P\left(\bigcup_{k=1}^n E_k\right)
+\ge
+\frac{
+\left(
+E\left(\sum_{k=1}^n1_{E_k}\right)
+\right)^2
+}{
+E\left(
+\sum_{k=1}^n1_{E_k}
+\right)^2
+}.
+\]</span></p>
+<ol start="2" style="list-style-type: lower-alpha">
+<li><p>Deduce from this that if</p></li>
+<li><p><span class="math inline">\(\qquad\sum_nP(E_n)=\infty\)</span>,</p></li>
+</ol>
+<p>and</p>
+<p>(ii)<span class="math inline">\(\qquad\text{there exists }c&gt;0\text{ such that for all }m&lt;n,\text{ we have}\)</span></p>
+<p><span class="math display">\[
+P(E_mE_n)
+\le
+cP(E_m)P(E_{n-m}),
+\]</span></p>
+<p>then</p>
+<p>(iii)<span class="math inline">\(\qquad P\left(\limsup_{n\to\infty}E_n\right)&gt;0\)</span>.</p>
+<p>Thus, we get a partial converse to Borel-Cantelli: if (iii) fails, that is, if <span class="math inline">\(P\left(\limsup_{n\to\infty}E_n\right)=0\)</span>,</p>
+<p>and (ii) holds, then (i) fails so that <span class="math inline">\(\sum_nP(E_n)&lt;\infty\)</span>.</p>
+<ol start="3" style="list-style-type: lower-alpha">
+<li>Let <span class="math inline">\(\{Y_n,n\ge1\}\)</span> be iid positive random variables with common distribution function <span class="math inline">\(G\)</span> and suppose <span class="math inline">\(\{X_n,n\ge1\}\)</span> is a sequence of iid positive random variables with common distribution <span class="math inline">\(F\)</span>. Suppose <span class="math inline">\(\{X_n\}\)</span> and <span class="math inline">\(\{Y_n\}\)</span> are independent. Prove using Borel-Cantelli that if for all <span class="math inline">\(\varepsilon&gt;0\)</span></li>
+</ol>
+<p><span class="math display">\[
+\int_0^\infty
+\frac{G(dy)}
+{1-F(\varepsilon y)}
+&lt;\infty,
+\]</span></p>
+<p>then as <span class="math inline">\(n\to\infty\)</span></p>
+<p><span class="math display">\[
+\frac{Y_n}{\bigvee_{i=1}^nX_i}
+\to0,
+\]</span></p>
+<p>almost surely. Prove the converse using the converse to Borel-Cantelli proved in (b) above.</p>
+</div>
+<p><span class="math inline">\(\textbf{Answer:}\)</span></p>
+<div id="a-30" class="section level4 hasAnchor">
+<h4>(a)<a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#a-30" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Let</p>
+<p><span class="math display">\[
+U_n=\bigcup_{k=1}^nE_k,
+\qquad
+S_n=\sum_{k=1}^n1_{E_k}.
+\]</span></p>
+<p>If <span class="math inline">\(\omega\in U_n\)</span>, then <span class="math inline">\(\omega\in E_k\)</span> for at least one <span class="math inline">\(k\)</span>, and hence</p>
+<p><span class="math display">\[
+1_{U_n}(\omega)=1.
+\]</span></p>
+<p>Therefore,</p>
+<p><span class="math display">\[
+1_{U_n}(\omega)S_n(\omega)=S_n(\omega).
+\]</span></p>
+<p>If <span class="math inline">\(\omega\notin U_n\)</span>, then <span class="math inline">\(\omega\notin E_k\)</span> for every <span class="math inline">\(k\)</span>, so</p>
+<p><span class="math display">\[
+S_n(\omega)=0
+\]</span></p>
+<p>and again</p>
+<p><span class="math display">\[
+1_{U_n}(\omega)S_n(\omega)=S_n(\omega).
+\]</span></p>
+<p>Thus,</p>
+<p><span class="math display">\[
+S_n=1_{U_n}S_n.
+\]</span></p>
+<p>By the Schwartz inequality,</p>
+<p><span class="math display">\[
+\left(E[1_{U_n}S_n]\right)^2
+\le
+E[1_{U_n}^2]E[S_n^2].
+\]</span></p>
+<p>Since</p>
+<p><span class="math display">\[
+1_{U_n}^2=1_{U_n}
+\]</span></p>
+<p>and</p>
+<p><span class="math display">\[
+1_{U_n}S_n=S_n,
+\]</span></p>
+<p>we get</p>
+<p><span class="math display">\[
+\left(E[S_n]\right)^2
+\le
+P(U_n)E[S_n^2].
+\]</span></p>
+<p>Therefore,</p>
+<p><span class="math display">\[
+P\left(\bigcup_{k=1}^nE_k\right)
+\ge
+\frac{
+\left(
+E\left(\sum_{k=1}^n1_{E_k}\right)
+\right)^2
+}{
+E\left(
+\sum_{k=1}^n1_{E_k}
+\right)^2
+}.
+\]</span></p>
+</div>
+<div id="b-30" class="section level4 hasAnchor">
+<h4>(b)<a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#b-30" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Write</p>
+<p><span class="math display">\[
+p_k=P(E_k),
+\]</span></p>
+<p>and, for <span class="math inline">\(m\le n\)</span>, define</p>
+<p><span class="math display">\[
+A_{m,n}
+=
+\sum_{k=m}^np_k,
+\qquad
+B_{m,n}
+=
+\sum_{r=1}^{n-m}p_r.
+\]</span></p>
+<p>Also define</p>
+<p><span class="math display">\[
+U_{m,n}
+=
+\bigcup_{k=m}^nE_k.
+\]</span></p>
+<p>Applying part (a) to the block</p>
+<p><span class="math display">\[
+E_m,E_{m+1},\ldots,E_n,
+\]</span></p>
+<p>gives</p>
+<p><span class="math display">\[
+P(U_{m,n})
+\ge
+\frac{A_{m,n}^2}
+{
+E\left[
+\left(
+\sum_{k=m}^n1_{E_k}
+\right)^2
+\right]
+}.
+\]</span></p>
+<p>Now,</p>
+<p><span class="math display">\[
+\begin{aligned}
+E\left[
+\left(
+\sum_{k=m}^n1_{E_k}
+\right)^2
+\right]
+&amp;=
+\sum_{k=m}^nP(E_k)
++
+2\sum_{m\le i&lt;j\le n}P(E_i\cap E_j) \\
+&amp;=
+A_{m,n}
++
+2\sum_{m\le i&lt;j\le n}P(E_i\cap E_j).
+\end{aligned}
+\]</span></p>
+<p>By assumption (ii),</p>
+<p><span class="math display">\[
+\sum_{m\le i&lt;j\le n}P(E_i\cap E_j)
+\le
+c\sum_{m\le i&lt;j\le n}p_ip_{j-i}.
+\]</span></p>
+<p>Reindex the latter sum by</p>
+<p><span class="math display">\[
+r=j-i.
+\]</span></p>
+<p>Then</p>
+<p><span class="math display">\[
+\begin{aligned}
+\sum_{m\le i&lt;j\le n}p_ip_{j-i}
+&amp;=
+\sum_{i=m}^{n-1}\sum_{r=1}^{n-i}p_ip_r \\
+&amp;\le
+\left(\sum_{i=m}^np_i\right)
+\left(\sum_{r=1}^{n-m}p_r\right) \\
+&amp;=
+A_{m,n}B_{m,n}.
+\end{aligned}
+\]</span></p>
+<p>Thus,</p>
+<p><span class="math display">\[
+E\left[
+\left(
+\sum_{k=m}^n1_{E_k}
+\right)^2
+\right]
+\le
+A_{m,n}+2cA_{m,n}B_{m,n}.
+\]</span></p>
+<p>Let</p>
+<p><span class="math display">\[
+C=\max(c,1).
+\]</span></p>
+<p>Then the same condition remains true with <span class="math inline">\(C\)</span> in place of <span class="math inline">\(c\)</span>, and</p>
+<p><span class="math display">\[
+P(U_{m,n})
+\ge
+\frac{A_{m,n}^2}
+{A_{m,n}+2CA_{m,n}B_{m,n}}
+=
+\frac{A_{m,n}}
+{1+2CB_{m,n}}.
+\tag{1}
+\]</span></p>
+<p>Fix <span class="math inline">\(m\)</span>. Since</p>
+<p><span class="math display">\[
+\sum_{k=1}^\infty p_k=\infty,
+\]</span></p>
+<p>we have</p>
+<p><span class="math display">\[
+A_{m,n}\to\infty
+\]</span></p>
+<p>and</p>
+<p><span class="math display">\[
+B_{m,n}\to\infty
+\]</span></p>
+<p>as <span class="math inline">\(n\to\infty\)</span>.</p>
+<p>Also,</p>
+<p><span class="math display">\[
+\begin{aligned}
+A_{m,n}-B_{m,n}
+&amp;=
+\sum_{k=m}^np_k-\sum_{r=1}^{n-m}p_r \\
+&amp;=
+\sum_{k=n-m+1}^np_k
+-
+\sum_{r=1}^{m-1}p_r.
+\end{aligned}
+\]</span></p>
+<p>For fixed <span class="math inline">\(m\)</span>, the first sum has only <span class="math inline">\(m\)</span> terms, while the second sum is fixed. Hence</p>
+<p><span class="math display">\[
+A_{m,n}-B_{m,n}=O_m(1).
+\]</span></p>
+<p>Therefore,</p>
+<p><span class="math display">\[
+\frac{A_{m,n}}{B_{m,n}}\to1.
+\]</span></p>
+<p>Using (1),</p>
+<p><span class="math display">\[
+\begin{aligned}
+\liminf_{n\to\infty}P(U_{m,n})
+&amp;\ge
+\liminf_{n\to\infty}
+\frac{A_{m,n}}
+{1+2CB_{m,n}} \\
+&amp;=
+\liminf_{n\to\infty}
+\frac{A_{m,n}/B_{m,n}}
+{1/B_{m,n}+2C} \\
+&amp;=
+\frac1{2C}.
+\end{aligned}
+\]</span></p>
+<p>Now define</p>
+<p><span class="math display">\[
+U_m=\bigcup_{k=m}^\infty E_k.
+\]</span></p>
+<p>Since</p>
+<p><span class="math display">\[
+U_{m,n}\uparrow U_m
+\qquad\text{as }n\to\infty,
+\]</span></p>
+<p>we have</p>
+<p><span class="math display">\[
+P(U_m)\ge\frac1{2C}.
+\]</span></p>
+<p>Finally,</p>
+<p><span class="math display">\[
+U_m\downarrow\limsup_{n\to\infty}E_n
+\qquad\text{as }m\to\infty.
+\]</span></p>
+<p>Therefore,</p>
+<p><span class="math display">\[
+\begin{aligned}
+P\left(\limsup_{n\to\infty}E_n\right)
+&amp;=
+\lim_{m\to\infty}P(U_m) \\
+&amp;\ge
+\frac1{2C}
+&gt;
+0.
+\end{aligned}
+\]</span></p>
+<p>Thus,</p>
+<p><span class="math display">\[
+P\left(\limsup_{n\to\infty}E_n\right)&gt;0.
+\]</span></p>
+</div>
+<div id="c-22" class="section level4 hasAnchor">
+<h4>(c)<a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#c-22" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Let</p>
+<p><span class="math display">\[
+M_n=\bigvee_{i=1}^nX_i.
+\]</span></p>
+<p>First assume that for every <span class="math inline">\(\varepsilon&gt;0\)</span>,</p>
+<p><span class="math display">\[
+\int_0^\infty
+\frac{G(dy)}
+{1-F(\varepsilon y)}
+&lt;\infty.
+\]</span></p>
+<p>For <span class="math inline">\(\delta&gt;0\)</span>, define</p>
+<p><span class="math display">\[
+A_n(\delta)
+=
+\left\{
+\frac{Y_n}{M_n}\ge\delta
+\right\}
+=
+\{Y_n\ge\delta M_n\}.
+\]</span></p>
+<p>Condition on <span class="math inline">\(Y_n=y\)</span>. Since <span class="math inline">\(Y_n\)</span> is independent of
+<span class="math inline">\(X_1,\ldots,X_n\)</span>,</p>
+<p><span class="math display">\[
+\begin{aligned}
+P(A_n(\delta)\mid Y_n=y)
+&amp;=
+P\left(M_n\le\frac{y}{\delta}\right) \\
+&amp;=
+F\left(\frac{y}{\delta}\right)^n.
+\end{aligned}
+\]</span></p>
+<p>Therefore,</p>
+<p><span class="math display">\[
+P(A_n(\delta))
+=
+\int_0^\infty
+F\left(\frac{y}{\delta}\right)^n
+\,G(dy).
+\]</span></p>
+<p>By Tonelli’s theorem,</p>
+<p><span class="math display">\[
+\begin{aligned}
+\sum_{n=1}^\infty P(A_n(\delta))
+&amp;=
+\int_0^\infty
+\sum_{n=1}^\infty
+F\left(\frac{y}{\delta}\right)^n
+\,G(dy) \\
+&amp;=
+\int_0^\infty
+\frac{F(y/\delta)}
+{1-F(y/\delta)}
+\,G(dy) \\
+&amp;\le
+\int_0^\infty
+\frac{G(dy)}
+{1-F(y/\delta)}
+&lt;\infty.
+\end{aligned}
+\]</span></p>
+<p>The final integral is finite by the assumption, with</p>
+<p><span class="math display">\[
+\varepsilon=\frac1\delta.
+\]</span></p>
+<p>By Borel-Cantelli,</p>
+<p><span class="math display">\[
+P(A_n(\delta)\text{ i.o.})=0.
+\]</span></p>
+<p>Apply this with</p>
+<p><span class="math display">\[
+\delta=\frac1k,
+\qquad
+k=1,2,\ldots.
+\]</span></p>
+<p>Then, with probability one, for every <span class="math inline">\(k\)</span>, eventually</p>
+<p><span class="math display">\[
+\frac{Y_n}{M_n}&lt;\frac1k.
+\]</span></p>
+<p>Given <span class="math inline">\(\varepsilon&gt;0\)</span>, choose <span class="math inline">\(k\)</span> such that</p>
+<p><span class="math display">\[
+\frac1k&lt;\varepsilon.
+\]</span></p>
+<p>Then eventually</p>
+<p><span class="math display">\[
+0\le\frac{Y_n}{M_n}&lt;\frac1k&lt;\varepsilon.
+\]</span></p>
+<p>Hence</p>
+<p><span class="math display">\[
+\frac{Y_n}{M_n}\to0
+\qquad\text{almost surely.}
+\]</span></p>
+<p>Conversely, suppose</p>
+<p><span class="math display">\[
+\frac{Y_n}{M_n}\to0
+\qquad\text{almost surely.}
+\]</span></p>
+<p>Fix <span class="math inline">\(\delta&gt;0\)</span>, and again define</p>
+<p><span class="math display">\[
+A_n(\delta)
+=
+\left\{
+\frac{Y_n}{M_n}\ge\delta
+\right\}.
+\]</span></p>
+<p>Then</p>
+<p><span class="math display">\[
+P(A_n(\delta)\text{ i.o.})=0.
+\tag{2}
+\]</span></p>
+<p>We now verify condition (ii) from part (b).</p>
+<p>The key is to divide the <span class="math inline">\(X\)</span>’s into the first block</p>
+<p><span class="math display">\[
+X_1,\ldots,X_m,
+\]</span></p>
+<p>and the fresh block</p>
+<p><span class="math display">\[
+X_{m+1},\ldots,X_n.
+\]</span></p>
+<p>For <span class="math inline">\(m&lt;n\)</span>, define</p>
+<p><span class="math display">\[
+M_{m,n}
+=
+\max(X_{m+1},\ldots,X_n).
+\]</span></p>
+<p>Since</p>
+<p><span class="math display">\[
+M_n=\max(M_m,M_{m,n}),
+\]</span></p>
+<p>we have</p>
+<p><span class="math display">\[
+A_n(\delta)
+\subseteq
+\{Y_n\ge\delta M_{m,n}\}.
+\]</span></p>
+<p>Therefore,</p>
+<p><span class="math display">\[
+A_m(\delta)\cap A_n(\delta)
+\subseteq
+A_m(\delta)
+\cap
+\{Y_n\ge\delta M_{m,n}\}.
+\]</span></p>
+<p>Now,</p>
+<p><span class="math display">\[
+A_m(\delta)
+\in
+\sigma(Y_m,X_1,\ldots,X_m),
+\]</span></p>
+<p>while</p>
+<p><span class="math display">\[
+\{Y_n\ge\delta M_{m,n}\}
+\in
+\sigma(Y_n,X_{m+1},\ldots,X_n).
+\]</span></p>
+<p>These two sigma-fields are independent. Hence,</p>
+<p><span class="math display">\[
+\begin{aligned}
+P(A_m(\delta)\cap A_n(\delta))
+&amp;\le
+P(A_m(\delta))
+P(Y_n\ge\delta M_{m,n}).
+\end{aligned}
+\]</span></p>
+<p>By the iid assumptions,</p>
+<p><span class="math display">\[
+(Y_n,M_{m,n})
+\overset{d}{=}
+(Y_{n-m},M_{n-m}).
+\]</span></p>
+<p>Thus,</p>
+<p><span class="math display">\[
+P(Y_n\ge\delta M_{m,n})
+=
+P(A_{n-m}(\delta)).
+\]</span></p>
+<p>Therefore,</p>
+<p><span class="math display">\[
+P(A_m(\delta)\cap A_n(\delta))
+\le
+P(A_m(\delta))P(A_{n-m}(\delta)).
+\]</span></p>
+<p>So condition (ii) of part (b) holds with <span class="math inline">\(c=1\)</span>.</p>
+<p>Since (2) holds, the partial converse to Borel-Cantelli from part (b) gives</p>
+<p><span class="math display">\[
+\sum_{n=1}^\infty P(A_n(\delta))&lt;\infty.
+\]</span></p>
+<p>Using the previous calculation and Tonelli’s theorem,</p>
+<p><span class="math display">\[
+\begin{aligned}
+\sum_{n=1}^\infty P(A_n(\delta))
+&amp;=
+\int_0^\infty
+\frac{F(y/\delta)}
+{1-F(y/\delta)}
+\,G(dy)
+&lt;\infty.
+\end{aligned}
+\]</span></p>
+<p>Since</p>
+<p><span class="math display">\[
+\frac1{1-F(y/\delta)}
+=
+1+
+\frac{F(y/\delta)}
+{1-F(y/\delta)},
+\]</span></p>
+<p>and <span class="math inline">\(G\)</span> is a probability measure,</p>
+<p><span class="math display">\[
+\begin{aligned}
+\int_0^\infty
+\frac{G(dy)}
+{1-F(y/\delta)}
+&amp;=
+1+
+\int_0^\infty
+\frac{F(y/\delta)}
+{1-F(y/\delta)}
+\,G(dy) \\
+&amp;&lt;
+\infty.
+\end{aligned}
+\]</span></p>
+<p>Finally, set</p>
+<p><span class="math display">\[
+\varepsilon=\frac1\delta.
+\]</span></p>
+<p>Since <span class="math inline">\(\delta&gt;0\)</span> was arbitrary,</p>
+<p><span class="math display">\[
+\int_0^\infty
+\frac{G(dy)}
+{1-F(\varepsilon y)}
+&lt;\infty
+\]</span></p>
+<p>for every <span class="math inline">\(\varepsilon&gt;0\)</span>.</p>
 
 </div>
 </div>
