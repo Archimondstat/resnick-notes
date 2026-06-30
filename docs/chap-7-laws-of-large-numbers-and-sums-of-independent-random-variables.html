@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chap 7, Laws of Large Numbers and Sums of Independent Random Variables | Notes on A Probability Path (Resnick)</title>
   <meta name="description" content="Chap 7, Laws of Large Numbers and Sums of Independent Random Variables | Notes on A Probability Path (Resnick)" />
-  <meta name="generator" content="bookdown 0.46 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.42 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chap 7, Laws of Large Numbers and Sums of Independent Random Variables | Notes on A Probability Path (Resnick)" />
   <meta property="og:type" content="book" />
@@ -455,6 +455,7 @@
 <li class="chapter" data-level="" data-path="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html"><a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#b-30"><i class="fa fa-check"></i>(b)</a></li>
 <li class="chapter" data-level="" data-path="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html"><a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#c-22"><i class="fa fa-check"></i>(c)</a></li>
 </ul></li>
+<li class="chapter" data-level="" data-path="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html"><a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#ex-34-1"><i class="fa fa-check"></i>Ex 34</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -3503,8 +3504,63 @@ P(A_m(\delta))P(A_{n-m}(\delta)).
 &lt;\infty
 \]</span></p>
 <p>for every <span class="math inline">\(\varepsilon&gt;0\)</span>.</p>
-
 </div>
+</div>
+<div id="ex-34-1" class="section level3 hasAnchor">
+<h3>Ex 34<a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#ex-34-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="problem">
+<p>Let <span class="math inline">\(\{N_n, n \ge 1\}\)</span> be iid <span class="math inline">\(N(0,1)\)</span> random variables. Use the Kolmogorov convergence criterion to verify quickly that</p>
+<p><span class="math display">\[
+\sum_{n\ge1}\frac{N_n}{n}\sin(n\pi t)
+\]</span></p>
+<p>converges almost surely.</p>
+</div>
+<p><span class="math inline">\(\textbf{Answer:}\)</span></p>
+<p>Fix <span class="math inline">\(t\in\mathbb R\)</span>, and define</p>
+<p><span class="math display">\[
+Z_n
+=
+\frac{N_n}{n}\sin(n\pi t).
+\]</span></p>
+<p>Since the <span class="math inline">\(N_n\)</span>’s are independent, the <span class="math inline">\(Z_n\)</span>’s are independent. Also,</p>
+<p><span class="math display">\[
+E(Z_n)
+=
+\frac{\sin(n\pi t)}{n}E(N_n)
+=
+0.
+\]</span></p>
+<p>Moreover,</p>
+<p><span class="math display">\[
+\operatorname{Var}(Z_n)
+=
+\frac{\sin^2(n\pi t)}{n^2}\operatorname{Var}(N_n)
+=
+\frac{\sin^2(n\pi t)}{n^2}.
+\]</span></p>
+<p>Therefore,</p>
+<p><span class="math display">\[
+\sum_{n=1}^{\infty}\operatorname{Var}(Z_n)
+=
+\sum_{n=1}^{\infty}
+\frac{\sin^2(n\pi t)}{n^2}
+\le
+\sum_{n=1}^{\infty}\frac1{n^2}
+&lt;
+\infty.
+\]</span></p>
+<p>By the Kolmogorov convergence criterion,</p>
+<p><span class="math display">\[
+\sum_{n=1}^{\infty}
+\left(Z_n-E(Z_n)\right)
+\]</span></p>
+<p>converges almost surely. Since <span class="math inline">\(E(Z_n)=0\)</span>,</p>
+<p><span class="math display">\[
+\sum_{n=1}^{\infty}
+\frac{N_n}{n}\sin(n\pi t)
+\]</span></p>
+<p>converges almost surely.</p>
+
 </div>
 </div>
 </div>

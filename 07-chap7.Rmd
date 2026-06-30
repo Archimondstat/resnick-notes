@@ -3912,3 +3912,74 @@ Since \(\delta>0\) was arbitrary,
 \]
 
 for every \(\varepsilon>0\).
+
+### Ex 34
+
+::: problem
+Let \(\{N_n, n \ge 1\}\) be iid \(N(0,1)\) random variables. Use the Kolmogorov convergence criterion to verify quickly that
+
+\[
+\sum_{n\ge1}\frac{N_n}{n}\sin(n\pi t)
+\]
+
+converges almost surely.
+:::
+
+$\textbf{Answer:}$
+
+Fix \(t\in\mathbb R\), and define
+
+\[
+Z_n
+=
+\frac{N_n}{n}\sin(n\pi t).
+\]
+
+Since the \(N_n\)'s are independent, the \(Z_n\)'s are independent. Also,
+
+\[
+E(Z_n)
+=
+\frac{\sin(n\pi t)}{n}E(N_n)
+=
+0.
+\]
+
+Moreover,
+
+\[
+\operatorname{Var}(Z_n)
+=
+\frac{\sin^2(n\pi t)}{n^2}\operatorname{Var}(N_n)
+=
+\frac{\sin^2(n\pi t)}{n^2}.
+\]
+
+Therefore,
+
+\[
+\sum_{n=1}^{\infty}\operatorname{Var}(Z_n)
+=
+\sum_{n=1}^{\infty}
+\frac{\sin^2(n\pi t)}{n^2}
+\le
+\sum_{n=1}^{\infty}\frac1{n^2}
+<
+\infty.
+\]
+
+By the Kolmogorov convergence criterion,
+
+\[
+\sum_{n=1}^{\infty}
+\left(Z_n-E(Z_n)\right)
+\]
+
+converges almost surely. Since \(E(Z_n)=0\),
+
+\[
+\sum_{n=1}^{\infty}
+\frac{N_n}{n}\sin(n\pi t)
+\]
+
+converges almost surely.
