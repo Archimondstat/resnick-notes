@@ -3983,3 +3983,678 @@ converges almost surely. Since \(E(Z_n)=0\),
 \]
 
 converges almost surely.
+
+### Ex 38
+
+::: problem
+Suppose \(\{X_n, n \ge 1\}\) are iid with
+
+\[
+P[X_n = 0] = P[X_n = 2] = \frac12.
+\]
+
+Show
+
+\[
+\sum_{n \ge 1}\frac{X_n}{3^n}
+\]
+
+converges almost surely. The limit has the Cantor distribution.
+:::
+
+$\textbf{Answer:}$
+
+Let
+
+\[
+Y_n=\frac{X_n}{3^n}.
+\]
+
+Since
+
+\[
+E(X_n)=1,
+\qquad
+\operatorname{Var}(X_n)
+=
+E(X_n^2)-E(X_n)^2
+=
+2-1
+=
+1,
+\]
+
+we have
+
+\[
+E(Y_n)=\frac1{3^n},
+\qquad
+\operatorname{Var}(Y_n)=\frac1{3^{2n}}.
+\]
+
+Therefore,
+
+\[
+\sum_{n=1}^{\infty}\operatorname{Var}(Y_n)
+=
+\sum_{n=1}^{\infty}\frac1{3^{2n}}
+<
+\infty.
+\]
+
+By the Kolmogorov convergence criterion,
+
+\[
+\sum_{n=1}^{\infty}\bigl(Y_n-E(Y_n)\bigr)
+\]
+
+converges almost surely. Also,
+
+\[
+\sum_{n=1}^{\infty}E(Y_n)
+=
+\sum_{n=1}^{\infty}\frac1{3^n}
+<
+\infty.
+\]
+
+Hence
+
+\[
+X:=
+\sum_{n=1}^{\infty}\frac{X_n}{3^n}
+\]
+
+converges almost surely.
+
+Now each \(X_n\) takes values in \(\{0,2\}\). Thus, for every \(\omega\),
+
+\[
+X(\omega)
+=
+\sum_{n=1}^{\infty}\frac{X_n(\omega)}{3^n}
+\]
+
+has a ternary expansion using only the digits \(0\) and \(2\). Therefore,
+
+\[
+X\in\mathcal C
+\qquad\text{almost surely,}
+\]
+
+where \(\mathcal C\) is the Cantor set.
+
+Let \(x\in\mathcal C\). Choose its ternary expansion using only the digits \(0\) and \(2\):
+
+\[
+x
+=
+\sum_{n=1}^{\infty}\frac{d_n}{3^n},
+\qquad
+d_n\in\{0,2\}.
+\]
+
+Define
+
+\[
+b_n=\frac{d_n}{2}\in\{0,1\}.
+\]
+
+The event \(X<x\) is determined by the first ternary digit at which the random expansion becomes smaller than the expansion of \(x\). Therefore,
+
+\[
+\{X<x\}
+=
+\bigcup_{n=1}^{\infty}
+\left\{
+X_1=d_1,\ldots,X_{n-1}=d_{n-1},
+\quad
+X_n<d_n
+\right\}.
+\]
+
+The events in this union are disjoint. Also,
+
+\[
+P(X_n<d_n)
+=
+\begin{cases}
+0, & d_n=0,\\[4pt]
+\frac12, & d_n=2,
+\end{cases}
+=
+\frac{b_n}{2}.
+\]
+
+Hence,
+
+\[
+\begin{aligned}
+&P(X_1=d_1,\ldots,X_{n-1}=d_{n-1},X_n<d_n)\\
+&\qquad=
+\left(\frac12\right)^{n-1}\frac{b_n}{2}
+=
+\frac{b_n}{2^n}.
+\end{aligned}
+\]
+
+Therefore,
+
+\[
+P(X<x)
+=
+\sum_{n=1}^{\infty}\frac{b_n}{2^n}
+=
+. b_1b_2b_3\cdots{}_2.
+\]
+
+This is exactly the definition of the Cantor function on the Cantor set: replace the ternary digits \(0,2\) by the binary digits \(0,1\).
+
+Also,
+
+\[
+P(X=x)
+\le
+P(X_1=d_1,\ldots,X_N=d_N)
+=
+\left(\frac12\right)^N
+\]
+
+for every \(N\). Hence,
+
+\[
+P(X=x)=0.
+\]
+
+Thus, for \(x\in\mathcal C\),
+
+\[
+P(X\le x)
+=
+P(X<x)
+=
+. b_1b_2b_3\cdots{}_2
+=
+C(x),
+\]
+
+where \(C\) is the Cantor function.
+
+Now suppose \(x\notin\mathcal C\). Then \(x\) belongs to a removed middle-third interval \((a,b)\). Since
+
+\[
+X\in\mathcal C
+\qquad\text{almost surely,}
+\]
+
+we have
+
+\[
+P(X\le x)=P(X\le a).
+\]
+
+The Cantor function is constant on \((a,b)\), so
+
+\[
+C(x)=C(a).
+\]
+
+Therefore,
+
+\[
+P(X\le x)=C(x)
+\]
+
+for every \(x\in[0,1]\). Hence \(X\) has the Cantor distribution.
+
+$\textbf{Note (characteristic-function route):}$
+
+The digit argument above identifies the distribution. The characteristic function gives an additional representation of the same law.
+
+Let
+
+\[
+S_N=\sum_{n=1}^{N}\frac{X_n}{3^n}.
+\]
+
+Since \(S_N\to X\) almost surely and
+
+\[
+|e^{itS_N}|\le1,
+\]
+
+dominated convergence gives
+
+\[
+\phi_X(t)
+=
+E(e^{itX})
+=
+\lim_{N\to\infty}E(e^{itS_N}).
+\]
+
+By independence,
+
+\[
+\begin{aligned}
+E(e^{itS_N})
+&=
+\prod_{n=1}^{N}
+E\left[
+\exp\left\{
+\frac{itX_n}{3^n}
+\right\}
+\right] \\
+&=
+\prod_{n=1}^{N}
+\left(
+\frac{1+e^{2it/3^n}}{2}
+\right).
+\end{aligned}
+\]
+
+Since
+
+\[
+\frac{1+e^{2iu}}{2}
+=
+e^{iu}\cos(u),
+\]
+
+we have
+
+\[
+\begin{aligned}
+E(e^{itS_N})
+&=
+\prod_{n=1}^{N}
+e^{it/3^n}
+\cos\left(\frac{t}{3^n}\right) \\
+&=
+\exp\left\{
+it\sum_{n=1}^{N}\frac1{3^n}
+\right\}
+\prod_{n=1}^{N}
+\cos\left(\frac{t}{3^n}\right).
+\end{aligned}
+\]
+
+Letting \(N\to\infty\),
+
+\[
+\phi_X(t)
+=
+e^{it/2}
+\prod_{n=1}^{\infty}
+\cos\left(\frac{t}{3^n}\right).
+\]
+
+Thus the Cantor-distributed limit has characteristic function
+
+\[
+\phi_X(t)
+=
+e^{it/2}
+\prod_{n=1}^{\infty}
+\cos\left(\frac{t}{3^n}\right).
+\]
+
+### Ex 41
+
+::: problem
+Suppose \(\{X_n,Y_n,n\ge1\}\) are independent random variables such that
+
+\[
+X_n \stackrel{d}{=} Y_n
+\]
+
+for all \(n\ge1\). Suppose further that, for all \(n\ge1\), there is a constant \(K\) such that
+
+\[
+|X_n|\vee |Y_n|\le K.
+\]
+
+Then
+
+\[
+\sum_n (X_n-Y_n)
+\]
+
+converges almost surely iff
+
+\[
+\sum_n \operatorname{Var}(X_n)<\infty.
+\]
+:::
+
+$\textbf{Answer:}$
+
+Let
+
+\[
+Z_n=X_n-Y_n.
+\]
+
+Since
+
+\[
+X_n\stackrel{d}{=}Y_n,
+\]
+
+we have
+
+\[
+E(X_n)=E(Y_n),
+\]
+
+and
+
+\[
+\operatorname{Var}(X_n)=\operatorname{Var}(Y_n).
+\]
+
+Therefore,
+
+\[
+E(Z_n)
+=
+E(X_n)-E(Y_n)
+=
+0.
+\]
+
+Also, since \(X_n\) and \(Y_n\) are independent,
+
+\[
+\begin{aligned}
+\operatorname{Var}(Z_n)
+&=
+\operatorname{Var}(X_n-Y_n) \\
+&=
+\operatorname{Var}(X_n)+\operatorname{Var}(Y_n) \\
+&=
+2\operatorname{Var}(X_n).
+\end{aligned}
+\tag{1}
+\]
+
+Further,
+
+\[
+|Z_n|
+=
+|X_n-Y_n|
+\le
+|X_n|+|Y_n|
+\le
+2K.
+\tag{2}
+\]
+
+Suppose first that
+
+\[
+\sum_{n=1}^{\infty}\operatorname{Var}(X_n)<\infty.
+\]
+
+Then, by (1),
+
+\[
+\sum_{n=1}^{\infty}\operatorname{Var}(Z_n)
+=
+2\sum_{n=1}^{\infty}\operatorname{Var}(X_n)
+<
+\infty.
+\]
+
+Since the \(Z_n\)'s are independent and centered, the Kolmogorov convergence criterion gives
+
+\[
+\sum_{n=1}^{\infty}Z_n
+=
+\sum_{n=1}^{\infty}(X_n-Y_n)
+\]
+
+converges almost surely.
+
+Conversely, suppose
+
+\[
+\sum_{n=1}^{\infty}(X_n-Y_n)
+=
+\sum_{n=1}^{\infty}Z_n
+\]
+
+converges almost surely.
+
+The \(Z_n\)'s are independent, centered, and uniformly bounded by (2). Therefore, by Lemma 7.6.1,
+
+\[
+\sum_{n=1}^{\infty}\operatorname{Var}(Z_n)<\infty.
+\]
+
+Using (1),
+
+\[
+2\sum_{n=1}^{\infty}\operatorname{Var}(X_n)
+=
+\sum_{n=1}^{\infty}\operatorname{Var}(Z_n)
+<
+\infty.
+\]
+
+Hence
+
+\[
+\sum_{n=1}^{\infty}\operatorname{Var}(X_n)<\infty.
+\]
+
+Therefore,
+
+\[
+\sum_n(X_n-Y_n)
+\text{ converges almost surely}
+\iff
+\sum_n\operatorname{Var}(X_n)<\infty.
+\]
+
+### Ex 42
+
+::: problem
+Suppose \(\{X_n, n \ge 1\}\) is an arbitrary sequence of random variables that have finite means and variances and satisfying
+
+(a) \(\lim_{n\to\infty} E(X_n) = c\), for some finite constant \(c\), and
+
+(b) \(\sum_{n=1}^{\infty} \operatorname{Var}(X_n) < \infty\).
+
+Show \(X_n \xrightarrow{\text{a.s.}} c\). (Hint: Define \(\widetilde X_n = X_n - E(X_n)\) and show
+
+\[
+\sum_n \widetilde X_n^2 < \infty
+\]
+
+almost surely. Alternatively, try to proceed using Chebychev's inequality.)
+
+If (b) is replaced by the hypothesis \(\operatorname{Var}(X_n)\to0\), show
+
+\[
+X_n \xrightarrow{P} c.
+\]
+:::
+
+$\textbf{Answer:}$
+
+#### (a)
+
+Define
+
+\[
+\widetilde X_n=X_n-E(X_n).
+\]
+
+Then
+
+\[
+E(\widetilde X_n)=0,
+\]
+
+and
+
+\[
+E(\widetilde X_n^2)
+=
+\operatorname{Var}(\widetilde X_n)
+=
+\operatorname{Var}(X_n).
+\]
+
+Define
+
+\[
+T_n=\sum_{i=1}^n\widetilde X_i^2.
+\]
+
+Since each \(\widetilde X_i^2\ge0\), \(\{T_n\}\) is monotone increasing.
+
+For \(n\ge m\) and \(\varepsilon>0\), Markov's inequality gives
+
+\[
+\begin{aligned}
+P(|T_n-T_m|>\varepsilon)
+&=
+P\left(
+\sum_{i=m+1}^n\widetilde X_i^2>\varepsilon
+\right) \\
+&\le
+\frac1\varepsilon
+E\left(
+\sum_{i=m+1}^n\widetilde X_i^2
+\right) \\
+&=
+\frac1\varepsilon
+\sum_{i=m+1}^nE(\widetilde X_i^2) \\
+&=
+\frac1\varepsilon
+\sum_{i=m+1}^n\operatorname{Var}(X_i).
+\end{aligned}
+\]
+
+By assumption (b),
+
+\[
+\sum_{i=m+1}^n\operatorname{Var}(X_i)\to0
+\qquad\text{as }m,n\to\infty.
+\]
+
+Therefore, \(\{T_n\}\) is Cauchy in probability. Hence there exists a finite random variable \(T\) such that
+
+\[
+T_n\xrightarrow{P}T.
+\]
+
+Since \(\{T_n\}\) is monotone increasing, convergence in probability implies convergence almost surely. Thus,
+
+\[
+T_n\to T
+\qquad\text{almost surely,}
+\]
+
+or equivalently,
+
+\[
+\sum_{n=1}^{\infty}\widetilde X_n^2<\infty
+\qquad\text{almost surely.}
+\]
+
+Therefore,
+
+\[
+\widetilde X_n^2\to0
+\qquad\text{almost surely,}
+\]
+
+and hence
+
+\[
+\widetilde X_n
+=
+X_n-E(X_n)
+\to0
+\qquad\text{almost surely.}
+\]
+
+By assumption (a),
+
+\[
+E(X_n)\to c.
+\]
+
+Thus,
+
+\[
+\begin{aligned}
+|X_n-c|
+&\le
+|X_n-E(X_n)|
++
+|E(X_n)-c| \\
+&\to0
+\end{aligned}
+\]
+
+almost surely. Therefore,
+
+\[
+X_n\xrightarrow{\text{a.s.}}c.
+\]
+
+#### (b)
+
+Now suppose that assumption (a) holds and that
+
+\[
+\operatorname{Var}(X_n)\to0.
+\]
+
+Fix \(\varepsilon>0\). Since
+
+\[
+E(X_n)\to c,
+\]
+
+there exists \(N\) such that, for \(n\ge N\),
+
+\[
+|E(X_n)-c|<\frac{\varepsilon}{2}.
+\]
+
+Therefore, for \(n\ge N\),
+
+\[
+\{|X_n-c|>\varepsilon\}
+\subseteq
+\left\{
+|X_n-E(X_n)|>\frac{\varepsilon}{2}
+\right\}.
+\]
+
+By Chebychev's inequality,
+
+\[
+\begin{aligned}
+P(|X_n-c|>\varepsilon)
+&\le
+P\left(
+|X_n-E(X_n)|>\frac{\varepsilon}{2}
+\right) \\
+&\le
+\frac{4}{\varepsilon^2}\operatorname{Var}(X_n) \\
+&\to0.
+\end{aligned}
+\]
+
+Hence,
+
+\[
+X_n\xrightarrow{P}c.
+\]

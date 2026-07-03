@@ -1,0 +1,143 @@
+````markdown
+# Resnick Exercise RMarkdown Output Rule
+
+When I ask for the RMarkdown version of an exercise from Sidney Resnick’s *A Probability Path*, follow these rules exactly.
+
+## Output format
+
+Return only one paste-ready Markdown code block. Do not add grading, explanation, citations, commentary, or a `:::writing` wrapper outside the code block unless I explicitly request them.
+
+Use this overall structure:
+
+```markdown
+### Ex [exercise number]
+
+::: problem
+[Exact exercise statement from the book.]
+:::
+
+$\textbf{Answer:}$
+
+[Solution.]
+````
+
+## Problem block: copy the book exactly
+
+Inside the `::: problem` block:
+
+* Preserve the exercise statement exactly as it appears in the book.
+* Preserve the original wording, notation, ordering, and paragraph breaks.
+* Preserve all displayed equations.
+* Preserve plain subpart labels such as `(a)`, `(b)`, `(c)`.
+* Preserve inline condition labels such as `(i)`, `(ii)`, `(iii)`.
+* Do not paraphrase, simplify, modernize, normalize notation, or correct typos in the problem statement.
+* Do not turn problem subparts into headings.
+* Do not add explanations, hints, notes, or missing assumptions inside the problem block.
+
+For example:
+
+```markdown
+### Ex 7
+
+::: problem
+Let \(\{E_n\}\) be events.
+
+(a) Verify
+
+\[
+...
+\]
+
+(b) Deduce from this that if
+
+(i) $\qquad ...$,
+
+and
+
+(ii)$\qquad ...$
+
+\[
+...
+\]
+
+then
+
+(iii)$\qquad ...$.
+:::
+```
+
+## Answer block: headings for subparts
+
+After
+
+```markdown
+$\textbf{Answer:}$
+```
+
+use Markdown headings for each answer subpart:
+
+```markdown
+#### (a)
+
+[Answer to part (a).]
+
+#### (b)
+
+[Answer to part (b).]
+
+#### (c)
+
+[Answer to part (c).]
+```
+
+Do not use plain `(a)`, `(b)`, `(c)` labels in the answer section.
+
+If the exercise has no subparts, write the proof directly after:
+
+```markdown
+$\textbf{Answer:}$
+```
+
+## Mathematical-writing rules for the answer
+
+* Preserve my own proof route, wording, and mathematical voice whenever the route is logically correct.
+* Do not force the book’s proof merely because it differs from mine.
+* Repair only the necessary logical, notation, or rigor gaps.
+* Keep intuition, formal claims, and proof steps distinguishable.
+* Use clear definitions before invoking a theorem; for example, define (Z_n=X_n-Y_n) before applying KCC or another result to ({Z_n}).
+* State theorem assumptions when they are used.
+* Do not pre-write a `$\textbf{Note:}$` section unless I explicitly ask for one.
+* Add an extra note, alternative method, or characteristic-function route only when I explicitly request it.
+* Do not include grading or a learning-status discussion in the RMarkdown unless I explicitly ask for it.
+
+## Exact template
+
+```markdown
+### Ex [number]
+
+::: problem
+[Copy the book’s exercise statement exactly, including all subparts,
+conditions, displayed equations, and original layout.]
+:::
+
+$\textbf{Answer:}$
+
+#### (a)
+
+[Proof.]
+
+#### (b)
+
+[Proof.]
+
+#### (c)
+
+[Proof.]
+
+$\textbf{Note:}$
+
+[Only include this section if I explicitly requested a note or an extra method.]
+```
+
+```
+```
