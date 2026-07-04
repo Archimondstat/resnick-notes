@@ -106,6 +106,234 @@ The proof is essentially correct. Sublevels describe depth of mastery:
 
 This ladder is especially useful for measure-theoretic probability exercises like those in Resnick’s *A Probability Path*.
 
+---
+
+## Section / Chapter Summary Guideline
+
+### Purpose
+
+The goal of a summary is **not** to rewrite the textbook.
+
+It is to record **how I currently understand this part of the mathematical landscape** in my own language, so that I can reconstruct the details later.
+
+Remember:
+
+> I am walking Resnick's path, but I am drawing my own map.
+
+
+
+### Before Writing
+
+Ask yourself these questions.
+
+#### 1. What problem does this section solve?
+
+Do not start with the theorem.
+
+Start with the motivation.
+
+Examples:
+
+- Heavy-tailed random variables have no finite moments.
+- We need to study partial sums.
+- We need a criterion for almost sure convergence.
+
+If I cannot answer this question, I probably only know the theorems, not the section.
+
+---
+
+#### 2. What new tool did this section introduce?
+
+Every section usually contributes one important idea.
+
+Examples:
+
+- truncation
+- tail equivalence
+- maximal inequality
+- Borel–Cantelli
+- stopping times
+
+Do not list every proposition.
+
+Find the new weapon.
+
+---
+
+#### 3. Why was this tool needed?
+
+Instead of writing
+
+> Proposition 7.x.x
+
+answer
+
+> What difficulty does this tool overcome?
+
+The theorem statement can always be looked up later.
+
+The motivation cannot.
+
+---
+
+#### 4. What path did the section follow?
+
+Describe the development instead of listing theorem numbers.
+
+Example:
+
+Heavy tails
+
+↓
+
+Truncation
+
+↓
+
+Tail equivalence
+
+↓
+
+Ordinary WLLN
+
+↓
+
+Generalized WLLN
+
+or
+
+Need to study partial sums
+
+↓
+
+Skorohod inequality
+
+↓
+
+Lévy theorem
+
+↓
+
+Kolmogorov convergence criterion
+
+The arrows are often more valuable than the theorem names.
+
+---
+
+#### 5. What is the main proof idea?
+
+Do **not** summarize every proof.
+
+Instead answer:
+
+> What was the key idea?
+
+Usually one sentence is enough.
+
+Examples:
+
+- truncate first
+- compare with an easier sequence
+- bound the maximal partial sum
+- apply Borel–Cantelli
+- reduce to the previous theorem
+
+---
+
+#### 6. What new capability do I have now?
+
+Finish every summary by answering:
+
+> After learning this section, what can I now do that I couldn't do before?
+
+Examples:
+
+- I now know how to handle heavy-tailed random variables.
+- I now know how to transfer convergence through tail equivalence.
+- I now know how to investigate convergence of partial sums.
+- I now know when convergence in probability can be upgraded to almost sure convergence.
+
+A good section should leave me with a new capability, not just another theorem.
+
+---
+
+### Writing Principles
+
+- Use my own language.
+- Do not imitate the textbook.
+- Focus on understanding rather than reproduction.
+- Capture the mathematical journey.
+- Record the architecture instead of every brick.
+
+If my future self can rebuild the section from this summary, then the summary has succeeded.
+
+---
+
+### Evaluation Rubric
+
+Each summary will be evaluated according to the following criteria.
+
+#### 1. Motivation (20%)
+
+Did I explain why this section exists?
+
+Questions:
+
+- What problem is being solved?
+- Why do we need this section?
+
+---
+
+#### 2. New Tool (20%)
+
+Did I identify the main mathematical idea introduced?
+
+Questions:
+
+- What new weapon did I obtain?
+- Why is it useful?
+
+---
+
+#### 3. Path / Architecture (25%)
+
+Did I explain how the section develops?
+
+Questions:
+
+- Does one result naturally lead to the next?
+- Can I see the overall flow?
+
+---
+
+#### 4. Mathematical Accuracy (20%)
+
+Is my description mathematically correct?
+
+Small imprecisions are acceptable.
+
+Conceptual mistakes are not.
+
+---
+
+#### 5. Personal Reconstruction (15%)
+
+Does this sound like **my understanding** instead of a compressed copy of the book?
+
+Could my future self rebuild the section from these notes?
+
+---
+
+### Overall Goal
+
+A successful summary is **not** one that reproduces Resnick.
+
+It is one that allows my future self to navigate the mathematical landscape again.
+
+The book provides the path.
+
+The map is mine.
+
 
 > **Note on Chapters 1–3:** I have already worked through the exercises for Chapters 1–3 during my initial study, so I will randomly or quasi-randomly select exercises from Chapters 1-3 to refill the blank, and may or may not write down notes for these chapters.
 
@@ -137,3 +365,6 @@ Uploaded images are treated as Step 1 (Brain dump) unless explicitly stated othe
 
 ### 2026-06-05 {-}
 I summarized the Exercise-State Ladder to describe the exercise-doing process.
+
+### 2026-07-04 {-}
+I updated a summary method.

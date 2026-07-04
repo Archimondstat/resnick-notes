@@ -39,6 +39,48 @@ The proof strategy is actually very simple:
 3. Show that the original and truncated sample means are tail equivalent.
 4. Transfer the convergence result back to the original sample mean.
 
+#### 7.3
+We started from Proposition 7.3.1, which is the Skorohod's inequality.
+
+It gave us a method to bound
+
+$$
+P\left(\sup_{j\le n}|S_j|>2\lambda\right)
+$$
+
+without requiring the assumption of the existence of any moment.
+
+Using this inequality, Lévy's theorem (Theorem 7.3.2) gave us a surprising result, which is that for
+
+$$
+S_n=\sum_{i=1}^n X_i,
+$$
+
+where $\{X_n\}$ is independent,
+
+$$
+S_n \xrightarrow{P}
+\quad\Longleftrightarrow\quad
+S_n \xrightarrow{a.s.}.
+$$
+
+Recall that for a general sequence of random variables, convergence in probability only guarantees the existence of an almost surely convergent subsequence.
+
+In the end, the Kolmogorov Convergence Criterion (Theorem 7.3.3) told us that for independent random variables $\{X_n\}$, if
+
+$$
+\sum \operatorname{Var}(X_n)<\infty,
+$$
+
+then
+
+$$
+\sum (X_n-E(X_n))
+$$
+
+converges almost surely, as a result of Lévy's theorem.
+
+In summary, this section gave us several tools to investigate the convergence properties of partial sums of independent random variables. Starting from an inequality for controlling the maximum partial sum, we obtained a surprising equivalence between convergence in probability and almost sure convergence for partial sums, and finally applied it to establish the Kolmogorov Convergence Criterion.
 
 ##  Exercises
 ### Ex 2

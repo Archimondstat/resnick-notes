@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chap 7, Laws of Large Numbers and Sums of Independent Random Variables | Notes on A Probability Path (Resnick)</title>
   <meta name="description" content="Chap 7, Laws of Large Numbers and Sums of Independent Random Variables | Notes on A Probability Path (Resnick)" />
-  <meta name="generator" content="bookdown 0.42 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.46 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chap 7, Laws of Large Numbers and Sums of Independent Random Variables | Notes on A Probability Path (Resnick)" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="Zhanwen Peng" />
 
 
-<meta name="date" content="2026-07-03" />
+<meta name="date" content="2026-07-04" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -424,7 +424,10 @@
 <ul>
 <li class="chapter" data-level="" data-path="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html"><a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#summary-5"><i class="fa fa-check"></i>Summary</a>
 <ul>
-<li class="chapter" data-level="" data-path="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html"><a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#section-5"><i class="fa fa-check"></i>7.1–7.2</a></li>
+<li class="chapter" data-level="" data-path="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html"><a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#section-5"><i class="fa fa-check"></i>7.1–7.2</a>
+<ul>
+<li class="chapter" data-level="" data-path="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html"><a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#section-6"><i class="fa fa-check"></i>7.3</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html"><a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#exercises-2"><i class="fa fa-check"></i>Exercises</a>
 <ul>
@@ -514,6 +517,36 @@ X_n \mathbf1_{\{|X_n|\le n\}}.
 <li>Show that the original and truncated sample means are tail equivalent.</li>
 <li>Transfer the convergence result back to the original sample mean.</li>
 </ol>
+<div id="section-6" class="section level4 hasAnchor">
+<h4>7.3<a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#section-6" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>We started from Proposition 7.3.1, which is the Skorohod’s inequality.</p>
+<p>It gave us a method to bound</p>
+<p><span class="math display">\[
+P\left(\sup_{j\le n}|S_j|&gt;2\lambda\right)
+\]</span></p>
+<p>without requiring the assumption of the existence of any moment.</p>
+<p>Using this inequality, Lévy’s theorem (Theorem 7.3.2) gave us a surprising result, which is that for</p>
+<p><span class="math display">\[
+S_n=\sum_{i=1}^n X_i,
+\]</span></p>
+<p>where <span class="math inline">\(\{X_n\}\)</span> is independent,</p>
+<p><span class="math display">\[
+S_n \xrightarrow{P}
+\quad\Longleftrightarrow\quad
+S_n \xrightarrow{a.s.}.
+\]</span></p>
+<p>Recall that for a general sequence of random variables, convergence in probability only guarantees the existence of an almost surely convergent subsequence.</p>
+<p>In the end, the Kolmogorov Convergence Criterion (Theorem 7.3.3) told us that for independent random variables <span class="math inline">\(\{X_n\}\)</span>, if</p>
+<p><span class="math display">\[
+\sum \operatorname{Var}(X_n)&lt;\infty,
+\]</span></p>
+<p>then</p>
+<p><span class="math display">\[
+\sum (X_n-E(X_n))
+\]</span></p>
+<p>converges almost surely, as a result of Lévy’s theorem.</p>
+<p>In summary, this section gave us several tools to investigate the convergence properties of partial sums of independent random variables. Starting from an inequality for controlling the maximum partial sum, we obtained a surprising equivalence between convergence in probability and almost sure convergence for partial sums, and finally applied it to establish the Kolmogorov Convergence Criterion.</p>
+</div>
 </div>
 </div>
 <div id="exercises-2" class="section level2 hasAnchor">
