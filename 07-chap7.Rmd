@@ -4700,3 +4700,626 @@ Hence,
 \[
 X_n\xrightarrow{P}c.
 \]
+
+### Ex 18
+
+::: problem
+Supppse \(\{X_n, n \ge 1\}\) are iid with \(E(X_n)=0\), and \(E(X_n^2)=1\). Set
+
+\[
+S_n=\sum_{i=1}^nX_i.
+\]
+
+Show
+
+\[
+\frac{S_n}{n^{1/2}\log n}\to0
+\]
+
+almost surely.
+:::
+
+$\textbf{Answer:}$
+
+Firstly consider
+
+\[
+\sum_{n=2}^{\infty}\frac{X_n}{n^{1/2}\log n}.
+\]
+
+Since
+
+\[
+E(X_n)=0,
+\qquad
+E(X_n^2)=1,
+\]
+
+we have
+
+\[
+\operatorname{Var}(X_n)
+=
+E(X_n^2)-E(X_n)^2
+=
+1.
+\]
+
+Therefore,
+
+\[
+\operatorname{Var}\left(
+\frac{X_n}{n^{1/2}\log n}
+\right)
+=
+\frac{1}{n(\log n)^2}.
+\]
+
+Consider the integral
+
+\[
+\int_e^\infty \frac{1}{x(\log x)^2}\,dx.
+\]
+
+Let
+
+\[
+u=\log x.
+\]
+
+Then
+
+\[
+du=\frac{1}{x}\,dx,
+\]
+
+and hence
+
+\[
+\begin{aligned}
+\int_e^\infty \frac{1}{x(\log x)^2}\,dx
+&=
+\int_1^\infty \frac{1}{u^2}\,du \\
+&=
+\left[-\frac1u\right]_1^\infty \\
+&=
+1
+<
+\infty.
+\end{aligned}
+\]
+
+Thus,
+
+\[
+\sum_{n=2}^{\infty}
+\operatorname{Var}\left(
+\frac{X_n}{n^{1/2}\log n}
+\right)
+=
+\sum_{n=2}^{\infty}
+\frac{1}{n(\log n)^2}
+<
+\infty.
+\]
+
+Since the random variables
+
+\[
+\left\{
+\frac{X_n}{n^{1/2}\log n},
+n\ge2
+\right\}
+\]
+
+are independent and centered, the Kolmogorov convergence criterion gives
+
+\[
+\sum_{n=2}^{\infty}
+\frac{X_n}{n^{1/2}\log n}
+\]
+
+converges almost surely.
+
+Now set
+
+\[
+a_n=n^{1/2}\log n,
+\qquad n\ge2.
+\]
+
+Then \(a_n>0\) and \(a_n\uparrow\infty\). By Kronecker's lemma,
+
+\[
+\frac{1}{n^{1/2}\log n}
+\sum_{i=2}^nX_i
+\to0
+\]
+
+almost surely.
+
+Since
+
+\[
+\frac{X_1}{n^{1/2}\log n}\to0
+\]
+
+almost surely, we have
+
+\[
+\frac{S_n}{n^{1/2}\log n}
+=
+\frac{X_1}{n^{1/2}\log n}
++
+\frac{1}{n^{1/2}\log n}
+\sum_{i=2}^nX_i
+\to0
+\]
+
+almost surely.
+
+### Ex 31
+
+::: problem
+Suppose \(\{X_n,n\ge1\}\) are independent Poisson distributed random variables with \(E(X_n)=\lambda_n\). Suppose \(\{S_n=\sum_{i=1}^nX_i,n\ge1\}\) and that \(\sum_n\lambda_n=\infty\). Show
+
+\[
+\frac{S_n}{E(S_n)}\to1
+\]
+
+almost surely.
+:::
+
+$\textbf{Answer:}$
+
+Let
+
+\[
+A_n:=E(S_n)=\sum_{i=1}^n\lambda_i.
+\]
+
+Since
+
+\[
+\sum_{i=1}^{\infty}\lambda_i=\infty,
+\]
+
+we have
+
+\[
+A_n\uparrow\infty.
+\]
+
+Also,
+
+\[
+S_n-E(S_n)
+=
+\sum_{i=1}^n\left(X_i-E(X_i)\right)
+=
+\sum_{i=1}^n(X_i-\lambda_i).
+\]
+
+Therefore, it suffices to show
+
+\[
+\frac{S_n-E(S_n)}{E(S_n)}
+=
+\frac{1}{A_n}\sum_{i=1}^n(X_i-\lambda_i)
+\to0
+\]
+
+almost surely.
+
+Choose \(m\) such that \(A_m>0\). For \(i\ge m+1\), define
+
+\[
+Z_i:=\frac{X_i-E(X_i)}{A_i}
+=
+\frac{X_i-\lambda_i}{A_i}.
+\]
+
+Since \(X_i\) is Poisson distributed with parameter \(\lambda_i\),
+
+\[
+E(Z_i)=0,
+\]
+
+and
+
+\[
+\operatorname{Var}(Z_i)
+=
+\frac{\operatorname{Var}(X_i)}{A_i^2}
+=
+\frac{\lambda_i}{A_i^2}.
+\]
+
+For \(i\ge m+1\),
+
+\[
+\frac{\lambda_i}{A_i^2}
+\le
+\frac{\lambda_i}{A_{i-1}A_i}.
+\]
+
+Since
+
+\[
+\lambda_i=A_i-A_{i-1},
+\]
+
+we have
+
+\[
+\frac{\lambda_i}{A_{i-1}A_i}
+=
+\frac{A_i-A_{i-1}}{A_{i-1}A_i}
+=
+\frac1{A_{i-1}}-\frac1{A_i}.
+\]
+
+Hence,
+
+\[
+\begin{aligned}
+\sum_{i=m+1}^n\operatorname{Var}(Z_i)
+&=
+\sum_{i=m+1}^n\frac{\lambda_i}{A_i^2} \\
+&\le
+\sum_{i=m+1}^n
+\left(
+\frac1{A_{i-1}}-\frac1{A_i}
+\right) \\
+&=
+\frac1{A_m}-\frac1{A_n} \\
+&\le
+\frac1{A_m}
+<
+\infty.
+\end{aligned}
+\]
+
+Therefore,
+
+\[
+\sum_{i=m+1}^{\infty}\operatorname{Var}(Z_i)<\infty.
+\]
+
+The \(Z_i\)'s are independent and centered. By the Kolmogorov convergence criterion,
+
+\[
+\sum_{i=m+1}^{\infty}Z_i
+=
+\sum_{i=m+1}^{\infty}
+\frac{X_i-\lambda_i}{A_i}
+\]
+
+converges almost surely.
+
+Since
+
+\[
+A_n\uparrow\infty,
+\]
+
+Kronecker's lemma gives
+
+\[
+\frac1{A_n}
+\sum_{i=m+1}^n(X_i-\lambda_i)
+\to0
+\]
+
+almost surely.
+
+Also,
+
+\[
+\frac1{A_n}
+\sum_{i=1}^m(X_i-\lambda_i)
+\to0
+\]
+
+almost surely, since the numerator is fixed and \(A_n\to\infty\). Therefore,
+
+\[
+\frac1{A_n}
+\sum_{i=1}^n(X_i-\lambda_i)
+\to0
+\]
+
+almost surely.
+
+Thus,
+
+\[
+\frac{S_n-E(S_n)}{E(S_n)}
+\to0
+\]
+
+almost surely, and hence
+
+\[
+\frac{S_n}{E(S_n)}
+\to1
+\]
+
+almost surely.
+
+### Ex 32
+
+::: problem
+Suppose \(\{X_n,n\ge 1\}\) are iid with \(P[X_i>x]=e^{-x}\), \(x>0\). Show as \(n\to\infty\)
+
+\[
+\bigvee_{i=1}^nX_i/\log n\to1,
+\]
+
+almost surely. Hint: You already know from Example 4.5.2 of Chapter 4 that
+
+\[
+\limsup_{n\to\infty}\frac{X_n}{\log n}=1,
+\]
+
+almost surely.
+:::
+
+$\textbf{Answer:}$
+
+Let
+
+\[
+M_n=\bigvee_{1\le i\le n}X_i.
+\]
+
+We want to prove
+
+\[
+\frac{M_n}{\log n}\to1
+\qquad\text{almost surely.}
+\]
+
+That is, we prove
+
+\[
+\limsup_{n\to\infty}\frac{M_n}{\log n}\le1
+\]
+
+and
+
+\[
+\liminf_{n\to\infty}\frac{M_n}{\log n}\ge1
+\]
+
+almost surely.
+
+Firstly, by Example 4.5.2 of Chapter 4, we already know that
+
+\[
+\limsup_{n\to\infty}\frac{X_n}{\log n}=1
+\qquad\text{almost surely.}
+\]
+
+So, for any \(\varepsilon>0\), eventually,
+
+\[
+\frac{X_i}{\log i}\le 1+\varepsilon.
+\]
+
+Hence, for large \(i\),
+
+\[
+X_i\le (1+\varepsilon)\log i.
+\]
+
+Fix such an \(\varepsilon>0\). Then there exists \(N\) such that for all \(i\ge N\),
+
+\[
+X_i\le (1+\varepsilon)\log i.
+\]
+
+Therefore, for \(n\ge N\),
+
+\[
+M_n
+=
+\max_{1\le i\le n}X_i
+\le
+\max\left\{
+M_{N-1},\,
+(1+\varepsilon)\log n
+\right\}.
+\]
+
+Dividing by \(\log n\), we get
+
+\[
+\frac{M_n}{\log n}
+\le
+\max\left\{
+\frac{M_{N-1}}{\log n},\,
+1+\varepsilon
+\right\}.
+\]
+
+Since \(M_{N-1}\) is fixed,
+
+\[
+\frac{M_{N-1}}{\log n}\to0.
+\]
+
+Thus,
+
+\[
+\limsup_{n\to\infty}\frac{M_n}{\log n}
+\le
+1+\varepsilon.
+\]
+
+Since \(\varepsilon>0\) is arbitrary,
+
+\[
+\limsup_{n\to\infty}\frac{M_n}{\log n}
+\le1
+\qquad\text{almost surely.}
+\]
+
+Now we prove the lower bound. Fix \(\varepsilon\in(0,1)\). Consider
+
+\[
+P\left(
+\frac{M_n}{\log n}\le1-\varepsilon
+\right)
+=
+P\left(
+M_n\le(1-\varepsilon)\log n
+\right).
+\]
+
+Since
+
+\[
+M_n=\max_{1\le i\le n}X_i,
+\]
+
+we have
+
+\[
+\begin{aligned}
+P\left(
+M_n\le(1-\varepsilon)\log n
+\right)
+&=
+P\left(
+X_1\le(1-\varepsilon)\log n,\ldots,
+X_n\le(1-\varepsilon)\log n
+\right) \\
+&=
+\prod_{i=1}^n
+P\left(
+X_i\le(1-\varepsilon)\log n
+\right).
+\end{aligned}
+\]
+
+Since \(X_i\) is unit exponential,
+
+\[
+P(X_i\le x)=1-e^{-x},
+\qquad x>0.
+\]
+
+Therefore,
+
+\[
+\begin{aligned}
+P\left(
+M_n\le(1-\varepsilon)\log n
+\right)
+&=
+\left(
+1-e^{-(1-\varepsilon)\log n}
+\right)^n \\
+&=
+\left(
+1-n^{-(1-\varepsilon)}
+\right)^n.
+\end{aligned}
+\]
+
+Using
+
+\[
+1-x\le e^{-x},
+\qquad x>0,
+\]
+
+we get
+
+\[
+\left(
+1-n^{-(1-\varepsilon)}
+\right)^n
+\le
+\exp\{-n^\varepsilon\}.
+\]
+
+Hence,
+
+\[
+P\left(
+M_n\le(1-\varepsilon)\log n
+\right)
+\le
+\exp\{-n^\varepsilon\}.
+\]
+
+Since
+
+\[
+\sum_{n=1}^{\infty}e^{-n^\varepsilon}<\infty,
+\]
+
+we have
+
+\[
+\sum_{n=1}^{\infty}
+P\left(
+M_n\le(1-\varepsilon)\log n
+\right)
+<\infty.
+\]
+
+By Borel-Cantelli,
+
+\[
+P\left[
+M_n\le(1-\varepsilon)\log n
+\text{ i.o.}
+\right]
+=
+0.
+\]
+
+Thus, with probability one, eventually,
+
+\[
+M_n>(1-\varepsilon)\log n.
+\]
+
+So
+
+\[
+\liminf_{n\to\infty}\frac{M_n}{\log n}
+\ge
+1-\varepsilon
+\qquad\text{almost surely.}
+\]
+
+Since \(\varepsilon>0\) is arbitrary,
+
+\[
+\liminf_{n\to\infty}\frac{M_n}{\log n}
+\ge1
+\qquad\text{almost surely.}
+\]
+
+Combining the upper and lower bounds, we have
+
+\[
+1
+\le
+\liminf_{n\to\infty}\frac{M_n}{\log n}
+\le
+\limsup_{n\to\infty}\frac{M_n}{\log n}
+\le
+1
+\]
+
+almost surely. Therefore,
+
+\[
+\frac{M_n}{\log n}\to1
+\qquad\text{almost surely.}
+\]
