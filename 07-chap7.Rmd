@@ -39,7 +39,7 @@ The proof strategy is actually very simple:
 3. Show that the original and truncated sample means are tail equivalent.
 4. Transfer the convergence result back to the original sample mean.
 
-#### 7.3
+### 7.3
 We started from Proposition 7.3.1, which is the Skorohod's inequality.
 
 It gave us a method to bound
@@ -81,6 +81,25 @@ $$
 converges almost surely, as a result of Lévy's theorem.
 
 In summary, this section gave us several tools to investigate the convergence properties of partial sums of independent random variables. Starting from an inequality for controlling the maximum partial sum, we obtained a surprising equivalence between convergence in probability and almost sure convergence for partial sums, and finally applied it to establish the Kolmogorov Convergence Criterion.
+
+### 7.4
+
+Before 7.4, we mainly discussed the convergence problem in the form
+
+$$
+\sum_{i=1}^{\infty} X_i \text{ converges almost surely.}
+$$
+
+In 7.4, we introduced Kronecker's lemma to allow us to discuss
+
+$$
+\frac{1}{n}\sum_{i=1}^{n}X_i.
+$$
+
+Kronecker's lemma acts as a bridge from the convergence of an infinite series to the convergence of its corresponding averages. It therefore allows us to transfer results about the convergence of series into results about the convergence of sample averages.
+
+In summary, this section built the connection between the convergence of series and the convergence of sample means, which prepares us for the Strong Law of Large Numbers in the following sections.
+
 
 ##  Exercises
 ### Ex 2
