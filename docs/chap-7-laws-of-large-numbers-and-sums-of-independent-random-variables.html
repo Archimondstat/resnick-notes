@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chap 7, Laws of Large Numbers and Sums of Independent Random Variables | Notes on A Probability Path (Resnick)</title>
   <meta name="description" content="Chap 7, Laws of Large Numbers and Sums of Independent Random Variables | Notes on A Probability Path (Resnick)" />
-  <meta name="generator" content="bookdown 0.42 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.46 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chap 7, Laws of Large Numbers and Sums of Independent Random Variables | Notes on A Probability Path (Resnick)" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="Zhanwen Peng" />
 
 
-<meta name="date" content="2026-07-08" />
+<meta name="date" content="2026-07-12" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -493,6 +493,7 @@
 <li class="chapter" data-level="" data-path="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html"><a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#ex-18-3"><i class="fa fa-check"></i>Ex 18</a></li>
 <li class="chapter" data-level="" data-path="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html"><a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#ex-31-3"><i class="fa fa-check"></i>Ex 31</a></li>
 <li class="chapter" data-level="" data-path="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html"><a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#ex-32-3"><i class="fa fa-check"></i>Ex 32</a></li>
+<li class="chapter" data-level="" data-path="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html"><a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#ex-40-1"><i class="fa fa-check"></i>Ex 40</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -4617,6 +4618,320 @@ M_n&gt;(1-\varepsilon)\log n.
 <p><span class="math display">\[
 \frac{M_n}{\log n}\to1
 \qquad\text{almost surely.}
+\]</span></p>
+</div>
+<div id="ex-40-1" class="section level3 hasAnchor">
+<h3>Ex 40<a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#ex-40-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="problem">
+<p>Suppose <span class="math inline">\(\{X_n,n\ge1\}\)</span> are independent and set</p>
+<p><span class="math display">\[
+S_n=\sum_{i=1}^nX_i.
+\]</span></p>
+<p>Then</p>
+<p><span class="math display">\[
+\frac{S_n}{n}\to0
+\]</span></p>
+<p>almost surely iff the following two conditions hold:</p>
+<ol style="list-style-type: lower-alpha">
+<li></li>
+</ol>
+<p><span class="math display">\[
+\frac{S_n}{n}\xrightarrow{P}0,
+\]</span></p>
+<ol start="2" style="list-style-type: lower-alpha">
+<li></li>
+</ol>
+<p><span class="math display">\[
+\frac{S_{2^n}}{2^n}\to0
+\]</span></p>
+<p>almost surely.</p>
+</div>
+<p><span class="math inline">\(\textbf{Answer:}\)</span></p>
+<ul>
+<li><span class="math inline">\(\Rightarrow\)</span></li>
+</ul>
+<p>Suppose</p>
+<p><span class="math display">\[
+\frac{S_n}{n}\to0
+\qquad\text{a.s.}
+\]</span></p>
+<p>Then surely</p>
+<p><span class="math display">\[
+\frac{S_n}{n}\xrightarrow{P}0.
+\]</span></p>
+<p>Also, since <span class="math inline">\(\{2^n\}\)</span> is a subsequence of <span class="math inline">\(\{n\}\)</span>,</p>
+<p><span class="math display">\[
+\frac{S_{2^n}}{2^n}\to0
+\qquad\text{a.s.}
+\]</span></p>
+<p>Therefore, conditions (a) and (b) hold.</p>
+<ul>
+<li><span class="math inline">\(\Leftarrow\)</span></li>
+</ul>
+<p>Now suppose</p>
+<p><span class="math display">\[
+\frac{S_n}{n}\xrightarrow{P}0
+\]</span></p>
+<p>and</p>
+<p><span class="math display">\[
+\frac{S_{2^k}}{2^k}\to0
+\qquad\text{a.s.}
+\]</span></p>
+<p>Let</p>
+<p><span class="math display">\[
+D_k=S_{2^{k+1}}-S_{2^k}.
+\]</span></p>
+<p>Then</p>
+<p><span class="math display">\[
+D_k=X_{2^k+1}+\cdots+X_{2^{k+1}},
+\]</span></p>
+<p>so the random variables <span class="math inline">\(\{D_k\}\)</span> are independent, since they are sums over disjoint blocks of the independent sequence <span class="math inline">\(\{X_n\}\)</span>.</p>
+<p>Also,</p>
+<p><span class="math display">\[
+\begin{aligned}
+\frac{D_k}{2^k}
+&amp;=
+\frac{S_{2^{k+1}}-S_{2^k}}{2^k} \\
+&amp;=
+2\frac{S_{2^{k+1}}}{2^{k+1}}
+-
+\frac{S_{2^k}}{2^k}
+\to0
+\end{aligned}
+\]</span></p>
+<p>almost surely.</p>
+<p>Therefore, for every <span class="math inline">\(\varepsilon&gt;0\)</span>,</p>
+<p><span class="math display">\[
+P\left(
+\left\{
+\frac{|D_k|}{2^k}&gt;\varepsilon
+\right\}
+\text{ i.o.}
+\right)
+=0.
+\]</span></p>
+<p>Since the events</p>
+<p><span class="math display">\[
+\left\{
+|D_k|&gt;\varepsilon2^k
+\right\}
+\]</span></p>
+<p>are independent, the converse Borel–Cantelli lemma gives</p>
+<p><span class="math display">\[
+\sum_{k=1}^{\infty}
+P\left(
+|D_k|&gt;\varepsilon2^k
+\right)
+&lt;
+\infty.
+\tag{1}
+\]</span></p>
+<p>If we want to show</p>
+<p><span class="math display">\[
+\frac{S_n}{n}\to0
+\qquad\text{a.s.,}
+\]</span></p>
+<p>we can consider <span class="math inline">\(2^k&lt;n\le2^{k+1}\)</span>. Then</p>
+<p><span class="math display">\[
+\begin{aligned}
+\left|\frac{S_n}{n}\right|
+&amp;\le
+\frac{|S_{2^k}|}{2^k}
++
+\frac{|S_n-S_{2^k}|}{2^k}.
+\end{aligned}
+\]</span></p>
+<p>By assumption (b), the first term goes to zero almost surely. Thus, we only need to show</p>
+<p><span class="math display">\[
+\max_{1\le j\le2^k}
+\frac{|S_{2^k+j}-S_{2^k}|}{2^k}
+\to0
+\qquad\text{a.s.}
+\tag{2}
+\]</span></p>
+<p>For <span class="math inline">\(\varepsilon&gt;0\)</span>, let</p>
+<p><span class="math display">\[
+B_k(\varepsilon)
+=
+\left\{
+\max_{1\le j\le2^k}
+|S_{2^k+j}-S_{2^k}|
+&gt;
+\varepsilon2^k
+\right\}.
+\]</span></p>
+<p>Define</p>
+<p><span class="math display">\[
+T_{k,j}=S_{2^k+j}-S_{2^k},
+\qquad
+1\le j\le2^k.
+\]</span></p>
+<p>Then</p>
+<p><span class="math display">\[
+T_{k,2^k}=D_k.
+\]</span></p>
+<p>Using Skorohod’s maximal inequality with</p>
+<p><span class="math display">\[
+a=b=\varepsilon2^{k-1},
+\]</span></p>
+<p>we have</p>
+<p><span class="math display">\[
+P(B_k(\varepsilon))
+\le
+\frac{
+P\left(
+|D_k|&gt;\varepsilon2^{k-1}
+\right)
+}{
+1-C_k
+},
+\tag{3}
+\]</span></p>
+<p>where</p>
+<p><span class="math display">\[
+C_k
+=
+\max_{1\le j\le2^k}
+P\left(
+|D_k-T_{k,j}|&gt;\varepsilon2^{k-1}
+\right).
+\]</span></p>
+<p>We need to guarantee that</p>
+<p><span class="math display">\[
+C_k\to0.
+\]</span></p>
+<p>Notice that</p>
+<p><span class="math display">\[
+D_k-T_{k,j}
+=
+S_{2^{k+1}}-S_{2^k+j}.
+\]</span></p>
+<p>Therefore, for each <span class="math inline">\(j\)</span>,</p>
+<p><span class="math display">\[
+\begin{aligned}
+&amp;P\left(
+|S_{2^{k+1}}-S_{2^k+j}|
+&gt;
+\varepsilon2^{k-1}
+\right) \\
+&amp;\le
+P\left(
+|S_{2^{k+1}}|
+&gt;
+\varepsilon2^{k-2}
+\right)
++
+P\left(
+|S_{2^k+j}|
+&gt;
+\varepsilon2^{k-2}
+\right).
+\end{aligned}
+\tag{4}
+\]</span></p>
+<p>This is because if</p>
+<p><span class="math display">\[
+|S_{2^{k+1}}|\le\varepsilon2^{k-2}
+\]</span></p>
+<p>and</p>
+<p><span class="math display">\[
+|S_{2^k+j}|\le\varepsilon2^{k-2},
+\]</span></p>
+<p>then</p>
+<p><span class="math display">\[
+|S_{2^{k+1}}-S_{2^k+j}|
+\le
+\varepsilon2^{k-1}.
+\]</span></p>
+<p>For every <span class="math inline">\(r\in[2^k,2^{k+1}]\)</span>,</p>
+<p><span class="math display">\[
+\varepsilon2^{k-2}
+\ge
+\frac{\varepsilon r}{8}.
+\]</span></p>
+<p>Hence,</p>
+<p><span class="math display">\[
+P\left(
+|S_r|&gt;\varepsilon2^{k-2}
+\right)
+\le
+P\left(
+\left|\frac{S_r}{r}\right|&gt;\frac{\varepsilon}{8}
+\right).
+\]</span></p>
+<p>Since</p>
+<p><span class="math display">\[
+\frac{S_n}{n}\xrightarrow{P}0,
+\]</span></p>
+<p>we have</p>
+<p><span class="math display">\[
+\sup_{r\ge2^k}
+P\left(
+\left|\frac{S_r}{r}\right|&gt;\frac{\varepsilon}{8}
+\right)
+\to0.
+\]</span></p>
+<p>It follows from (4) that</p>
+<p><span class="math display">\[
+C_k\to0.
+\]</span></p>
+<p>Therefore, for all sufficiently large <span class="math inline">\(k\)</span>,</p>
+<p><span class="math display">\[
+\frac1{1-C_k}\le2.
+\]</span></p>
+<p>Using (3),</p>
+<p><span class="math display">\[
+P(B_k(\varepsilon))
+\le
+2P\left(
+|D_k|&gt;\varepsilon2^{k-1}
+\right).
+\]</span></p>
+<p>By (1), applied with <span class="math inline">\(\varepsilon/2\)</span>,</p>
+<p><span class="math display">\[
+\sum_{k=1}^{\infty}
+P\left(
+|D_k|&gt;\varepsilon2^{k-1}
+\right)
+&lt;
+\infty.
+\]</span></p>
+<p>Thus,</p>
+<p><span class="math display">\[
+\sum_{k=1}^{\infty}P(B_k(\varepsilon))&lt;\infty.
+\]</span></p>
+<p>By Borel–Cantelli,</p>
+<p><span class="math display">\[
+P(B_k(\varepsilon)\text{ i.o.})=0.
+\]</span></p>
+<p>That means that, for every fixed <span class="math inline">\(\varepsilon&gt;0\)</span>, with probability one,</p>
+<p><span class="math display">\[
+\max_{1\le j\le2^k}
+\frac{|S_{2^k+j}-S_{2^k}|}{2^k}
+\le\varepsilon
+\]</span></p>
+<p>eventually.</p>
+<p>Taking <span class="math inline">\(\varepsilon\)</span> over the positive rational numbers gives</p>
+<p><span class="math display">\[
+\max_{1\le j\le2^k}
+\frac{|S_{2^k+j}-S_{2^k}|}{2^k}
+\to0
+\qquad\text{a.s.}
+\]</span></p>
+<p>This proves (2).</p>
+<p>Finally, for <span class="math inline">\(2^k&lt;n\le2^{k+1}\)</span>,</p>
+<p><span class="math display">\[
+\left|\frac{S_n}{n}\right|
+\le
+\frac{|S_{2^k}|}{2^k}
++
+\max_{1\le j\le2^k}
+\frac{|S_{2^k+j}-S_{2^k}|}{2^k}.
+\]</span></p>
+<p>Both terms converge to zero almost surely. Therefore,</p>
+<p><span class="math display">\[
+\frac{S_n}{n}\to0
+\qquad\text{a.s.}
 \]</span></p>
 
 </div>

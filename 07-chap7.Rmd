@@ -5323,3 +5323,406 @@ almost surely. Therefore,
 \frac{M_n}{\log n}\to1
 \qquad\text{almost surely.}
 \]
+
+### Ex 40
+
+::: problem
+Suppose \(\{X_n,n\ge1\}\) are independent and set
+
+\[
+S_n=\sum_{i=1}^nX_i.
+\]
+
+Then
+
+\[
+\frac{S_n}{n}\to0
+\]
+
+almost surely iff the following two conditions hold:
+
+(a)
+
+\[
+\frac{S_n}{n}\xrightarrow{P}0,
+\]
+
+(b)
+
+\[
+\frac{S_{2^n}}{2^n}\to0
+\]
+
+almost surely.
+:::
+
+$\textbf{Answer:}$
+
+* \(\Rightarrow\)
+
+Suppose
+
+\[
+\frac{S_n}{n}\to0
+\qquad\text{a.s.}
+\]
+
+Then surely
+
+\[
+\frac{S_n}{n}\xrightarrow{P}0.
+\]
+
+Also, since \(\{2^n\}\) is a subsequence of \(\{n\}\),
+
+\[
+\frac{S_{2^n}}{2^n}\to0
+\qquad\text{a.s.}
+\]
+
+Therefore, conditions (a) and (b) hold.
+
+* \(\Leftarrow\)
+
+Now suppose
+
+\[
+\frac{S_n}{n}\xrightarrow{P}0
+\]
+
+and
+
+\[
+\frac{S_{2^k}}{2^k}\to0
+\qquad\text{a.s.}
+\]
+
+Let
+
+\[
+D_k=S_{2^{k+1}}-S_{2^k}.
+\]
+
+Then
+
+\[
+D_k=X_{2^k+1}+\cdots+X_{2^{k+1}},
+\]
+
+so the random variables \(\{D_k\}\) are independent, since they are sums over disjoint blocks of the independent sequence \(\{X_n\}\).
+
+Also,
+
+\[
+\begin{aligned}
+\frac{D_k}{2^k}
+&=
+\frac{S_{2^{k+1}}-S_{2^k}}{2^k} \\
+&=
+2\frac{S_{2^{k+1}}}{2^{k+1}}
+-
+\frac{S_{2^k}}{2^k}
+\to0
+\end{aligned}
+\]
+
+almost surely.
+
+Therefore, for every \(\varepsilon>0\),
+
+\[
+P\left(
+\left\{
+\frac{|D_k|}{2^k}>\varepsilon
+\right\}
+\text{ i.o.}
+\right)
+=0.
+\]
+
+Since the events
+
+\[
+\left\{
+|D_k|>\varepsilon2^k
+\right\}
+\]
+
+are independent, the converse Borel--Cantelli lemma gives
+
+\[
+\sum_{k=1}^{\infty}
+P\left(
+|D_k|>\varepsilon2^k
+\right)
+<
+\infty.
+\tag{1}
+\]
+
+If we want to show
+
+\[
+\frac{S_n}{n}\to0
+\qquad\text{a.s.,}
+\]
+
+we can consider \(2^k<n\le2^{k+1}\). Then
+
+\[
+\begin{aligned}
+\left|\frac{S_n}{n}\right|
+&\le
+\frac{|S_{2^k}|}{2^k}
++
+\frac{|S_n-S_{2^k}|}{2^k}.
+\end{aligned}
+\]
+
+By assumption (b), the first term goes to zero almost surely. Thus, we only need to show
+
+\[
+\max_{1\le j\le2^k}
+\frac{|S_{2^k+j}-S_{2^k}|}{2^k}
+\to0
+\qquad\text{a.s.}
+\tag{2}
+\]
+
+For \(\varepsilon>0\), let
+
+\[
+B_k(\varepsilon)
+=
+\left\{
+\max_{1\le j\le2^k}
+|S_{2^k+j}-S_{2^k}|
+>
+\varepsilon2^k
+\right\}.
+\]
+
+Define
+
+\[
+T_{k,j}=S_{2^k+j}-S_{2^k},
+\qquad
+1\le j\le2^k.
+\]
+
+Then
+
+\[
+T_{k,2^k}=D_k.
+\]
+
+Using Skorohod's maximal inequality with
+
+\[
+a=b=\varepsilon2^{k-1},
+\]
+
+we have
+
+\[
+P(B_k(\varepsilon))
+\le
+\frac{
+P\left(
+|D_k|>\varepsilon2^{k-1}
+\right)
+}{
+1-C_k
+},
+\tag{3}
+\]
+
+where
+
+\[
+C_k
+=
+\max_{1\le j\le2^k}
+P\left(
+|D_k-T_{k,j}|>\varepsilon2^{k-1}
+\right).
+\]
+
+We need to guarantee that
+
+\[
+C_k\to0.
+\]
+
+Notice that
+
+\[
+D_k-T_{k,j}
+=
+S_{2^{k+1}}-S_{2^k+j}.
+\]
+
+Therefore, for each \(j\),
+
+\[
+\begin{aligned}
+&P\left(
+|S_{2^{k+1}}-S_{2^k+j}|
+>
+\varepsilon2^{k-1}
+\right) \\
+&\le
+P\left(
+|S_{2^{k+1}}|
+>
+\varepsilon2^{k-2}
+\right)
++
+P\left(
+|S_{2^k+j}|
+>
+\varepsilon2^{k-2}
+\right).
+\end{aligned}
+\tag{4}
+\]
+
+This is because if
+
+\[
+|S_{2^{k+1}}|\le\varepsilon2^{k-2}
+\]
+
+and
+
+\[
+|S_{2^k+j}|\le\varepsilon2^{k-2},
+\]
+
+then
+
+\[
+|S_{2^{k+1}}-S_{2^k+j}|
+\le
+\varepsilon2^{k-1}.
+\]
+
+For every \(r\in[2^k,2^{k+1}]\),
+
+\[
+\varepsilon2^{k-2}
+\ge
+\frac{\varepsilon r}{8}.
+\]
+
+Hence,
+
+\[
+P\left(
+|S_r|>\varepsilon2^{k-2}
+\right)
+\le
+P\left(
+\left|\frac{S_r}{r}\right|>\frac{\varepsilon}{8}
+\right).
+\]
+
+Since
+
+\[
+\frac{S_n}{n}\xrightarrow{P}0,
+\]
+
+we have
+
+\[
+\sup_{r\ge2^k}
+P\left(
+\left|\frac{S_r}{r}\right|>\frac{\varepsilon}{8}
+\right)
+\to0.
+\]
+
+It follows from (4) that
+
+\[
+C_k\to0.
+\]
+
+Therefore, for all sufficiently large \(k\),
+
+\[
+\frac1{1-C_k}\le2.
+\]
+
+Using (3),
+
+\[
+P(B_k(\varepsilon))
+\le
+2P\left(
+|D_k|>\varepsilon2^{k-1}
+\right).
+\]
+
+By (1), applied with \(\varepsilon/2\),
+
+\[
+\sum_{k=1}^{\infty}
+P\left(
+|D_k|>\varepsilon2^{k-1}
+\right)
+<
+\infty.
+\]
+
+Thus,
+
+\[
+\sum_{k=1}^{\infty}P(B_k(\varepsilon))<\infty.
+\]
+
+By Borel--Cantelli,
+
+\[
+P(B_k(\varepsilon)\text{ i.o.})=0.
+\]
+
+That means that, for every fixed \(\varepsilon>0\), with probability one,
+
+\[
+\max_{1\le j\le2^k}
+\frac{|S_{2^k+j}-S_{2^k}|}{2^k}
+\le\varepsilon
+\]
+
+eventually.
+
+Taking \(\varepsilon\) over the positive rational numbers gives
+
+\[
+\max_{1\le j\le2^k}
+\frac{|S_{2^k+j}-S_{2^k}|}{2^k}
+\to0
+\qquad\text{a.s.}
+\]
+
+This proves (2).
+
+Finally, for \(2^k<n\le2^{k+1}\),
+
+\[
+\left|\frac{S_n}{n}\right|
+\le
+\frac{|S_{2^k}|}{2^k}
++
+\max_{1\le j\le2^k}
+\frac{|S_{2^k+j}-S_{2^k}|}{2^k}.
+\]
+
+Both terms converge to zero almost surely. Therefore,
+
+\[
+\frac{S_n}{n}\to0
+\qquad\text{a.s.}
+\]
