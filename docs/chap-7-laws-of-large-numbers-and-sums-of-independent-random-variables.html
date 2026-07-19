@@ -23,7 +23,7 @@
 <meta name="author" content="Zhanwen Peng" />
 
 
-<meta name="date" content="2026-07-12" />
+<meta name="date" content="2026-07-19" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -493,6 +493,8 @@
 <li class="chapter" data-level="" data-path="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html"><a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#ex-31-3"><i class="fa fa-check"></i>Ex 31</a></li>
 <li class="chapter" data-level="" data-path="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html"><a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#ex-32-3"><i class="fa fa-check"></i>Ex 32</a></li>
 <li class="chapter" data-level="" data-path="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html"><a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#ex-40-1"><i class="fa fa-check"></i>Ex 40</a></li>
+<li class="chapter" data-level="" data-path="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html"><a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#ex-8-2"><i class="fa fa-check"></i>Ex 8</a></li>
+<li class="chapter" data-level="" data-path="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html"><a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#ex-9-2"><i class="fa fa-check"></i>Ex 9</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -4943,6 +4945,373 @@ P(B_k(\varepsilon)\text{ i.o.})=0.
 <p>Both terms converge to zero almost surely. Therefore,</p>
 <p><span class="math display">\[
 \frac{S_n}{n}\to0
+\qquad\text{a.s.}
+\]</span></p>
+</div>
+<div id="ex-8-2" class="section level3 hasAnchor">
+<h3>Ex 8<a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#ex-8-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="problem">
+<p>[Insert the exact exercise statement from the book here.]</p>
+</div>
+<p><span class="math inline">\(\textbf{Answer:}\)</span></p>
+<p>Let</p>
+<p><span class="math display">\[
+X_n^{(K)} = X_n1_{\{|X_n|\le K\}},
+\qquad
+\mu = E(X_1),
+\qquad
+\mu_K = E(X_1^{(K)}).
+\]</span></p>
+<p>Then <span class="math inline">\(\{X_n^{(K)}\}\)</span> are also iid and have finite variance.</p>
+<p>We want to show</p>
+<p><span class="math display">\[
+\frac{S_n}{n}\xrightarrow{L^1}\mu,
+\]</span></p>
+<p>that is,</p>
+<p><span class="math display">\[
+E\left|
+\frac{S_n}{n}-\mu
+\right|
+\longrightarrow0.
+\]</span></p>
+<p>Insert and subtract the truncated averages:</p>
+<p><span class="math display">\[
+\begin{aligned}
+E\left|
+\frac{S_n}{n}-\mu
+\right|
+&amp;=
+E\left|
+\frac{S_n}{n}
+-
+\frac1n\sum_{i=1}^nX_i^{(K)}
++
+\frac1n\sum_{i=1}^nX_i^{(K)}
+-
+\mu_K
++
+\mu_K-\mu
+\right|   \\
+&amp;\le
+A+B+C,
+\end{aligned}
+\]</span></p>
+<p>where</p>
+<p><span class="math display">\[
+A=
+E\left|
+\frac1n\sum_{i=1}^nX_i^{(K)}
+-
+\mu_K
+\right|,
+\]</span></p>
+<p><span class="math display">\[
+B=
+E\left|
+\frac{S_n}{n}
+-
+\frac1n\sum_{i=1}^nX_i^{(K)}
+\right|,
+\]</span></p>
+<p>and</p>
+<p><span class="math display">\[
+C=
+|\mu_K-\mu|.
+\]</span></p>
+<p>For <span class="math inline">\(A\)</span>, when <span class="math inline">\(K\)</span> is fixed,</p>
+<p><span class="math display">\[
+\begin{aligned}
+E\left(
+\frac1n\sum_{i=1}^nX_i^{(K)}
+-
+\mu_K
+\right)^2
+&amp;=
+\operatorname{Var}
+\left(
+\frac1n\sum_{i=1}^nX_i^{(K)}
+\right)     \\
+&amp;=
+\frac1{n^2}
+\sum_{i=1}^n
+\operatorname{Var}(X_i^{(K)})     \\
+&amp;=
+\frac{\operatorname{Var}(X_1^{(K)})}{n}
+\longrightarrow0.
+\end{aligned}
+\]</span></p>
+<p>Hence, by Cauchy–Schwarz,</p>
+<p><span class="math display">\[
+A
+\le
+\left(
+E
+\left(
+\frac1n\sum_{i=1}^nX_i^{(K)}
+-
+\mu_K
+\right)^2
+\right)^{1/2}
+\longrightarrow0.
+\]</span></p>
+<p>For <span class="math inline">\(B\)</span>,</p>
+<p><span class="math display">\[
+\begin{aligned}
+B
+&amp;\le
+\frac1n
+\sum_{i=1}^n
+E\!\left(
+|X_i|
+1_{\{|X_i|&gt;K\}}
+\right)  \\
+&amp;=
+E\!\left(
+|X_1|
+1_{\{|X_1|&gt;K\}}
+\right)
+\longrightarrow0,
+\qquad K\to\infty,
+\end{aligned}
+\]</span></p>
+<p>since <span class="math inline">\(E|X_1|&lt;\infty\)</span>.</p>
+<p>For <span class="math inline">\(C\)</span>,</p>
+<p><span class="math display">\[
+\begin{aligned}
+C
+&amp;=
+|\mu_K-\mu|      \\
+&amp;=
+|E(X_1^{(K)}-X_1)|      \\
+&amp;\le
+E\!\left(
+|X_1|
+1_{\{|X_1|&gt;K\}}
+\right)
+\longrightarrow0,
+\qquad K\to\infty.
+\end{aligned}
+\]</span></p>
+<p>Finally, fix <span class="math inline">\(\varepsilon&gt;0\)</span>.</p>
+<p>Choose <span class="math inline">\(K\)</span> sufficiently large so that</p>
+<p><span class="math display">\[
+B+C&lt;\frac{\varepsilon}{2}.
+\]</span></p>
+<p>For this fixed <span class="math inline">\(K\)</span>, choose <span class="math inline">\(n\)</span> sufficiently large so that</p>
+<p><span class="math display">\[
+A&lt;\frac{\varepsilon}{2}.
+\]</span></p>
+<p>Therefore,</p>
+<p><span class="math display">\[
+E\left|
+\frac{S_n}{n}-\mu
+\right|
+&lt;
+\varepsilon.
+\]</span></p>
+<p>Hence,</p>
+<p>[
+</p>
+</div>
+<div id="ex-9-2" class="section level3 hasAnchor">
+<h3>Ex 9<a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#ex-9-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="problem">
+<p>Suppose <span class="math inline">\(\{X_n\}\)</span> are iid, <span class="math inline">\(E|X_1|&lt;\infty\)</span>, <span class="math inline">\(EX_1=0\)</span> and suppose that <span class="math inline">\(\{c_n\}\)</span> is a bounded sequence of real numbers. Prove</p>
+<p><span class="math display">\[
+\frac1n\sum_{i=1}^n c_iX_i\to0
+\qquad\text{a.s.}
+\]</span></p>
+<p>(If necessary, examine the proof of the SLLN.)</p>
+</div>
+<p><span class="math inline">\(\textbf{Answer:}\)</span></p>
+<p>Let</p>
+<p><span class="math display">\[
+Y_n=c_nX_n.
+\]</span></p>
+<p>Then <span class="math inline">\(\{Y_n\}\)</span> are independent,</p>
+<p><span class="math display">\[
+E|Y_n|&lt;\infty,
+\]</span></p>
+<p>and</p>
+<p><span class="math display">\[
+E(Y_n)=c_nE(X_n)=0.
+\]</span></p>
+<p>Let</p>
+<p><span class="math display">\[
+C=\sup_n|c_n|&lt;\infty.
+\]</span></p>
+<p>If <span class="math inline">\(C=0\)</span>, then <span class="math inline">\(c_n=0\)</span> for every <span class="math inline">\(n\)</span>, and the result is trivial. Suppose <span class="math inline">\(C&gt;0\)</span>.</p>
+<p>Define</p>
+<p><span class="math display">\[
+Y_n&#39;
+=
+Y_n1_{\{|X_n|\le n/C\}}
+=
+c_nX_n1_{\{|X_n|\le n/C\}}.
+\]</span></p>
+<p>We first show that <span class="math inline">\(\{Y_n\}\)</span> and <span class="math inline">\(\{Y_n&#39;\}\)</span> are tail equivalent. Since</p>
+<p><span class="math display">\[
+\{Y_n\ne Y_n&#39;\}
+\subseteq
+\left\{|X_n|&gt;\frac nC\right\},
+\]</span></p>
+<p>we have</p>
+<p><span class="math display">\[
+\sum_{n=1}^{\infty}P(Y_n\ne Y_n&#39;)
+\le
+\sum_{n=1}^{\infty}
+P\left(|X_n|&gt;\frac nC\right).
+\]</span></p>
+<p>Since the <span class="math inline">\(X_n\)</span>’s are identically distributed and <span class="math inline">\(E|X_1|&lt;\infty\)</span>,</p>
+<p><span class="math display">\[
+\sum_{n=1}^{\infty}
+P\left(|X_n|&gt;\frac nC\right)
+=
+\sum_{n=1}^{\infty}
+P\left(|X_1|&gt;\frac nC\right)
+&lt;
+\infty.
+\]</span></p>
+<p>Therefore, by Borel–Cantelli,</p>
+<p><span class="math display">\[
+P(Y_n\ne Y_n&#39;\text{ i.o.})=0.
+\]</span></p>
+<p>Thus, <span class="math inline">\(\{Y_n\}\)</span> and <span class="math inline">\(\{Y_n&#39;\}\)</span> are tail equivalent.</p>
+<p>We next investigate</p>
+<p><span class="math display">\[
+\sum_{n=1}^{\infty}
+\operatorname{Var}\left(\frac{Y_n&#39;}n\right).
+\]</span></p>
+<p>Since</p>
+<p><span class="math display">\[
+\operatorname{Var}(Y_n&#39;)
+\le
+E\left[(Y_n&#39;)^2\right],
+\]</span></p>
+<p>we have</p>
+<p><span class="math display">\[
+\begin{aligned}
+\sum_{n=1}^{\infty}
+\operatorname{Var}\left(\frac{Y_n&#39;}n\right)
+&amp;\le
+\sum_{n=1}^{\infty}
+\frac1{n^2}E\left[(Y_n&#39;)^2\right] \\
+&amp;=
+\sum_{n=1}^{\infty}
+\frac1{n^2}
+E\left[
+c_n^2X_n^2
+1_{\{|X_n|\le n/C\}}
+\right] \\
+&amp;\le
+C^2
+\sum_{n=1}^{\infty}
+\frac1{n^2}
+E\left[
+X_1^2
+1_{\{|X_1|\le n/C\}}
+\right].
+\end{aligned}
+\]</span></p>
+<p>By Tonelli’s theorem,</p>
+<p><span class="math display">\[
+\begin{aligned}
+\sum_{n=1}^{\infty}
+\frac1{n^2}
+E\left[
+X_1^2
+1_{\{|X_1|\le n/C\}}
+\right]
+&amp;=
+E\left[
+X_1^2
+\sum_{n\ge C|X_1|}
+\frac1{n^2}
+\right].
+\end{aligned}
+\]</span></p>
+<p>For some finite constant <span class="math inline">\(K_C\)</span>,</p>
+<p><span class="math display">\[
+\sum_{n\ge Cx}\frac1{n^2}
+\le
+\frac{K_C}{1+x},
+\qquad x\ge0.
+\]</span></p>
+<p>Hence,</p>
+<p><span class="math display">\[
+X_1^2
+\sum_{n\ge C|X_1|}
+\frac1{n^2}
+\le
+K_C\frac{X_1^2}{1+|X_1|}
+\le
+K_C|X_1|.
+\]</span></p>
+<p>Since <span class="math inline">\(E|X_1|&lt;\infty\)</span>,</p>
+<p><span class="math display">\[
+\sum_{n=1}^{\infty}
+\operatorname{Var}\left(\frac{Y_n&#39;}n\right)
+&lt;
+\infty.
+\]</span></p>
+<p>Therefore, by the Kolmogorov convergence criterion,</p>
+<p><span class="math display">\[
+\sum_{n=1}^{\infty}
+\frac{Y_n&#39;-E(Y_n&#39;)}{n}
+\]</span></p>
+<p>converges almost surely. By Kronecker’s lemma,</p>
+<p><span class="math display">\[
+\frac1n
+\sum_{i=1}^n
+\left(Y_i&#39;-E(Y_i&#39;)\right)
+\to0
+\qquad\text{a.s.}
+\]</span></p>
+<p>It remains to investigate the centering term. Since <span class="math inline">\(E(X_n)=0\)</span>,</p>
+<p><span class="math display">\[
+\begin{aligned}
+E(Y_n&#39;)
+&amp;=
+c_nE\left[
+X_n1_{\{|X_n|\le n/C\}}
+\right] \\
+&amp;=
+-c_nE\left[
+X_n1_{\{|X_n|&gt;n/C\}}
+\right].
+\end{aligned}
+\]</span></p>
+<p>Therefore,</p>
+<p><span class="math display">\[
+|E(Y_n&#39;)|
+\le
+C\,E\left[
+|X_1|1_{\{|X_1|&gt;n/C\}}
+\right]
+\to0.
+\]</span></p>
+<p>By Cesàro’s lemma,</p>
+<p><span class="math display">\[
+\frac1n\sum_{i=1}^nE(Y_i&#39;)\to0.
+\]</span></p>
+<p>Consequently,</p>
+<p><span class="math display">\[
+\frac1n\sum_{i=1}^nY_i&#39;
+\to0
+\qquad\text{a.s.}
+\]</span></p>
+<p>Finally, since <span class="math inline">\(\{Y_n\}\)</span> and <span class="math inline">\(\{Y_n&#39;\}\)</span> are tail equivalent, with probability one they differ in only finitely many places. Hence,</p>
+<p><span class="math display">\[
+\frac1n\sum_{i=1}^n(Y_i-Y_i&#39;)
+\to0
+\qquad\text{a.s.}
+\]</span></p>
+<p>Therefore,</p>
+<p><span class="math display">\[
+\frac1n\sum_{i=1}^nc_iX_i
+=
+\frac1n\sum_{i=1}^nY_i
+\to0
 \qquad\text{a.s.}
 \]</span></p>
 

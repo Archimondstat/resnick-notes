@@ -5745,3 +5745,460 @@ Both terms converge to zero almost surely. Therefore,
 \frac{S_n}{n}\to0
 \qquad\text{a.s.}
 \]
+
+### Ex 8
+
+::: problem
+[Insert the exact exercise statement from the book here.]
+:::
+
+$\textbf{Answer:}$
+
+Let
+
+\[
+X_n^{(K)} = X_n1_{\{|X_n|\le K\}},
+\qquad
+\mu = E(X_1),
+\qquad
+\mu_K = E(X_1^{(K)}).
+\]
+
+Then \(\{X_n^{(K)}\}\) are also iid and have finite variance.
+
+We want to show
+
+\[
+\frac{S_n}{n}\xrightarrow{L^1}\mu,
+\]
+
+that is,
+
+\[
+E\left|
+\frac{S_n}{n}-\mu
+\right|
+\longrightarrow0.
+\]
+
+Insert and subtract the truncated averages:
+
+\[
+\begin{aligned}
+E\left|
+\frac{S_n}{n}-\mu
+\right|
+&=
+E\left|
+\frac{S_n}{n}
+-
+\frac1n\sum_{i=1}^nX_i^{(K)}
++
+\frac1n\sum_{i=1}^nX_i^{(K)}
+-
+\mu_K
++
+\mu_K-\mu
+\right|   \\
+&\le
+A+B+C,
+\end{aligned}
+\]
+
+where
+
+\[
+A=
+E\left|
+\frac1n\sum_{i=1}^nX_i^{(K)}
+-
+\mu_K
+\right|,
+\]
+
+\[
+B=
+E\left|
+\frac{S_n}{n}
+-
+\frac1n\sum_{i=1}^nX_i^{(K)}
+\right|,
+\]
+
+and
+
+\[
+C=
+|\mu_K-\mu|.
+\]
+
+For \(A\), when \(K\) is fixed,
+
+\[
+\begin{aligned}
+E\left(
+\frac1n\sum_{i=1}^nX_i^{(K)}
+-
+\mu_K
+\right)^2
+&=
+\operatorname{Var}
+\left(
+\frac1n\sum_{i=1}^nX_i^{(K)}
+\right)     \\
+&=
+\frac1{n^2}
+\sum_{i=1}^n
+\operatorname{Var}(X_i^{(K)})     \\
+&=
+\frac{\operatorname{Var}(X_1^{(K)})}{n}
+\longrightarrow0.
+\end{aligned}
+\]
+
+Hence, by Cauchy--Schwarz,
+
+\[
+A
+\le
+\left(
+E
+\left(
+\frac1n\sum_{i=1}^nX_i^{(K)}
+-
+\mu_K
+\right)^2
+\right)^{1/2}
+\longrightarrow0.
+\]
+
+For \(B\),
+
+\[
+\begin{aligned}
+B
+&\le
+\frac1n
+\sum_{i=1}^n
+E\!\left(
+|X_i|
+1_{\{|X_i|>K\}}
+\right)  \\
+&=
+E\!\left(
+|X_1|
+1_{\{|X_1|>K\}}
+\right)
+\longrightarrow0,
+\qquad K\to\infty,
+\end{aligned}
+\]
+
+since \(E|X_1|<\infty\).
+
+For \(C\),
+
+\[
+\begin{aligned}
+C
+&=
+|\mu_K-\mu|      \\
+&=
+|E(X_1^{(K)}-X_1)|      \\
+&\le
+E\!\left(
+|X_1|
+1_{\{|X_1|>K\}}
+\right)
+\longrightarrow0,
+\qquad K\to\infty.
+\end{aligned}
+\]
+
+Finally, fix \(\varepsilon>0\).
+
+Choose \(K\) sufficiently large so that
+
+\[
+B+C<\frac{\varepsilon}{2}.
+\]
+
+For this fixed \(K\), choose \(n\) sufficiently large so that
+
+\[
+A<\frac{\varepsilon}{2}.
+\]
+
+Therefore,
+
+\[
+E\left|
+\frac{S_n}{n}-\mu
+\right|
+<
+\varepsilon.
+\]
+
+Hence,
+
+\[
+\boxed{
+\frac{S_n}{n}
+\xrightarrow{L^1}
+\mu.
+}
+
+### Ex 9
+
+::: problem
+Suppose \(\{X_n\}\) are iid, \(E|X_1|<\infty\), \(EX_1=0\) and suppose that \(\{c_n\}\) is a bounded sequence of real numbers. Prove
+
+\[
+\frac1n\sum_{i=1}^n c_iX_i\to0
+\qquad\text{a.s.}
+\]
+
+(If necessary, examine the proof of the SLLN.)
+:::
+
+$\textbf{Answer:}$
+
+Let
+
+\[
+Y_n=c_nX_n.
+\]
+
+Then \(\{Y_n\}\) are independent,
+
+\[
+E|Y_n|<\infty,
+\]
+
+and
+
+\[
+E(Y_n)=c_nE(X_n)=0.
+\]
+
+Let
+
+\[
+C=\sup_n|c_n|<\infty.
+\]
+
+If \(C=0\), then \(c_n=0\) for every \(n\), and the result is trivial. Suppose \(C>0\).
+
+Define
+
+\[
+Y_n'
+=
+Y_n1_{\{|X_n|\le n/C\}}
+=
+c_nX_n1_{\{|X_n|\le n/C\}}.
+\]
+
+We first show that \(\{Y_n\}\) and \(\{Y_n'\}\) are tail equivalent. Since
+
+\[
+\{Y_n\ne Y_n'\}
+\subseteq
+\left\{|X_n|>\frac nC\right\},
+\]
+
+we have
+
+\[
+\sum_{n=1}^{\infty}P(Y_n\ne Y_n')
+\le
+\sum_{n=1}^{\infty}
+P\left(|X_n|>\frac nC\right).
+\]
+
+Since the \(X_n\)'s are identically distributed and \(E|X_1|<\infty\),
+
+\[
+\sum_{n=1}^{\infty}
+P\left(|X_n|>\frac nC\right)
+=
+\sum_{n=1}^{\infty}
+P\left(|X_1|>\frac nC\right)
+<
+\infty.
+\]
+
+Therefore, by Borel--Cantelli,
+
+\[
+P(Y_n\ne Y_n'\text{ i.o.})=0.
+\]
+
+Thus, \(\{Y_n\}\) and \(\{Y_n'\}\) are tail equivalent.
+
+We next investigate
+
+\[
+\sum_{n=1}^{\infty}
+\operatorname{Var}\left(\frac{Y_n'}n\right).
+\]
+
+Since
+
+\[
+\operatorname{Var}(Y_n')
+\le
+E\left[(Y_n')^2\right],
+\]
+
+we have
+
+\[
+\begin{aligned}
+\sum_{n=1}^{\infty}
+\operatorname{Var}\left(\frac{Y_n'}n\right)
+&\le
+\sum_{n=1}^{\infty}
+\frac1{n^2}E\left[(Y_n')^2\right] \\
+&=
+\sum_{n=1}^{\infty}
+\frac1{n^2}
+E\left[
+c_n^2X_n^2
+1_{\{|X_n|\le n/C\}}
+\right] \\
+&\le
+C^2
+\sum_{n=1}^{\infty}
+\frac1{n^2}
+E\left[
+X_1^2
+1_{\{|X_1|\le n/C\}}
+\right].
+\end{aligned}
+\]
+
+By Tonelli's theorem,
+
+\[
+\begin{aligned}
+\sum_{n=1}^{\infty}
+\frac1{n^2}
+E\left[
+X_1^2
+1_{\{|X_1|\le n/C\}}
+\right]
+&=
+E\left[
+X_1^2
+\sum_{n\ge C|X_1|}
+\frac1{n^2}
+\right].
+\end{aligned}
+\]
+
+For some finite constant \(K_C\),
+
+\[
+\sum_{n\ge Cx}\frac1{n^2}
+\le
+\frac{K_C}{1+x},
+\qquad x\ge0.
+\]
+
+Hence,
+
+\[
+X_1^2
+\sum_{n\ge C|X_1|}
+\frac1{n^2}
+\le
+K_C\frac{X_1^2}{1+|X_1|}
+\le
+K_C|X_1|.
+\]
+
+Since \(E|X_1|<\infty\),
+
+\[
+\sum_{n=1}^{\infty}
+\operatorname{Var}\left(\frac{Y_n'}n\right)
+<
+\infty.
+\]
+
+Therefore, by the Kolmogorov convergence criterion,
+
+\[
+\sum_{n=1}^{\infty}
+\frac{Y_n'-E(Y_n')}{n}
+\]
+
+converges almost surely. By Kronecker's lemma,
+
+\[
+\frac1n
+\sum_{i=1}^n
+\left(Y_i'-E(Y_i')\right)
+\to0
+\qquad\text{a.s.}
+\]
+
+It remains to investigate the centering term. Since \(E(X_n)=0\),
+
+\[
+\begin{aligned}
+E(Y_n')
+&=
+c_nE\left[
+X_n1_{\{|X_n|\le n/C\}}
+\right] \\
+&=
+-c_nE\left[
+X_n1_{\{|X_n|>n/C\}}
+\right].
+\end{aligned}
+\]
+
+Therefore,
+
+\[
+|E(Y_n')|
+\le
+C\,E\left[
+|X_1|1_{\{|X_1|>n/C\}}
+\right]
+\to0.
+\]
+
+By Cesàro's lemma,
+
+\[
+\frac1n\sum_{i=1}^nE(Y_i')\to0.
+\]
+
+Consequently,
+
+\[
+\frac1n\sum_{i=1}^nY_i'
+\to0
+\qquad\text{a.s.}
+\]
+
+Finally, since \(\{Y_n\}\) and \(\{Y_n'\}\) are tail equivalent, with probability one they differ in only finitely many places. Hence,
+
+\[
+\frac1n\sum_{i=1}^n(Y_i-Y_i')
+\to0
+\qquad\text{a.s.}
+\]
+
+Therefore,
+
+\[
+\frac1n\sum_{i=1}^nc_iX_i
+=
+\frac1n\sum_{i=1}^nY_i
+\to0
+\qquad\text{a.s.}
+\]
