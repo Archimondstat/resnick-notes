@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chap 7, Laws of Large Numbers and Sums of Independent Random Variables | Notes on A Probability Path (Resnick)</title>
   <meta name="description" content="Chap 7, Laws of Large Numbers and Sums of Independent Random Variables | Notes on A Probability Path (Resnick)" />
-  <meta name="generator" content="bookdown 0.46 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.42 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chap 7, Laws of Large Numbers and Sums of Independent Random Variables | Notes on A Probability Path (Resnick)" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="Zhanwen Peng" />
 
 
-<meta name="date" content="2026-07-19" />
+<meta name="date" content="2026-07-20" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -494,7 +494,11 @@
 <li class="chapter" data-level="" data-path="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html"><a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#ex-32-3"><i class="fa fa-check"></i>Ex 32</a></li>
 <li class="chapter" data-level="" data-path="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html"><a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#ex-40-1"><i class="fa fa-check"></i>Ex 40</a></li>
 <li class="chapter" data-level="" data-path="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html"><a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#ex-8-2"><i class="fa fa-check"></i>Ex 8</a></li>
-<li class="chapter" data-level="" data-path="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html"><a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#ex-9-2"><i class="fa fa-check"></i>Ex 9</a></li>
+<li class="chapter" data-level="" data-path="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html"><a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#ex-10-3"><i class="fa fa-check"></i>Ex 10</a>
+<ul>
+<li class="chapter" data-level="" data-path="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html"><a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#a-32"><i class="fa fa-check"></i>(a)</a></li>
+<li class="chapter" data-level="" data-path="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html"><a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#b-32"><i class="fa fa-check"></i>(b)</a></li>
+</ul></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -5110,11 +5114,14 @@ E\left|
 \varepsilon.
 \]</span></p>
 <p>Hence,</p>
-<p>[
-</p>
-</div>
-<div id="ex-9-2" class="section level3 hasAnchor">
-<h3>Ex 9<a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#ex-9-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><span class="math display">\[
+\boxed{
+\frac{S_n}{n}
+\xrightarrow{L^1}
+\mu.
+}
+\]</span>
+### Ex 9</p>
 <div class="problem">
 <p>Suppose <span class="math inline">\(\{X_n\}\)</span> are iid, <span class="math inline">\(E|X_1|&lt;\infty\)</span>, <span class="math inline">\(EX_1=0\)</span> and suppose that <span class="math inline">\(\{c_n\}\)</span> is a bounded sequence of real numbers. Prove</p>
 <p><span class="math display">\[
@@ -5314,7 +5321,238 @@ C\,E\left[
 \to0
 \qquad\text{a.s.}
 \]</span></p>
+</div>
+<div id="ex-10-3" class="section level3 hasAnchor">
+<h3>Ex 10<a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#ex-10-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="problem">
+<ol style="list-style-type: lower-alpha">
+<li>Suppose that <span class="math inline">\(\{X_n\}\)</span> are <span class="math inline">\(m\)</span>-dependent in the sense that random variables more than <span class="math inline">\(m\)</span> apart in the sequence are independent. More precisely, let</li>
+</ol>
+<p><span class="math display">\[
+\mathcal B_j^k=\mathcal B(X_j,\ldots,X_k),
+\]</span></p>
+<p>and assume that <span class="math inline">\(\mathcal B_{j_1}^{k_1},\ldots,\mathcal B_{j_l}^{k_l}\)</span> are independent if <span class="math inline">\(k_{i-1}+m&lt;j_i\)</span> for <span class="math inline">\(i=2,\ldots,l\)</span>. (Independent random variables are <span class="math inline">\(0\)</span>-dependent.) Suppose that the <span class="math inline">\(\{X_n\}\)</span> have this property and are uniformly bounded and that <span class="math inline">\(EX_n=0\)</span>. Show that <span class="math inline">\(n^{-1}S_n\to0\)</span> a.s.</p>
+<p>Hint: Consider the subsequences <span class="math inline">\(X_i,X_{i+m+1},X_{i+2(m+1)},\ldots\)</span> for <span class="math inline">\(1\le i\le m+1\)</span>.</p>
+<ol start="2" style="list-style-type: lower-alpha">
+<li>Suppose that <span class="math inline">\(\{X_n\}\)</span> are iid and each <span class="math inline">\(X_i\)</span> has finite range <span class="math inline">\(x_1,\ldots,x_l\)</span> and</li>
+</ol>
+<p><span class="math display">\[
+P[X_1=x_i]=p(x_i),
+\qquad
+i=1,\ldots,l.
+\]</span></p>
+<p>For <span class="math inline">\(u_1,\ldots,u_k\)</span>, a <span class="math inline">\(k\)</span>-tuple of the <span class="math inline">\(x_i\)</span>’s, let <span class="math inline">\(N_n(u_1,\ldots,u_k)\)</span> be the frequency of the <span class="math inline">\(k\)</span>-tuple in the first <span class="math inline">\(n+k-1\)</span> trials; that is, the number of <span class="math inline">\(m\)</span> such that <span class="math inline">\(1\le m\le n\)</span> and</p>
+<p><span class="math display">\[
+X_m=u_1,\ldots,X_{m+k-1}=u_k.
+\]</span></p>
+<p>Show that with probability <span class="math inline">\(1\)</span>, all asymptotic relative frequencies are what they should be—that is, with probability <span class="math inline">\(1\)</span>,</p>
+<p><span class="math display">\[
+n^{-1}N_n(u_1,\ldots,u_k)
+\to
+p(u_1)\cdots p(u_k)
+\]</span></p>
+<p>for every <span class="math inline">\(k\)</span> and every <span class="math inline">\(k\)</span>-tuple <span class="math inline">\(u_1,\ldots,u_k\)</span>.</p>
+</div>
+<p><span class="math inline">\(\textbf{Answer:}\)</span></p>
+<div id="a-32" class="section level4 hasAnchor">
+<h4>(a)<a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#a-32" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Since <span class="math inline">\(\{X_n\}\)</span> are uniformly bounded, there exists <span class="math inline">\(M&lt;\infty\)</span> such that</p>
+<p><span class="math display">\[
+\sup_n\operatorname{Var}(X_n)\le M.
+\]</span></p>
+<p>For each <span class="math inline">\(i=1,\ldots,m+1\)</span>, consider the subsequence</p>
+<p><span class="math display">\[
+Z_{i,r}
+=
+X_{i+(r-1)(m+1)},
+\qquad
+r\ge1.
+\]</span></p>
+<p>Any two variables in this subsequence are more than <span class="math inline">\(m\)</span> positions apart. Therefore, for each fixed <span class="math inline">\(i\)</span>, the sequence <span class="math inline">\(\{Z_{i,r}\}_{r\ge1}\)</span> is independent.</p>
+<p>Also,</p>
+<p><span class="math display">\[
+E(Z_{i,r})=0,
+\]</span></p>
+<p>and</p>
+<p><span class="math display">\[
+\sum_{r=1}^{\infty}
+\operatorname{Var}\left(\frac{Z_{i,r}}r\right)
+=
+\sum_{r=1}^{\infty}
+\frac{\operatorname{Var}(Z_{i,r})}{r^2}
+\le
+M\sum_{r=1}^{\infty}\frac1{r^2}
+&lt;
+\infty.
+\]</span></p>
+<p>By the Kolmogorov convergence criterion,</p>
+<p><span class="math display">\[
+\sum_{r=1}^{\infty}\frac{Z_{i,r}}r
+\]</span></p>
+<p>converges almost surely. Hence, by Kronecker’s lemma,</p>
+<p><span class="math display">\[
+\frac1q\sum_{r=1}^qZ_{i,r}
+\to0
+\qquad\text{a.s.}
+\]</span></p>
+<p>For each <span class="math inline">\(n\)</span>, let</p>
+<p><span class="math display">\[
+N_i(n)
+=
+\#\left\{
+r\ge1:
+i+(r-1)(m+1)\le n
+\right\},
+\]</span></p>
+<p>and define</p>
+<p><span class="math display">\[
+S_i(n)
+=
+\sum_{r=1}^{N_i(n)}Z_{i,r}.
+\]</span></p>
+<p>Notice that</p>
+<p><span class="math display">\[
+\frac{N_i(n)}n\to\frac1{m+1}.
+\]</span></p>
+<p>Also, since <span class="math inline">\(N_i(n)\to\infty\)</span>,</p>
+<p><span class="math display">\[
+\frac{S_i(n)}{N_i(n)}
+\to0
+\qquad\text{a.s.}
+\]</span></p>
+<p>Therefore,</p>
+<p><span class="math display">\[
+\frac{S_i(n)}n
+=
+\frac{N_i(n)}n
+\frac{S_i(n)}{N_i(n)}
+\to
+\frac1{m+1}\cdot0
+=
+0
+\qquad\text{a.s.}
+\]</span></p>
+<p>The <span class="math inline">\(m+1\)</span> subsequences partition <span class="math inline">\(X_1,\ldots,X_n\)</span>, so</p>
+<p><span class="math display">\[
+S_n
+=
+\sum_{i=1}^{m+1}S_i(n).
+\]</span></p>
+<p>Thus,</p>
+<p><span class="math display">\[
+\left|\frac{S_n}{n}\right|
+\le
+\sum_{i=1}^{m+1}
+\left|\frac{S_i(n)}n\right|
+\to0
+\qquad\text{a.s.}
+\]</span></p>
+<p>Hence,</p>
+<p><span class="math display">\[
+\frac{S_n}{n}\to0
+\qquad\text{a.s.}
+\]</span></p>
+</div>
+<div id="b-32" class="section level4 hasAnchor">
+<h4>(b)<a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#b-32" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Fix <span class="math inline">\(k\ge1\)</span> and a <span class="math inline">\(k\)</span>-tuple <span class="math inline">\((u_1,\ldots,u_k)\)</span>. Define</p>
+<p><span class="math display">\[
+Y_m
+=
+1_{\{X_m=u_1,\ldots,X_{m+k-1}=u_k\}},
+\qquad
+m\ge1.
+\]</span></p>
+<p>Then</p>
+<p><span class="math display">\[
+N_n(u_1,\ldots,u_k)
+=
+\sum_{m=1}^nY_m.
+\]</span></p>
+<p>By independence of the <span class="math inline">\(X_i\)</span>’s,</p>
+<p><span class="math display">\[
+\begin{aligned}
+E(Y_m)
+&amp;=
+P(X_m=u_1,\ldots,X_{m+k-1}=u_k)\\
+&amp;=
+p(u_1)\cdots p(u_k).
+\end{aligned}
+\]</span></p>
+<p>The variable <span class="math inline">\(Y_m\)</span> depends only on</p>
+<p><span class="math display">\[
+X_m,\ldots,X_{m+k-1}.
+\]</span></p>
+<p>Therefore, <span class="math inline">\(Y_m\)</span> and <span class="math inline">\(Y_j\)</span> are independent whenever</p>
+<p><span class="math display">\[
+|j-m|\ge k.
+\]</span></p>
+<p>Thus, the sequence <span class="math inline">\(\{Y_m\}\)</span> is <span class="math inline">\((k-1)\)</span>-dependent. Since <span class="math inline">\(0\le Y_m\le1\)</span>, the centered sequence</p>
+<p><span class="math display">\[
+Y_m-E(Y_m)
+\]</span></p>
+<p>is uniformly bounded, has mean zero, and is <span class="math inline">\((k-1)\)</span>-dependent.</p>
+<p>By part (a),</p>
+<p><span class="math display">\[
+\frac1n
+\sum_{m=1}^n
+\left(Y_m-E(Y_m)\right)
+\to0
+\qquad\text{a.s.}
+\]</span></p>
+<p>Since <span class="math inline">\(E(Y_m)=p(u_1)\cdots p(u_k)\)</span>,</p>
+<p><span class="math display">\[
+\frac{N_n(u_1,\ldots,u_k)}n
+-
+p(u_1)\cdots p(u_k)
+\to0
+\qquad\text{a.s.}
+\]</span></p>
+<p>Therefore, for every fixed <span class="math inline">\(k\)</span> and every fixed <span class="math inline">\(k\)</span>-tuple,</p>
+<p><span class="math display">\[
+\frac{N_n(u_1,\ldots,u_k)}n
+\to
+p(u_1)\cdots p(u_k)
+\qquad\text{a.s.}
+\]</span></p>
+<p>For each <span class="math inline">\(k\)</span> and each <span class="math inline">\(k\)</span>-tuple <span class="math inline">\(\mathbf u=(u_1,\ldots,u_k)\)</span>, let</p>
+<p><span class="math display">\[
+A_{k,\mathbf u}
+=
+\left\{
+\frac{N_n(u_1,\ldots,u_k)}n
+\to
+p(u_1)\cdots p(u_k)
+\right\}.
+\]</span></p>
+<p>We have</p>
+<p><span class="math display">\[
+P(A_{k,\mathbf u})=1.
+\]</span></p>
+<p>Since the range <span class="math inline">\(\{x_1,\ldots,x_l\}\)</span> is finite, the collection</p>
+<p><span class="math display">\[
+\bigcup_{k=1}^{\infty}
+\{x_1,\ldots,x_l\}^k
+\]</span></p>
+<p>of all finite tuples is countable. Hence,</p>
+<p><span class="math display">\[
+P\left(
+\bigcap_{k=1}^{\infty}
+\ \bigcap_{\mathbf u\in\{x_1,\ldots,x_l\}^k}
+A_{k,\mathbf u}
+\right)
+=
+1.
+\]</span></p>
+<p>Thus, with probability <span class="math inline">\(1\)</span>,</p>
+<p><span class="math display">\[
+\frac{N_n(u_1,\ldots,u_k)}n
+\to
+p(u_1)\cdots p(u_k)
+\]</span></p>
+<p>for every <span class="math inline">\(k\)</span> and every <span class="math inline">\(k\)</span>-tuple <span class="math inline">\(u_1,\ldots,u_k\)</span>.</p>
 
+</div>
 </div>
 </div>
 </div>

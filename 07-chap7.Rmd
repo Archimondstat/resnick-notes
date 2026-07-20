@@ -5947,7 +5947,7 @@ Hence,
 \xrightarrow{L^1}
 \mu.
 }
-
+\]
 ### Ex 9
 
 ::: problem
@@ -6202,3 +6202,298 @@ Therefore,
 \to0
 \qquad\text{a.s.}
 \]
+
+### Ex 10
+
+::: problem
+(a) Suppose that \(\{X_n\}\) are \(m\)-dependent in the sense that random variables more than \(m\) apart in the sequence are independent. More precisely, let
+
+\[
+\mathcal B_j^k=\mathcal B(X_j,\ldots,X_k),
+\]
+
+and assume that \(\mathcal B_{j_1}^{k_1},\ldots,\mathcal B_{j_l}^{k_l}\) are independent if \(k_{i-1}+m<j_i\) for \(i=2,\ldots,l\). (Independent random variables are \(0\)-dependent.) Suppose that the \(\{X_n\}\) have this property and are uniformly bounded and that \(EX_n=0\). Show that \(n^{-1}S_n\to0\) a.s.
+
+Hint: Consider the subsequences \(X_i,X_{i+m+1},X_{i+2(m+1)},\ldots\) for \(1\le i\le m+1\).
+
+(b) Suppose that \(\{X_n\}\) are iid and each \(X_i\) has finite range \(x_1,\ldots,x_l\) and
+
+\[
+P[X_1=x_i]=p(x_i),
+\qquad
+i=1,\ldots,l.
+\]
+
+For \(u_1,\ldots,u_k\), a \(k\)-tuple of the \(x_i\)'s, let \(N_n(u_1,\ldots,u_k)\) be the frequency of the \(k\)-tuple in the first \(n+k-1\) trials; that is, the number of \(m\) such that \(1\le m\le n\) and
+
+\[
+X_m=u_1,\ldots,X_{m+k-1}=u_k.
+\]
+
+Show that with probability \(1\), all asymptotic relative frequencies are what they should be—that is, with probability \(1\),
+
+\[
+n^{-1}N_n(u_1,\ldots,u_k)
+\to
+p(u_1)\cdots p(u_k)
+\]
+
+for every \(k\) and every \(k\)-tuple \(u_1,\ldots,u_k\).
+:::
+
+$\textbf{Answer:}$
+
+#### (a)
+
+Since \(\{X_n\}\) are uniformly bounded, there exists \(M<\infty\) such that
+
+\[
+\sup_n\operatorname{Var}(X_n)\le M.
+\]
+
+For each \(i=1,\ldots,m+1\), consider the subsequence
+
+\[
+Z_{i,r}
+=
+X_{i+(r-1)(m+1)},
+\qquad
+r\ge1.
+\]
+
+Any two variables in this subsequence are more than \(m\) positions apart. Therefore, for each fixed \(i\), the sequence \(\{Z_{i,r}\}_{r\ge1}\) is independent.
+
+Also,
+
+\[
+E(Z_{i,r})=0,
+\]
+
+and
+
+\[
+\sum_{r=1}^{\infty}
+\operatorname{Var}\left(\frac{Z_{i,r}}r\right)
+=
+\sum_{r=1}^{\infty}
+\frac{\operatorname{Var}(Z_{i,r})}{r^2}
+\le
+M\sum_{r=1}^{\infty}\frac1{r^2}
+<
+\infty.
+\]
+
+By the Kolmogorov convergence criterion,
+
+\[
+\sum_{r=1}^{\infty}\frac{Z_{i,r}}r
+\]
+
+converges almost surely. Hence, by Kronecker's lemma,
+
+\[
+\frac1q\sum_{r=1}^qZ_{i,r}
+\to0
+\qquad\text{a.s.}
+\]
+
+For each \(n\), let
+
+\[
+N_i(n)
+=
+\#\left\{
+r\ge1:
+i+(r-1)(m+1)\le n
+\right\},
+\]
+
+and define
+
+\[
+S_i(n)
+=
+\sum_{r=1}^{N_i(n)}Z_{i,r}.
+\]
+
+Notice that
+
+\[
+\frac{N_i(n)}n\to\frac1{m+1}.
+\]
+
+Also, since \(N_i(n)\to\infty\),
+
+\[
+\frac{S_i(n)}{N_i(n)}
+\to0
+\qquad\text{a.s.}
+\]
+
+Therefore,
+
+\[
+\frac{S_i(n)}n
+=
+\frac{N_i(n)}n
+\frac{S_i(n)}{N_i(n)}
+\to
+\frac1{m+1}\cdot0
+=
+0
+\qquad\text{a.s.}
+\]
+
+The \(m+1\) subsequences partition \(X_1,\ldots,X_n\), so
+
+\[
+S_n
+=
+\sum_{i=1}^{m+1}S_i(n).
+\]
+
+Thus,
+
+\[
+\left|\frac{S_n}{n}\right|
+\le
+\sum_{i=1}^{m+1}
+\left|\frac{S_i(n)}n\right|
+\to0
+\qquad\text{a.s.}
+\]
+
+Hence,
+
+\[
+\frac{S_n}{n}\to0
+\qquad\text{a.s.}
+\]
+
+#### (b)
+
+Fix \(k\ge1\) and a \(k\)-tuple \((u_1,\ldots,u_k)\). Define
+
+\[
+Y_m
+=
+1_{\{X_m=u_1,\ldots,X_{m+k-1}=u_k\}},
+\qquad
+m\ge1.
+\]
+
+Then
+
+\[
+N_n(u_1,\ldots,u_k)
+=
+\sum_{m=1}^nY_m.
+\]
+
+By independence of the \(X_i\)'s,
+
+\[
+\begin{aligned}
+E(Y_m)
+&=
+P(X_m=u_1,\ldots,X_{m+k-1}=u_k)\\
+&=
+p(u_1)\cdots p(u_k).
+\end{aligned}
+\]
+
+The variable \(Y_m\) depends only on
+
+\[
+X_m,\ldots,X_{m+k-1}.
+\]
+
+Therefore, \(Y_m\) and \(Y_j\) are independent whenever
+
+\[
+|j-m|\ge k.
+\]
+
+Thus, the sequence \(\{Y_m\}\) is \((k-1)\)-dependent. Since \(0\le Y_m\le1\), the centered sequence
+
+\[
+Y_m-E(Y_m)
+\]
+
+is uniformly bounded, has mean zero, and is \((k-1)\)-dependent.
+
+By part (a),
+
+\[
+\frac1n
+\sum_{m=1}^n
+\left(Y_m-E(Y_m)\right)
+\to0
+\qquad\text{a.s.}
+\]
+
+Since \(E(Y_m)=p(u_1)\cdots p(u_k)\),
+
+\[
+\frac{N_n(u_1,\ldots,u_k)}n
+-
+p(u_1)\cdots p(u_k)
+\to0
+\qquad\text{a.s.}
+\]
+
+Therefore, for every fixed \(k\) and every fixed \(k\)-tuple,
+
+\[
+\frac{N_n(u_1,\ldots,u_k)}n
+\to
+p(u_1)\cdots p(u_k)
+\qquad\text{a.s.}
+\]
+
+For each \(k\) and each \(k\)-tuple \(\mathbf u=(u_1,\ldots,u_k)\), let
+
+\[
+A_{k,\mathbf u}
+=
+\left\{
+\frac{N_n(u_1,\ldots,u_k)}n
+\to
+p(u_1)\cdots p(u_k)
+\right\}.
+\]
+
+We have
+
+\[
+P(A_{k,\mathbf u})=1.
+\]
+
+Since the range \(\{x_1,\ldots,x_l\}\) is finite, the collection
+
+\[
+\bigcup_{k=1}^{\infty}
+\{x_1,\ldots,x_l\}^k
+\]
+
+of all finite tuples is countable. Hence,
+
+\[
+P\left(
+\bigcap_{k=1}^{\infty}
+\ \bigcap_{\mathbf u\in\{x_1,\ldots,x_l\}^k}
+A_{k,\mathbf u}
+\right)
+=
+1.
+\]
+
+Thus, with probability \(1\),
+
+\[
+\frac{N_n(u_1,\ldots,u_k)}n
+\to
+p(u_1)\cdots p(u_k)
+\]
+
+for every \(k\) and every \(k\)-tuple \(u_1,\ldots,u_k\).
