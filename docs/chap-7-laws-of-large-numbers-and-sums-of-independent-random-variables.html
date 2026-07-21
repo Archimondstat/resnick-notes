@@ -23,7 +23,7 @@
 <meta name="author" content="Zhanwen Peng" />
 
 
-<meta name="date" content="2026-07-20" />
+<meta name="date" content="2026-07-21" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -499,6 +499,7 @@
 <li class="chapter" data-level="" data-path="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html"><a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#a-32"><i class="fa fa-check"></i>(a)</a></li>
 <li class="chapter" data-level="" data-path="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html"><a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#b-32"><i class="fa fa-check"></i>(b)</a></li>
 </ul></li>
+<li class="chapter" data-level="" data-path="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html"><a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#ex-12-4"><i class="fa fa-check"></i>Ex 12</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -5551,8 +5552,127 @@ A_{k,\mathbf u}
 p(u_1)\cdots p(u_k)
 \]</span></p>
 <p>for every <span class="math inline">\(k\)</span> and every <span class="math inline">\(k\)</span>-tuple <span class="math inline">\(u_1,\ldots,u_k\)</span>.</p>
-
 </div>
+</div>
+<div id="ex-12-4" class="section level3 hasAnchor">
+<h3>Ex 12<a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#ex-12-4" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="problem">
+<p>Suppose <span class="math inline">\(\{X_n\}\)</span> is defined iteratively in the following way: Let <span class="math inline">\(X_0\)</span> have a uniform distribution on <span class="math inline">\([0,1]\)</span> and for <span class="math inline">\(n\ge1\)</span>, <span class="math inline">\(X_{n+1}\)</span> has a uniform distribution on <span class="math inline">\([0,X_n]\)</span>. Show that</p>
+<p><span class="math display">\[
+\frac1n\log X_n
+\]</span></p>
+<p>converges a.s. and find the almost sure limit.</p>
+</div>
+<p><span class="math inline">\(\textbf{Answer:}\)</span></p>
+<p>Firstly, we can investigate the expectation of <span class="math inline">\(\log X_n\)</span>.</p>
+<p>Since <span class="math inline">\(X_0\)</span> is uniform on <span class="math inline">\([0,1]\)</span>,</p>
+<p><span class="math display">\[
+E(\log X_0)
+=
+\int_0^1\log x\,dx
+=
+-1.
+\]</span></p>
+<p>The calculations suggest that</p>
+<p><span class="math display">\[
+E(\log X_n)=-(n+1),
+\]</span></p>
+<p>and hence</p>
+<p><span class="math display">\[
+E\left(\frac{\log X_n}{n}\right)
+=
+-\frac{n+1}{n}
+\to-1.
+\]</span></p>
+<p>Therefore, we guess that</p>
+<p><span class="math display">\[
+\frac{\log X_n}{n}\to-1
+\qquad\text{a.s.}
+\]</span></p>
+<p>To prove this, define</p>
+<p><span class="math display">\[
+U_i=\frac{X_i}{X_{i-1}},
+\qquad i\ge1.
+\]</span></p>
+<p>Since <span class="math inline">\(X_i\)</span>, conditional on <span class="math inline">\(X_{i-1}=x\)</span>, is uniform on <span class="math inline">\([0,x]\)</span>, for <span class="math inline">\(0\le u\le1\)</span>,</p>
+<p><span class="math display">\[
+\begin{aligned}
+P(U_i\le u\mid X_0,\ldots,X_{i-1})
+&amp;=
+P\left(
+X_i\le uX_{i-1}
+\mid X_0,\ldots,X_{i-1}
+\right)\\
+&amp;=
+u.
+\end{aligned}
+\]</span></p>
+<p>Thus, the conditional distribution of <span class="math inline">\(U_i\)</span> is uniform on <span class="math inline">\([0,1]\)</span> and does not depend on the past. Therefore, <span class="math inline">\(\{U_i\}\)</span> are iid uniform random variables on <span class="math inline">\([0,1]\)</span>.</p>
+<p>Now,</p>
+<p><span class="math display">\[
+X_n
+=
+\frac{X_n}{X_{n-1}}
+\frac{X_{n-1}}{X_{n-2}}
+\cdots
+\frac{X_1}{X_0}X_0
+=
+X_0\prod_{i=1}^nU_i.
+\]</span></p>
+<p>Taking logarithms,</p>
+<p><span class="math display">\[
+\log X_n
+=
+\log X_0+\sum_{i=1}^n\log U_i.
+\]</span></p>
+<p>Therefore,</p>
+<p><span class="math display">\[
+\frac{\log X_n}{n}
+=
+\frac{\log X_0}{n}
++
+\frac1n\sum_{i=1}^n\log U_i.
+\]</span></p>
+<p>Since <span class="math inline">\(X_0&gt;0\)</span> almost surely,</p>
+<p><span class="math display">\[
+\frac{\log X_0}{n}\to0
+\qquad\text{a.s.}
+\]</span></p>
+<p>Also,</p>
+<p><span class="math display">\[
+E|\log U_1|
+=
+\int_0^1|\log u|\,du
+=
+1
+&lt;
+\infty,
+\]</span></p>
+<p>and</p>
+<p><span class="math display">\[
+E(\log U_1)
+=
+\int_0^1\log u\,du
+=
+-1.
+\]</span></p>
+<p>Hence, by the SLLN,</p>
+<p><span class="math display">\[
+\frac1n\sum_{i=1}^n\log U_i
+\to
+E(\log U_1)
+=
+-1
+\qquad\text{a.s.}
+\]</span></p>
+<p>Consequently,</p>
+<p><span class="math display">\[
+\boxed{
+\frac{\log X_n}{n}\to-1
+\qquad\text{a.s.}
+}
+\]</span></p>
+
 </div>
 </div>
 </div>

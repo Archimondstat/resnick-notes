@@ -6497,3 +6497,155 @@ p(u_1)\cdots p(u_k)
 \]
 
 for every \(k\) and every \(k\)-tuple \(u_1,\ldots,u_k\).
+
+### Ex 12
+
+::: problem
+Suppose \(\{X_n\}\) is defined iteratively in the following way: Let \(X_0\) have a uniform distribution on \([0,1]\) and for \(n\ge1\), \(X_{n+1}\) has a uniform distribution on \([0,X_n]\). Show that
+
+\[
+\frac1n\log X_n
+\]
+
+converges a.s. and find the almost sure limit.
+:::
+
+$\textbf{Answer:}$
+
+Firstly, we can investigate the expectation of \(\log X_n\).
+
+Since \(X_0\) is uniform on \([0,1]\),
+
+\[
+E(\log X_0)
+=
+\int_0^1\log x\,dx
+=
+-1.
+\]
+
+The calculations suggest that
+
+\[
+E(\log X_n)=-(n+1),
+\]
+
+and hence
+
+\[
+E\left(\frac{\log X_n}{n}\right)
+=
+-\frac{n+1}{n}
+\to-1.
+\]
+
+Therefore, we guess that
+
+\[
+\frac{\log X_n}{n}\to-1
+\qquad\text{a.s.}
+\]
+
+To prove this, define
+
+\[
+U_i=\frac{X_i}{X_{i-1}},
+\qquad i\ge1.
+\]
+
+Since \(X_i\), conditional on \(X_{i-1}=x\), is uniform on \([0,x]\), for \(0\le u\le1\),
+
+\[
+\begin{aligned}
+P(U_i\le u\mid X_0,\ldots,X_{i-1})
+&=
+P\left(
+X_i\le uX_{i-1}
+\mid X_0,\ldots,X_{i-1}
+\right)\\
+&=
+u.
+\end{aligned}
+\]
+
+Thus, the conditional distribution of \(U_i\) is uniform on \([0,1]\) and does not depend on the past. Therefore, \(\{U_i\}\) are iid uniform random variables on \([0,1]\).
+
+Now,
+
+\[
+X_n
+=
+\frac{X_n}{X_{n-1}}
+\frac{X_{n-1}}{X_{n-2}}
+\cdots
+\frac{X_1}{X_0}X_0
+=
+X_0\prod_{i=1}^nU_i.
+\]
+
+Taking logarithms,
+
+\[
+\log X_n
+=
+\log X_0+\sum_{i=1}^n\log U_i.
+\]
+
+Therefore,
+
+\[
+\frac{\log X_n}{n}
+=
+\frac{\log X_0}{n}
++
+\frac1n\sum_{i=1}^n\log U_i.
+\]
+
+Since \(X_0>0\) almost surely,
+
+\[
+\frac{\log X_0}{n}\to0
+\qquad\text{a.s.}
+\]
+
+Also,
+
+\[
+E|\log U_1|
+=
+\int_0^1|\log u|\,du
+=
+1
+<
+\infty,
+\]
+
+and
+
+\[
+E(\log U_1)
+=
+\int_0^1\log u\,du
+=
+-1.
+\]
+
+Hence, by the SLLN,
+
+\[
+\frac1n\sum_{i=1}^n\log U_i
+\to
+E(\log U_1)
+=
+-1
+\qquad\text{a.s.}
+\]
+
+Consequently,
+
+\[
+\boxed{
+\frac{\log X_n}{n}\to-1
+\qquad\text{a.s.}
+}
+\]
