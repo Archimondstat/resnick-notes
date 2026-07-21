@@ -5948,6 +5948,7 @@ Hence,
 \mu.
 }
 \]
+
 ### Ex 9
 
 ::: problem
