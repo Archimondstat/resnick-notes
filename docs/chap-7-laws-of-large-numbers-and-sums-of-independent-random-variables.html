@@ -23,7 +23,7 @@
 <meta name="author" content="Zhanwen Peng" />
 
 
-<meta name="date" content="2026-07-21" />
+<meta name="date" content="2026-07-22" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -494,6 +494,7 @@
 <li class="chapter" data-level="" data-path="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html"><a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#ex-32-3"><i class="fa fa-check"></i>Ex 32</a></li>
 <li class="chapter" data-level="" data-path="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html"><a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#ex-40-1"><i class="fa fa-check"></i>Ex 40</a></li>
 <li class="chapter" data-level="" data-path="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html"><a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#ex-8-2"><i class="fa fa-check"></i>Ex 8</a></li>
+<li class="chapter" data-level="" data-path="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html"><a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#ex-8-3"><i class="fa fa-check"></i>Ex 8</a></li>
 <li class="chapter" data-level="" data-path="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html"><a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#ex-9-2"><i class="fa fa-check"></i>Ex 9</a></li>
 <li class="chapter" data-level="" data-path="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html"><a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#ex-10-3"><i class="fa fa-check"></i>Ex 10</a>
 <ul>
@@ -501,6 +502,7 @@
 <li class="chapter" data-level="" data-path="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html"><a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#b-32"><i class="fa fa-check"></i>(b)</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html"><a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#ex-12-4"><i class="fa fa-check"></i>Ex 12</a></li>
+<li class="chapter" data-level="" data-path="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html"><a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#ex-16-3"><i class="fa fa-check"></i>Ex 16</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -4956,8 +4958,19 @@ P(B_k(\varepsilon)\text{ i.o.})=0.
 </div>
 <div id="ex-8-2" class="section level3 hasAnchor">
 <h3>Ex 8<a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#ex-8-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+</div>
+<div id="ex-8-3" class="section level3 hasAnchor">
+<h3>Ex 8<a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#ex-8-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div class="problem">
-<p>[Insert the exact exercise statement from the book here.]</p>
+<p>The SLLN says that if <span class="math inline">\(\{X_n,n\ge1\}\)</span> are iid with <span class="math inline">\(E|X_1|&lt;\infty\)</span>, then</p>
+<p><span class="math display">\[
+\frac{S_n}{n}\xrightarrow{\mathrm{a.s.}}E(X_1).
+\]</span></p>
+<p>Show also that</p>
+<p><span class="math display">\[
+\frac{S_n}{n}\xrightarrow{L^1}E(X_1).
+\]</span></p>
+<p>(Think of uniform integrability.)</p>
 </div>
 <p><span class="math inline">\(\textbf{Answer:}\)</span></p>
 <p>Let</p>
@@ -5674,6 +5687,122 @@ E(\log U_1)
 \frac{\log X_n}{n}\to-1
 \qquad\text{a.s.}
 }
+\]</span></p>
+</div>
+<div id="ex-16-3" class="section level3 hasAnchor">
+<h3>Ex 16<a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#ex-16-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="problem">
+<p>If <span class="math inline">\(\{X_n\}\)</span> are iid with <span class="math inline">\(E|X_1|&lt;\infty\)</span> and <span class="math inline">\(EX_1\ne0\)</span>, show that</p>
+<p><span class="math display">\[
+\frac{\displaystyle\bigvee_{i=1}^n|X_i|}
+{\displaystyle\left|\sum_{i=1}^nX_i\right|}
+\longrightarrow0
+\qquad\text{a.s.}
+\]</span></p>
+</div>
+<p><span class="math inline">\(\textbf{Answer:}\)</span></p>
+<p>Let</p>
+<p><span class="math display">\[
+S_n=\sum_{i=1}^nX_i,
+\qquad
+M_n=\max_{1\le i\le n}|X_i|,
+\qquad
+\mu=E(X_1)\ne0.
+\]</span></p>
+<p>We have</p>
+<p><span class="math display">\[
+\frac{M_n}{|S_n|}
+=
+\frac{M_n}{n}\frac{n}{|S_n|}.
+\]</span></p>
+<p>By the SLLN,</p>
+<p><span class="math display">\[
+\frac{S_n}{n}\longrightarrow\mu
+\qquad\text{a.s.}
+\]</span></p>
+<p>Since <span class="math inline">\(\mu\ne0\)</span>,</p>
+<p><span class="math display">\[
+\frac{n}{|S_n|}
+=
+\frac1{|S_n/n|}
+\longrightarrow
+\frac1{|\mu|}
+\qquad\text{a.s.}
+\]</span></p>
+<p>Therefore, we only need to discuss</p>
+<p><span class="math display">\[
+\lim_{n\to\infty}\frac{M_n}{n}.
+\]</span></p>
+<p>For every <span class="math inline">\(\varepsilon&gt;0\)</span>, since <span class="math inline">\(E|X_1|&lt;\infty\)</span>,</p>
+<p><span class="math display">\[
+\sum_{n=1}^{\infty}
+P(|X_n|&gt;\varepsilon n)
+=
+\sum_{n=1}^{\infty}
+P(|X_1|&gt;\varepsilon n)
+&lt;
+\infty.
+\]</span></p>
+<p>By Borel–Cantelli,</p>
+<p><span class="math display">\[
+P(|X_n|&gt;\varepsilon n\text{ i.o.})=0.
+\]</span></p>
+<p>That is, with probability one, there exists <span class="math inline">\(N\)</span> such that for every <span class="math inline">\(i\ge N\)</span>,</p>
+<p><span class="math display">\[
+|X_i|\le i\varepsilon.
+\]</span></p>
+<p>Hence, for <span class="math inline">\(n\ge N\)</span>,</p>
+<p><span class="math display">\[
+|X_i|\le i\varepsilon\le n\varepsilon,
+\qquad
+N\le i\le n.
+\]</span></p>
+<p>Therefore,</p>
+<p><span class="math display">\[
+\begin{aligned}
+M_n
+&amp;=
+\max\left\{
+\max_{1\le i&lt;N}|X_i|,
+\max_{N\le i\le n}|X_i|
+\right\}\\
+&amp;\le
+\max\left\{
+\max_{1\le i&lt;N}|X_i|,
+n\varepsilon
+\right\}.
+\end{aligned}
+\]</span></p>
+<p>Since</p>
+<p><span class="math display">\[
+\max_{1\le i&lt;N}|X_i|
+\]</span></p>
+<p>is a finite random variable that does not depend on <span class="math inline">\(n\)</span>, we have</p>
+<p><span class="math display">\[
+\limsup_{n\to\infty}\frac{M_n}{n}
+\le\varepsilon
+\qquad\text{a.s.}
+\]</span></p>
+<p>Now take <span class="math inline">\(\varepsilon=1/r\)</span>, <span class="math inline">\(r\in\mathbb N\)</span>, and intersect the corresponding probability-one events. We obtain</p>
+<p><span class="math display">\[
+\limsup_{n\to\infty}\frac{M_n}{n}
+\le\frac1r
+\]</span></p>
+<p>for every <span class="math inline">\(r\ge1\)</span>, almost surely. Since <span class="math inline">\(M_n/n\ge0\)</span>,</p>
+<p><span class="math display">\[
+\frac{M_n}{n}\longrightarrow0
+\qquad\text{a.s.}
+\]</span></p>
+<p>Consequently,</p>
+<p><span class="math display">\[
+\frac{M_n}{|S_n|}
+=
+\frac{M_n}{n}\frac{n}{|S_n|}
+\longrightarrow
+0\cdot\frac1{|\mu|}
+=
+0
+\qquad\text{a.s.}
 \]</span></p>
 
 </div>

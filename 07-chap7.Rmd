@@ -5748,8 +5748,22 @@ Both terms converge to zero almost surely. Therefore,
 
 ### Ex 8
 
+### Ex 8
+
 ::: problem
-[Insert the exact exercise statement from the book here.]
+The SLLN says that if \(\{X_n,n\ge1\}\) are iid with \(E|X_1|<\infty\), then
+
+\[
+\frac{S_n}{n}\xrightarrow{\mathrm{a.s.}}E(X_1).
+\]
+
+Show also that
+
+\[
+\frac{S_n}{n}\xrightarrow{L^1}E(X_1).
+\]
+
+(Think of uniform integrability.)
 :::
 
 $\textbf{Answer:}$
@@ -6649,4 +6663,153 @@ Consequently,
 \frac{\log X_n}{n}\to-1
 \qquad\text{a.s.}
 }
+\]
+
+
+### Ex 16
+
+::: problem
+If \(\{X_n\}\) are iid with \(E|X_1|<\infty\) and \(EX_1\ne0\), show that
+
+\[
+\frac{\displaystyle\bigvee_{i=1}^n|X_i|}
+{\displaystyle\left|\sum_{i=1}^nX_i\right|}
+\longrightarrow0
+\qquad\text{a.s.}
+\]
+:::
+
+$\textbf{Answer:}$
+
+Let
+
+\[
+S_n=\sum_{i=1}^nX_i,
+\qquad
+M_n=\max_{1\le i\le n}|X_i|,
+\qquad
+\mu=E(X_1)\ne0.
+\]
+
+We have
+
+\[
+\frac{M_n}{|S_n|}
+=
+\frac{M_n}{n}\frac{n}{|S_n|}.
+\]
+
+By the SLLN,
+
+\[
+\frac{S_n}{n}\longrightarrow\mu
+\qquad\text{a.s.}
+\]
+
+Since \(\mu\ne0\),
+
+\[
+\frac{n}{|S_n|}
+=
+\frac1{|S_n/n|}
+\longrightarrow
+\frac1{|\mu|}
+\qquad\text{a.s.}
+\]
+
+Therefore, we only need to discuss
+
+\[
+\lim_{n\to\infty}\frac{M_n}{n}.
+\]
+
+For every \(\varepsilon>0\), since \(E|X_1|<\infty\),
+
+\[
+\sum_{n=1}^{\infty}
+P(|X_n|>\varepsilon n)
+=
+\sum_{n=1}^{\infty}
+P(|X_1|>\varepsilon n)
+<
+\infty.
+\]
+
+By Borel--Cantelli,
+
+\[
+P(|X_n|>\varepsilon n\text{ i.o.})=0.
+\]
+
+That is, with probability one, there exists \(N\) such that for every \(i\ge N\),
+
+\[
+|X_i|\le i\varepsilon.
+\]
+
+Hence, for \(n\ge N\),
+
+\[
+|X_i|\le i\varepsilon\le n\varepsilon,
+\qquad
+N\le i\le n.
+\]
+
+Therefore,
+
+\[
+\begin{aligned}
+M_n
+&=
+\max\left\{
+\max_{1\le i<N}|X_i|,
+\max_{N\le i\le n}|X_i|
+\right\}\\
+&\le
+\max\left\{
+\max_{1\le i<N}|X_i|,
+n\varepsilon
+\right\}.
+\end{aligned}
+\]
+
+Since
+
+\[
+\max_{1\le i<N}|X_i|
+\]
+
+is a finite random variable that does not depend on \(n\), we have
+
+\[
+\limsup_{n\to\infty}\frac{M_n}{n}
+\le\varepsilon
+\qquad\text{a.s.}
+\]
+
+Now take \(\varepsilon=1/r\), \(r\in\mathbb N\), and intersect the corresponding probability-one events. We obtain
+
+\[
+\limsup_{n\to\infty}\frac{M_n}{n}
+\le\frac1r
+\]
+
+for every \(r\ge1\), almost surely. Since \(M_n/n\ge0\),
+
+\[
+\frac{M_n}{n}\longrightarrow0
+\qquad\text{a.s.}
+\]
+
+Consequently,
+
+\[
+\frac{M_n}{|S_n|}
+=
+\frac{M_n}{n}\frac{n}{|S_n|}
+\longrightarrow
+0\cdot\frac1{|\mu|}
+=
+0
+\qquad\text{a.s.}
 \]
