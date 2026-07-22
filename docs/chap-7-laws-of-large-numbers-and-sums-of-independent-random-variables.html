@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chap 7, Laws of Large Numbers and Sums of Independent Random Variables | Notes on A Probability Path (Resnick)</title>
   <meta name="description" content="Chap 7, Laws of Large Numbers and Sums of Independent Random Variables | Notes on A Probability Path (Resnick)" />
-  <meta name="generator" content="bookdown 0.42 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.46 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chap 7, Laws of Large Numbers and Sums of Independent Random Variables | Notes on A Probability Path (Resnick)" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="Zhanwen Peng" />
 
 
-<meta name="date" content="2026-07-22" />
+<meta name="date" content="2026-07-23" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -494,7 +494,6 @@
 <li class="chapter" data-level="" data-path="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html"><a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#ex-32-3"><i class="fa fa-check"></i>Ex 32</a></li>
 <li class="chapter" data-level="" data-path="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html"><a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#ex-40-1"><i class="fa fa-check"></i>Ex 40</a></li>
 <li class="chapter" data-level="" data-path="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html"><a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#ex-8-2"><i class="fa fa-check"></i>Ex 8</a></li>
-<li class="chapter" data-level="" data-path="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html"><a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#ex-8-3"><i class="fa fa-check"></i>Ex 8</a></li>
 <li class="chapter" data-level="" data-path="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html"><a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#ex-9-2"><i class="fa fa-check"></i>Ex 9</a></li>
 <li class="chapter" data-level="" data-path="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html"><a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#ex-10-3"><i class="fa fa-check"></i>Ex 10</a>
 <ul>
@@ -503,6 +502,7 @@
 </ul></li>
 <li class="chapter" data-level="" data-path="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html"><a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#ex-12-4"><i class="fa fa-check"></i>Ex 12</a></li>
 <li class="chapter" data-level="" data-path="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html"><a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#ex-16-3"><i class="fa fa-check"></i>Ex 16</a></li>
+<li class="chapter" data-level="" data-path="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html"><a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#ex-35-1"><i class="fa fa-check"></i>Ex 35</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -4958,9 +4958,6 @@ P(B_k(\varepsilon)\text{ i.o.})=0.
 </div>
 <div id="ex-8-2" class="section level3 hasAnchor">
 <h3>Ex 8<a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#ex-8-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-</div>
-<div id="ex-8-3" class="section level3 hasAnchor">
-<h3>Ex 8<a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#ex-8-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div class="problem">
 <p>The SLLN says that if <span class="math inline">\(\{X_n,n\ge1\}\)</span> are iid with <span class="math inline">\(E|X_1|&lt;\infty\)</span>, then</p>
 <p><span class="math display">\[
@@ -5803,6 +5800,120 @@ n\varepsilon
 =
 0
 \qquad\text{a.s.}
+\]</span></p>
+</div>
+<div id="ex-35-1" class="section level3 hasAnchor">
+<h3>Ex 35<a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#ex-35-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="problem">
+<p>Suppose <span class="math inline">\(\{X_n,n\ge1\}\)</span> is iid and</p>
+<p><span class="math display">\[
+E(X_1^+)&lt;\infty,
+\qquad
+E(X_1^-)=\infty.
+\]</span></p>
+<p>Show</p>
+<p><span class="math display">\[
+\frac{S_n}{n}\to-\infty
+\]</span></p>
+<p>almost surely. (Try truncation of <span class="math inline">\(X_n^-\)</span> and use the classical SLLN.)</p>
+</div>
+<p><span class="math inline">\(\textbf{Answer:}\)</span></p>
+<p>Let</p>
+<p><span class="math display">\[
+S_n=\sum_{i=1}^nX_i,
+\qquad
+\mu^+=E(X_1^+)&lt;\infty.
+\]</span></p>
+<p>For <span class="math inline">\(K\in\mathbb N\)</span>, define</p>
+<p><span class="math display">\[
+Y_i^{(K)}
+=
+X_i^-1_{\{X_i^-\le K\}},
+\qquad
+\mu_K=E(Y_1^{(K)}).
+\]</span></p>
+<p>For each fixed <span class="math inline">\(K\)</span>, the random variables
+<span class="math inline">\(\{Y_i^{(K)}\}\)</span> are iid and bounded. Therefore, by the SLLN,</p>
+<p><span class="math display">\[
+\frac1n\sum_{i=1}^nY_i^{(K)}
+\to\mu_K
+\qquad\text{a.s.}
+\]</span></p>
+<p>Also, since <span class="math inline">\(E(X_1^+)&lt;\infty\)</span>, the SLLN gives</p>
+<p><span class="math display">\[
+\frac1n\sum_{i=1}^nX_i^+
+\to\mu^+
+\qquad\text{a.s.}
+\]</span></p>
+<p>Since <span class="math inline">\(K\in\mathbb N\)</span>, we may take a countable intersection of the corresponding probability-one events. Thus, with probability one, all the above convergences hold simultaneously for every <span class="math inline">\(K\in\mathbb N\)</span>.</p>
+<p>Since</p>
+<p><span class="math display">\[
+Y_i^{(K)}\le X_i^-,
+\]</span></p>
+<p>we have</p>
+<p><span class="math display">\[
+X_i
+=
+X_i^+-X_i^-
+\le
+X_i^+-Y_i^{(K)}.
+\]</span></p>
+<p>Therefore,</p>
+<p><span class="math display">\[
+\frac{S_n}{n}
+\le
+\frac1n\sum_{i=1}^nX_i^+
+-
+\frac1n\sum_{i=1}^nY_i^{(K)}.
+\]</span></p>
+<p>Taking the limit superior as <span class="math inline">\(n\to\infty\)</span>, for every fixed <span class="math inline">\(K\)</span>,</p>
+<p><span class="math display">\[
+\limsup_{n\to\infty}\frac{S_n}{n}
+\le
+\mu^+-\mu_K
+\qquad\text{a.s.}
+\]</span></p>
+<p>Now,</p>
+<p><span class="math display">\[
+Y_1^{(K)}\uparrow X_1^-
+\qquad\text{as }K\to\infty.
+\]</span></p>
+<p>By the monotone convergence theorem,</p>
+<p><span class="math display">\[
+\mu_K
+=
+E(Y_1^{(K)})
+\uparrow
+E(X_1^-)
+=
+\infty.
+\]</span></p>
+<p>Fix <span class="math inline">\(A&gt;0\)</span>. We can choose <span class="math inline">\(K\)</span> sufficiently large so that</p>
+<p><span class="math display">\[
+\mu_K-\mu^+&gt;A.
+\]</span></p>
+<p>For this <span class="math inline">\(K\)</span>,</p>
+<p><span class="math display">\[
+\limsup_{n\to\infty}\frac{S_n}{n}
+\le
+\mu^+-\mu_K
+&lt;
+-A
+\qquad\text{a.s.}
+\]</span></p>
+<p>Since <span class="math inline">\(A&gt;0\)</span> is arbitrary,</p>
+<p><span class="math display">\[
+\limsup_{n\to\infty}\frac{S_n}{n}
+=
+-\infty
+\qquad\text{a.s.}
+\]</span></p>
+<p>Therefore,</p>
+<p><span class="math display">\[
+\boxed{
+\frac{S_n}{n}\to-\infty
+\qquad\text{a.s.}
+}
 \]</span></p>
 
 </div>

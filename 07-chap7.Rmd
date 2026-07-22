@@ -5748,8 +5748,6 @@ Both terms converge to zero almost surely. Therefore,
 
 ### Ex 8
 
-### Ex 8
-
 ::: problem
 The SLLN says that if \(\{X_n,n\ge1\}\) are iid with \(E|X_1|<\infty\), then
 
@@ -6812,4 +6810,152 @@ Consequently,
 =
 0
 \qquad\text{a.s.}
+\]
+
+### Ex 35
+
+::: problem
+Suppose \(\{X_n,n\ge1\}\) is iid and
+
+\[
+E(X_1^+)<\infty,
+\qquad
+E(X_1^-)=\infty.
+\]
+
+Show
+
+\[
+\frac{S_n}{n}\to-\infty
+\]
+
+almost surely. (Try truncation of \(X_n^-\) and use the classical SLLN.)
+:::
+
+$\textbf{Answer:}$
+
+Let
+
+\[
+S_n=\sum_{i=1}^nX_i,
+\qquad
+\mu^+=E(X_1^+)<\infty.
+\]
+
+For \(K\in\mathbb N\), define
+
+\[
+Y_i^{(K)}
+=
+X_i^-1_{\{X_i^-\le K\}},
+\qquad
+\mu_K=E(Y_1^{(K)}).
+\]
+
+For each fixed \(K\), the random variables
+\(\{Y_i^{(K)}\}\) are iid and bounded. Therefore, by the SLLN,
+
+\[
+\frac1n\sum_{i=1}^nY_i^{(K)}
+\to\mu_K
+\qquad\text{a.s.}
+\]
+
+Also, since \(E(X_1^+)<\infty\), the SLLN gives
+
+\[
+\frac1n\sum_{i=1}^nX_i^+
+\to\mu^+
+\qquad\text{a.s.}
+\]
+
+Since \(K\in\mathbb N\), we may take a countable intersection of the corresponding probability-one events. Thus, with probability one, all the above convergences hold simultaneously for every \(K\in\mathbb N\).
+
+Since
+
+\[
+Y_i^{(K)}\le X_i^-,
+\]
+
+we have
+
+\[
+X_i
+=
+X_i^+-X_i^-
+\le
+X_i^+-Y_i^{(K)}.
+\]
+
+Therefore,
+
+\[
+\frac{S_n}{n}
+\le
+\frac1n\sum_{i=1}^nX_i^+
+-
+\frac1n\sum_{i=1}^nY_i^{(K)}.
+\]
+
+Taking the limit superior as \(n\to\infty\), for every fixed \(K\),
+
+\[
+\limsup_{n\to\infty}\frac{S_n}{n}
+\le
+\mu^+-\mu_K
+\qquad\text{a.s.}
+\]
+
+Now,
+
+\[
+Y_1^{(K)}\uparrow X_1^-
+\qquad\text{as }K\to\infty.
+\]
+
+By the monotone convergence theorem,
+
+\[
+\mu_K
+=
+E(Y_1^{(K)})
+\uparrow
+E(X_1^-)
+=
+\infty.
+\]
+
+Fix \(A>0\). We can choose \(K\) sufficiently large so that
+
+\[
+\mu_K-\mu^+>A.
+\]
+
+For this \(K\),
+
+\[
+\limsup_{n\to\infty}\frac{S_n}{n}
+\le
+\mu^+-\mu_K
+<
+-A
+\qquad\text{a.s.}
+\]
+
+Since \(A>0\) is arbitrary,
+
+\[
+\limsup_{n\to\infty}\frac{S_n}{n}
+=
+-\infty
+\qquad\text{a.s.}
+\]
+
+Therefore,
+
+\[
+\boxed{
+\frac{S_n}{n}\to-\infty
+\qquad\text{a.s.}
+}
 \]
