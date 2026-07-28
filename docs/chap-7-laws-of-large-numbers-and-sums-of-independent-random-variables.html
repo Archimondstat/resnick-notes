@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chap 7, Laws of Large Numbers and Sums of Independent Random Variables | Notes on A Probability Path (Resnick)</title>
   <meta name="description" content="Chap 7, Laws of Large Numbers and Sums of Independent Random Variables | Notes on A Probability Path (Resnick)" />
-  <meta name="generator" content="bookdown 0.46 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.42 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chap 7, Laws of Large Numbers and Sums of Independent Random Variables | Notes on A Probability Path (Resnick)" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="Zhanwen Peng" />
 
 
-<meta name="date" content="2026-07-23" />
+<meta name="date" content="2026-07-28" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -503,6 +503,12 @@
 <li class="chapter" data-level="" data-path="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html"><a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#ex-12-4"><i class="fa fa-check"></i>Ex 12</a></li>
 <li class="chapter" data-level="" data-path="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html"><a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#ex-16-3"><i class="fa fa-check"></i>Ex 16</a></li>
 <li class="chapter" data-level="" data-path="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html"><a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#ex-35-1"><i class="fa fa-check"></i>Ex 35</a></li>
+<li class="chapter" data-level="" data-path="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html"><a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#ex-39-1"><i class="fa fa-check"></i>Ex 39</a></li>
+<li class="chapter" data-level="" data-path="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html"><a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#ex-43"><i class="fa fa-check"></i>Ex 43</a>
+<ul>
+<li class="chapter" data-level="" data-path="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html"><a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#a-33"><i class="fa fa-check"></i>(a)</a></li>
+<li class="chapter" data-level="" data-path="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html"><a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#b-33"><i class="fa fa-check"></i>(b)</a></li>
+</ul></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -5915,7 +5921,309 @@ E(X_1^-)
 \qquad\text{a.s.}
 }
 \]</span></p>
+</div>
+<div id="ex-39-1" class="section level3 hasAnchor">
+<h3>Ex 39<a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#ex-39-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="problem">
+<p>If <span class="math inline">\(\{A_n,n\ge1\}\)</span> are independent events, show that</p>
+<p><span class="math display">\[
+\frac1n\sum_{i=1}^n1_{A_i}
+-
+\frac1n\sum_{i=1}^nP(A_i)
+\xrightarrow{P}0.
+\]</span></p>
+</div>
+<p><span class="math inline">\(\textbf{Answer:}\)</span></p>
+<p>Let</p>
+<p><span class="math display">\[
+X_n=1_{A_n}.
+\]</span></p>
+<p>Since <span class="math inline">\(\{A_n\}\)</span> are independent, <span class="math inline">\(\{X_n\}\)</span> are independent. Also,</p>
+<p><span class="math display">\[
+E(X_n)=P(A_n),
+\]</span></p>
+<p>and</p>
+<p><span class="math display">\[
+\begin{aligned}
+\operatorname{Var}(X_n)
+&amp;=
+E(X_n^2)-E(X_n)^2\\
+&amp;=
+P(A_n)-P(A_n)^2\\
+&amp;\le1.
+\end{aligned}
+\]</span></p>
+<p>Let</p>
+<p><span class="math display">\[
+S_n=\sum_{i=1}^nX_i.
+\]</span></p>
+<p>By independence,</p>
+<p><span class="math display">\[
+\operatorname{Var}(S_n)
+=
+\sum_{i=1}^n\operatorname{Var}(X_i)
+\le n.
+\]</span></p>
+<p>Therefore, for every <span class="math inline">\(\varepsilon&gt;0\)</span>, by Chebyshev’s inequality,</p>
+<p><span class="math display">\[
+\begin{aligned}
+P\left(
+\left|
+\frac{S_n-E(S_n)}n
+\right|&gt;\varepsilon
+\right)
+&amp;\le
+\frac{\operatorname{Var}(S_n)}
+{n^2\varepsilon^2}\\
+&amp;\le
+\frac1{n\varepsilon^2}
+\longrightarrow0.
+\end{aligned}
+\]</span></p>
+<p>Since</p>
+<p><span class="math display">\[
+S_n=\sum_{i=1}^n1_{A_i}
+\]</span></p>
+<p>and</p>
+<p><span class="math display">\[
+E(S_n)=\sum_{i=1}^nP(A_i),
+\]</span></p>
+<p>we have</p>
+<p><span class="math display">\[
+\frac1n\sum_{i=1}^n1_{A_i}
+-
+\frac1n\sum_{i=1}^nP(A_i)
+\xrightarrow{P}0.
+\]</span></p>
+</div>
+<div id="ex-43" class="section level3 hasAnchor">
+<h3>Ex 43<a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#ex-43" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="problem">
+<ol style="list-style-type: lower-alpha">
+<li>Fix a real number <span class="math inline">\(p\in(0,1)\)</span> and let <span class="math inline">\(\{B_n,n\ge1\}\)</span> be iid Bernoulli random variables with</li>
+</ol>
+<p><span class="math display">\[
+P[B_n=1]=p=1-P[B_n=0].
+\]</span></p>
+<p>Define</p>
+<p><span class="math display">\[
+Y=\sum_{n=1}^{\infty}\frac{B_n}{2^n}.
+\]</span></p>
+<p>Verify that the series converges. What is the range of <span class="math inline">\(Y\)</span>? What is the mean and variance of <span class="math inline">\(Y\)</span>? Let <span class="math inline">\(Q_p\)</span> be the distribution of <span class="math inline">\(Y\)</span>. Where does <span class="math inline">\(Q_p\)</span> concentrate?</p>
+<p>Use the SLLN to show that if <span class="math inline">\(p\ne p&#39;\)</span>, then <span class="math inline">\(Q_p\)</span> and <span class="math inline">\(Q_{p&#39;}\)</span> are mutually singular; that is, there exists a set <span class="math inline">\(A\)</span> such that <span class="math inline">\(Q_p(A)=1\)</span> and <span class="math inline">\(Q_{p&#39;}(A)=0\)</span>.</p>
+<ol start="2" style="list-style-type: lower-alpha">
+<li>Let <span class="math inline">\(F_p(x)\)</span> be the distribution function corresponding to <span class="math inline">\(Q_p\)</span>. Show <span class="math inline">\(F_p(x)\)</span> is continuous and strictly increasing on <span class="math inline">\([0,1]\)</span>, <span class="math inline">\(F_p(0)=0\)</span>, <span class="math inline">\(F_p(1)=1\)</span>, and satisfies</li>
+</ol>
+<p><span class="math display">\[
+F_p(x)
+=
+\begin{cases}
+(1-p)F_p(2x), &amp; 0\le x\le \frac12,\\[4pt]
+1-p+pF_p(2x-1), &amp; \frac12\le x\le1.
+\end{cases}
+\]</span></p>
+</div>
+<p><span class="math inline">\(\textbf{Answer:}\)</span></p>
+<div id="a-33" class="section level4 hasAnchor">
+<h4>(a)<a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#a-33" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Let</p>
+<p><span class="math display">\[
+Y_n=\sum_{i=1}^n\frac{B_i}{2^i}.
+\]</span></p>
+<p>For <span class="math inline">\(n&gt;m\)</span>,</p>
+<p><span class="math display">\[
+\begin{aligned}
+|Y_n-Y_m|
+&amp;=
+\left|
+\sum_{i=m+1}^n\frac{B_i}{2^i}
+\right|\\
+&amp;\le
+\sum_{i=m+1}^n\frac1{2^i}
+\longrightarrow0
+\end{aligned}
+\]</span></p>
+<p>as <span class="math inline">\(m,n\to\infty\)</span>. Therefore, <span class="math inline">\(\{Y_n\}\)</span> is Cauchy and the series converges for every outcome.</p>
+<p>Since <span class="math inline">\(Y\)</span> is the undetermined binary form of a number in <span class="math inline">\([0,1]\)</span>, its range is <span class="math inline">\([0,1]\)</span>.</p>
+<p>Furthermore, since <span class="math inline">\(0\le Y_n\le1\)</span> and <span class="math inline">\(Y_n\to Y\)</span>, by the dominated convergence theorem,</p>
+<p><span class="math display">\[
+\begin{aligned}
+E(Y)
+&amp;=
+\lim_{n\to\infty}E(Y_n)\\
+&amp;=
+\lim_{n\to\infty}
+\sum_{i=1}^n\frac{E(B_i)}{2^i}\\
+&amp;=
+p\sum_{i=1}^{\infty}\frac1{2^i}\\
+&amp;=
+p.
+\end{aligned}
+\]</span></p>
+<p>Also, by independence,</p>
+<p><span class="math display">\[
+\begin{aligned}
+\operatorname{Var}(Y)
+&amp;=
+\sum_{i=1}^{\infty}
+\frac{\operatorname{Var}(B_i)}{2^{2i}}\\
+&amp;=
+p(1-p)
+\sum_{i=1}^{\infty}\frac1{4^i}\\
+&amp;=
+\frac13p(1-p).
+\end{aligned}
+\]</span></p>
+<p>For <span class="math inline">\(x\in[0,1]\)</span>, let <span class="math inline">\(d_i(x)\)</span> denote the <span class="math inline">\(i\)</span>-th digit in its canonical binary expansion, and define</p>
+<p><span class="math display">\[
+A_p
+=
+\left\{
+x\in[0,1]:
+\frac1n\sum_{i=1}^nd_i(x)\to p
+\right\}.
+\]</span></p>
+<p>Apart from the binary-expansion ambiguity at dyadic rationals, which has probability zero,</p>
+<p><span class="math display">\[
+d_i(Y)=B_i.
+\]</span></p>
+<p>Therefore,</p>
+<p><span class="math display">\[
+\begin{aligned}
+Q_p(A_p)
+&amp;=
+P_p(Y\in A_p)\\
+&amp;=
+P_p\left(
+\frac1n\sum_{i=1}^nB_i\to p
+\right)\\
+&amp;=
+1
+\end{aligned}
+\]</span></p>
+<p>by the SLLN. Thus, <span class="math inline">\(Q_p\)</span> concentrates on <span class="math inline">\(A_p\)</span>.</p>
+<p>Now let <span class="math inline">\(p&#39;\ne p\)</span>. Similarly,</p>
+<p><span class="math display">\[
+Q_{p&#39;}(A_{p&#39;})=1.
+\]</span></p>
+<p>By the uniqueness of limits,</p>
+<p><span class="math display">\[
+A_p\cap A_{p&#39;}=\varnothing.
+\]</span></p>
+<p>Therefore,</p>
+<p><span class="math display">\[
+Q_{p&#39;}(A_p)=0,
+\]</span></p>
+<p>while</p>
+<p><span class="math display">\[
+Q_p(A_p)=1.
+\]</span></p>
+<p>Hence, <span class="math inline">\(Q_p\)</span> and <span class="math inline">\(Q_{p&#39;}\)</span> are mutually singular.</p>
+</div>
+<div id="b-33" class="section level4 hasAnchor">
+<h4>(b)<a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#b-33" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>First, we show that <span class="math inline">\(F_p\)</span> is strictly increasing.</p>
+<p>Let <span class="math inline">\(0\le x&lt;y\le1\)</span>. There exists a finite binary cylinder interval contained in <span class="math inline">\((x,y)\)</span>. Suppose its fixed binary prefix contains <span class="math inline">\(r_1\)</span> digits equal to <span class="math inline">\(1\)</span> and <span class="math inline">\(r_0\)</span> digits equal to <span class="math inline">\(0\)</span>. Its <span class="math inline">\(Q_p\)</span>-probability is</p>
+<p><span class="math display">\[
+p^{r_1}(1-p)^{r_0}&gt;0.
+\]</span></p>
+<p>Therefore,</p>
+<p><span class="math display">\[
+F_p(y)-F_p(x)
+=
+Q_p((x,y])
+&gt;
+0.
+\]</span></p>
+<p>Thus, <span class="math inline">\(F_p\)</span> is strictly increasing on <span class="math inline">\([0,1]\)</span>.</p>
+<p>Next, we show that <span class="math inline">\(F_p\)</span> is continuous. Let</p>
+<p><span class="math display">\[
+a=\max\{p,1-p\}&lt;1.
+\]</span></p>
+<p>For any fixed <span class="math inline">\(x\in[0,1]\)</span>, the event <span class="math inline">\(\{Y=x\}\)</span> determines the first <span class="math inline">\(n\)</span> binary digits of <span class="math inline">\(Y\)</span>, with at most two possible prefixes because a dyadic rational may have two binary expansions. Hence,</p>
+<p><span class="math display">\[
+Q_p(\{x\})
+\le
+2a^n.
+\]</span></p>
+<p>Letting <span class="math inline">\(n\to\infty\)</span>,</p>
+<p><span class="math display">\[
+Q_p(\{x\})=0.
+\]</span></p>
+<p>Thus, <span class="math inline">\(Q_p\)</span> has no atoms, and consequently <span class="math inline">\(F_p\)</span> is continuous.</p>
+<p>For the endpoints,</p>
+<p><span class="math display">\[
+\begin{aligned}
+F_p(0)
+&amp;=
+P(Y=0)\\
+&amp;=
+P(B_i=0\text{ for every }i)\\
+&amp;=
+\lim_{n\to\infty}(1-p)^n\\
+&amp;=
+0.
+\end{aligned}
+\]</span></p>
+<p>Also, since <span class="math inline">\(0\le Y\le1\)</span>,</p>
+<p><span class="math display">\[
+F_p(1)=P(Y\le1)=1.
+\]</span></p>
+<p>Lastly, define</p>
+<p><span class="math display">\[
+Y&#39;
+=
+\sum_{n=2}^{\infty}\frac{B_n}{2^{n-1}}.
+\]</span></p>
+<p>Then <span class="math inline">\(Y&#39;\)</span> is independent of <span class="math inline">\(B_1\)</span>, has the same distribution as <span class="math inline">\(Y\)</span>, and</p>
+<p><span class="math display">\[
+Y=\frac{B_1+Y&#39;}2.
+\]</span></p>
+<p>For <span class="math inline">\(0\le x\le\frac12\)</span>,</p>
+<p><span class="math display">\[
+\begin{aligned}
+F_p(x)
+&amp;=
+P(Y\le x)\\
+&amp;=
+P(B_1=0,\ Y&#39;\le2x)\\
+&amp;=
+P(B_1=0)P(Y&#39;\le2x)\\
+&amp;=
+(1-p)F_p(2x).
+\end{aligned}
+\]</span></p>
+<p>For <span class="math inline">\(\frac12\le x\le1\)</span>, if <span class="math inline">\(B_1=0\)</span>, then <span class="math inline">\(Y\le\frac12\le x\)</span>. If <span class="math inline">\(B_1=1\)</span>, then</p>
+<p><span class="math display">\[
+Y\le x
+\quad\Longleftrightarrow\quad
+Y&#39;\le2x-1.
+\]</span></p>
+<p>Therefore,</p>
+<p><span class="math display">\[
+\begin{aligned}
+F_p(x)
+&amp;=
+P(B_1=0)
++
+P(B_1=1,\ Y&#39;\le2x-1)\\
+&amp;=
+1-p+pF_p(2x-1).
+\end{aligned}
+\]</span></p>
+<p>Consequently,</p>
+<p><span class="math display">\[
+\boxed{
+F_p(x)
+=
+\begin{cases}
+(1-p)F_p(2x), &amp; 0\le x\le \frac12,\\[4pt]
+1-p+pF_p(2x-1), &amp; \frac12\le x\le1.
+\end{cases}
+}
+\]</span></p>
 
+</div>
 </div>
 </div>
 </div>

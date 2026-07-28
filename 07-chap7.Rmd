@@ -6959,3 +6959,383 @@ Therefore,
 \qquad\text{a.s.}
 }
 \]
+
+### Ex 39
+
+::: problem
+If \(\{A_n,n\ge1\}\) are independent events, show that
+
+\[
+\frac1n\sum_{i=1}^n1_{A_i}
+-
+\frac1n\sum_{i=1}^nP(A_i)
+\xrightarrow{P}0.
+\]
+:::
+
+$\textbf{Answer:}$
+
+Let
+
+\[
+X_n=1_{A_n}.
+\]
+
+Since \(\{A_n\}\) are independent, \(\{X_n\}\) are independent. Also,
+
+\[
+E(X_n)=P(A_n),
+\]
+
+and
+
+\[
+\begin{aligned}
+\operatorname{Var}(X_n)
+&=
+E(X_n^2)-E(X_n)^2\\
+&=
+P(A_n)-P(A_n)^2\\
+&\le1.
+\end{aligned}
+\]
+
+Let
+
+\[
+S_n=\sum_{i=1}^nX_i.
+\]
+
+By independence,
+
+\[
+\operatorname{Var}(S_n)
+=
+\sum_{i=1}^n\operatorname{Var}(X_i)
+\le n.
+\]
+
+Therefore, for every \(\varepsilon>0\), by Chebyshev's inequality,
+
+\[
+\begin{aligned}
+P\left(
+\left|
+\frac{S_n-E(S_n)}n
+\right|>\varepsilon
+\right)
+&\le
+\frac{\operatorname{Var}(S_n)}
+{n^2\varepsilon^2}\\
+&\le
+\frac1{n\varepsilon^2}
+\longrightarrow0.
+\end{aligned}
+\]
+
+Since
+
+\[
+S_n=\sum_{i=1}^n1_{A_i}
+\]
+
+and
+
+\[
+E(S_n)=\sum_{i=1}^nP(A_i),
+\]
+
+we have
+
+\[
+\frac1n\sum_{i=1}^n1_{A_i}
+-
+\frac1n\sum_{i=1}^nP(A_i)
+\xrightarrow{P}0.
+\]
+
+
+### Ex 43
+
+::: problem
+(a) Fix a real number \(p\in(0,1)\) and let \(\{B_n,n\ge1\}\) be iid Bernoulli random variables with
+
+\[
+P[B_n=1]=p=1-P[B_n=0].
+\]
+
+Define
+
+\[
+Y=\sum_{n=1}^{\infty}\frac{B_n}{2^n}.
+\]
+
+Verify that the series converges. What is the range of \(Y\)? What is the mean and variance of \(Y\)? Let \(Q_p\) be the distribution of \(Y\). Where does \(Q_p\) concentrate?
+
+Use the SLLN to show that if \(p\ne p'\), then \(Q_p\) and \(Q_{p'}\) are mutually singular; that is, there exists a set \(A\) such that \(Q_p(A)=1\) and \(Q_{p'}(A)=0\).
+
+(b) Let \(F_p(x)\) be the distribution function corresponding to \(Q_p\). Show \(F_p(x)\) is continuous and strictly increasing on \([0,1]\), \(F_p(0)=0\), \(F_p(1)=1\), and satisfies
+
+\[
+F_p(x)
+=
+\begin{cases}
+(1-p)F_p(2x), & 0\le x\le \frac12,\\[4pt]
+1-p+pF_p(2x-1), & \frac12\le x\le1.
+\end{cases}
+\]
+:::
+
+$\textbf{Answer:}$
+
+#### (a)
+
+Let
+
+\[
+Y_n=\sum_{i=1}^n\frac{B_i}{2^i}.
+\]
+
+For \(n>m\),
+
+\[
+\begin{aligned}
+|Y_n-Y_m|
+&=
+\left|
+\sum_{i=m+1}^n\frac{B_i}{2^i}
+\right|\\
+&\le
+\sum_{i=m+1}^n\frac1{2^i}
+\longrightarrow0
+\end{aligned}
+\]
+
+as \(m,n\to\infty\). Therefore, \(\{Y_n\}\) is Cauchy and the series converges for every outcome.
+
+Since \(Y\) is the undetermined binary form of a number in \([0,1]\), its range is \([0,1]\).
+
+Furthermore, since \(0\le Y_n\le1\) and \(Y_n\to Y\), by the dominated convergence theorem,
+
+\[
+\begin{aligned}
+E(Y)
+&=
+\lim_{n\to\infty}E(Y_n)\\
+&=
+\lim_{n\to\infty}
+\sum_{i=1}^n\frac{E(B_i)}{2^i}\\
+&=
+p\sum_{i=1}^{\infty}\frac1{2^i}\\
+&=
+p.
+\end{aligned}
+\]
+
+Also, by independence,
+
+\[
+\begin{aligned}
+\operatorname{Var}(Y)
+&=
+\sum_{i=1}^{\infty}
+\frac{\operatorname{Var}(B_i)}{2^{2i}}\\
+&=
+p(1-p)
+\sum_{i=1}^{\infty}\frac1{4^i}\\
+&=
+\frac13p(1-p).
+\end{aligned}
+\]
+
+For \(x\in[0,1]\), let \(d_i(x)\) denote the \(i\)-th digit in its canonical binary expansion, and define
+
+\[
+A_p
+=
+\left\{
+x\in[0,1]:
+\frac1n\sum_{i=1}^nd_i(x)\to p
+\right\}.
+\]
+
+Apart from the binary-expansion ambiguity at dyadic rationals, which has probability zero,
+
+\[
+d_i(Y)=B_i.
+\]
+
+Therefore,
+
+\[
+\begin{aligned}
+Q_p(A_p)
+&=
+P_p(Y\in A_p)\\
+&=
+P_p\left(
+\frac1n\sum_{i=1}^nB_i\to p
+\right)\\
+&=
+1
+\end{aligned}
+\]
+
+by the SLLN. Thus, \(Q_p\) concentrates on \(A_p\).
+
+Now let \(p'\ne p\). Similarly,
+
+\[
+Q_{p'}(A_{p'})=1.
+\]
+
+By the uniqueness of limits,
+
+\[
+A_p\cap A_{p'}=\varnothing.
+\]
+
+Therefore,
+
+\[
+Q_{p'}(A_p)=0,
+\]
+
+while
+
+\[
+Q_p(A_p)=1.
+\]
+
+Hence, \(Q_p\) and \(Q_{p'}\) are mutually singular.
+
+#### (b)
+
+First, we show that \(F_p\) is strictly increasing.
+
+Let \(0\le x<y\le1\). There exists a finite binary cylinder interval contained in \((x,y)\). Suppose its fixed binary prefix contains \(r_1\) digits equal to \(1\) and \(r_0\) digits equal to \(0\). Its \(Q_p\)-probability is
+
+\[
+p^{r_1}(1-p)^{r_0}>0.
+\]
+
+Therefore,
+
+\[
+F_p(y)-F_p(x)
+=
+Q_p((x,y])
+>
+0.
+\]
+
+Thus, \(F_p\) is strictly increasing on \([0,1]\).
+
+Next, we show that \(F_p\) is continuous. Let
+
+\[
+a=\max\{p,1-p\}<1.
+\]
+
+For any fixed \(x\in[0,1]\), the event \(\{Y=x\}\) determines the first \(n\) binary digits of \(Y\), with at most two possible prefixes because a dyadic rational may have two binary expansions. Hence,
+
+\[
+Q_p(\{x\})
+\le
+2a^n.
+\]
+
+Letting \(n\to\infty\),
+
+\[
+Q_p(\{x\})=0.
+\]
+
+Thus, \(Q_p\) has no atoms, and consequently \(F_p\) is continuous.
+
+For the endpoints,
+
+\[
+\begin{aligned}
+F_p(0)
+&=
+P(Y=0)\\
+&=
+P(B_i=0\text{ for every }i)\\
+&=
+\lim_{n\to\infty}(1-p)^n\\
+&=
+0.
+\end{aligned}
+\]
+
+Also, since \(0\le Y\le1\),
+
+\[
+F_p(1)=P(Y\le1)=1.
+\]
+
+Lastly, define
+
+\[
+Y'
+=
+\sum_{n=2}^{\infty}\frac{B_n}{2^{n-1}}.
+\]
+
+Then \(Y'\) is independent of \(B_1\), has the same distribution as \(Y\), and
+
+\[
+Y=\frac{B_1+Y'}2.
+\]
+
+For \(0\le x\le\frac12\),
+
+\[
+\begin{aligned}
+F_p(x)
+&=
+P(Y\le x)\\
+&=
+P(B_1=0,\ Y'\le2x)\\
+&=
+P(B_1=0)P(Y'\le2x)\\
+&=
+(1-p)F_p(2x).
+\end{aligned}
+\]
+
+For \(\frac12\le x\le1\), if \(B_1=0\), then \(Y\le\frac12\le x\). If \(B_1=1\), then
+
+\[
+Y\le x
+\quad\Longleftrightarrow\quad
+Y'\le2x-1.
+\]
+
+Therefore,
+
+\[
+\begin{aligned}
+F_p(x)
+&=
+P(B_1=0)
++
+P(B_1=1,\ Y'\le2x-1)\\
+&=
+1-p+pF_p(2x-1).
+\end{aligned}
+\]
+
+Consequently,
+
+\[
+\boxed{
+F_p(x)
+=
+\begin{cases}
+(1-p)F_p(2x), & 0\le x\le \frac12,\\[4pt]
+1-p+pF_p(2x-1), & \frac12\le x\le1.
+\end{cases}
+}
+\]
