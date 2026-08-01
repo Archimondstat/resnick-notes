@@ -7339,3 +7339,385 @@ F_p(x)
 \end{cases}
 }
 \]
+
+### Ex 44
+
+::: problem
+Let \(\{X_n,n\ge1\}\) be iid with values in the set \(S=\{1,\ldots,17\}\). Define the (discrete) density
+
+\[
+f_0(y)=P[X_1=y],
+\qquad y\in S.
+\]
+
+Let \(f_1\ne f_0\) be another probability mass function on \(S\) so that for \(y\in S\), we have \(f_1(y)\ge0\) and
+
+\[
+\sum_{j\in S}f_1(j)=1.
+\]
+
+Set
+
+\[
+Z_n=\prod_{i=1}^n\frac{f_1(X_i)}{f_0(X_i)},
+\qquad n\ge1.
+\]
+
+Prove that
+
+\[
+Z_n\xrightarrow{\mathrm{a.s.}}0.
+\]
+
+(Consider \(Y_n=\log Z_n\).)
+:::
+
+$\textbf{Answer:}$
+
+Let
+
+\[
+W_n=\frac{f_1(X_n)}{f_0(X_n)}
+\]
+
+and define
+
+\[
+S_0=\{j\in S:f_0(j)>0\}.
+\]
+
+Since \(X_n\) has probability mass function \(f_0\),
+
+\[
+P(X_n\in S_0)=1.
+\]
+
+We consider two cases.
+
+First, suppose that there exists \(j\in S_0\) such that
+
+\[
+f_1(j)=0.
+\]
+
+For this particular \(j\),
+
+\[
+P(X_n=j)=f_0(j)>0.
+\]
+
+Therefore,
+
+\[
+\sum_{n=1}^{\infty}P(X_n=j)=\infty.
+\]
+
+Since the events \(\{X_n=j\}\) are independent, by Borel--Cantelli,
+
+\[
+P(X_n=j\text{ i.o.})=1.
+\]
+
+When \(X_n=j\),
+
+\[
+W_n=\frac{f_1(j)}{f_0(j)}=0.
+\]
+
+Thus, almost surely, one of the factors in
+
+\[
+Z_n=\prod_{i=1}^nW_i
+\]
+
+eventually equals \(0\), and \(Z_n\) remains \(0\) afterward. Therefore,
+
+\[
+Z_n\to0
+\qquad\text{a.s.}
+\]
+
+Now suppose that
+
+\[
+f_1(j)>0
+\qquad\text{for every }j\in S_0.
+\]
+
+Then \(\log W_n\) is finite almost surely. Since the \(X_n\)'s are iid, the random variables \(\{\log W_n\}\) are also iid. Because \(S\) is finite,
+
+\[
+E_{f_0}|\log W_1|<\infty.
+\]
+
+We have
+
+\[
+\begin{aligned}
+E_{f_0}(\log W_1)
+&=
+\sum_{j\in S_0}
+f_0(j)
+\log\frac{f_1(j)}{f_0(j)}\\
+&\le
+\log\left(
+\sum_{j\in S_0}
+f_0(j)\frac{f_1(j)}{f_0(j)}
+\right)\\
+&=
+\log\left(
+\sum_{j\in S_0}f_1(j)
+\right)\\
+&\le
+\log 1\\
+&=
+0,
+\end{aligned}
+\]
+
+where the first inequality follows from Jensen's inequality.
+
+We claim that the inequality is strict. If equality held, then we would need
+
+\[
+\sum_{j\in S_0}f_1(j)=1,
+\]
+
+so \(f_1\) would have no mass outside \(S_0\). Also, equality in Jensen's inequality would imply that there exists a constant \(c\) such that
+
+\[
+\frac{f_1(j)}{f_0(j)}=c
+\qquad\text{for every }j\in S_0.
+\]
+
+Therefore,
+
+\[
+1
+=
+\sum_{j\in S_0}f_1(j)
+=
+c\sum_{j\in S_0}f_0(j)
+=
+c.
+\]
+
+Hence \(c=1\), so
+
+\[
+f_1(j)=f_0(j)
+\qquad\text{for every }j\in S_0.
+\]
+
+Together with the fact that \(f_1\) has no mass outside \(S_0\), this would imply
+
+\[
+f_1=f_0,
+\]
+
+which contradicts the assumption. Thus,
+
+\[
+E_{f_0}(\log W_1)<0.
+\]
+
+Now,
+
+\[
+\log Z_n
+=
+\log\left(
+\prod_{i=1}^nW_i
+\right)
+=
+\sum_{i=1}^n\log W_i.
+\]
+
+By the SLLN,
+
+\[
+\frac1n\log Z_n
+=
+\frac1n\sum_{i=1}^n\log W_i
+\to
+E_{f_0}(\log W_1)
+<0
+\qquad\text{a.s.}
+\]
+
+Let
+
+\[
+\mu=E_{f_0}(\log W_1)<0.
+\]
+
+Almost surely, for sufficiently large \(n\),
+
+\[
+\frac1n\log Z_n<\frac{\mu}{2}<0.
+\]
+
+Hence,
+
+\[
+\log Z_n<\frac{\mu n}{2}\to-\infty
+\qquad\text{a.s.}
+\]
+
+Therefore,
+
+\[
+\boxed{
+Z_n\to0
+\qquad\text{a.s.}
+}
+\]
+
+### Ex 45
+
+::: problem
+Suppose \(\{X_n,n\ge1\}\) are iid random variables taking values in the alphabet
+
+\[
+S=\{1,\ldots,r\}
+\]
+
+with positive probabilities \(p_1,\ldots,p_r\). Define
+
+\[
+p_n(i_1,\ldots,i_n)
+=
+P[X_1=i_1,\ldots,X_n=i_n],
+\]
+
+and set
+
+\[
+\chi_n(\omega)
+:=
+p_n\bigl(X_1(\omega),\ldots,X_n(\omega)\bigr).
+\]
+
+Then \(\chi_n(\omega)\) is the probability that in a new sample of \(n\) observations, what is observed matches the original observations. Show that
+
+\[
+-\frac1n\log\chi_n(\omega)
+\xrightarrow{\mathrm{a.s.}}
+H
+:=
+-\sum_{i=1}^r p_i\log p_i.
+\]
+:::
+
+$\textbf{Answer:}$
+
+Since \(\{X_n\}\) are iid, for any \(i_1,\ldots,i_n\in S\),
+
+\[
+\begin{aligned}
+p_n(i_1,\ldots,i_n)
+&=
+P(X_1=i_1,\ldots,X_n=i_n)\\
+&=
+P(X_1=i_1)\cdots P(X_n=i_n)\\
+&=
+p_{i_1}\cdots p_{i_n}\\
+&=
+\prod_{k=1}^n p_{i_k}.
+\end{aligned}
+\]
+
+Therefore,
+
+\[
+\begin{aligned}
+\chi_n(\omega)
+&=
+p_n\bigl(X_1(\omega),\ldots,X_n(\omega)\bigr)\\
+&=
+\prod_{k=1}^n p_{X_k(\omega)}.
+\end{aligned}
+\]
+
+Taking logarithms,
+
+\[
+\log\chi_n(\omega)
+=
+\sum_{k=1}^n\log p_{X_k(\omega)}.
+\]
+
+Let
+
+\[
+Y_k=-\log p_{X_k}.
+\]
+
+Since the \(X_k\)'s are iid, the \(Y_k\)'s are also iid. Moreover, because the alphabet is finite and \(p_j>0\) for every \(j\),
+
+\[
+E|Y_1|<\infty.
+\]
+
+We have
+
+\[
+\begin{aligned}
+E(Y_1)
+&=
+E\left(-\log p_{X_1}\right)\\
+&=
+-\sum_{j=1}^r
+P(X_1=j)\log p_j\\
+&=
+-\sum_{j=1}^r p_j\log p_j\\
+&=
+H.
+\end{aligned}
+\]
+
+By the SLLN,
+
+\[
+\frac1n\sum_{k=1}^nY_k
+\longrightarrow H
+\qquad\text{a.s.}
+\]
+
+Finally,
+
+\[
+\begin{aligned}
+\frac1n\sum_{k=1}^nY_k
+&=
+-\frac1n\sum_{k=1}^n\log p_{X_k}\\
+&=
+-\frac1n\log\left(\prod_{k=1}^np_{X_k}\right)\\
+&=
+-\frac1n\log\chi_n.
+\end{aligned}
+\]
+
+Therefore,
+
+\[
+\boxed{
+-\frac1n\log\chi_n(\omega)
+\longrightarrow
+H
+=
+-\sum_{j=1}^rp_j\log p_j
+\qquad\text{a.s.}
+}
+\]
+
+
+
+
+
+
+
+
+
+
+

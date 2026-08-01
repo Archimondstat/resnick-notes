@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chap 7, Laws of Large Numbers and Sums of Independent Random Variables | Notes on A Probability Path (Resnick)</title>
   <meta name="description" content="Chap 7, Laws of Large Numbers and Sums of Independent Random Variables | Notes on A Probability Path (Resnick)" />
-  <meta name="generator" content="bookdown 0.42 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.46 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chap 7, Laws of Large Numbers and Sums of Independent Random Variables | Notes on A Probability Path (Resnick)" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="Zhanwen Peng" />
 
 
-<meta name="date" content="2026-07-28" />
+<meta name="date" content="2026-08-01" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -509,6 +509,8 @@
 <li class="chapter" data-level="" data-path="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html"><a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#a-33"><i class="fa fa-check"></i>(a)</a></li>
 <li class="chapter" data-level="" data-path="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html"><a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#b-33"><i class="fa fa-check"></i>(b)</a></li>
 </ul></li>
+<li class="chapter" data-level="" data-path="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html"><a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#ex-44"><i class="fa fa-check"></i>Ex 44</a></li>
+<li class="chapter" data-level="" data-path="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html"><a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#ex-45"><i class="fa fa-check"></i>Ex 45</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -6222,8 +6224,292 @@ F_p(x)
 \end{cases}
 }
 \]</span></p>
-
 </div>
+</div>
+<div id="ex-44" class="section level3 hasAnchor">
+<h3>Ex 44<a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#ex-44" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="problem">
+<p>Let <span class="math inline">\(\{X_n,n\ge1\}\)</span> be iid with values in the set <span class="math inline">\(S=\{1,\ldots,17\}\)</span>. Define the (discrete) density</p>
+<p><span class="math display">\[
+f_0(y)=P[X_1=y],
+\qquad y\in S.
+\]</span></p>
+<p>Let <span class="math inline">\(f_1\ne f_0\)</span> be another probability mass function on <span class="math inline">\(S\)</span> so that for <span class="math inline">\(y\in S\)</span>, we have <span class="math inline">\(f_1(y)\ge0\)</span> and</p>
+<p><span class="math display">\[
+\sum_{j\in S}f_1(j)=1.
+\]</span></p>
+<p>Set</p>
+<p><span class="math display">\[
+Z_n=\prod_{i=1}^n\frac{f_1(X_i)}{f_0(X_i)},
+\qquad n\ge1.
+\]</span></p>
+<p>Prove that</p>
+<p><span class="math display">\[
+Z_n\xrightarrow{\mathrm{a.s.}}0.
+\]</span></p>
+<p>(Consider <span class="math inline">\(Y_n=\log Z_n\)</span>.)</p>
+</div>
+<p><span class="math inline">\(\textbf{Answer:}\)</span></p>
+<p>Let</p>
+<p><span class="math display">\[
+W_n=\frac{f_1(X_n)}{f_0(X_n)}
+\]</span></p>
+<p>and define</p>
+<p><span class="math display">\[
+S_0=\{j\in S:f_0(j)&gt;0\}.
+\]</span></p>
+<p>Since <span class="math inline">\(X_n\)</span> has probability mass function <span class="math inline">\(f_0\)</span>,</p>
+<p><span class="math display">\[
+P(X_n\in S_0)=1.
+\]</span></p>
+<p>We consider two cases.</p>
+<p>First, suppose that there exists <span class="math inline">\(j\in S_0\)</span> such that</p>
+<p><span class="math display">\[
+f_1(j)=0.
+\]</span></p>
+<p>For this particular <span class="math inline">\(j\)</span>,</p>
+<p><span class="math display">\[
+P(X_n=j)=f_0(j)&gt;0.
+\]</span></p>
+<p>Therefore,</p>
+<p><span class="math display">\[
+\sum_{n=1}^{\infty}P(X_n=j)=\infty.
+\]</span></p>
+<p>Since the events <span class="math inline">\(\{X_n=j\}\)</span> are independent, by Borel–Cantelli,</p>
+<p><span class="math display">\[
+P(X_n=j\text{ i.o.})=1.
+\]</span></p>
+<p>When <span class="math inline">\(X_n=j\)</span>,</p>
+<p><span class="math display">\[
+W_n=\frac{f_1(j)}{f_0(j)}=0.
+\]</span></p>
+<p>Thus, almost surely, one of the factors in</p>
+<p><span class="math display">\[
+Z_n=\prod_{i=1}^nW_i
+\]</span></p>
+<p>eventually equals <span class="math inline">\(0\)</span>, and <span class="math inline">\(Z_n\)</span> remains <span class="math inline">\(0\)</span> afterward. Therefore,</p>
+<p><span class="math display">\[
+Z_n\to0
+\qquad\text{a.s.}
+\]</span></p>
+<p>Now suppose that</p>
+<p><span class="math display">\[
+f_1(j)&gt;0
+\qquad\text{for every }j\in S_0.
+\]</span></p>
+<p>Then <span class="math inline">\(\log W_n\)</span> is finite almost surely. Since the <span class="math inline">\(X_n\)</span>’s are iid, the random variables <span class="math inline">\(\{\log W_n\}\)</span> are also iid. Because <span class="math inline">\(S\)</span> is finite,</p>
+<p><span class="math display">\[
+E_{f_0}|\log W_1|&lt;\infty.
+\]</span></p>
+<p>We have</p>
+<p><span class="math display">\[
+\begin{aligned}
+E_{f_0}(\log W_1)
+&amp;=
+\sum_{j\in S_0}
+f_0(j)
+\log\frac{f_1(j)}{f_0(j)}\\
+&amp;\le
+\log\left(
+\sum_{j\in S_0}
+f_0(j)\frac{f_1(j)}{f_0(j)}
+\right)\\
+&amp;=
+\log\left(
+\sum_{j\in S_0}f_1(j)
+\right)\\
+&amp;\le
+\log 1\\
+&amp;=
+0,
+\end{aligned}
+\]</span></p>
+<p>where the first inequality follows from Jensen’s inequality.</p>
+<p>We claim that the inequality is strict. If equality held, then we would need</p>
+<p><span class="math display">\[
+\sum_{j\in S_0}f_1(j)=1,
+\]</span></p>
+<p>so <span class="math inline">\(f_1\)</span> would have no mass outside <span class="math inline">\(S_0\)</span>. Also, equality in Jensen’s inequality would imply that there exists a constant <span class="math inline">\(c\)</span> such that</p>
+<p><span class="math display">\[
+\frac{f_1(j)}{f_0(j)}=c
+\qquad\text{for every }j\in S_0.
+\]</span></p>
+<p>Therefore,</p>
+<p><span class="math display">\[
+1
+=
+\sum_{j\in S_0}f_1(j)
+=
+c\sum_{j\in S_0}f_0(j)
+=
+c.
+\]</span></p>
+<p>Hence <span class="math inline">\(c=1\)</span>, so</p>
+<p><span class="math display">\[
+f_1(j)=f_0(j)
+\qquad\text{for every }j\in S_0.
+\]</span></p>
+<p>Together with the fact that <span class="math inline">\(f_1\)</span> has no mass outside <span class="math inline">\(S_0\)</span>, this would imply</p>
+<p><span class="math display">\[
+f_1=f_0,
+\]</span></p>
+<p>which contradicts the assumption. Thus,</p>
+<p><span class="math display">\[
+E_{f_0}(\log W_1)&lt;0.
+\]</span></p>
+<p>Now,</p>
+<p><span class="math display">\[
+\log Z_n
+=
+\log\left(
+\prod_{i=1}^nW_i
+\right)
+=
+\sum_{i=1}^n\log W_i.
+\]</span></p>
+<p>By the SLLN,</p>
+<p><span class="math display">\[
+\frac1n\log Z_n
+=
+\frac1n\sum_{i=1}^n\log W_i
+\to
+E_{f_0}(\log W_1)
+&lt;0
+\qquad\text{a.s.}
+\]</span></p>
+<p>Let</p>
+<p><span class="math display">\[
+\mu=E_{f_0}(\log W_1)&lt;0.
+\]</span></p>
+<p>Almost surely, for sufficiently large <span class="math inline">\(n\)</span>,</p>
+<p><span class="math display">\[
+\frac1n\log Z_n&lt;\frac{\mu}{2}&lt;0.
+\]</span></p>
+<p>Hence,</p>
+<p><span class="math display">\[
+\log Z_n&lt;\frac{\mu n}{2}\to-\infty
+\qquad\text{a.s.}
+\]</span></p>
+<p>Therefore,</p>
+<p><span class="math display">\[
+\boxed{
+Z_n\to0
+\qquad\text{a.s.}
+}
+\]</span></p>
+</div>
+<div id="ex-45" class="section level3 hasAnchor">
+<h3>Ex 45<a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#ex-45" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="problem">
+<p>Suppose <span class="math inline">\(\{X_n,n\ge1\}\)</span> are iid random variables taking values in the alphabet</p>
+<p><span class="math display">\[
+S=\{1,\ldots,r\}
+\]</span></p>
+<p>with positive probabilities <span class="math inline">\(p_1,\ldots,p_r\)</span>. Define</p>
+<p><span class="math display">\[
+p_n(i_1,\ldots,i_n)
+=
+P[X_1=i_1,\ldots,X_n=i_n],
+\]</span></p>
+<p>and set</p>
+<p><span class="math display">\[
+\chi_n(\omega)
+:=
+p_n\bigl(X_1(\omega),\ldots,X_n(\omega)\bigr).
+\]</span></p>
+<p>Then <span class="math inline">\(\chi_n(\omega)\)</span> is the probability that in a new sample of <span class="math inline">\(n\)</span> observations, what is observed matches the original observations. Show that</p>
+<p><span class="math display">\[
+-\frac1n\log\chi_n(\omega)
+\xrightarrow{\mathrm{a.s.}}
+H
+:=
+-\sum_{i=1}^r p_i\log p_i.
+\]</span></p>
+</div>
+<p><span class="math inline">\(\textbf{Answer:}\)</span></p>
+<p>Since <span class="math inline">\(\{X_n\}\)</span> are iid, for any <span class="math inline">\(i_1,\ldots,i_n\in S\)</span>,</p>
+<p><span class="math display">\[
+\begin{aligned}
+p_n(i_1,\ldots,i_n)
+&amp;=
+P(X_1=i_1,\ldots,X_n=i_n)\\
+&amp;=
+P(X_1=i_1)\cdots P(X_n=i_n)\\
+&amp;=
+p_{i_1}\cdots p_{i_n}\\
+&amp;=
+\prod_{k=1}^n p_{i_k}.
+\end{aligned}
+\]</span></p>
+<p>Therefore,</p>
+<p><span class="math display">\[
+\begin{aligned}
+\chi_n(\omega)
+&amp;=
+p_n\bigl(X_1(\omega),\ldots,X_n(\omega)\bigr)\\
+&amp;=
+\prod_{k=1}^n p_{X_k(\omega)}.
+\end{aligned}
+\]</span></p>
+<p>Taking logarithms,</p>
+<p><span class="math display">\[
+\log\chi_n(\omega)
+=
+\sum_{k=1}^n\log p_{X_k(\omega)}.
+\]</span></p>
+<p>Let</p>
+<p><span class="math display">\[
+Y_k=-\log p_{X_k}.
+\]</span></p>
+<p>Since the <span class="math inline">\(X_k\)</span>’s are iid, the <span class="math inline">\(Y_k\)</span>’s are also iid. Moreover, because the alphabet is finite and <span class="math inline">\(p_j&gt;0\)</span> for every <span class="math inline">\(j\)</span>,</p>
+<p><span class="math display">\[
+E|Y_1|&lt;\infty.
+\]</span></p>
+<p>We have</p>
+<p><span class="math display">\[
+\begin{aligned}
+E(Y_1)
+&amp;=
+E\left(-\log p_{X_1}\right)\\
+&amp;=
+-\sum_{j=1}^r
+P(X_1=j)\log p_j\\
+&amp;=
+-\sum_{j=1}^r p_j\log p_j\\
+&amp;=
+H.
+\end{aligned}
+\]</span></p>
+<p>By the SLLN,</p>
+<p><span class="math display">\[
+\frac1n\sum_{k=1}^nY_k
+\longrightarrow H
+\qquad\text{a.s.}
+\]</span></p>
+<p>Finally,</p>
+<p><span class="math display">\[
+\begin{aligned}
+\frac1n\sum_{k=1}^nY_k
+&amp;=
+-\frac1n\sum_{k=1}^n\log p_{X_k}\\
+&amp;=
+-\frac1n\log\left(\prod_{k=1}^np_{X_k}\right)\\
+&amp;=
+-\frac1n\log\chi_n.
+\end{aligned}
+\]</span></p>
+<p>Therefore,</p>
+<p><span class="math display">\[
+\boxed{
+-\frac1n\log\chi_n(\omega)
+\longrightarrow
+H
+=
+-\sum_{j=1}^rp_j\log p_j
+\qquad\text{a.s.}
+}
+\]</span></p>
+
 </div>
 </div>
 </div>
