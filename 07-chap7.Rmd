@@ -7711,10 +7711,499 @@ H
 }
 \]
 
+### Ex 6
+
+::: problem
+Suppose \(\{X_k,k\ge1\}\) are independent random variables and suppose \(X_k\) has a gamma density \(f_k(x)\)
+
+\[
+f_k(x)
+=
+\frac{x^{\gamma_k-1}e^{-x}}
+{\Gamma(\gamma_k)},
+\qquad
+x>0,\ \gamma_k>0.
+\]
+
+Give necessary and sufficient conditions for
+
+\[
+\sum_{k=1}^{\infty}X_k
+\]
+
+to converge almost surely. (Compare with the treatment of sums of exponentially distributed random variables.)
+:::
+
+$\textbf{Answer:}$
+
+We claim that
+
+\[
+\sum_{k=1}^{\infty}X_k
+\]
+
+converges almost surely if and only if
+
+\[
+\sum_{k=1}^{\infty}\gamma_k<\infty.
+\]
+
+Since
+
+\[
+X_k\sim\operatorname{Gamma}(\gamma_k,1),
+\]
+
+we have
+
+\[
+E(X_k)=\gamma_k,
+\qquad
+\operatorname{Var}(X_k)=\gamma_k.
+\]
+
+"$\Leftarrow$"
+
+Suppose
+
+\[
+\sum_{k=1}^{\infty}\gamma_k<\infty.
+\]
+
+Since \(X_k\ge0\), by Tonelli's theorem,
+
+\[
+\begin{aligned}
+E\left(\sum_{k=1}^{\infty}X_k\right)
+&=
+\sum_{k=1}^{\infty}E(X_k)\\
+&=
+\sum_{k=1}^{\infty}\gamma_k\\
+&<
+\infty.
+\end{aligned}
+\]
+
+Therefore,
+
+\[
+\sum_{k=1}^{\infty}X_k<\infty
+\qquad\text{a.s.}
+\]
+
+"$\Rightarrow$"
+
+Suppose
+
+\[
+\sum_{k=1}^{\infty}X_k
+\]
+
+converges almost surely. We show that necessarily
+
+\[
+\sum_{k=1}^{\infty}\gamma_k<\infty.
+\]
+
+Suppose, to the contrary, that
+
+\[
+\sum_{k=1}^{\infty}\gamma_k=\infty.
+\]
+
+Let
+
+\[
+S_n=\sum_{k=1}^nX_k
+\]
+
+and
+
+\[
+a_n=\sum_{k=1}^n\gamma_k.
+\]
+
+Then
+
+\[
+a_n\to\infty.
+\]
+
+Also, by independence,
+
+\[
+E(S_n)=a_n
+\]
+
+and
+
+\[
+\operatorname{Var}(S_n)
+=
+\sum_{k=1}^n\operatorname{Var}(X_k)
+=
+a_n.
+\]
+
+By Chebyshev's inequality,
+
+\[
+\begin{aligned}
+P\left(S_n\le\frac{a_n}{2}\right)
+&\le
+P\left(
+|S_n-E(S_n)|
+\ge
+\frac{a_n}{2}
+\right)\\
+&\le
+\frac{4\operatorname{Var}(S_n)}{a_n^2}\\
+&=
+\frac4{a_n}\\
+&\to0.
+\end{aligned}
+\]
+
+Now fix \(M>0\). Since \(a_n\to\infty\), for sufficiently large \(n\),
+
+\[
+M\le\frac{a_n}{2}.
+\]
+
+Hence,
+
+\[
+P(S_n\le M)
+\le
+P\left(S_n\le\frac{a_n}{2}\right)
+\to0.
+\]
+
+Since \(X_k\ge0\), the sequence \(S_n\) is increasing. Therefore,
+
+\[
+\{S_n\le M\}
+\downarrow
+\left\{
+\sum_{k=1}^{\infty}X_k\le M
+\right\}.
+\]
+
+By continuity of probability from above,
+
+\[
+P\left(
+\sum_{k=1}^{\infty}X_k\le M
+\right)
+=
+\lim_{n\to\infty}P(S_n\le M)
+=
+0.
+\]
+
+This is true for every \(M\in\mathbb N\). Thus,
+
+\[
+\begin{aligned}
+P\left(
+\sum_{k=1}^{\infty}X_k<\infty
+\right)
+&=
+P\left(
+\bigcup_{M=1}^{\infty}
+\left\{
+\sum_{k=1}^{\infty}X_k\le M
+\right\}
+\right)\\
+&=
+0.
+\end{aligned}
+\]
+
+This contradicts the assumption that the series converges almost surely.
+
+Therefore,
+
+\[
+\sum_{k=1}^{\infty}\gamma_k<\infty.
+\]
+
+Hence,
+
+\[
+\boxed{
+\sum_{k=1}^{\infty}X_k
+\text{ converges a.s.}
+\iff
+\sum_{k=1}^{\infty}\gamma_k<\infty.
+}
+\]
+
+### Ex 11
+
+::: problem
+Suppose \(\{X_n,n\ge1\}\) are iid with a symmetric distribution. Then
+
+\[
+\sum_n \frac{X_n}{n}
+\]
+
+converges almost surely iff \(E(|X_1|)<\infty\).
+:::
+
+$\textbf{Answer:}$
+
+First suppose
+
+\[
+\sum_{n=1}^{\infty}\frac{X_n}{n}
+\]
+
+converges almost surely. Then necessarily
+
+\[
+\frac{X_n}{n}\to0
+\qquad\text{a.s.}
+\]
+
+Therefore, for every \(\varepsilon>0\),
+
+\[
+P\left(
+\left|\frac{X_n}{n}\right|>\varepsilon
+\text{ i.o.}
+\right)
+=
+0.
+\]
+
+Since the \(X_n\)'s are independent, the events
+
+\[
+\{|X_n|>\varepsilon n\}
+\]
+
+are independent. Hence, by the converse part of Borel--Cantelli,
+
+\[
+\sum_{n=1}^{\infty}
+P(|X_n|>\varepsilon n)
+<
+\infty.
+\]
+
+Taking \(\varepsilon=1\), and using that the \(X_n\)'s are identically distributed,
+
+\[
+\sum_{n=1}^{\infty}
+P(|X_1|>n)
+<
+\infty.
+\]
+
+Also,
+
+\[
+E|X_1|
+=
+\int_0^\infty P(|X_1|>t)\,dt.
+\]
+
+Since \(P(|X_1|>t)\) is decreasing,
+
+\[
+E|X_1|
+\le
+P(|X_1|>0)
++
+\sum_{n=1}^{\infty}P(|X_1|>n)
+<
+\infty.
+\]
+
+Therefore,
+
+\[
+\sum_{n=1}^{\infty}\frac{X_n}{n}
+\text{ converges a.s.}
+\quad\Longrightarrow\quad
+E|X_1|<\infty.
+\]
+
+Conversely, suppose
+
+\[
+E|X_1|<\infty.
+\]
+
+Since the distribution of \(X_1\) is symmetric,
+
+\[
+E(X_1)=0.
+\]
+
+Let
+
+\[
+Y_n=\frac{X_n}{n}.
+\]
+
+We apply the three-series theorem with truncation level \(c=1\).
+
+First,
+
+\[
+\begin{aligned}
+\sum_{n=1}^{\infty}P(|Y_n|>1)
+&=
+\sum_{n=1}^{\infty}P(|X_n|>n)\\
+&=
+\sum_{n=1}^{\infty}P(|X_1|>n)\\
+&<
+\infty,
+\end{aligned}
+\]
+
+since \(E|X_1|<\infty\).
+
+Second, by symmetry,
+
+\[
+E\left[
+Y_n1_{\{|Y_n|\le1\}}
+\right]
+=
+\frac1n
+E\left[
+X_n1_{\{|X_n|\le n\}}
+\right]
+=
+0.
+\]
+
+Hence,
+
+\[
+\sum_{n=1}^{\infty}
+E\left[
+Y_n1_{\{|Y_n|\le1\}}
+\right]
+=
+0.
+\]
+
+Finally, since the truncated variable is still symmetric,
+
+\[
+\begin{aligned}
+\operatorname{Var}\left(
+Y_n1_{\{|Y_n|\le1\}}
+\right)
+&=
+E\left[
+Y_n^2 1_{\{|Y_n|\le1\}}
+\right]\\
+&=
+\frac1{n^2}
+E\left[
+X_n^2 1_{\{|X_n|\le n\}}
+\right].
+\end{aligned}
+\]
+
+Therefore,
+
+\[
+\begin{aligned}
+\sum_{n=1}^{\infty}
+\operatorname{Var}\left(
+Y_n1_{\{|Y_n|\le1\}}
+\right)
+&=
+\sum_{n=1}^{\infty}
+\frac1{n^2}
+E\left[
+X_1^2 1_{\{|X_1|\le n\}}
+\right]\\
+&=
+E\left[
+X_1^2
+\sum_{n\ge |X_1|}
+\frac1{n^2}
+\right],
+\end{aligned}
+\]
+
+where the last equality follows from Tonelli's theorem.
+
+Now isolate the inner sum. For \(x\ge1\), letting \(m=\lceil x\rceil\),
+
+\[
+\begin{aligned}
+\sum_{n\ge x}\frac1{n^2}
+&=
+\sum_{n=m}^{\infty}\frac1{n^2}\\
+&\le
+\frac1{m^2}
++
+\int_m^\infty\frac1{t^2}\,dt\\
+&\le
+\frac2x.
+\end{aligned}
+\]
+
+For \(0\le x<1\),
+
+\[
+x^2\sum_{n=1}^{\infty}\frac1{n^2}
+\le
+\left(\sum_{n=1}^{\infty}\frac1{n^2}\right)x.
+\]
+
+Thus there exists a finite constant \(C\) such that
+
+\[
+x^2\sum_{n\ge x}\frac1{n^2}
+\le
+Cx,
+\qquad x\ge0.
+\]
+
+Hence,
+
+\[
+E\left[
+X_1^2
+\sum_{n\ge |X_1|}
+\frac1{n^2}
+\right]
+\le
+C E|X_1|
+<
+\infty.
+\]
+
+Therefore all three conditions of the three-series theorem hold, and
+
+\[
+\sum_{n=1}^{\infty}\frac{X_n}{n}
+\]
+
+converges almost surely.
+
+Consequently,
+
+\[
+\boxed{
+\sum_{n=1}^{\infty}\frac{X_n}{n}
+\text{ converges a.s.}
+\iff
+E|X_1|<\infty.
+}
+\]
 
 
-
-
+$\textbf{Note:}$ We should note that in this exercise, symmetric means symmetric about \(0\). If the distribution is instead symmetric about some \(c\neq0\), then the series will not converge.
 
 
 

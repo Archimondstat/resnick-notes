@@ -23,7 +23,7 @@
 <meta name="author" content="Zhanwen Peng" />
 
 
-<meta name="date" content="2026-08-01" />
+<meta name="date" content="2026-08-09" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -511,6 +511,8 @@
 </ul></li>
 <li class="chapter" data-level="" data-path="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html"><a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#ex-44"><i class="fa fa-check"></i>Ex 44</a></li>
 <li class="chapter" data-level="" data-path="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html"><a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#ex-45"><i class="fa fa-check"></i>Ex 45</a></li>
+<li class="chapter" data-level="" data-path="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html"><a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#ex-6-2"><i class="fa fa-check"></i>Ex 6</a></li>
+<li class="chapter" data-level="" data-path="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html"><a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#ex-11-3"><i class="fa fa-check"></i>Ex 11</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -6509,6 +6511,391 @@ H
 \qquad\text{a.s.}
 }
 \]</span></p>
+</div>
+<div id="ex-6-2" class="section level3 hasAnchor">
+<h3>Ex 6<a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#ex-6-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="problem">
+<p>Suppose <span class="math inline">\(\{X_k,k\ge1\}\)</span> are independent random variables and suppose <span class="math inline">\(X_k\)</span> has a gamma density <span class="math inline">\(f_k(x)\)</span></p>
+<p><span class="math display">\[
+f_k(x)
+=
+\frac{x^{\gamma_k-1}e^{-x}}
+{\Gamma(\gamma_k)},
+\qquad
+x&gt;0,\ \gamma_k&gt;0.
+\]</span></p>
+<p>Give necessary and sufficient conditions for</p>
+<p><span class="math display">\[
+\sum_{k=1}^{\infty}X_k
+\]</span></p>
+<p>to converge almost surely. (Compare with the treatment of sums of exponentially distributed random variables.)</p>
+</div>
+<p><span class="math inline">\(\textbf{Answer:}\)</span></p>
+<p>We claim that</p>
+<p><span class="math display">\[
+\sum_{k=1}^{\infty}X_k
+\]</span></p>
+<p>converges almost surely if and only if</p>
+<p><span class="math display">\[
+\sum_{k=1}^{\infty}\gamma_k&lt;\infty.
+\]</span></p>
+<p>Since</p>
+<p><span class="math display">\[
+X_k\sim\operatorname{Gamma}(\gamma_k,1),
+\]</span></p>
+<p>we have</p>
+<p><span class="math display">\[
+E(X_k)=\gamma_k,
+\qquad
+\operatorname{Var}(X_k)=\gamma_k.
+\]</span></p>
+<p>“<span class="math inline">\(\Leftarrow\)</span>”</p>
+<p>Suppose</p>
+<p><span class="math display">\[
+\sum_{k=1}^{\infty}\gamma_k&lt;\infty.
+\]</span></p>
+<p>Since <span class="math inline">\(X_k\ge0\)</span>, by Tonelli’s theorem,</p>
+<p><span class="math display">\[
+\begin{aligned}
+E\left(\sum_{k=1}^{\infty}X_k\right)
+&amp;=
+\sum_{k=1}^{\infty}E(X_k)\\
+&amp;=
+\sum_{k=1}^{\infty}\gamma_k\\
+&amp;&lt;
+\infty.
+\end{aligned}
+\]</span></p>
+<p>Therefore,</p>
+<p><span class="math display">\[
+\sum_{k=1}^{\infty}X_k&lt;\infty
+\qquad\text{a.s.}
+\]</span></p>
+<p>“<span class="math inline">\(\Rightarrow\)</span>”</p>
+<p>Suppose</p>
+<p><span class="math display">\[
+\sum_{k=1}^{\infty}X_k
+\]</span></p>
+<p>converges almost surely. We show that necessarily</p>
+<p><span class="math display">\[
+\sum_{k=1}^{\infty}\gamma_k&lt;\infty.
+\]</span></p>
+<p>Suppose, to the contrary, that</p>
+<p><span class="math display">\[
+\sum_{k=1}^{\infty}\gamma_k=\infty.
+\]</span></p>
+<p>Let</p>
+<p><span class="math display">\[
+S_n=\sum_{k=1}^nX_k
+\]</span></p>
+<p>and</p>
+<p><span class="math display">\[
+a_n=\sum_{k=1}^n\gamma_k.
+\]</span></p>
+<p>Then</p>
+<p><span class="math display">\[
+a_n\to\infty.
+\]</span></p>
+<p>Also, by independence,</p>
+<p><span class="math display">\[
+E(S_n)=a_n
+\]</span></p>
+<p>and</p>
+<p><span class="math display">\[
+\operatorname{Var}(S_n)
+=
+\sum_{k=1}^n\operatorname{Var}(X_k)
+=
+a_n.
+\]</span></p>
+<p>By Chebyshev’s inequality,</p>
+<p><span class="math display">\[
+\begin{aligned}
+P\left(S_n\le\frac{a_n}{2}\right)
+&amp;\le
+P\left(
+|S_n-E(S_n)|
+\ge
+\frac{a_n}{2}
+\right)\\
+&amp;\le
+\frac{4\operatorname{Var}(S_n)}{a_n^2}\\
+&amp;=
+\frac4{a_n}\\
+&amp;\to0.
+\end{aligned}
+\]</span></p>
+<p>Now fix <span class="math inline">\(M&gt;0\)</span>. Since <span class="math inline">\(a_n\to\infty\)</span>, for sufficiently large <span class="math inline">\(n\)</span>,</p>
+<p><span class="math display">\[
+M\le\frac{a_n}{2}.
+\]</span></p>
+<p>Hence,</p>
+<p><span class="math display">\[
+P(S_n\le M)
+\le
+P\left(S_n\le\frac{a_n}{2}\right)
+\to0.
+\]</span></p>
+<p>Since <span class="math inline">\(X_k\ge0\)</span>, the sequence <span class="math inline">\(S_n\)</span> is increasing. Therefore,</p>
+<p><span class="math display">\[
+\{S_n\le M\}
+\downarrow
+\left\{
+\sum_{k=1}^{\infty}X_k\le M
+\right\}.
+\]</span></p>
+<p>By continuity of probability from above,</p>
+<p><span class="math display">\[
+P\left(
+\sum_{k=1}^{\infty}X_k\le M
+\right)
+=
+\lim_{n\to\infty}P(S_n\le M)
+=
+0.
+\]</span></p>
+<p>This is true for every <span class="math inline">\(M\in\mathbb N\)</span>. Thus,</p>
+<p><span class="math display">\[
+\begin{aligned}
+P\left(
+\sum_{k=1}^{\infty}X_k&lt;\infty
+\right)
+&amp;=
+P\left(
+\bigcup_{M=1}^{\infty}
+\left\{
+\sum_{k=1}^{\infty}X_k\le M
+\right\}
+\right)\\
+&amp;=
+0.
+\end{aligned}
+\]</span></p>
+<p>This contradicts the assumption that the series converges almost surely.</p>
+<p>Therefore,</p>
+<p><span class="math display">\[
+\sum_{k=1}^{\infty}\gamma_k&lt;\infty.
+\]</span></p>
+<p>Hence,</p>
+<p><span class="math display">\[
+\boxed{
+\sum_{k=1}^{\infty}X_k
+\text{ converges a.s.}
+\iff
+\sum_{k=1}^{\infty}\gamma_k&lt;\infty.
+}
+\]</span></p>
+</div>
+<div id="ex-11-3" class="section level3 hasAnchor">
+<h3>Ex 11<a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#ex-11-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="problem">
+<p>Suppose <span class="math inline">\(\{X_n,n\ge1\}\)</span> are iid with a symmetric distribution. Then</p>
+<p><span class="math display">\[
+\sum_n \frac{X_n}{n}
+\]</span></p>
+<p>converges almost surely iff <span class="math inline">\(E(|X_1|)&lt;\infty\)</span>.</p>
+</div>
+<p><span class="math inline">\(\textbf{Answer:}\)</span></p>
+<p>First suppose</p>
+<p><span class="math display">\[
+\sum_{n=1}^{\infty}\frac{X_n}{n}
+\]</span></p>
+<p>converges almost surely. Then necessarily</p>
+<p><span class="math display">\[
+\frac{X_n}{n}\to0
+\qquad\text{a.s.}
+\]</span></p>
+<p>Therefore, for every <span class="math inline">\(\varepsilon&gt;0\)</span>,</p>
+<p><span class="math display">\[
+P\left(
+\left|\frac{X_n}{n}\right|&gt;\varepsilon
+\text{ i.o.}
+\right)
+=
+0.
+\]</span></p>
+<p>Since the <span class="math inline">\(X_n\)</span>’s are independent, the events</p>
+<p><span class="math display">\[
+\{|X_n|&gt;\varepsilon n\}
+\]</span></p>
+<p>are independent. Hence, by the converse part of Borel–Cantelli,</p>
+<p><span class="math display">\[
+\sum_{n=1}^{\infty}
+P(|X_n|&gt;\varepsilon n)
+&lt;
+\infty.
+\]</span></p>
+<p>Taking <span class="math inline">\(\varepsilon=1\)</span>, and using that the <span class="math inline">\(X_n\)</span>’s are identically distributed,</p>
+<p><span class="math display">\[
+\sum_{n=1}^{\infty}
+P(|X_1|&gt;n)
+&lt;
+\infty.
+\]</span></p>
+<p>Also,</p>
+<p><span class="math display">\[
+E|X_1|
+=
+\int_0^\infty P(|X_1|&gt;t)\,dt.
+\]</span></p>
+<p>Since <span class="math inline">\(P(|X_1|&gt;t)\)</span> is decreasing,</p>
+<p><span class="math display">\[
+E|X_1|
+\le
+P(|X_1|&gt;0)
++
+\sum_{n=1}^{\infty}P(|X_1|&gt;n)
+&lt;
+\infty.
+\]</span></p>
+<p>Therefore,</p>
+<p><span class="math display">\[
+\sum_{n=1}^{\infty}\frac{X_n}{n}
+\text{ converges a.s.}
+\quad\Longrightarrow\quad
+E|X_1|&lt;\infty.
+\]</span></p>
+<p>Conversely, suppose</p>
+<p><span class="math display">\[
+E|X_1|&lt;\infty.
+\]</span></p>
+<p>Since the distribution of <span class="math inline">\(X_1\)</span> is symmetric,</p>
+<p><span class="math display">\[
+E(X_1)=0.
+\]</span></p>
+<p>Let</p>
+<p><span class="math display">\[
+Y_n=\frac{X_n}{n}.
+\]</span></p>
+<p>We apply the three-series theorem with truncation level <span class="math inline">\(c=1\)</span>.</p>
+<p>First,</p>
+<p><span class="math display">\[
+\begin{aligned}
+\sum_{n=1}^{\infty}P(|Y_n|&gt;1)
+&amp;=
+\sum_{n=1}^{\infty}P(|X_n|&gt;n)\\
+&amp;=
+\sum_{n=1}^{\infty}P(|X_1|&gt;n)\\
+&amp;&lt;
+\infty,
+\end{aligned}
+\]</span></p>
+<p>since <span class="math inline">\(E|X_1|&lt;\infty\)</span>.</p>
+<p>Second, by symmetry,</p>
+<p><span class="math display">\[
+E\left[
+Y_n1_{\{|Y_n|\le1\}}
+\right]
+=
+\frac1n
+E\left[
+X_n1_{\{|X_n|\le n\}}
+\right]
+=
+0.
+\]</span></p>
+<p>Hence,</p>
+<p><span class="math display">\[
+\sum_{n=1}^{\infty}
+E\left[
+Y_n1_{\{|Y_n|\le1\}}
+\right]
+=
+0.
+\]</span></p>
+<p>Finally, since the truncated variable is still symmetric,</p>
+<p><span class="math display">\[
+\begin{aligned}
+\operatorname{Var}\left(
+Y_n1_{\{|Y_n|\le1\}}
+\right)
+&amp;=
+E\left[
+Y_n^2 1_{\{|Y_n|\le1\}}
+\right]\\
+&amp;=
+\frac1{n^2}
+E\left[
+X_n^2 1_{\{|X_n|\le n\}}
+\right].
+\end{aligned}
+\]</span></p>
+<p>Therefore,</p>
+<p><span class="math display">\[
+\begin{aligned}
+\sum_{n=1}^{\infty}
+\operatorname{Var}\left(
+Y_n1_{\{|Y_n|\le1\}}
+\right)
+&amp;=
+\sum_{n=1}^{\infty}
+\frac1{n^2}
+E\left[
+X_1^2 1_{\{|X_1|\le n\}}
+\right]\\
+&amp;=
+E\left[
+X_1^2
+\sum_{n\ge |X_1|}
+\frac1{n^2}
+\right],
+\end{aligned}
+\]</span></p>
+<p>where the last equality follows from Tonelli’s theorem.</p>
+<p>Now isolate the inner sum. For <span class="math inline">\(x\ge1\)</span>, letting <span class="math inline">\(m=\lceil x\rceil\)</span>,</p>
+<p><span class="math display">\[
+\begin{aligned}
+\sum_{n\ge x}\frac1{n^2}
+&amp;=
+\sum_{n=m}^{\infty}\frac1{n^2}\\
+&amp;\le
+\frac1{m^2}
++
+\int_m^\infty\frac1{t^2}\,dt\\
+&amp;\le
+\frac2x.
+\end{aligned}
+\]</span></p>
+<p>For <span class="math inline">\(0\le x&lt;1\)</span>,</p>
+<p><span class="math display">\[
+x^2\sum_{n=1}^{\infty}\frac1{n^2}
+\le
+\left(\sum_{n=1}^{\infty}\frac1{n^2}\right)x.
+\]</span></p>
+<p>Thus there exists a finite constant <span class="math inline">\(C\)</span> such that</p>
+<p><span class="math display">\[
+x^2\sum_{n\ge x}\frac1{n^2}
+\le
+Cx,
+\qquad x\ge0.
+\]</span></p>
+<p>Hence,</p>
+<p><span class="math display">\[
+E\left[
+X_1^2
+\sum_{n\ge |X_1|}
+\frac1{n^2}
+\right]
+\le
+C E|X_1|
+&lt;
+\infty.
+\]</span></p>
+<p>Therefore all three conditions of the three-series theorem hold, and</p>
+<p><span class="math display">\[
+\sum_{n=1}^{\infty}\frac{X_n}{n}
+\]</span></p>
+<p>converges almost surely.</p>
+<p>Consequently,</p>
+<p><span class="math display">\[
+\boxed{
+\sum_{n=1}^{\infty}\frac{X_n}{n}
+\text{ converges a.s.}
+\iff
+E|X_1|&lt;\infty.
+}
+\]</span></p>
+<p><span class="math inline">\(\textbf{Note:}\)</span> We should note that in this exercise, symmetric means symmetric about <span class="math inline">\(0\)</span>. If the distribution is instead symmetric about some <span class="math inline">\(c\neq0\)</span>, then the series will not converge.</p>
 
 </div>
 </div>
