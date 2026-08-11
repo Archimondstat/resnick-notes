@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chap 7, Laws of Large Numbers and Sums of Independent Random Variables | Notes on A Probability Path (Resnick)</title>
   <meta name="description" content="Chap 7, Laws of Large Numbers and Sums of Independent Random Variables | Notes on A Probability Path (Resnick)" />
-  <meta name="generator" content="bookdown 0.46 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.42 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chap 7, Laws of Large Numbers and Sums of Independent Random Variables | Notes on A Probability Path (Resnick)" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="Zhanwen Peng" />
 
 
-<meta name="date" content="2026-08-09" />
+<meta name="date" content="2026-08-11" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -513,6 +513,8 @@
 <li class="chapter" data-level="" data-path="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html"><a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#ex-45"><i class="fa fa-check"></i>Ex 45</a></li>
 <li class="chapter" data-level="" data-path="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html"><a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#ex-6-2"><i class="fa fa-check"></i>Ex 6</a></li>
 <li class="chapter" data-level="" data-path="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html"><a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#ex-11-3"><i class="fa fa-check"></i>Ex 11</a></li>
+<li class="chapter" data-level="" data-path="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html"><a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#ex-13-3"><i class="fa fa-check"></i>Ex 13</a></li>
+<li class="chapter" data-level="" data-path="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html"><a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#ex-14-4"><i class="fa fa-check"></i>Ex 14</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -6896,6 +6898,445 @@ E|X_1|&lt;\infty.
 }
 \]</span></p>
 <p><span class="math inline">\(\textbf{Note:}\)</span> We should note that in this exercise, symmetric means symmetric about <span class="math inline">\(0\)</span>. If the distribution is instead symmetric about some <span class="math inline">\(c\neq0\)</span>, then the series will not converge.</p>
+</div>
+<div id="ex-13-3" class="section level3 hasAnchor">
+<h3>Ex 13<a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#ex-13-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="problem">
+<p>Use the three series theorem to derive necessary and sufficient conditions for <span class="math inline">\(\sum_n X_n\)</span> to converge a.s. when <span class="math inline">\(\{X_n\}\)</span> are independent and exponentially distributed.</p>
+</div>
+<p><span class="math inline">\(\textbf{Answer:}\)</span></p>
+<p>Let</p>
+<p><span class="math display">\[
+X_n\sim \operatorname{Exp}(\lambda_n),
+\]</span></p>
+<p>where <span class="math inline">\(\lambda_n&gt;0\)</span> is the rate parameter. Then</p>
+<p><span class="math display">\[
+E(X_n)=\frac1{\lambda_n},
+\qquad
+\operatorname{Var}(X_n)=\frac1{\lambda_n^2}.
+\]</span></p>
+<p>We claim that</p>
+<p><span class="math display">\[
+\sum_{n=1}^{\infty}X_n
+\]</span></p>
+<p>converges almost surely if and only if</p>
+<p><span class="math display">\[
+\sum_{n=1}^{\infty}\frac1{\lambda_n}&lt;\infty.
+\]</span></p>
+<p>Fix <span class="math inline">\(c&gt;0\)</span>. Since <span class="math inline">\(X_n\ge0\)</span>, the three series theorem requires us to consider</p>
+<p><span class="math display">\[
+\sum_nP(X_n&gt;c),
+\]</span></p>
+<p><span class="math display">\[
+\sum_n
+E\left(X_n1_{\{X_n\le c\}}\right),
+\]</span></p>
+<p>and</p>
+<p><span class="math display">\[
+\sum_n
+\operatorname{Var}\left(X_n1_{\{X_n\le c\}}\right).
+\]</span></p>
+<ul>
+<li><span class="math inline">\((\Rightarrow)\)</span></li>
+</ul>
+<p>Suppose</p>
+<p><span class="math display">\[
+\sum_{n=1}^{\infty}X_n
+\]</span></p>
+<p>converges almost surely.</p>
+<p>By the three series theorem,</p>
+<p><span class="math display">\[
+\sum_{n=1}^{\infty}P(X_n&gt;c)&lt;\infty.
+\]</span></p>
+<p>Since <span class="math inline">\(X_n\sim\operatorname{Exp}(\lambda_n)\)</span>,</p>
+<p><span class="math display">\[
+P(X_n&gt;c)=e^{-c\lambda_n}.
+\]</span></p>
+<p>Therefore,</p>
+<p><span class="math display">\[
+\sum_{n=1}^{\infty}e^{-c\lambda_n}&lt;\infty.
+\]</span></p>
+<p>In particular,</p>
+<p><span class="math display">\[
+e^{-c\lambda_n}\to0,
+\]</span></p>
+<p>so</p>
+<p><span class="math display">\[
+\lambda_n\to\infty.
+\]</span></p>
+<p>Also, the three series theorem gives</p>
+<p><span class="math display">\[
+\sum_{n=1}^{\infty}
+E\left(X_n1_{\{X_n\le c\}}\right)
+&lt;
+\infty.
+\]</span></p>
+<p>For each <span class="math inline">\(n\)</span>,</p>
+<p><span class="math display">\[
+\begin{aligned}
+E\left(X_n1_{\{X_n\le c\}}\right)
+&amp;=
+\int_0^c x\lambda_ne^{-\lambda_nx}\,dx\\
+&amp;=
+\frac{1-(1+c\lambda_n)e^{-c\lambda_n}}
+{\lambda_n}.
+\end{aligned}
+\]</span></p>
+<p>Since <span class="math inline">\(\lambda_n\to\infty\)</span>,</p>
+<p><span class="math display">\[
+(1+c\lambda_n)e^{-c\lambda_n}\to0.
+\]</span></p>
+<p>Hence, for sufficiently large <span class="math inline">\(n\)</span>,</p>
+<p><span class="math display">\[
+1-(1+c\lambda_n)e^{-c\lambda_n}
+\ge\frac12.
+\]</span></p>
+<p>Therefore,</p>
+<p><span class="math display">\[
+E\left(X_n1_{\{X_n\le c\}}\right)
+\ge
+\frac1{2\lambda_n}
+\]</span></p>
+<p>eventually. Thus,</p>
+<p><span class="math display">\[
+\sum_{n=1}^{\infty}\frac1{\lambda_n}
+&lt;
+\infty.
+\]</span></p>
+<ul>
+<li><span class="math inline">\((\Leftarrow)\)</span></li>
+</ul>
+<p>Conversely, suppose</p>
+<p><span class="math display">\[
+\sum_{n=1}^{\infty}\frac1{\lambda_n}&lt;\infty.
+\]</span></p>
+<p>We verify the three conditions of the three series theorem.</p>
+<p>First,</p>
+<p><span class="math display">\[
+P(X_n&gt;c)=e^{-c\lambda_n}.
+\]</span></p>
+<p>To control this series, consider</p>
+<p><span class="math display">\[
+f(x)=xe^{-cx},
+\qquad x&gt;0.
+\]</span></p>
+<p>Then</p>
+<p><span class="math display">\[
+f&#39;(x)=e^{-cx}(1-cx).
+\]</span></p>
+<p>Thus <span class="math inline">\(f\)</span> reaches its maximum at</p>
+<p><span class="math display">\[
+x=\frac1c,
+\]</span></p>
+<p>and</p>
+<p><span class="math display">\[
+f\left(\frac1c\right)=\frac1{ce}.
+\]</span></p>
+<p>Therefore,</p>
+<p><span class="math display">\[
+xe^{-cx}\le\frac1{ce},
+\]</span></p>
+<p>so</p>
+<p><span class="math display">\[
+e^{-cx}\le\frac1{ce}\frac1x.
+\]</span></p>
+<p>Taking <span class="math inline">\(x=\lambda_n\)</span>,</p>
+<p><span class="math display">\[
+e^{-c\lambda_n}
+\le
+\frac1{ce}\frac1{\lambda_n}.
+\]</span></p>
+<p>Hence,</p>
+<p><span class="math display">\[
+\sum_{n=1}^{\infty}P(X_n&gt;c)
+=
+\sum_{n=1}^{\infty}e^{-c\lambda_n}
+\le
+\frac1{ce}
+\sum_{n=1}^{\infty}\frac1{\lambda_n}
+&lt;
+\infty.
+\]</span></p>
+<p>Second,</p>
+<p><span class="math display">\[
+E\left(X_n1_{\{X_n\le c\}}\right)
+\le
+E(X_n)
+=
+\frac1{\lambda_n}.
+\]</span></p>
+<p>Therefore,</p>
+<p><span class="math display">\[
+\sum_{n=1}^{\infty}
+E\left(X_n1_{\{X_n\le c\}}\right)
+&lt;
+\infty.
+\]</span></p>
+<p>Finally,</p>
+<p><span class="math display">\[
+\begin{aligned}
+\operatorname{Var}\left(
+X_n1_{\{X_n\le c\}}
+\right)
+&amp;\le
+E\left(
+X_n^2 1_{\{X_n\le c\}}
+\right)\\
+&amp;\le
+E(X_n^2).
+\end{aligned}
+\]</span></p>
+<p>For an exponential random variable,</p>
+<p><span class="math display">\[
+E(X_n^2)
+=
+\operatorname{Var}(X_n)+E(X_n)^2
+=
+\frac2{\lambda_n^2}.
+\]</span></p>
+<p>Since</p>
+<p><span class="math display">\[
+\sum_{n=1}^{\infty}\frac1{\lambda_n}&lt;\infty,
+\]</span></p>
+<p>we have <span class="math inline">\(\lambda_n\to\infty\)</span>, so eventually <span class="math inline">\(\lambda_n\ge1\)</span>, and therefore</p>
+<p><span class="math display">\[
+\frac1{\lambda_n^2}
+\le
+\frac1{\lambda_n}.
+\]</span></p>
+<p>Hence,</p>
+<p><span class="math display">\[
+\sum_{n=1}^{\infty}
+\operatorname{Var}\left(
+X_n1_{\{X_n\le c\}}
+\right)
+\le
+2\sum_{n=1}^{\infty}\frac1{\lambda_n^2}
+&lt;
+\infty.
+\]</span></p>
+<p>Thus all three conditions of the three series theorem hold, and</p>
+<p><span class="math display">\[
+\sum_{n=1}^{\infty}X_n
+\]</span></p>
+<p>converges almost surely.</p>
+<p>Therefore,</p>
+<p><span class="math display">\[
+\boxed{
+\sum_{n=1}^{\infty}X_n
+\text{ converges a.s.}
+\iff
+\sum_{n=1}^{\infty}\frac1{\lambda_n}&lt;\infty.
+}
+\]</span></p>
+</div>
+<div id="ex-14-4" class="section level3 hasAnchor">
+<h3>Ex 14<a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#ex-14-4" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="problem">
+<p>Suppose <span class="math inline">\(\{X_n,n\ge1\}\)</span> are independent, normally distributed with</p>
+<p><span class="math display">\[
+E(X_n)=\mu_n,
+\qquad
+\operatorname{Var}(X_n)=\sigma_n^2.
+\]</span></p>
+<p>Show that <span class="math inline">\(\sum_n X_n\)</span> converges almost surely iff <span class="math inline">\(\sum_n\mu_n\)</span> converges and <span class="math inline">\(\sum_n\sigma_n^2&lt;\infty\)</span>.</p>
+</div>
+<p><span class="math inline">\(\textbf{Answer:}\)</span></p>
+<p>First suppose</p>
+<p><span class="math display">\[
+\sum_{n=1}^{\infty}X_n
+\]</span></p>
+<p>converges almost surely. Let</p>
+<p><span class="math display">\[
+S_n=\sum_{i=1}^nX_i.
+\]</span></p>
+<p>Then <span class="math inline">\(\{S_n\}\)</span> is Cauchy in probability. For <span class="math inline">\(m&lt;n\)</span>, define</p>
+<p><span class="math display">\[
+Z_{m,n}=S_n-S_m
+=
+\sum_{i=m+1}^nX_i.
+\]</span></p>
+<p>Thus,</p>
+<p><span class="math display">\[
+Z_{m,n}\xrightarrow{P}0
+\qquad\text{as }m,n\to\infty.
+\]</span></p>
+<p>Since the <span class="math inline">\(X_i\)</span>’s are independent and normally distributed,</p>
+<p><span class="math display">\[
+Z_{m,n}
+\sim
+N\left(
+\sum_{i=m+1}^n\mu_i,
+\sum_{i=m+1}^n\sigma_i^2
+\right).
+\]</span></p>
+<p>Let</p>
+<p><span class="math display">\[
+a_{m,n}
+=
+\sum_{i=m+1}^n\mu_i,
+\qquad
+b_{m,n}
+=
+\sum_{i=m+1}^n\sigma_i^2.
+\]</span></p>
+<p>We first show that</p>
+<p><span class="math display">\[
+b_{m,n}\to0.
+\]</span></p>
+<p>Suppose not. Then there exists <span class="math inline">\(\delta&gt;0\)</span> and arbitrarily large <span class="math inline">\(m&lt;n\)</span> such that</p>
+<p><span class="math display">\[
+b_{m,n}\ge\delta.
+\]</span></p>
+<p>The density <span class="math inline">\(f_{m,n}\)</span> of <span class="math inline">\(Z_{m,n}\)</span> satisfies</p>
+<p><span class="math display">\[
+f_{m,n}(x)
+\le
+\frac1{\sqrt{2\pi b_{m,n}}}
+\le
+\frac1{\sqrt{2\pi\delta}}.
+\]</span></p>
+<p>Therefore, for any fixed <span class="math inline">\(\varepsilon&gt;0\)</span>,</p>
+<p><span class="math display">\[
+\begin{aligned}
+P(|Z_{m,n}|\le\varepsilon)
+&amp;=
+\int_{-\varepsilon}^{\varepsilon}
+f_{m,n}(x)\,dx\\
+&amp;\le
+\frac{2\varepsilon}{\sqrt{2\pi\delta}}.
+\end{aligned}
+\]</span></p>
+<p>Choose <span class="math inline">\(\varepsilon&gt;0\)</span> such that</p>
+<p><span class="math display">\[
+\frac{2\varepsilon}{\sqrt{2\pi\delta}}&lt;1.
+\]</span></p>
+<p>This contradicts</p>
+<p><span class="math display">\[
+Z_{m,n}\xrightarrow{P}0,
+\]</span></p>
+<p>which requires</p>
+<p><span class="math display">\[
+P(|Z_{m,n}|\le\varepsilon)\to1.
+\]</span></p>
+<p>Hence,</p>
+<p><span class="math display">\[
+b_{m,n}
+=
+\sum_{i=m+1}^n\sigma_i^2
+\to0.
+\]</span></p>
+<p>Therefore the partial sums of</p>
+<p><span class="math display">\[
+\sum_{n=1}^{\infty}\sigma_n^2
+\]</span></p>
+<p>are Cauchy. Since the terms are nonnegative,</p>
+<p><span class="math display">\[
+\sum_{n=1}^{\infty}\sigma_n^2&lt;\infty.
+\]</span></p>
+<p>Next, by Chebyshev’s inequality,</p>
+<p><span class="math display">\[
+\begin{aligned}
+P\left(
+|Z_{m,n}-a_{m,n}|&gt;\varepsilon
+\right)
+&amp;\le
+\frac{b_{m,n}}{\varepsilon^2}\\
+&amp;\to0.
+\end{aligned}
+\]</span></p>
+<p>Thus,</p>
+<p><span class="math display">\[
+Z_{m,n}-a_{m,n}\xrightarrow{P}0.
+\]</span></p>
+<p>Since also</p>
+<p><span class="math display">\[
+Z_{m,n}\xrightarrow{P}0,
+\]</span></p>
+<p>we have</p>
+<p><span class="math display">\[
+a_{m,n}
+=
+Z_{m,n}-(Z_{m,n}-a_{m,n})
+\xrightarrow{P}0.
+\]</span></p>
+<p>Since <span class="math inline">\(a_{m,n}\)</span> is deterministic,</p>
+<p><span class="math display">\[
+a_{m,n}\to0.
+\]</span></p>
+<p>That is,</p>
+<p><span class="math display">\[
+\sum_{i=m+1}^n\mu_i\to0
+\qquad\text{as }m,n\to\infty.
+\]</span></p>
+<p>By the Cauchy criterion,</p>
+<p><span class="math display">\[
+\sum_{n=1}^{\infty}\mu_n
+\]</span></p>
+<p>converges.</p>
+<p>Conversely, suppose</p>
+<p><span class="math display">\[
+\sum_{n=1}^{\infty}\mu_n
+\]</span></p>
+<p>converges and</p>
+<p><span class="math display">\[
+\sum_{n=1}^{\infty}\sigma_n^2&lt;\infty.
+\]</span></p>
+<p>Write</p>
+<p><span class="math display">\[
+X_n=(X_n-\mu_n)+\mu_n.
+\]</span></p>
+<p>The random variables <span class="math inline">\(\{X_n-\mu_n\}\)</span> are independent and satisfy</p>
+<p><span class="math display">\[
+E(X_n-\mu_n)=0
+\]</span></p>
+<p>and</p>
+<p><span class="math display">\[
+\operatorname{Var}(X_n-\mu_n)
+=
+\sigma_n^2.
+\]</span></p>
+<p>Since</p>
+<p><span class="math display">\[
+\sum_{n=1}^{\infty}
+\operatorname{Var}(X_n-\mu_n)
+=
+\sum_{n=1}^{\infty}\sigma_n^2
+&lt;
+\infty,
+\]</span></p>
+<p>the Kolmogorov convergence criterion gives</p>
+<p><span class="math display">\[
+\sum_{n=1}^{\infty}(X_n-\mu_n)
+\]</span></p>
+<p>converges almost surely.</p>
+<p>Since</p>
+<p><span class="math display">\[
+\sum_{n=1}^{\infty}\mu_n
+\]</span></p>
+<p>also converges,</p>
+<p><span class="math display">\[
+\sum_{n=1}^{\infty}X_n
+=
+\sum_{n=1}^{\infty}(X_n-\mu_n)
++
+\sum_{n=1}^{\infty}\mu_n
+\]</span></p>
+<p>converges almost surely.</p>
+<p>Therefore,</p>
+<p><span class="math display">\[
+\boxed{
+\sum_{n=1}^{\infty}X_n
+\text{ converges a.s.}
+\iff
+\left[
+\sum_{n=1}^{\infty}\mu_n
+\text{ converges}
+\quad\text{and}\quad
+\sum_{n=1}^{\infty}\sigma_n^2&lt;\infty
+\right].
+}
+\]</span></p>
 
 </div>
 </div>
