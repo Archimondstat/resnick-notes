@@ -8794,3 +8794,210 @@ Therefore,
 \right].
 }
 \]
+
+### Ex 15
+
+::: problem
+Prove the three series theorem reduces to a two series theorem when the
+random variables are positive. If \(V_n\ge0\) are independent, then
+\(\sum_n V_n<\infty\) a.s. iff for any \(c>0\), we have
+
+\[
+\sum_nP[V_n>c]<\infty,
+\tag{i}
+\]
+
+\[
+\sum_nE(V_n1_{[V_n\le c]})<\infty.
+\tag{ii}
+\]
+:::
+
+$\textbf{Answer:}$
+
+Suppose first that
+
+\[
+\sum_nV_n<\infty
+\]
+
+almost surely. By the Kolmogorov three series theorem, for any \(c>0\),
+
+\[
+\sum_nP(V_n>c)<\infty
+\]
+
+and
+
+\[
+\sum_nE(V_n1_{[V_n\le c]})
+\]
+
+converges. Since \(V_n\ge0\),
+
+\[
+E(V_n1_{[V_n\le c]})\ge0,
+\]
+
+so
+
+\[
+\sum_nE(V_n1_{[V_n\le c]})<\infty.
+\]
+
+Conversely, suppose for some \(c>0\),
+
+\[
+\sum_nP(V_n>c)<\infty
+\]
+
+and
+
+\[
+\sum_nE(V_n1_{[V_n\le c]})<\infty.
+\]
+
+Let
+
+\[
+V_n'=V_n1_{[V_n\le c]}.
+\]
+
+Then
+
+\[
+\sum_nP(V_n'\ne V_n)
+=
+\sum_nP(V_n>c)
+<
+\infty.
+\]
+
+By Borel--Cantelli,
+
+\[
+P(V_n'\ne V_n\text{ i.o.})=0,
+\]
+
+so \(\{V_n'\}\) and \(\{V_n\}\) are tail equivalent.
+
+For \(\sum_nV_n'\), since \(V_n'\ge0\), by Tonelli,
+
+\[
+\begin{aligned}
+E\left(\sum_nV_n'\right)
+&=
+\sum_nE(V_n')\\
+&=
+\sum_nE(V_n1_{[V_n\le c]})\\
+&<\infty.
+\end{aligned}
+\]
+
+Therefore,
+
+\[
+\sum_nV_n'<\infty
+\]
+
+almost surely.
+
+Since \(\{V_n'\}\) and \(\{V_n\}\) are tail equivalent,
+
+\[
+\sum_nV_n<\infty
+\]
+
+almost surely.
+
+Thus, for non-negative independent random variables, the variance series in
+the three series theorem is redundant.
+
+
+### Ex 17
+
+::: problem
+Suppose \(\{X_n\}\) are independent with
+
+\[
+P[X_k=k^2]=\frac1{k^2},
+\qquad
+P[X_k=-1]=1-\frac1{k^2}.
+\]
+
+Prove
+
+\[
+\lim_{n\to\infty}\sum_{i=1}^nX_i
+\]
+
+exists a.s. and find the limit.
+:::
+
+$\textbf{Answer:}$
+
+Let
+
+\[
+Y_k=-1
+\]
+
+with probability \(1\). Then
+
+\[
+P(Y_k\ne X_k)
+=
+P(X_k=k^2)
+=
+\frac1{k^2}.
+\]
+
+Hence,
+
+\[
+\sum_kP(Y_k\ne X_k)
+=
+\sum_k\frac1{k^2}
+<
+\infty.
+\]
+
+By Borel--Cantelli,
+
+\[
+P(Y_k\ne X_k\text{ i.o.})=0.
+\]
+
+Thus \(\{Y_k\}\) and \(\{X_k\}\) are tail equivalent. In particular, almost surely
+there exists a finite \(N\) such that
+
+\[
+X_k=Y_k=-1,
+\qquad k\ge N.
+\]
+
+Therefore, for sufficiently large \(n\),
+
+\[
+\sum_{k=1}^nX_k
+=
+\sum_{k=1}^nY_k+C
+\]
+
+for some finite random constant \(C\).
+
+But
+
+\[
+\sum_{k=1}^nY_k=-n\to-\infty.
+\]
+
+Hence,
+
+\[
+\boxed{
+\lim_{n\to\infty}\sum_{k=1}^nX_k=-\infty
+}
+\]
+
+almost surely.

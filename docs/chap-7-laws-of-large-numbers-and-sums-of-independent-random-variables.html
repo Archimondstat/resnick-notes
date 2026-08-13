@@ -23,7 +23,7 @@
 <meta name="author" content="Zhanwen Peng" />
 
 
-<meta name="date" content="2026-08-11" />
+<meta name="date" content="2026-08-13" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -515,6 +515,8 @@
 <li class="chapter" data-level="" data-path="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html"><a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#ex-11-3"><i class="fa fa-check"></i>Ex 11</a></li>
 <li class="chapter" data-level="" data-path="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html"><a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#ex-13-3"><i class="fa fa-check"></i>Ex 13</a></li>
 <li class="chapter" data-level="" data-path="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html"><a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#ex-14-4"><i class="fa fa-check"></i>Ex 14</a></li>
+<li class="chapter" data-level="" data-path="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html"><a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#ex-15-3"><i class="fa fa-check"></i>Ex 15</a></li>
+<li class="chapter" data-level="" data-path="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html"><a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#ex-17-3"><i class="fa fa-check"></i>Ex 17</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -7337,6 +7339,156 @@ E(X_n-\mu_n)=0
 \right].
 }
 \]</span></p>
+</div>
+<div id="ex-15-3" class="section level3 hasAnchor">
+<h3>Ex 15<a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#ex-15-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="problem">
+<p>Prove the three series theorem reduces to a two series theorem when the
+random variables are positive. If <span class="math inline">\(V_n\ge0\)</span> are independent, then
+<span class="math inline">\(\sum_n V_n&lt;\infty\)</span> a.s. iff for any <span class="math inline">\(c&gt;0\)</span>, we have</p>
+<p><span class="math display">\[
+\sum_nP[V_n&gt;c]&lt;\infty,
+\tag{i}
+\]</span></p>
+<p><span class="math display">\[
+\sum_nE(V_n1_{[V_n\le c]})&lt;\infty.
+\tag{ii}
+\]</span></p>
+</div>
+<p><span class="math inline">\(\textbf{Answer:}\)</span></p>
+<p>Suppose first that</p>
+<p><span class="math display">\[
+\sum_nV_n&lt;\infty
+\]</span></p>
+<p>almost surely. By the Kolmogorov three series theorem, for any <span class="math inline">\(c&gt;0\)</span>,</p>
+<p><span class="math display">\[
+\sum_nP(V_n&gt;c)&lt;\infty
+\]</span></p>
+<p>and</p>
+<p><span class="math display">\[
+\sum_nE(V_n1_{[V_n\le c]})
+\]</span></p>
+<p>converges. Since <span class="math inline">\(V_n\ge0\)</span>,</p>
+<p><span class="math display">\[
+E(V_n1_{[V_n\le c]})\ge0,
+\]</span></p>
+<p>so</p>
+<p><span class="math display">\[
+\sum_nE(V_n1_{[V_n\le c]})&lt;\infty.
+\]</span></p>
+<p>Conversely, suppose for some <span class="math inline">\(c&gt;0\)</span>,</p>
+<p><span class="math display">\[
+\sum_nP(V_n&gt;c)&lt;\infty
+\]</span></p>
+<p>and</p>
+<p><span class="math display">\[
+\sum_nE(V_n1_{[V_n\le c]})&lt;\infty.
+\]</span></p>
+<p>Let</p>
+<p><span class="math display">\[
+V_n&#39;=V_n1_{[V_n\le c]}.
+\]</span></p>
+<p>Then</p>
+<p><span class="math display">\[
+\sum_nP(V_n&#39;\ne V_n)
+=
+\sum_nP(V_n&gt;c)
+&lt;
+\infty.
+\]</span></p>
+<p>By Borel–Cantelli,</p>
+<p><span class="math display">\[
+P(V_n&#39;\ne V_n\text{ i.o.})=0,
+\]</span></p>
+<p>so <span class="math inline">\(\{V_n&#39;\}\)</span> and <span class="math inline">\(\{V_n\}\)</span> are tail equivalent.</p>
+<p>For <span class="math inline">\(\sum_nV_n&#39;\)</span>, since <span class="math inline">\(V_n&#39;\ge0\)</span>, by Tonelli,</p>
+<p><span class="math display">\[
+\begin{aligned}
+E\left(\sum_nV_n&#39;\right)
+&amp;=
+\sum_nE(V_n&#39;)\\
+&amp;=
+\sum_nE(V_n1_{[V_n\le c]})\\
+&amp;&lt;\infty.
+\end{aligned}
+\]</span></p>
+<p>Therefore,</p>
+<p><span class="math display">\[
+\sum_nV_n&#39;&lt;\infty
+\]</span></p>
+<p>almost surely.</p>
+<p>Since <span class="math inline">\(\{V_n&#39;\}\)</span> and <span class="math inline">\(\{V_n\}\)</span> are tail equivalent,</p>
+<p><span class="math display">\[
+\sum_nV_n&lt;\infty
+\]</span></p>
+<p>almost surely.</p>
+<p>Thus, for non-negative independent random variables, the variance series in
+the three series theorem is redundant.</p>
+</div>
+<div id="ex-17-3" class="section level3 hasAnchor">
+<h3>Ex 17<a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#ex-17-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="problem">
+<p>Suppose <span class="math inline">\(\{X_n\}\)</span> are independent with</p>
+<p><span class="math display">\[
+P[X_k=k^2]=\frac1{k^2},
+\qquad
+P[X_k=-1]=1-\frac1{k^2}.
+\]</span></p>
+<p>Prove</p>
+<p><span class="math display">\[
+\lim_{n\to\infty}\sum_{i=1}^nX_i
+\]</span></p>
+<p>exists a.s. and find the limit.</p>
+</div>
+<p><span class="math inline">\(\textbf{Answer:}\)</span></p>
+<p>Let</p>
+<p><span class="math display">\[
+Y_k=-1
+\]</span></p>
+<p>with probability <span class="math inline">\(1\)</span>. Then</p>
+<p><span class="math display">\[
+P(Y_k\ne X_k)
+=
+P(X_k=k^2)
+=
+\frac1{k^2}.
+\]</span></p>
+<p>Hence,</p>
+<p><span class="math display">\[
+\sum_kP(Y_k\ne X_k)
+=
+\sum_k\frac1{k^2}
+&lt;
+\infty.
+\]</span></p>
+<p>By Borel–Cantelli,</p>
+<p><span class="math display">\[
+P(Y_k\ne X_k\text{ i.o.})=0.
+\]</span></p>
+<p>Thus <span class="math inline">\(\{Y_k\}\)</span> and <span class="math inline">\(\{X_k\}\)</span> are tail equivalent. In particular, almost surely
+there exists a finite <span class="math inline">\(N\)</span> such that</p>
+<p><span class="math display">\[
+X_k=Y_k=-1,
+\qquad k\ge N.
+\]</span></p>
+<p>Therefore, for sufficiently large <span class="math inline">\(n\)</span>,</p>
+<p><span class="math display">\[
+\sum_{k=1}^nX_k
+=
+\sum_{k=1}^nY_k+C
+\]</span></p>
+<p>for some finite random constant <span class="math inline">\(C\)</span>.</p>
+<p>But</p>
+<p><span class="math display">\[
+\sum_{k=1}^nY_k=-n\to-\infty.
+\]</span></p>
+<p>Hence,</p>
+<p><span class="math display">\[
+\boxed{
+\lim_{n\to\infty}\sum_{k=1}^nX_k=-\infty
+}
+\]</span></p>
+<p>almost surely.</p>
 
 </div>
 </div>
