@@ -23,7 +23,7 @@
 <meta name="author" content="Zhanwen Peng" />
 
 
-<meta name="date" content="2026-08-13" />
+<meta name="date" content="2026-08-14" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -517,6 +517,7 @@
 <li class="chapter" data-level="" data-path="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html"><a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#ex-14-4"><i class="fa fa-check"></i>Ex 14</a></li>
 <li class="chapter" data-level="" data-path="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html"><a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#ex-15-3"><i class="fa fa-check"></i>Ex 15</a></li>
 <li class="chapter" data-level="" data-path="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html"><a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#ex-17-3"><i class="fa fa-check"></i>Ex 17</a></li>
+<li class="chapter" data-level="" data-path="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html"><a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#ex-19-3"><i class="fa fa-check"></i>Ex 19</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -7489,6 +7490,136 @@ X_k=Y_k=-1,
 }
 \]</span></p>
 <p>almost surely.</p>
+</div>
+<div id="ex-19-3" class="section level3 hasAnchor">
+<h3>Ex 19<a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#ex-19-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="problem">
+<p>Suppose <span class="math inline">\(\{X_n, n\ge 1\}\)</span> are non-negative independent random variables. Then
+<span class="math inline">\(\sum_n X_n&lt;\infty\)</span> almost surely iff</p>
+<p><span class="math display">\[
+\sum_n E\left(\frac{X_n}{1+X_n}\right)&lt;\infty
+\]</span></p>
+<p>iff</p>
+<p><span class="math display">\[
+\sum_n E(X_n\wedge1)&lt;\infty.
+\]</span></p>
+</div>
+<p><span class="math inline">\(\textbf{Answer:}\)</span></p>
+<p>Denote</p>
+<p><span class="math display">\[
+\begin{aligned}
+(a)&amp;\quad \sum_n X_n&lt;\infty \quad\text{a.s.},\\
+(b)&amp;\quad \sum_nE\left(\frac{X_n}{1+X_n}\right)&lt;\infty,\\
+(c)&amp;\quad \sum_nE(X_n\wedge1)&lt;\infty.
+\end{aligned}
+\]</span></p>
+<p>For <span class="math inline">\(x\ge0\)</span>,</p>
+<p><span class="math display">\[
+\frac{x}{1+x}
+\le
+x\wedge1
+\le
+2\frac{x}{1+x}.
+\]</span></p>
+<p>Therefore,</p>
+<p><span class="math display">\[
+(b)\iff(c).
+\]</span></p>
+<p>Now suppose <span class="math inline">\((b)\)</span> holds. Since <span class="math inline">\((b)\Rightarrow(c)\)</span>,</p>
+<p><span class="math display">\[
+\sum_nE(X_n\wedge1)&lt;\infty.
+\]</span></p>
+<p>For <span class="math inline">\(c=1\)</span>,</p>
+<p><span class="math display">\[
+X_n1_{\{X_n\le1\}}
+\le
+X_n\wedge1,
+\]</span></p>
+<p>so</p>
+<p><span class="math display">\[
+\sum_nE\left(X_n1_{\{X_n\le1\}}\right)
+\le
+\sum_nE(X_n\wedge1)
+&lt;
+\infty.
+\]</span></p>
+<p>Also,</p>
+<p><span class="math display">\[
+\begin{aligned}
+E\left(\frac{X_n}{1+X_n}\right)
+&amp;\ge
+E\left(
+\frac{X_n}{1+X_n}1_{\{X_n&gt;1\}}
+\right)\\
+&amp;\ge
+\frac12P(X_n&gt;1).
+\end{aligned}
+\]</span></p>
+<p>Hence,</p>
+<p><span class="math display">\[
+\sum_nP(X_n&gt;1)
+\le
+2\sum_nE\left(\frac{X_n}{1+X_n}\right)
+&lt;
+\infty.
+\]</span></p>
+<p>Thus, by the result of Ex 15,</p>
+<p><span class="math display">\[
+\sum_nX_n&lt;\infty
+\qquad\text{a.s.}
+\]</span></p>
+<p>and therefore</p>
+<p><span class="math display">\[
+(b)\Rightarrow(a).
+\]</span></p>
+<p>Conversely, suppose</p>
+<p><span class="math display">\[
+\sum_nX_n&lt;\infty
+\qquad\text{a.s.}
+\]</span></p>
+<p>By Ex 15, with <span class="math inline">\(c=1\)</span>,</p>
+<p><span class="math display">\[
+\sum_nE\left(X_n1_{\{X_n\le1\}}\right)&lt;\infty
+\]</span></p>
+<p>and</p>
+<p><span class="math display">\[
+\sum_nP(X_n&gt;1)&lt;\infty.
+\]</span></p>
+<p>Since</p>
+<p><span class="math display">\[
+X_n\wedge1
+=
+X_n1_{\{X_n\le1\}}
++
+1_{\{X_n&gt;1\}},
+\]</span></p>
+<p>we have</p>
+<p><span class="math display">\[
+E(X_n\wedge1)
+=
+E\left(X_n1_{\{X_n\le1\}}\right)
++
+P(X_n&gt;1).
+\]</span></p>
+<p>Therefore,</p>
+<p><span class="math display">\[
+\begin{aligned}
+\sum_nE(X_n\wedge1)
+&amp;=
+\sum_nE\left(X_n1_{\{X_n\le1\}}\right)
++
+\sum_nP(X_n&gt;1)\\
+&amp;&lt;\infty.
+\end{aligned}
+\]</span></p>
+<p>Thus,</p>
+<p><span class="math display">\[
+(a)\Rightarrow(c).
+\]</span></p>
+<p>Together with <span class="math inline">\((b)\iff(c)\)</span>, we obtain</p>
+<p><span class="math display">\[
+\boxed{(a)\iff(b)\iff(c)}.
+\]</span></p>
 
 </div>
 </div>

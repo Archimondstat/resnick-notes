@@ -9001,3 +9001,175 @@ Hence,
 \]
 
 almost surely.
+
+### Ex 19
+
+::: problem
+Suppose \(\{X_n, n\ge 1\}\) are non-negative independent random variables. Then
+\(\sum_n X_n<\infty\) almost surely iff
+
+\[
+\sum_n E\left(\frac{X_n}{1+X_n}\right)<\infty
+\]
+
+iff
+
+\[
+\sum_n E(X_n\wedge1)<\infty.
+\]
+:::
+
+$\textbf{Answer:}$
+
+Denote
+
+\[
+\begin{aligned}
+(a)&\quad \sum_n X_n<\infty \quad\text{a.s.},\\
+(b)&\quad \sum_nE\left(\frac{X_n}{1+X_n}\right)<\infty,\\
+(c)&\quad \sum_nE(X_n\wedge1)<\infty.
+\end{aligned}
+\]
+
+For \(x\ge0\),
+
+\[
+\frac{x}{1+x}
+\le
+x\wedge1
+\le
+2\frac{x}{1+x}.
+\]
+
+Therefore,
+
+\[
+(b)\iff(c).
+\]
+
+Now suppose \((b)\) holds. Since \((b)\Rightarrow(c)\),
+
+\[
+\sum_nE(X_n\wedge1)<\infty.
+\]
+
+For \(c=1\),
+
+\[
+X_n1_{\{X_n\le1\}}
+\le
+X_n\wedge1,
+\]
+
+so
+
+\[
+\sum_nE\left(X_n1_{\{X_n\le1\}}\right)
+\le
+\sum_nE(X_n\wedge1)
+<
+\infty.
+\]
+
+Also,
+
+\[
+\begin{aligned}
+E\left(\frac{X_n}{1+X_n}\right)
+&\ge
+E\left(
+\frac{X_n}{1+X_n}1_{\{X_n>1\}}
+\right)\\
+&\ge
+\frac12P(X_n>1).
+\end{aligned}
+\]
+
+Hence,
+
+\[
+\sum_nP(X_n>1)
+\le
+2\sum_nE\left(\frac{X_n}{1+X_n}\right)
+<
+\infty.
+\]
+
+Thus, by the result of Ex 15,
+
+\[
+\sum_nX_n<\infty
+\qquad\text{a.s.}
+\]
+
+and therefore
+
+\[
+(b)\Rightarrow(a).
+\]
+
+Conversely, suppose
+
+\[
+\sum_nX_n<\infty
+\qquad\text{a.s.}
+\]
+
+By Ex 15, with \(c=1\),
+
+\[
+\sum_nE\left(X_n1_{\{X_n\le1\}}\right)<\infty
+\]
+
+and
+
+\[
+\sum_nP(X_n>1)<\infty.
+\]
+
+Since
+
+\[
+X_n\wedge1
+=
+X_n1_{\{X_n\le1\}}
++
+1_{\{X_n>1\}},
+\]
+
+we have
+
+\[
+E(X_n\wedge1)
+=
+E\left(X_n1_{\{X_n\le1\}}\right)
++
+P(X_n>1).
+\]
+
+Therefore,
+
+\[
+\begin{aligned}
+\sum_nE(X_n\wedge1)
+&=
+\sum_nE\left(X_n1_{\{X_n\le1\}}\right)
++
+\sum_nP(X_n>1)\\
+&<\infty.
+\end{aligned}
+\]
+
+Thus,
+
+\[
+(a)\Rightarrow(c).
+\]
+
+Together with \((b)\iff(c)\), we obtain
+
+\[
+\boxed{(a)\iff(b)\iff(c)}.
+\]
+
+
