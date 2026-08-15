@@ -520,6 +520,9 @@
 <li class="chapter" data-level="" data-path="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html"><a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#ex-19-3"><i class="fa fa-check"></i>Ex 19</a></li>
 <li class="chapter" data-level="" data-path="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html"><a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#ex-20-3"><i class="fa fa-check"></i>Ex 20</a></li>
 <li class="chapter" data-level="" data-path="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html"><a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#ex-26-3"><i class="fa fa-check"></i>Ex 26</a></li>
+<li class="chapter" data-level="" data-path="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html"><a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#ex-33-2"><i class="fa fa-check"></i>Ex 33</a></li>
+<li class="chapter" data-level="" data-path="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html"><a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#ex-36-1"><i class="fa fa-check"></i>Ex 36</a></li>
+<li class="chapter" data-level="" data-path="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html"><a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#ex-37-1"><i class="fa fa-check"></i>Ex 37</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -7888,6 +7891,233 @@ S_n\ge X_n.
 \]</span></p>
 <p>so this gives an example of convergence in probability without almost sure
 convergence.</p>
+</div>
+<div id="ex-33-2" class="section level3 hasAnchor">
+<h3>Ex 33<a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#ex-33-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="problem">
+<p>Suppose <span class="math inline">\(\{X_j,j\ge1\}\)</span> are independent with</p>
+<p><span class="math display">\[
+P[X_n=n^{-\alpha}]
+=
+P[X_n=-n^{-\alpha}]
+=
+\frac12.
+\]</span></p>
+<p>Use the Kolmogorov convergence criterion to verify that if <span class="math inline">\(\alpha&gt;1/2\)</span>, then
+<span class="math inline">\(\sum_nX_n\)</span> converges almost surely. Use the Kolmogorov three series theorem
+to verify that <span class="math inline">\(\alpha&gt;1/2\)</span> is necessary for convergence. Verify that</p>
+<p><span class="math display">\[
+\sum_nE(|X_n|)&lt;\infty
+\]</span></p>
+<p>iff <span class="math inline">\(\alpha&gt;1\)</span>.</p>
+</div>
+<p><span class="math inline">\(\textbf{Answer:}\)</span></p>
+<p>Since</p>
+<p><span class="math display">\[
+E(X_n)
+=
+\frac12n^{-\alpha}
+-
+\frac12n^{-\alpha}
+=
+0,
+\]</span></p>
+<p>we have</p>
+<p><span class="math display">\[
+\operatorname{Var}(X_n)
+=
+E(X_n^2)
+=
+\frac1{n^{2\alpha}}.
+\]</span></p>
+<p>When</p>
+<p><span class="math display">\[
+\alpha&gt;\frac12,
+\]</span></p>
+<p><span class="math display">\[
+\sum_n\operatorname{Var}(X_n)
+=
+\sum_n\frac1{n^{2\alpha}}
+&lt;
+\infty.
+\]</span></p>
+<p>Therefore, by the Kolmogorov convergence criterion,</p>
+<p><span class="math display">\[
+\boxed{
+\sum_nX_n\text{ converges a.s.}
+}
+\]</span></p>
+<p>when <span class="math inline">\(\alpha&gt;1/2\)</span>.</p>
+<p>Now consider necessity using the Kolmogorov three series theorem.</p>
+<p>First suppose <span class="math inline">\(\alpha\ge0\)</span>, and take <span class="math inline">\(c=1\)</span>. Since</p>
+<p><span class="math display">\[
+|X_n|=n^{-\alpha}\le1,
+\]</span></p>
+<p>we have</p>
+<p><span class="math display">\[
+\sum_nP(|X_n|&gt;1)=0.
+\]</span></p>
+<p>Also,</p>
+<p><span class="math display">\[
+\sum_nE\left(X_n1_{\{|X_n|\le1\}}\right)
+=
+\sum_nE(X_n)
+=
+0.
+\]</span></p>
+<p>For the variance series,</p>
+<p><span class="math display">\[
+\begin{aligned}
+\sum_n
+\operatorname{Var}
+\left(
+X_n1_{\{|X_n|\le1\}}
+\right)
+&amp;=
+\sum_n\operatorname{Var}(X_n)\\
+&amp;=
+\sum_n\frac1{n^{2\alpha}}.
+\end{aligned}
+\]</span></p>
+<p>This series converges iff</p>
+<p><span class="math display">\[
+2\alpha&gt;1,
+\]</span></p>
+<p>that is,</p>
+<p><span class="math display">\[
+\alpha&gt;\frac12.
+\]</span></p>
+<p>Thus, for <span class="math inline">\(0\le\alpha\le1/2\)</span>, the third condition of the three series theorem
+fails, so <span class="math inline">\(\sum_nX_n\)</span> cannot converge almost surely.</p>
+<p>When <span class="math inline">\(\alpha&lt;0\)</span>, for any constant <span class="math inline">\(c&gt;0\)</span>,</p>
+<p><span class="math display">\[
+n^{-\alpha}\to\infty.
+\]</span></p>
+<p>Hence, for all sufficiently large <span class="math inline">\(n\)</span>,</p>
+<p><span class="math display">\[
+n^{-\alpha}&gt;c.
+\]</span></p>
+<p>Since</p>
+<p><span class="math display">\[
+|X_n|=n^{-\alpha}
+\]</span></p>
+<p>with probability <span class="math inline">\(1\)</span>, we have eventually</p>
+<p><span class="math display">\[
+P(|X_n|&gt;c)=1.
+\]</span></p>
+<p>Therefore,</p>
+<p><span class="math display">\[
+\sum_nP(|X_n|&gt;c)=\infty,
+\]</span></p>
+<p>so the first condition of the three series theorem fails.</p>
+<p>Hence,</p>
+<p><span class="math display">\[
+\boxed{
+\sum_nX_n\text{ converges a.s.}
+\iff
+\alpha&gt;\frac12.
+}
+\]</span></p>
+<p>Finally,</p>
+<p><span class="math display">\[
+E(|X_n|)
+=
+\frac1{n^\alpha}.
+\]</span></p>
+<p>Therefore,</p>
+<p><span class="math display">\[
+\sum_nE(|X_n|)
+=
+\sum_n\frac1{n^\alpha}
+&lt;
+\infty
+\]</span></p>
+<p>iff</p>
+<p><span class="math display">\[
+\boxed{\alpha&gt;1}.
+\]</span></p>
+</div>
+<div id="ex-36-1" class="section level3 hasAnchor">
+<h3>Ex 36<a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#ex-36-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="problem">
+<p>Suppose <span class="math inline">\(\{X_n,n\ge1\}\)</span> is independent and <span class="math inline">\(X_k\ge0\)</span>. If for some
+<span class="math inline">\(\delta\in(0,1)\)</span> there exists <span class="math inline">\(x\)</span> such that for all <span class="math inline">\(k\)</span></p>
+<p><span class="math display">\[
+\int_{[X_k&gt;x]}X_k\,dP
+\le
+\delta E(X_k),
+\]</span></p>
+<p>then almost sure convergence of <span class="math inline">\(\sum_nX_n\)</span> implies <span class="math inline">\(\sum_nE(X_n)&lt;\infty\)</span> as well.</p>
+</div>
+<p><span class="math inline">\(\textbf{Answer:}\)</span></p>
+<p>From</p>
+<p><span class="math display">\[
+\int_{[X_k&gt;x]}X_k\,dP
+\le
+\delta E(X_k),
+\]</span></p>
+<p>we have</p>
+<p><span class="math display">\[
+\begin{aligned}
+E(X_k)
+&amp;=
+\int_{[X_k\le x]}X_k\,dP
++
+\int_{[X_k&gt;x]}X_k\,dP.
+\end{aligned}
+\]</span></p>
+<p>Therefore,</p>
+<p><span class="math display">\[
+\int_{[X_k\le x]}X_k\,dP
+\ge
+(1-\delta)E(X_k).
+\]</span></p>
+<p>Now suppose</p>
+<p><span class="math display">\[
+\sum_nX_n&lt;\infty
+\qquad\text{a.s.}
+\]</span></p>
+<p>By the necessity part of Kolmogorov’s three series theorem,</p>
+<p><span class="math display">\[
+\sum_n
+E\left(
+X_n1_{[X_n\le x]}
+\right)
+&lt;\infty.
+\]</span></p>
+<p>But</p>
+<p><span class="math display">\[
+E\left(
+X_n1_{[X_n\le x]}
+\right)
+=
+\int_{[X_n\le x]}X_n\,dP
+\ge
+(1-\delta)E(X_n).
+\]</span></p>
+<p>Hence,</p>
+<p><span class="math display">\[
+(1-\delta)\sum_nE(X_n)
+\le
+\sum_n
+E\left(
+X_n1_{[X_n\le x]}
+\right)
+&lt;
+\infty.
+\]</span></p>
+<p>Since <span class="math inline">\(1-\delta&gt;0\)</span>,</p>
+<p><span class="math display">\[
+\boxed{
+\sum_nE(X_n)&lt;\infty.
+}
+\]</span></p>
+</div>
+<div id="ex-37-1" class="section level3 hasAnchor">
+<h3>Ex 37<a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#ex-37-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><span class="math inline">\(\textbf{Note:}\)</span></p>
+<p>Ex 37 is essentially a repetition of Ex 13. Both exercises ask for the necessary and sufficient condition for almost sure convergence of a series of independent exponentially distributed random variables.</p>
+<p>Ex 37 only emphasizes that the argument should use the Kolmogorov three-series theorem. Since Ex 13 was already solved by this route, Ex 37 is treated as a duplicate and is not solved again.</p>
 
 </div>
 </div>

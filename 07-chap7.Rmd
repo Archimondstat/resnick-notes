@@ -9506,3 +9506,299 @@ From Problem 24,
 
 so this gives an example of convergence in probability without almost sure
 convergence.
+
+### Ex 33
+
+::: problem
+Suppose \(\{X_j,j\ge1\}\) are independent with
+
+\[
+P[X_n=n^{-\alpha}]
+=
+P[X_n=-n^{-\alpha}]
+=
+\frac12.
+\]
+
+Use the Kolmogorov convergence criterion to verify that if \(\alpha>1/2\), then
+\(\sum_nX_n\) converges almost surely. Use the Kolmogorov three series theorem
+to verify that \(\alpha>1/2\) is necessary for convergence. Verify that
+
+\[
+\sum_nE(|X_n|)<\infty
+\]
+
+iff \(\alpha>1\).
+:::
+
+$\textbf{Answer:}$
+
+Since
+
+\[
+E(X_n)
+=
+\frac12n^{-\alpha}
+-
+\frac12n^{-\alpha}
+=
+0,
+\]
+
+we have
+
+\[
+\operatorname{Var}(X_n)
+=
+E(X_n^2)
+=
+\frac1{n^{2\alpha}}.
+\]
+
+When
+
+\[
+\alpha>\frac12,
+\]
+
+\[
+\sum_n\operatorname{Var}(X_n)
+=
+\sum_n\frac1{n^{2\alpha}}
+<
+\infty.
+\]
+
+Therefore, by the Kolmogorov convergence criterion,
+
+\[
+\boxed{
+\sum_nX_n\text{ converges a.s.}
+}
+\]
+
+when \(\alpha>1/2\).
+
+Now consider necessity using the Kolmogorov three series theorem.
+
+First suppose \(\alpha\ge0\), and take \(c=1\). Since
+
+\[
+|X_n|=n^{-\alpha}\le1,
+\]
+
+we have
+
+\[
+\sum_nP(|X_n|>1)=0.
+\]
+
+Also,
+
+\[
+\sum_nE\left(X_n1_{\{|X_n|\le1\}}\right)
+=
+\sum_nE(X_n)
+=
+0.
+\]
+
+For the variance series,
+
+\[
+\begin{aligned}
+\sum_n
+\operatorname{Var}
+\left(
+X_n1_{\{|X_n|\le1\}}
+\right)
+&=
+\sum_n\operatorname{Var}(X_n)\\
+&=
+\sum_n\frac1{n^{2\alpha}}.
+\end{aligned}
+\]
+
+This series converges iff
+
+\[
+2\alpha>1,
+\]
+
+that is,
+
+\[
+\alpha>\frac12.
+\]
+
+Thus, for \(0\le\alpha\le1/2\), the third condition of the three series theorem
+fails, so \(\sum_nX_n\) cannot converge almost surely.
+
+When \(\alpha<0\), for any constant \(c>0\),
+
+\[
+n^{-\alpha}\to\infty.
+\]
+
+Hence, for all sufficiently large \(n\),
+
+\[
+n^{-\alpha}>c.
+\]
+
+Since
+
+\[
+|X_n|=n^{-\alpha}
+\]
+
+with probability \(1\), we have eventually
+
+\[
+P(|X_n|>c)=1.
+\]
+
+Therefore,
+
+\[
+\sum_nP(|X_n|>c)=\infty,
+\]
+
+so the first condition of the three series theorem fails.
+
+Hence,
+
+\[
+\boxed{
+\sum_nX_n\text{ converges a.s.}
+\iff
+\alpha>\frac12.
+}
+\]
+
+Finally,
+
+\[
+E(|X_n|)
+=
+\frac1{n^\alpha}.
+\]
+
+Therefore,
+
+\[
+\sum_nE(|X_n|)
+=
+\sum_n\frac1{n^\alpha}
+<
+\infty
+\]
+
+iff
+
+\[
+\boxed{\alpha>1}.
+\]
+
+### Ex 36
+
+::: problem
+Suppose \(\{X_n,n\ge1\}\) is independent and \(X_k\ge0\). If for some
+\(\delta\in(0,1)\) there exists \(x\) such that for all \(k\)
+
+\[
+\int_{[X_k>x]}X_k\,dP
+\le
+\delta E(X_k),
+\]
+
+then almost sure convergence of \(\sum_nX_n\) implies $\sum_nE(X_n)<\infty$ as well.
+:::
+
+$\textbf{Answer:}$
+
+From
+
+\[
+\int_{[X_k>x]}X_k\,dP
+\le
+\delta E(X_k),
+\]
+
+we have
+
+\[
+\begin{aligned}
+E(X_k)
+&=
+\int_{[X_k\le x]}X_k\,dP
++
+\int_{[X_k>x]}X_k\,dP.
+\end{aligned}
+\]
+
+Therefore,
+
+\[
+\int_{[X_k\le x]}X_k\,dP
+\ge
+(1-\delta)E(X_k).
+\]
+
+Now suppose
+
+\[
+\sum_nX_n<\infty
+\qquad\text{a.s.}
+\]
+
+By the necessity part of Kolmogorov's three series theorem,
+
+\[
+\sum_n
+E\left(
+X_n1_{[X_n\le x]}
+\right)
+<\infty.
+\]
+
+But
+
+\[
+E\left(
+X_n1_{[X_n\le x]}
+\right)
+=
+\int_{[X_n\le x]}X_n\,dP
+\ge
+(1-\delta)E(X_n).
+\]
+
+Hence,
+
+\[
+(1-\delta)\sum_nE(X_n)
+\le
+\sum_n
+E\left(
+X_n1_{[X_n\le x]}
+\right)
+<
+\infty.
+\]
+
+Since \(1-\delta>0\),
+
+\[
+\boxed{
+\sum_nE(X_n)<\infty.
+}
+\]
+
+### Ex 37
+
+$\textbf{Note:}$
+
+Ex 37 is essentially a repetition of Ex 13. Both exercises ask for the necessary and sufficient condition for almost sure convergence of a series of independent exponentially distributed random variables.
+
+Ex 37 only emphasizes that the argument should use the Kolmogorov three-series theorem. Since Ex 13 was already solved by this route, Ex 37 is treated as a duplicate and is not solved again.
