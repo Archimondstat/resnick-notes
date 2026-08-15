@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chap 7, Laws of Large Numbers and Sums of Independent Random Variables | Notes on A Probability Path (Resnick)</title>
   <meta name="description" content="Chap 7, Laws of Large Numbers and Sums of Independent Random Variables | Notes on A Probability Path (Resnick)" />
-  <meta name="generator" content="bookdown 0.42 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.46 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chap 7, Laws of Large Numbers and Sums of Independent Random Variables | Notes on A Probability Path (Resnick)" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="Zhanwen Peng" />
 
 
-<meta name="date" content="2026-08-14" />
+<meta name="date" content="2026-08-15" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -518,6 +518,8 @@
 <li class="chapter" data-level="" data-path="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html"><a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#ex-15-3"><i class="fa fa-check"></i>Ex 15</a></li>
 <li class="chapter" data-level="" data-path="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html"><a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#ex-17-3"><i class="fa fa-check"></i>Ex 17</a></li>
 <li class="chapter" data-level="" data-path="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html"><a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#ex-19-3"><i class="fa fa-check"></i>Ex 19</a></li>
+<li class="chapter" data-level="" data-path="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html"><a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#ex-20-3"><i class="fa fa-check"></i>Ex 20</a></li>
+<li class="chapter" data-level="" data-path="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html"><a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#ex-26-3"><i class="fa fa-check"></i>Ex 26</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -7620,6 +7622,272 @@ P(X_n&gt;1).
 <p><span class="math display">\[
 \boxed{(a)\iff(b)\iff(c)}.
 \]</span></p>
+</div>
+<div id="ex-20-3" class="section level3 hasAnchor">
+<h3>Ex 20<a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#ex-20-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="problem">
+<p>Suppose <span class="math inline">\(\{X_n,n\ge1\}\)</span> are independent random variables with <span class="math inline">\(E(X_n)=0\)</span>
+for all <span class="math inline">\(n\)</span>. If</p>
+<p><span class="math display">\[
+\sum_n E\left(
+X_n^2 1_{[|X_n|\le1]}
++
+|X_n|1_{[|X_n|&gt;1]}
+\right)&lt;\infty,
+\]</span></p>
+<p>then <span class="math inline">\(\sum_nX_n\)</span> converges almost surely.</p>
+<p>Hint: We have</p>
+<p><span class="math display">\[
+0=E(X_n)
+=
+E(X_n1_{[|X_n|\le1]})
++
+E(X_n1_{[|X_n|&gt;1]}).
+\]</span></p>
+</div>
+<p><span class="math inline">\(\textbf{Answer:}\)</span></p>
+<p>What we have is</p>
+<p><span class="math display">\[
+\sum_n
+E\left(
+X_n^2 1_{[|X_n|\le1]}
++
+|X_n|1_{[|X_n|&gt;1]}
+\right)
+&lt;\infty.
+\]</span></p>
+<p>That is,</p>
+<p><span class="math display">\[
+\sum_nE\left(X_n^2 1_{[|X_n|\le1]}\right)
++
+\sum_nE\left(|X_n|1_{[|X_n|&gt;1]}\right)
+&lt;\infty.
+\]</span></p>
+<p>Since both terms are non-negative series, we have</p>
+<p><span class="math display">\[
+\sum_nE\left(X_n^2 1_{[|X_n|\le1]}\right)&lt;\infty
+\]</span></p>
+<p>and</p>
+<p><span class="math display">\[
+\sum_nE\left(|X_n|1_{[|X_n|&gt;1]}\right)&lt;\infty.
+\]</span></p>
+<p>Firstly,</p>
+<p><span class="math display">\[
+\begin{aligned}
+E\left(|X_n|1_{[|X_n|&gt;1]}\right)
+&amp;=
+\int_\Omega |X_n|1_{[|X_n|&gt;1]}\,dP\\
+&amp;\ge
+\int_\Omega 1_{[|X_n|&gt;1]}\,dP\\
+&amp;=
+P(|X_n|&gt;1).
+\end{aligned}
+\]</span></p>
+<p>Therefore,</p>
+<p><span class="math display">\[
+\sum_nP(|X_n|&gt;1)
+\le
+\sum_nE\left(|X_n|1_{[|X_n|&gt;1]}\right)
+&lt;\infty.
+\]</span></p>
+<p>Secondly,</p>
+<p><span class="math display">\[
+\begin{aligned}
+\sum_n
+\operatorname{Var}\left(
+X_n1_{[|X_n|\le1]}
+\right)
+&amp;\le
+\sum_n
+E\left(
+X_n^2 1_{[|X_n|\le1]}
+\right)\\
+&amp;&lt;\infty.
+\end{aligned}
+\]</span></p>
+<p>Lastly, since <span class="math inline">\(E(X_n)=0\)</span>,</p>
+<p><span class="math display">\[
+E(X_n1_{[|X_n|\le1]})
+=
+-
+E(X_n1_{[|X_n|&gt;1]}).
+\]</span></p>
+<p>Also,</p>
+<p><span class="math display">\[
+\left|
+E(X_n1_{[|X_n|&gt;1]})
+\right|
+\le
+E\left(
+|X_n|1_{[|X_n|&gt;1]}
+\right).
+\]</span></p>
+<p>Hence,</p>
+<p><span class="math display">\[
+\sum_n
+\left|
+E(X_n1_{[|X_n|&gt;1]})
+\right|
+&lt;\infty.
+\]</span></p>
+<p>Therefore,</p>
+<p><span class="math display">\[
+\sum_nE(X_n1_{[|X_n|\le1]})
+\]</span></p>
+<p>converges.</p>
+<p>Thus all three conditions of the Kolmogorov three series theorem hold for
+<span class="math inline">\(c=1\)</span>, and hence</p>
+<p><span class="math display">\[
+\boxed{
+\sum_nX_n\text{ converges a.s.}
+}
+\]</span></p>
+</div>
+<div id="ex-26-3" class="section level3 hasAnchor">
+<h3>Ex 26<a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#ex-26-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="problem">
+<p>If <span class="math inline">\(\{X_n,n\ge1\}\)</span> is defined as in the St. Petersburg paradox of Problem 24,
+show almost surely that</p>
+<p><span class="math display">\[
+\limsup_{n\to\infty}
+\frac{X_n}{n\log_2 n}
+=
+\infty,
+\]</span></p>
+<p>so that for the partial sums we also have almost surely</p>
+<p><span class="math display">\[
+\limsup_{n\to\infty}
+\frac{S_n}{n\log_2 n}
+=
+\infty.
+\]</span></p>
+<p>Thus we have another example of a sequence converging in probability but
+not almost surely.</p>
+</div>
+<p><span class="math inline">\(\textbf{Answer:}\)</span></p>
+<p>In the St. Petersburg paradox, <span class="math inline">\(\{X_n\}\)</span> are iid and</p>
+<p><span class="math display">\[
+P(X_1=2^k)=2^{-k},
+\qquad k\ge1.
+\]</span></p>
+<p>Thus,</p>
+<p><span class="math display">\[
+P(X_1&gt;2^m)
+=
+\sum_{k=m+1}^{\infty}2^{-k}
+=
+2^{-m}.
+\]</span></p>
+<p>To show</p>
+<p><span class="math display">\[
+\limsup_{n\to\infty}
+\frac{X_n}{n\log_2 n}
+=
+\infty
+\]</span></p>
+<p>almost surely, it is enough to show that for every <span class="math inline">\(M&gt;0\)</span>,</p>
+<p><span class="math display">\[
+\frac{X_n}{n\log_2 n}&gt;M
+\]</span></p>
+<p>happens infinitely often almost surely.</p>
+<p>Fix <span class="math inline">\(M&gt;0\)</span>. Consider</p>
+<p><span class="math display">\[
+P(X_n&gt;M n\log_2 n).
+\]</span></p>
+<p>Let <span class="math inline">\(j\)</span> be such that</p>
+<p><span class="math display">\[
+2^j
+\le
+M n\log_2 n
+&lt;
+2^{j+1}.
+\]</span></p>
+<p>Then</p>
+<p><span class="math display">\[
+\begin{aligned}
+P(X_n&gt;M n\log_2 n)
+&amp;=
+P(X_n\ge2^{j+1})\\
+&amp;=
+\sum_{k=j+1}^{\infty}2^{-k}\\
+&amp;=
+2^{-j}\\
+&amp;\ge
+\frac{1}{M n\log_2 n}.
+\end{aligned}
+\]</span></p>
+<p>Therefore,</p>
+<p><span class="math display">\[
+\sum_nP(X_n&gt;M n\log_2 n)
+\ge
+\frac1M
+\sum_n\frac1{n\log_2 n}
+=
+\infty.
+\]</span></p>
+<p>Since the <span class="math inline">\(X_n\)</span>’s are independent, by Borel–Cantelli,</p>
+<p><span class="math display">\[
+P\left(
+\frac{X_n}{n\log_2 n}&gt;M
+\text{ i.o.}
+\right)
+=
+1.
+\]</span></p>
+<p>Now take <span class="math inline">\(M=1,2,\ldots\)</span>. Since a countable intersection of probability-one
+events still has probability one,</p>
+<p><span class="math display">\[
+P\left(
+\bigcap_{M=1}^{\infty}
+\left\{
+\frac{X_n}{n\log_2 n}&gt;M
+\text{ i.o.}
+\right\}
+\right)
+=
+1.
+\]</span></p>
+<p>Therefore,</p>
+<p><span class="math display">\[
+\boxed{
+\limsup_{n\to\infty}
+\frac{X_n}{n\log_2 n}
+=
+\infty
+\quad\text{a.s.}
+}
+\]</span></p>
+<p>For</p>
+<p><span class="math display">\[
+S_n=\sum_{i=1}^nX_i,
+\]</span></p>
+<p>since <span class="math inline">\(X_i\ge0\)</span>,</p>
+<p><span class="math display">\[
+S_n\ge X_n.
+\]</span></p>
+<p>Hence,</p>
+<p><span class="math display">\[
+\frac{S_n}{n\log_2 n}
+\ge
+\frac{X_n}{n\log_2 n},
+\]</span></p>
+<p>and consequently,</p>
+<p><span class="math display">\[
+\boxed{
+\limsup_{n\to\infty}
+\frac{S_n}{n\log_2 n}
+=
+\infty
+\quad\text{a.s.}
+}
+\]</span></p>
+<p>From Problem 24,</p>
+<p><span class="math display">\[
+\frac{S_n}{n\log_2 n}
+\xrightarrow{P}1,
+\]</span></p>
+<p>so this gives an example of convergence in probability without almost sure
+convergence.</p>
 
 </div>
 </div>

@@ -9172,4 +9172,337 @@ Together with \((b)\iff(c)\), we obtain
 \boxed{(a)\iff(b)\iff(c)}.
 \]
 
+### Ex 20
 
+::: problem
+Suppose \(\{X_n,n\ge1\}\) are independent random variables with \(E(X_n)=0\)
+for all \(n\). If
+
+\[
+\sum_n E\left(
+X_n^2 1_{[|X_n|\le1]}
++
+|X_n|1_{[|X_n|>1]}
+\right)<\infty,
+\]
+
+then \(\sum_nX_n\) converges almost surely.
+
+Hint: We have
+
+\[
+0=E(X_n)
+=
+E(X_n1_{[|X_n|\le1]})
++
+E(X_n1_{[|X_n|>1]}).
+\]
+:::
+
+$\textbf{Answer:}$
+
+What we have is
+
+\[
+\sum_n
+E\left(
+X_n^2 1_{[|X_n|\le1]}
++
+|X_n|1_{[|X_n|>1]}
+\right)
+<\infty.
+\]
+
+That is,
+
+\[
+\sum_nE\left(X_n^2 1_{[|X_n|\le1]}\right)
++
+\sum_nE\left(|X_n|1_{[|X_n|>1]}\right)
+<\infty.
+\]
+
+Since both terms are non-negative series, we have
+
+\[
+\sum_nE\left(X_n^2 1_{[|X_n|\le1]}\right)<\infty
+\]
+
+and
+
+\[
+\sum_nE\left(|X_n|1_{[|X_n|>1]}\right)<\infty.
+\]
+
+Firstly,
+
+\[
+\begin{aligned}
+E\left(|X_n|1_{[|X_n|>1]}\right)
+&=
+\int_\Omega |X_n|1_{[|X_n|>1]}\,dP\\
+&\ge
+\int_\Omega 1_{[|X_n|>1]}\,dP\\
+&=
+P(|X_n|>1).
+\end{aligned}
+\]
+
+Therefore,
+
+\[
+\sum_nP(|X_n|>1)
+\le
+\sum_nE\left(|X_n|1_{[|X_n|>1]}\right)
+<\infty.
+\]
+
+Secondly,
+
+\[
+\begin{aligned}
+\sum_n
+\operatorname{Var}\left(
+X_n1_{[|X_n|\le1]}
+\right)
+&\le
+\sum_n
+E\left(
+X_n^2 1_{[|X_n|\le1]}
+\right)\\
+&<\infty.
+\end{aligned}
+\]
+
+Lastly, since \(E(X_n)=0\),
+
+\[
+E(X_n1_{[|X_n|\le1]})
+=
+-
+E(X_n1_{[|X_n|>1]}).
+\]
+
+Also,
+
+\[
+\left|
+E(X_n1_{[|X_n|>1]})
+\right|
+\le
+E\left(
+|X_n|1_{[|X_n|>1]}
+\right).
+\]
+
+Hence,
+
+\[
+\sum_n
+\left|
+E(X_n1_{[|X_n|>1]})
+\right|
+<\infty.
+\]
+
+Therefore,
+
+\[
+\sum_nE(X_n1_{[|X_n|\le1]})
+\]
+
+converges.
+
+Thus all three conditions of the Kolmogorov three series theorem hold for
+\(c=1\), and hence
+
+\[
+\boxed{
+\sum_nX_n\text{ converges a.s.}
+}
+\]
+
+### Ex 26
+
+::: problem
+If \(\{X_n,n\ge1\}\) is defined as in the St. Petersburg paradox of Problem 24,
+show almost surely that
+
+\[
+\limsup_{n\to\infty}
+\frac{X_n}{n\log_2 n}
+=
+\infty,
+\]
+
+so that for the partial sums we also have almost surely
+
+\[
+\limsup_{n\to\infty}
+\frac{S_n}{n\log_2 n}
+=
+\infty.
+\]
+
+Thus we have another example of a sequence converging in probability but
+not almost surely.
+:::
+
+$\textbf{Answer:}$
+
+In the St. Petersburg paradox, \(\{X_n\}\) are iid and
+
+\[
+P(X_1=2^k)=2^{-k},
+\qquad k\ge1.
+\]
+
+Thus,
+
+\[
+P(X_1>2^m)
+=
+\sum_{k=m+1}^{\infty}2^{-k}
+=
+2^{-m}.
+\]
+
+To show
+
+\[
+\limsup_{n\to\infty}
+\frac{X_n}{n\log_2 n}
+=
+\infty
+\]
+
+almost surely, it is enough to show that for every \(M>0\),
+
+\[
+\frac{X_n}{n\log_2 n}>M
+\]
+
+happens infinitely often almost surely.
+
+Fix \(M>0\). Consider
+
+\[
+P(X_n>M n\log_2 n).
+\]
+
+Let \(j\) be such that
+
+\[
+2^j
+\le
+M n\log_2 n
+<
+2^{j+1}.
+\]
+
+Then
+
+\[
+\begin{aligned}
+P(X_n>M n\log_2 n)
+&=
+P(X_n\ge2^{j+1})\\
+&=
+\sum_{k=j+1}^{\infty}2^{-k}\\
+&=
+2^{-j}\\
+&\ge
+\frac{1}{M n\log_2 n}.
+\end{aligned}
+\]
+
+Therefore,
+
+\[
+\sum_nP(X_n>M n\log_2 n)
+\ge
+\frac1M
+\sum_n\frac1{n\log_2 n}
+=
+\infty.
+\]
+
+Since the \(X_n\)'s are independent, by Borel--Cantelli,
+
+\[
+P\left(
+\frac{X_n}{n\log_2 n}>M
+\text{ i.o.}
+\right)
+=
+1.
+\]
+
+Now take \(M=1,2,\ldots\). Since a countable intersection of probability-one
+events still has probability one,
+
+\[
+P\left(
+\bigcap_{M=1}^{\infty}
+\left\{
+\frac{X_n}{n\log_2 n}>M
+\text{ i.o.}
+\right\}
+\right)
+=
+1.
+\]
+
+Therefore,
+
+\[
+\boxed{
+\limsup_{n\to\infty}
+\frac{X_n}{n\log_2 n}
+=
+\infty
+\quad\text{a.s.}
+}
+\]
+
+For
+
+\[
+S_n=\sum_{i=1}^nX_i,
+\]
+
+since \(X_i\ge0\),
+
+\[
+S_n\ge X_n.
+\]
+
+Hence,
+
+\[
+\frac{S_n}{n\log_2 n}
+\ge
+\frac{X_n}{n\log_2 n},
+\]
+
+and consequently,
+
+\[
+\boxed{
+\limsup_{n\to\infty}
+\frac{S_n}{n\log_2 n}
+=
+\infty
+\quad\text{a.s.}
+}
+\]
+
+From Problem 24,
+
+\[
+\frac{S_n}{n\log_2 n}
+\xrightarrow{P}1,
+\]
+
+so this gives an example of convergence in probability without almost sure
+convergence.
