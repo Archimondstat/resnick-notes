@@ -101,6 +101,113 @@ Kronecker's lemma acts as a bridge from the convergence of an infinite series to
 In summary, this section built the connection between the convergence of series and the convergence of sample means, which prepares us for the Strong Law of Large Numbers in the following sections.
 
 
+### 7.5
+
+From 7.4, we knew that for independent random variables, one way to guarantee the SLLN is to have
+
+$$
+\sum_{n=1}^{\infty}
+\operatorname{Var}\left(\frac{X_n}{b_n}\right)<\infty.
+$$
+
+However, when $\{X_n\}$ are iid, we only need the existence of the first moment,
+
+$$
+E|X_1|<\infty,
+$$
+
+and then
+
+$$
+\frac{S_n}{n}
+\xrightarrow{a.s.}
+E(X_1).
+$$
+
+The trick in proving this is again the truncation and tail equivalence method that we introduced at the beginning of Chapter 7. We first truncate the random variables, use the first moment condition to control the tails, prove the convergence for the truncated sequence, and then transfer the result back to the original sequence.
+
+An interesting extension can be seen in Exercise 9. If $\{X_n\}$ are iid with
+
+$$
+E|X_1|<\infty,
+\qquad
+E(X_1)=0,
+$$
+
+and $\{c_n\}$ is a bounded sequence of real numbers, then
+
+$$
+\frac{1}{n}\sum_{i=1}^{n}c_iX_i
+\xrightarrow{a.s.}
+0.
+$$
+
+The sequence $\{c_nX_n\}$ is generally no longer iid, but the SLLN still works under this bounded modification. So the iid condition in the usual SLLN can be weakened in some structured situations.
+
+### 7.6
+
+The Kolmogorov three series theorem told us something very funny.
+
+If we want to investigate the a.s. convergence of
+
+$$
+\sum_{n=1}^{\infty}X_n
+$$
+
+for independent random variables, instead of directly investigating the convergence of the random variable series, we can turn the problem into investigating the convergence of three ordinary real-number series.
+
+For some $c>0$, define the truncated random variables
+
+$$
+X_n'
+=
+X_n I\{|X_n|\le c\}.
+$$
+
+Then the three series are
+
+$$
+\sum_{n=1}^{\infty}P(|X_n|>c),
+$$
+
+$$
+\sum_{n=1}^{\infty}\operatorname{Var}(X_n'),
+$$
+
+and
+
+$$
+\sum_{n=1}^{\infty}E(X_n').
+$$
+
+The convergence of these three series is necessary and sufficient for
+
+$$
+\sum_{n=1}^{\infty}X_n
+$$
+
+to converge almost surely.
+
+The bridge between the three real-number series and the original random variable series is again the truncation method, together with the tools we developed before.
+
+The first series gives tail equivalence between $\{X_n\}$ and $\{X_n'\}$. The second series allows us to use the Kolmogorov convergence criterion on the centered truncated variables, and the third series controls the deterministic mean part.
+
+So 7.6 can be seen as putting several ideas from the earlier parts of Chapter 7 together:
+
+$$
+\text{truncation}
+\longrightarrow
+\text{tail equivalence}
+\longrightarrow
+\text{KCC}
+\longrightarrow
+\text{a.s. convergence of the original series}.
+$$
+
+In summary, 7.5 showed us that for iid random variables the first moment is already enough for the SLLN, while 7.6 gave us a more general way to decide the a.s. convergence of a series of independent random variables by reducing the problem to three real-number series.
+
+
+
 ##  Exercises
 ### Ex 2
 

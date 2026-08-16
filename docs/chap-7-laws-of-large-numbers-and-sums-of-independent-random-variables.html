@@ -23,7 +23,7 @@
 <meta name="author" content="Zhanwen Peng" />
 
 
-<meta name="date" content="2026-08-15" />
+<meta name="date" content="2026-08-16" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -451,6 +451,8 @@
 <li class="chapter" data-level="" data-path="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html"><a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#section-6"><i class="fa fa-check"></i>7.1–7.2</a></li>
 <li class="chapter" data-level="" data-path="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html"><a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#section-7"><i class="fa fa-check"></i>7.3</a></li>
 <li class="chapter" data-level="" data-path="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html"><a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#section-8"><i class="fa fa-check"></i>7.4</a></li>
+<li class="chapter" data-level="" data-path="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html"><a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#section-9"><i class="fa fa-check"></i>7.5</a></li>
+<li class="chapter" data-level="" data-path="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html"><a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#section-10"><i class="fa fa-check"></i>7.6</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html"><a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#exercises-2"><i class="fa fa-check"></i>Exercises</a>
 <ul>
@@ -617,6 +619,82 @@ S_n \xrightarrow{a.s.}.
 \]</span></p>
 <p>Kronecker’s lemma acts as a bridge from the convergence of an infinite series to the convergence of its corresponding averages. It therefore allows us to transfer results about the convergence of series into results about the convergence of sample averages.</p>
 <p>In summary, this section built the connection between the convergence of series and the convergence of sample means, which prepares us for the Strong Law of Large Numbers in the following sections.</p>
+</div>
+<div id="section-9" class="section level3 hasAnchor">
+<h3>7.5<a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#section-9" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>From 7.4, we knew that for independent random variables, one way to guarantee the SLLN is to have</p>
+<p><span class="math display">\[
+\sum_{n=1}^{\infty}
+\operatorname{Var}\left(\frac{X_n}{b_n}\right)&lt;\infty.
+\]</span></p>
+<p>However, when <span class="math inline">\(\{X_n\}\)</span> are iid, we only need the existence of the first moment,</p>
+<p><span class="math display">\[
+E|X_1|&lt;\infty,
+\]</span></p>
+<p>and then</p>
+<p><span class="math display">\[
+\frac{S_n}{n}
+\xrightarrow{a.s.}
+E(X_1).
+\]</span></p>
+<p>The trick in proving this is again the truncation and tail equivalence method that we introduced at the beginning of Chapter 7. We first truncate the random variables, use the first moment condition to control the tails, prove the convergence for the truncated sequence, and then transfer the result back to the original sequence.</p>
+<p>An interesting extension can be seen in Exercise 9. If <span class="math inline">\(\{X_n\}\)</span> are iid with</p>
+<p><span class="math display">\[
+E|X_1|&lt;\infty,
+\qquad
+E(X_1)=0,
+\]</span></p>
+<p>and <span class="math inline">\(\{c_n\}\)</span> is a bounded sequence of real numbers, then</p>
+<p><span class="math display">\[
+\frac{1}{n}\sum_{i=1}^{n}c_iX_i
+\xrightarrow{a.s.}
+0.
+\]</span></p>
+<p>The sequence <span class="math inline">\(\{c_nX_n\}\)</span> is generally no longer iid, but the SLLN still works under this bounded modification. So the iid condition in the usual SLLN can be weakened in some structured situations.</p>
+</div>
+<div id="section-10" class="section level3 hasAnchor">
+<h3>7.6<a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#section-10" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The Kolmogorov three series theorem told us something very funny.</p>
+<p>If we want to investigate the a.s. convergence of</p>
+<p><span class="math display">\[
+\sum_{n=1}^{\infty}X_n
+\]</span></p>
+<p>for independent random variables, instead of directly investigating the convergence of the random variable series, we can turn the problem into investigating the convergence of three ordinary real-number series.</p>
+<p>For some <span class="math inline">\(c&gt;0\)</span>, define the truncated random variables</p>
+<p><span class="math display">\[
+X_n&#39;
+=
+X_n I\{|X_n|\le c\}.
+\]</span></p>
+<p>Then the three series are</p>
+<p><span class="math display">\[
+\sum_{n=1}^{\infty}P(|X_n|&gt;c),
+\]</span></p>
+<p><span class="math display">\[
+\sum_{n=1}^{\infty}\operatorname{Var}(X_n&#39;),
+\]</span></p>
+<p>and</p>
+<p><span class="math display">\[
+\sum_{n=1}^{\infty}E(X_n&#39;).
+\]</span></p>
+<p>The convergence of these three series is necessary and sufficient for</p>
+<p><span class="math display">\[
+\sum_{n=1}^{\infty}X_n
+\]</span></p>
+<p>to converge almost surely.</p>
+<p>The bridge between the three real-number series and the original random variable series is again the truncation method, together with the tools we developed before.</p>
+<p>The first series gives tail equivalence between <span class="math inline">\(\{X_n\}\)</span> and <span class="math inline">\(\{X_n&#39;\}\)</span>. The second series allows us to use the Kolmogorov convergence criterion on the centered truncated variables, and the third series controls the deterministic mean part.</p>
+<p>So 7.6 can be seen as putting several ideas from the earlier parts of Chapter 7 together:</p>
+<p><span class="math display">\[
+\text{truncation}
+\longrightarrow
+\text{tail equivalence}
+\longrightarrow
+\text{KCC}
+\longrightarrow
+\text{a.s. convergence of the original series}.
+\]</span></p>
+<p>In summary, 7.5 showed us that for iid random variables the first moment is already enough for the SLLN, while 7.6 gave us a more general way to decide the a.s. convergence of a series of independent random variables by reducing the problem to three real-number series.</p>
 </div>
 </div>
 <div id="exercises-2" class="section level2 hasAnchor">
