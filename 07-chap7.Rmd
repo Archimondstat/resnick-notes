@@ -9909,3 +9909,1552 @@ $\textbf{Note:}$
 Ex 37 is essentially a repetition of Ex 13. Both exercises ask for the necessary and sufficient condition for almost sure convergence of a series of independent exponentially distributed random variables.
 
 Ex 37 only emphasizes that the argument should use the Kolmogorov three-series theorem. Since Ex 13 was already solved by this route, Ex 37 is treated as a duplicate and is not solved again.
+
+
+### Ex 24
+
+::: problem
+Relative stability of sums. Prove the following are equivalent for iid non-negative random variables $\{X_n,n\ge 1\}$.
+
+(a) There exist constants $a_n>0$ such that
+
+\[
+a_n^{-1}\sum_{i=1}^nX_i\xrightarrow{P}1.
+\]
+
+(b) As $n\to\infty$
+
+\[
+\frac{\bigvee_{i=1}^nX_i}{\sum_{i=1}^nX_i}\xrightarrow{P}0.
+\]
+
+(c) We have
+
+\[
+\lim_{x\to\infty}\frac{E(X_1\mathbf 1_{[X_1\le x]})}{xP[X_1>x]}=\infty.
+\]
+
+(d) We have that the function $\mu(x):=E(X_1\mathbf 1_{[X_1\le x]})$ is slowly varying; that is,
+
+\[
+\lim_{t\to\infty}\frac{\mu(tx)}{\mu(t)}=1,\qquad \forall x>0.
+\]
+
+This is equivalent to
+
+\[
+U(x)=\int_0^xP[X_1>s]ds
+\]
+
+being slowly varying.
+
+(e) In this case, show we may select $a_n$ as follows. Set $H(x)=x/U(x)$ and then set
+
+\[
+a_n=H^{\leftarrow}(n)
+\]
+
+where $H^{\leftarrow}$ is the inverse function of $H$ satisfying $H(H^{\leftarrow}(x))\sim x$.
+
+(f) Now apply this to the St. Petersburg paradox. Let $\{X_n,n\ge1\}$ be iid with
+
+\[
+P[X_1=2^k]=2^{-k},\qquad k\ge1.
+\]
+
+What is $E(X_1)$? Set $S_n=\sum_{i=1}^nX_i$. The goal is to show
+
+\[
+\frac{S_n}{(n\log n)/\log2}\xrightarrow{P}1.
+\]
+
+Proceed as follows:
+
+i. Check $P[X>2^n]=2^{-n},\ n\ge1$.
+
+ii. Evaluate
+
+\[
+\int_0^{2^n}P[X_1>s]ds
+=
+\sum_{j=1}^n\int_{2^{j-1}}^{2^j}P[X_1>s]ds
+\]
+
+to get
+
+\[
+U(x)\sim\frac{\log x}{\log2}.
+\]
+
+So $H(x)=x/U(x)\sim \log2(x/\log x)$ and
+
+\[
+a_n\sim(n\log n)/\log2.
+\]
+:::
+
+$\textbf{Answer:}$
+
+Let
+
+\[
+S_n:=\sum_{i=1}^nX_i,
+\qquad
+M_n:=\max_{1\le i\le n}X_i,
+\qquad
+\overline F(x):=P(X_1>x),
+\]
+
+and
+
+\[
+\mu(x):=E[X_1\mathbf 1_{\{X_1\le x\}}],
+\qquad
+U(x):=\int_0^x\overline F(s)\,ds.
+\]
+
+The main equivalence is proved through the circle
+
+\[
+(a)\Rightarrow(b)\Rightarrow(c)\Rightarrow(d)\Rightarrow(a).
+\]
+
+#### $(a)\Rightarrow(b)$
+
+Assume that for some deterministic $a_n>0$,
+
+\[
+\frac{S_n}{a_n}\xrightarrow{P}1.
+\]
+
+Since
+
+\[
+\frac{M_n}{S_n}
+=
+\frac{M_n/a_n}{S_n/a_n},
+\]
+
+it is enough to prove
+
+\[
+\frac{M_n}{a_n}\xrightarrow{P}0.
+\]
+
+The difficulty is that $M_n$ can be large while the other summands compensate for it, so we first symmetrize.
+
+Let $\{X_i'\}$ be an independent iid copy of $\{X_i\}$, and define
+
+\[
+Y_i:=X_i-X_i',
+\qquad
+T_k:=\sum_{i=1}^kY_i.
+\]
+
+Then $\{Y_i\}$ are iid and symmetric, and
+
+\[
+\frac{T_n}{a_n}
+=
+\frac{S_n-S_n'}{a_n}
+\xrightarrow{P}0.
+\]
+
+We first note that $a_n\to\infty$. Since $(a)$ cannot hold when $X_1=0$ a.s., there is some $\eta>0$ with $P(X_1>\eta)>0$. Hence $S_n\to\infty$ a.s., and together with $S_n/a_n\to_P1$ this forces $a_n\to\infty$.
+
+We also need a uniform comparison of $a_m$ and $a_n$ for $m\le n$. Since $S_k/a_k\to_P1$, choose $N$ so large that for all $k\ge N$,
+
+\[
+P\left(S_k>\frac34a_k\right)>\frac34,
+\qquad
+P\left(S_k<\frac54a_k\right)>\frac34.
+\]
+
+If $N\le m\le n$ and $a_m>(5/3)a_n$, then the two events
+
+\[
+\left\{S_m>\frac34a_m\right\},
+\qquad
+\left\{S_n<\frac54a_n\right\}
+\]
+
+have an intersection of positive probability. On this intersection,
+
+\[
+S_m>\frac34a_m>\frac54a_n>S_n,
+\]
+
+contradicting $S_m\le S_n$ since the $X_i$ are nonnegative. Therefore, for all sufficiently large $N\le m\le n$,
+
+\[
+a_m\le \frac53a_n.
+\]
+
+Now apply Skorohod's inequality to the symmetric sums $T_k$. For fixed $\varepsilon>0$, let
+
+\[
+c_n(\varepsilon)
+:=
+\max_{0\le m\le n-1}
+P(|T_m|>\varepsilon a_n).
+\]
+
+For $N\le m\le n-1$,
+
+\[
+a_m\le Ca_n
+\]
+
+for a fixed $C$, so
+
+\[
+P(|T_m|>\varepsilon a_n)
+\le
+P\left(\frac{|T_m|}{a_m}>\frac{\varepsilon}{C}\right).
+\]
+
+Since $T_m/a_m\to_P0$, the right-hand side is uniformly small for all $m\ge N$. For the finitely many $m<N$, $a_n\to\infty$, so
+
+\[
+P(|T_m|>\varepsilon a_n)\to0.
+\]
+
+Thus
+
+\[
+c_n(\varepsilon)\to0.
+\]
+
+Skorohod's inequality therefore gives
+
+\[
+\frac{\max_{k\le n}|T_k|}{a_n}\xrightarrow{P}0.
+\]
+
+Since
+
+\[
+Y_i=T_i-T_{i-1},
+\]
+
+we have
+
+\[
+\max_{i\le n}|Y_i|
+\le
+2\max_{k\le n}|T_k|,
+\]
+
+and hence
+
+\[
+\frac{\max_{i\le n}|X_i-X_i'|}{a_n}\xrightarrow{P}0.
+\]
+
+We now unsymmetrize. For fixed $\varepsilon>0$, define
+
+\[
+A_{i,n}
+:=
+\{X_i>2\varepsilon a_n,\ X_i'\le\varepsilon a_n\}.
+\]
+
+Then
+
+\[
+A_{i,n}\subset
+\{|X_i-X_i'|>\varepsilon a_n\}.
+\]
+
+Hence
+
+\[
+P\left(\bigcup_{i=1}^nA_{i,n}\right)\to0.
+\]
+
+The events $A_{i,n}$ are independent across $i$, with
+
+\[
+q_n
+=
+P(A_{1,n})
+=
+P(X_1>2\varepsilon a_n)
+P(X_1'\le\varepsilon a_n).
+\]
+
+Therefore
+
+\[
+1-(1-q_n)^n\to0.
+\]
+
+Since $(1-q_n)^n\le e^{-nq_n}$, this implies
+
+\[
+nq_n\to0.
+\]
+
+Also, since $a_n\to\infty$,
+
+\[
+P(X_1'\le\varepsilon a_n)\to1.
+\]
+
+Thus
+
+\[
+nP(X_1>2\varepsilon a_n)\to0.
+\]
+
+Replacing $\varepsilon$ by $\varepsilon/2$,
+
+\[
+nP(X_1>\varepsilon a_n)\to0.
+\]
+
+Hence by the union bound,
+
+\[
+P(M_n>\varepsilon a_n)
+\le
+nP(X_1>\varepsilon a_n)
+\to0.
+\]
+
+Therefore
+
+\[
+\frac{M_n}{a_n}\xrightarrow{P}0,
+\]
+
+and consequently
+
+\[
+\frac{M_n}{S_n}
+=
+\frac{M_n/a_n}{S_n/a_n}
+\xrightarrow{P}0.
+\]
+
+Thus $(a)\Rightarrow(b)$.
+
+#### $(b)\Rightarrow(c)$
+
+We prove $(b)\Rightarrow(c)$ by contrapositive.
+
+Suppose $(c)$ fails. Then there exist $x_k\to\infty$ and $C<\infty$ such that
+
+\[
+\mu(x_k)
+\le
+Cx_k\overline F(x_k).
+\]
+
+Let
+
+\[
+q_k:=\overline F(x_k),
+\qquad
+n_k:=\left\lfloor\frac1{q_k}\right\rfloor.
+\]
+
+Then
+
+\[
+n_kq_k\to1.
+\]
+
+Let $E_k$ be the event that exactly one of
+
+\[
+X_1,\ldots,X_{n_k}
+\]
+
+exceeds $x_k$. By independence,
+
+\[
+P(E_k)
+=
+n_kq_k(1-q_k)^{n_k-1}
+\to e^{-1}.
+\]
+
+Define the truncated remainder
+
+\[
+Z_k
+:=
+\sum_{i=1}^{n_k}
+X_i\mathbf 1_{\{X_i\le x_k\}}.
+\]
+
+Then
+
+\[
+E(Z_k)
+=
+n_k\mu(x_k)
+\le
+Cn_kq_kx_k
+\le
+Cx_k.
+\]
+
+For fixed $L>0$, Markov's inequality gives
+
+\[
+P(Z_k>Lx_k)
+\le
+\frac{C}{L}.
+\]
+
+Choose $L$ so large that
+
+\[
+\frac{C}{L}<\frac{e^{-1}}4.
+\]
+
+For all sufficiently large $k$,
+
+\[
+P(E_k)>\frac{e^{-1}}2,
+\]
+
+and therefore
+
+\[
+P(E_k\cap\{Z_k\le Lx_k\})
+\ge
+P(E_k)-P(Z_k>Lx_k)
+>
+\frac{e^{-1}}4.
+\]
+
+On $E_k$, exactly one observation exceeds $x_k$, and that observation equals $M_{n_k}$. All the remaining observations are included in $Z_k$, so
+
+\[
+S_{n_k}=M_{n_k}+Z_k.
+\]
+
+On
+
+\[
+E_k\cap\{Z_k\le Lx_k\},
+\]
+
+we have $M_{n_k}>x_k$, hence
+
+\[
+\frac{M_{n_k}}{S_{n_k}}
+=
+\frac{M_{n_k}}{M_{n_k}+Z_k}
+\ge
+\frac{M_{n_k}}{M_{n_k}+Lx_k}
+>
+\frac1{1+L}.
+\]
+
+Thus, for all sufficiently large $k$,
+
+\[
+P\left(
+\frac{M_{n_k}}{S_{n_k}}>
+\frac1{1+L}
+\right)
+>
+\frac{e^{-1}}4.
+\]
+
+This contradicts $(b)$. Therefore $(c)$ must hold.
+
+#### $(c)\Rightarrow(d)$
+
+Condition $(c)$ is equivalent to
+
+\[
+\frac{x\overline F(x)}{\mu(x)}\to0.
+\]
+
+First let $r>1$. Then
+
+\[
+\mu(rx)-\mu(x)
+=
+E[X_1\mathbf 1_{\{x<X_1\le rx\}}].
+\]
+
+On $\{x<X_1\le rx\}$, $X_1\le rx$, so
+
+\[
+0
+\le
+\mu(rx)-\mu(x)
+\le
+rx\,P(X_1>x).
+\]
+
+Therefore
+
+\[
+0
+\le
+\frac{\mu(rx)-\mu(x)}{\mu(x)}
+\le
+r\frac{xP(X_1>x)}{\mu(x)}
+\to0.
+\]
+
+Hence
+
+\[
+\frac{\mu(rx)}{\mu(x)}\to1,
+\qquad r>1.
+\]
+
+If $0<r<1$, put $s=rx$ and $q=1/r>1$. Then
+
+\[
+\frac{\mu(x)}{\mu(rx)}
+=
+\frac{\mu(qs)}{\mu(s)}
+\to1,
+\]
+
+and therefore
+
+\[
+\frac{\mu(rx)}{\mu(x)}\to1.
+\]
+
+Thus $\mu$ is slowly varying.
+
+#### $(d)\Rightarrow(a)$
+
+We prove  using the normalization in part (e).
+
+Since the exercise states that slow variation of $\mu$ is equivalent to slow variation of
+
+\[
+U(x)
+=
+\int_0^x\overline F(s)\,ds,
+\]
+
+we work with $U$.
+
+For $x>0$,
+
+\[
+U(x)-U(x/2)
+=
+\int_{x/2}^x\overline F(s)\,ds
+\ge
+\frac{x}{2}\overline F(x).
+\]
+
+Therefore
+
+\[
+0
+\le
+\frac{x\overline F(x)}{U(x)}
+\le
+2\left(
+1-\frac{U(x/2)}{U(x)}
+\right)
+\to0.
+\]
+
+Also,
+
+\[
+U(x)
+=
+E(X_1\wedge x)
+=
+\mu(x)+x\overline F(x).
+\]
+
+Hence
+
+\[
+\frac{\mu(x)}{U(x)}
+=
+1-\frac{x\overline F(x)}{U(x)}
+\to1.
+\]
+
+Set
+
+\[
+H(x)=\frac{x}{U(x)},
+\qquad
+a_n=H^{\leftarrow}(n),
+\]
+
+where
+
+\[
+H(H^{\leftarrow}(x))\sim x.
+\]
+
+Then
+
+\[
+H(a_n)\sim n,
+\]
+
+so
+
+\[
+\frac{a_n}{U(a_n)}\sim n,
+\]
+
+equivalently,
+
+\[
+\frac{nU(a_n)}{a_n}\to1.
+\]
+
+Since $\mu(a_n)/U(a_n)\to1$,
+
+\[
+\frac{n\mu(a_n)}{a_n}\to1.
+\]
+
+Now truncate at $a_n$:
+
+\[
+X_{i,n}
+:=
+X_i\mathbf 1_{\{X_i\le a_n\}},
+\qquad
+\widetilde S_n
+:=
+\sum_{i=1}^nX_{i,n}.
+\]
+
+Then
+
+\[
+\frac{E\widetilde S_n}{a_n}
+=
+\frac{n\mu(a_n)}{a_n}
+\to1.
+\]
+
+Also,
+
+\[
+nP(X_1>a_n)
+=
+\frac{nU(a_n)}{a_n}
+\frac{a_nP(X_1>a_n)}{U(a_n)}
+\to0.
+\]
+
+Therefore
+
+\[
+P(S_n\ne\widetilde S_n)
+\le
+nP(X_1>a_n)
+\to0.
+\]
+
+It remains to show that the truncated sum concentrates around its expectation. Since the terms are independent,
+
+\[
+\operatorname{Var}(\widetilde S_n)
+=
+n\operatorname{Var}(X_1\mathbf 1_{\{X_1\le a_n\}})
+\le
+nE[X_1^2\mathbf 1_{\{X_1\le a_n\}}].
+\]
+
+Fix $0<\delta<1$ and split
+
+\[
+E[X_1^2\mathbf 1_{\{X_1\le a_n\}}]
+=
+E[X_1^2\mathbf 1_{\{X_1\le\delta a_n\}}]
++
+E[X_1^2\mathbf 1_{\{\delta a_n<X_1\le a_n\}}].
+\]
+
+For the first part,
+
+\[
+X_1^2
+\le
+\delta a_nX_1
+\qquad
+\text{on }\{X_1\le\delta a_n\},
+\]
+
+so
+
+\[
+\frac{n}{a_n^2}
+E[X_1^2\mathbf 1_{\{X_1\le\delta a_n\}}]
+\le
+\delta
+\frac{n\mu(\delta a_n)}{a_n}.
+\]
+
+Write
+
+\[
+\frac{n\mu(\delta a_n)}{a_n}
+=
+\frac{n\mu(a_n)}{a_n}
+\frac{\mu(\delta a_n)}{\mu(a_n)}
+\to1.
+\]
+
+Hence
+
+\[
+\limsup_{n\to\infty}
+\frac{n}{a_n^2}
+E[X_1^2\mathbf 1_{\{X_1\le\delta a_n\}}]
+\le\delta.
+\]
+
+For the second part,
+
+\[
+X_1^2\le a_nX_1
+\qquad
+\text{on }\{\delta a_n<X_1\le a_n\},
+\]
+
+so
+
+\[
+\frac{n}{a_n^2}
+E[X_1^2\mathbf 1_{\{\delta a_n<X_1\le a_n\}}]
+\le
+\frac{n}{a_n}
+[\mu(a_n)-\mu(\delta a_n)].
+\]
+
+Thus
+
+\[
+\frac{n}{a_n}
+[\mu(a_n)-\mu(\delta a_n)]
+=
+\frac{n\mu(a_n)}{a_n}
+\left[
+1-\frac{\mu(\delta a_n)}{\mu(a_n)}
+\right]
+\to0.
+\]
+
+Therefore, for every fixed $\delta>0$,
+
+\[
+\limsup_{n\to\infty}
+\frac{n}{a_n^2}
+E[X_1^2\mathbf 1_{\{X_1\le a_n\}}]
+\le\delta.
+\]
+
+Letting $\delta\downarrow0$,
+
+\[
+\frac{n}{a_n^2}
+E[X_1^2\mathbf 1_{\{X_1\le a_n\}}]
+\to0.
+\]
+
+Hence
+
+\[
+\frac{\operatorname{Var}(\widetilde S_n)}{a_n^2}\to0.
+\]
+
+By Chebyshev,
+
+\[
+\frac{\widetilde S_n-E\widetilde S_n}{a_n}
+\xrightarrow{P}0.
+\]
+
+Together with
+
+\[
+\frac{E\widetilde S_n}{a_n}\to1,
+\]
+
+we obtain
+
+\[
+\frac{\widetilde S_n}{a_n}\xrightarrow{P}1.
+\]
+
+Finally,
+
+\[
+P(S_n\ne\widetilde S_n)\to0,
+\]
+
+so
+
+\[
+\frac{S_n}{a_n}\xrightarrow{P}1.
+\]
+
+Thus $(d)\Rightarrow(a)$.
+
+#### (e)
+
+The normalization used above is
+
+\[
+H(x)=\frac{x}{U(x)},
+\qquad
+a_n=H^{\leftarrow}(n).
+\]
+
+Since
+
+\[
+H(a_n)\sim n,
+\]
+
+we have
+
+\[
+\frac{nU(a_n)}{a_n}\to1.
+\]
+
+The proof in part (d) shows that this choice indeed satisfies
+
+\[
+\frac{S_n}{a_n}\xrightarrow{P}1.
+\]
+
+Thus the normalization in part (e) works.
+
+#### (f)
+
+For the St. Petersburg distribution,
+
+\[
+P(X_1=2^k)=2^{-k},
+\qquad k\ge1.
+\]
+
+First,
+
+\[
+E(X_1)
+=
+\sum_{k=1}^{\infty}2^k2^{-k}
+=
+\sum_{k=1}^{\infty}1
+=
+\infty.
+\]
+
+Also,
+
+\[
+P(X_1>2^n)
+=
+\sum_{k=n+1}^{\infty}2^{-k}
+=
+2^{-n}.
+\]
+
+The tail function is a step function. For
+
+\[
+2^{j-1}<s<2^j,
+\]
+
+we have
+
+\[
+P(X_1>s)
+=
+\sum_{k=j}^{\infty}2^{-k}
+=
+2^{-(j-1)}.
+\]
+
+Therefore every dyadic interval contributes one unit:
+
+\[
+\int_{2^{j-1}}^{2^j}P(X_1>s)\,ds
+=
+(2^j-2^{j-1})2^{-(j-1)}
+=
+1.
+\]
+
+Together with the initial interval $[0,1]$,
+
+\[
+U(2^n)=n+1\sim n.
+\]
+
+Now if
+
+\[
+2^n\le x<2^{n+1},
+\]
+
+then by monotonicity,
+
+\[
+n+1
+=
+U(2^n)
+\le
+U(x)
+\le
+U(2^{n+1})
+=
+n+2,
+\]
+
+while
+
+\[
+n
+\le
+\frac{\log x}{\log2}
+<
+n+1.
+\]
+
+Hence, by squeezing,
+
+\[
+U(x)\sim\frac{\log x}{\log2}.
+\]
+
+Therefore
+
+\[
+H(x)
+=
+\frac{x}{U(x)}
+\sim
+\frac{x\log2}{\log x}.
+\]
+
+Take
+
+\[
+a_n
+=
+\frac{n\log n}{\log2}.
+\]
+
+Then
+
+\[
+\log a_n
+=
+\log n+\log\log n-\log\log2
+\sim
+\log n,
+\]
+
+and therefore
+
+\[
+H(a_n)
+\sim
+\frac{a_n\log2}{\log a_n}
+=
+n\frac{\log n}{\log a_n}
+\sim n.
+\]
+
+Thus
+
+\[
+a_n\sim H^{\leftarrow}(n),
+\]
+
+and part (e) gives
+
+\[
+\boxed{
+\frac{S_n}{(n\log n)/\log2}
+\xrightarrow{P}1.
+}
+\]
+
+#### Additional direct implications studied
+
+The equivalence already follows from the circle above. The following directions were studied separately because they expose additional structure.
+
+#### $(b)\Rightarrow(a)$ 
+
+Assume
+
+\[
+\frac{M_n}{S_n}\xrightarrow{P}0.
+\]
+
+The idea is
+
+\[
+\text{maximum negligible}
+\Rightarrow
+\text{a random split gives nearly equal totals}
+\Rightarrow
+\text{two independent copies are relatively close}
+\Rightarrow
+\text{the distribution has vanishing relative width}.
+\]
+
+Take iid variables
+
+\[
+Z_1,\ldots,Z_{2n}
+\]
+
+with the same distribution as $X_1$. Independently of the $Z_i$, choose uniformly a subset
+
+\[
+I\subset\{1,\ldots,2n\},
+\qquad |I|=n.
+\]
+
+Define
+
+\[
+A_n:=\sum_{i\in I}Z_i,
+\qquad
+B_n:=\sum_{i\notin I}Z_i,
+\]
+
+and
+
+\[
+J_i:=\mathbf 1_{\{i\in I\}}.
+\]
+
+Because the $Z_i$ are iid,
+
+\[
+(A_n,B_n)\overset d=(S_n,S_n'),
+\]
+
+where $S_n'$ is an independent copy of $S_n$.
+
+Condition on
+
+\[
+Z=(Z_1,\ldots,Z_{2n}).
+\]
+
+Then the $Z_i$ are fixed, and the only randomness is the random allocation. Since
+
+\[
+P(J_i=1\mid Z)=\frac12,
+\]
+
+we have
+
+\[
+E(A_n-B_n\mid Z)=0.
+\]
+
+Set
+
+\[
+D_n:=A_n-B_n,
+\qquad
+T_{2n}:=A_n+B_n=\sum_{i=1}^{2n}Z_i,
+\qquad
+M_{2n}:=\max_{i\le2n}Z_i.
+\]
+
+For $i\ne j$,
+
+\[
+P(J_i=J_j=1\mid Z)
+=
+\frac{n(n-1)}{2n(2n-1)},
+\]
+
+so
+
+\[
+\operatorname{Var}(J_i\mid Z)=\frac14,
+\]
+
+and
+
+\[
+\operatorname{Cov}(J_i,J_j\mid Z)
+=
+-\frac{1}{4(2n-1)}.
+\]
+
+Since
+
+\[
+D_n
+=
+\sum_{i=1}^{2n}(2J_i-1)Z_i,
+\]
+
+we obtain
+
+\[
+\operatorname{Var}(D_n\mid Z)
+=
+\frac{2n}{2n-1}\sum_{i=1}^{2n}Z_i^2
+-
+\frac{T_{2n}^2}{2n-1}.
+\]
+
+Hence
+
+\[
+\operatorname{Var}(D_n\mid Z)
+\le
+\frac{2n}{2n-1}\sum_{i=1}^{2n}Z_i^2
+\le
+\frac{2n}{2n-1}M_{2n}T_{2n}.
+\]
+
+Conditional Chebyshev gives
+
+\[
+P\left(
+\left.
+\frac{|D_n|}{T_{2n}}>\varepsilon
+\right|Z
+\right)
+\le
+Y_n,
+\]
+
+where
+
+\[
+Y_n
+:=
+\frac1{\varepsilon^2}
+\frac{2n}{2n-1}
+\frac{M_{2n}}{T_{2n}}.
+\]
+
+By $(b)$,
+
+\[
+Y_n\xrightarrow{P}0.
+\]
+
+Also,
+
+\[
+0\le Y_n\le\frac{2}{\varepsilon^2}=:C.
+\]
+
+For fixed $\delta>0$,
+
+\[
+Y_n
+=
+Y_n\mathbf 1_{\{Y_n\le\delta\}}
++
+Y_n\mathbf 1_{\{Y_n>\delta\}}
+\le
+\delta+C\mathbf 1_{\{Y_n>\delta\}}.
+\]
+
+Therefore
+
+\[
+E(Y_n)
+\le
+\delta+C\,P(Y_n>\delta).
+\]
+
+For fixed $\delta$, let $n\to\infty$:
+
+\[
+\limsup_{n\to\infty}E(Y_n)\le\delta.
+\]
+
+Since this is true for every $\delta>0$, let $\delta\downarrow0$ and obtain
+
+\[
+E(Y_n)\to0.
+\]
+
+Thus
+
+\[
+P\left(
+\frac{|D_n|}{T_{2n}}>\varepsilon
+\right)
+=
+E\left[
+P\left(
+\left.
+\frac{|D_n|}{T_{2n}}>\varepsilon
+\right|Z
+\right)
+\right]
+\le
+E(Y_n)
+\to0.
+\]
+
+Hence
+
+\[
+\frac{A_n-B_n}{A_n+B_n}\xrightarrow{P}0.
+\]
+
+Since
+
+\[
+(A_n,B_n)\overset d=(S_n,S_n'),
+\]
+
+we get
+
+\[
+\frac{S_n-S_n'}{S_n+S_n'}\xrightarrow{P}0.
+\]
+
+Writing
+
+\[
+R_n:=\frac{S_n'}{S_n},
+\]
+
+we have
+
+\[
+\frac{S_n-S_n'}{S_n+S_n'}
+=
+\frac{1-R_n}{1+R_n}.
+\]
+
+Therefore
+
+\[
+\frac{S_n'}{S_n}\xrightarrow{P}1.
+\]
+
+Now let $a_n$ be a median of $S_n$. Then
+
+\[
+P(S_n\le a_n)\ge\frac12,
+\qquad
+P(S_n\ge a_n)\ge\frac12.
+\]
+
+For fixed $\varepsilon>0$,
+
+\[
+\{S_n>(1+\varepsilon)a_n,\ S_n'\le a_n\}
+\subset
+\left\{
+\frac{S_n}{S_n'}>1+\varepsilon
+\right\}.
+\]
+
+By independence,
+
+\[
+P(S_n>(1+\varepsilon)a_n)
+P(S_n'\le a_n)
+\le
+P\left(
+\frac{S_n}{S_n'}>1+\varepsilon
+\right).
+\]
+
+Hence
+
+\[
+P(S_n>(1+\varepsilon)a_n)\to0.
+\]
+
+Similarly,
+
+\[
+\{S_n<(1-\varepsilon)a_n,\ S_n'\ge a_n\}
+\subset
+\left\{
+\frac{S_n'}{S_n}>
+\frac1{1-\varepsilon}
+\right\},
+\]
+
+so
+
+\[
+P(S_n<(1-\varepsilon)a_n)\to0.
+\]
+
+Therefore
+
+\[
+\boxed{
+\frac{S_n}{a_n}\xrightarrow{P}1.
+}
+\]
+
+The median is only a convenient guaranteed interior quantile. Any fixed $p$-quantile, $0<p<1$, can be used in the same way. Once one valid deterministic normalization exists, all valid normalizations are asymptotically equivalent: if
+
+\[
+\frac{S_n}{a_n}\to_P1
+\qquad\text{and}\qquad
+\frac{S_n}{b_n}\to_P1,
+\]
+
+then
+
+\[
+\frac{a_n}{b_n}
+=
+\frac{S_n/b_n}{S_n/a_n}
+\to1.
+\]
+
+So there may be many choices of $a_n$, but only one first-order asymptotic scale.
+
+#### $(c)\Rightarrow(b)$
+
+Assume $(c)$ and define
+
+\[
+B(x)
+:=
+\frac{x\overline F(x)}{U(x)}.
+\]
+
+Since
+
+\[
+U(x)=\mu(x)+x\overline F(x)
+\]
+
+and $(c)$ gives
+
+\[
+\frac{x\overline F(x)}{\mu(x)}\to0,
+\]
+
+we have
+
+\[
+B(x)\to0.
+\]
+
+Also define
+
+\[
+H(x):=\frac{x}{U(x)}.
+\]
+
+Since $U$ is concave with $U(0)=0$, $U(x)/x$ is nonincreasing and therefore $H$ is nondecreasing. Moreover,
+
+\[
+\frac{U(x)}x
+=
+E\left[\frac{X_1\wedge x}{x}\right]\to0
+\]
+
+by dominated convergence, so $H(x)\to\infty$.
+
+For each integer $k\ge1$, choose $t_k\uparrow\infty$ such that
+
+\[
+x\ge t_k
+\quad\Longrightarrow\quad
+B(x)\le\frac1{k^2}.
+\]
+
+Choose integers $N_k\uparrow\infty$ so large that
+
+\[
+N_k>kH(t_k).
+\]
+
+For $n$ large, let
+
+\[
+k_n:=\max\{k:N_k\le n\}.
+\]
+
+Then $k_n\to\infty$. Choose $x_n\ge t_{k_n}$ so that
+
+\[
+H(x_n)=\frac{n}{k_n}.
+\]
+
+Then
+
+\[
+\frac{nU(x_n)}{x_n}
+=
+\frac{n}{H(x_n)}
+=
+k_n\to\infty.
+\]
+
+Since $\mu(x_n)\sim U(x_n)$,
+
+\[
+\frac{n\mu(x_n)}{x_n}\to\infty.
+\]
+
+Also,
+
+\[
+nP(X_1>x_n)
+=
+\frac{nU(x_n)}{x_n}
+\frac{x_nP(X_1>x_n)}{U(x_n)}
+=
+k_nB(x_n)
+\le
+\frac1{k_n}
+\to0.
+\]
+
+Thus we have constructed a threshold $x_n$ such that
+
+\[
+nP(X_1>x_n)\to0,
+\qquad
+\frac{x_n}{n\mu(x_n)}\to0.
+\]
+
+Now
+
+\[
+P(M_n>x_n)
+\le
+nP(X_1>x_n)
+\to0.
+\]
+
+Define the truncated sum
+
+\[
+T_n
+:=
+\sum_{i=1}^n
+X_i\mathbf 1_{\{X_i\le x_n\}}.
+\]
+
+Then
+
+\[
+E(T_n)=n\mu(x_n).
+\]
+
+Moreover,
+
+\[
+\operatorname{Var}(T_n)
+\le
+nE[X_1^2\mathbf 1_{\{X_1\le x_n\}}]
+\le
+nx_n\mu(x_n).
+\]
+
+Hence
+
+\[
+\frac{\operatorname{Var}(T_n)}
+{[E(T_n)]^2}
+\le
+\frac{x_n}{n\mu(x_n)}
+\to0.
+\]
+
+By Chebyshev,
+
+\[
+\frac{T_n}{n\mu(x_n)}\xrightarrow{P}1.
+\]
+
+Since
+
+\[
+\frac{n\mu(x_n)}{x_n}\to\infty,
+\]
+
+for each fixed $\varepsilon>0$,
+
+\[
+P\left(T_n<\frac{x_n}{\varepsilon}\right)\to0.
+\]
+
+Because $T_n\le S_n$,
+
+\[
+P\left(S_n<\frac{x_n}{\varepsilon}\right)\to0.
+\]
+
+Finally,
+
+\[
+\left\{
+\frac{M_n}{S_n}>\varepsilon
+\right\}
+\subset
+\left\{
+S_n<\frac{x_n}{\varepsilon}
+\right\}
+\cup
+\{M_n>x_n\}.
+\]
+
+Therefore
+
+\[
+P\left(
+\frac{M_n}{S_n}>\varepsilon
+\right)
+\le
+P\left(
+S_n<\frac{x_n}{\varepsilon}
+\right)
++
+P(M_n>x_n)
+\to0.
+\]
+
+Thus
+
+\[
+\boxed{
+\frac{M_n}{S_n}\xrightarrow{P}0.
+}
+\]
+
+The direct route can be summarized as
+
+\[
+(c)
+\Rightarrow
+\begin{cases}
+M_n\lesssim x_n,\\[3pt]
+S_n\gg x_n,
+\end{cases}
+\Rightarrow
+\frac{M_n}{S_n}\to_P0.
+\]
+
+$\textbf{Note:}$ This exercise had taken me at least half month because I tried to study every single pairwise direction, but there are $A_4^2=12$ in total, so I have to stop here.

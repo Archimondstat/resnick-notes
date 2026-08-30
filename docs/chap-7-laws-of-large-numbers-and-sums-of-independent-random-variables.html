@@ -23,7 +23,7 @@
 <meta name="author" content="Zhanwen Peng" />
 
 
-<meta name="date" content="2026-08-16" />
+<meta name="date" content="2026-08-30" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -525,6 +525,18 @@
 <li class="chapter" data-level="" data-path="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html"><a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#ex-33-2"><i class="fa fa-check"></i>Ex 33</a></li>
 <li class="chapter" data-level="" data-path="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html"><a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#ex-36-1"><i class="fa fa-check"></i>Ex 36</a></li>
 <li class="chapter" data-level="" data-path="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html"><a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#ex-37-1"><i class="fa fa-check"></i>Ex 37</a></li>
+<li class="chapter" data-level="" data-path="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html"><a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#ex-24-3"><i class="fa fa-check"></i>Ex 24</a>
+<ul>
+<li class="chapter" data-level="" data-path="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html"><a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#arightarrowb"><i class="fa fa-check"></i><span class="math inline">\((a)\Rightarrow(b)\)</span></a></li>
+<li class="chapter" data-level="" data-path="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html"><a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#brightarrowc"><i class="fa fa-check"></i><span class="math inline">\((b)\Rightarrow(c)\)</span></a></li>
+<li class="chapter" data-level="" data-path="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html"><a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#crightarrowd"><i class="fa fa-check"></i><span class="math inline">\((c)\Rightarrow(d)\)</span></a></li>
+<li class="chapter" data-level="" data-path="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html"><a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#drightarrowa"><i class="fa fa-check"></i><span class="math inline">\((d)\Rightarrow(a)\)</span></a></li>
+<li class="chapter" data-level="" data-path="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html"><a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#e-7"><i class="fa fa-check"></i>(e)</a></li>
+<li class="chapter" data-level="" data-path="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html"><a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#f-4"><i class="fa fa-check"></i>(f)</a></li>
+<li class="chapter" data-level="" data-path="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html"><a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#additional-direct-implications-studied"><i class="fa fa-check"></i>Additional direct implications studied</a></li>
+<li class="chapter" data-level="" data-path="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html"><a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#brightarrowa"><i class="fa fa-check"></i><span class="math inline">\((b)\Rightarrow(a)\)</span></a></li>
+<li class="chapter" data-level="" data-path="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html"><a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#crightarrowb"><i class="fa fa-check"></i><span class="math inline">\((c)\Rightarrow(b)\)</span></a></li>
+</ul></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -8196,7 +8208,1184 @@ X_n1_{[X_n\le x]}
 <p><span class="math inline">\(\textbf{Note:}\)</span></p>
 <p>Ex 37 is essentially a repetition of Ex 13. Both exercises ask for the necessary and sufficient condition for almost sure convergence of a series of independent exponentially distributed random variables.</p>
 <p>Ex 37 only emphasizes that the argument should use the Kolmogorov three-series theorem. Since Ex 13 was already solved by this route, Ex 37 is treated as a duplicate and is not solved again.</p>
+</div>
+<div id="ex-24-3" class="section level3 hasAnchor">
+<h3>Ex 24<a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#ex-24-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="problem">
+<p>Relative stability of sums. Prove the following are equivalent for iid non-negative random variables <span class="math inline">\(\{X_n,n\ge 1\}\)</span>.</p>
+<ol style="list-style-type: lower-alpha">
+<li>There exist constants <span class="math inline">\(a_n&gt;0\)</span> such that</li>
+</ol>
+<p><span class="math display">\[
+a_n^{-1}\sum_{i=1}^nX_i\xrightarrow{P}1.
+\]</span></p>
+<ol start="2" style="list-style-type: lower-alpha">
+<li>As <span class="math inline">\(n\to\infty\)</span></li>
+</ol>
+<p><span class="math display">\[
+\frac{\bigvee_{i=1}^nX_i}{\sum_{i=1}^nX_i}\xrightarrow{P}0.
+\]</span></p>
+<ol start="3" style="list-style-type: lower-alpha">
+<li>We have</li>
+</ol>
+<p><span class="math display">\[
+\lim_{x\to\infty}\frac{E(X_1\mathbf 1_{[X_1\le x]})}{xP[X_1&gt;x]}=\infty.
+\]</span></p>
+<ol start="4" style="list-style-type: lower-alpha">
+<li>We have that the function <span class="math inline">\(\mu(x):=E(X_1\mathbf 1_{[X_1\le x]})\)</span> is slowly varying; that is,</li>
+</ol>
+<p><span class="math display">\[
+\lim_{t\to\infty}\frac{\mu(tx)}{\mu(t)}=1,\qquad \forall x&gt;0.
+\]</span></p>
+<p>This is equivalent to</p>
+<p><span class="math display">\[
+U(x)=\int_0^xP[X_1&gt;s]ds
+\]</span></p>
+<p>being slowly varying.</p>
+<ol start="5" style="list-style-type: lower-alpha">
+<li>In this case, show we may select <span class="math inline">\(a_n\)</span> as follows. Set <span class="math inline">\(H(x)=x/U(x)\)</span> and then set</li>
+</ol>
+<p><span class="math display">\[
+a_n=H^{\leftarrow}(n)
+\]</span></p>
+<p>where <span class="math inline">\(H^{\leftarrow}\)</span> is the inverse function of <span class="math inline">\(H\)</span> satisfying <span class="math inline">\(H(H^{\leftarrow}(x))\sim x\)</span>.</p>
+<ol start="6" style="list-style-type: lower-alpha">
+<li>Now apply this to the St. Petersburg paradox. Let <span class="math inline">\(\{X_n,n\ge1\}\)</span> be iid with</li>
+</ol>
+<p><span class="math display">\[
+P[X_1=2^k]=2^{-k},\qquad k\ge1.
+\]</span></p>
+<p>What is <span class="math inline">\(E(X_1)\)</span>? Set <span class="math inline">\(S_n=\sum_{i=1}^nX_i\)</span>. The goal is to show</p>
+<p><span class="math display">\[
+\frac{S_n}{(n\log n)/\log2}\xrightarrow{P}1.
+\]</span></p>
+<p>Proceed as follows:</p>
+<ol style="list-style-type: lower-roman">
+<li><p>Check <span class="math inline">\(P[X&gt;2^n]=2^{-n},\ n\ge1\)</span>.</p></li>
+<li><p>Evaluate</p></li>
+</ol>
+<p><span class="math display">\[
+\int_0^{2^n}P[X_1&gt;s]ds
+=
+\sum_{j=1}^n\int_{2^{j-1}}^{2^j}P[X_1&gt;s]ds
+\]</span></p>
+<p>to get</p>
+<p><span class="math display">\[
+U(x)\sim\frac{\log x}{\log2}.
+\]</span></p>
+<p>So <span class="math inline">\(H(x)=x/U(x)\sim \log2(x/\log x)\)</span> and</p>
+<p><span class="math display">\[
+a_n\sim(n\log n)/\log2.
+\]</span></p>
+</div>
+<p><span class="math inline">\(\textbf{Answer:}\)</span></p>
+<p>Let</p>
+<p><span class="math display">\[
+S_n:=\sum_{i=1}^nX_i,
+\qquad
+M_n:=\max_{1\le i\le n}X_i,
+\qquad
+\overline F(x):=P(X_1&gt;x),
+\]</span></p>
+<p>and</p>
+<p><span class="math display">\[
+\mu(x):=E[X_1\mathbf 1_{\{X_1\le x\}}],
+\qquad
+U(x):=\int_0^x\overline F(s)\,ds.
+\]</span></p>
+<p>The main equivalence is proved through the circle</p>
+<p><span class="math display">\[
+(a)\Rightarrow(b)\Rightarrow(c)\Rightarrow(d)\Rightarrow(a).
+\]</span></p>
+<div id="arightarrowb" class="section level4 hasAnchor">
+<h4><span class="math inline">\((a)\Rightarrow(b)\)</span><a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#arightarrowb" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Assume that for some deterministic <span class="math inline">\(a_n&gt;0\)</span>,</p>
+<p><span class="math display">\[
+\frac{S_n}{a_n}\xrightarrow{P}1.
+\]</span></p>
+<p>Since</p>
+<p><span class="math display">\[
+\frac{M_n}{S_n}
+=
+\frac{M_n/a_n}{S_n/a_n},
+\]</span></p>
+<p>it is enough to prove</p>
+<p><span class="math display">\[
+\frac{M_n}{a_n}\xrightarrow{P}0.
+\]</span></p>
+<p>The difficulty is that <span class="math inline">\(M_n\)</span> can be large while the other summands compensate for it, so we first symmetrize.</p>
+<p>Let <span class="math inline">\(\{X_i&#39;\}\)</span> be an independent iid copy of <span class="math inline">\(\{X_i\}\)</span>, and define</p>
+<p><span class="math display">\[
+Y_i:=X_i-X_i&#39;,
+\qquad
+T_k:=\sum_{i=1}^kY_i.
+\]</span></p>
+<p>Then <span class="math inline">\(\{Y_i\}\)</span> are iid and symmetric, and</p>
+<p><span class="math display">\[
+\frac{T_n}{a_n}
+=
+\frac{S_n-S_n&#39;}{a_n}
+\xrightarrow{P}0.
+\]</span></p>
+<p>We first note that <span class="math inline">\(a_n\to\infty\)</span>. Since <span class="math inline">\((a)\)</span> cannot hold when <span class="math inline">\(X_1=0\)</span> a.s., there is some <span class="math inline">\(\eta&gt;0\)</span> with <span class="math inline">\(P(X_1&gt;\eta)&gt;0\)</span>. Hence <span class="math inline">\(S_n\to\infty\)</span> a.s., and together with <span class="math inline">\(S_n/a_n\to_P1\)</span> this forces <span class="math inline">\(a_n\to\infty\)</span>.</p>
+<p>We also need a uniform comparison of <span class="math inline">\(a_m\)</span> and <span class="math inline">\(a_n\)</span> for <span class="math inline">\(m\le n\)</span>. Since <span class="math inline">\(S_k/a_k\to_P1\)</span>, choose <span class="math inline">\(N\)</span> so large that for all <span class="math inline">\(k\ge N\)</span>,</p>
+<p><span class="math display">\[
+P\left(S_k&gt;\frac34a_k\right)&gt;\frac34,
+\qquad
+P\left(S_k&lt;\frac54a_k\right)&gt;\frac34.
+\]</span></p>
+<p>If <span class="math inline">\(N\le m\le n\)</span> and <span class="math inline">\(a_m&gt;(5/3)a_n\)</span>, then the two events</p>
+<p><span class="math display">\[
+\left\{S_m&gt;\frac34a_m\right\},
+\qquad
+\left\{S_n&lt;\frac54a_n\right\}
+\]</span></p>
+<p>have an intersection of positive probability. On this intersection,</p>
+<p><span class="math display">\[
+S_m&gt;\frac34a_m&gt;\frac54a_n&gt;S_n,
+\]</span></p>
+<p>contradicting <span class="math inline">\(S_m\le S_n\)</span> since the <span class="math inline">\(X_i\)</span> are nonnegative. Therefore, for all sufficiently large <span class="math inline">\(N\le m\le n\)</span>,</p>
+<p><span class="math display">\[
+a_m\le \frac53a_n.
+\]</span></p>
+<p>Now apply Skorohod’s inequality to the symmetric sums <span class="math inline">\(T_k\)</span>. For fixed <span class="math inline">\(\varepsilon&gt;0\)</span>, let</p>
+<p><span class="math display">\[
+c_n(\varepsilon)
+:=
+\max_{0\le m\le n-1}
+P(|T_m|&gt;\varepsilon a_n).
+\]</span></p>
+<p>For <span class="math inline">\(N\le m\le n-1\)</span>,</p>
+<p><span class="math display">\[
+a_m\le Ca_n
+\]</span></p>
+<p>for a fixed <span class="math inline">\(C\)</span>, so</p>
+<p><span class="math display">\[
+P(|T_m|&gt;\varepsilon a_n)
+\le
+P\left(\frac{|T_m|}{a_m}&gt;\frac{\varepsilon}{C}\right).
+\]</span></p>
+<p>Since <span class="math inline">\(T_m/a_m\to_P0\)</span>, the right-hand side is uniformly small for all <span class="math inline">\(m\ge N\)</span>. For the finitely many <span class="math inline">\(m&lt;N\)</span>, <span class="math inline">\(a_n\to\infty\)</span>, so</p>
+<p><span class="math display">\[
+P(|T_m|&gt;\varepsilon a_n)\to0.
+\]</span></p>
+<p>Thus</p>
+<p><span class="math display">\[
+c_n(\varepsilon)\to0.
+\]</span></p>
+<p>Skorohod’s inequality therefore gives</p>
+<p><span class="math display">\[
+\frac{\max_{k\le n}|T_k|}{a_n}\xrightarrow{P}0.
+\]</span></p>
+<p>Since</p>
+<p><span class="math display">\[
+Y_i=T_i-T_{i-1},
+\]</span></p>
+<p>we have</p>
+<p><span class="math display">\[
+\max_{i\le n}|Y_i|
+\le
+2\max_{k\le n}|T_k|,
+\]</span></p>
+<p>and hence</p>
+<p><span class="math display">\[
+\frac{\max_{i\le n}|X_i-X_i&#39;|}{a_n}\xrightarrow{P}0.
+\]</span></p>
+<p>We now unsymmetrize. For fixed <span class="math inline">\(\varepsilon&gt;0\)</span>, define</p>
+<p><span class="math display">\[
+A_{i,n}
+:=
+\{X_i&gt;2\varepsilon a_n,\ X_i&#39;\le\varepsilon a_n\}.
+\]</span></p>
+<p>Then</p>
+<p><span class="math display">\[
+A_{i,n}\subset
+\{|X_i-X_i&#39;|&gt;\varepsilon a_n\}.
+\]</span></p>
+<p>Hence</p>
+<p><span class="math display">\[
+P\left(\bigcup_{i=1}^nA_{i,n}\right)\to0.
+\]</span></p>
+<p>The events <span class="math inline">\(A_{i,n}\)</span> are independent across <span class="math inline">\(i\)</span>, with</p>
+<p><span class="math display">\[
+q_n
+=
+P(A_{1,n})
+=
+P(X_1&gt;2\varepsilon a_n)
+P(X_1&#39;\le\varepsilon a_n).
+\]</span></p>
+<p>Therefore</p>
+<p><span class="math display">\[
+1-(1-q_n)^n\to0.
+\]</span></p>
+<p>Since <span class="math inline">\((1-q_n)^n\le e^{-nq_n}\)</span>, this implies</p>
+<p><span class="math display">\[
+nq_n\to0.
+\]</span></p>
+<p>Also, since <span class="math inline">\(a_n\to\infty\)</span>,</p>
+<p><span class="math display">\[
+P(X_1&#39;\le\varepsilon a_n)\to1.
+\]</span></p>
+<p>Thus</p>
+<p><span class="math display">\[
+nP(X_1&gt;2\varepsilon a_n)\to0.
+\]</span></p>
+<p>Replacing <span class="math inline">\(\varepsilon\)</span> by <span class="math inline">\(\varepsilon/2\)</span>,</p>
+<p><span class="math display">\[
+nP(X_1&gt;\varepsilon a_n)\to0.
+\]</span></p>
+<p>Hence by the union bound,</p>
+<p><span class="math display">\[
+P(M_n&gt;\varepsilon a_n)
+\le
+nP(X_1&gt;\varepsilon a_n)
+\to0.
+\]</span></p>
+<p>Therefore</p>
+<p><span class="math display">\[
+\frac{M_n}{a_n}\xrightarrow{P}0,
+\]</span></p>
+<p>and consequently</p>
+<p><span class="math display">\[
+\frac{M_n}{S_n}
+=
+\frac{M_n/a_n}{S_n/a_n}
+\xrightarrow{P}0.
+\]</span></p>
+<p>Thus <span class="math inline">\((a)\Rightarrow(b)\)</span>.</p>
+</div>
+<div id="brightarrowc" class="section level4 hasAnchor">
+<h4><span class="math inline">\((b)\Rightarrow(c)\)</span><a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#brightarrowc" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>We prove <span class="math inline">\((b)\Rightarrow(c)\)</span> by contrapositive.</p>
+<p>Suppose <span class="math inline">\((c)\)</span> fails. Then there exist <span class="math inline">\(x_k\to\infty\)</span> and <span class="math inline">\(C&lt;\infty\)</span> such that</p>
+<p><span class="math display">\[
+\mu(x_k)
+\le
+Cx_k\overline F(x_k).
+\]</span></p>
+<p>Let</p>
+<p><span class="math display">\[
+q_k:=\overline F(x_k),
+\qquad
+n_k:=\left\lfloor\frac1{q_k}\right\rfloor.
+\]</span></p>
+<p>Then</p>
+<p><span class="math display">\[
+n_kq_k\to1.
+\]</span></p>
+<p>Let <span class="math inline">\(E_k\)</span> be the event that exactly one of</p>
+<p><span class="math display">\[
+X_1,\ldots,X_{n_k}
+\]</span></p>
+<p>exceeds <span class="math inline">\(x_k\)</span>. By independence,</p>
+<p><span class="math display">\[
+P(E_k)
+=
+n_kq_k(1-q_k)^{n_k-1}
+\to e^{-1}.
+\]</span></p>
+<p>Define the truncated remainder</p>
+<p><span class="math display">\[
+Z_k
+:=
+\sum_{i=1}^{n_k}
+X_i\mathbf 1_{\{X_i\le x_k\}}.
+\]</span></p>
+<p>Then</p>
+<p><span class="math display">\[
+E(Z_k)
+=
+n_k\mu(x_k)
+\le
+Cn_kq_kx_k
+\le
+Cx_k.
+\]</span></p>
+<p>For fixed <span class="math inline">\(L&gt;0\)</span>, Markov’s inequality gives</p>
+<p><span class="math display">\[
+P(Z_k&gt;Lx_k)
+\le
+\frac{C}{L}.
+\]</span></p>
+<p>Choose <span class="math inline">\(L\)</span> so large that</p>
+<p><span class="math display">\[
+\frac{C}{L}&lt;\frac{e^{-1}}4.
+\]</span></p>
+<p>For all sufficiently large <span class="math inline">\(k\)</span>,</p>
+<p><span class="math display">\[
+P(E_k)&gt;\frac{e^{-1}}2,
+\]</span></p>
+<p>and therefore</p>
+<p><span class="math display">\[
+P(E_k\cap\{Z_k\le Lx_k\})
+\ge
+P(E_k)-P(Z_k&gt;Lx_k)
+&gt;
+\frac{e^{-1}}4.
+\]</span></p>
+<p>On <span class="math inline">\(E_k\)</span>, exactly one observation exceeds <span class="math inline">\(x_k\)</span>, and that observation equals <span class="math inline">\(M_{n_k}\)</span>. All the remaining observations are included in <span class="math inline">\(Z_k\)</span>, so</p>
+<p><span class="math display">\[
+S_{n_k}=M_{n_k}+Z_k.
+\]</span></p>
+<p>On</p>
+<p><span class="math display">\[
+E_k\cap\{Z_k\le Lx_k\},
+\]</span></p>
+<p>we have <span class="math inline">\(M_{n_k}&gt;x_k\)</span>, hence</p>
+<p><span class="math display">\[
+\frac{M_{n_k}}{S_{n_k}}
+=
+\frac{M_{n_k}}{M_{n_k}+Z_k}
+\ge
+\frac{M_{n_k}}{M_{n_k}+Lx_k}
+&gt;
+\frac1{1+L}.
+\]</span></p>
+<p>Thus, for all sufficiently large <span class="math inline">\(k\)</span>,</p>
+<p><span class="math display">\[
+P\left(
+\frac{M_{n_k}}{S_{n_k}}&gt;
+\frac1{1+L}
+\right)
+&gt;
+\frac{e^{-1}}4.
+\]</span></p>
+<p>This contradicts <span class="math inline">\((b)\)</span>. Therefore <span class="math inline">\((c)\)</span> must hold.</p>
+</div>
+<div id="crightarrowd" class="section level4 hasAnchor">
+<h4><span class="math inline">\((c)\Rightarrow(d)\)</span><a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#crightarrowd" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Condition <span class="math inline">\((c)\)</span> is equivalent to</p>
+<p><span class="math display">\[
+\frac{x\overline F(x)}{\mu(x)}\to0.
+\]</span></p>
+<p>First let <span class="math inline">\(r&gt;1\)</span>. Then</p>
+<p><span class="math display">\[
+\mu(rx)-\mu(x)
+=
+E[X_1\mathbf 1_{\{x&lt;X_1\le rx\}}].
+\]</span></p>
+<p>On <span class="math inline">\(\{x&lt;X_1\le rx\}\)</span>, <span class="math inline">\(X_1\le rx\)</span>, so</p>
+<p><span class="math display">\[
+0
+\le
+\mu(rx)-\mu(x)
+\le
+rx\,P(X_1&gt;x).
+\]</span></p>
+<p>Therefore</p>
+<p><span class="math display">\[
+0
+\le
+\frac{\mu(rx)-\mu(x)}{\mu(x)}
+\le
+r\frac{xP(X_1&gt;x)}{\mu(x)}
+\to0.
+\]</span></p>
+<p>Hence</p>
+<p><span class="math display">\[
+\frac{\mu(rx)}{\mu(x)}\to1,
+\qquad r&gt;1.
+\]</span></p>
+<p>If <span class="math inline">\(0&lt;r&lt;1\)</span>, put <span class="math inline">\(s=rx\)</span> and <span class="math inline">\(q=1/r&gt;1\)</span>. Then</p>
+<p><span class="math display">\[
+\frac{\mu(x)}{\mu(rx)}
+=
+\frac{\mu(qs)}{\mu(s)}
+\to1,
+\]</span></p>
+<p>and therefore</p>
+<p><span class="math display">\[
+\frac{\mu(rx)}{\mu(x)}\to1.
+\]</span></p>
+<p>Thus <span class="math inline">\(\mu\)</span> is slowly varying.</p>
+</div>
+<div id="drightarrowa" class="section level4 hasAnchor">
+<h4><span class="math inline">\((d)\Rightarrow(a)\)</span><a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#drightarrowa" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>We prove using the normalization in part (e).</p>
+<p>Since the exercise states that slow variation of <span class="math inline">\(\mu\)</span> is equivalent to slow variation of</p>
+<p><span class="math display">\[
+U(x)
+=
+\int_0^x\overline F(s)\,ds,
+\]</span></p>
+<p>we work with <span class="math inline">\(U\)</span>.</p>
+<p>For <span class="math inline">\(x&gt;0\)</span>,</p>
+<p><span class="math display">\[
+U(x)-U(x/2)
+=
+\int_{x/2}^x\overline F(s)\,ds
+\ge
+\frac{x}{2}\overline F(x).
+\]</span></p>
+<p>Therefore</p>
+<p><span class="math display">\[
+0
+\le
+\frac{x\overline F(x)}{U(x)}
+\le
+2\left(
+1-\frac{U(x/2)}{U(x)}
+\right)
+\to0.
+\]</span></p>
+<p>Also,</p>
+<p><span class="math display">\[
+U(x)
+=
+E(X_1\wedge x)
+=
+\mu(x)+x\overline F(x).
+\]</span></p>
+<p>Hence</p>
+<p><span class="math display">\[
+\frac{\mu(x)}{U(x)}
+=
+1-\frac{x\overline F(x)}{U(x)}
+\to1.
+\]</span></p>
+<p>Set</p>
+<p><span class="math display">\[
+H(x)=\frac{x}{U(x)},
+\qquad
+a_n=H^{\leftarrow}(n),
+\]</span></p>
+<p>where</p>
+<p><span class="math display">\[
+H(H^{\leftarrow}(x))\sim x.
+\]</span></p>
+<p>Then</p>
+<p><span class="math display">\[
+H(a_n)\sim n,
+\]</span></p>
+<p>so</p>
+<p><span class="math display">\[
+\frac{a_n}{U(a_n)}\sim n,
+\]</span></p>
+<p>equivalently,</p>
+<p><span class="math display">\[
+\frac{nU(a_n)}{a_n}\to1.
+\]</span></p>
+<p>Since <span class="math inline">\(\mu(a_n)/U(a_n)\to1\)</span>,</p>
+<p><span class="math display">\[
+\frac{n\mu(a_n)}{a_n}\to1.
+\]</span></p>
+<p>Now truncate at <span class="math inline">\(a_n\)</span>:</p>
+<p><span class="math display">\[
+X_{i,n}
+:=
+X_i\mathbf 1_{\{X_i\le a_n\}},
+\qquad
+\widetilde S_n
+:=
+\sum_{i=1}^nX_{i,n}.
+\]</span></p>
+<p>Then</p>
+<p><span class="math display">\[
+\frac{E\widetilde S_n}{a_n}
+=
+\frac{n\mu(a_n)}{a_n}
+\to1.
+\]</span></p>
+<p>Also,</p>
+<p><span class="math display">\[
+nP(X_1&gt;a_n)
+=
+\frac{nU(a_n)}{a_n}
+\frac{a_nP(X_1&gt;a_n)}{U(a_n)}
+\to0.
+\]</span></p>
+<p>Therefore</p>
+<p><span class="math display">\[
+P(S_n\ne\widetilde S_n)
+\le
+nP(X_1&gt;a_n)
+\to0.
+\]</span></p>
+<p>It remains to show that the truncated sum concentrates around its expectation. Since the terms are independent,</p>
+<p><span class="math display">\[
+\operatorname{Var}(\widetilde S_n)
+=
+n\operatorname{Var}(X_1\mathbf 1_{\{X_1\le a_n\}})
+\le
+nE[X_1^2\mathbf 1_{\{X_1\le a_n\}}].
+\]</span></p>
+<p>Fix <span class="math inline">\(0&lt;\delta&lt;1\)</span> and split</p>
+<p><span class="math display">\[
+E[X_1^2\mathbf 1_{\{X_1\le a_n\}}]
+=
+E[X_1^2\mathbf 1_{\{X_1\le\delta a_n\}}]
++
+E[X_1^2\mathbf 1_{\{\delta a_n&lt;X_1\le a_n\}}].
+\]</span></p>
+<p>For the first part,</p>
+<p><span class="math display">\[
+X_1^2
+\le
+\delta a_nX_1
+\qquad
+\text{on }\{X_1\le\delta a_n\},
+\]</span></p>
+<p>so</p>
+<p><span class="math display">\[
+\frac{n}{a_n^2}
+E[X_1^2\mathbf 1_{\{X_1\le\delta a_n\}}]
+\le
+\delta
+\frac{n\mu(\delta a_n)}{a_n}.
+\]</span></p>
+<p>Write</p>
+<p><span class="math display">\[
+\frac{n\mu(\delta a_n)}{a_n}
+=
+\frac{n\mu(a_n)}{a_n}
+\frac{\mu(\delta a_n)}{\mu(a_n)}
+\to1.
+\]</span></p>
+<p>Hence</p>
+<p><span class="math display">\[
+\limsup_{n\to\infty}
+\frac{n}{a_n^2}
+E[X_1^2\mathbf 1_{\{X_1\le\delta a_n\}}]
+\le\delta.
+\]</span></p>
+<p>For the second part,</p>
+<p><span class="math display">\[
+X_1^2\le a_nX_1
+\qquad
+\text{on }\{\delta a_n&lt;X_1\le a_n\},
+\]</span></p>
+<p>so</p>
+<p><span class="math display">\[
+\frac{n}{a_n^2}
+E[X_1^2\mathbf 1_{\{\delta a_n&lt;X_1\le a_n\}}]
+\le
+\frac{n}{a_n}
+[\mu(a_n)-\mu(\delta a_n)].
+\]</span></p>
+<p>Thus</p>
+<p><span class="math display">\[
+\frac{n}{a_n}
+[\mu(a_n)-\mu(\delta a_n)]
+=
+\frac{n\mu(a_n)}{a_n}
+\left[
+1-\frac{\mu(\delta a_n)}{\mu(a_n)}
+\right]
+\to0.
+\]</span></p>
+<p>Therefore, for every fixed <span class="math inline">\(\delta&gt;0\)</span>,</p>
+<p><span class="math display">\[
+\limsup_{n\to\infty}
+\frac{n}{a_n^2}
+E[X_1^2\mathbf 1_{\{X_1\le a_n\}}]
+\le\delta.
+\]</span></p>
+<p>Letting <span class="math inline">\(\delta\downarrow0\)</span>,</p>
+<p><span class="math display">\[
+\frac{n}{a_n^2}
+E[X_1^2\mathbf 1_{\{X_1\le a_n\}}]
+\to0.
+\]</span></p>
+<p>Hence</p>
+<p><span class="math display">\[
+\frac{\operatorname{Var}(\widetilde S_n)}{a_n^2}\to0.
+\]</span></p>
+<p>By Chebyshev,</p>
+<p><span class="math display">\[
+\frac{\widetilde S_n-E\widetilde S_n}{a_n}
+\xrightarrow{P}0.
+\]</span></p>
+<p>Together with</p>
+<p><span class="math display">\[
+\frac{E\widetilde S_n}{a_n}\to1,
+\]</span></p>
+<p>we obtain</p>
+<p><span class="math display">\[
+\frac{\widetilde S_n}{a_n}\xrightarrow{P}1.
+\]</span></p>
+<p>Finally,</p>
+<p><span class="math display">\[
+P(S_n\ne\widetilde S_n)\to0,
+\]</span></p>
+<p>so</p>
+<p><span class="math display">\[
+\frac{S_n}{a_n}\xrightarrow{P}1.
+\]</span></p>
+<p>Thus <span class="math inline">\((d)\Rightarrow(a)\)</span>.</p>
+</div>
+<div id="e-7" class="section level4 hasAnchor">
+<h4>(e)<a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#e-7" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>The normalization used above is</p>
+<p><span class="math display">\[
+H(x)=\frac{x}{U(x)},
+\qquad
+a_n=H^{\leftarrow}(n).
+\]</span></p>
+<p>Since</p>
+<p><span class="math display">\[
+H(a_n)\sim n,
+\]</span></p>
+<p>we have</p>
+<p><span class="math display">\[
+\frac{nU(a_n)}{a_n}\to1.
+\]</span></p>
+<p>The proof in part (d) shows that this choice indeed satisfies</p>
+<p><span class="math display">\[
+\frac{S_n}{a_n}\xrightarrow{P}1.
+\]</span></p>
+<p>Thus the normalization in part (e) works.</p>
+</div>
+<div id="f-4" class="section level4 hasAnchor">
+<h4>(f)<a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#f-4" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>For the St. Petersburg distribution,</p>
+<p><span class="math display">\[
+P(X_1=2^k)=2^{-k},
+\qquad k\ge1.
+\]</span></p>
+<p>First,</p>
+<p><span class="math display">\[
+E(X_1)
+=
+\sum_{k=1}^{\infty}2^k2^{-k}
+=
+\sum_{k=1}^{\infty}1
+=
+\infty.
+\]</span></p>
+<p>Also,</p>
+<p><span class="math display">\[
+P(X_1&gt;2^n)
+=
+\sum_{k=n+1}^{\infty}2^{-k}
+=
+2^{-n}.
+\]</span></p>
+<p>The tail function is a step function. For</p>
+<p><span class="math display">\[
+2^{j-1}&lt;s&lt;2^j,
+\]</span></p>
+<p>we have</p>
+<p><span class="math display">\[
+P(X_1&gt;s)
+=
+\sum_{k=j}^{\infty}2^{-k}
+=
+2^{-(j-1)}.
+\]</span></p>
+<p>Therefore every dyadic interval contributes one unit:</p>
+<p><span class="math display">\[
+\int_{2^{j-1}}^{2^j}P(X_1&gt;s)\,ds
+=
+(2^j-2^{j-1})2^{-(j-1)}
+=
+1.
+\]</span></p>
+<p>Together with the initial interval <span class="math inline">\([0,1]\)</span>,</p>
+<p><span class="math display">\[
+U(2^n)=n+1\sim n.
+\]</span></p>
+<p>Now if</p>
+<p><span class="math display">\[
+2^n\le x&lt;2^{n+1},
+\]</span></p>
+<p>then by monotonicity,</p>
+<p><span class="math display">\[
+n+1
+=
+U(2^n)
+\le
+U(x)
+\le
+U(2^{n+1})
+=
+n+2,
+\]</span></p>
+<p>while</p>
+<p><span class="math display">\[
+n
+\le
+\frac{\log x}{\log2}
+&lt;
+n+1.
+\]</span></p>
+<p>Hence, by squeezing,</p>
+<p><span class="math display">\[
+U(x)\sim\frac{\log x}{\log2}.
+\]</span></p>
+<p>Therefore</p>
+<p><span class="math display">\[
+H(x)
+=
+\frac{x}{U(x)}
+\sim
+\frac{x\log2}{\log x}.
+\]</span></p>
+<p>Take</p>
+<p><span class="math display">\[
+a_n
+=
+\frac{n\log n}{\log2}.
+\]</span></p>
+<p>Then</p>
+<p><span class="math display">\[
+\log a_n
+=
+\log n+\log\log n-\log\log2
+\sim
+\log n,
+\]</span></p>
+<p>and therefore</p>
+<p><span class="math display">\[
+H(a_n)
+\sim
+\frac{a_n\log2}{\log a_n}
+=
+n\frac{\log n}{\log a_n}
+\sim n.
+\]</span></p>
+<p>Thus</p>
+<p><span class="math display">\[
+a_n\sim H^{\leftarrow}(n),
+\]</span></p>
+<p>and part (e) gives</p>
+<p><span class="math display">\[
+\boxed{
+\frac{S_n}{(n\log n)/\log2}
+\xrightarrow{P}1.
+}
+\]</span></p>
+</div>
+<div id="additional-direct-implications-studied" class="section level4 hasAnchor">
+<h4>Additional direct implications studied<a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#additional-direct-implications-studied" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>The equivalence already follows from the circle above. The following directions were studied separately because they expose additional structure.</p>
+</div>
+<div id="brightarrowa" class="section level4 hasAnchor">
+<h4><span class="math inline">\((b)\Rightarrow(a)\)</span><a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#brightarrowa" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Assume</p>
+<p><span class="math display">\[
+\frac{M_n}{S_n}\xrightarrow{P}0.
+\]</span></p>
+<p>The idea is</p>
+<p><span class="math display">\[
+\text{maximum negligible}
+\Rightarrow
+\text{a random split gives nearly equal totals}
+\Rightarrow
+\text{two independent copies are relatively close}
+\Rightarrow
+\text{the distribution has vanishing relative width}.
+\]</span></p>
+<p>Take iid variables</p>
+<p><span class="math display">\[
+Z_1,\ldots,Z_{2n}
+\]</span></p>
+<p>with the same distribution as <span class="math inline">\(X_1\)</span>. Independently of the <span class="math inline">\(Z_i\)</span>, choose uniformly a subset</p>
+<p><span class="math display">\[
+I\subset\{1,\ldots,2n\},
+\qquad |I|=n.
+\]</span></p>
+<p>Define</p>
+<p><span class="math display">\[
+A_n:=\sum_{i\in I}Z_i,
+\qquad
+B_n:=\sum_{i\notin I}Z_i,
+\]</span></p>
+<p>and</p>
+<p><span class="math display">\[
+J_i:=\mathbf 1_{\{i\in I\}}.
+\]</span></p>
+<p>Because the <span class="math inline">\(Z_i\)</span> are iid,</p>
+<p><span class="math display">\[
+(A_n,B_n)\overset d=(S_n,S_n&#39;),
+\]</span></p>
+<p>where <span class="math inline">\(S_n&#39;\)</span> is an independent copy of <span class="math inline">\(S_n\)</span>.</p>
+<p>Condition on</p>
+<p><span class="math display">\[
+Z=(Z_1,\ldots,Z_{2n}).
+\]</span></p>
+<p>Then the <span class="math inline">\(Z_i\)</span> are fixed, and the only randomness is the random allocation. Since</p>
+<p><span class="math display">\[
+P(J_i=1\mid Z)=\frac12,
+\]</span></p>
+<p>we have</p>
+<p><span class="math display">\[
+E(A_n-B_n\mid Z)=0.
+\]</span></p>
+<p>Set</p>
+<p><span class="math display">\[
+D_n:=A_n-B_n,
+\qquad
+T_{2n}:=A_n+B_n=\sum_{i=1}^{2n}Z_i,
+\qquad
+M_{2n}:=\max_{i\le2n}Z_i.
+\]</span></p>
+<p>For <span class="math inline">\(i\ne j\)</span>,</p>
+<p><span class="math display">\[
+P(J_i=J_j=1\mid Z)
+=
+\frac{n(n-1)}{2n(2n-1)},
+\]</span></p>
+<p>so</p>
+<p><span class="math display">\[
+\operatorname{Var}(J_i\mid Z)=\frac14,
+\]</span></p>
+<p>and</p>
+<p><span class="math display">\[
+\operatorname{Cov}(J_i,J_j\mid Z)
+=
+-\frac{1}{4(2n-1)}.
+\]</span></p>
+<p>Since</p>
+<p><span class="math display">\[
+D_n
+=
+\sum_{i=1}^{2n}(2J_i-1)Z_i,
+\]</span></p>
+<p>we obtain</p>
+<p><span class="math display">\[
+\operatorname{Var}(D_n\mid Z)
+=
+\frac{2n}{2n-1}\sum_{i=1}^{2n}Z_i^2
+-
+\frac{T_{2n}^2}{2n-1}.
+\]</span></p>
+<p>Hence</p>
+<p><span class="math display">\[
+\operatorname{Var}(D_n\mid Z)
+\le
+\frac{2n}{2n-1}\sum_{i=1}^{2n}Z_i^2
+\le
+\frac{2n}{2n-1}M_{2n}T_{2n}.
+\]</span></p>
+<p>Conditional Chebyshev gives</p>
+<p><span class="math display">\[
+P\left(
+\left.
+\frac{|D_n|}{T_{2n}}&gt;\varepsilon
+\right|Z
+\right)
+\le
+Y_n,
+\]</span></p>
+<p>where</p>
+<p><span class="math display">\[
+Y_n
+:=
+\frac1{\varepsilon^2}
+\frac{2n}{2n-1}
+\frac{M_{2n}}{T_{2n}}.
+\]</span></p>
+<p>By <span class="math inline">\((b)\)</span>,</p>
+<p><span class="math display">\[
+Y_n\xrightarrow{P}0.
+\]</span></p>
+<p>Also,</p>
+<p><span class="math display">\[
+0\le Y_n\le\frac{2}{\varepsilon^2}=:C.
+\]</span></p>
+<p>For fixed <span class="math inline">\(\delta&gt;0\)</span>,</p>
+<p><span class="math display">\[
+Y_n
+=
+Y_n\mathbf 1_{\{Y_n\le\delta\}}
++
+Y_n\mathbf 1_{\{Y_n&gt;\delta\}}
+\le
+\delta+C\mathbf 1_{\{Y_n&gt;\delta\}}.
+\]</span></p>
+<p>Therefore</p>
+<p><span class="math display">\[
+E(Y_n)
+\le
+\delta+C\,P(Y_n&gt;\delta).
+\]</span></p>
+<p>For fixed <span class="math inline">\(\delta\)</span>, let <span class="math inline">\(n\to\infty\)</span>:</p>
+<p><span class="math display">\[
+\limsup_{n\to\infty}E(Y_n)\le\delta.
+\]</span></p>
+<p>Since this is true for every <span class="math inline">\(\delta&gt;0\)</span>, let <span class="math inline">\(\delta\downarrow0\)</span> and obtain</p>
+<p><span class="math display">\[
+E(Y_n)\to0.
+\]</span></p>
+<p>Thus</p>
+<p><span class="math display">\[
+P\left(
+\frac{|D_n|}{T_{2n}}&gt;\varepsilon
+\right)
+=
+E\left[
+P\left(
+\left.
+\frac{|D_n|}{T_{2n}}&gt;\varepsilon
+\right|Z
+\right)
+\right]
+\le
+E(Y_n)
+\to0.
+\]</span></p>
+<p>Hence</p>
+<p><span class="math display">\[
+\frac{A_n-B_n}{A_n+B_n}\xrightarrow{P}0.
+\]</span></p>
+<p>Since</p>
+<p><span class="math display">\[
+(A_n,B_n)\overset d=(S_n,S_n&#39;),
+\]</span></p>
+<p>we get</p>
+<p><span class="math display">\[
+\frac{S_n-S_n&#39;}{S_n+S_n&#39;}\xrightarrow{P}0.
+\]</span></p>
+<p>Writing</p>
+<p><span class="math display">\[
+R_n:=\frac{S_n&#39;}{S_n},
+\]</span></p>
+<p>we have</p>
+<p><span class="math display">\[
+\frac{S_n-S_n&#39;}{S_n+S_n&#39;}
+=
+\frac{1-R_n}{1+R_n}.
+\]</span></p>
+<p>Therefore</p>
+<p><span class="math display">\[
+\frac{S_n&#39;}{S_n}\xrightarrow{P}1.
+\]</span></p>
+<p>Now let <span class="math inline">\(a_n\)</span> be a median of <span class="math inline">\(S_n\)</span>. Then</p>
+<p><span class="math display">\[
+P(S_n\le a_n)\ge\frac12,
+\qquad
+P(S_n\ge a_n)\ge\frac12.
+\]</span></p>
+<p>For fixed <span class="math inline">\(\varepsilon&gt;0\)</span>,</p>
+<p><span class="math display">\[
+\{S_n&gt;(1+\varepsilon)a_n,\ S_n&#39;\le a_n\}
+\subset
+\left\{
+\frac{S_n}{S_n&#39;}&gt;1+\varepsilon
+\right\}.
+\]</span></p>
+<p>By independence,</p>
+<p><span class="math display">\[
+P(S_n&gt;(1+\varepsilon)a_n)
+P(S_n&#39;\le a_n)
+\le
+P\left(
+\frac{S_n}{S_n&#39;}&gt;1+\varepsilon
+\right).
+\]</span></p>
+<p>Hence</p>
+<p><span class="math display">\[
+P(S_n&gt;(1+\varepsilon)a_n)\to0.
+\]</span></p>
+<p>Similarly,</p>
+<p><span class="math display">\[
+\{S_n&lt;(1-\varepsilon)a_n,\ S_n&#39;\ge a_n\}
+\subset
+\left\{
+\frac{S_n&#39;}{S_n}&gt;
+\frac1{1-\varepsilon}
+\right\},
+\]</span></p>
+<p>so</p>
+<p><span class="math display">\[
+P(S_n&lt;(1-\varepsilon)a_n)\to0.
+\]</span></p>
+<p>Therefore</p>
+<p><span class="math display">\[
+\boxed{
+\frac{S_n}{a_n}\xrightarrow{P}1.
+}
+\]</span></p>
+<p>The median is only a convenient guaranteed interior quantile. Any fixed <span class="math inline">\(p\)</span>-quantile, <span class="math inline">\(0&lt;p&lt;1\)</span>, can be used in the same way. Once one valid deterministic normalization exists, all valid normalizations are asymptotically equivalent: if</p>
+<p><span class="math display">\[
+\frac{S_n}{a_n}\to_P1
+\qquad\text{and}\qquad
+\frac{S_n}{b_n}\to_P1,
+\]</span></p>
+<p>then</p>
+<p><span class="math display">\[
+\frac{a_n}{b_n}
+=
+\frac{S_n/b_n}{S_n/a_n}
+\to1.
+\]</span></p>
+<p>So there may be many choices of <span class="math inline">\(a_n\)</span>, but only one first-order asymptotic scale.</p>
+</div>
+<div id="crightarrowb" class="section level4 hasAnchor">
+<h4><span class="math inline">\((c)\Rightarrow(b)\)</span><a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#crightarrowb" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Assume <span class="math inline">\((c)\)</span> and define</p>
+<p><span class="math display">\[
+B(x)
+:=
+\frac{x\overline F(x)}{U(x)}.
+\]</span></p>
+<p>Since</p>
+<p><span class="math display">\[
+U(x)=\mu(x)+x\overline F(x)
+\]</span></p>
+<p>and <span class="math inline">\((c)\)</span> gives</p>
+<p><span class="math display">\[
+\frac{x\overline F(x)}{\mu(x)}\to0,
+\]</span></p>
+<p>we have</p>
+<p><span class="math display">\[
+B(x)\to0.
+\]</span></p>
+<p>Also define</p>
+<p><span class="math display">\[
+H(x):=\frac{x}{U(x)}.
+\]</span></p>
+<p>Since <span class="math inline">\(U\)</span> is concave with <span class="math inline">\(U(0)=0\)</span>, <span class="math inline">\(U(x)/x\)</span> is nonincreasing and therefore <span class="math inline">\(H\)</span> is nondecreasing. Moreover,</p>
+<p><span class="math display">\[
+\frac{U(x)}x
+=
+E\left[\frac{X_1\wedge x}{x}\right]\to0
+\]</span></p>
+<p>by dominated convergence, so <span class="math inline">\(H(x)\to\infty\)</span>.</p>
+<p>For each integer <span class="math inline">\(k\ge1\)</span>, choose <span class="math inline">\(t_k\uparrow\infty\)</span> such that</p>
+<p><span class="math display">\[
+x\ge t_k
+\quad\Longrightarrow\quad
+B(x)\le\frac1{k^2}.
+\]</span></p>
+<p>Choose integers <span class="math inline">\(N_k\uparrow\infty\)</span> so large that</p>
+<p><span class="math display">\[
+N_k&gt;kH(t_k).
+\]</span></p>
+<p>For <span class="math inline">\(n\)</span> large, let</p>
+<p><span class="math display">\[
+k_n:=\max\{k:N_k\le n\}.
+\]</span></p>
+<p>Then <span class="math inline">\(k_n\to\infty\)</span>. Choose <span class="math inline">\(x_n\ge t_{k_n}\)</span> so that</p>
+<p><span class="math display">\[
+H(x_n)=\frac{n}{k_n}.
+\]</span></p>
+<p>Then</p>
+<p><span class="math display">\[
+\frac{nU(x_n)}{x_n}
+=
+\frac{n}{H(x_n)}
+=
+k_n\to\infty.
+\]</span></p>
+<p>Since <span class="math inline">\(\mu(x_n)\sim U(x_n)\)</span>,</p>
+<p><span class="math display">\[
+\frac{n\mu(x_n)}{x_n}\to\infty.
+\]</span></p>
+<p>Also,</p>
+<p><span class="math display">\[
+nP(X_1&gt;x_n)
+=
+\frac{nU(x_n)}{x_n}
+\frac{x_nP(X_1&gt;x_n)}{U(x_n)}
+=
+k_nB(x_n)
+\le
+\frac1{k_n}
+\to0.
+\]</span></p>
+<p>Thus we have constructed a threshold <span class="math inline">\(x_n\)</span> such that</p>
+<p><span class="math display">\[
+nP(X_1&gt;x_n)\to0,
+\qquad
+\frac{x_n}{n\mu(x_n)}\to0.
+\]</span></p>
+<p>Now</p>
+<p><span class="math display">\[
+P(M_n&gt;x_n)
+\le
+nP(X_1&gt;x_n)
+\to0.
+\]</span></p>
+<p>Define the truncated sum</p>
+<p><span class="math display">\[
+T_n
+:=
+\sum_{i=1}^n
+X_i\mathbf 1_{\{X_i\le x_n\}}.
+\]</span></p>
+<p>Then</p>
+<p><span class="math display">\[
+E(T_n)=n\mu(x_n).
+\]</span></p>
+<p>Moreover,</p>
+<p><span class="math display">\[
+\operatorname{Var}(T_n)
+\le
+nE[X_1^2\mathbf 1_{\{X_1\le x_n\}}]
+\le
+nx_n\mu(x_n).
+\]</span></p>
+<p>Hence</p>
+<p><span class="math display">\[
+\frac{\operatorname{Var}(T_n)}
+{[E(T_n)]^2}
+\le
+\frac{x_n}{n\mu(x_n)}
+\to0.
+\]</span></p>
+<p>By Chebyshev,</p>
+<p><span class="math display">\[
+\frac{T_n}{n\mu(x_n)}\xrightarrow{P}1.
+\]</span></p>
+<p>Since</p>
+<p><span class="math display">\[
+\frac{n\mu(x_n)}{x_n}\to\infty,
+\]</span></p>
+<p>for each fixed <span class="math inline">\(\varepsilon&gt;0\)</span>,</p>
+<p><span class="math display">\[
+P\left(T_n&lt;\frac{x_n}{\varepsilon}\right)\to0.
+\]</span></p>
+<p>Because <span class="math inline">\(T_n\le S_n\)</span>,</p>
+<p><span class="math display">\[
+P\left(S_n&lt;\frac{x_n}{\varepsilon}\right)\to0.
+\]</span></p>
+<p>Finally,</p>
+<p><span class="math display">\[
+\left\{
+\frac{M_n}{S_n}&gt;\varepsilon
+\right\}
+\subset
+\left\{
+S_n&lt;\frac{x_n}{\varepsilon}
+\right\}
+\cup
+\{M_n&gt;x_n\}.
+\]</span></p>
+<p>Therefore</p>
+<p><span class="math display">\[
+P\left(
+\frac{M_n}{S_n}&gt;\varepsilon
+\right)
+\le
+P\left(
+S_n&lt;\frac{x_n}{\varepsilon}
+\right)
++
+P(M_n&gt;x_n)
+\to0.
+\]</span></p>
+<p>Thus</p>
+<p><span class="math display">\[
+\boxed{
+\frac{M_n}{S_n}\xrightarrow{P}0.
+}
+\]</span></p>
+<p>The direct route can be summarized as</p>
+<p><span class="math display">\[
+(c)
+\Rightarrow
+\begin{cases}
+M_n\lesssim x_n,\\[3pt]
+S_n\gg x_n,
+\end{cases}
+\Rightarrow
+\frac{M_n}{S_n}\to_P0.
+\]</span></p>
+<p><span class="math inline">\(\textbf{Note:}\)</span> This exercise had taken me at least half month because I tried to study every single pairwise direction, but there are <span class="math inline">\(A_4^2=12\)</span> in total, so I have to stop here.</p>
 
+</div>
 </div>
 </div>
 </div>
