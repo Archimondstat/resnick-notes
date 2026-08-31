@@ -11458,3 +11458,378 @@ S_n\gg x_n,
 \]
 
 $\textbf{Note:}$ This exercise had taken me at least half month because I tried to study every single pairwise direction, but there are $A_4^2=12$ in total, so I have to stop here.
+
+### Ex 25
+
+::: problem
+25. Formulate and prove a generalization of Theorem 7.2.1 applicable to triangular arrays $\{X_{n,k}, 1\leq k\leq n; n\geq 1\}$ where $\{X_{n,k}, 1\leq k\leq n\}$ is independent and where $n$ is replaced by a general sequence of constants $\{b_n\}$. For iid random variables, the conditions should reduce to
+
+\[
+nP[|X_{n,1}|>b_n]\longrightarrow 0,
+\tag{7.36}
+\]
+
+\[
+\frac{n}{b_n^2}E\left(X_{n,1}^2 1_{[|X_{n,1}|\leq b_n]}\right)\longrightarrow 0.
+\tag{7.37}
+\]
+
+If $S_n=\sum_{i=1}^n X_{n,i}$, the conclusion for the row iid case is
+
+\[
+\frac{S_n-nE\left(X_{n,1}1_{[|X_{n,1}|\leq b_n]}\right)}{b_n}
+\xrightarrow{P}0.
+\]
+
+Apply this to the St. Petersburg paradox of Problem 24.
+:::
+
+$\textbf{Answer:}$
+
+#### Formulation
+
+My formulation of the generalization of Theorem 7.2.1 is as follows.
+
+Let
+
+\[
+S_n=\sum_{j=1}^n X_{n,j},
+\]
+
+where, for each $n$,
+
+\[
+X_{n,1},\ldots,X_{n,n}
+\]
+
+are independent. Suppose there exists a sequence $b_n>0$ such that
+
+\[
+\sum_{j=1}^nP(|X_{n,j}|>b_n)\longrightarrow0,
+\]
+
+and
+
+\[
+\frac{1}{b_n^2}
+\sum_{j=1}^n
+E\left(
+X_{n,j}^2
+1_{[|X_{n,j}|\leq b_n]}
+\right)
+\longrightarrow0.
+\]
+
+Denote
+
+\[
+a_n
+=
+\sum_{j=1}^n
+E\left(
+X_{n,j}
+1_{[|X_{n,j}|\leq b_n]}
+\right).
+\]
+
+Then I claim that
+
+\[
+\frac{S_n-a_n}{b_n}
+\xrightarrow{P}0.
+\]
+
+#### Proof
+
+Define the truncated variables
+
+\[
+X'_{n,j}
+=
+X_{n,j}1_{[|X_{n,j}|\leq b_n]},
+\]
+
+and
+
+\[
+S_n'
+=
+\sum_{j=1}^nX'_{n,j}.
+\]
+
+Then
+
+\[
+P(S_n\neq S_n')
+\leq
+P\left(
+\bigcup_{j=1}^n
+[X_{n,j}\neq X'_{n,j}]
+\right)
+\leq
+\sum_{j=1}^nP(|X_{n,j}|>b_n)
+\longrightarrow0.
+\]
+
+Thus, for any fixed $\varepsilon>0$,
+
+\[
+P\left(
+\left|
+\frac{S_n-S_n'}{b_n}
+\right|>\varepsilon
+\right)
+\leq
+P(S_n\neq S_n')
+\longrightarrow0,
+\]
+
+so
+
+\[
+\frac{S_n-S_n'}{b_n}
+\xrightarrow{P}0.
+\]
+
+On the other hand,
+
+\[
+E(S_n')=a_n.
+\]
+
+Since the variables in each row are independent,
+
+\[
+\operatorname{Var}(S_n')
+=
+\sum_{j=1}^n
+\operatorname{Var}(X'_{n,j})
+\leq
+\sum_{j=1}^n
+E[(X'_{n,j})^2].
+\]
+
+Therefore, by Chebyshev's inequality,
+
+\[
+\begin{aligned}
+P\left(
+\left|
+\frac{S_n'-a_n}{b_n}
+\right|>\varepsilon
+\right)
+&\leq
+\frac{\operatorname{Var}(S_n')}
+{\varepsilon^2b_n^2} \\
+&\leq
+\frac{1}{\varepsilon^2b_n^2}
+\sum_{j=1}^n
+E\left(
+X_{n,j}^2
+1_{[|X_{n,j}|\leq b_n]}
+\right)
+\longrightarrow0.
+\end{aligned}
+\]
+
+Hence
+
+\[
+\frac{S_n'-a_n}{b_n}
+\xrightarrow{P}0.
+\]
+
+Finally,
+
+\[
+\frac{S_n-a_n}{b_n}
+=
+\frac{S_n-S_n'}{b_n}
++
+\frac{S_n'-a_n}{b_n}
+\xrightarrow{P}0.
+\]
+
+#### Application to St. Petersburg paradox of Problem 24
+
+For the St. Petersburg case, let
+
+\[
+P(X_j=2^k)=2^{-k},
+\qquad k\geq1,
+\]
+
+and define the triangular array by
+
+\[
+X_{n,j}=X_j,
+\qquad 1\leq j\leq n.
+\]
+
+Thus
+
+\[
+S_n=\sum_{j=1}^nX_j.
+\]
+
+Take
+
+\[
+b_n=n\log_2n,
+\]
+
+and let
+
+\[
+m_n=\lfloor\log_2b_n\rfloor.
+\]
+
+Then
+
+\[
+2^{m_n}\leq b_n<2^{m_n+1}.
+\]
+
+Since $X_j$ only takes values $2^k$,
+
+\[
+P(X_j>b_n)=2^{-m_n}.
+\]
+
+Also,
+
+\[
+\frac{1}{b_n}
+\leq
+2^{-m_n}
+<
+\frac{2}{b_n}.
+\]
+
+Hence
+
+\[
+nP(X_j>b_n)
+\leq
+\frac{2n}{b_n}
+=
+\frac{2}{\log_2n}
+\longrightarrow0.
+\]
+
+For the second condition,
+
+\[
+\begin{aligned}
+E\left(
+X_j^2 1_{[X_j\leq b_n]}
+\right)
+&=
+\sum_{k=1}^{m_n}2^{2k}2^{-k} \\
+&=
+\sum_{k=1}^{m_n}2^k \\
+&=
+2^{m_n+1}-2 \\
+&\leq
+2b_n.
+\end{aligned}
+\]
+
+Therefore
+
+\[
+\frac{n}{b_n^2}
+E\left(
+X_j^2 1_{[X_j\leq b_n]}
+\right)
+\leq
+\frac{2n}{b_n}
+=
+\frac{2}{\log_2n}
+\longrightarrow0.
+\]
+
+Thus, by the result above,
+
+\[
+\frac{S_n-a_n}{b_n}
+\xrightarrow{P}0,
+\]
+
+where
+
+\[
+a_n
+=
+nE\left(
+X_j1_{[X_j\leq b_n]}
+\right).
+\]
+
+But
+
+\[
+E\left(
+X_j1_{[X_j\leq b_n]}
+\right)
+=
+\sum_{k=1}^{m_n}2^k2^{-k}
+=
+m_n,
+\]
+
+so
+
+\[
+a_n=nm_n.
+\]
+
+Therefore
+
+\[
+\frac{a_n}{b_n}
+=
+\frac{m_n}{\log_2n}
+\sim
+\frac{\log_2b_n}{\log_2n}.
+\]
+
+Since
+
+\[
+b_n=n\log_2n,
+\]
+
+we have
+
+\[
+\log_2b_n
+=
+\log_2n+\log_2\log_2n
+\sim
+\log_2n.
+\]
+
+Hence
+
+\[
+\frac{a_n}{b_n}\longrightarrow1.
+\]
+
+Finally,
+
+\[
+\frac{S_n}{b_n}
+=
+\frac{S_n-a_n}{b_n}
++
+\frac{a_n}{b_n}
+\xrightarrow{P}0+1=1.
+\]
+
+That is,
+
+\[
+\frac{S_n}{n\log_2n}
+\xrightarrow{P}1.
+\]

@@ -23,7 +23,7 @@
 <meta name="author" content="Zhanwen Peng" />
 
 
-<meta name="date" content="2026-08-30" />
+<meta name="date" content="2026-08-31" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -536,6 +536,12 @@
 <li class="chapter" data-level="" data-path="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html"><a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#additional-direct-implications-studied"><i class="fa fa-check"></i>Additional direct implications studied</a></li>
 <li class="chapter" data-level="" data-path="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html"><a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#brightarrowa"><i class="fa fa-check"></i><span class="math inline">\((b)\Rightarrow(a)\)</span></a></li>
 <li class="chapter" data-level="" data-path="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html"><a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#crightarrowb"><i class="fa fa-check"></i><span class="math inline">\((c)\Rightarrow(b)\)</span></a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html"><a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#ex-25-3"><i class="fa fa-check"></i>Ex 25</a>
+<ul>
+<li class="chapter" data-level="" data-path="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html"><a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#formulation"><i class="fa fa-check"></i>Formulation</a></li>
+<li class="chapter" data-level="" data-path="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html"><a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#proof"><i class="fa fa-check"></i>Proof</a></li>
+<li class="chapter" data-level="" data-path="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html"><a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#application-to-st.-petersburg-paradox-of-problem-24"><i class="fa fa-check"></i>Application to St. Petersburg paradox of Problem 24</a></li>
 </ul></li>
 </ul></li>
 </ul></li>
@@ -9384,6 +9390,305 @@ S_n\gg x_n,
 \frac{M_n}{S_n}\to_P0.
 \]</span></p>
 <p><span class="math inline">\(\textbf{Note:}\)</span> This exercise had taken me at least half month because I tried to study every single pairwise direction, but there are <span class="math inline">\(A_4^2=12\)</span> in total, so I have to stop here.</p>
+</div>
+</div>
+<div id="ex-25-3" class="section level3 hasAnchor">
+<h3>Ex 25<a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#ex-25-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="problem">
+<ol start="25" style="list-style-type: decimal">
+<li>Formulate and prove a generalization of Theorem 7.2.1 applicable to triangular arrays <span class="math inline">\(\{X_{n,k}, 1\leq k\leq n; n\geq 1\}\)</span> where <span class="math inline">\(\{X_{n,k}, 1\leq k\leq n\}\)</span> is independent and where <span class="math inline">\(n\)</span> is replaced by a general sequence of constants <span class="math inline">\(\{b_n\}\)</span>. For iid random variables, the conditions should reduce to</li>
+</ol>
+<p><span class="math display">\[
+nP[|X_{n,1}|&gt;b_n]\longrightarrow 0,
+\tag{7.36}
+\]</span></p>
+<p><span class="math display">\[
+\frac{n}{b_n^2}E\left(X_{n,1}^2 1_{[|X_{n,1}|\leq b_n]}\right)\longrightarrow 0.
+\tag{7.37}
+\]</span></p>
+<p>If <span class="math inline">\(S_n=\sum_{i=1}^n X_{n,i}\)</span>, the conclusion for the row iid case is</p>
+<p><span class="math display">\[
+\frac{S_n-nE\left(X_{n,1}1_{[|X_{n,1}|\leq b_n]}\right)}{b_n}
+\xrightarrow{P}0.
+\]</span></p>
+<p>Apply this to the St. Petersburg paradox of Problem 24.</p>
+</div>
+<p><span class="math inline">\(\textbf{Answer:}\)</span></p>
+<div id="formulation" class="section level4 hasAnchor">
+<h4>Formulation<a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#formulation" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>My formulation of the generalization of Theorem 7.2.1 is as follows.</p>
+<p>Let</p>
+<p><span class="math display">\[
+S_n=\sum_{j=1}^n X_{n,j},
+\]</span></p>
+<p>where, for each <span class="math inline">\(n\)</span>,</p>
+<p><span class="math display">\[
+X_{n,1},\ldots,X_{n,n}
+\]</span></p>
+<p>are independent. Suppose there exists a sequence <span class="math inline">\(b_n&gt;0\)</span> such that</p>
+<p><span class="math display">\[
+\sum_{j=1}^nP(|X_{n,j}|&gt;b_n)\longrightarrow0,
+\]</span></p>
+<p>and</p>
+<p><span class="math display">\[
+\frac{1}{b_n^2}
+\sum_{j=1}^n
+E\left(
+X_{n,j}^2
+1_{[|X_{n,j}|\leq b_n]}
+\right)
+\longrightarrow0.
+\]</span></p>
+<p>Denote</p>
+<p><span class="math display">\[
+a_n
+=
+\sum_{j=1}^n
+E\left(
+X_{n,j}
+1_{[|X_{n,j}|\leq b_n]}
+\right).
+\]</span></p>
+<p>Then I claim that</p>
+<p><span class="math display">\[
+\frac{S_n-a_n}{b_n}
+\xrightarrow{P}0.
+\]</span></p>
+</div>
+<div id="proof" class="section level4 hasAnchor">
+<h4>Proof<a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#proof" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Define the truncated variables</p>
+<p><span class="math display">\[
+X&#39;_{n,j}
+=
+X_{n,j}1_{[|X_{n,j}|\leq b_n]},
+\]</span></p>
+<p>and</p>
+<p><span class="math display">\[
+S_n&#39;
+=
+\sum_{j=1}^nX&#39;_{n,j}.
+\]</span></p>
+<p>Then</p>
+<p><span class="math display">\[
+P(S_n\neq S_n&#39;)
+\leq
+P\left(
+\bigcup_{j=1}^n
+[X_{n,j}\neq X&#39;_{n,j}]
+\right)
+\leq
+\sum_{j=1}^nP(|X_{n,j}|&gt;b_n)
+\longrightarrow0.
+\]</span></p>
+<p>Thus, for any fixed <span class="math inline">\(\varepsilon&gt;0\)</span>,</p>
+<p><span class="math display">\[
+P\left(
+\left|
+\frac{S_n-S_n&#39;}{b_n}
+\right|&gt;\varepsilon
+\right)
+\leq
+P(S_n\neq S_n&#39;)
+\longrightarrow0,
+\]</span></p>
+<p>so</p>
+<p><span class="math display">\[
+\frac{S_n-S_n&#39;}{b_n}
+\xrightarrow{P}0.
+\]</span></p>
+<p>On the other hand,</p>
+<p><span class="math display">\[
+E(S_n&#39;)=a_n.
+\]</span></p>
+<p>Since the variables in each row are independent,</p>
+<p><span class="math display">\[
+\operatorname{Var}(S_n&#39;)
+=
+\sum_{j=1}^n
+\operatorname{Var}(X&#39;_{n,j})
+\leq
+\sum_{j=1}^n
+E[(X&#39;_{n,j})^2].
+\]</span></p>
+<p>Therefore, by Chebyshev’s inequality,</p>
+<p><span class="math display">\[
+\begin{aligned}
+P\left(
+\left|
+\frac{S_n&#39;-a_n}{b_n}
+\right|&gt;\varepsilon
+\right)
+&amp;\leq
+\frac{\operatorname{Var}(S_n&#39;)}
+{\varepsilon^2b_n^2} \\
+&amp;\leq
+\frac{1}{\varepsilon^2b_n^2}
+\sum_{j=1}^n
+E\left(
+X_{n,j}^2
+1_{[|X_{n,j}|\leq b_n]}
+\right)
+\longrightarrow0.
+\end{aligned}
+\]</span></p>
+<p>Hence</p>
+<p><span class="math display">\[
+\frac{S_n&#39;-a_n}{b_n}
+\xrightarrow{P}0.
+\]</span></p>
+<p>Finally,</p>
+<p><span class="math display">\[
+\frac{S_n-a_n}{b_n}
+=
+\frac{S_n-S_n&#39;}{b_n}
++
+\frac{S_n&#39;-a_n}{b_n}
+\xrightarrow{P}0.
+\]</span></p>
+</div>
+<div id="application-to-st.-petersburg-paradox-of-problem-24" class="section level4 hasAnchor">
+<h4>Application to St. Petersburg paradox of Problem 24<a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#application-to-st.-petersburg-paradox-of-problem-24" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>For the St. Petersburg case, let</p>
+<p><span class="math display">\[
+P(X_j=2^k)=2^{-k},
+\qquad k\geq1,
+\]</span></p>
+<p>and define the triangular array by</p>
+<p><span class="math display">\[
+X_{n,j}=X_j,
+\qquad 1\leq j\leq n.
+\]</span></p>
+<p>Thus</p>
+<p><span class="math display">\[
+S_n=\sum_{j=1}^nX_j.
+\]</span></p>
+<p>Take</p>
+<p><span class="math display">\[
+b_n=n\log_2n,
+\]</span></p>
+<p>and let</p>
+<p><span class="math display">\[
+m_n=\lfloor\log_2b_n\rfloor.
+\]</span></p>
+<p>Then</p>
+<p><span class="math display">\[
+2^{m_n}\leq b_n&lt;2^{m_n+1}.
+\]</span></p>
+<p>Since <span class="math inline">\(X_j\)</span> only takes values <span class="math inline">\(2^k\)</span>,</p>
+<p><span class="math display">\[
+P(X_j&gt;b_n)=2^{-m_n}.
+\]</span></p>
+<p>Also,</p>
+<p><span class="math display">\[
+\frac{1}{b_n}
+\leq
+2^{-m_n}
+&lt;
+\frac{2}{b_n}.
+\]</span></p>
+<p>Hence</p>
+<p><span class="math display">\[
+nP(X_j&gt;b_n)
+\leq
+\frac{2n}{b_n}
+=
+\frac{2}{\log_2n}
+\longrightarrow0.
+\]</span></p>
+<p>For the second condition,</p>
+<p><span class="math display">\[
+\begin{aligned}
+E\left(
+X_j^2 1_{[X_j\leq b_n]}
+\right)
+&amp;=
+\sum_{k=1}^{m_n}2^{2k}2^{-k} \\
+&amp;=
+\sum_{k=1}^{m_n}2^k \\
+&amp;=
+2^{m_n+1}-2 \\
+&amp;\leq
+2b_n.
+\end{aligned}
+\]</span></p>
+<p>Therefore</p>
+<p><span class="math display">\[
+\frac{n}{b_n^2}
+E\left(
+X_j^2 1_{[X_j\leq b_n]}
+\right)
+\leq
+\frac{2n}{b_n}
+=
+\frac{2}{\log_2n}
+\longrightarrow0.
+\]</span></p>
+<p>Thus, by the result above,</p>
+<p><span class="math display">\[
+\frac{S_n-a_n}{b_n}
+\xrightarrow{P}0,
+\]</span></p>
+<p>where</p>
+<p><span class="math display">\[
+a_n
+=
+nE\left(
+X_j1_{[X_j\leq b_n]}
+\right).
+\]</span></p>
+<p>But</p>
+<p><span class="math display">\[
+E\left(
+X_j1_{[X_j\leq b_n]}
+\right)
+=
+\sum_{k=1}^{m_n}2^k2^{-k}
+=
+m_n,
+\]</span></p>
+<p>so</p>
+<p><span class="math display">\[
+a_n=nm_n.
+\]</span></p>
+<p>Therefore</p>
+<p><span class="math display">\[
+\frac{a_n}{b_n}
+=
+\frac{m_n}{\log_2n}
+\sim
+\frac{\log_2b_n}{\log_2n}.
+\]</span></p>
+<p>Since</p>
+<p><span class="math display">\[
+b_n=n\log_2n,
+\]</span></p>
+<p>we have</p>
+<p><span class="math display">\[
+\log_2b_n
+=
+\log_2n+\log_2\log_2n
+\sim
+\log_2n.
+\]</span></p>
+<p>Hence</p>
+<p><span class="math display">\[
+\frac{a_n}{b_n}\longrightarrow1.
+\]</span></p>
+<p>Finally,</p>
+<p><span class="math display">\[
+\frac{S_n}{b_n}
+=
+\frac{S_n-a_n}{b_n}
++
+\frac{a_n}{b_n}
+\xrightarrow{P}0+1=1.
+\]</span></p>
+<p>That is,</p>
+<p><span class="math display">\[
+\frac{S_n}{n\log_2n}
+\xrightarrow{P}1.
+\]</span></p>
 
 </div>
 </div>
