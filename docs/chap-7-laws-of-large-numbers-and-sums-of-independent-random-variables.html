@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chap 7, Laws of Large Numbers and Sums of Independent Random Variables | Notes on A Probability Path (Resnick)</title>
   <meta name="description" content="Chap 7, Laws of Large Numbers and Sums of Independent Random Variables | Notes on A Probability Path (Resnick)" />
-  <meta name="generator" content="bookdown 0.46 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.42 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chap 7, Laws of Large Numbers and Sums of Independent Random Variables | Notes on A Probability Path (Resnick)" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="Zhanwen Peng" />
 
 
-<meta name="date" content="2026-08-31" />
+<meta name="date" content="2026-09-02" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -543,6 +543,8 @@
 <li class="chapter" data-level="" data-path="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html"><a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#proof"><i class="fa fa-check"></i>Proof</a></li>
 <li class="chapter" data-level="" data-path="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html"><a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#application-to-st.-petersburg-paradox-of-problem-24"><i class="fa fa-check"></i>Application to St. Petersburg paradox of Problem 24</a></li>
 </ul></li>
+<li class="chapter" data-level="" data-path="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html"><a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#ex-29-3"><i class="fa fa-check"></i>Ex 29</a></li>
+<li class="chapter" data-level="" data-path="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html"><a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#ex-30-3"><i class="fa fa-check"></i>Ex 30</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -9689,8 +9691,521 @@ b_n=n\log_2n,
 \frac{S_n}{n\log_2n}
 \xrightarrow{P}1.
 \]</span></p>
-
 </div>
+</div>
+<div id="ex-29-3" class="section level3 hasAnchor">
+<h3>Ex 29<a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#ex-29-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="problem">
+<p>Suppose <span class="math inline">\(\{X_n,n\geq 1\}\)</span> is iid with common distribution described as follows. Define</p>
+<p><span class="math display">\[
+p_k=\frac{1}{2^k k(k+1)}
+\]</span></p>
+<p>and <span class="math display">\[p_0=1-\sum_{k=1}^{\infty}p_k\]</span>. Suppose</p>
+<p><span class="math display">\[
+P[X_n=2^k-1]=p_k,\qquad k\geq 1
+\]</span></p>
+<p>and <span class="math display">\[P[X_n=-1]=p_0\]</span>.</p>
+<p>Observe that</p>
+<p><span class="math display">\[
+\sum_{k=1}^{\infty}2^kp_k
+=
+\sum_{k=1}^{\infty}
+\left(
+\frac1k-\frac1{k+1}
+\right)
+=1,
+\]</span></p>
+<p>and that <span class="math inline">\(E(X_n)=0\)</span>. For <span class="math display">\[S_n=\sum_{i=1}^nX_i,\qquad n\geq1\]</span>, prove</p>
+<p><span class="math display">\[
+\frac{S_n}{n/\log_2 n}
+\xrightarrow{P}-1.
+\]</span></p>
+</div>
+<p><span class="math inline">\(\textbf{Answer:}\)</span></p>
+<p>Use the generalization of Theorem 7.2.1 proved in Ex 25.</p>
+<p>Take</p>
+<p><span class="math display">\[
+b_n=\frac{n}{\log_2 n},
+\]</span></p>
+<p>and denote</p>
+<p><span class="math display">\[
+a_n
+=
+nE\left(
+X_1 1_{[|X_1|\leq b_n]}
+\right).
+\]</span></p>
+<p>According to Ex 25, it is enough to verify</p>
+<p><span class="math display">\[
+nP(|X_1|&gt;b_n)\to0,
+\tag{1}
+\]</span></p>
+<p>and</p>
+<p><span class="math display">\[
+\frac{n}{b_n^2}
+E\left(
+X_1^2 1_{[|X_1|\leq b_n]}
+\right)
+\to0.
+\tag{2}
+\]</span></p>
+<p>Then</p>
+<p><span class="math display">\[
+\frac{S_n-a_n}{b_n}
+\xrightarrow{P}0.
+\]</span></p>
+<p>It remains to calculate</p>
+<p><span class="math display">\[
+\frac{a_n}{b_n}.
+\tag{3}
+\]</span></p>
+<p>Let</p>
+<p><span class="math display">\[
+m_n
+=
+\min\{k\geq1:2^k-1&gt;b_n\}.
+\]</span></p>
+<p>Then</p>
+<p><span class="math display">\[
+2^{m_n-1}\leq b_n+1&lt;2^{m_n},
+\]</span></p>
+<p>so</p>
+<p><span class="math display">\[
+m_n\sim\log_2b_n\sim\log_2n.
+\]</span></p>
+<p>For (1),</p>
+<p><span class="math display">\[
+P(|X_1|&gt;b_n)
+=
+\sum_{k=m_n}^{\infty}
+\frac{1}{2^k k(k+1)}.
+\]</span></p>
+<p>Since for <span class="math inline">\(k\geq m_n\)</span>,</p>
+<p><span class="math display">\[
+\frac1{k(k+1)}
+\leq
+\frac1{m_n(m_n+1)},
+\]</span></p>
+<p>we have</p>
+<p><span class="math display">\[
+\begin{aligned}
+P(|X_1|&gt;b_n)
+&amp;\leq
+\frac1{m_n(m_n+1)}
+\sum_{k=m_n}^{\infty}\frac1{2^k} \\
+&amp;=
+\frac{2^{1-m_n}}{m_n(m_n+1)}.
+\end{aligned}
+\]</span></p>
+<p>Also,</p>
+<p><span class="math display">\[
+2^{1-m_n}&lt;\frac{2}{b_n+1}.
+\]</span></p>
+<p>Thus</p>
+<p><span class="math display">\[
+nP(|X_1|&gt;b_n)
+\leq
+\frac{2n}
+{(b_n+1)m_n(m_n+1)}
+\to0,
+\]</span></p>
+<p>since</p>
+<p><span class="math display">\[
+\frac{n}{b_n}=\log_2n
+\]</span></p>
+<p>and</p>
+<p><span class="math display">\[
+m_n\sim\log_2n.
+\]</span></p>
+<p>So (1) holds.</p>
+<p>For (2),</p>
+<p><span class="math display">\[
+\begin{aligned}
+E\left(
+X_1^2 1_{[|X_1|\leq b_n]}
+\right)
+&amp;=
+p_0+
+\sum_{k=1}^{m_n-1}
+(2^k-1)^2
+\frac{1}{2^k k(k+1)} \\
+&amp;=
+p_0+
+\sum_{k=1}^{m_n-1}
+\left[
+\frac{2^k}{k(k+1)}
+-
+\frac{2}{k(k+1)}
++
+\frac{1}{2^k k(k+1)}
+\right].
+\end{aligned}
+\]</span></p>
+<p>The only growing part is</p>
+<p><span class="math display">\[
+\sum_{k=1}^{m_n-1}\frac{2^k}{k(k+1)}.
+\]</span></p>
+<p>Because of the geometric factor <span class="math inline">\(2^k\)</span>, this sum is dominated, up to a constant, by the terms near <span class="math inline">\(m_n\)</span>:</p>
+<p><span class="math display">\[
+\sum_{k=1}^{m_n-1}
+\frac{2^k}{k(k+1)}
+=
+O\left(
+\frac{2^{m_n}}{m_n^2}
+\right).
+\]</span></p>
+<p>Since</p>
+<p><span class="math display">\[
+2^{m_n}\leq2(b_n+1),
+\]</span></p>
+<p>we obtain</p>
+<p><span class="math display">\[
+E\left(
+X_1^2 1_{[|X_1|\leq b_n]}
+\right)
+=
+O\left(
+\frac{b_n}{m_n^2}
+\right).
+\]</span></p>
+<p>Therefore</p>
+<p><span class="math display">\[
+\begin{aligned}
+\frac{n}{b_n^2}
+E\left(
+X_1^2 1_{[|X_1|\leq b_n]}
+\right)
+&amp;=
+O\left(
+\frac{n}{b_nm_n^2}
+\right) \\
+&amp;=
+O\left(
+\frac{\log_2n}{m_n^2}
+\right)
+\to0.
+\end{aligned}
+\]</span></p>
+<p>So (2) holds.</p>
+<p>Hence, by Ex 25,</p>
+<p><span class="math display">\[
+\frac{S_n-a_n}{b_n}
+\xrightarrow{P}0.
+\]</span></p>
+<p>For (3), since</p>
+<p><span class="math display">\[
+p_0
+=
+1-
+\sum_{k=1}^{\infty}
+\frac{1}{2^k k(k+1)},
+\]</span></p>
+<p>we have</p>
+<p><span class="math display">\[
+\begin{aligned}
+E\left(
+X_1 1_{[|X_1|\leq b_n]}
+\right)
+&amp;=
+-p_0+
+\sum_{k=1}^{m_n-1}
+(2^k-1)
+\frac{1}{2^k k(k+1)} \\
+&amp;=
+-1+
+\sum_{k=1}^{\infty}
+\frac{1}{2^k k(k+1)}
++
+\sum_{k=1}^{m_n-1}\frac{1}{k(k+1)}
+-
+\sum_{k=1}^{m_n-1}
+\frac{1}{2^k k(k+1)}.
+\end{aligned}
+\]</span></p>
+<p>Using</p>
+<p><span class="math display">\[
+\sum_{k=1}^{m_n-1}
+\frac{1}{k(k+1)}
+=
+1-\frac1{m_n},
+\]</span></p>
+<p>we get</p>
+<p><span class="math display">\[
+E\left(
+X_1 1_{[|X_1|\leq b_n]}
+\right)
+=
+-\frac1{m_n}
++
+\sum_{k=m_n}^{\infty}
+\frac{1}{2^k k(k+1)}.
+\]</span></p>
+<p>Thus</p>
+<p><span class="math display">\[
+\frac{a_n}{b_n}
+=
+\log_2n
+\left[
+-\frac1{m_n}
++
+\sum_{k=m_n}^{\infty}
+\frac{1}{2^k k(k+1)}
+\right].
+\]</span></p>
+<p>Since</p>
+<p><span class="math display">\[
+m_n\sim\log_2n,
+\]</span></p>
+<p>we have</p>
+<p><span class="math display">\[
+-\frac{\log_2n}{m_n}\to-1.
+\]</span></p>
+<p>Also, by the same estimate used in (1),</p>
+<p><span class="math display">\[
+\log_2n
+\sum_{k=m_n}^{\infty}
+\frac{1}{2^k k(k+1)}
+\to0.
+\]</span></p>
+<p>Therefore</p>
+<p><span class="math display">\[
+\frac{a_n}{b_n}\to-1.
+\]</span></p>
+<p>Finally,</p>
+<p><span class="math display">\[
+\frac{S_n}{b_n}
+=
+\frac{S_n-a_n}{b_n}
++
+\frac{a_n}{b_n}
+\xrightarrow{P}
+0-1=-1.
+\]</span></p>
+<p>Since</p>
+<p><span class="math display">\[
+b_n=\frac{n}{\log_2n},
+\]</span></p>
+<p>we conclude</p>
+<p><span class="math display">\[
+\frac{S_n}{n/\log_2n}
+\xrightarrow{P}-1.
+\]</span></p>
+</div>
+<div id="ex-30-3" class="section level3 hasAnchor">
+<h3>Ex 30<a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#ex-30-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="problem">
+<p><strong>Classical coupon collecting</strong>. Suppose <span class="math inline">\(\{X_k,k\geq1\}\)</span> is iid and uniformly distributed on <span class="math inline">\(\{1,\ldots,n\}\)</span>. Define</p>
+<p><span class="math display">\[
+T_n
+=
+\inf\{m:\{X_1,\ldots,X_m\}=\{1,\ldots,n\}\}
+\]</span></p>
+<p>to be the first time all values are sampled.</p>
+<p>The problem name stems from the game of collecting coupons. There are <span class="math inline">\(n\)</span> different coupons and one samples with replacement repeatedly from the population <span class="math inline">\(\{1,\ldots,n\}\)</span> until all coupons are collected. The random variable <span class="math inline">\(T_n\)</span> is the number of samples necessary to obtain all coupons.</p>
+<p>Show</p>
+<p><span class="math display">\[
+\frac{T_n}{n\log n}
+\xrightarrow{P}1.
+\]</span></p>
+<p>Hints: Define</p>
+<p><span class="math display">\[
+\tau_k(n)
+=
+\inf\{m:\operatorname{card}\{X_1,\ldots,X_m\}=k\}
+\]</span></p>
+<p>to be the number of samples necessary to draw <span class="math inline">\(k\)</span> different coupons. Verify that <span class="math inline">\(\tau_1(n)=1\)</span> and</p>
+<p><span class="math display">\[
+\{\tau_k(n)-\tau_{k-1}(n),\,2\leq k\leq n\}
+\]</span></p>
+<p>are independent and geometrically distributed. Verify that</p>
+<p><span class="math display">\[
+E(T_n)
+=
+n\sum_{i=1}^n\frac1i
+\sim n\log n,
+\]</span></p>
+<p><span class="math display">\[
+\operatorname{Var}(T_n)
+\leq
+n^2\sum_{i=1}^ni^{-2}.
+\]</span></p>
+<p>Check</p>
+<p><span class="math display">\[
+\operatorname{Var}(T_n/E(T_n))\to0.
+\]</span></p>
+</div>
+<p><span class="math inline">\(\textbf{Answer:}\)</span></p>
+<p>Following the hint, define</p>
+<p><span class="math display">\[
+\tau_k(n)
+=
+\inf\{m:\operatorname{card}\{X_1,\ldots,X_m\}=k\}.
+\]</span></p>
+<p>Then</p>
+<p><span class="math display">\[
+\tau_1(n)=1.
+\]</span></p>
+<p>For <span class="math inline">\(2\leq k\leq n\)</span>, define</p>
+<p><span class="math display">\[
+a_k(n)
+=
+\tau_k(n)-\tau_{k-1}(n).
+\]</span></p>
+<p>After <span class="math inline">\(k-1\)</span> different coupons have been collected, there are</p>
+<p><span class="math display">\[
+n-k+1
+\]</span></p>
+<p>coupons which have not yet been collected. Therefore, on every subsequent draw, the probability of getting a new coupon is</p>
+<p><span class="math display">\[
+p_k
+=
+\frac{n-k+1}{n}.
+\]</span></p>
+<p>Thus</p>
+<p><span class="math display">\[
+a_k(n)
+\]</span></p>
+<p>is geometrically distributed with parameter <span class="math inline">\(p_k\)</span>:</p>
+<p><span class="math display">\[
+P(a_k(n)=j)
+=
+(1-p_k)^{j-1}p_k,
+\qquad j\geq1.
+\]</span></p>
+<p>The variables</p>
+<p><span class="math display">\[
+a_1(n),\ldots,a_n(n)
+\]</span></p>
+<p>are independent. Indeed, after the time <span class="math inline">\(\tau_{k-1}(n)\)</span>, the future coupon draws are independent of the draws already observed, and the waiting time until the next new coupon depends only on the future draws.</p>
+<p>They are not identically distributed, since <span class="math inline">\(p_k\)</span> depends on <span class="math inline">\(k\)</span>.</p>
+<p>Since</p>
+<p><span class="math display">\[
+T_n=\tau_n(n),
+\]</span></p>
+<p>we have</p>
+<p><span class="math display">\[
+T_n
+=
+\sum_{k=1}^na_k(n).
+\]</span></p>
+<p>For a geometric random variable with parameter <span class="math inline">\(p\)</span>,</p>
+<p><span class="math display">\[
+E(G)=\frac1p.
+\]</span></p>
+<p>Hence</p>
+<p><span class="math display">\[
+\begin{aligned}
+E(T_n)
+&amp;=
+\sum_{k=1}^nE(a_k(n)) \\
+&amp;=
+\sum_{k=1}^n\frac1{p_k} \\
+&amp;=
+\sum_{k=1}^n
+\frac{n}{n-k+1}.
+\end{aligned}
+\]</span></p>
+<p>Letting</p>
+<p><span class="math display">\[
+j=n-k+1,
+\]</span></p>
+<p>we obtain</p>
+<p><span class="math display">\[
+E(T_n)
+=
+n\sum_{j=1}^n\frac1j.
+\]</span></p>
+<p>Since</p>
+<p><span class="math display">\[
+\sum_{j=1}^n\frac1j\sim\log n,
+\]</span></p>
+<p>we have</p>
+<p><span class="math display">\[
+E(T_n)\sim n\log n.
+\]</span></p>
+<p>Next, for a geometric random variable,</p>
+<p><span class="math display">\[
+\operatorname{Var}(G)
+=
+\frac{1-p}{p^2}.
+\]</span></p>
+<p>Therefore, by independence,</p>
+<p><span class="math display">\[
+\begin{aligned}
+\operatorname{Var}(T_n)
+&amp;=
+\sum_{k=1}^n
+\operatorname{Var}(a_k(n)) \\
+&amp;=
+\sum_{k=1}^n
+\frac{1-p_k}{p_k^2}.
+\end{aligned}
+\]</span></p>
+<p>Since</p>
+<p><span class="math display">\[
+p_k=\frac{n-k+1}{n},
+\]</span></p>
+<p>we have</p>
+<p><span class="math display">\[
+1-p_k=\frac{k-1}{n},
+\]</span></p>
+<p>so</p>
+<p><span class="math display">\[
+\operatorname{Var}(a_k(n))
+=
+\frac{(k-1)n}{(n-k+1)^2}
+\leq
+\frac{n^2}{(n-k+1)^2}.
+\]</span></p>
+<p>Hence</p>
+<p><span class="math display">\[
+\operatorname{Var}(T_n)
+\leq
+n^2
+\sum_{k=1}^n
+\frac1{(n-k+1)^2}
+=
+n^2
+\sum_{j=1}^n
+\frac1{j^2}.
+\]</span></p>
+<p>Thus, by Chebyshev’s inequality, for every <span class="math inline">\(\varepsilon&gt;0\)</span>,</p>
+<p><span class="math display">\[
+\begin{aligned}
+P\left(
+\left|
+\frac{T_n-E(T_n)}{n\log n}
+\right|&gt;\varepsilon
+\right)
+&amp;\leq
+\frac{\operatorname{Var}(T_n)}
+{\varepsilon^2n^2(\log n)^2} \\
+&amp;\leq
+\frac1{\varepsilon^2(\log n)^2}
+\sum_{j=1}^n\frac1{j^2}
+\to0.
+\end{aligned}
+\]</span></p>
+<p>Therefore</p>
+<p><span class="math display">\[
+\frac{T_n-E(T_n)}{n\log n}
+\xrightarrow{P}0.
+\]</span></p>
+<p>Since</p>
+<p><span class="math display">\[
+\frac{E(T_n)}{n\log n}\to1,
+\]</span></p>
+<p>we finally have</p>
+<p><span class="math display">\[
+\frac{T_n}{n\log n}
+=
+\frac{T_n-E(T_n)}{n\log n}
++
+\frac{E(T_n)}{n\log n}
+\xrightarrow{P}
+0+1=1.
+\]</span></p>
+
 </div>
 </div>
 </div>
