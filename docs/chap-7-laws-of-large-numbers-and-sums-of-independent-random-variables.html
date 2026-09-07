@@ -23,7 +23,7 @@
 <meta name="author" content="Zhanwen Peng" />
 
 
-<meta name="date" content="2026-09-02" />
+<meta name="date" content="2026-09-07" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -545,6 +545,7 @@
 </ul></li>
 <li class="chapter" data-level="" data-path="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html"><a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#ex-29-3"><i class="fa fa-check"></i>Ex 29</a></li>
 <li class="chapter" data-level="" data-path="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html"><a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#ex-30-3"><i class="fa fa-check"></i>Ex 30</a></li>
+<li class="chapter" data-level="" data-path="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html"><a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#ex-46"><i class="fa fa-check"></i>Ex 46</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -10204,6 +10205,156 @@ P\left(
 \frac{E(T_n)}{n\log n}
 \xrightarrow{P}
 0+1=1.
+\]</span></p>
+</div>
+<div id="ex-46" class="section level3 hasAnchor">
+<h3>Ex 46<a href="chap-7-laws-of-large-numbers-and-sums-of-independent-random-variables.html#ex-46" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="problem">
+<p>Suppose <span class="math inline">\(\{X_n,n\geq 1\}\)</span> are iid with Cauchy density. Show that
+<span class="math inline">\(\{S_n/n,n\geq 1\}\)</span> does not converge almost surely but <span class="math inline">\(\frac{\bigvee_{i=1}^nX_i}{n}\)</span> converges in distribution. To what?</p>
+</div>
+<p><span class="math inline">\(\textbf{Answer:}\)</span></p>
+<p>Suppose there exists a random variable <span class="math inline">\(Y\)</span> such that</p>
+<p><span class="math display">\[
+\frac{S_n}{n}\longrightarrow Y
+\qquad \text{a.s.}
+\]</span></p>
+<p>Then</p>
+<p><span class="math display">\[
+\begin{aligned}
+\frac{X_n}{n}
+&amp;=
+\frac{S_n-S_{n-1}}{n} \\
+&amp;=
+\frac{S_n}{n}
+-
+\frac{n-1}{n}
+\frac{S_{n-1}}{n-1}
+\longrightarrow
+Y-Y=0
+\qquad \text{a.s.}
+\end{aligned}
+\]</span></p>
+<p>By Lemma 7.5.1, for iid random variables,</p>
+<p><span class="math display">\[
+\frac{X_n}{n}\longrightarrow0
+\qquad\text{a.s.}
+\]</span></p>
+<p>is equivalent to</p>
+<p><span class="math display">\[
+E|X_1|&lt;\infty.
+\]</span></p>
+<p>However, <span class="math inline">\(X_1\)</span> has a Cauchy distribution, for which</p>
+<p><span class="math display">\[
+E|X_1|=\infty.
+\]</span></p>
+<p>This is a contradiction. Therefore</p>
+<p><span class="math display">\[
+\frac{S_n}{n}
+\]</span></p>
+<p>does not converge almost surely.</p>
+<p>For the second part, let</p>
+<p><span class="math display">\[
+M_n=\max_{1\leq i\leq n}X_i.
+\]</span></p>
+<p>The distribution function of a standard Cauchy random variable is</p>
+<p><span class="math display">\[
+F(x)
+=
+\frac12+\frac1\pi\arctan x.
+\]</span></p>
+<p>Since <span class="math inline">\(\{X_i\}\)</span> are iid,</p>
+<p><span class="math display">\[
+\begin{aligned}
+P\left(\frac{M_n}{n}\leq x\right)
+&amp;=
+P(M_n\leq nx) \\
+&amp;=
+P(X_1\leq nx,\ldots,X_n\leq nx) \\
+&amp;=
+P(X_1\leq nx)^n \\
+&amp;=
+\left(
+\frac12+\frac1\pi\arctan(nx)
+\right)^n.
+\end{aligned}
+\]</span></p>
+<p>For <span class="math inline">\(x&gt;0\)</span>, recall that for <span class="math inline">\(t&gt;0\)</span>,</p>
+<p><span class="math display">\[
+\arctan t+\arctan\frac1t=\frac{\pi}{2}.
+\]</span></p>
+<p>Also,</p>
+<p><span class="math display">\[
+\arctan u
+=
+u+O(u^3),
+\qquad u\to0.
+\]</span></p>
+<p>Therefore</p>
+<p><span class="math display">\[
+\arctan t
+=
+\frac{\pi}{2}
+-
+\frac1t
++
+O\left(\frac1{t^3}\right),
+\qquad t\to\infty.
+\]</span></p>
+<p>Hence, for fixed <span class="math inline">\(x&gt;0\)</span>,</p>
+<p><span class="math display">\[
+\arctan(nx)
+=
+\frac{\pi}{2}
+-
+\frac1{nx}
++
+O\left(\frac1{n^3x^3}\right).
+\]</span></p>
+<p>Thus</p>
+<p><span class="math display">\[
+\begin{aligned}
+P\left(\frac{M_n}{n}\leq x\right)
+&amp;=
+\left[
+1-
+\frac1{\pi nx}
++
+O\left(\frac1{n^3x^3}\right)
+\right]^n \\
+&amp;\longrightarrow
+e^{-1/(\pi x)}.
+\end{aligned}
+\]</span></p>
+<p>For <span class="math inline">\(x\leq0\)</span>,</p>
+<p><span class="math display">\[
+P\left(\frac{M_n}{n}\leq x\right)
+\leq
+P\left(\frac{M_n}{n}\leq0\right).
+\]</span></p>
+<p>Since</p>
+<p><span class="math display">\[
+P(X_1\leq0)=\frac12,
+\]</span></p>
+<p>we have</p>
+<p><span class="math display">\[
+P\left(\frac{M_n}{n}\leq0\right)
+=
+\left(\frac12\right)^n
+\longrightarrow0.
+\]</span></p>
+<p>Therefore</p>
+<p><span class="math display">\[
+\frac{M_n}{n}
+\]</span></p>
+<p>converges in distribution to a random variable with distribution function</p>
+<p><span class="math display">\[
+G(x)
+=
+\begin{cases}
+0, &amp; x\leq0,\\[4pt]
+e^{-1/(\pi x)}, &amp; x&gt;0.
+\end{cases}
 \]</span></p>
 
 </div>

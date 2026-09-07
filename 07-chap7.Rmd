@@ -12497,3 +12497,194 @@ we finally have
 \xrightarrow{P}
 0+1=1.
 \]
+
+### Ex 46
+
+::: problem
+Suppose $\{X_n,n\geq 1\}$ are iid with Cauchy density. Show that
+$\{S_n/n,n\geq 1\}$ does not converge almost surely but $\frac{\bigvee_{i=1}^nX_i}{n}$ converges in distribution. To what?
+:::
+
+$\textbf{Answer:}$
+
+Suppose there exists a random variable $Y$ such that
+
+\[
+\frac{S_n}{n}\longrightarrow Y
+\qquad \text{a.s.}
+\]
+
+Then
+
+\[
+\begin{aligned}
+\frac{X_n}{n}
+&=
+\frac{S_n-S_{n-1}}{n} \\
+&=
+\frac{S_n}{n}
+-
+\frac{n-1}{n}
+\frac{S_{n-1}}{n-1}
+\longrightarrow
+Y-Y=0
+\qquad \text{a.s.}
+\end{aligned}
+\]
+
+By Lemma 7.5.1, for iid random variables,
+
+\[
+\frac{X_n}{n}\longrightarrow0
+\qquad\text{a.s.}
+\]
+
+is equivalent to
+
+\[
+E|X_1|<\infty.
+\]
+
+However, $X_1$ has a Cauchy distribution, for which
+
+\[
+E|X_1|=\infty.
+\]
+
+This is a contradiction. Therefore
+
+\[
+\frac{S_n}{n}
+\]
+
+does not converge almost surely.
+
+For the second part, let
+
+\[
+M_n=\max_{1\leq i\leq n}X_i.
+\]
+
+The distribution function of a standard Cauchy random variable is
+
+\[
+F(x)
+=
+\frac12+\frac1\pi\arctan x.
+\]
+
+Since $\{X_i\}$ are iid,
+
+\[
+\begin{aligned}
+P\left(\frac{M_n}{n}\leq x\right)
+&=
+P(M_n\leq nx) \\
+&=
+P(X_1\leq nx,\ldots,X_n\leq nx) \\
+&=
+P(X_1\leq nx)^n \\
+&=
+\left(
+\frac12+\frac1\pi\arctan(nx)
+\right)^n.
+\end{aligned}
+\]
+
+For $x>0$, recall that for $t>0$,
+
+\[
+\arctan t+\arctan\frac1t=\frac{\pi}{2}.
+\]
+
+Also,
+
+\[
+\arctan u
+=
+u+O(u^3),
+\qquad u\to0.
+\]
+
+Therefore
+
+\[
+\arctan t
+=
+\frac{\pi}{2}
+-
+\frac1t
++
+O\left(\frac1{t^3}\right),
+\qquad t\to\infty.
+\]
+
+Hence, for fixed $x>0$,
+
+\[
+\arctan(nx)
+=
+\frac{\pi}{2}
+-
+\frac1{nx}
++
+O\left(\frac1{n^3x^3}\right).
+\]
+
+Thus
+
+\[
+\begin{aligned}
+P\left(\frac{M_n}{n}\leq x\right)
+&=
+\left[
+1-
+\frac1{\pi nx}
++
+O\left(\frac1{n^3x^3}\right)
+\right]^n \\
+&\longrightarrow
+e^{-1/(\pi x)}.
+\end{aligned}
+\]
+
+For $x\leq0$,
+
+\[
+P\left(\frac{M_n}{n}\leq x\right)
+\leq
+P\left(\frac{M_n}{n}\leq0\right).
+\]
+
+Since
+
+\[
+P(X_1\leq0)=\frac12,
+\]
+
+we have
+
+\[
+P\left(\frac{M_n}{n}\leq0\right)
+=
+\left(\frac12\right)^n
+\longrightarrow0.
+\]
+
+Therefore
+
+\[
+\frac{M_n}{n}
+\]
+
+converges in distribution to a random variable with distribution function
+
+\[
+G(x)
+=
+\begin{cases}
+0, & x\leq0,\\[4pt]
+e^{-1/(\pi x)}, & x>0.
+\end{cases}
+\]
+
