@@ -23,7 +23,7 @@
 <meta name="author" content="Zhanwen Peng" />
 
 
-<meta name="date" content="2026-09-12" />
+<meta name="date" content="2026-09-13" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -550,7 +550,10 @@
 </ul></li>
 <li class="chapter" data-level="" data-path="chap-8-convergence-in-distribution.html"><a href="chap-8-convergence-in-distribution.html"><i class="fa fa-check"></i>Chap 8, Convergence in Distribution</a>
 <ul>
-<li class="chapter" data-level="" data-path="chap-8-convergence-in-distribution.html"><a href="chap-8-convergence-in-distribution.html#summary-6"><i class="fa fa-check"></i>Summary</a></li>
+<li class="chapter" data-level="" data-path="chap-8-convergence-in-distribution.html"><a href="chap-8-convergence-in-distribution.html#summary-6"><i class="fa fa-check"></i>Summary</a>
+<ul>
+<li class="chapter" data-level="" data-path="chap-8-convergence-in-distribution.html"><a href="chap-8-convergence-in-distribution.html#summary-8.18.2"><i class="fa fa-check"></i>Summary 8.1–8.2</a></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="chap-8-convergence-in-distribution.html"><a href="chap-8-convergence-in-distribution.html#exercises-3"><i class="fa fa-check"></i>Exercises</a>
 <ul>
 <li class="chapter" data-level="" data-path="chap-8-convergence-in-distribution.html"><a href="chap-8-convergence-in-distribution.html#ex-2-3"><i class="fa fa-check"></i>Ex 2</a>
@@ -568,6 +571,7 @@
 <li class="chapter" data-level="" data-path="chap-8-convergence-in-distribution.html"><a href="chap-8-convergence-in-distribution.html#e-8"><i class="fa fa-check"></i>(e)</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="chap-8-convergence-in-distribution.html"><a href="chap-8-convergence-in-distribution.html#ex-12-5"><i class="fa fa-check"></i>Ex 12</a></li>
+<li class="chapter" data-level="" data-path="chap-8-convergence-in-distribution.html"><a href="chap-8-convergence-in-distribution.html#ex-18-4"><i class="fa fa-check"></i>Ex 18</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -591,6 +595,61 @@
 <h1>Chap 8, Convergence in Distribution<a href="chap-8-convergence-in-distribution.html#chap-8-convergence-in-distribution" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <div id="summary-6" class="section level2 hasAnchor">
 <h2>Summary<a href="chap-8-convergence-in-distribution.html#summary-6" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="summary-8.18.2" class="section level3 hasAnchor">
+<h3>Summary 8.1–8.2<a href="chap-8-convergence-in-distribution.html#summary-8.18.2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The distribution function is completely determined by its values on a dense set. This is the content behind Lemma 8.1.1.</p>
+<p>For a proper distribution function <span class="math inline">\(F\)</span>, the different notions in Theorem 8.1.1 are equivalent. In particular,</p>
+<p><span class="math display">\[
+F_n(I)\to F(I)
+\]</span></p>
+<p>for every finite interval of continuity <span class="math inline">\(I=(a,b]\)</span> if and only if</p>
+<p><span class="math display">\[
+F_n(x)\to F(x),
+\qquad x\in C(F).
+\]</span></p>
+<p>Here the important point is that properness prevents probability mass from escaping to <span class="math inline">\(\pm\infty\)</span>.</p>
+<p>These are the basic ideas of Section 8.1.</p>
+<p>In Section 8.2, Example 8.2.1 illustrates that</p>
+<p><span class="math display">\[
+X_n \Rightarrow X
+\]</span></p>
+<p>does not guarantee</p>
+<p><span class="math display">\[
+F_n(A)\to F(A),
+\qquad \forall A\in\mathcal B(\mathbb R).
+\]</span></p>
+<p>This shows that weak convergence only controls certain aspects of the induced probability measures. In terms of the distribution function, we only require convergence at continuity points of the limiting distribution function, or equivalently convergence on finite intervals of continuity. This is much weaker than convergence on every Borel set.</p>
+<p>Scheffé’s lemma gives a stronger type of convergence. Suppose the probability measures have densities <span class="math inline">\(f_n\)</span> and <span class="math inline">\(f\)</span> with respect to the same dominating measure <span class="math inline">\(\mu\)</span>, and</p>
+<p><span class="math display">\[
+f_n(x)\to f(x)
+\qquad \mu\text{-a.e.}
+\]</span></p>
+<p>Since <span class="math inline">\(f_n\)</span> and <span class="math inline">\(f\)</span> are probability densities,</p>
+<p><span class="math display">\[
+f_n\geq 0,\qquad f\geq 0,
+\]</span></p>
+<p>and</p>
+<p><span class="math display">\[
+\int f_n\,d\mu
+=
+\int f\,d\mu
+=
+1.
+\]</span></p>
+<p>These properties allow the pointwise almost-everywhere convergence of the densities to be strengthened to</p>
+<p><span class="math display">\[
+\int |f_n-f|\,d\mu\to0.
+\]</span></p>
+<p>Therefore,</p>
+<p><span class="math display">\[
+\sup_{B\in\mathcal B(\mathbb R)}
+|F_n(B)-F(B)|
+\to0.
+\]</span></p>
+<p>Thus Scheffé’s lemma gives much stronger control over the probability measures than weak convergence.</p>
+<p>An important distinction is that Scheffé’s lemma does <strong>not</strong> require the random variables <span class="math inline">\(X_n\)</span> and <span class="math inline">\(X\)</span> to be defined on the same underlying probability space. What is required is that their probability laws admit densities with respect to the same dominating measure <span class="math inline">\(\mu\)</span>.</p>
+<p>For example, in the discrete case, counting measure can be used as the common dominating measure, so probability mass functions can be treated as densities.</p>
+</div>
 </div>
 <div id="exercises-3" class="section level2 hasAnchor">
 <h2>Exercises<a href="chap-8-convergence-in-distribution.html#exercises-3" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -1222,6 +1281,89 @@ f_n\left(\frac12\right)
 \end{cases}
 \]</span></p>
 <p>Thus <span class="math inline">\(f_n(1/2)\)</span> does not converge, and hence the densities <span class="math inline">\(f_n\)</span> do not converge pointwise.</p>
+</div>
+<div id="ex-18-4" class="section level3 hasAnchor">
+<h3>Ex 18<a href="chap-8-convergence-in-distribution.html#ex-18-4" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="problem">
+<p>Give an example of a sequence of discrete distributions that converge weakly to a limit distribution which possesses a density.</p>
+</div>
+<p><span class="math inline">\(\textbf{Answer:}\)</span></p>
+<p>Let <span class="math inline">\(X_n\)</span> be a random variable that puts mass <span class="math inline">\(1/n\)</span> uniformly on</p>
+<p><span class="math display">\[
+\left\{
+\frac{1}{n},\frac{2}{n},\ldots,\frac{n}{n}
+\right\}.
+\]</span></p>
+<p>That is,</p>
+<p><span class="math display">\[
+P\left(X_n=\frac{k}{n}\right)=\frac1n,
+\qquad
+k=1,\ldots,n.
+\]</span></p>
+<p>For <span class="math inline">\(0\le x\le1\)</span>, the distribution function of <span class="math inline">\(X_n\)</span> is</p>
+<p><span class="math display">\[
+F_n(x)
+=
+\frac{\lfloor nx\rfloor}{n}.
+\]</span></p>
+<p>Let <span class="math inline">\(F\)</span> be the distribution function of the uniform distribution on <span class="math inline">\([0,1]\)</span>:</p>
+<p><span class="math display">\[
+F(x)
+=
+\begin{cases}
+0, &amp; x&lt;0,\\
+x, &amp; 0\le x\le1,\\
+1, &amp; x&gt;1.
+\end{cases}
+\]</span></p>
+<p>For <span class="math inline">\(0\le x\le1\)</span>,</p>
+<p><span class="math display">\[
+0
+\le
+x-\frac{\lfloor nx\rfloor}{n}
+&lt;
+\frac1n,
+\]</span></p>
+<p>and therefore</p>
+<p><span class="math display">\[
+F_n(x)
+=
+\frac{\lfloor nx\rfloor}{n}
+\to x
+=
+F(x).
+\]</span></p>
+<p>For <span class="math inline">\(x&lt;0\)</span> and <span class="math inline">\(x&gt;1\)</span>,</p>
+<p><span class="math display">\[
+F_n(x)=F(x).
+\]</span></p>
+<p>Thus,</p>
+<p><span class="math display">\[
+F_n(x)\to F(x)
+\qquad
+\text{for every }x\in\mathbb R,
+\]</span></p>
+<p>so</p>
+<p><span class="math display">\[
+X_n\Rightarrow X,
+\]</span></p>
+<p>where <span class="math inline">\(X\sim U(0,1)\)</span>.</p>
+<p>The limiting distribution possesses the density</p>
+<p><span class="math display">\[
+f(x)
+=
+\begin{cases}
+1, &amp; 0&lt;x&lt;1,\\
+0, &amp; \text{otherwise}.
+\end{cases}
+\]</span></p>
+<p>Hence a sequence of discrete distributions can converge weakly to a distribution possessing a density.</p>
+<p><span class="math inline">\(\textbf{Note:}\)</span> In basic probability and statistics, we usually take the central limit theorem result</p>
+<p><span class="math display">\[
+\frac{B_n-np}{\sqrt{np(1-p)}}\Rightarrow N(0,1),
+\qquad B_n\sim\operatorname{Bin}(n,p),
+\]</span></p>
+<p>as a familiar fact. This would also provide an example of discrete distributions converging weakly to a distribution possessing a density. However, since we have not yet learned the CLT in this book, we use the discrete-uniform-grid example above instead.</p>
 
 </div>
 </div>

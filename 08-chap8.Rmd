@@ -1,6 +1,85 @@
 # Chap 8, Convergence in Distribution
 
 ## Summary
+### Summary 8.1--8.2
+
+The distribution function is completely determined by its values on a dense set. This is the content behind Lemma 8.1.1.
+
+For a proper distribution function $F$, the different notions in Theorem 8.1.1 are equivalent. In particular,
+
+\[
+F_n(I)\to F(I)
+\]
+
+for every finite interval of continuity $I=(a,b]$ if and only if
+
+\[
+F_n(x)\to F(x),
+\qquad x\in C(F).
+\]
+
+Here the important point is that properness prevents probability mass from escaping to $\pm\infty$.
+
+These are the basic ideas of Section 8.1.
+
+In Section 8.2, Example 8.2.1 illustrates that
+
+\[
+X_n \Rightarrow X
+\]
+
+does not guarantee
+
+\[
+F_n(A)\to F(A),
+\qquad \forall A\in\mathcal B(\mathbb R).
+\]
+
+This shows that weak convergence only controls certain aspects of the induced probability measures. In terms of the distribution function, we only require convergence at continuity points of the limiting distribution function, or equivalently convergence on finite intervals of continuity. This is much weaker than convergence on every Borel set.
+
+Scheffé's lemma gives a stronger type of convergence. Suppose the probability measures have densities $f_n$ and $f$ with respect to the same dominating measure $\mu$, and
+
+\[
+f_n(x)\to f(x)
+\qquad \mu\text{-a.e.}
+\]
+
+Since $f_n$ and $f$ are probability densities,
+
+\[
+f_n\geq 0,\qquad f\geq 0,
+\]
+
+and
+
+\[
+\int f_n\,d\mu
+=
+\int f\,d\mu
+=
+1.
+\]
+
+These properties allow the pointwise almost-everywhere convergence of the densities to be strengthened to
+
+\[
+\int |f_n-f|\,d\mu\to0.
+\]
+
+Therefore,
+
+\[
+\sup_{B\in\mathcal B(\mathbb R)}
+|F_n(B)-F(B)|
+\to0.
+\]
+
+Thus Scheffé's lemma gives much stronger control over the probability measures than weak convergence.
+
+An important distinction is that Scheffé's lemma does **not** require the random variables $X_n$ and $X$ to be defined on the same underlying probability space. What is required is that their probability laws admit densities with respect to the same dominating measure $\mu$.
+
+For example, in the discrete case, counting measure can be used as the common dominating measure, so probability mass functions can be treated as densities.
+
 
 ##  Exercises
 ### Ex 2
@@ -838,3 +917,113 @@ f_n\left(\frac12\right)
 $$
 
 Thus $f_n(1/2)$ does not converge, and hence the densities $f_n$ do not converge pointwise.
+
+### Ex 18
+::: problem
+
+Give an example of a sequence of discrete distributions that converge weakly to a limit distribution which possesses a density.
+
+:::
+
+$\textbf{Answer:}$
+
+Let $X_n$ be a random variable that puts mass $1/n$ uniformly on
+
+$$
+\left\{
+\frac{1}{n},\frac{2}{n},\ldots,\frac{n}{n}
+\right\}.
+$$
+
+That is,
+
+$$
+P\left(X_n=\frac{k}{n}\right)=\frac1n,
+\qquad
+k=1,\ldots,n.
+$$
+
+For $0\le x\le1$, the distribution function of $X_n$ is
+
+$$
+F_n(x)
+=
+\frac{\lfloor nx\rfloor}{n}.
+$$
+
+Let $F$ be the distribution function of the uniform distribution on $[0,1]$:
+
+$$
+F(x)
+=
+\begin{cases}
+0, & x<0,\\
+x, & 0\le x\le1,\\
+1, & x>1.
+\end{cases}
+$$
+
+For $0\le x\le1$,
+
+$$
+0
+\le
+x-\frac{\lfloor nx\rfloor}{n}
+<
+\frac1n,
+$$
+
+and therefore
+
+$$
+F_n(x)
+=
+\frac{\lfloor nx\rfloor}{n}
+\to x
+=
+F(x).
+$$
+
+For $x<0$ and $x>1$,
+
+$$
+F_n(x)=F(x).
+$$
+
+Thus,
+
+$$
+F_n(x)\to F(x)
+\qquad
+\text{for every }x\in\mathbb R,
+$$
+
+so
+
+$$
+X_n\Rightarrow X,
+$$
+
+where $X\sim U(0,1)$.
+
+The limiting distribution possesses the density
+
+$$
+f(x)
+=
+\begin{cases}
+1, & 0<x<1,\\
+0, & \text{otherwise}.
+\end{cases}
+$$
+
+Hence a sequence of discrete distributions can converge weakly to a distribution possessing a density.
+
+$\textbf{Note:}$ In basic probability and statistics, we usually take the central limit theorem result
+
+$$
+\frac{B_n-np}{\sqrt{np(1-p)}}\Rightarrow N(0,1),
+\qquad B_n\sim\operatorname{Bin}(n,p),
+$$
+
+as a familiar fact. This would also provide an example of discrete distributions converging weakly to a distribution possessing a density. However, since we have not yet learned the CLT in this book, we use the discrete-uniform-grid example above instead.
