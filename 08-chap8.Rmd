@@ -1112,3 +1112,208 @@ Thus the survival functions converge to that of a unit exponential random variab
 $$
 pV_p\Rightarrow E.
 $$
+
+### Ex 21
+::: problem
+
+Sampling with replacement. Let $\{X_n, n \ge 1\}$ be iid and uniformly distributed on the set $\{1,\ldots,m\}$. In repeated sampling, let $V_m$ be the time of the first coincidence; that is, the time when we first get a repeated outcome
+
+$$
+V_m:=\inf\{n\ge2:X_n\in\{X_1,\ldots,X_{n-1}\}\}.
+$$
+
+Verify that
+
+$$
+P[V_m>n]
+=
+\prod_{i=2}^n
+\left(1-\frac{i-1}{m}\right).
+$$
+
+Show as $m\to\infty$ that
+
+$$
+V_m/\sqrt m\Rightarrow V
+$$
+
+where
+
+$$
+P[V>x]=\exp\{-x^2/2\},\qquad x>0.
+$$
+
+:::
+
+$\textbf{Answer:}$
+
+The event
+
+$$
+[V_m>n]
+$$
+
+means that the first $n$ samples are all different.
+
+The first sample can take any value. For the second sample, there are $m-1$ possible values different from the first one; for the third sample, there are $m-2$ possible values different from the first two; and so on. Therefore,
+
+$$
+P(V_m>n)
+=
+\frac{m-1}{m}
+\frac{m-2}{m}
+\cdots
+\frac{m-n+1}{m},
+$$
+
+so
+
+$$
+P(V_m>n)
+=
+\prod_{i=2}^n
+\left(1-\frac{i-1}{m}\right).
+$$
+
+Now fix $x>0$ and let
+
+$$
+N_m=\lfloor x\sqrt m\rfloor.
+$$
+
+Since $V_m$ is integer valued,
+
+$$
+\begin{aligned}
+P\left(\frac{V_m}{\sqrt m}>x\right)
+&=
+P(V_m>x\sqrt m)\\
+&=
+P(V_m>N_m)\\
+&=
+\prod_{j=1}^{N_m-1}
+\left(1-\frac{j}{m}\right).
+\end{aligned}
+$$
+
+Write
+
+$$
+L_m
+=
+P\left(\frac{V_m}{\sqrt m}>x\right).
+$$
+
+Then
+
+$$
+\log L_m
+=
+\sum_{j=1}^{N_m-1}
+\log\left(1-\frac{j}{m}\right).
+$$
+
+Since
+
+$$
+\max_{1\le j\le N_m-1}\frac{j}{m}
+\le
+\frac{N_m}{m}
+\to0,
+$$
+
+we may use
+
+$$
+\log(1-u)
+=
+-u+O(u^2)
+$$
+
+uniformly over the terms in the sum. Hence
+
+$$
+\log L_m
+=
+-\frac1m\sum_{j=1}^{N_m-1}j
++
+O\left(
+\frac1{m^2}
+\sum_{j=1}^{N_m-1}j^2
+\right).
+$$
+
+For the first term,
+
+$$
+-\frac1m\sum_{j=1}^{N_m-1}j
+=
+-\frac{N_m(N_m-1)}{2m}.
+$$
+
+Since
+
+$$
+\frac{N_m}{\sqrt m}\to x,
+$$
+
+we have
+
+$$
+-\frac{N_m(N_m-1)}{2m}
+\to
+-\frac{x^2}{2}.
+$$
+
+For the second term,
+
+$$
+\frac1{m^2}
+\sum_{j=1}^{N_m-1}j^2
+=
+O\left(\frac{N_m^3}{m^2}\right).
+$$
+
+Since $N_m$ is of order $\sqrt m$,
+
+$$
+\frac{N_m^3}{m^2}
+=
+O\left(m^{-1/2}\right)
+\to0.
+$$
+
+Therefore,
+
+$$
+\log L_m
+\to
+-\frac{x^2}{2},
+$$
+
+and hence
+
+$$
+P\left(\frac{V_m}{\sqrt m}>x\right)
+\to
+\exp\left\{-\frac{x^2}{2}\right\}.
+$$
+
+Thus,
+
+$$
+\boxed{
+\frac{V_m}{\sqrt m}\Rightarrow V,
+}
+$$
+
+where
+
+$$
+P(V>x)
+=
+\exp\left\{-\frac{x^2}{2}\right\},
+\qquad x>0.
+$$
+
+

@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chap 8, Convergence in Distribution | Notes on A Probability Path (Resnick)</title>
   <meta name="description" content="Chap 8, Convergence in Distribution | Notes on A Probability Path (Resnick)" />
-  <meta name="generator" content="bookdown 0.42 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.46 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chap 8, Convergence in Distribution | Notes on A Probability Path (Resnick)" />
   <meta property="og:type" content="book" />
@@ -573,6 +573,7 @@
 <li class="chapter" data-level="" data-path="chap-8-convergence-in-distribution.html"><a href="chap-8-convergence-in-distribution.html#ex-12-5"><i class="fa fa-check"></i>Ex 12</a></li>
 <li class="chapter" data-level="" data-path="chap-8-convergence-in-distribution.html"><a href="chap-8-convergence-in-distribution.html#ex-18-4"><i class="fa fa-check"></i>Ex 18</a></li>
 <li class="chapter" data-level="" data-path="chap-8-convergence-in-distribution.html"><a href="chap-8-convergence-in-distribution.html#ex-20-4"><i class="fa fa-check"></i>Ex 20</a></li>
+<li class="chapter" data-level="" data-path="chap-8-convergence-in-distribution.html"><a href="chap-8-convergence-in-distribution.html#ex-21-4"><i class="fa fa-check"></i>Ex 21</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -1427,6 +1428,161 @@ P(pV_p&gt;x)=1=P(E&gt;x).
 <p>Thus the survival functions converge to that of a unit exponential random variable, and therefore</p>
 <p><span class="math display">\[
 pV_p\Rightarrow E.
+\]</span></p>
+</div>
+<div id="ex-21-4" class="section level3 hasAnchor">
+<h3>Ex 21<a href="chap-8-convergence-in-distribution.html#ex-21-4" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="problem">
+<p>Sampling with replacement. Let <span class="math inline">\(\{X_n, n \ge 1\}\)</span> be iid and uniformly distributed on the set <span class="math inline">\(\{1,\ldots,m\}\)</span>. In repeated sampling, let <span class="math inline">\(V_m\)</span> be the time of the first coincidence; that is, the time when we first get a repeated outcome</p>
+<p><span class="math display">\[
+V_m:=\inf\{n\ge2:X_n\in\{X_1,\ldots,X_{n-1}\}\}.
+\]</span></p>
+<p>Verify that</p>
+<p><span class="math display">\[
+P[V_m&gt;n]
+=
+\prod_{i=2}^n
+\left(1-\frac{i-1}{m}\right).
+\]</span></p>
+<p>Show as <span class="math inline">\(m\to\infty\)</span> that</p>
+<p><span class="math display">\[
+V_m/\sqrt m\Rightarrow V
+\]</span></p>
+<p>where</p>
+<p><span class="math display">\[
+P[V&gt;x]=\exp\{-x^2/2\},\qquad x&gt;0.
+\]</span></p>
+</div>
+<p><span class="math inline">\(\textbf{Answer:}\)</span></p>
+<p>The event</p>
+<p><span class="math display">\[
+[V_m&gt;n]
+\]</span></p>
+<p>means that the first <span class="math inline">\(n\)</span> samples are all different.</p>
+<p>The first sample can take any value. For the second sample, there are <span class="math inline">\(m-1\)</span> possible values different from the first one; for the third sample, there are <span class="math inline">\(m-2\)</span> possible values different from the first two; and so on. Therefore,</p>
+<p><span class="math display">\[
+P(V_m&gt;n)
+=
+\frac{m-1}{m}
+\frac{m-2}{m}
+\cdots
+\frac{m-n+1}{m},
+\]</span></p>
+<p>so</p>
+<p><span class="math display">\[
+P(V_m&gt;n)
+=
+\prod_{i=2}^n
+\left(1-\frac{i-1}{m}\right).
+\]</span></p>
+<p>Now fix <span class="math inline">\(x&gt;0\)</span> and let</p>
+<p><span class="math display">\[
+N_m=\lfloor x\sqrt m\rfloor.
+\]</span></p>
+<p>Since <span class="math inline">\(V_m\)</span> is integer valued,</p>
+<p><span class="math display">\[
+\begin{aligned}
+P\left(\frac{V_m}{\sqrt m}&gt;x\right)
+&amp;=
+P(V_m&gt;x\sqrt m)\\
+&amp;=
+P(V_m&gt;N_m)\\
+&amp;=
+\prod_{j=1}^{N_m-1}
+\left(1-\frac{j}{m}\right).
+\end{aligned}
+\]</span></p>
+<p>Write</p>
+<p><span class="math display">\[
+L_m
+=
+P\left(\frac{V_m}{\sqrt m}&gt;x\right).
+\]</span></p>
+<p>Then</p>
+<p><span class="math display">\[
+\log L_m
+=
+\sum_{j=1}^{N_m-1}
+\log\left(1-\frac{j}{m}\right).
+\]</span></p>
+<p>Since</p>
+<p><span class="math display">\[
+\max_{1\le j\le N_m-1}\frac{j}{m}
+\le
+\frac{N_m}{m}
+\to0,
+\]</span></p>
+<p>we may use</p>
+<p><span class="math display">\[
+\log(1-u)
+=
+-u+O(u^2)
+\]</span></p>
+<p>uniformly over the terms in the sum. Hence</p>
+<p><span class="math display">\[
+\log L_m
+=
+-\frac1m\sum_{j=1}^{N_m-1}j
++
+O\left(
+\frac1{m^2}
+\sum_{j=1}^{N_m-1}j^2
+\right).
+\]</span></p>
+<p>For the first term,</p>
+<p><span class="math display">\[
+-\frac1m\sum_{j=1}^{N_m-1}j
+=
+-\frac{N_m(N_m-1)}{2m}.
+\]</span></p>
+<p>Since</p>
+<p><span class="math display">\[
+\frac{N_m}{\sqrt m}\to x,
+\]</span></p>
+<p>we have</p>
+<p><span class="math display">\[
+-\frac{N_m(N_m-1)}{2m}
+\to
+-\frac{x^2}{2}.
+\]</span></p>
+<p>For the second term,</p>
+<p><span class="math display">\[
+\frac1{m^2}
+\sum_{j=1}^{N_m-1}j^2
+=
+O\left(\frac{N_m^3}{m^2}\right).
+\]</span></p>
+<p>Since <span class="math inline">\(N_m\)</span> is of order <span class="math inline">\(\sqrt m\)</span>,</p>
+<p><span class="math display">\[
+\frac{N_m^3}{m^2}
+=
+O\left(m^{-1/2}\right)
+\to0.
+\]</span></p>
+<p>Therefore,</p>
+<p><span class="math display">\[
+\log L_m
+\to
+-\frac{x^2}{2},
+\]</span></p>
+<p>and hence</p>
+<p><span class="math display">\[
+P\left(\frac{V_m}{\sqrt m}&gt;x\right)
+\to
+\exp\left\{-\frac{x^2}{2}\right\}.
+\]</span></p>
+<p>Thus,</p>
+<p><span class="math display">\[
+\boxed{
+\frac{V_m}{\sqrt m}\Rightarrow V,
+}
+\]</span></p>
+<p>where</p>
+<p><span class="math display">\[
+P(V&gt;x)
+=
+\exp\left\{-\frac{x^2}{2}\right\},
+\qquad x&gt;0.
 \]</span></p>
 
 </div>
