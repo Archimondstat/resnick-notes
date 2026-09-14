@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chap 8, Convergence in Distribution | Notes on A Probability Path (Resnick)</title>
   <meta name="description" content="Chap 8, Convergence in Distribution | Notes on A Probability Path (Resnick)" />
-  <meta name="generator" content="bookdown 0.46 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.42 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chap 8, Convergence in Distribution | Notes on A Probability Path (Resnick)" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="Zhanwen Peng" />
 
 
-<meta name="date" content="2026-09-13" />
+<meta name="date" content="2026-09-14" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -572,6 +572,7 @@
 </ul></li>
 <li class="chapter" data-level="" data-path="chap-8-convergence-in-distribution.html"><a href="chap-8-convergence-in-distribution.html#ex-12-5"><i class="fa fa-check"></i>Ex 12</a></li>
 <li class="chapter" data-level="" data-path="chap-8-convergence-in-distribution.html"><a href="chap-8-convergence-in-distribution.html#ex-18-4"><i class="fa fa-check"></i>Ex 18</a></li>
+<li class="chapter" data-level="" data-path="chap-8-convergence-in-distribution.html"><a href="chap-8-convergence-in-distribution.html#ex-20-4"><i class="fa fa-check"></i>Ex 20</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -1364,6 +1365,69 @@ f(x)
 \qquad B_n\sim\operatorname{Bin}(n,p),
 \]</span></p>
 <p>as a familiar fact. This would also provide an example of discrete distributions converging weakly to a distribution possessing a density. However, since we have not yet learned the CLT in this book, we use the discrete-uniform-grid example above instead.</p>
+</div>
+<div id="ex-20-4" class="section level3 hasAnchor">
+<h3>Ex 20<a href="chap-8-convergence-in-distribution.html#ex-20-4" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="problem">
+<p>Suppose we have independent Bernoulli trials where the probability of success in a trial is <span class="math inline">\(p\)</span>. Let <span class="math inline">\(V_p\)</span> be the geometrically distributed number of trials needed to get the first success so that</p>
+<p><span class="math display">\[
+P[V_p \ge n]=(1-p)^{n-1},\qquad n\ge1.
+\]</span></p>
+<p>Show as <span class="math inline">\(p\downarrow0\)</span></p>
+<p><span class="math display">\[
+pV_p\Rightarrow E,
+\]</span></p>
+<p>where <span class="math inline">\(E\)</span> is a unit exponential random variable.</p>
+</div>
+<p><span class="math inline">\(\textbf{Answer:}\)</span></p>
+<p>For <span class="math inline">\(x\ge0\)</span>,</p>
+<p><span class="math display">\[
+\begin{aligned}
+P(pV_p&gt;x)
+&amp;=
+P\left(V_p&gt;\frac{x}{p}\right)\\
+&amp;=
+P\left(
+V_p\ge
+\left\lfloor\frac{x}{p}\right\rfloor+1
+\right)\\
+&amp;=
+(1-p)^{\lfloor x/p\rfloor}.
+\end{aligned}
+\]</span></p>
+<p>Now,</p>
+<p><span class="math display">\[
+\log\left\{(1-p)^{\lfloor x/p\rfloor}\right\}
+=
+p\left\lfloor\frac{x}{p}\right\rfloor
+\frac{\log(1-p)}{p}.
+\]</span></p>
+<p>As <span class="math inline">\(p\downarrow0\)</span>,</p>
+<p><span class="math display">\[
+p\left\lfloor\frac{x}{p}\right\rfloor\to x
+\]</span></p>
+<p>and</p>
+<p><span class="math display">\[
+\frac{\log(1-p)}{p}\to-1.
+\]</span></p>
+<p>Therefore,</p>
+<p><span class="math display">\[
+(1-p)^{\lfloor x/p\rfloor}
+\to
+e^{-x}.
+\]</span></p>
+<p>Hence, for <span class="math inline">\(x\ge0\)</span>,</p>
+<p><span class="math display">\[
+P(pV_p&gt;x)\to e^{-x}=P(E&gt;x).
+\]</span></p>
+<p>For <span class="math inline">\(x&lt;0\)</span>,</p>
+<p><span class="math display">\[
+P(pV_p&gt;x)=1=P(E&gt;x).
+\]</span></p>
+<p>Thus the survival functions converge to that of a unit exponential random variable, and therefore</p>
+<p><span class="math display">\[
+pV_p\Rightarrow E.
+\]</span></p>
 
 </div>
 </div>

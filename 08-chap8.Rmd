@@ -1027,3 +1027,88 @@ $$
 $$
 
 as a familiar fact. This would also provide an example of discrete distributions converging weakly to a distribution possessing a density. However, since we have not yet learned the CLT in this book, we use the discrete-uniform-grid example above instead.
+
+### Ex 20
+::: problem
+
+Suppose we have independent Bernoulli trials where the probability of success in a trial is $p$. Let $V_p$ be the geometrically distributed number of trials needed to get the first success so that
+
+$$
+P[V_p \ge n]=(1-p)^{n-1},\qquad n\ge1.
+$$
+
+Show as $p\downarrow0$
+
+$$
+pV_p\Rightarrow E,
+$$
+
+where $E$ is a unit exponential random variable.
+
+:::
+
+$\textbf{Answer:}$
+
+For $x\ge0$,
+
+$$
+\begin{aligned}
+P(pV_p>x)
+&=
+P\left(V_p>\frac{x}{p}\right)\\
+&=
+P\left(
+V_p\ge
+\left\lfloor\frac{x}{p}\right\rfloor+1
+\right)\\
+&=
+(1-p)^{\lfloor x/p\rfloor}.
+\end{aligned}
+$$
+
+Now,
+
+$$
+\log\left\{(1-p)^{\lfloor x/p\rfloor}\right\}
+=
+p\left\lfloor\frac{x}{p}\right\rfloor
+\frac{\log(1-p)}{p}.
+$$
+
+As $p\downarrow0$,
+
+$$
+p\left\lfloor\frac{x}{p}\right\rfloor\to x
+$$
+
+and
+
+$$
+\frac{\log(1-p)}{p}\to-1.
+$$
+
+Therefore,
+
+$$
+(1-p)^{\lfloor x/p\rfloor}
+\to
+e^{-x}.
+$$
+
+Hence, for $x\ge0$,
+
+$$
+P(pV_p>x)\to e^{-x}=P(E>x).
+$$
+
+For $x<0$,
+
+$$
+P(pV_p>x)=1=P(E>x).
+$$
+
+Thus the survival functions converge to that of a unit exponential random variable, and therefore
+
+$$
+pV_p\Rightarrow E.
+$$
