@@ -23,7 +23,7 @@
 <meta name="author" content="Zhanwen Peng" />
 
 
-<meta name="date" content="2026-09-14" />
+<meta name="date" content="2026-09-19" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -574,6 +574,12 @@
 <li class="chapter" data-level="" data-path="chap-8-convergence-in-distribution.html"><a href="chap-8-convergence-in-distribution.html#ex-18-4"><i class="fa fa-check"></i>Ex 18</a></li>
 <li class="chapter" data-level="" data-path="chap-8-convergence-in-distribution.html"><a href="chap-8-convergence-in-distribution.html#ex-20-4"><i class="fa fa-check"></i>Ex 20</a></li>
 <li class="chapter" data-level="" data-path="chap-8-convergence-in-distribution.html"><a href="chap-8-convergence-in-distribution.html#ex-21-4"><i class="fa fa-check"></i>Ex 21</a></li>
+<li class="chapter" data-level="" data-path="chap-8-convergence-in-distribution.html"><a href="chap-8-convergence-in-distribution.html#ex-32-4"><i class="fa fa-check"></i>Ex 32</a></li>
+<li class="chapter" data-level="" data-path="chap-8-convergence-in-distribution.html"><a href="chap-8-convergence-in-distribution.html#ex-8-3"><i class="fa fa-check"></i>Ex 8</a>
+<ul>
+<li class="chapter" data-level="" data-path="chap-8-convergence-in-distribution.html"><a href="chap-8-convergence-in-distribution.html#a-36"><i class="fa fa-check"></i>(a)</a></li>
+<li class="chapter" data-level="" data-path="chap-8-convergence-in-distribution.html"><a href="chap-8-convergence-in-distribution.html#b-36"><i class="fa fa-check"></i>(b)</a></li>
+</ul></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -1584,7 +1590,333 @@ P(V&gt;x)
 \exp\left\{-\frac{x^2}{2}\right\},
 \qquad x&gt;0.
 \]</span></p>
+</div>
+<div id="ex-32-4" class="section level3 hasAnchor">
+<h3>Ex 32<a href="chap-8-convergence-in-distribution.html#ex-32-4" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="problem">
+<p>Given random variables <span class="math inline">\(\{X_n\}\)</span> such that <span class="math inline">\(0\le X_n\le 1\)</span>. Suppose for all <span class="math inline">\(x\in(0,1)\)</span></p>
+<p><span class="math display">\[
+P[X_n\le x]\to 1-p.
+\]</span></p>
+<p>Show <span class="math inline">\(X_n\Rightarrow B\)</span> where <span class="math inline">\(B\)</span> is a Bernoulli random variable with success probability <span class="math inline">\(p\)</span>.</p>
+</div>
+<p><span class="math inline">\(\textbf{Answer:}\)</span></p>
+<p>The df of <span class="math inline">\(B\sim\operatorname{Bernoulli}(p)\)</span> is</p>
+<p><span class="math display">\[
+F_B(x)=
+\begin{cases}
+0, &amp; x&lt;0,\\
+1-p, &amp; 0\le x&lt;1,\\
+1, &amp; x\ge1.
+\end{cases}
+\]</span></p>
+<p>For every <span class="math inline">\(x\in(0,1)\)</span>, by assumption,</p>
+<p><span class="math display">\[
+F_n(x)
+=
+P(X_n\le x)
+\to
+1-p
+=
+F_B(x).
+\]</span></p>
+<p>Since</p>
+<p><span class="math display">\[
+0\le X_n\le1,
+\]</span></p>
+<p>for every <span class="math inline">\(n\)</span>,</p>
+<p><span class="math display">\[
+F_n(x)=0=F_B(x),
+\qquad x&lt;0,
+\]</span></p>
+<p>and</p>
+<p><span class="math display">\[
+F_n(x)=1=F_B(x),
+\qquad x&gt;1.
+\]</span></p>
+<p>Thus <span class="math inline">\(F_n(x)\to F_B(x)\)</span> at every continuity point of <span class="math inline">\(F_B\)</span>, except that when
+<span class="math inline">\(p=1\)</span>, <span class="math inline">\(x=0\)</span> is also a continuity point. In this case, for any fixed <span class="math inline">\(y\in(0,1)\)</span>,</p>
+<p><span class="math display">\[
+0\le F_n(0)\le F_n(y)\to0,
+\]</span></p>
+<p>so</p>
+<p><span class="math display">\[
+F_n(0)\to0=F_B(0).
+\]</span></p>
+<p>Therefore, in all cases,</p>
+<p><span class="math display">\[
+F_n(x)\to F_B(x)
+\]</span></p>
+<p>for every <span class="math inline">\(x\in C(F_B)\)</span>, and hence</p>
+<p><span class="math display">\[
+X_n\Rightarrow B.
+\]</span></p>
+</div>
+<div id="ex-8-3" class="section level3 hasAnchor">
+<h3>Ex 8<a href="chap-8-convergence-in-distribution.html#ex-8-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="problem">
+<p>Suppose <span class="math inline">\(X_1,\ldots,X_n\)</span> are iid exponentially distributed with mean 1. Let</p>
+<p><span class="math display">\[
+X_{1,n}&lt;\cdots&lt;X_{n,n}
+\]</span></p>
+<p>be the order statistics. Fix an integer <span class="math inline">\(l\)</span> and show</p>
+<p><span class="math display">\[
+nX_{l,n}\Rightarrow Y_l
+\]</span></p>
+<p>where <span class="math inline">\(Y_l\)</span> has a gamma<span class="math inline">\((l,1)\)</span> distribution.</p>
+<p>Try doing this (a) in a straightforward way by brute force and then (b) try using the Renyi representation for the spacings of order statistics from the exponential density. See Exercise 32 on page 116.</p>
+</div>
+<p><span class="math inline">\(\textbf{Answer:}\)</span></p>
+<div id="a-36" class="section level4 hasAnchor">
+<h4>(a)<a href="chap-8-convergence-in-distribution.html#a-36" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>For <span class="math inline">\(t&gt;0\)</span>, define</p>
+<p><span class="math display">\[
+N_n(t)
+=
+\#\{i:X_i\le t\}.
+\]</span></p>
+<p>The event</p>
+<p><span class="math display">\[
+[X_{l,n}\le t]
+\]</span></p>
+<p>occurs if and only if at least <span class="math inline">\(l\)</span> of <span class="math inline">\(X_1,\ldots,X_n\)</span> are less than or equal to <span class="math inline">\(t\)</span>. Thus,</p>
+<p><span class="math display">\[
+[X_{l,n}\le t]
+=
+[N_n(t)\ge l].
+\]</span></p>
+<p>Since <span class="math inline">\(X_i\sim\operatorname{Exp}(1)\)</span>,</p>
+<p><span class="math display">\[
+P(X_i\le t)=1-e^{-t},
+\]</span></p>
+<p>so</p>
+<p><span class="math display">\[
+N_n(t)\sim
+\operatorname{Bin}\left(n,1-e^{-t}\right).
+\]</span></p>
+<p>Therefore, for <span class="math inline">\(x&gt;0\)</span>,</p>
+<p><span class="math display">\[
+\begin{aligned}
+P(nX_{l,n}\le x)
+&amp;=
+P\left(X_{l,n}\le\frac{x}{n}\right)\\
+&amp;=
+P\left(N_n\left(\frac{x}{n}\right)\ge l\right).
+\end{aligned}
+\]</span></p>
+<p>For each fixed <span class="math inline">\(k\)</span>,</p>
+<p><span class="math display">\[
+\begin{aligned}
+P\left(N_n\left(\frac{x}{n}\right)=k\right)
+&amp;=
+\binom{n}{k}
+\left(1-e^{-x/n}\right)^k
+\left(e^{-x/n}\right)^{n-k}\\
+&amp;=
+\frac{n(n-1)\cdots(n-k+1)}{k!}
+\left(1-e^{-x/n}\right)^k
+e^{-x(1-k/n)}.
+\end{aligned}
+\]</span></p>
+<p>Rewrite the first two factors as</p>
+<p><span class="math display">\[
+\frac{1}{k!}
+\prod_{j=0}^{k-1}
+\left[
+\frac{n-j}{n}
+\cdot
+n\left(1-e^{-x/n}\right)
+\right].
+\]</span></p>
+<p>Since <span class="math inline">\(k\)</span> is fixed,</p>
+<p><span class="math display">\[
+\frac{n-j}{n}\to1,
+\qquad j=0,\ldots,k-1,
+\]</span></p>
+<p>and</p>
+<p><span class="math display">\[
+n\left(1-e^{-x/n}\right)\to x.
+\]</span></p>
+<p>Also,</p>
+<p><span class="math display">\[
+e^{-x(1-k/n)}\to e^{-x}.
+\]</span></p>
+<p>Hence</p>
+<p><span class="math display">\[
+P\left(N_n\left(\frac{x}{n}\right)=k\right)
+\to
+e^{-x}\frac{x^k}{k!}
+=
+P(\operatorname{Poi}(x)=k).
+\]</span></p>
+<p>Now,</p>
+<p><span class="math display">\[
+\begin{aligned}
+P(nX_{l,n}\le x)
+&amp;=
+P\left(N_n\left(\frac{x}{n}\right)\ge l\right)\\
+&amp;=
+1-
+\sum_{k=0}^{l-1}
+P\left(N_n\left(\frac{x}{n}\right)=k\right).
+\end{aligned}
+\]</span></p>
+<p>Since this is a finite sum,</p>
+<p><span class="math display">\[
+P(nX_{l,n}\le x)
+\to
+1-
+\sum_{k=0}^{l-1}
+e^{-x}\frac{x^k}{k!}.
+\]</span></p>
+<p>But if</p>
+<p><span class="math display">\[
+Y_l\sim\operatorname{Gamma}(l,1),
+\]</span></p>
+<p>then</p>
+<p><span class="math display">\[
+P(Y_l\le x)
+=
+1-
+\sum_{k=0}^{l-1}
+e^{-x}\frac{x^k}{k!}.
+\]</span></p>
+<p>Therefore,</p>
+<p><span class="math display">\[
+nX_{l,n}\Rightarrow Y_l.
+\]</span></p>
+</div>
+<div id="b-36" class="section level4 hasAnchor">
+<h4>(b)<a href="chap-8-convergence-in-distribution.html#b-36" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Using the Renyi representation, write</p>
+<p><span class="math display">\[
+X_{l,n}
+=
+X_{1,n}
++
+(X_{2,n}-X_{1,n})
++\cdots+
+(X_{l,n}-X_{l-1,n}).
+\]</span></p>
+<p>Thus,</p>
+<p><span class="math display">\[
+X_{l,n}
+=
+\sum_{i=0}^{l-1}\xi_{i,n},
+\]</span></p>
+<p>where the <span class="math inline">\(\xi_{i,n}\)</span> are independent and</p>
+<p><span class="math display">\[
+\xi_{i,n}\sim\operatorname{Exp}(n-i).
+\]</span></p>
+<p>Let</p>
+<p><span class="math display">\[
+Y_{i,n}=n\xi_{i,n}.
+\]</span></p>
+<p>Then</p>
+<p><span class="math display">\[
+Y_{i,n}
+\sim
+\operatorname{Exp}\left(\frac{n-i}{n}\right)
+=
+\operatorname{Exp}\left(1-\frac{i}{n}\right).
+\]</span></p>
+<p>Hence the density of <span class="math inline">\(Y_{i,n}\)</span> is</p>
+<p><span class="math display">\[
+f_{i,n}(y)
+=
+\left(1-\frac{i}{n}\right)
+\exp\left\{
+-\left(1-\frac{i}{n}\right)y
+\right\}
+1_{\{y&gt;0\}}.
+\]</span></p>
+<p>For each fixed <span class="math inline">\(i=0,\ldots,l-1\)</span>,</p>
+<p><span class="math display">\[
+f_{i,n}(y)
+\to
+e^{-y}1_{\{y&gt;0\}}.
+\]</span></p>
+<p>Since <span class="math inline">\(Y_{0,n},\ldots,Y_{l-1,n}\)</span> are independent, their joint density is</p>
+<p><span class="math display">\[
+g_n(y_0,\ldots,y_{l-1})
+=
+\prod_{i=0}^{l-1}
+f_{i,n}(y_i).
+\]</span></p>
+<p>Therefore,</p>
+<p><span class="math display">\[
+g_n(y_0,\ldots,y_{l-1})
+\to
+\prod_{i=0}^{l-1}
+e^{-y_i}1_{\{y_i&gt;0\}}
+=
+:g(y_0,\ldots,y_{l-1}).
+\]</span></p>
+<p>Both <span class="math inline">\(g_n\)</span> and <span class="math inline">\(g\)</span> are densities on <span class="math inline">\(\mathbb{R}^l\)</span>. By Scheffé’s lemma,</p>
+<p><span class="math display">\[
+\int_{\mathbb{R}^l}
+|g_n-g|\,dy
+\to0.
+\]</span></p>
+<p>For <span class="math inline">\(x&gt;0\)</span>, define</p>
+<p><span class="math display">\[
+A_x
+=
+\left\{
+(y_0,\ldots,y_{l-1}):
+\sum_{i=0}^{l-1}y_i\le x
+\right\}.
+\]</span></p>
+<p>Then</p>
+<p><span class="math display">\[
+\begin{aligned}
+&amp;
+\left|
+P\left(
+\sum_{i=0}^{l-1}Y_{i,n}\le x
+\right)
+-
+P\left(
+\sum_{i=0}^{l-1}Y_i\le x
+\right)
+\right|\\
+&amp;\qquad=
+\left|
+\int_{A_x}(g_n-g)\,dy
+\right|\\
+&amp;\qquad\le
+\int_{\mathbb{R}^l}
+|g_n-g|\,dy
+\to0,
+\end{aligned}
+\]</span></p>
+<p>where <span class="math inline">\(Y_0,\ldots,Y_{l-1}\)</span> are iid <span class="math inline">\(\operatorname{Exp}(1)\)</span>.</p>
+<p>Therefore,</p>
+<p><span class="math display">\[
+\sum_{i=0}^{l-1}Y_{i,n}
+\Rightarrow
+\sum_{i=0}^{l-1}Y_i.
+\]</span></p>
+<p>But</p>
+<p><span class="math display">\[
+\sum_{i=0}^{l-1}Y_i
+\sim
+\operatorname{Gamma}(l,1),
+\]</span></p>
+<p>and</p>
+<p><span class="math display">\[
+\sum_{i=0}^{l-1}Y_{i,n}
+=
+nX_{l,n}.
+\]</span></p>
+<p>Hence,</p>
+<p><span class="math display">\[
+nX_{l,n}
+\Rightarrow
+\operatorname{Gamma}(l,1).
+\]</span></p>
 
+</div>
 </div>
 </div>
 </div>

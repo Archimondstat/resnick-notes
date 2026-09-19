@@ -1316,4 +1316,424 @@ P(V>x)
 \qquad x>0.
 $$
 
+### Ex 32
+::: problem
+
+Given random variables $\{X_n\}$ such that $0\le X_n\le 1$. Suppose for all $x\in(0,1)$
+
+$$
+P[X_n\le x]\to 1-p.
+$$
+
+Show $X_n\Rightarrow B$ where $B$ is a Bernoulli random variable with success probability $p$.
+
+:::
+
+$\textbf{Answer:}$
+
+The df of $B\sim\operatorname{Bernoulli}(p)$ is
+
+$$
+F_B(x)=
+\begin{cases}
+0, & x<0,\\
+1-p, & 0\le x<1,\\
+1, & x\ge1.
+\end{cases}
+$$
+
+For every $x\in(0,1)$, by assumption,
+
+$$
+F_n(x)
+=
+P(X_n\le x)
+\to
+1-p
+=
+F_B(x).
+$$
+
+Since
+
+$$
+0\le X_n\le1,
+$$
+
+for every $n$,
+
+$$
+F_n(x)=0=F_B(x),
+\qquad x<0,
+$$
+
+and
+
+$$
+F_n(x)=1=F_B(x),
+\qquad x>1.
+$$
+
+Thus $F_n(x)\to F_B(x)$ at every continuity point of $F_B$, except that when
+$p=1$, $x=0$ is also a continuity point. In this case, for any fixed $y\in(0,1)$,
+
+$$
+0\le F_n(0)\le F_n(y)\to0,
+$$
+
+so
+
+$$
+F_n(0)\to0=F_B(0).
+$$
+
+Therefore, in all cases,
+
+$$
+F_n(x)\to F_B(x)
+$$
+
+for every $x\in C(F_B)$, and hence
+
+$$
+X_n\Rightarrow B.
+$$
+
+
+### Ex 8
+::: problem
+
+Suppose $X_1,\ldots,X_n$ are iid exponentially distributed with mean 1. Let
+
+$$
+X_{1,n}<\cdots<X_{n,n}
+$$
+
+be the order statistics. Fix an integer $l$ and show
+
+$$
+nX_{l,n}\Rightarrow Y_l
+$$
+
+where $Y_l$ has a gamma$(l,1)$ distribution.
+
+Try doing this (a) in a straightforward way by brute force and then (b) try using the Renyi representation for the spacings of order statistics from the exponential density. See Exercise 32 on page 116.
+
+:::
+
+$\textbf{Answer:}$
+
+#### (a)
+
+For $t>0$, define
+
+$$
+N_n(t)
+=
+\#\{i:X_i\le t\}.
+$$
+
+The event
+
+$$
+[X_{l,n}\le t]
+$$
+
+occurs if and only if at least $l$ of $X_1,\ldots,X_n$ are less than or equal to $t$. Thus,
+
+$$
+[X_{l,n}\le t]
+=
+[N_n(t)\ge l].
+$$
+
+Since $X_i\sim\operatorname{Exp}(1)$,
+
+$$
+P(X_i\le t)=1-e^{-t},
+$$
+
+so
+
+$$
+N_n(t)\sim
+\operatorname{Bin}\left(n,1-e^{-t}\right).
+$$
+
+Therefore, for $x>0$,
+
+$$
+\begin{aligned}
+P(nX_{l,n}\le x)
+&=
+P\left(X_{l,n}\le\frac{x}{n}\right)\\
+&=
+P\left(N_n\left(\frac{x}{n}\right)\ge l\right).
+\end{aligned}
+$$
+
+For each fixed $k$,
+
+$$
+\begin{aligned}
+P\left(N_n\left(\frac{x}{n}\right)=k\right)
+&=
+\binom{n}{k}
+\left(1-e^{-x/n}\right)^k
+\left(e^{-x/n}\right)^{n-k}\\
+&=
+\frac{n(n-1)\cdots(n-k+1)}{k!}
+\left(1-e^{-x/n}\right)^k
+e^{-x(1-k/n)}.
+\end{aligned}
+$$
+
+Rewrite the first two factors as
+
+$$
+\frac{1}{k!}
+\prod_{j=0}^{k-1}
+\left[
+\frac{n-j}{n}
+\cdot
+n\left(1-e^{-x/n}\right)
+\right].
+$$
+
+Since $k$ is fixed,
+
+$$
+\frac{n-j}{n}\to1,
+\qquad j=0,\ldots,k-1,
+$$
+
+and
+
+$$
+n\left(1-e^{-x/n}\right)\to x.
+$$
+
+Also,
+
+$$
+e^{-x(1-k/n)}\to e^{-x}.
+$$
+
+Hence
+
+$$
+P\left(N_n\left(\frac{x}{n}\right)=k\right)
+\to
+e^{-x}\frac{x^k}{k!}
+=
+P(\operatorname{Poi}(x)=k).
+$$
+
+Now,
+
+$$
+\begin{aligned}
+P(nX_{l,n}\le x)
+&=
+P\left(N_n\left(\frac{x}{n}\right)\ge l\right)\\
+&=
+1-
+\sum_{k=0}^{l-1}
+P\left(N_n\left(\frac{x}{n}\right)=k\right).
+\end{aligned}
+$$
+
+Since this is a finite sum,
+
+$$
+P(nX_{l,n}\le x)
+\to
+1-
+\sum_{k=0}^{l-1}
+e^{-x}\frac{x^k}{k!}.
+$$
+
+But if
+
+$$
+Y_l\sim\operatorname{Gamma}(l,1),
+$$
+
+then
+
+$$
+P(Y_l\le x)
+=
+1-
+\sum_{k=0}^{l-1}
+e^{-x}\frac{x^k}{k!}.
+$$
+
+Therefore,
+
+$$
+nX_{l,n}\Rightarrow Y_l.
+$$
+
+#### (b)
+
+Using the Renyi representation, write
+
+$$
+X_{l,n}
+=
+X_{1,n}
++
+(X_{2,n}-X_{1,n})
++\cdots+
+(X_{l,n}-X_{l-1,n}).
+$$
+
+Thus,
+
+$$
+X_{l,n}
+=
+\sum_{i=0}^{l-1}\xi_{i,n},
+$$
+
+where the $\xi_{i,n}$ are independent and
+
+$$
+\xi_{i,n}\sim\operatorname{Exp}(n-i).
+$$
+
+Let
+
+$$
+Y_{i,n}=n\xi_{i,n}.
+$$
+
+Then
+
+$$
+Y_{i,n}
+\sim
+\operatorname{Exp}\left(\frac{n-i}{n}\right)
+=
+\operatorname{Exp}\left(1-\frac{i}{n}\right).
+$$
+
+Hence the density of $Y_{i,n}$ is
+
+$$
+f_{i,n}(y)
+=
+\left(1-\frac{i}{n}\right)
+\exp\left\{
+-\left(1-\frac{i}{n}\right)y
+\right\}
+1_{\{y>0\}}.
+$$
+
+For each fixed $i=0,\ldots,l-1$,
+
+$$
+f_{i,n}(y)
+\to
+e^{-y}1_{\{y>0\}}.
+$$
+
+Since $Y_{0,n},\ldots,Y_{l-1,n}$ are independent, their joint density is
+
+$$
+g_n(y_0,\ldots,y_{l-1})
+=
+\prod_{i=0}^{l-1}
+f_{i,n}(y_i).
+$$
+
+Therefore,
+
+$$
+g_n(y_0,\ldots,y_{l-1})
+\to
+\prod_{i=0}^{l-1}
+e^{-y_i}1_{\{y_i>0\}}
+=
+:g(y_0,\ldots,y_{l-1}).
+$$
+
+Both $g_n$ and $g$ are densities on $\mathbb{R}^l$. By Scheffé's lemma,
+
+$$
+\int_{\mathbb{R}^l}
+|g_n-g|\,dy
+\to0.
+$$
+
+For $x>0$, define
+
+$$
+A_x
+=
+\left\{
+(y_0,\ldots,y_{l-1}):
+\sum_{i=0}^{l-1}y_i\le x
+\right\}.
+$$
+
+Then
+
+$$
+\begin{aligned}
+&
+\left|
+P\left(
+\sum_{i=0}^{l-1}Y_{i,n}\le x
+\right)
+-
+P\left(
+\sum_{i=0}^{l-1}Y_i\le x
+\right)
+\right|\\
+&\qquad=
+\left|
+\int_{A_x}(g_n-g)\,dy
+\right|\\
+&\qquad\le
+\int_{\mathbb{R}^l}
+|g_n-g|\,dy
+\to0,
+\end{aligned}
+$$
+
+where $Y_0,\ldots,Y_{l-1}$ are iid $\operatorname{Exp}(1)$.
+
+Therefore,
+
+$$
+\sum_{i=0}^{l-1}Y_{i,n}
+\Rightarrow
+\sum_{i=0}^{l-1}Y_i.
+$$
+
+But
+
+$$
+\sum_{i=0}^{l-1}Y_i
+\sim
+\operatorname{Gamma}(l,1),
+$$
+
+and
+
+$$
+\sum_{i=0}^{l-1}Y_{i,n}
+=
+nX_{l,n}.
+$$
+
+Hence,
+
+$$
+nX_{l,n}
+\Rightarrow
+\operatorname{Gamma}(l,1).
+$$
 
