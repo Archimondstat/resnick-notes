@@ -1737,3 +1737,214 @@ nX_{l,n}
 \operatorname{Gamma}(l,1).
 $$
 
+### Ex 22
+::: problem
+
+Sample median; more order statistics. Let $U_1,\ldots,U_n$ be iid $U(0,1)$ random variables and consider the order statistics
+
+$$
+U_{1,n}\le U_{2,n}\le\cdots\le U_{n,n}.
+$$
+
+When $n$ is odd, the middle order statistic is the sample median. Show that
+
+$$
+2\left(U_{n+1,2n+1}-\frac12\right)\sqrt{2n}
+$$
+
+has a limit distribution. What is it? (Hint: Use Scheffe's lemma 8.2.1 page 253.)
+
+:::
+
+$\textbf{Answer:}$
+
+Intuitively, from the result and framework of Section 8.2.1, we guess that the limit should be standard normal. We now follow the same framework to verify it.
+
+For the order statistic $U_{k,n}$, consider the event
+
+$$
+[U_{k,n}\le x].
+$$
+
+This means that at least $k$ of $U_1,\ldots,U_n$ are less than or equal to $x$.
+
+Define
+
+$$
+N_n(x)=\#\{i:U_i\le x\}.
+$$
+
+Then
+
+$$
+[U_{k,n}\le x]
+\iff
+[N_n(x)\ge k].
+$$
+
+Since the $U_i$'s are iid $U(0,1)$,
+
+$$
+N_n(x)\sim\operatorname{Bin}(n,x).
+$$
+
+Therefore the cdf of $U_{k,n}$ is
+
+$$
+P(U_{k,n}\le x)
+=
+P(N_n(x)\ge k)
+=
+\sum_{i=k}^n
+\binom ni x^i(1-x)^{n-i}.
+$$
+
+Differentiating, we obtain the density
+
+$$
+f_{k,n}(x)
+=
+\frac{n!}{(k-1)!(n-k)!}
+x^{k-1}(1-x)^{n-k},
+\qquad 0<x<1.
+$$
+
+For our question, substitute $k=n+1$ and the sample size $2n+1$. Thus
+
+$$
+f_{n+1,2n+1}(u)
+=
+\frac{(2n+1)!}{(n!)^2}
+u^n(1-u)^n,
+\qquad 0<u<1.
+$$
+
+Now let
+
+$$
+Y_n
+=
+2\sqrt{2n}
+\left(
+U_{n+1,2n+1}-\frac12
+\right).
+$$
+
+Then
+
+$$
+u
+=
+\frac12+\frac{x}{2\sqrt{2n}},
+$$
+
+and
+
+$$
+\frac{du}{dx}
+=
+\frac{1}{2\sqrt{2n}}.
+$$
+
+Therefore the density of $Y_n$ is
+
+$$
+g_n(x)
+=
+\frac{1}{2\sqrt{2n}}
+f_{n+1,2n+1}
+\left(
+\frac12+\frac{x}{2\sqrt{2n}}
+\right),
+$$
+
+for $|x|<\sqrt{2n}$, and $g_n(x)=0$ otherwise.
+
+Hence
+
+$$
+\begin{aligned}
+g_n(x)
+&=
+\frac{1}{2\sqrt{2n}}
+\frac{(2n+1)!}{(n!)^2}
+\left(
+\frac12+\frac{x}{2\sqrt{2n}}
+\right)^n
+\left(
+\frac12-\frac{x}{2\sqrt{2n}}
+\right)^n\\
+&=
+\frac{1}{2\sqrt{2n}}
+\frac{(2n+1)!}{(n!)^2}
+\left(\frac14\right)^n
+\left(
+1-\frac{x^2}{2n}
+\right)^n.
+\end{aligned}
+$$
+
+By Stirling's formula,
+
+$$
+n!
+\sim
+\sqrt{2\pi n}
+\left(\frac ne\right)^n,
+$$
+
+and
+
+$$
+(2n)!
+\sim
+\sqrt{4\pi n}
+\left(\frac{2n}{e}\right)^{2n}.
+$$
+
+Therefore the constant part satisfies
+
+$$
+\frac{1}{2\sqrt{2n}}
+\frac{(2n+1)!}{(n!)^2}
+\left(\frac14\right)^n
+\to
+\frac{1}{\sqrt{2\pi}}.
+$$
+
+Also, for every fixed $x$,
+
+$$
+\left(
+1-\frac{x^2}{2n}
+\right)^n
+\to
+e^{-x^2/2}.
+$$
+
+Thus
+
+$$
+g_n(x)
+\to
+\frac{1}{\sqrt{2\pi}}
+e^{-x^2/2},
+$$
+
+which is the standard normal density.
+
+Since $g_n$ and the standard normal density are probability densities, Scheffé's lemma gives convergence of the corresponding distributions. Therefore
+
+$$
+2\sqrt{2n}
+\left(
+U_{n+1,2n+1}-\frac12
+\right)
+\Rightarrow Z,
+$$
+
+where
+
+$$
+Z\sim N(0,1).
+$$

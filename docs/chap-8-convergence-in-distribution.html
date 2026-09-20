@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chap 8, Convergence in Distribution | Notes on A Probability Path (Resnick)</title>
   <meta name="description" content="Chap 8, Convergence in Distribution | Notes on A Probability Path (Resnick)" />
-  <meta name="generator" content="bookdown 0.46 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.42 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chap 8, Convergence in Distribution | Notes on A Probability Path (Resnick)" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="Zhanwen Peng" />
 
 
-<meta name="date" content="2026-09-19" />
+<meta name="date" content="2026-09-20" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -580,6 +580,7 @@
 <li class="chapter" data-level="" data-path="chap-8-convergence-in-distribution.html"><a href="chap-8-convergence-in-distribution.html#a-36"><i class="fa fa-check"></i>(a)</a></li>
 <li class="chapter" data-level="" data-path="chap-8-convergence-in-distribution.html"><a href="chap-8-convergence-in-distribution.html#b-36"><i class="fa fa-check"></i>(b)</a></li>
 </ul></li>
+<li class="chapter" data-level="" data-path="chap-8-convergence-in-distribution.html"><a href="chap-8-convergence-in-distribution.html#ex-22-4"><i class="fa fa-check"></i>Ex 22</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -1915,8 +1916,172 @@ nX_{l,n}
 \Rightarrow
 \operatorname{Gamma}(l,1).
 \]</span></p>
-
 </div>
+</div>
+<div id="ex-22-4" class="section level3 hasAnchor">
+<h3>Ex 22<a href="chap-8-convergence-in-distribution.html#ex-22-4" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="problem">
+<p>Sample median; more order statistics. Let <span class="math inline">\(U_1,\ldots,U_n\)</span> be iid <span class="math inline">\(U(0,1)\)</span> random variables and consider the order statistics</p>
+<p><span class="math display">\[
+U_{1,n}\le U_{2,n}\le\cdots\le U_{n,n}.
+\]</span></p>
+<p>When <span class="math inline">\(n\)</span> is odd, the middle order statistic is the sample median. Show that</p>
+<p><span class="math display">\[
+2\left(U_{n+1,2n+1}-\frac12\right)\sqrt{2n}
+\]</span></p>
+<p>has a limit distribution. What is it? (Hint: Use Scheffe’s lemma 8.2.1 page 253.)</p>
+</div>
+<p><span class="math inline">\(\textbf{Answer:}\)</span></p>
+<p>Intuitively, from the result and framework of Section 8.2.1, we guess that the limit should be standard normal. We now follow the same framework to verify it.</p>
+<p>For the order statistic <span class="math inline">\(U_{k,n}\)</span>, consider the event</p>
+<p><span class="math display">\[
+[U_{k,n}\le x].
+\]</span></p>
+<p>This means that at least <span class="math inline">\(k\)</span> of <span class="math inline">\(U_1,\ldots,U_n\)</span> are less than or equal to <span class="math inline">\(x\)</span>.</p>
+<p>Define</p>
+<p><span class="math display">\[
+N_n(x)=\#\{i:U_i\le x\}.
+\]</span></p>
+<p>Then</p>
+<p><span class="math display">\[
+[U_{k,n}\le x]
+\iff
+[N_n(x)\ge k].
+\]</span></p>
+<p>Since the <span class="math inline">\(U_i\)</span>’s are iid <span class="math inline">\(U(0,1)\)</span>,</p>
+<p><span class="math display">\[
+N_n(x)\sim\operatorname{Bin}(n,x).
+\]</span></p>
+<p>Therefore the cdf of <span class="math inline">\(U_{k,n}\)</span> is</p>
+<p><span class="math display">\[
+P(U_{k,n}\le x)
+=
+P(N_n(x)\ge k)
+=
+\sum_{i=k}^n
+\binom ni x^i(1-x)^{n-i}.
+\]</span></p>
+<p>Differentiating, we obtain the density</p>
+<p><span class="math display">\[
+f_{k,n}(x)
+=
+\frac{n!}{(k-1)!(n-k)!}
+x^{k-1}(1-x)^{n-k},
+\qquad 0&lt;x&lt;1.
+\]</span></p>
+<p>For our question, substitute <span class="math inline">\(k=n+1\)</span> and the sample size <span class="math inline">\(2n+1\)</span>. Thus</p>
+<p><span class="math display">\[
+f_{n+1,2n+1}(u)
+=
+\frac{(2n+1)!}{(n!)^2}
+u^n(1-u)^n,
+\qquad 0&lt;u&lt;1.
+\]</span></p>
+<p>Now let</p>
+<p><span class="math display">\[
+Y_n
+=
+2\sqrt{2n}
+\left(
+U_{n+1,2n+1}-\frac12
+\right).
+\]</span></p>
+<p>Then</p>
+<p><span class="math display">\[
+u
+=
+\frac12+\frac{x}{2\sqrt{2n}},
+\]</span></p>
+<p>and</p>
+<p><span class="math display">\[
+\frac{du}{dx}
+=
+\frac{1}{2\sqrt{2n}}.
+\]</span></p>
+<p>Therefore the density of <span class="math inline">\(Y_n\)</span> is</p>
+<p><span class="math display">\[
+g_n(x)
+=
+\frac{1}{2\sqrt{2n}}
+f_{n+1,2n+1}
+\left(
+\frac12+\frac{x}{2\sqrt{2n}}
+\right),
+\]</span></p>
+<p>for <span class="math inline">\(|x|&lt;\sqrt{2n}\)</span>, and <span class="math inline">\(g_n(x)=0\)</span> otherwise.</p>
+<p>Hence</p>
+<p><span class="math display">\[
+\begin{aligned}
+g_n(x)
+&amp;=
+\frac{1}{2\sqrt{2n}}
+\frac{(2n+1)!}{(n!)^2}
+\left(
+\frac12+\frac{x}{2\sqrt{2n}}
+\right)^n
+\left(
+\frac12-\frac{x}{2\sqrt{2n}}
+\right)^n\\
+&amp;=
+\frac{1}{2\sqrt{2n}}
+\frac{(2n+1)!}{(n!)^2}
+\left(\frac14\right)^n
+\left(
+1-\frac{x^2}{2n}
+\right)^n.
+\end{aligned}
+\]</span></p>
+<p>By Stirling’s formula,</p>
+<p><span class="math display">\[
+n!
+\sim
+\sqrt{2\pi n}
+\left(\frac ne\right)^n,
+\]</span></p>
+<p>and</p>
+<p><span class="math display">\[
+(2n)!
+\sim
+\sqrt{4\pi n}
+\left(\frac{2n}{e}\right)^{2n}.
+\]</span></p>
+<p>Therefore the constant part satisfies</p>
+<p><span class="math display">\[
+\frac{1}{2\sqrt{2n}}
+\frac{(2n+1)!}{(n!)^2}
+\left(\frac14\right)^n
+\to
+\frac{1}{\sqrt{2\pi}}.
+\]</span></p>
+<p>Also, for every fixed <span class="math inline">\(x\)</span>,</p>
+<p><span class="math display">\[
+\left(
+1-\frac{x^2}{2n}
+\right)^n
+\to
+e^{-x^2/2}.
+\]</span></p>
+<p>Thus</p>
+<p><span class="math display">\[
+g_n(x)
+\to
+\frac{1}{\sqrt{2\pi}}
+e^{-x^2/2},
+\]</span></p>
+<p>which is the standard normal density.</p>
+<p>Since <span class="math inline">\(g_n\)</span> and the standard normal density are probability densities, Scheffé’s lemma gives convergence of the corresponding distributions. Therefore</p>
+<p><span class="math display">\[
+2\sqrt{2n}
+\left(
+U_{n+1,2n+1}-\frac12
+\right)
+\Rightarrow Z,
+\]</span></p>
+<p>where</p>
+<p><span class="math display">\[
+Z\sim N(0,1).
+\]</span></p>
+
 </div>
 </div>
 </div>
