@@ -1948,3 +1948,148 @@ where
 $$
 Z\sim N(0,1).
 $$
+
+### Ex 19
+::: problem
+
+(Second continuous mapping theorem) Suppose that $X_n\Rightarrow X_0$ and that for $n\ge0$, $\chi_n:\mathbb{R}\mapsto\mathbb{R}$ are measurable. Define
+
+$$
+E:=\{x:\exists x_n\to x\text{ but }\chi_n(x_n)\not\to\chi_0(x)\}.
+$$
+
+Suppose $E$ is measurable and $P[X_0\in E]=0$. Show
+
+$$
+\chi_n(X_n)\Rightarrow\chi_0(X_0).
+$$
+
+:::
+
+$\textbf{Answer:}$
+
+By the Baby Skorohod theorem, there exist random variables $X_n^\#$, $n\ge0$, defined on $((0,1],\mathcal{B}((0,1]),\lambda)$ such that
+
+$$
+X_n^\#\overset{d}{=}X_n
+$$
+
+for every $n\ge0$, and
+
+$$
+X_n^\#\to X_0^\#
+\qquad
+\lambda\text{-a.s.}
+$$
+
+Since $\chi_n$ are measurable, $\chi_n(X_n^\#)$ and $\chi_n(X_n)$ are measurable, and
+
+$$
+\chi_n(X_n^\#)\overset{d}{=}\chi_n(X_n).
+$$
+
+Let
+
+$$
+A
+=
+\{t\in(0,1]:X_n^\#(t)\to X_0^\#(t)\}.
+$$
+
+By Baby Skorohod,
+
+$$
+\lambda(A)=1.
+$$
+
+Also, since
+
+$$
+X_0^\#\overset{d}{=}X_0
+$$
+
+and
+
+$$
+P(X_0\in E)=0,
+$$
+
+we have
+
+$$
+\lambda\{t:X_0^\#(t)\in E^c\}
+=
+P(X_0\in E^c)
+=
+1.
+$$
+
+Therefore,
+
+$$
+\lambda\left(
+A\cap
+\{t:X_0^\#(t)\in E^c\}
+\right)
+=
+1.
+$$
+
+For every $t$ in this intersection,
+
+$$
+X_n^\#(t)\to X_0^\#(t),
+$$
+
+and
+
+$$
+X_0^\#(t)\notin E.
+$$
+
+By the definition of $E$, this implies
+
+$$
+\chi_n(X_n^\#(t))
+\to
+\chi_0(X_0^\#(t)).
+$$
+
+Hence
+
+$$
+\chi_n(X_n^\#)
+\to
+\chi_0(X_0^\#)
+\qquad
+\lambda\text{-a.s.}
+$$
+
+Therefore,
+
+$$
+\chi_n(X_n^\#)
+\Rightarrow
+\chi_0(X_0^\#).
+$$
+
+Finally,
+
+$$
+\chi_n(X_n^\#)\overset{d}{=}\chi_n(X_n)
+$$
+
+and
+
+$$
+\chi_0(X_0^\#)\overset{d}{=}\chi_0(X_0),
+$$
+
+so
+
+$$
+\boxed{
+\chi_n(X_n)\Rightarrow\chi_0(X_0).
+}
+$$
+$\textbf{Note:}$ We should notice that in the book, Corollary 8.3.1 (Continuous Mapping Theorem) does not explicitly state that the function/mapping $h$ is measurable, even though the following remark states that $\operatorname{Disc}(h)$ is always measurable, even if $h$ itself is not measurable. However, in Exercise 19, the mappings $\chi_n$ are explicitly assumed to be measurable. Thus, in Corollary 8.3.1, some measurability condition is still implicitly required: at least $h(X_n)$ and $h(X_0)$ must be measurable random variables. A sufficient condition is that $h$ is Borel measurable on the relevant state space. The measurability of $\operatorname{Disc}(h)$ only guarantees that the condition $P[X_0\in\operatorname{Disc}(h)]=0$ is well-defined; it does not by itself guarantee that $h(X_n)$ is measurable.
