@@ -23,7 +23,7 @@
 <meta name="author" content="Zhanwen Peng" />
 
 
-<meta name="date" content="2026-09-25" />
+<meta name="date" content="2026-09-27" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -582,6 +582,12 @@
 </ul></li>
 <li class="chapter" data-level="" data-path="chap-8-convergence-in-distribution.html"><a href="chap-8-convergence-in-distribution.html#ex-22-4"><i class="fa fa-check"></i>Ex 22</a></li>
 <li class="chapter" data-level="" data-path="chap-8-convergence-in-distribution.html"><a href="chap-8-convergence-in-distribution.html#ex-19-4"><i class="fa fa-check"></i>Ex 19</a></li>
+<li class="chapter" data-level="" data-path="chap-8-convergence-in-distribution.html"><a href="chap-8-convergence-in-distribution.html#ex-1-3"><i class="fa fa-check"></i>Ex 1</a></li>
+<li class="chapter" data-level="" data-path="chap-8-convergence-in-distribution.html"><a href="chap-8-convergence-in-distribution.html#ex-7-2"><i class="fa fa-check"></i>Ex 7</a>
+<ul>
+<li class="chapter" data-level="" data-path="chap-8-convergence-in-distribution.html"><a href="chap-8-convergence-in-distribution.html#a-37"><i class="fa fa-check"></i>(a)</a></li>
+<li class="chapter" data-level="" data-path="chap-8-convergence-in-distribution.html"><a href="chap-8-convergence-in-distribution.html#b-37"><i class="fa fa-check"></i>(b)</a></li>
+</ul></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -2188,7 +2194,165 @@ X_0^\#(t)\notin E.
 }
 \]</span>
 <span class="math inline">\(\textbf{Note:}\)</span> We should notice that in the book, Corollary 8.3.1 (Continuous Mapping Theorem) does not explicitly state that the function/mapping <span class="math inline">\(h\)</span> is measurable, even though the following remark states that <span class="math inline">\(\operatorname{Disc}(h)\)</span> is always measurable, even if <span class="math inline">\(h\)</span> itself is not measurable. However, in Exercise 19, the mappings <span class="math inline">\(\chi_n\)</span> are explicitly assumed to be measurable. Thus, in Corollary 8.3.1, some measurability condition is still implicitly required: at least <span class="math inline">\(h(X_n)\)</span> and <span class="math inline">\(h(X_0)\)</span> must be measurable random variables. A sufficient condition is that <span class="math inline">\(h\)</span> is Borel measurable on the relevant state space. The measurability of <span class="math inline">\(\operatorname{Disc}(h)\)</span> only guarantees that the condition <span class="math inline">\(P[X_0\in\operatorname{Disc}(h)]=0\)</span> is well-defined; it does not by itself guarantee that <span class="math inline">\(h(X_n)\)</span> is measurable.</p>
+</div>
+<div id="ex-1-3" class="section level3 hasAnchor">
+<h3>Ex 1<a href="chap-8-convergence-in-distribution.html#ex-1-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="problem">
+<p>Let <span class="math inline">\(S_n\)</span> have a binomial distribution with parameters <span class="math inline">\(n\)</span> and <span class="math inline">\(\theta\in[0,1)\)</span>. What CLT does <span class="math inline">\(S_n\)</span> satisfy? In statistical terms,</p>
+<p><span class="math display">\[
+\hat{\theta}:=\frac{S_n}{n}
+\]</span></p>
+<p>is an estimator of <span class="math inline">\(\theta\)</span> and</p>
+<p><span class="math display">\[
+\frac{S_n-E(S_n)}{\sqrt{\operatorname{Var}(S_n)}}
+\]</span></p>
+<p>is an approximate pivot for the parameter <span class="math inline">\(\theta\)</span>. If</p>
+<p><span class="math display">\[
+g(\theta)=\log\left(\frac{\theta}{1-\theta}\right)
+\]</span></p>
+<p>is the log-odds ratio, we would use <span class="math inline">\(g(\hat{\theta})\)</span> to estimate <span class="math inline">\(g(\theta)\)</span>. What CLT does <span class="math inline">\(g(\hat{\theta})\)</span> satisfy? Use the delta method.</p>
+</div>
+<p><span class="math inline">\(\textbf{Answer:}\)</span></p>
+<p>According to the CLT, since</p>
+<p><span class="math display">\[
+E(S_n)=n\theta
+\]</span></p>
+<p>and</p>
+<p><span class="math display">\[
+\operatorname{Var}(S_n)=n\theta(1-\theta),
+\]</span></p>
+<p>we have</p>
+<p><span class="math display">\[
+\frac{S_n-E(S_n)}
+{\sqrt{\operatorname{Var}(S_n)}}
+=
+\frac{S_n-n\theta}
+{\sqrt{n\theta(1-\theta)}}
+\Rightarrow N(0,1).
+\]</span></p>
+<p>Equivalently, since</p>
+<p><span class="math display">\[
+\hat{\theta}=\frac{S_n}{n},
+\]</span></p>
+<p>we have</p>
+<p><span class="math display">\[
+\frac{\sqrt{n}(\hat{\theta}-\theta)}
+{\sqrt{\theta(1-\theta)}}
+\Rightarrow N(0,1).
+\]</span></p>
+<p>For</p>
+<p><span class="math display">\[
+g(\theta)
+=
+\log\left(\frac{\theta}{1-\theta}\right)
+=
+\log\theta-\log(1-\theta),
+\]</span></p>
+<p>with <span class="math inline">\(0&lt;\theta&lt;1\)</span>,</p>
+<p><span class="math display">\[
+g&#39;(\theta)
+=
+\frac{1}{\theta}
++
+\frac{1}{1-\theta}
+=
+\frac{1}{\theta(1-\theta)}.
+\]</span></p>
+<p>Using the delta method,</p>
+<p><span class="math display">\[
+\frac{\sqrt{n}\left[g(\hat{\theta})-g(\theta)\right]}
+{\sqrt{\theta(1-\theta)}\,g&#39;(\theta)}
+\Rightarrow N(0,1).
+\]</span></p>
+<p>Therefore,</p>
+<p><span class="math display">\[
+\sqrt{n\theta(1-\theta)}
+\left[
+g(\hat{\theta})-g(\theta)
+\right]
+\Rightarrow N(0,1).
+\]</span></p>
+</div>
+<div id="ex-7-2" class="section level3 hasAnchor">
+<h3>Ex 7<a href="chap-8-convergence-in-distribution.html#ex-7-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="problem">
+<p>Let <span class="math inline">\(\{X_n,n\geq 1\}\)</span> be iid with <span class="math inline">\(E(X_n)=\mu\)</span>, <span class="math inline">\(\operatorname{Var}(X_n)=\sigma^2\)</span> and suppose <span class="math inline">\(N\)</span> is a <span class="math inline">\(N(0,1)\)</span> random variable. Show</p>
+<p><span class="math display">\[
+\sqrt{n}(\bar X_n^2-\mu^2)\Rightarrow 2\mu\sigma N
+\]</span></p>
+<p>and</p>
+<p><span class="math display">\[
+\sqrt{n}(e^{\bar X_n}-e^\mu)\Rightarrow \sigma e^\mu N.
+\]</span></p>
+</div>
+<p><span class="math inline">\(\textbf{Answer:}\)</span></p>
+<p>By the CLT,</p>
+<p><span class="math display">\[
+\frac{\sqrt{n}(\bar X_n-\mu)}{\sigma}
+\Rightarrow N(0,1).
+\]</span></p>
+<div id="a-37" class="section level4 hasAnchor">
+<h4>(a)<a href="chap-8-convergence-in-distribution.html#a-37" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Let</p>
+<p><span class="math display">\[
+g_1(x)=x^2.
+\]</span></p>
+<p>Then</p>
+<p><span class="math display">\[
+g_1&#39;(\mu)=2\mu.
+\]</span></p>
+<p>For <span class="math inline">\(\mu\neq 0\)</span>, by the delta method,</p>
+<p><span class="math display">\[
+\frac{\sqrt{n}\left[g_1(\bar X_n)-g_1(\mu)\right]}
+{2\mu\sigma}
+\Rightarrow N(0,1).
+\]</span></p>
+<p>Therefore,</p>
+<p><span class="math display">\[
+\sqrt{n}(\bar X_n^2-\mu^2)
+\Rightarrow
+2\mu\sigma N.
+\]</span></p>
+<p>If <span class="math inline">\(\mu=0\)</span>, then</p>
+<p><span class="math display">\[
+\sqrt{n}\bar X_n^2
+=
+\frac{(\sqrt{n}\bar X_n)^2}{\sqrt{n}}.
+\]</span></p>
+<p>Since</p>
+<p><span class="math display">\[
+\sqrt{n}\bar X_n\Rightarrow \sigma N,
+\]</span></p>
+<p>we have</p>
+<p><span class="math display">\[
+\sqrt{n}\bar X_n^2\to 0
+\]</span></p>
+<p>in probability. Thus the same result holds, since <span class="math inline">\(2\mu\sigma N=0\)</span> when <span class="math inline">\(\mu=0\)</span>.</p>
+</div>
+<div id="b-37" class="section level4 hasAnchor">
+<h4>(b)<a href="chap-8-convergence-in-distribution.html#b-37" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Let</p>
+<p><span class="math display">\[
+g_2(x)=e^x.
+\]</span></p>
+<p>Then</p>
+<p><span class="math display">\[
+g_2&#39;(\mu)=e^\mu.
+\]</span></p>
+<p>By the delta method,</p>
+<p><span class="math display">\[
+\frac{\sqrt{n}\left[g_2(\bar X_n)-g_2(\mu)\right]}
+{\sigma e^\mu}
+\Rightarrow N(0,1).
+\]</span></p>
+<p>Therefore,</p>
+<p><span class="math display">\[
+\sqrt{n}(e^{\bar X_n}-e^\mu)
+\Rightarrow
+\sigma e^\mu N.
+\]</span></p>
 
+</div>
 </div>
 </div>
 </div>
