@@ -2306,3 +2306,299 @@ $$
 \Rightarrow
 \sigma e^\mu N.
 $$
+
+### Ex 33
+::: problem
+
+Verify that a continuous distribution function is always uniformly continuous.
+
+:::
+
+$\textbf{Answer:}$
+
+#### Method 1
+
+Let $F$ be a continuous distribution function.
+
+Since $F$ may not be proper, define
+
+$$
+a:=F(+\infty),
+\qquad
+b:=F(-\infty).
+$$
+
+For every $\epsilon>0$, there exists $M>0$ such that
+
+$$
+x>M
+\quad\Longrightarrow\quad
+|F(x)-a|<\frac{\epsilon}{2},
+$$
+
+and
+
+$$
+x<-M
+\quad\Longrightarrow\quad
+|F(x)-b|<\frac{\epsilon}{2}.
+$$
+
+Therefore, for any $x_1,x_2>M$,
+
+$$
+\begin{aligned}
+|F(x_1)-F(x_2)|
+&=
+|F(x_1)-a-F(x_2)+a|\\
+&\leq
+|F(x_1)-a|+|F(x_2)-a|\\
+&<\epsilon.
+\end{aligned}
+$$
+
+Similarly, for any $x_1,x_2<-M$,
+
+$$
+\begin{aligned}
+|F(x_1)-F(x_2)|
+&=
+|F(x_1)-b-F(x_2)+b|\\
+&\leq
+|F(x_1)-b|+|F(x_2)-b|\\
+&<\epsilon.
+\end{aligned}
+$$
+
+Now on the compact interval
+
+$$
+[-M-1,M+1],
+$$
+
+$F$ is continuous, so it is uniformly continuous. Hence there exists $\delta_0>0$ such that
+
+$$
+|x_1-x_2|<\delta_0
+\quad\Longrightarrow\quad
+|F(x_1)-F(x_2)|<\epsilon
+$$
+
+for all $x_1,x_2\in[-M-1,M+1]$.
+
+Let
+
+$$
+\delta=\min(\delta_0,1).
+$$
+
+Now take any $x_1,x_2\in\mathbb{R}$ such that
+
+$$
+|x_1-x_2|<\delta.
+$$
+
+If
+
+$$
+x_1,x_2\in[-M-1,M+1],
+$$
+
+then
+
+$$
+|F(x_1)-F(x_2)|<\epsilon.
+$$
+
+Otherwise, without loss of generality, suppose $x_1$ is outside this interval.
+
+If
+
+$$
+x_1>M+1,
+$$
+
+then, since $|x_1-x_2|<1$,
+
+$$
+x_2>x_1-1>M.
+$$
+
+Thus both $x_1$ and $x_2$ are in the right tail, so
+
+$$
+|F(x_1)-F(x_2)|<\epsilon.
+$$
+
+Similarly, if
+
+$$
+x_1<-M-1,
+$$
+
+then
+
+$$
+x_2<x_1+1<-M,
+$$
+
+so both $x_1$ and $x_2$ are in the left tail, and again
+
+$$
+|F(x_1)-F(x_2)|<\epsilon.
+$$
+
+Therefore, for every $\epsilon>0$, there exists $\delta>0$ such that
+
+$$
+|x_1-x_2|<\delta
+\quad\Longrightarrow\quad
+|F(x_1)-F(x_2)|<\epsilon
+$$
+
+for all $x_1,x_2\in\mathbb{R}$.
+
+Hence $F$ is uniformly continuous on $\mathbb{R}$.
+
+#### Method 2
+
+Similarly, let $F$ be a continuous distribution function, and define
+
+$$
+a:=F(+\infty),
+\qquad
+b:=F(-\infty).
+$$
+
+Suppose $F$ is not uniformly continuous. Then there exists $\epsilon_0>0$ and sequences $\{x_n\}$, $\{y_n\}$ such that
+
+$$
+|x_n-y_n|<\frac{1}{n},
+$$
+
+but
+
+$$
+|F(x_n)-F(y_n)|\geq\epsilon_0.
+$$
+
+Consider the sequence $\{x_n\}$. By passing to a subsequence if necessary, we must have one of the following:
+
+$$
+x_{n_k}\to x\in\mathbb{R},
+$$
+
+or
+
+$$
+x_{n_k}\to+\infty,
+$$
+
+or
+
+$$
+x_{n_k}\to-\infty.
+$$
+
+Since
+
+$$
+|x_{n_k}-y_{n_k}|
+<
+\frac{1}{n_k}
+\to0,
+$$
+
+the corresponding sequence $\{y_{n_k}\}$ has the same limit behavior.
+
+If
+
+$$
+x_{n_k}\to x\in\mathbb{R},
+$$
+
+then also
+
+$$
+y_{n_k}\to x.
+$$
+
+Since $F$ is continuous,
+
+$$
+F(x_{n_k})\to F(x),
+\qquad
+F(y_{n_k})\to F(x),
+$$
+
+so
+
+$$
+|F(x_{n_k})-F(y_{n_k})|\to0.
+$$
+
+If
+
+$$
+x_{n_k}\to+\infty,
+$$
+
+then also
+
+$$
+y_{n_k}\to+\infty,
+$$
+
+and hence
+
+$$
+F(x_{n_k})\to a,
+\qquad
+F(y_{n_k})\to a.
+$$
+
+Therefore,
+
+$$
+|F(x_{n_k})-F(y_{n_k})|\to0.
+$$
+
+Similarly, if
+
+$$
+x_{n_k}\to-\infty,
+$$
+
+then
+
+$$
+y_{n_k}\to-\infty,
+$$
+
+and
+
+$$
+F(x_{n_k})\to b,
+\qquad
+F(y_{n_k})\to b,
+$$
+
+so again
+
+$$
+|F(x_{n_k})-F(y_{n_k})|\to0.
+$$
+
+Thus in every case,
+
+$$
+|F(x_{n_k})-F(y_{n_k})|\to0,
+$$
+
+which contradicts
+
+$$
+|F(x_{n_k})-F(y_{n_k})|\geq\epsilon_0.
+$$
+
+Therefore $F$ is uniformly continuous on $\mathbb{R}$.

@@ -23,7 +23,7 @@
 <meta name="author" content="Zhanwen Peng" />
 
 
-<meta name="date" content="2026-09-27" />
+<meta name="date" content="2026-10-04" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -587,6 +587,11 @@
 <ul>
 <li class="chapter" data-level="" data-path="chap-8-convergence-in-distribution.html"><a href="chap-8-convergence-in-distribution.html#a-37"><i class="fa fa-check"></i>(a)</a></li>
 <li class="chapter" data-level="" data-path="chap-8-convergence-in-distribution.html"><a href="chap-8-convergence-in-distribution.html#b-37"><i class="fa fa-check"></i>(b)</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="chap-8-convergence-in-distribution.html"><a href="chap-8-convergence-in-distribution.html#ex-33-3"><i class="fa fa-check"></i>Ex 33</a>
+<ul>
+<li class="chapter" data-level="" data-path="chap-8-convergence-in-distribution.html"><a href="chap-8-convergence-in-distribution.html#method-1"><i class="fa fa-check"></i>Method 1</a></li>
+<li class="chapter" data-level="" data-path="chap-8-convergence-in-distribution.html"><a href="chap-8-convergence-in-distribution.html#method-2"><i class="fa fa-check"></i>Method 2</a></li>
 </ul></li>
 </ul></li>
 </ul></li>
@@ -2351,6 +2356,217 @@ g_2&#39;(\mu)=e^\mu.
 \Rightarrow
 \sigma e^\mu N.
 \]</span></p>
+</div>
+</div>
+<div id="ex-33-3" class="section level3 hasAnchor">
+<h3>Ex 33<a href="chap-8-convergence-in-distribution.html#ex-33-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="problem">
+<p>Verify that a continuous distribution function is always uniformly continuous.</p>
+</div>
+<p><span class="math inline">\(\textbf{Answer:}\)</span></p>
+<div id="method-1" class="section level4 hasAnchor">
+<h4>Method 1<a href="chap-8-convergence-in-distribution.html#method-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Let <span class="math inline">\(F\)</span> be a continuous distribution function.</p>
+<p>Since <span class="math inline">\(F\)</span> may not be proper, define</p>
+<p><span class="math display">\[
+a:=F(+\infty),
+\qquad
+b:=F(-\infty).
+\]</span></p>
+<p>For every <span class="math inline">\(\epsilon&gt;0\)</span>, there exists <span class="math inline">\(M&gt;0\)</span> such that</p>
+<p><span class="math display">\[
+x&gt;M
+\quad\Longrightarrow\quad
+|F(x)-a|&lt;\frac{\epsilon}{2},
+\]</span></p>
+<p>and</p>
+<p><span class="math display">\[
+x&lt;-M
+\quad\Longrightarrow\quad
+|F(x)-b|&lt;\frac{\epsilon}{2}.
+\]</span></p>
+<p>Therefore, for any <span class="math inline">\(x_1,x_2&gt;M\)</span>,</p>
+<p><span class="math display">\[
+\begin{aligned}
+|F(x_1)-F(x_2)|
+&amp;=
+|F(x_1)-a-F(x_2)+a|\\
+&amp;\leq
+|F(x_1)-a|+|F(x_2)-a|\\
+&amp;&lt;\epsilon.
+\end{aligned}
+\]</span></p>
+<p>Similarly, for any <span class="math inline">\(x_1,x_2&lt;-M\)</span>,</p>
+<p><span class="math display">\[
+\begin{aligned}
+|F(x_1)-F(x_2)|
+&amp;=
+|F(x_1)-b-F(x_2)+b|\\
+&amp;\leq
+|F(x_1)-b|+|F(x_2)-b|\\
+&amp;&lt;\epsilon.
+\end{aligned}
+\]</span></p>
+<p>Now on the compact interval</p>
+<p><span class="math display">\[
+[-M-1,M+1],
+\]</span></p>
+<p><span class="math inline">\(F\)</span> is continuous, so it is uniformly continuous. Hence there exists <span class="math inline">\(\delta_0&gt;0\)</span> such that</p>
+<p><span class="math display">\[
+|x_1-x_2|&lt;\delta_0
+\quad\Longrightarrow\quad
+|F(x_1)-F(x_2)|&lt;\epsilon
+\]</span></p>
+<p>for all <span class="math inline">\(x_1,x_2\in[-M-1,M+1]\)</span>.</p>
+<p>Let</p>
+<p><span class="math display">\[
+\delta=\min(\delta_0,1).
+\]</span></p>
+<p>Now take any <span class="math inline">\(x_1,x_2\in\mathbb{R}\)</span> such that</p>
+<p><span class="math display">\[
+|x_1-x_2|&lt;\delta.
+\]</span></p>
+<p>If</p>
+<p><span class="math display">\[
+x_1,x_2\in[-M-1,M+1],
+\]</span></p>
+<p>then</p>
+<p><span class="math display">\[
+|F(x_1)-F(x_2)|&lt;\epsilon.
+\]</span></p>
+<p>Otherwise, without loss of generality, suppose <span class="math inline">\(x_1\)</span> is outside this interval.</p>
+<p>If</p>
+<p><span class="math display">\[
+x_1&gt;M+1,
+\]</span></p>
+<p>then, since <span class="math inline">\(|x_1-x_2|&lt;1\)</span>,</p>
+<p><span class="math display">\[
+x_2&gt;x_1-1&gt;M.
+\]</span></p>
+<p>Thus both <span class="math inline">\(x_1\)</span> and <span class="math inline">\(x_2\)</span> are in the right tail, so</p>
+<p><span class="math display">\[
+|F(x_1)-F(x_2)|&lt;\epsilon.
+\]</span></p>
+<p>Similarly, if</p>
+<p><span class="math display">\[
+x_1&lt;-M-1,
+\]</span></p>
+<p>then</p>
+<p><span class="math display">\[
+x_2&lt;x_1+1&lt;-M,
+\]</span></p>
+<p>so both <span class="math inline">\(x_1\)</span> and <span class="math inline">\(x_2\)</span> are in the left tail, and again</p>
+<p><span class="math display">\[
+|F(x_1)-F(x_2)|&lt;\epsilon.
+\]</span></p>
+<p>Therefore, for every <span class="math inline">\(\epsilon&gt;0\)</span>, there exists <span class="math inline">\(\delta&gt;0\)</span> such that</p>
+<p><span class="math display">\[
+|x_1-x_2|&lt;\delta
+\quad\Longrightarrow\quad
+|F(x_1)-F(x_2)|&lt;\epsilon
+\]</span></p>
+<p>for all <span class="math inline">\(x_1,x_2\in\mathbb{R}\)</span>.</p>
+<p>Hence <span class="math inline">\(F\)</span> is uniformly continuous on <span class="math inline">\(\mathbb{R}\)</span>.</p>
+</div>
+<div id="method-2" class="section level4 hasAnchor">
+<h4>Method 2<a href="chap-8-convergence-in-distribution.html#method-2" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Similarly, let <span class="math inline">\(F\)</span> be a continuous distribution function, and define</p>
+<p><span class="math display">\[
+a:=F(+\infty),
+\qquad
+b:=F(-\infty).
+\]</span></p>
+<p>Suppose <span class="math inline">\(F\)</span> is not uniformly continuous. Then there exists <span class="math inline">\(\epsilon_0&gt;0\)</span> and sequences <span class="math inline">\(\{x_n\}\)</span>, <span class="math inline">\(\{y_n\}\)</span> such that</p>
+<p><span class="math display">\[
+|x_n-y_n|&lt;\frac{1}{n},
+\]</span></p>
+<p>but</p>
+<p><span class="math display">\[
+|F(x_n)-F(y_n)|\geq\epsilon_0.
+\]</span></p>
+<p>Consider the sequence <span class="math inline">\(\{x_n\}\)</span>. By passing to a subsequence if necessary, we must have one of the following:</p>
+<p><span class="math display">\[
+x_{n_k}\to x\in\mathbb{R},
+\]</span></p>
+<p>or</p>
+<p><span class="math display">\[
+x_{n_k}\to+\infty,
+\]</span></p>
+<p>or</p>
+<p><span class="math display">\[
+x_{n_k}\to-\infty.
+\]</span></p>
+<p>Since</p>
+<p><span class="math display">\[
+|x_{n_k}-y_{n_k}|
+&lt;
+\frac{1}{n_k}
+\to0,
+\]</span></p>
+<p>the corresponding sequence <span class="math inline">\(\{y_{n_k}\}\)</span> has the same limit behavior.</p>
+<p>If</p>
+<p><span class="math display">\[
+x_{n_k}\to x\in\mathbb{R},
+\]</span></p>
+<p>then also</p>
+<p><span class="math display">\[
+y_{n_k}\to x.
+\]</span></p>
+<p>Since <span class="math inline">\(F\)</span> is continuous,</p>
+<p><span class="math display">\[
+F(x_{n_k})\to F(x),
+\qquad
+F(y_{n_k})\to F(x),
+\]</span></p>
+<p>so</p>
+<p><span class="math display">\[
+|F(x_{n_k})-F(y_{n_k})|\to0.
+\]</span></p>
+<p>If</p>
+<p><span class="math display">\[
+x_{n_k}\to+\infty,
+\]</span></p>
+<p>then also</p>
+<p><span class="math display">\[
+y_{n_k}\to+\infty,
+\]</span></p>
+<p>and hence</p>
+<p><span class="math display">\[
+F(x_{n_k})\to a,
+\qquad
+F(y_{n_k})\to a.
+\]</span></p>
+<p>Therefore,</p>
+<p><span class="math display">\[
+|F(x_{n_k})-F(y_{n_k})|\to0.
+\]</span></p>
+<p>Similarly, if</p>
+<p><span class="math display">\[
+x_{n_k}\to-\infty,
+\]</span></p>
+<p>then</p>
+<p><span class="math display">\[
+y_{n_k}\to-\infty,
+\]</span></p>
+<p>and</p>
+<p><span class="math display">\[
+F(x_{n_k})\to b,
+\qquad
+F(y_{n_k})\to b,
+\]</span></p>
+<p>so again</p>
+<p><span class="math display">\[
+|F(x_{n_k})-F(y_{n_k})|\to0.
+\]</span></p>
+<p>Thus in every case,</p>
+<p><span class="math display">\[
+|F(x_{n_k})-F(y_{n_k})|\to0,
+\]</span></p>
+<p>which contradicts</p>
+<p><span class="math display">\[
+|F(x_{n_k})-F(y_{n_k})|\geq\epsilon_0.
+\]</span></p>
+<p>Therefore <span class="math inline">\(F\)</span> is uniformly continuous on <span class="math inline">\(\mathbb{R}\)</span>.</p>
 
 </div>
 </div>
