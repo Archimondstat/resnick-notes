@@ -2602,3 +2602,440 @@ $$
 $$
 
 Therefore $F$ is uniformly continuous on $\mathbb{R}$.
+
+
+### Ex 5
+::: problem
+
+(a) If $u_n(x)$, $x\in\mathbb{R}$ are non-decreasing functions for each $n$ and $u_n(x)\to u_0(x)$ and $u_0(\cdot)$ is continuous, then for any $-\infty<a<b<\infty$
+
+$$
+\sup_{x\in(a,b)}|u_n(x)-u_0(x)|\to0.
+$$
+
+Thus, convergence of monotone functions to a continuous limit implies local uniform convergence.
+
+(b) Suppose $F_n$, $n\geq0$ are proper df's and $F_n\Rightarrow F_0$. If $F_0$ is continuous, show
+
+$$
+\sup_{x\in\mathbb{R}}|F_n(x)-F_0(x)|\to0.
+$$
+
+For instance, in the central limit theorem, where $F_0$ is the normal distribution, convergence is always uniform.
+
+(c) Give a simple proof of the Glivenko-Cantelli lemma under the additional hypothesis that the underlying distribution is continuous.
+
+:::
+
+$\textbf{Answer:}$
+
+#### (a)
+
+Fix $\epsilon>0$. Divide $[a,b]$ into finitely many pieces
+
+$$
+a=x_0<x_1<\cdots<x_m=b
+$$
+
+such that for every $i$ and every $x,y\in[x_{i-1},x_i]$,
+
+$$
+|u_0(x)-u_0(y)|<\frac{\epsilon}{2}.
+$$
+
+This is possible since $u_0$ is uniformly continuous on the compact interval $[a,b]$.
+
+Since
+
+$$
+u_n(x_i)\to u_0(x_i)
+$$
+
+for each endpoint $x_i$, and there are only finitely many such endpoints, we can choose $N$ sufficiently large such that, for every $n\geq N$ and every $i$,
+
+$$
+|u_n(x_i)-u_0(x_i)|<\frac{\epsilon}{2}.
+$$
+
+Now take any $x\in[a,b]$. Then $x$ must fall into some subinterval $[x_{i-1},x_i]$.
+
+Since $u_n$ is non-decreasing,
+
+$$
+u_n(x_{i-1})
+\leq
+u_n(x)
+\leq
+u_n(x_i).
+$$
+
+For the upper bound,
+
+$$
+\begin{aligned}
+u_n(x)
+&\leq u_n(x_i)\\
+&<u_0(x_i)+\frac{\epsilon}{2}\\
+&<u_0(x)+\epsilon.
+\end{aligned}
+$$
+
+Similarly, for the lower bound,
+
+$$
+\begin{aligned}
+u_n(x)
+&\geq u_n(x_{i-1})\\
+&>u_0(x_{i-1})-\frac{\epsilon}{2}\\
+&>u_0(x)-\epsilon.
+\end{aligned}
+$$
+
+Therefore,
+
+$$
+|u_n(x)-u_0(x)|<\epsilon.
+$$
+
+Since $x$ is arbitrary,
+
+$$
+\sup_{x\in[a,b]}
+|u_n(x)-u_0(x)|
+<\epsilon
+$$
+
+for all sufficiently large $n$. Hence
+
+$$
+\sup_{x\in[a,b]}
+|u_n(x)-u_0(x)|
+\to0.
+$$
+
+#### (b)
+
+Fix $\epsilon>0$.
+
+Since $F_0$ is a proper distribution function, we can select $M>0$ sufficiently large such that
+
+$$
+F_0(-M)<\frac{\epsilon}{4}
+$$
+
+and
+
+$$
+1-F_0(M)<\frac{\epsilon}{4}.
+$$
+
+Since $F_0$ is continuous and
+
+$$
+F_n\Rightarrow F_0,
+$$
+
+we have
+
+$$
+F_n(-M)\to F_0(-M)
+$$
+
+and
+
+$$
+F_n(M)\to F_0(M).
+$$
+
+Therefore, for sufficiently large $n$,
+
+$$
+|F_n(-M)-F_0(-M)|<\frac{\epsilon}{4}
+$$
+
+and
+
+$$
+|F_n(M)-F_0(M)|<\frac{\epsilon}{4}.
+$$
+
+On the compact interval $[-M,M]$, by part (a),
+
+$$
+\sup_{x\in[-M,M]}
+|F_n(x)-F_0(x)|
+\to0.
+$$
+
+Now consider the right tail. For $x\geq M$, by monotonicity,
+
+$$
+F_n(M)\leq F_n(x)\leq1
+$$
+
+and
+
+$$
+F_0(M)\leq F_0(x)\leq1.
+$$
+
+Thus
+
+$$
+1-F_n(x)\leq1-F_n(M),
+$$
+
+and
+
+$$
+1-F_0(x)\leq1-F_0(M).
+$$
+
+Also,
+
+$$
+\begin{aligned}
+1-F_n(M)
+&\leq
+1-F_0(M)+|F_n(M)-F_0(M)|\\
+&<
+\frac{\epsilon}{2}.
+\end{aligned}
+$$
+
+Hence, for every $x\geq M$,
+
+$$
+\begin{aligned}
+|F_n(x)-F_0(x)|
+&\leq
+|1-F_n(x)|+|1-F_0(x)|\\
+&\leq
+1-F_n(M)+1-F_0(M)\\
+&<
+\epsilon.
+\end{aligned}
+$$
+
+Similarly, for the left tail $x\leq-M$,
+
+$$
+0\leq F_n(x)\leq F_n(-M)
+$$
+
+and
+
+$$
+0\leq F_0(x)\leq F_0(-M).
+$$
+
+Moreover,
+
+$$
+\begin{aligned}
+F_n(-M)
+&\leq
+F_0(-M)+|F_n(-M)-F_0(-M)|\\
+&<
+\frac{\epsilon}{2}.
+\end{aligned}
+$$
+
+Therefore, for every $x\leq-M$,
+
+$$
+\begin{aligned}
+|F_n(x)-F_0(x)|
+&\leq
+F_n(x)+F_0(x)\\
+&\leq
+F_n(-M)+F_0(-M)\\
+&<
+\epsilon.
+\end{aligned}
+$$
+
+Combining the middle interval and the two tails,
+
+$$
+\sup_{x\in\mathbb{R}}
+|F_n(x)-F_0(x)|
+\to0.
+$$
+
+#### (c)
+
+Let
+
+$$
+\widehat F_n(x,\omega)
+=
+\frac{1}{n}
+\sum_{i=1}^n
+1_{\{X_i\leq x\}}(\omega)
+$$
+
+be the empirical distribution function, where $X_1,X_2,\ldots$ are iid with continuous distribution function $F$.
+
+For each fixed $x$,
+
+$$
+E\left(1_{\{X_i\leq x\}}\right)
+=
+F(x).
+$$
+
+Therefore, by the SLLN,
+
+$$
+\widehat F_n(x,\omega)\to F(x)
+\qquad\text{a.s.}
+$$
+
+However, for each fixed $x$, this means that there exists a set $A_x$ with
+
+$$
+P(A_x)=1
+$$
+
+such that, for every $\omega\in A_x$,
+
+$$
+\widehat F_n(x,\omega)\to F(x).
+$$
+
+The set $A_x$ may depend on $x$, and there are uncountably many $x\in\mathbb{R}$, so we cannot directly take an uncountable intersection.
+
+Instead, use the countable dense set $\mathbb{Q}$.
+
+For every $q\in\mathbb{Q}$, let
+
+$$
+A_q
+=
+\left\{
+\omega:
+\widehat F_n(q,\omega)\to F(q)
+\right\}.
+$$
+
+Then
+
+$$
+P(A_q)=1.
+$$
+
+Define
+
+$$
+A
+=
+\bigcap_{q\in\mathbb{Q}}A_q.
+$$
+
+Since $\mathbb{Q}$ is countable,
+
+$$
+P(A)=1.
+$$
+
+Fix $\omega\in A$.
+
+Then
+
+$$
+\widehat F_n(q,\omega)\to F(q)
+$$
+
+for every $q\in\mathbb{Q}$.
+
+Now take any $x\in\mathbb{R}$. Choose $q_1,q_2\in\mathbb{Q}$ such that
+
+$$
+q_1<x<q_2.
+$$
+
+Since every $\widehat F_n(\cdot,\omega)$ is non-decreasing,
+
+$$
+\widehat F_n(q_1,\omega)
+\leq
+\widehat F_n(x,\omega)
+\leq
+\widehat F_n(q_2,\omega).
+$$
+
+Taking limits,
+
+$$
+F(q_1)
+\leq
+\liminf_{n\to\infty}\widehat F_n(x,\omega)
+\leq
+\limsup_{n\to\infty}\widehat F_n(x,\omega)
+\leq
+F(q_2).
+$$
+
+Now let
+
+$$
+q_1\uparrow x
+$$
+
+and
+
+$$
+q_2\downarrow x.
+$$
+
+Since $F$ is continuous,
+
+$$
+F(q_1)\to F(x)
+$$
+
+and
+
+$$
+F(q_2)\to F(x).
+$$
+
+Therefore, by squeezing,
+
+$$
+\widehat F_n(x,\omega)\to F(x).
+$$
+
+Since $x$ was arbitrary, for every $\omega\in A$,
+
+$$
+\widehat F_n(x,\omega)\to F(x)
+\qquad
+\text{for all }x\in\mathbb{R}.
+$$
+
+Since $F$ is continuous, part (b) now gives, for every $\omega\in A$,
+
+$$
+\sup_{x\in\mathbb{R}}
+|\widehat F_n(x,\omega)-F(x)|
+\to0.
+$$
+
+Since
+
+$$
+P(A)=1,
+$$
+
+we conclude
+
+$$
+\boxed{
+\sup_{x\in\mathbb{R}}
+|\widehat F_n(x)-F(x)|
+\to0
+\qquad\text{a.s.}
+}
+$$

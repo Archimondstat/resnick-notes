@@ -23,7 +23,7 @@
 <meta name="author" content="Zhanwen Peng" />
 
 
-<meta name="date" content="2026-10-04" />
+<meta name="date" content="2026-10-06" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -592,6 +592,12 @@
 <ul>
 <li class="chapter" data-level="" data-path="chap-8-convergence-in-distribution.html"><a href="chap-8-convergence-in-distribution.html#method-1"><i class="fa fa-check"></i>Method 1</a></li>
 <li class="chapter" data-level="" data-path="chap-8-convergence-in-distribution.html"><a href="chap-8-convergence-in-distribution.html#method-2"><i class="fa fa-check"></i>Method 2</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="chap-8-convergence-in-distribution.html"><a href="chap-8-convergence-in-distribution.html#ex-5-3"><i class="fa fa-check"></i>Ex 5</a>
+<ul>
+<li class="chapter" data-level="" data-path="chap-8-convergence-in-distribution.html"><a href="chap-8-convergence-in-distribution.html#a-38"><i class="fa fa-check"></i>(a)</a></li>
+<li class="chapter" data-level="" data-path="chap-8-convergence-in-distribution.html"><a href="chap-8-convergence-in-distribution.html#b-38"><i class="fa fa-check"></i>(b)</a></li>
+<li class="chapter" data-level="" data-path="chap-8-convergence-in-distribution.html"><a href="chap-8-convergence-in-distribution.html#c-25"><i class="fa fa-check"></i>(c)</a></li>
 </ul></li>
 </ul></li>
 </ul></li>
@@ -2567,6 +2573,333 @@ F(y_{n_k})\to b,
 |F(x_{n_k})-F(y_{n_k})|\geq\epsilon_0.
 \]</span></p>
 <p>Therefore <span class="math inline">\(F\)</span> is uniformly continuous on <span class="math inline">\(\mathbb{R}\)</span>.</p>
+</div>
+</div>
+<div id="ex-5-3" class="section level3 hasAnchor">
+<h3>Ex 5<a href="chap-8-convergence-in-distribution.html#ex-5-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="problem">
+<ol style="list-style-type: lower-alpha">
+<li>If <span class="math inline">\(u_n(x)\)</span>, <span class="math inline">\(x\in\mathbb{R}\)</span> are non-decreasing functions for each <span class="math inline">\(n\)</span> and <span class="math inline">\(u_n(x)\to u_0(x)\)</span> and <span class="math inline">\(u_0(\cdot)\)</span> is continuous, then for any <span class="math inline">\(-\infty&lt;a&lt;b&lt;\infty\)</span></li>
+</ol>
+<p><span class="math display">\[
+\sup_{x\in(a,b)}|u_n(x)-u_0(x)|\to0.
+\]</span></p>
+<p>Thus, convergence of monotone functions to a continuous limit implies local uniform convergence.</p>
+<ol start="2" style="list-style-type: lower-alpha">
+<li>Suppose <span class="math inline">\(F_n\)</span>, <span class="math inline">\(n\geq0\)</span> are proper df’s and <span class="math inline">\(F_n\Rightarrow F_0\)</span>. If <span class="math inline">\(F_0\)</span> is continuous, show</li>
+</ol>
+<p><span class="math display">\[
+\sup_{x\in\mathbb{R}}|F_n(x)-F_0(x)|\to0.
+\]</span></p>
+<p>For instance, in the central limit theorem, where <span class="math inline">\(F_0\)</span> is the normal distribution, convergence is always uniform.</p>
+<ol start="3" style="list-style-type: lower-alpha">
+<li>Give a simple proof of the Glivenko-Cantelli lemma under the additional hypothesis that the underlying distribution is continuous.</li>
+</ol>
+</div>
+<p><span class="math inline">\(\textbf{Answer:}\)</span></p>
+<div id="a-38" class="section level4 hasAnchor">
+<h4>(a)<a href="chap-8-convergence-in-distribution.html#a-38" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Fix <span class="math inline">\(\epsilon&gt;0\)</span>. Divide <span class="math inline">\([a,b]\)</span> into finitely many pieces</p>
+<p><span class="math display">\[
+a=x_0&lt;x_1&lt;\cdots&lt;x_m=b
+\]</span></p>
+<p>such that for every <span class="math inline">\(i\)</span> and every <span class="math inline">\(x,y\in[x_{i-1},x_i]\)</span>,</p>
+<p><span class="math display">\[
+|u_0(x)-u_0(y)|&lt;\frac{\epsilon}{2}.
+\]</span></p>
+<p>This is possible since <span class="math inline">\(u_0\)</span> is uniformly continuous on the compact interval <span class="math inline">\([a,b]\)</span>.</p>
+<p>Since</p>
+<p><span class="math display">\[
+u_n(x_i)\to u_0(x_i)
+\]</span></p>
+<p>for each endpoint <span class="math inline">\(x_i\)</span>, and there are only finitely many such endpoints, we can choose <span class="math inline">\(N\)</span> sufficiently large such that, for every <span class="math inline">\(n\geq N\)</span> and every <span class="math inline">\(i\)</span>,</p>
+<p><span class="math display">\[
+|u_n(x_i)-u_0(x_i)|&lt;\frac{\epsilon}{2}.
+\]</span></p>
+<p>Now take any <span class="math inline">\(x\in[a,b]\)</span>. Then <span class="math inline">\(x\)</span> must fall into some subinterval <span class="math inline">\([x_{i-1},x_i]\)</span>.</p>
+<p>Since <span class="math inline">\(u_n\)</span> is non-decreasing,</p>
+<p><span class="math display">\[
+u_n(x_{i-1})
+\leq
+u_n(x)
+\leq
+u_n(x_i).
+\]</span></p>
+<p>For the upper bound,</p>
+<p><span class="math display">\[
+\begin{aligned}
+u_n(x)
+&amp;\leq u_n(x_i)\\
+&amp;&lt;u_0(x_i)+\frac{\epsilon}{2}\\
+&amp;&lt;u_0(x)+\epsilon.
+\end{aligned}
+\]</span></p>
+<p>Similarly, for the lower bound,</p>
+<p><span class="math display">\[
+\begin{aligned}
+u_n(x)
+&amp;\geq u_n(x_{i-1})\\
+&amp;&gt;u_0(x_{i-1})-\frac{\epsilon}{2}\\
+&amp;&gt;u_0(x)-\epsilon.
+\end{aligned}
+\]</span></p>
+<p>Therefore,</p>
+<p><span class="math display">\[
+|u_n(x)-u_0(x)|&lt;\epsilon.
+\]</span></p>
+<p>Since <span class="math inline">\(x\)</span> is arbitrary,</p>
+<p><span class="math display">\[
+\sup_{x\in[a,b]}
+|u_n(x)-u_0(x)|
+&lt;\epsilon
+\]</span></p>
+<p>for all sufficiently large <span class="math inline">\(n\)</span>. Hence</p>
+<p><span class="math display">\[
+\sup_{x\in[a,b]}
+|u_n(x)-u_0(x)|
+\to0.
+\]</span></p>
+</div>
+<div id="b-38" class="section level4 hasAnchor">
+<h4>(b)<a href="chap-8-convergence-in-distribution.html#b-38" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Fix <span class="math inline">\(\epsilon&gt;0\)</span>.</p>
+<p>Since <span class="math inline">\(F_0\)</span> is a proper distribution function, we can select <span class="math inline">\(M&gt;0\)</span> sufficiently large such that</p>
+<p><span class="math display">\[
+F_0(-M)&lt;\frac{\epsilon}{4}
+\]</span></p>
+<p>and</p>
+<p><span class="math display">\[
+1-F_0(M)&lt;\frac{\epsilon}{4}.
+\]</span></p>
+<p>Since <span class="math inline">\(F_0\)</span> is continuous and</p>
+<p><span class="math display">\[
+F_n\Rightarrow F_0,
+\]</span></p>
+<p>we have</p>
+<p><span class="math display">\[
+F_n(-M)\to F_0(-M)
+\]</span></p>
+<p>and</p>
+<p><span class="math display">\[
+F_n(M)\to F_0(M).
+\]</span></p>
+<p>Therefore, for sufficiently large <span class="math inline">\(n\)</span>,</p>
+<p><span class="math display">\[
+|F_n(-M)-F_0(-M)|&lt;\frac{\epsilon}{4}
+\]</span></p>
+<p>and</p>
+<p><span class="math display">\[
+|F_n(M)-F_0(M)|&lt;\frac{\epsilon}{4}.
+\]</span></p>
+<p>On the compact interval <span class="math inline">\([-M,M]\)</span>, by part (a),</p>
+<p><span class="math display">\[
+\sup_{x\in[-M,M]}
+|F_n(x)-F_0(x)|
+\to0.
+\]</span></p>
+<p>Now consider the right tail. For <span class="math inline">\(x\geq M\)</span>, by monotonicity,</p>
+<p><span class="math display">\[
+F_n(M)\leq F_n(x)\leq1
+\]</span></p>
+<p>and</p>
+<p><span class="math display">\[
+F_0(M)\leq F_0(x)\leq1.
+\]</span></p>
+<p>Thus</p>
+<p><span class="math display">\[
+1-F_n(x)\leq1-F_n(M),
+\]</span></p>
+<p>and</p>
+<p><span class="math display">\[
+1-F_0(x)\leq1-F_0(M).
+\]</span></p>
+<p>Also,</p>
+<p><span class="math display">\[
+\begin{aligned}
+1-F_n(M)
+&amp;\leq
+1-F_0(M)+|F_n(M)-F_0(M)|\\
+&amp;&lt;
+\frac{\epsilon}{2}.
+\end{aligned}
+\]</span></p>
+<p>Hence, for every <span class="math inline">\(x\geq M\)</span>,</p>
+<p><span class="math display">\[
+\begin{aligned}
+|F_n(x)-F_0(x)|
+&amp;\leq
+|1-F_n(x)|+|1-F_0(x)|\\
+&amp;\leq
+1-F_n(M)+1-F_0(M)\\
+&amp;&lt;
+\epsilon.
+\end{aligned}
+\]</span></p>
+<p>Similarly, for the left tail <span class="math inline">\(x\leq-M\)</span>,</p>
+<p><span class="math display">\[
+0\leq F_n(x)\leq F_n(-M)
+\]</span></p>
+<p>and</p>
+<p><span class="math display">\[
+0\leq F_0(x)\leq F_0(-M).
+\]</span></p>
+<p>Moreover,</p>
+<p><span class="math display">\[
+\begin{aligned}
+F_n(-M)
+&amp;\leq
+F_0(-M)+|F_n(-M)-F_0(-M)|\\
+&amp;&lt;
+\frac{\epsilon}{2}.
+\end{aligned}
+\]</span></p>
+<p>Therefore, for every <span class="math inline">\(x\leq-M\)</span>,</p>
+<p><span class="math display">\[
+\begin{aligned}
+|F_n(x)-F_0(x)|
+&amp;\leq
+F_n(x)+F_0(x)\\
+&amp;\leq
+F_n(-M)+F_0(-M)\\
+&amp;&lt;
+\epsilon.
+\end{aligned}
+\]</span></p>
+<p>Combining the middle interval and the two tails,</p>
+<p><span class="math display">\[
+\sup_{x\in\mathbb{R}}
+|F_n(x)-F_0(x)|
+\to0.
+\]</span></p>
+</div>
+<div id="c-25" class="section level4 hasAnchor">
+<h4>(c)<a href="chap-8-convergence-in-distribution.html#c-25" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Let</p>
+<p><span class="math display">\[
+\widehat F_n(x,\omega)
+=
+\frac{1}{n}
+\sum_{i=1}^n
+1_{\{X_i\leq x\}}(\omega)
+\]</span></p>
+<p>be the empirical distribution function, where <span class="math inline">\(X_1,X_2,\ldots\)</span> are iid with continuous distribution function <span class="math inline">\(F\)</span>.</p>
+<p>For each fixed <span class="math inline">\(x\)</span>,</p>
+<p><span class="math display">\[
+E\left(1_{\{X_i\leq x\}}\right)
+=
+F(x).
+\]</span></p>
+<p>Therefore, by the SLLN,</p>
+<p><span class="math display">\[
+\widehat F_n(x,\omega)\to F(x)
+\qquad\text{a.s.}
+\]</span></p>
+<p>However, for each fixed <span class="math inline">\(x\)</span>, this means that there exists a set <span class="math inline">\(A_x\)</span> with</p>
+<p><span class="math display">\[
+P(A_x)=1
+\]</span></p>
+<p>such that, for every <span class="math inline">\(\omega\in A_x\)</span>,</p>
+<p><span class="math display">\[
+\widehat F_n(x,\omega)\to F(x).
+\]</span></p>
+<p>The set <span class="math inline">\(A_x\)</span> may depend on <span class="math inline">\(x\)</span>, and there are uncountably many <span class="math inline">\(x\in\mathbb{R}\)</span>, so we cannot directly take an uncountable intersection.</p>
+<p>Instead, use the countable dense set <span class="math inline">\(\mathbb{Q}\)</span>.</p>
+<p>For every <span class="math inline">\(q\in\mathbb{Q}\)</span>, let</p>
+<p><span class="math display">\[
+A_q
+=
+\left\{
+\omega:
+\widehat F_n(q,\omega)\to F(q)
+\right\}.
+\]</span></p>
+<p>Then</p>
+<p><span class="math display">\[
+P(A_q)=1.
+\]</span></p>
+<p>Define</p>
+<p><span class="math display">\[
+A
+=
+\bigcap_{q\in\mathbb{Q}}A_q.
+\]</span></p>
+<p>Since <span class="math inline">\(\mathbb{Q}\)</span> is countable,</p>
+<p><span class="math display">\[
+P(A)=1.
+\]</span></p>
+<p>Fix <span class="math inline">\(\omega\in A\)</span>.</p>
+<p>Then</p>
+<p><span class="math display">\[
+\widehat F_n(q,\omega)\to F(q)
+\]</span></p>
+<p>for every <span class="math inline">\(q\in\mathbb{Q}\)</span>.</p>
+<p>Now take any <span class="math inline">\(x\in\mathbb{R}\)</span>. Choose <span class="math inline">\(q_1,q_2\in\mathbb{Q}\)</span> such that</p>
+<p><span class="math display">\[
+q_1&lt;x&lt;q_2.
+\]</span></p>
+<p>Since every <span class="math inline">\(\widehat F_n(\cdot,\omega)\)</span> is non-decreasing,</p>
+<p><span class="math display">\[
+\widehat F_n(q_1,\omega)
+\leq
+\widehat F_n(x,\omega)
+\leq
+\widehat F_n(q_2,\omega).
+\]</span></p>
+<p>Taking limits,</p>
+<p><span class="math display">\[
+F(q_1)
+\leq
+\liminf_{n\to\infty}\widehat F_n(x,\omega)
+\leq
+\limsup_{n\to\infty}\widehat F_n(x,\omega)
+\leq
+F(q_2).
+\]</span></p>
+<p>Now let</p>
+<p><span class="math display">\[
+q_1\uparrow x
+\]</span></p>
+<p>and</p>
+<p><span class="math display">\[
+q_2\downarrow x.
+\]</span></p>
+<p>Since <span class="math inline">\(F\)</span> is continuous,</p>
+<p><span class="math display">\[
+F(q_1)\to F(x)
+\]</span></p>
+<p>and</p>
+<p><span class="math display">\[
+F(q_2)\to F(x).
+\]</span></p>
+<p>Therefore, by squeezing,</p>
+<p><span class="math display">\[
+\widehat F_n(x,\omega)\to F(x).
+\]</span></p>
+<p>Since <span class="math inline">\(x\)</span> was arbitrary, for every <span class="math inline">\(\omega\in A\)</span>,</p>
+<p><span class="math display">\[
+\widehat F_n(x,\omega)\to F(x)
+\qquad
+\text{for all }x\in\mathbb{R}.
+\]</span></p>
+<p>Since <span class="math inline">\(F\)</span> is continuous, part (b) now gives, for every <span class="math inline">\(\omega\in A\)</span>,</p>
+<p><span class="math display">\[
+\sup_{x\in\mathbb{R}}
+|\widehat F_n(x,\omega)-F(x)|
+\to0.
+\]</span></p>
+<p>Since</p>
+<p><span class="math display">\[
+P(A)=1,
+\]</span></p>
+<p>we conclude</p>
+<p><span class="math display">\[
+\boxed{
+\sup_{x\in\mathbb{R}}
+|\widehat F_n(x)-F(x)|
+\to0
+\qquad\text{a.s.}
+}
+\]</span></p>
 
 </div>
 </div>
