@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chap 8, Convergence in Distribution | Notes on A Probability Path (Resnick)</title>
   <meta name="description" content="Chap 8, Convergence in Distribution | Notes on A Probability Path (Resnick)" />
-  <meta name="generator" content="bookdown 0.46 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.42 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chap 8, Convergence in Distribution | Notes on A Probability Path (Resnick)" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="Zhanwen Peng" />
 
 
-<meta name="date" content="2026-10-06" />
+<meta name="date" content="2026-10-09" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -598,6 +598,11 @@
 <li class="chapter" data-level="" data-path="chap-8-convergence-in-distribution.html"><a href="chap-8-convergence-in-distribution.html#a-38"><i class="fa fa-check"></i>(a)</a></li>
 <li class="chapter" data-level="" data-path="chap-8-convergence-in-distribution.html"><a href="chap-8-convergence-in-distribution.html#b-38"><i class="fa fa-check"></i>(b)</a></li>
 <li class="chapter" data-level="" data-path="chap-8-convergence-in-distribution.html"><a href="chap-8-convergence-in-distribution.html#c-25"><i class="fa fa-check"></i>(c)</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="chap-8-convergence-in-distribution.html"><a href="chap-8-convergence-in-distribution.html#ex-9-3"><i class="fa fa-check"></i>Ex 9</a>
+<ul>
+<li class="chapter" data-level="" data-path="chap-8-convergence-in-distribution.html"><a href="chap-8-convergence-in-distribution.html#rightarrow"><i class="fa fa-check"></i><span class="math inline">\(\Rightarrow\)</span></a></li>
+<li class="chapter" data-level="" data-path="chap-8-convergence-in-distribution.html"><a href="chap-8-convergence-in-distribution.html#leftarrow"><i class="fa fa-check"></i><span class="math inline">\(\Leftarrow\)</span></a></li>
 </ul></li>
 </ul></li>
 </ul></li>
@@ -2898,6 +2903,301 @@ P(A)=1,
 |\widehat F_n(x)-F(x)|
 \to0
 \qquad\text{a.s.}
+}
+\]</span></p>
+</div>
+</div>
+<div id="ex-9-3" class="section level3 hasAnchor">
+<h3>Ex 9<a href="chap-8-convergence-in-distribution.html#ex-9-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="problem">
+<p>Let <span class="math inline">\(\{X_n,n\geq0\}\)</span> be random variables. Show <span class="math inline">\(X_n\Rightarrow X_0\)</span> iff</p>
+<p><span class="math display">\[
+E(g(X_n))\to E(g(X_0))
+\]</span></p>
+<p>for all continuous functions <span class="math inline">\(g\)</span> with compact support.</p>
+</div>
+<p><span class="math inline">\(\textbf{Answer:}\)</span></p>
+<p>Let <span class="math inline">\(C_c(\mathbb{R})\)</span> be the set of all continuous functions with compact support on <span class="math inline">\(\mathbb{R}\)</span>, and let <span class="math inline">\(C_b(\mathbb{R})\)</span> be the set of all bounded continuous functions.</p>
+<div id="rightarrow" class="section level4 hasAnchor">
+<h4><span class="math inline">\(\Rightarrow\)</span><a href="chap-8-convergence-in-distribution.html#rightarrow" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Since</p>
+<p><span class="math display">\[
+C_c(\mathbb{R})\subset C_b(\mathbb{R}),
+\]</span></p>
+<p>if</p>
+<p><span class="math display">\[
+X_n\Rightarrow X_0,
+\]</span></p>
+<p>then by the Portmanteau theorem,</p>
+<p><span class="math display">\[
+E(g(X_n))\to E(g(X_0))
+\]</span></p>
+<p>for every <span class="math inline">\(g\in C_c(\mathbb{R})\)</span>.</p>
+</div>
+<div id="leftarrow" class="section level4 hasAnchor">
+<h4><span class="math inline">\(\Leftarrow\)</span><a href="chap-8-convergence-in-distribution.html#leftarrow" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>We should notice that in the proof of the Portmanteau theorem <span class="math inline">\((2)\Rightarrow(1)\)</span>, Resnick did not actually use all bounded continuous functions. Instead, the functions used in the proof are continuous functions with compact support.</p>
+<p>Let <span class="math inline">\(F_n\)</span> be the distribution function of <span class="math inline">\(X_n\)</span>, <span class="math inline">\(n\geq0\)</span>, and let</p>
+<p><span class="math display">\[
+a,b\in C(F_0),
+\qquad
+a&lt;b.
+\]</span></p>
+<p>Firstly, define <span class="math inline">\(g_k\)</span> whose graph is the trapezoid of height <span class="math inline">\(1\)</span> obtained by taking a rectangle of height <span class="math inline">\(1\)</span> with base <span class="math inline">\([a,b]\)</span> and extending the base symmetrically to</p>
+<p><span class="math display">\[
+\left[a-\frac1k,b+\frac1k\right].
+\]</span></p>
+<p>Then</p>
+<p><span class="math display">\[
+g_k\in C_c(\mathbb{R}),
+\]</span></p>
+<p>and</p>
+<p><span class="math display">\[
+g_k\downarrow 1_{[a,b]}.
+\]</span></p>
+<p>Also,</p>
+<p><span class="math display">\[
+1_{(a,b]}\leq g_k.
+\]</span></p>
+<p>Therefore,</p>
+<p><span class="math display">\[
+\begin{aligned}
+F_n((a,b])
+&amp;=
+\int_{\mathbb{R}}1_{(a,b]}\,dF_n\\
+&amp;\leq
+\int_{\mathbb{R}}g_k\,dF_n\\
+&amp;=
+E(g_k(X_n)).
+\end{aligned}
+\]</span></p>
+<p>For fixed <span class="math inline">\(k\)</span>, by assumption,</p>
+<p><span class="math display">\[
+E(g_k(X_n))
+\to
+E(g_k(X_0))
+=
+\int_{\mathbb{R}}g_k\,dF_0.
+\]</span></p>
+<p>Hence</p>
+<p><span class="math display">\[
+\limsup_{n\to\infty}F_n((a,b])
+\leq
+\int_{\mathbb{R}}g_k\,dF_0.
+\]</span></p>
+<p>Since <span class="math inline">\(0\leq g_k\leq1\)</span> and</p>
+<p><span class="math display">\[
+g_k\downarrow1_{[a,b]},
+\]</span></p>
+<p>by DCT,</p>
+<p><span class="math display">\[
+\int_{\mathbb{R}}g_k\,dF_0
+\to
+F_0([a,b]).
+\]</span></p>
+<p>Since <span class="math inline">\(a\in C(F_0)\)</span>,</p>
+<p><span class="math display">\[
+F_0([a,b])=F_0((a,b]).
+\]</span></p>
+<p>Thus</p>
+<p><span class="math display">\[
+\limsup_{n\to\infty}F_n((a,b])
+\leq
+F_0((a,b]).
+\]</span></p>
+<p>Secondly, define <span class="math inline">\(h_k\)</span> whose graph is the trapezoid of height <span class="math inline">\(1\)</span> obtained by taking a rectangle of height <span class="math inline">\(1\)</span> with base</p>
+<p><span class="math display">\[
+\left[a+\frac1k,b-\frac1k\right]
+\]</span></p>
+<p>and extending the base symmetrically to <span class="math inline">\([a,b]\)</span>, for <span class="math inline">\(k\)</span> sufficiently large.</p>
+<p>Then</p>
+<p><span class="math display">\[
+h_k\in C_c(\mathbb{R}),
+\]</span></p>
+<p>and</p>
+<p><span class="math display">\[
+h_k\uparrow1_{(a,b)}.
+\]</span></p>
+<p>Also,</p>
+<p><span class="math display">\[
+h_k\leq1_{(a,b]}.
+\]</span></p>
+<p>Therefore,</p>
+<p><span class="math display">\[
+F_n((a,b])
+\geq
+\int_{\mathbb{R}}h_k\,dF_n
+=
+E(h_k(X_n)).
+\]</span></p>
+<p>For fixed <span class="math inline">\(k\)</span>,</p>
+<p><span class="math display">\[
+E(h_k(X_n))
+\to
+E(h_k(X_0))
+=
+\int_{\mathbb{R}}h_k\,dF_0.
+\]</span></p>
+<p>Hence</p>
+<p><span class="math display">\[
+\liminf_{n\to\infty}F_n((a,b])
+\geq
+\int_{\mathbb{R}}h_k\,dF_0.
+\]</span></p>
+<p>Since <span class="math inline">\(0\leq h_k\leq1\)</span> and</p>
+<p><span class="math display">\[
+h_k\uparrow1_{(a,b)},
+\]</span></p>
+<p>by DCT,</p>
+<p><span class="math display">\[
+\int_{\mathbb{R}}h_k\,dF_0
+\to
+F_0((a,b)).
+\]</span></p>
+<p>Since <span class="math inline">\(a,b\in C(F_0)\)</span>,</p>
+<p><span class="math display">\[
+F_0((a,b))
+=
+F_0((a,b]).
+\]</span></p>
+<p>Therefore,</p>
+<p><span class="math display">\[
+\liminf_{n\to\infty}F_n((a,b])
+\geq
+F_0((a,b]).
+\]</span></p>
+<p>Combining the two inequalities,</p>
+<p><span class="math display">\[
+F_n((a,b])
+\to
+F_0((a,b])
+\]</span></p>
+<p>for every finite interval of continuity <span class="math inline">\((a,b]\)</span> of <span class="math inline">\(F_0\)</span>.</p>
+<p>Thus</p>
+<p><span class="math display">\[
+F_n\to F_0
+\]</span></p>
+<p>vaguely. Since <span class="math inline">\(\{F_n,n\geq0\}\)</span> are proper distributions, by Theorem 8.1.1,</p>
+<p><span class="math display">\[
+F_n\Rightarrow F_0.
+\]</span></p>
+<p>Therefore,</p>
+<p><span class="math display">\[
+X_n\Rightarrow X_0.
+\]</span></p>
+<p><span class="math inline">\(\textbf{Note:}\)</span></p>
+<p>There is another possible way to prove the converse without using Theorem 8.1.1, but it is much more complicated.</p>
+<p>Suppose</p>
+<p><span class="math display">\[
+E(g(X_n))\to E(g(X_0))
+\]</span></p>
+<p>for every <span class="math inline">\(g\in C_c(\mathbb R)\)</span>. To use the Portmanteau theorem directly, we would need to extend this result to every bounded continuous function</p>
+<p><span class="math display">\[
+f\in C_b(\mathbb R).
+\]</span></p>
+<p>For a bounded continuous <span class="math inline">\(f\)</span>, define a continuous cutoff <span class="math inline">\(h_m\)</span> such that</p>
+<p><span class="math display">\[
+0\le h_m\le1,
+\]</span></p>
+<p><span class="math display">\[
+h_m=1\quad\text{on }[-m,m],
+\]</span></p>
+<p>and</p>
+<p><span class="math display">\[
+h_m=0\quad\text{outside }[-m-1,m+1].
+\]</span></p>
+<p>Then</p>
+<p><span class="math display">\[
+g_m:=fh_m\in C_c(\mathbb R),
+\]</span></p>
+<p>so for every fixed <span class="math inline">\(m\)</span>,</p>
+<p><span class="math display">\[
+E(g_m(X_n))\to E(g_m(X_0)).
+\]</span></p>
+<p>Also,</p>
+<p><span class="math display">\[
+g_m(x)\to f(x)
+\]</span></p>
+<p>pointwise as <span class="math inline">\(m\to\infty\)</span>.</p>
+<p>However, this is not enough to immediately conclude</p>
+<p><span class="math display">\[
+E(f(X_n))\to E(f(X_0)),
+\]</span></p>
+<p>because there are now two limits,</p>
+<p><span class="math display">\[
+n\to\infty
+\qquad\text{and}\qquad
+m\to\infty,
+\]</span></p>
+<p>and DCT only gives</p>
+<p><span class="math display">\[
+E(g_m(X_n))\to E(f(X_n))
+\]</span></p>
+<p>for each fixed <span class="math inline">\(n\)</span>. We still need some control that is uniform in <span class="math inline">\(n\)</span>.</p>
+<p>To obtain this, we again use the cutoff <span class="math inline">\(h_m\)</span>. Since <span class="math inline">\(h_m\in C_c(\mathbb R)\)</span>,</p>
+<p><span class="math display">\[
+E(h_m(X_n))\to E(h_m(X_0))
+\]</span></p>
+<p>for fixed <span class="math inline">\(m\)</span>, while</p>
+<p><span class="math display">\[
+E(h_m(X_0))\to1
+\]</span></p>
+<p>as <span class="math inline">\(m\to\infty\)</span>. Therefore, for large <span class="math inline">\(m\)</span> and then large <span class="math inline">\(n\)</span>,</p>
+<p><span class="math display">\[
+E(1-h_m(X_n))
+\]</span></p>
+<p>is small. If <span class="math inline">\(\|f\|_\infty\le C\)</span>, then</p>
+<p><span class="math display">\[
+\begin{aligned}
+|E(f(X_n))-E(f(X_0))|
+&amp;\le
+|E(f(X_n)-g_m(X_n))|\\
+&amp;\quad+
+|E(g_m(X_n))-E(g_m(X_0))|\\
+&amp;\quad+
+|E(g_m(X_0)-f(X_0))|,
+\end{aligned}
+\]</span></p>
+<p>and the first and third terms are controlled by</p>
+<p><span class="math display">\[
+C\,E(1-h_m(X_n))
+\]</span></p>
+<p>and</p>
+<p><span class="math display">\[
+C\,E(1-h_m(X_0)),
+\]</span></p>
+<p>while the middle term converges to <span class="math inline">\(0\)</span> by the assumption on <span class="math inline">\(C_c(\mathbb R)\)</span>.</p>
+<p>Hence we can eventually prove</p>
+<p><span class="math display">\[
+E(f(X_n))\to E(f(X_0))
+\]</span></p>
+<p>for every <span class="math inline">\(f\in C_b(\mathbb R)\)</span>, and then apply the Portmanteau theorem.</p>
+<p>So this longer route is</p>
+<p><span class="math display">\[
+C_c
+\longrightarrow
+\text{tail control}
+\longrightarrow
+C_b
+\longrightarrow
+\text{Portmanteau}
+\longrightarrow
+X_n\Rightarrow X_0.
+\]</span></p>
+<p>By contrast, using Theorem 8.1.1, the proof becomes</p>
+<p><span class="math display">\[
+C_c
+\longrightarrow
+\text{convergence on finite continuity intervals}
+\longrightarrow
+\text{vague convergence}
+\overset{\text{properness}}{\Longrightarrow}
+\text{weak convergence}.
+\]</span></p>
+<p><span class="math display">\[
+\boxed{
+\text{Theorem 8.1.1 lets us stop at convergence on continuity intervals; }
+\text{without it, we have to build the whole }C_c\to C_b\text{ bridge.}
 }
 \]</span></p>
 

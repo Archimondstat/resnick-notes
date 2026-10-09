@@ -3039,3 +3039,413 @@ $$
 \qquad\text{a.s.}
 }
 $$
+
+### Ex 9
+::: problem
+
+Let $\{X_n,n\geq0\}$ be random variables. Show $X_n\Rightarrow X_0$ iff
+
+$$
+E(g(X_n))\to E(g(X_0))
+$$
+
+for all continuous functions $g$ with compact support.
+
+:::
+
+$\textbf{Answer:}$
+
+Let $C_c(\mathbb{R})$ be the set of all continuous functions with compact support on $\mathbb{R}$, and let $C_b(\mathbb{R})$ be the set of all bounded continuous functions.
+
+#### $\Rightarrow$
+
+Since
+
+$$
+C_c(\mathbb{R})\subset C_b(\mathbb{R}),
+$$
+
+if
+
+$$
+X_n\Rightarrow X_0,
+$$
+
+then by the Portmanteau theorem,
+
+$$
+E(g(X_n))\to E(g(X_0))
+$$
+
+for every $g\in C_c(\mathbb{R})$.
+
+#### $\Leftarrow$
+
+We should notice that in the proof of the Portmanteau theorem $(2)\Rightarrow(1)$, Resnick did not actually use all bounded continuous functions. Instead, the functions used in the proof are continuous functions with compact support.
+
+Let $F_n$ be the distribution function of $X_n$, $n\geq0$, and let
+
+$$
+a,b\in C(F_0),
+\qquad
+a<b.
+$$
+
+Firstly, define $g_k$ whose graph is the trapezoid of height $1$ obtained by taking a rectangle of height $1$ with base $[a,b]$ and extending the base symmetrically to
+
+$$
+\left[a-\frac1k,b+\frac1k\right].
+$$
+
+Then
+
+$$
+g_k\in C_c(\mathbb{R}),
+$$
+
+and
+
+$$
+g_k\downarrow 1_{[a,b]}.
+$$
+
+Also,
+
+$$
+1_{(a,b]}\leq g_k.
+$$
+
+Therefore,
+
+$$
+\begin{aligned}
+F_n((a,b])
+&=
+\int_{\mathbb{R}}1_{(a,b]}\,dF_n\\
+&\leq
+\int_{\mathbb{R}}g_k\,dF_n\\
+&=
+E(g_k(X_n)).
+\end{aligned}
+$$
+
+For fixed $k$, by assumption,
+
+$$
+E(g_k(X_n))
+\to
+E(g_k(X_0))
+=
+\int_{\mathbb{R}}g_k\,dF_0.
+$$
+
+Hence
+
+$$
+\limsup_{n\to\infty}F_n((a,b])
+\leq
+\int_{\mathbb{R}}g_k\,dF_0.
+$$
+
+Since $0\leq g_k\leq1$ and
+
+$$
+g_k\downarrow1_{[a,b]},
+$$
+
+by DCT,
+
+$$
+\int_{\mathbb{R}}g_k\,dF_0
+\to
+F_0([a,b]).
+$$
+
+Since $a\in C(F_0)$,
+
+$$
+F_0([a,b])=F_0((a,b]).
+$$
+
+Thus
+
+$$
+\limsup_{n\to\infty}F_n((a,b])
+\leq
+F_0((a,b]).
+$$
+
+Secondly, define $h_k$ whose graph is the trapezoid of height $1$ obtained by taking a rectangle of height $1$ with base
+
+$$
+\left[a+\frac1k,b-\frac1k\right]
+$$
+
+and extending the base symmetrically to $[a,b]$, for $k$ sufficiently large.
+
+Then
+
+$$
+h_k\in C_c(\mathbb{R}),
+$$
+
+and
+
+$$
+h_k\uparrow1_{(a,b)}.
+$$
+
+Also,
+
+$$
+h_k\leq1_{(a,b]}.
+$$
+
+Therefore,
+
+$$
+F_n((a,b])
+\geq
+\int_{\mathbb{R}}h_k\,dF_n
+=
+E(h_k(X_n)).
+$$
+
+For fixed $k$,
+
+$$
+E(h_k(X_n))
+\to
+E(h_k(X_0))
+=
+\int_{\mathbb{R}}h_k\,dF_0.
+$$
+
+Hence
+
+$$
+\liminf_{n\to\infty}F_n((a,b])
+\geq
+\int_{\mathbb{R}}h_k\,dF_0.
+$$
+
+Since $0\leq h_k\leq1$ and
+
+$$
+h_k\uparrow1_{(a,b)},
+$$
+
+by DCT,
+
+$$
+\int_{\mathbb{R}}h_k\,dF_0
+\to
+F_0((a,b)).
+$$
+
+Since $a,b\in C(F_0)$,
+
+$$
+F_0((a,b))
+=
+F_0((a,b]).
+$$
+
+Therefore,
+
+$$
+\liminf_{n\to\infty}F_n((a,b])
+\geq
+F_0((a,b]).
+$$
+
+Combining the two inequalities,
+
+$$
+F_n((a,b])
+\to
+F_0((a,b])
+$$
+
+for every finite interval of continuity $(a,b]$ of $F_0$.
+
+Thus
+
+$$
+F_n\to F_0
+$$
+
+vaguely. Since $\{F_n,n\geq0\}$ are proper distributions, by Theorem 8.1.1,
+
+$$
+F_n\Rightarrow F_0.
+$$
+
+Therefore,
+
+$$
+X_n\Rightarrow X_0.
+$$
+
+
+$\textbf{Note:}$
+
+There is another possible way to prove the converse without using Theorem 8.1.1, but it is much more complicated.
+
+Suppose
+
+\[
+E(g(X_n))\to E(g(X_0))
+\]
+
+for every \(g\in C_c(\mathbb R)\). To use the Portmanteau theorem directly, we would need to extend this result to every bounded continuous function
+
+\[
+f\in C_b(\mathbb R).
+\]
+
+For a bounded continuous \(f\), define a continuous cutoff \(h_m\) such that
+
+\[
+0\le h_m\le1,
+\]
+
+\[
+h_m=1\quad\text{on }[-m,m],
+\]
+
+and
+
+\[
+h_m=0\quad\text{outside }[-m-1,m+1].
+\]
+
+Then
+
+\[
+g_m:=fh_m\in C_c(\mathbb R),
+\]
+
+so for every fixed \(m\),
+
+\[
+E(g_m(X_n))\to E(g_m(X_0)).
+\]
+
+Also,
+
+\[
+g_m(x)\to f(x)
+\]
+
+pointwise as \(m\to\infty\).
+
+However, this is not enough to immediately conclude
+
+\[
+E(f(X_n))\to E(f(X_0)),
+\]
+
+because there are now two limits,
+
+\[
+n\to\infty
+\qquad\text{and}\qquad
+m\to\infty,
+\]
+
+and DCT only gives
+
+\[
+E(g_m(X_n))\to E(f(X_n))
+\]
+
+for each fixed \(n\). We still need some control that is uniform in \(n\).
+
+To obtain this, we again use the cutoff \(h_m\). Since \(h_m\in C_c(\mathbb R)\),
+
+\[
+E(h_m(X_n))\to E(h_m(X_0))
+\]
+
+for fixed \(m\), while
+
+\[
+E(h_m(X_0))\to1
+\]
+
+as \(m\to\infty\). Therefore, for large \(m\) and then large \(n\),
+
+\[
+E(1-h_m(X_n))
+\]
+
+is small. If \(\|f\|_\infty\le C\), then
+
+\[
+\begin{aligned}
+|E(f(X_n))-E(f(X_0))|
+&\le
+|E(f(X_n)-g_m(X_n))|\\
+&\quad+
+|E(g_m(X_n))-E(g_m(X_0))|\\
+&\quad+
+|E(g_m(X_0)-f(X_0))|,
+\end{aligned}
+\]
+
+and the first and third terms are controlled by
+
+\[
+C\,E(1-h_m(X_n))
+\]
+
+and
+
+\[
+C\,E(1-h_m(X_0)),
+\]
+
+while the middle term converges to \(0\) by the assumption on \(C_c(\mathbb R)\).
+
+Hence we can eventually prove
+
+\[
+E(f(X_n))\to E(f(X_0))
+\]
+
+for every \(f\in C_b(\mathbb R)\), and then apply the Portmanteau theorem.
+
+So this longer route is
+
+\[
+C_c
+\longrightarrow
+\text{tail control}
+\longrightarrow
+C_b
+\longrightarrow
+\text{Portmanteau}
+\longrightarrow
+X_n\Rightarrow X_0.
+\]
+
+By contrast, using Theorem 8.1.1, the proof becomes
+
+\[
+C_c
+\longrightarrow
+\text{convergence on finite continuity intervals}
+\longrightarrow
+\text{vague convergence}
+\overset{\text{properness}}{\Longrightarrow}
+\text{weak convergence}.
+\]
+
+\[
+\boxed{
+\text{Theorem 8.1.1 lets us stop at convergence on continuity intervals; }
+\text{without it, we have to build the whole }C_c\to C_b\text{ bridge.}
+}
+\]
+
