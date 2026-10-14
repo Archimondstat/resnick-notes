@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chap 8, Convergence in Distribution | Notes on A Probability Path (Resnick)</title>
   <meta name="description" content="Chap 8, Convergence in Distribution | Notes on A Probability Path (Resnick)" />
-  <meta name="generator" content="bookdown 0.42 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.46 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chap 8, Convergence in Distribution | Notes on A Probability Path (Resnick)" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="Zhanwen Peng" />
 
 
-<meta name="date" content="2026-10-09" />
+<meta name="date" content="2026-10-14" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -604,6 +604,9 @@
 <li class="chapter" data-level="" data-path="chap-8-convergence-in-distribution.html"><a href="chap-8-convergence-in-distribution.html#rightarrow"><i class="fa fa-check"></i><span class="math inline">\(\Rightarrow\)</span></a></li>
 <li class="chapter" data-level="" data-path="chap-8-convergence-in-distribution.html"><a href="chap-8-convergence-in-distribution.html#leftarrow"><i class="fa fa-check"></i><span class="math inline">\(\Leftarrow\)</span></a></li>
 </ul></li>
+<li class="chapter" data-level="" data-path="chap-8-convergence-in-distribution.html"><a href="chap-8-convergence-in-distribution.html#ex-36-2"><i class="fa fa-check"></i>Ex 36</a></li>
+<li class="chapter" data-level="" data-path="chap-8-convergence-in-distribution.html"><a href="chap-8-convergence-in-distribution.html#ex-10-4"><i class="fa fa-check"></i>Ex 10</a></li>
+<li class="chapter" data-level="" data-path="chap-8-convergence-in-distribution.html"><a href="chap-8-convergence-in-distribution.html#ex-31-4"><i class="fa fa-check"></i>Ex 31</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -3200,8 +3203,327 @@ C_c
 \text{without it, we have to build the whole }C_c\to C_b\text{ bridge.}
 }
 \]</span></p>
-
 </div>
+</div>
+<div id="ex-36-2" class="section level3 hasAnchor">
+<h3>Ex 36<a href="chap-8-convergence-in-distribution.html#ex-36-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="problem">
+<p>Suppose <span class="math inline">\(F_n\Rightarrow F_0\)</span> and <span class="math inline">\(g\geq 0\)</span> is continuous and satisfies</p>
+<p><span class="math display">\[
+\int_{\mathbb{R}} g\,dF_n=1
+\]</span></p>
+<p>for all <span class="math inline">\(n\geq 0\)</span>. Define the new measure</p>
+<p><span class="math display">\[
+G_n(A)=\int_A g\,dF_n.
+\]</span></p>
+<p>Show <span class="math inline">\(G_n\Rightarrow G_0\)</span>.</p>
+<p>(You can either do this directly or use Scheffe’s lemma.)</p>
+</div>
+<p><span class="math inline">\(\textbf{Answer:}\)</span></p>
+<p>Since</p>
+<p><span class="math display">\[
+g\geq0
+\]</span></p>
+<p>and</p>
+<p><span class="math display">\[
+\int_{\mathbb{R}}g\,dF_n=1,
+\]</span></p>
+<p><span class="math inline">\(\{G_n,n\geq0\}\)</span> are proper probability distributions.</p>
+<p>We can use the result from Ex 9. To prove</p>
+<p><span class="math display">\[
+G_n\Rightarrow G_0,
+\]</span></p>
+<p>it suffices to show that for every <span class="math inline">\(h\in C_c(\mathbb{R})\)</span>,</p>
+<p><span class="math display">\[
+\int_{\mathbb{R}}h\,dG_n
+\to
+\int_{\mathbb{R}}h\,dG_0.
+\]</span></p>
+<p>By the definition of <span class="math inline">\(G_n\)</span>,</p>
+<p><span class="math display">\[
+\int_{\mathbb{R}}h\,dG_n
+=
+\int_{\mathbb{R}}hg\,dF_n.
+\]</span></p>
+<p>Note that <span class="math inline">\(h\in C_c(\mathbb{R})\)</span> and <span class="math inline">\(g\)</span> is continuous, so <span class="math inline">\(hg\)</span> is continuous. Also,</p>
+<p><span class="math display">\[
+\operatorname{supp}(hg)
+\subseteq
+\operatorname{supp}(h),
+\]</span></p>
+<p>and <span class="math inline">\(\operatorname{supp}(h)\)</span> is compact. Therefore,</p>
+<p><span class="math display">\[
+hg\in C_c(\mathbb{R}).
+\]</span></p>
+<p>Since</p>
+<p><span class="math display">\[
+F_n\Rightarrow F_0,
+\]</span></p>
+<p>by Ex 9,</p>
+<p><span class="math display">\[
+\int_{\mathbb{R}}hg\,dF_n
+\to
+\int_{\mathbb{R}}hg\,dF_0.
+\]</span></p>
+<p>Thus,</p>
+<p><span class="math display">\[
+\int_{\mathbb{R}}h\,dG_n
+\to
+\int_{\mathbb{R}}h\,dG_0
+\]</span></p>
+<p>for every <span class="math inline">\(h\in C_c(\mathbb{R})\)</span>.</p>
+<p>Using Ex 9 again,</p>
+<p><span class="math display">\[
+G_n\Rightarrow G_0.
+\]</span></p>
+<p><span class="math inline">\(\textbf{Note:}\)</span></p>
+<p>There are two other possible routes, but both are more complicated than using Ex 9 directly.</p>
+<p>The first route is to truncate <span class="math inline">\(g\)</span> by</p>
+<p><span class="math display">\[
+g_M=g\wedge M.
+\]</span></p>
+<p>Then <span class="math inline">\(g_M\)</span> is bounded and continuous, so Portmanteau can be applied to <span class="math inline">\(g_M\)</span> or to products involving <span class="math inline">\(g_M\)</span>. The remaining truncation error is controlled using</p>
+<p><span class="math display">\[
+\int g\,dF_n=1.
+\]</span></p>
+<p>This is similar to the longer route we originally considered in Ex 9: first extend a result for a smaller class of test functions to a larger class, and then apply Portmanteau.</p>
+<p>The second route follows the Scheffe hint. By Baby Skorohod, construct</p>
+<p><span class="math display">\[
+X_n^\#\overset{d}{=}F_n
+\]</span></p>
+<p>on <span class="math inline">\(([0,1],\lambda)\)</span> such that</p>
+<p><span class="math display">\[
+X_n^\#\to X_0^\#
+\qquad\text{a.s.}
+\]</span></p>
+<p>Then</p>
+<p><span class="math display">\[
+g(X_n^\#)\to g(X_0^\#)
+\qquad\text{a.s.},
+\]</span></p>
+<p>and</p>
+<p><span class="math display">\[
+\int_0^1 g(X_n^\#)\,d\lambda
+=
+\int_{\mathbb{R}}g\,dF_n
+=
+1.
+\]</span></p>
+<p>Thus <span class="math inline">\(\{g(X_n^\#)\}\)</span> are densities with respect to the same measure <span class="math inline">\(\lambda\)</span>, and Scheffe’s lemma gives</p>
+<p><span class="math display">\[
+\int_0^1
+\left|
+g(X_n^\#)-g(X_0^\#)
+\right|
+\,d\lambda
+\to0.
+\]</span></p>
+<p>One then introduces another bounded continuous test function to convert this <span class="math inline">\(L^1\)</span> convergence of the weights into weak convergence of <span class="math inline">\(G_n\)</span>.</p>
+<p>Compared with these two routes, Ex 9 makes the proof much shorter: for <span class="math inline">\(h\in C_c(\mathbb{R})\)</span>,</p>
+<p><span class="math display">\[
+hg\in C_c(\mathbb{R})
+\]</span></p>
+<p>automatically, even though <span class="math inline">\(g\)</span> itself may not be bounded.</p>
+</div>
+<div id="ex-10-4" class="section level3 hasAnchor">
+<h3>Ex 10<a href="chap-8-convergence-in-distribution.html#ex-10-4" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="problem">
+<p>Let <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> be independent Bernoulli random variables on a probability space <span class="math inline">\((\Omega,\mathcal{B},P)\)</span> with <span class="math inline">\(X\overset{d}{=}Y\)</span> and</p>
+<p><span class="math display">\[
+P[X=0]=\frac12=P[X=1].
+\]</span></p>
+<p>Let <span class="math inline">\(X_n=Y\)</span> for <span class="math inline">\(n\geq1\)</span>. Show that</p>
+<p><span class="math display">\[
+X_n\Rightarrow X
+\]</span></p>
+<p>but that <span class="math inline">\(X_n\)</span> does NOT converge in probability to <span class="math inline">\(X\)</span>.</p>
+</div>
+<p><span class="math inline">\(\textbf{Answer:}\)</span></p>
+<p>Since</p>
+<p><span class="math display">\[
+X\overset{d}{=}Y
+\]</span></p>
+<p>and</p>
+<p><span class="math display">\[
+X_n=Y,
+\]</span></p>
+<p>we have</p>
+<p><span class="math display">\[
+X_n\overset{d}{=}X
+\]</span></p>
+<p>for every <span class="math inline">\(n\geq1\)</span>.</p>
+<p>Therefore,</p>
+<p><span class="math display">\[
+X_n\Rightarrow X.
+\]</span></p>
+<p>Now we show that <span class="math inline">\(X_n\)</span> does not converge in probability to <span class="math inline">\(X\)</span>.</p>
+<p>Since <span class="math inline">\(X_n=Y\)</span> and <span class="math inline">\(Y\)</span> is independent of <span class="math inline">\(X\)</span>, <span class="math inline">\(X_n\)</span> and <span class="math inline">\(X\)</span> are independent.</p>
+<p>Select</p>
+<p><span class="math display">\[
+\epsilon=\frac12.
+\]</span></p>
+<p>Since <span class="math inline">\(X_n,X\in\{0,1\}\)</span>,</p>
+<p><span class="math display">\[
+\left\{|X_n-X|&gt;\frac12\right\}
+=
+\{X_n\neq X\}.
+\]</span></p>
+<p>Therefore,</p>
+<p><span class="math display">\[
+\begin{aligned}
+P\left(|X_n-X|&gt;\frac12\right)
+&amp;=
+P(X_n\neq X)\\
+&amp;=
+P(X_n=0,X=1)+P(X_n=1,X=0)\\
+&amp;=
+P(X_n=0)P(X=1)
++
+P(X_n=1)P(X=0)\\
+&amp;=
+\frac12\cdot\frac12
++
+\frac12\cdot\frac12\\
+&amp;=
+\frac12.
+\end{aligned}
+\]</span></p>
+<p>Hence, for every <span class="math inline">\(n\)</span>,</p>
+<p><span class="math display">\[
+P\left(|X_n-X|&gt;\frac12\right)=\frac12,
+\]</span></p>
+<p>which does not converge to <span class="math inline">\(0\)</span>.</p>
+<p>Thus,</p>
+<p><span class="math display">\[
+X_n\not\xrightarrow{P}X.
+\]</span></p>
+</div>
+<div id="ex-31-4" class="section level3 hasAnchor">
+<h3>Ex 31<a href="chap-8-convergence-in-distribution.html#ex-31-4" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="problem">
+<p>If <span class="math inline">\(X_n\Rightarrow X_0\)</span> and</p>
+<p><span class="math display">\[
+\sup_n E(|X_n|^{2+\delta})&lt;\infty,
+\]</span></p>
+<p>show that</p>
+<p><span class="math display">\[
+E(X_n)\to E(X_0),\qquad
+\operatorname{Var}(X_n)\to\operatorname{Var}(X_0).
+\]</span></p>
+<p>(Use Baby Skorohod and uniform integrability.)</p>
+</div>
+<p><span class="math inline">\(\textbf{Answer:}\)</span></p>
+<p>Since</p>
+<p><span class="math display">\[
+X_n\Rightarrow X_0,
+\]</span></p>
+<p>according to Baby Skorohod, there exist <span class="math inline">\(\{Y_n\}\)</span> and <span class="math inline">\(Y_0\)</span> on</p>
+<p><span class="math display">\[
+([0,1],\mathcal{B}([0,1]),\lambda)
+\]</span></p>
+<p>such that</p>
+<p><span class="math display">\[
+Y_n\overset{d}{=}X_n,\qquad
+Y_0\overset{d}{=}X_0,
+\]</span></p>
+<p>and</p>
+<p><span class="math display">\[
+Y_n\to Y_0
+\qquad\text{a.s.}
+\]</span></p>
+<p>Also, since <span class="math inline">\(Y_n\overset{d}{=}X_n\)</span>,</p>
+<p><span class="math display">\[
+\sup_n E_\lambda(|Y_n|^{2+\delta})
+=
+\sup_n E(|X_n|^{2+\delta})
+&lt;\infty.
+\]</span></p>
+<p>First consider <span class="math inline">\(\{Y_n^2\}\)</span>. We have</p>
+<p><span class="math display">\[
+(Y_n^2)^{1+\delta/2}
+=
+|Y_n|^{2+\delta},
+\]</span></p>
+<p>so by the Crystal Ball condition,</p>
+<p><span class="math display">\[
+\{Y_n^2\}
+\]</span></p>
+<p>is uniformly integrable.</p>
+<p>Since</p>
+<p><span class="math display">\[
+Y_n\to Y_0
+\qquad\text{a.s.},
+\]</span></p>
+<p>we also have</p>
+<p><span class="math display">\[
+Y_n^2\to Y_0^2
+\qquad\text{a.s.},
+\]</span></p>
+<p>and hence in probability.</p>
+<p>Therefore, by Theorem 6.6.1,</p>
+<p><span class="math display">\[
+Y_n^2\xrightarrow{L^1}Y_0^2.
+\]</span></p>
+<p>Thus,</p>
+<p><span class="math display">\[
+E_\lambda(Y_n^2)\to E_\lambda(Y_0^2).
+\]</span></p>
+<p>Next consider <span class="math inline">\(\{Y_n\}\)</span>. Since</p>
+<p><span class="math display">\[
+\sup_n E_\lambda(|Y_n|^{2+\delta})&lt;\infty
+\]</span></p>
+<p>and <span class="math inline">\(2+\delta&gt;1\)</span>, the Crystal Ball condition also implies that</p>
+<p><span class="math display">\[
+\{Y_n\}
+\]</span></p>
+<p>is uniformly integrable.</p>
+<p>Together with</p>
+<p><span class="math display">\[
+Y_n\to Y_0
+\qquad\text{a.s.},
+\]</span></p>
+<p>and hence</p>
+<p><span class="math display">\[
+Y_n\to Y_0
+\qquad\text{in probability},
+\]</span></p>
+<p>Theorem 6.6.1 gives</p>
+<p><span class="math display">\[
+Y_n\xrightarrow{L^1}Y_0.
+\]</span></p>
+<p>Therefore,</p>
+<p><span class="math display">\[
+E_\lambda(Y_n)\to E_\lambda(Y_0).
+\]</span></p>
+<p>Since <span class="math inline">\(Y_n\overset{d}{=}X_n\)</span> and <span class="math inline">\(Y_0\overset{d}{=}X_0\)</span>,</p>
+<p><span class="math display">\[
+E(X_n)\to E(X_0),
+\]</span></p>
+<p>and</p>
+<p><span class="math display">\[
+E(X_n^2)\to E(X_0^2).
+\]</span></p>
+<p>Finally,</p>
+<p><span class="math display">\[
+\begin{aligned}
+\operatorname{Var}(X_n)
+&amp;=
+E(X_n^2)-[E(X_n)]^2\\
+&amp;\to
+E(X_0^2)-[E(X_0)]^2\\
+&amp;=
+\operatorname{Var}(X_0).
+\end{aligned}
+\]</span></p>
+<p>Hence,</p>
+<p><span class="math display">\[
+E(X_n)\to E(X_0)
+\]</span></p>
+<p>and</p>
+<p><span class="math display">\[
+\operatorname{Var}(X_n)\to\operatorname{Var}(X_0).
+\]</span></p>
+
 </div>
 </div>
 </div>

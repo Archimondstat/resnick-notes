@@ -3449,3 +3449,456 @@ C_c
 }
 \]
 
+### Ex 36
+::: problem
+
+Suppose $F_n\Rightarrow F_0$ and $g\geq 0$ is continuous and satisfies
+
+$$
+\int_{\mathbb{R}} g\,dF_n=1
+$$
+
+for all $n\geq 0$. Define the new measure
+
+$$
+G_n(A)=\int_A g\,dF_n.
+$$
+
+Show $G_n\Rightarrow G_0$.
+
+(You can either do this directly or use Scheffe's lemma.)
+
+:::
+
+$\textbf{Answer:}$
+
+Since
+
+$$
+g\geq0
+$$
+
+and
+
+$$
+\int_{\mathbb{R}}g\,dF_n=1,
+$$
+
+$\{G_n,n\geq0\}$ are proper probability distributions.
+
+We can use the result from Ex 9. To prove
+
+$$
+G_n\Rightarrow G_0,
+$$
+
+it suffices to show that for every $h\in C_c(\mathbb{R})$,
+
+$$
+\int_{\mathbb{R}}h\,dG_n
+\to
+\int_{\mathbb{R}}h\,dG_0.
+$$
+
+By the definition of $G_n$,
+
+$$
+\int_{\mathbb{R}}h\,dG_n
+=
+\int_{\mathbb{R}}hg\,dF_n.
+$$
+
+Note that $h\in C_c(\mathbb{R})$ and $g$ is continuous, so $hg$ is continuous. Also,
+
+$$
+\operatorname{supp}(hg)
+\subseteq
+\operatorname{supp}(h),
+$$
+
+and $\operatorname{supp}(h)$ is compact. Therefore,
+
+$$
+hg\in C_c(\mathbb{R}).
+$$
+
+Since
+
+$$
+F_n\Rightarrow F_0,
+$$
+
+by Ex 9,
+
+$$
+\int_{\mathbb{R}}hg\,dF_n
+\to
+\int_{\mathbb{R}}hg\,dF_0.
+$$
+
+Thus,
+
+$$
+\int_{\mathbb{R}}h\,dG_n
+\to
+\int_{\mathbb{R}}h\,dG_0
+$$
+
+for every $h\in C_c(\mathbb{R})$.
+
+Using Ex 9 again,
+
+$$
+G_n\Rightarrow G_0.
+$$
+
+$\textbf{Note:}$
+
+There are two other possible routes, but both are more complicated than using Ex 9 directly.
+
+The first route is to truncate $g$ by
+
+$$
+g_M=g\wedge M.
+$$
+
+Then $g_M$ is bounded and continuous, so Portmanteau can be applied to $g_M$ or to products involving $g_M$. The remaining truncation error is controlled using
+
+$$
+\int g\,dF_n=1.
+$$
+
+This is similar to the longer route we originally considered in Ex 9: first extend a result for a smaller class of test functions to a larger class, and then apply Portmanteau.
+
+The second route follows the Scheffe hint. By Baby Skorohod, construct
+
+$$
+X_n^\#\overset{d}{=}F_n
+$$
+
+on $([0,1],\lambda)$ such that
+
+$$
+X_n^\#\to X_0^\#
+\qquad\text{a.s.}
+$$
+
+Then
+
+$$
+g(X_n^\#)\to g(X_0^\#)
+\qquad\text{a.s.},
+$$
+
+and
+
+$$
+\int_0^1 g(X_n^\#)\,d\lambda
+=
+\int_{\mathbb{R}}g\,dF_n
+=
+1.
+$$
+
+Thus $\{g(X_n^\#)\}$ are densities with respect to the same measure $\lambda$, and Scheffe's lemma gives
+
+$$
+\int_0^1
+\left|
+g(X_n^\#)-g(X_0^\#)
+\right|
+\,d\lambda
+\to0.
+$$
+
+One then introduces another bounded continuous test function to convert this $L^1$ convergence of the weights into weak convergence of $G_n$.
+
+Compared with these two routes, Ex 9 makes the proof much shorter: for $h\in C_c(\mathbb{R})$,
+
+$$
+hg\in C_c(\mathbb{R})
+$$
+
+automatically, even though $g$ itself may not be bounded.
+
+### Ex 10
+::: problem
+
+Let $X$ and $Y$ be independent Bernoulli random variables on a probability space $(\Omega,\mathcal{B},P)$ with $X\overset{d}{=}Y$ and
+
+$$
+P[X=0]=\frac12=P[X=1].
+$$
+
+Let $X_n=Y$ for $n\geq1$. Show that
+
+$$
+X_n\Rightarrow X
+$$
+
+but that $X_n$ does NOT converge in probability to $X$.
+
+:::
+
+$\textbf{Answer:}$
+
+Since
+
+$$
+X\overset{d}{=}Y
+$$
+
+and
+
+$$
+X_n=Y,
+$$
+
+we have
+
+$$
+X_n\overset{d}{=}X
+$$
+
+for every $n\geq1$.
+
+Therefore,
+
+$$
+X_n\Rightarrow X.
+$$
+
+Now we show that $X_n$ does not converge in probability to $X$.
+
+Since $X_n=Y$ and $Y$ is independent of $X$, $X_n$ and $X$ are independent.
+
+Select
+
+$$
+\epsilon=\frac12.
+$$
+
+Since $X_n,X\in\{0,1\}$,
+
+$$
+\left\{|X_n-X|>\frac12\right\}
+=
+\{X_n\neq X\}.
+$$
+
+Therefore,
+
+$$
+\begin{aligned}
+P\left(|X_n-X|>\frac12\right)
+&=
+P(X_n\neq X)\\
+&=
+P(X_n=0,X=1)+P(X_n=1,X=0)\\
+&=
+P(X_n=0)P(X=1)
++
+P(X_n=1)P(X=0)\\
+&=
+\frac12\cdot\frac12
++
+\frac12\cdot\frac12\\
+&=
+\frac12.
+\end{aligned}
+$$
+
+Hence, for every $n$,
+
+$$
+P\left(|X_n-X|>\frac12\right)=\frac12,
+$$
+
+which does not converge to $0$.
+
+Thus,
+
+$$
+X_n\not\xrightarrow{P}X.
+$$
+
+### Ex 31
+::: problem
+
+If $X_n\Rightarrow X_0$ and
+
+$$
+\sup_n E(|X_n|^{2+\delta})<\infty,
+$$
+
+show that
+
+$$
+E(X_n)\to E(X_0),\qquad
+\operatorname{Var}(X_n)\to\operatorname{Var}(X_0).
+$$
+
+(Use Baby Skorohod and uniform integrability.)
+
+:::
+
+$\textbf{Answer:}$
+
+Since
+
+$$
+X_n\Rightarrow X_0,
+$$
+
+according to Baby Skorohod, there exist $\{Y_n\}$ and $Y_0$ on
+
+$$
+([0,1],\mathcal{B}([0,1]),\lambda)
+$$
+
+such that
+
+$$
+Y_n\overset{d}{=}X_n,\qquad
+Y_0\overset{d}{=}X_0,
+$$
+
+and
+
+$$
+Y_n\to Y_0
+\qquad\text{a.s.}
+$$
+
+Also, since $Y_n\overset{d}{=}X_n$,
+
+$$
+\sup_n E_\lambda(|Y_n|^{2+\delta})
+=
+\sup_n E(|X_n|^{2+\delta})
+<\infty.
+$$
+
+First consider $\{Y_n^2\}$. We have
+
+$$
+(Y_n^2)^{1+\delta/2}
+=
+|Y_n|^{2+\delta},
+$$
+
+so by the Crystal Ball condition,
+
+$$
+\{Y_n^2\}
+$$
+
+is uniformly integrable.
+
+Since
+
+$$
+Y_n\to Y_0
+\qquad\text{a.s.},
+$$
+
+we also have
+
+$$
+Y_n^2\to Y_0^2
+\qquad\text{a.s.},
+$$
+
+and hence in probability.
+
+Therefore, by Theorem 6.6.1,
+
+$$
+Y_n^2\xrightarrow{L^1}Y_0^2.
+$$
+
+Thus,
+
+$$
+E_\lambda(Y_n^2)\to E_\lambda(Y_0^2).
+$$
+
+Next consider $\{Y_n\}$. Since
+
+$$
+\sup_n E_\lambda(|Y_n|^{2+\delta})<\infty
+$$
+
+and $2+\delta>1$, the Crystal Ball condition also implies that
+
+$$
+\{Y_n\}
+$$
+
+is uniformly integrable.
+
+Together with
+
+$$
+Y_n\to Y_0
+\qquad\text{a.s.},
+$$
+
+and hence
+
+$$
+Y_n\to Y_0
+\qquad\text{in probability},
+$$
+
+Theorem 6.6.1 gives
+
+$$
+Y_n\xrightarrow{L^1}Y_0.
+$$
+
+Therefore,
+
+$$
+E_\lambda(Y_n)\to E_\lambda(Y_0).
+$$
+
+Since $Y_n\overset{d}{=}X_n$ and $Y_0\overset{d}{=}X_0$,
+
+$$
+E(X_n)\to E(X_0),
+$$
+
+and
+
+$$
+E(X_n^2)\to E(X_0^2).
+$$
+
+Finally,
+
+$$
+\begin{aligned}
+\operatorname{Var}(X_n)
+&=
+E(X_n^2)-[E(X_n)]^2\\
+&\to
+E(X_0^2)-[E(X_0)]^2\\
+&=
+\operatorname{Var}(X_0).
+\end{aligned}
+$$
+
+Hence,
+
+$$
+E(X_n)\to E(X_0)
+$$
+
+and
+
+$$
+\operatorname{Var}(X_n)\to\operatorname{Var}(X_0).
+$$
+
+
