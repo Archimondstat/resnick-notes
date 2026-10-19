@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chap 8, Convergence in Distribution | Notes on A Probability Path (Resnick)</title>
   <meta name="description" content="Chap 8, Convergence in Distribution | Notes on A Probability Path (Resnick)" />
-  <meta name="generator" content="bookdown 0.46 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.42 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chap 8, Convergence in Distribution | Notes on A Probability Path (Resnick)" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="Zhanwen Peng" />
 
 
-<meta name="date" content="2026-10-14" />
+<meta name="date" content="2026-10-19" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -607,6 +607,12 @@
 <li class="chapter" data-level="" data-path="chap-8-convergence-in-distribution.html"><a href="chap-8-convergence-in-distribution.html#ex-36-2"><i class="fa fa-check"></i>Ex 36</a></li>
 <li class="chapter" data-level="" data-path="chap-8-convergence-in-distribution.html"><a href="chap-8-convergence-in-distribution.html#ex-10-4"><i class="fa fa-check"></i>Ex 10</a></li>
 <li class="chapter" data-level="" data-path="chap-8-convergence-in-distribution.html"><a href="chap-8-convergence-in-distribution.html#ex-31-4"><i class="fa fa-check"></i>Ex 31</a></li>
+<li class="chapter" data-level="" data-path="chap-8-convergence-in-distribution.html"><a href="chap-8-convergence-in-distribution.html#ex-14-5"><i class="fa fa-check"></i>Ex 14</a></li>
+<li class="chapter" data-level="" data-path="chap-8-convergence-in-distribution.html"><a href="chap-8-convergence-in-distribution.html#ex-23-4"><i class="fa fa-check"></i>Ex 23</a>
+<ul>
+<li class="chapter" data-level="" data-path="chap-8-convergence-in-distribution.html"><a href="chap-8-convergence-in-distribution.html#iv-1"><i class="fa fa-check"></i>(iv)</a></li>
+<li class="chapter" data-level="" data-path="chap-8-convergence-in-distribution.html"><a href="chap-8-convergence-in-distribution.html#v-1"><i class="fa fa-check"></i>(v)</a></li>
+</ul></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -3523,7 +3529,445 @@ E(X_n)\to E(X_0)
 <p><span class="math display">\[
 \operatorname{Var}(X_n)\to\operatorname{Var}(X_0).
 \]</span></p>
+</div>
+<div id="ex-14-5" class="section level3 hasAnchor">
+<h3>Ex 14<a href="chap-8-convergence-in-distribution.html#ex-14-5" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="problem">
+<p>Consider the sphere in <span class="math inline">\(\mathbb{R}^n\)</span> of radius <span class="math inline">\(\sqrt{n}\)</span> and suppose <span class="math inline">\(X_n\)</span> is uniformly distributed on the surface of this sphere. Show that the first component of <span class="math inline">\(X_n\)</span> converges in distribution to a standard normal.</p>
+<p>Hint: If <span class="math inline">\(N_i\)</span>, <span class="math inline">\(i\geq1\)</span> are iid <span class="math inline">\(N(0,1)\)</span> random variables, show …</p>
+</div>
+<p><span class="math inline">\(\textbf{Answer:}\)</span></p>
+<p>Let</p>
+<p><span class="math display">\[
+N^{(n)}=(N_1,\ldots,N_n),
+\]</span></p>
+<p>where</p>
+<p><span class="math display">\[
+N_i\overset{iid}{\sim}N(0,1).
+\]</span></p>
+<p>The joint density of <span class="math inline">\(N^{(n)}\)</span> is</p>
+<p><span class="math display">\[
+f_n(x)
+=
+c_n\exp\left(-\frac{\|x\|^2}{2}\right),
+\]</span></p>
+<p>which depends only on <span class="math inline">\(\|x\|\)</span>.</p>
+<p>Therefore, for any orthogonal matrix <span class="math inline">\(Q\)</span>,</p>
+<p><span class="math display">\[
+QN^{(n)}\overset{d}{=}N^{(n)}.
+\]</span></p>
+<p>Hence</p>
+<p><span class="math display">\[
+Q\frac{N^{(n)}}{\|N^{(n)}\|}
+\overset{d}{=}
+\frac{N^{(n)}}{\|N^{(n)}\|}.
+\]</span></p>
+<p>Thus</p>
+<p><span class="math display">\[
+\frac{N^{(n)}}{\|N^{(n)}\|}
+\]</span></p>
+<p>is rotation invariant, which means that it is uniformly distributed on the unit sphere in <span class="math inline">\(\mathbb{R}^n\)</span>.</p>
+<p>Therefore,</p>
+<p><span class="math display">\[
+\sqrt{n}\frac{N^{(n)}}{\|N^{(n)}\|}
+\]</span></p>
+<p>is uniformly distributed on the sphere of radius <span class="math inline">\(\sqrt{n}\)</span>.</p>
+<p>Since <span class="math inline">\(X_n\)</span> has the same distribution,</p>
+<p><span class="math display">\[
+X_n
+\overset{d}{=}
+\sqrt{n}\frac{N^{(n)}}{\|N^{(n)}\|}.
+\]</span></p>
+<p>Let <span class="math inline">\(X_{n,1}\)</span> denote the first component of <span class="math inline">\(X_n\)</span>. Then</p>
+<p><span class="math display">\[
+X_{n,1}
+\overset{d}{=}
+N_1\frac{\sqrt{n}}{\|N^{(n)}\|}.
+\]</span></p>
+<p>By the SLLN,</p>
+<p><span class="math display">\[
+\frac{\|N^{(n)}\|^2}{n}
+=
+\frac{N_1^2+\cdots+N_n^2}{n}
+\xrightarrow{a.s.}
+E(N_1^2)
+=
+1.
+\]</span></p>
+<p>Therefore,</p>
+<p><span class="math display">\[
+\frac{\|N^{(n)}\|}{\sqrt{n}}
+\xrightarrow{a.s.}
+1,
+\]</span></p>
+<p>and hence</p>
+<p><span class="math display">\[
+\frac{\sqrt{n}}{\|N^{(n)}\|}
+\xrightarrow{a.s.}
+1.
+\]</span></p>
+<p>Since</p>
+<p><span class="math display">\[
+N_1\sim N(0,1),
+\]</span></p>
+<p>by Slutsky’s theorem,</p>
+<p><span class="math display">\[
+N_1\frac{\sqrt{n}}{\|N^{(n)}\|}
+\Rightarrow
+N_1.
+\]</span></p>
+<p>Therefore,</p>
+<p><span class="math display">\[
+X_{n,1}
+\Rightarrow
+N(0,1).
+\]</span></p>
+</div>
+<div id="ex-23-4" class="section level3 hasAnchor">
+<h3>Ex 23<a href="chap-8-convergence-in-distribution.html#ex-23-4" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="problem">
+<p>Suppose <span class="math inline">\(\{X_n,n\geq1\}\)</span> are iid random variables satisfying</p>
+<p><span class="math display">\[
+E(X_n)=\mu,\qquad \operatorname{Var}(X_n)=\sigma^2.
+\]</span></p>
+<p>The central limit theorem is assumed known. Set</p>
+<p><span class="math display">\[
+\bar X_n=\frac{1}{n}\sum_{i=1}^n X_i.
+\]</span></p>
+<p>Let <span class="math inline">\(N(0,1)\)</span> be a standard normal random variable. Prove</p>
+<div id="i" class="section level4 hasAnchor">
+<h4>(i)<a href="chap-8-convergence-in-distribution.html#i" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p><span class="math display">\[
+\sqrt n(\bar X_n^2-\mu^2)
+\Rightarrow
+2\mu\sigma N(0,1).
+\]</span></p>
+</div>
+<div id="ii" class="section level4 hasAnchor">
+<h4>(ii)<a href="chap-8-convergence-in-distribution.html#ii" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p><span class="math display">\[
+\sqrt n(e^{\bar X_n}-e^\mu)
+\Rightarrow
+e^\mu\sigma N(0,1).
+\]</span></p>
+</div>
+<div id="iii" class="section level4 hasAnchor">
+<h4>(iii)<a href="chap-8-convergence-in-distribution.html#iii" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p><span class="math display">\[
+\sqrt n(\log\bar X_n-\log\mu)
+\Rightarrow
+\frac{\sigma}{\mu}N(0,1),
+\]</span></p>
+<p>assuming <span class="math inline">\(\mu\neq0\)</span>.</p>
+<p>Now assume additionally that <span class="math inline">\(E(X_1^4)&lt;\infty\)</span> and prove</p>
+</div>
+<div id="iv" class="section level4 hasAnchor">
+<h4>(iv)<a href="chap-8-convergence-in-distribution.html#iv" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p><span class="math display">\[
+\sqrt n
+\left(
+\log\left(
+\frac1n\sum_{i=1}^n(X_i-\bar X_n)^2
+\right)
+-\log\sigma^2
+\right)
+\Rightarrow
+\frac{1}{\sigma^2}\sqrt{E(X_1^4)}N(0,1).
+\]</span></p>
+</div>
+<div id="v" class="section level4 hasAnchor">
+<h4>(v)<a href="chap-8-convergence-in-distribution.html#v" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Define the sample variance</p>
+<p><span class="math display">\[
+S_n^2
+=
+\frac1n\sum_{i=1}^n(X_i-\bar X_n)^2.
+\]</span></p>
+<p>Show</p>
+<p><span class="math display">\[
+\sqrt n(\sqrt{S_n^2}-\sigma)
+\Rightarrow
+\frac{1}{2\sigma}\sqrt{E(X_1^4)}N(0,1).
+\]</span></p>
+<p>What is a limit law for <span class="math inline">\(S_n^2\)</span>?</p>
+</div>
+</div>
+<p><span class="math inline">\(\textbf{Answer:}\)</span></p>
+<p>For (i), (ii), and (iii), these follow directly from the delta method, as in Ex 7, so we do not repeat the full derivations here.</p>
+<p>From the CLT,</p>
+<p><span class="math display">\[
+\sqrt n(\bar X_n-\mu)
+\Rightarrow
+\sigma N(0,1).
+\]</span></p>
+<p>For (i), take</p>
+<p><span class="math display">\[
+g(x)=x^2,
+\qquad
+g&#39;(\mu)=2\mu,
+\]</span></p>
+<p>which gives</p>
+<p><span class="math display">\[
+\sqrt n(\bar X_n^2-\mu^2)
+\Rightarrow
+2\mu\sigma N(0,1).
+\]</span></p>
+<p>For (ii), take</p>
+<p><span class="math display">\[
+g(x)=e^x,
+\qquad
+g&#39;(\mu)=e^\mu,
+\]</span></p>
+<p>so</p>
+<p><span class="math display">\[
+\sqrt n(e^{\bar X_n}-e^\mu)
+\Rightarrow
+e^\mu\sigma N(0,1).
+\]</span></p>
+<p>For (iii), take</p>
+<p><span class="math display">\[
+g(x)=\log x,
+\qquad
+g&#39;(\mu)=\frac1\mu,
+\]</span></p>
+<p>so</p>
+<p><span class="math display">\[
+\sqrt n(\log\bar X_n-\log\mu)
+\Rightarrow
+\frac{\sigma}{\mu}N(0,1).
+\]</span></p>
+<p>For (iv) and (v), we investigate the limit law of <span class="math inline">\(S_n^2\)</span>.</p>
+<p>We have</p>
+<p><span class="math display">\[
+\begin{aligned}
+S_n^2
+&amp;=
+\frac1n\sum_{i=1}^n(X_i-\bar X_n)^2\\
+&amp;=
+\frac1n\sum_{i=1}^n
+\left[
+(X_i-\mu)-(\bar X_n-\mu)
+\right]^2\\
+&amp;=
+\frac1n\sum_{i=1}^n(X_i-\mu)^2
+-(\bar X_n-\mu)^2.
+\end{aligned}
+\]</span></p>
+<p>Therefore,</p>
+<p><span class="math display">\[
+\begin{aligned}
+\sqrt n(S_n^2-\sigma^2)
+&amp;=
+\sqrt n
+\left[
+\frac1n\sum_{i=1}^n(X_i-\mu)^2-\sigma^2
+\right]\\
+&amp;\qquad
+-
+\sqrt n(\bar X_n-\mu)^2\\
+&amp;=:A_n-B_n.
+\end{aligned}
+\]</span></p>
+<p>For <span class="math inline">\(B_n\)</span>, we have</p>
+<p><span class="math display">\[
+B_n
+=
+\sqrt n(\bar X_n-\mu)^2
+=
+\frac{\sigma^2}{\sqrt n}
+\left[
+\frac{\sqrt n(\bar X_n-\mu)}{\sigma}
+\right]^2.
+\]</span></p>
+<p>By the CLT,</p>
+<p><span class="math display">\[
+\frac{\sqrt n(\bar X_n-\mu)}{\sigma}
+\Rightarrow
+N(0,1).
+\]</span></p>
+<p>Hence</p>
+<p><span class="math display">\[
+\left[
+\frac{\sqrt n(\bar X_n-\mu)}{\sigma}
+\right]^2
+=
+O_P(1),
+\]</span></p>
+<p>and therefore</p>
+<p><span class="math display">\[
+B_n\xrightarrow{P}0.
+\]</span></p>
+<p>For <span class="math inline">\(A_n\)</span>, define</p>
+<p><span class="math display">\[
+Y_i=(X_i-\mu)^2.
+\]</span></p>
+<p>Then <span class="math inline">\(\{Y_i\}\)</span> are iid and</p>
+<p><span class="math display">\[
+E(Y_i)=\sigma^2.
+\]</span></p>
+<p>Since <span class="math inline">\(E(X_1^4)&lt;\infty\)</span>,</p>
+<p><span class="math display">\[
+E[(X_1-\mu)^4]&lt;\infty,
+\]</span></p>
+<p>and therefore</p>
+<p><span class="math display">\[
+\begin{aligned}
+\operatorname{Var}(Y_i)
+&amp;=
+E(Y_i^2)-[E(Y_i)]^2\\
+&amp;=
+E[(X_i-\mu)^4]-\sigma^4.
+\end{aligned}
+\]</span></p>
+<p>Denote</p>
+<p><span class="math display">\[
+\tau^2
+=
+E[(X_1-\mu)^4]-\sigma^4.
+\]</span></p>
+<p>By the CLT,</p>
+<p><span class="math display">\[
+A_n
+=
+\sqrt n
+\left[
+\frac1n\sum_{i=1}^nY_i-\sigma^2
+\right]
+\Rightarrow
+\tau N(0,1).
+\]</span></p>
+<p>Since</p>
+<p><span class="math display">\[
+B_n\xrightarrow{P}0,
+\]</span></p>
+<p>by Slutsky’s theorem,</p>
+<p><span class="math display">\[
+\sqrt n(S_n^2-\sigma^2)
+\Rightarrow
+\tau N(0,1).
+\]</span></p>
+<p>Thus a limit law for <span class="math inline">\(S_n^2\)</span> is</p>
+<p><span class="math display">\[
+\boxed{
+\sqrt n(S_n^2-\sigma^2)
+\Rightarrow
+\sqrt{
+E[(X_1-\mu)^4]-\sigma^4
+}
+\,N(0,1).
+}
+\]</span></p>
+<div id="iv-1" class="section level4 hasAnchor">
+<h4>(iv)<a href="chap-8-convergence-in-distribution.html#iv-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Now apply the delta method to</p>
+<p><span class="math display">\[
+g(x)=\log x.
+\]</span></p>
+<p>Since</p>
+<p><span class="math display">\[
+g&#39;(\sigma^2)=\frac1{\sigma^2},
+\]</span></p>
+<p>we have</p>
+<p><span class="math display">\[
+\boxed{
+\sqrt n(\log S_n^2-\log\sigma^2)
+\Rightarrow
+\frac{
+\sqrt{
+E[(X_1-\mu)^4]-\sigma^4
+}
+}{
+\sigma^2
+}
+N(0,1).
+}
+\]</span></p>
+</div>
+<div id="v-1" class="section level4 hasAnchor">
+<h4>(v)<a href="chap-8-convergence-in-distribution.html#v-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Take</p>
+<p><span class="math display">\[
+g(x)=\sqrt x.
+\]</span></p>
+<p>Since</p>
+<p><span class="math display">\[
+g&#39;(\sigma^2)=\frac1{2\sigma},
+\]</span></p>
+<p>we have</p>
+<p><span class="math display">\[
+\boxed{
+\sqrt n(\sqrt{S_n^2}-\sigma)
+\Rightarrow
+\frac{
+\sqrt{
+E[(X_1-\mu)^4]-\sigma^4
+}
+}{
+2\sigma
+}
+N(0,1).
+}
+\]</span></p>
+<p><span class="math inline">\(\textbf{Note on a likely typo in the exercise:}\)</span></p>
+<p>The book states the limits in (iv) and (v) using</p>
+<p><span class="math display">\[
+\sqrt{E(X_1^4)}.
+\]</span></p>
+<p>However, if</p>
+<p><span class="math display">\[
+Y_i=(X_i-\mu)^2,
+\]</span></p>
+<p>then the variance appearing in the CLT is</p>
+<p><span class="math display">\[
+\operatorname{Var}(Y_i)
+=
+E[(X_i-\mu)^4]-\sigma^4,
+\]</span></p>
+<p>not <span class="math inline">\(E(X_1^4)\)</span>.</p>
+<p>Therefore the coefficients should be</p>
+<p><span class="math display">\[
+\frac{
+\sqrt{E[(X_1-\mu)^4]-\sigma^4}
+}{
+\sigma^2
+}
+\]</span></p>
+<p>in (iv), and</p>
+<p><span class="math display">\[
+\frac{
+\sqrt{E[(X_1-\mu)^4]-\sigma^4}
+}{
+2\sigma
+}
+\]</span></p>
+<p>in (v).</p>
+<p>As a quick check, if</p>
+<p><span class="math display">\[
+X_i\sim N(\mu,\sigma^2),
+\]</span></p>
+<p>then</p>
+<p><span class="math display">\[
+E[(X_i-\mu)^4]=3\sigma^4,
+\]</span></p>
+<p>so</p>
+<p><span class="math display">\[
+\operatorname{Var}\left((X_i-\mu)^2\right)
+=
+3\sigma^4-\sigma^4
+=
+2\sigma^4.
+\]</span></p>
+<p>Hence</p>
+<p><span class="math display">\[
+\sqrt n(S_n^2-\sigma^2)
+\Rightarrow
+N(0,2\sigma^4),
+\]</span></p>
+<p>which agrees with the classical normal-sample result and confirms that the
+<span class="math inline">\(\sqrt{E(X_1^4)}\)</span> coefficient printed in the exercise cannot be correct in
+general.</p>
 
+</div>
 </div>
 </div>
 </div>

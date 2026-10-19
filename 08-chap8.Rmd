@@ -3901,4 +3901,572 @@ $$
 \operatorname{Var}(X_n)\to\operatorname{Var}(X_0).
 $$
 
+### Ex 14
+::: problem
+
+Consider the sphere in $\mathbb{R}^n$ of radius $\sqrt{n}$ and suppose $X_n$ is uniformly distributed on the surface of this sphere. Show that the first component of $X_n$ converges in distribution to a standard normal.
+
+Hint: If $N_i$, $i\geq1$ are iid $N(0,1)$ random variables, show ...
+
+:::
+
+$\textbf{Answer:}$
+
+Let
+
+$$
+N^{(n)}=(N_1,\ldots,N_n),
+$$
+
+where
+
+$$
+N_i\overset{iid}{\sim}N(0,1).
+$$
+
+The joint density of $N^{(n)}$ is
+
+$$
+f_n(x)
+=
+c_n\exp\left(-\frac{\|x\|^2}{2}\right),
+$$
+
+which depends only on $\|x\|$.
+
+Therefore, for any orthogonal matrix $Q$,
+
+$$
+QN^{(n)}\overset{d}{=}N^{(n)}.
+$$
+
+Hence
+
+$$
+Q\frac{N^{(n)}}{\|N^{(n)}\|}
+\overset{d}{=}
+\frac{N^{(n)}}{\|N^{(n)}\|}.
+$$
+
+Thus
+
+$$
+\frac{N^{(n)}}{\|N^{(n)}\|}
+$$
+
+is rotation invariant, which means that it is uniformly distributed on the unit sphere in $\mathbb{R}^n$.
+
+Therefore,
+
+$$
+\sqrt{n}\frac{N^{(n)}}{\|N^{(n)}\|}
+$$
+
+is uniformly distributed on the sphere of radius $\sqrt{n}$.
+
+Since $X_n$ has the same distribution,
+
+$$
+X_n
+\overset{d}{=}
+\sqrt{n}\frac{N^{(n)}}{\|N^{(n)}\|}.
+$$
+
+Let $X_{n,1}$ denote the first component of $X_n$. Then
+
+$$
+X_{n,1}
+\overset{d}{=}
+N_1\frac{\sqrt{n}}{\|N^{(n)}\|}.
+$$
+
+By the SLLN,
+
+$$
+\frac{\|N^{(n)}\|^2}{n}
+=
+\frac{N_1^2+\cdots+N_n^2}{n}
+\xrightarrow{a.s.}
+E(N_1^2)
+=
+1.
+$$
+
+Therefore,
+
+$$
+\frac{\|N^{(n)}\|}{\sqrt{n}}
+\xrightarrow{a.s.}
+1,
+$$
+
+and hence
+
+$$
+\frac{\sqrt{n}}{\|N^{(n)}\|}
+\xrightarrow{a.s.}
+1.
+$$
+
+Since
+
+$$
+N_1\sim N(0,1),
+$$
+
+by Slutsky's theorem,
+
+$$
+N_1\frac{\sqrt{n}}{\|N^{(n)}\|}
+\Rightarrow
+N_1.
+$$
+
+Therefore,
+
+$$
+X_{n,1}
+\Rightarrow
+N(0,1).
+$$
+
+### Ex 23
+::: problem
+
+Suppose $\{X_n,n\geq1\}$ are iid random variables satisfying
+
+$$
+E(X_n)=\mu,\qquad \operatorname{Var}(X_n)=\sigma^2.
+$$
+
+The central limit theorem is assumed known. Set
+
+$$
+\bar X_n=\frac{1}{n}\sum_{i=1}^n X_i.
+$$
+
+Let $N(0,1)$ be a standard normal random variable. Prove
+
+#### (i)
+
+$$
+\sqrt n(\bar X_n^2-\mu^2)
+\Rightarrow
+2\mu\sigma N(0,1).
+$$
+
+#### (ii)
+
+$$
+\sqrt n(e^{\bar X_n}-e^\mu)
+\Rightarrow
+e^\mu\sigma N(0,1).
+$$
+
+#### (iii)
+
+$$
+\sqrt n(\log\bar X_n-\log\mu)
+\Rightarrow
+\frac{\sigma}{\mu}N(0,1),
+$$
+
+assuming $\mu\neq0$.
+
+Now assume additionally that $E(X_1^4)<\infty$ and prove
+
+#### (iv)
+
+$$
+\sqrt n
+\left(
+\log\left(
+\frac1n\sum_{i=1}^n(X_i-\bar X_n)^2
+\right)
+-\log\sigma^2
+\right)
+\Rightarrow
+\frac{1}{\sigma^2}\sqrt{E(X_1^4)}N(0,1).
+$$
+
+#### (v)
+
+Define the sample variance
+
+$$
+S_n^2
+=
+\frac1n\sum_{i=1}^n(X_i-\bar X_n)^2.
+$$
+
+Show
+
+$$
+\sqrt n(\sqrt{S_n^2}-\sigma)
+\Rightarrow
+\frac{1}{2\sigma}\sqrt{E(X_1^4)}N(0,1).
+$$
+
+What is a limit law for $S_n^2$?
+
+:::
+
+$\textbf{Answer:}$
+
+For (i), (ii), and (iii), these follow directly from the delta method, as in Ex 7, so we do not repeat the full derivations here.
+
+From the CLT,
+
+$$
+\sqrt n(\bar X_n-\mu)
+\Rightarrow
+\sigma N(0,1).
+$$
+
+For (i), take
+
+$$
+g(x)=x^2,
+\qquad
+g'(\mu)=2\mu,
+$$
+
+which gives
+
+$$
+\sqrt n(\bar X_n^2-\mu^2)
+\Rightarrow
+2\mu\sigma N(0,1).
+$$
+
+For (ii), take
+
+$$
+g(x)=e^x,
+\qquad
+g'(\mu)=e^\mu,
+$$
+
+so
+
+$$
+\sqrt n(e^{\bar X_n}-e^\mu)
+\Rightarrow
+e^\mu\sigma N(0,1).
+$$
+
+For (iii), take
+
+$$
+g(x)=\log x,
+\qquad
+g'(\mu)=\frac1\mu,
+$$
+
+so
+
+$$
+\sqrt n(\log\bar X_n-\log\mu)
+\Rightarrow
+\frac{\sigma}{\mu}N(0,1).
+$$
+
+For (iv) and (v), we investigate the limit law of $S_n^2$.
+
+We have
+
+$$
+\begin{aligned}
+S_n^2
+&=
+\frac1n\sum_{i=1}^n(X_i-\bar X_n)^2\\
+&=
+\frac1n\sum_{i=1}^n
+\left[
+(X_i-\mu)-(\bar X_n-\mu)
+\right]^2\\
+&=
+\frac1n\sum_{i=1}^n(X_i-\mu)^2
+-(\bar X_n-\mu)^2.
+\end{aligned}
+$$
+
+Therefore,
+
+$$
+\begin{aligned}
+\sqrt n(S_n^2-\sigma^2)
+&=
+\sqrt n
+\left[
+\frac1n\sum_{i=1}^n(X_i-\mu)^2-\sigma^2
+\right]\\
+&\qquad
+-
+\sqrt n(\bar X_n-\mu)^2\\
+&=:A_n-B_n.
+\end{aligned}
+$$
+
+For $B_n$, we have
+
+$$
+B_n
+=
+\sqrt n(\bar X_n-\mu)^2
+=
+\frac{\sigma^2}{\sqrt n}
+\left[
+\frac{\sqrt n(\bar X_n-\mu)}{\sigma}
+\right]^2.
+$$
+
+By the CLT,
+
+$$
+\frac{\sqrt n(\bar X_n-\mu)}{\sigma}
+\Rightarrow
+N(0,1).
+$$
+
+Hence
+
+$$
+\left[
+\frac{\sqrt n(\bar X_n-\mu)}{\sigma}
+\right]^2
+=
+O_P(1),
+$$
+
+and therefore
+
+$$
+B_n\xrightarrow{P}0.
+$$
+
+For $A_n$, define
+
+$$
+Y_i=(X_i-\mu)^2.
+$$
+
+Then $\{Y_i\}$ are iid and
+
+$$
+E(Y_i)=\sigma^2.
+$$
+
+Since $E(X_1^4)<\infty$,
+
+$$
+E[(X_1-\mu)^4]<\infty,
+$$
+
+and therefore
+
+$$
+\begin{aligned}
+\operatorname{Var}(Y_i)
+&=
+E(Y_i^2)-[E(Y_i)]^2\\
+&=
+E[(X_i-\mu)^4]-\sigma^4.
+\end{aligned}
+$$
+
+Denote
+
+$$
+\tau^2
+=
+E[(X_1-\mu)^4]-\sigma^4.
+$$
+
+By the CLT,
+
+$$
+A_n
+=
+\sqrt n
+\left[
+\frac1n\sum_{i=1}^nY_i-\sigma^2
+\right]
+\Rightarrow
+\tau N(0,1).
+$$
+
+Since
+
+$$
+B_n\xrightarrow{P}0,
+$$
+
+by Slutsky's theorem,
+
+$$
+\sqrt n(S_n^2-\sigma^2)
+\Rightarrow
+\tau N(0,1).
+$$
+
+Thus a limit law for $S_n^2$ is
+
+$$
+\boxed{
+\sqrt n(S_n^2-\sigma^2)
+\Rightarrow
+\sqrt{
+E[(X_1-\mu)^4]-\sigma^4
+}
+\,N(0,1).
+}
+$$
+
+#### (iv)
+
+Now apply the delta method to
+
+$$
+g(x)=\log x.
+$$
+
+Since
+
+$$
+g'(\sigma^2)=\frac1{\sigma^2},
+$$
+
+we have
+
+$$
+\boxed{
+\sqrt n(\log S_n^2-\log\sigma^2)
+\Rightarrow
+\frac{
+\sqrt{
+E[(X_1-\mu)^4]-\sigma^4
+}
+}{
+\sigma^2
+}
+N(0,1).
+}
+$$
+
+#### (v)
+
+Take
+
+$$
+g(x)=\sqrt x.
+$$
+
+Since
+
+$$
+g'(\sigma^2)=\frac1{2\sigma},
+$$
+
+we have
+
+$$
+\boxed{
+\sqrt n(\sqrt{S_n^2}-\sigma)
+\Rightarrow
+\frac{
+\sqrt{
+E[(X_1-\mu)^4]-\sigma^4
+}
+}{
+2\sigma
+}
+N(0,1).
+}
+$$
+
+$\textbf{Note on a likely typo in the exercise:}$
+
+The book states the limits in (iv) and (v) using
+
+$$
+\sqrt{E(X_1^4)}.
+$$
+
+However, if
+
+$$
+Y_i=(X_i-\mu)^2,
+$$
+
+then the variance appearing in the CLT is
+
+$$
+\operatorname{Var}(Y_i)
+=
+E[(X_i-\mu)^4]-\sigma^4,
+$$
+
+not $E(X_1^4)$.
+
+Therefore the coefficients should be
+
+$$
+\frac{
+\sqrt{E[(X_1-\mu)^4]-\sigma^4}
+}{
+\sigma^2
+}
+$$
+
+in (iv), and
+
+$$
+\frac{
+\sqrt{E[(X_1-\mu)^4]-\sigma^4}
+}{
+2\sigma
+}
+$$
+
+in (v).
+
+As a quick check, if
+
+$$
+X_i\sim N(\mu,\sigma^2),
+$$
+
+then
+
+$$
+E[(X_i-\mu)^4]=3\sigma^4,
+$$
+
+so
+
+$$
+\operatorname{Var}\left((X_i-\mu)^2\right)
+=
+3\sigma^4-\sigma^4
+=
+2\sigma^4.
+$$
+
+Hence
+
+$$
+\sqrt n(S_n^2-\sigma^2)
+\Rightarrow
+N(0,2\sigma^4),
+$$
+
+which agrees with the classical normal-sample result and confirms that the
+$\sqrt{E(X_1^4)}$ coefficient printed in the exercise cannot be correct in
+general.
+
+
+
+
+
 
