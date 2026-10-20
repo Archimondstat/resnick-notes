@@ -4466,7 +4466,525 @@ $\sqrt{E(X_1^4)}$ coefficient printed in the exercise cannot be correct in
 general.
 
 
+### Ex 24
+::: problem
 
+Show that the normal type is closed under convolution. In other words, if
+$N_1,N_2$ are two independent normally distributed random variables, show
+that $N_1+N_2$ is also normally distributed. Prove a similar statement for the
+Poisson and Cauchy types.
+
+Is a similar statement true for the exponential type?
+
+:::
+
+$\textbf{Answer:}$
+
+For this study record, we work out the normal and exponential cases. We do not
+repeat the Poisson and Cauchy calculations here.
+
+#### Normal type
+
+Let
+
+$$
+N_1\sim N(\mu_1,\sigma_1^2),
+\qquad
+N_2\sim N(\mu_2,\sigma_2^2),
+$$
+
+and suppose $N_1$ and $N_2$ are independent.
+
+Set
+
+$$
+Z=N_1+N_2,
+\qquad
+U=N_2.
+$$
+
+Then
+
+$$
+N_1=Z-U,
+\qquad
+N_2=U.
+$$
+
+The transformation
+
+$$
+(n_1,n_2)\mapsto(z,u)
+=
+(n_1+n_2,n_2)
+$$
+
+has inverse
+
+$$
+(z,u)\mapsto(z-u,u).
+$$
+
+The Jacobian of the inverse transformation is
+
+$$
+\left|
+\frac{\partial(n_1,n_2)}
+{\partial(z,u)}
+\right|
+=
+\left|
+\begin{matrix}
+1 & -1\\
+0 & 1
+\end{matrix}
+\right|
+=
+1.
+$$
+
+Since $N_1$ and $N_2$ are independent, their joint density is
+
+$$
+f_{N_1,N_2}(n_1,n_2)
+=
+f_1(n_1)f_2(n_2).
+$$
+
+Therefore,
+
+$$
+f_{Z,U}(z,u)
+=
+f_1(z-u)f_2(u),
+$$
+
+and hence the marginal density of $Z$ is
+
+$$
+f_Z(z)
+=
+\int_{\mathbb R}
+f_1(z-u)f_2(u)\,du.
+$$
+
+For the normal densities,
+
+$$
+f_1(x)
+=
+\frac{1}{\sqrt{2\pi}\sigma_1}
+\exp\left\{
+-\frac{(x-\mu_1)^2}{2\sigma_1^2}
+\right\},
+$$
+
+and
+
+$$
+f_2(x)
+=
+\frac{1}{\sqrt{2\pi}\sigma_2}
+\exp\left\{
+-\frac{(x-\mu_2)^2}{2\sigma_2^2}
+\right\}.
+$$
+
+Thus,
+
+$$
+f_Z(z)
+=
+\frac{1}{2\pi\sigma_1\sigma_2}
+\int_{\mathbb R}
+\exp\left\{
+-\frac12
+\left[
+\frac{(z-u-\mu_1)^2}{\sigma_1^2}
++
+\frac{(u-\mu_2)^2}{\sigma_2^2}
+\right]
+\right\}
+du.
+$$
+
+Let
+
+$$
+A
+=
+\frac1{\sigma_1^2}
++
+\frac1{\sigma_2^2}
+=
+\frac{\sigma_1^2+\sigma_2^2}
+{\sigma_1^2\sigma_2^2},
+$$
+
+and
+
+$$
+m(z)
+=
+\frac{
+\sigma_2^2(z-\mu_1)+\sigma_1^2\mu_2
+}{
+\sigma_1^2+\sigma_2^2
+}.
+$$
+
+Completing the square,
+
+$$
+\frac{(z-u-\mu_1)^2}{\sigma_1^2}
++
+\frac{(u-\mu_2)^2}{\sigma_2^2}
+=
+A(u-m(z))^2
++
+\frac{(z-\mu_1-\mu_2)^2}
+{\sigma_1^2+\sigma_2^2}.
+$$
+
+Therefore,
+
+$$
+\begin{aligned}
+f_Z(z)
+&=
+\frac{1}{2\pi\sigma_1\sigma_2}
+\exp\left\{
+-\frac{(z-\mu_1-\mu_2)^2}
+{2(\sigma_1^2+\sigma_2^2)}
+\right\}\\
+&\qquad\times
+\int_{\mathbb R}
+\exp\left\{
+-\frac A2(u-m(z))^2
+\right\}
+du.
+\end{aligned}
+$$
+
+Since
+
+$$
+\int_{\mathbb R}
+\exp\left\{
+-\frac A2(u-m(z))^2
+\right\}
+du
+=
+\sqrt{\frac{2\pi}{A}},
+$$
+
+we get
+
+$$
+f_Z(z)
+=
+\frac{1}
+{\sqrt{2\pi(\sigma_1^2+\sigma_2^2)}}
+\exp\left\{
+-\frac{(z-\mu_1-\mu_2)^2}
+{2(\sigma_1^2+\sigma_2^2)}
+\right\}.
+$$
+
+Hence,
+
+$$
+\boxed{
+N_1+N_2
+\sim
+N(\mu_1+\mu_2,\sigma_1^2+\sigma_2^2).
+}
+$$
+
+Therefore the normal type is closed under convolution.
+
+#### Exponential type
+
+Let
+
+$$
+X_1\sim\operatorname{Exp}(\lambda_1),
+\qquad
+X_2\sim\operatorname{Exp}(\lambda_2),
+$$
+
+independently, and set
+
+$$
+Z=X_1+X_2.
+$$
+
+By the same convolution formula,
+
+$$
+f_Z(x)
+=
+\int_{\mathbb R}
+f_1(x-u)f_2(u)\,du.
+$$
+
+We have
+
+$$
+f_1(x-u)
+=
+\lambda_1e^{-\lambda_1(x-u)}
+1_{\{x-u>0\}},
+$$
+
+and
+
+$$
+f_2(u)
+=
+\lambda_2e^{-\lambda_2u}
+1_{\{u>0\}}.
+$$
+
+Thus the two indicators require
+
+$$
+0<u<x.
+$$
+
+Therefore, for $x>0$,
+
+$$
+\begin{aligned}
+f_Z(x)
+&=
+\int_0^x
+\lambda_1\lambda_2
+e^{-\lambda_1(x-u)}
+e^{-\lambda_2u}\,du\\
+&=
+\lambda_1\lambda_2e^{-\lambda_1x}
+\int_0^x
+e^{-(\lambda_2-\lambda_1)u}\,du.
+\end{aligned}
+$$
+
+If
+
+$$
+\lambda_1=\lambda_2=\lambda,
+$$
+
+then
+
+$$
+f_Z(x)
+=
+\lambda^2xe^{-\lambda x},
+\qquad x>0.
+$$
+
+This is a Gamma$(2,\lambda)$ density, not an exponential density.
+
+If
+
+$$
+\lambda_1\neq\lambda_2,
+$$
+
+then
+
+$$
+\begin{aligned}
+f_Z(x)
+&=
+\lambda_1\lambda_2e^{-\lambda_1x}
+\frac{
+1-e^{-(\lambda_2-\lambda_1)x}
+}{
+\lambda_2-\lambda_1
+}\\
+&=
+\frac{\lambda_1\lambda_2}
+{\lambda_2-\lambda_1}
+\left(
+e^{-\lambda_1x}
+-
+e^{-\lambda_2x}
+\right),
+\qquad x>0.
+\end{aligned}
+$$
+
+Also,
+
+$$
+f_Z(x)=0,
+\qquad x\leq0.
+$$
+
+Again, this is not an exponential density.
+
+Therefore,
+
+$$
+\boxed{
+\text{the exponential type is not closed under convolution}.
+}
+$$
+
+In fact, the equal-rate case alone already gives the counterexample
+
+$$
+\operatorname{Exp}(\lambda)
+*
+\operatorname{Exp}(\lambda)
+=
+\operatorname{Gamma}(2,\lambda).
+$$
+
+$\textbf{Note: Differentiating the convolution CDF}$
+
+Instead of using the Jacobian method, we could begin from
+
+$$
+F_Z(z)
+=
+\int_{\mathbb R}
+F_1(z-u)f_2(u)\,du.
+$$
+
+To justify differentiating under the integral sign, consider the difference quotient
+
+$$
+\frac{F_Z(z+h)-F_Z(z)}{h}
+=
+\int_{\mathbb R}
+\frac{
+F_1(z+h-u)-F_1(z-u)
+}{
+h
+}
+f_2(u)\,du.
+$$
+
+For every fixed $u$,
+
+$$
+\frac{
+F_1(z+h-u)-F_1(z-u)
+}{
+h
+}
+\to
+f_1(z-u)
+$$
+
+as $h\to0$.
+
+For the normal density, by the mean value theorem,
+
+$$
+\left|
+\frac{
+F_1(z+h-u)-F_1(z-u)
+}{
+h
+}
+\right|
+\leq
+\sup_{x\in\mathbb R}f_1(x)
+=
+\frac{1}{\sqrt{2\pi}\sigma_1}.
+$$
+
+Hence,
+
+$$
+\left|
+\frac{
+F_1(z+h-u)-F_1(z-u)
+}{
+h
+}
+f_2(u)
+\right|
+\leq
+\frac{1}{\sqrt{2\pi}\sigma_1}f_2(u).
+$$
+
+Since
+
+$$
+\int_{\mathbb R}f_2(u)\,du=1,
+$$
+
+the right-hand side is integrable. Therefore DCT allows the limit to pass
+through the integral:
+
+$$
+\begin{aligned}
+F_Z'(z)
+&=
+\int_{\mathbb R}
+f_1(z-u)f_2(u)\,du.
+\end{aligned}
+$$
+
+Thus we recover the same convolution density.
+
+$\textbf{Note: Classical uniform convergence argument}$
+
+In basic probability or calculus, the same interchange may instead be justified
+using a classical differentiation-under-the-integral theorem.
+
+For the normal density,
+
+$$
+f_1(z-u)f_2(u)
+\leq
+\frac{1}{\sqrt{2\pi}\sigma_1}f_2(u)
+$$
+
+uniformly in $z$.
+
+Therefore,
+
+$$
+\sup_{z\in\mathbb R}
+\int_{|u|>M}
+f_1(z-u)f_2(u)\,du
+\leq
+\frac{1}{\sqrt{2\pi}\sigma_1}
+\int_{|u|>M}f_2(u)\,du
+\to0.
+$$
+
+Hence the improper integral
+
+$$
+\int_{\mathbb R}
+f_1(z-u)f_2(u)\,du
+$$
+
+converges uniformly in $z$, which is the classical condition allowing
+differentiation and integration to be interchanged.
+
+Thus the older uniform-convergence argument and the present DCT argument are
+two versions of the same underlying control.
+
+$\textbf{Why I did this calculation:}$
+
+The process in this exercise is almost purely calculus. I did the normal
+convolution calculation explicitly to illustrate how tedious it would be to work
+with sums of independent random variables without the concept of characteristic
+functions introduced in Chapter 9.
+
+Once this calculation has been done once, repeating the same type of algebra for
+the Poisson and Cauchy cases does not add much to this particular purpose.
+The exponential case is still worth checking because it answers a different
+structural question: unlike the normal type, the exponential type is not closed
+under convolution.
 
 
 
