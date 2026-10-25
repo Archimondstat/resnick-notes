@@ -4986,5 +4986,1311 @@ The exponential case is still worth checking because it answers a different
 structural question: unlike the normal type, the exponential type is not closed
 under convolution.
 
+### Ex 6
+::: problem
 
+Let $F$ be a non-degenerate df and suppose for $a>0$, $c>0$ and $b\in\mathbb{R}$, $d\in\mathbb{R}$, that for all $x$
+
+$$
+F(ax+b)=F(cx+d).
+$$
+
+Prove that $a=c$ and $b=d$. Do this 2 ways:
+
+(i) Considering inverse functions.
+
+(ii) Showing it is enough to prove $F(Ax+B)=F(x)$ for all $x$ implies $A=1$, and $B=17$ (just kidding, $B=0$). If $Tx=Ax+B$ then iterate the relation $F(Tx)=F(x)$ again and again.
+
+:::
+
+$\textbf{Answer:}$
+
+#### (i)
+
+Let
+
+$$
+G(x)=F(ax+b)
+$$
+
+and
+
+$$
+H(x)=F(cx+d).
+$$
+
+By assumption,
+
+$$
+G(x)=H(x)
+$$
+
+for every $x\in\mathbb{R}$, so
+
+$$
+G^{\leftarrow}(y)=H^{\leftarrow}(y).
+$$
+
+By definition,
+
+$$
+\begin{aligned}
+G^{\leftarrow}(y)
+&=
+\inf\{x:G(x)\geq y\}\\
+&=
+\inf\{x:F(ax+b)\geq y\}.
+\end{aligned}
+$$
+
+Let
+
+$$
+u=ax+b.
+$$
+
+Since $a>0$,
+
+$$
+x=\frac{u-b}{a}.
+$$
+
+Therefore,
+
+$$
+\begin{aligned}
+G^{\leftarrow}(y)
+&=
+\inf
+\left\{
+\frac{u-b}{a}:F(u)\geq y
+\right\}\\
+&=
+\frac{F^{\leftarrow}(y)-b}{a}.
+\end{aligned}
+$$
+
+Similarly,
+
+$$
+H^{\leftarrow}(y)
+=
+\frac{F^{\leftarrow}(y)-d}{c}.
+$$
+
+Hence,
+
+$$
+\frac{F^{\leftarrow}(y)-b}{a}
+=
+\frac{F^{\leftarrow}(y)-d}{c}.
+$$
+
+Since $F$ is non-degenerate, $F^{\leftarrow}$ is not constant on $(0,1)$. Therefore, we can select $y_1<y_2$ such that
+
+$$
+F^{\leftarrow}(y_1)
+\neq
+F^{\leftarrow}(y_2).
+$$
+
+Then
+
+$$
+\frac{F^{\leftarrow}(y_1)-b}{a}
+=
+\frac{F^{\leftarrow}(y_1)-d}{c}
+$$
+
+and
+
+$$
+\frac{F^{\leftarrow}(y_2)-b}{a}
+=
+\frac{F^{\leftarrow}(y_2)-d}{c}.
+$$
+
+Subtracting,
+
+$$
+\frac{
+F^{\leftarrow}(y_1)-F^{\leftarrow}(y_2)
+}{a}
+=
+\frac{
+F^{\leftarrow}(y_1)-F^{\leftarrow}(y_2)
+}{c}.
+$$
+
+Since
+
+$$
+F^{\leftarrow}(y_1)-F^{\leftarrow}(y_2)\neq0,
+$$
+
+we have
+
+$$
+a=c.
+$$
+
+Substituting this back into either equality gives
+
+$$
+b=d.
+$$
+
+Therefore,
+
+$$
+\boxed{a=c,\qquad b=d.}
+$$
+
+#### (ii)
+
+First, we show that it is enough to prove that
+
+$$
+F(Ax+B)=F(x),
+\qquad A>0,
+$$
+
+for every $x$, implies
+
+$$
+A=1,\qquad B=0.
+$$
+
+Starting from
+
+$$
+F(ax+b)=F(cx+d),
+$$
+
+let
+
+$$
+y=ax+b.
+$$
+
+Then
+
+$$
+x=\frac{y-b}{a},
+$$
+
+so
+
+$$
+\begin{aligned}
+F(y)
+&=
+F\left(
+c\frac{y-b}{a}+d
+\right)\\
+&=
+F\left(
+\frac ca y+d-\frac{cb}{a}
+\right).
+\end{aligned}
+$$
+
+Thus, if we set
+
+$$
+A=\frac ca>0
+$$
+
+and
+
+$$
+B=d-\frac{cb}{a},
+$$
+
+then
+
+$$
+F(Ay+B)=F(y)
+$$
+
+for every $y\in\mathbb{R}$.
+
+So it is enough to prove that
+
+$$
+F(Ax+B)=F(x)
+$$
+
+for every $x$ implies
+
+$$
+A=1,\qquad B=0.
+$$
+
+Let
+
+$$
+T(x)=Ax+B.
+$$
+
+Then
+
+$$
+F(Tx)=F(x).
+$$
+
+Therefore, by iteration,
+
+$$
+F(T^n x)=F(x)
+$$
+
+for every $n\geq1$.
+
+First, we find the form of $T^n(x)$.
+
+We have
+
+$$
+\begin{aligned}
+T^2(x)
+&=
+T(Tx)\\
+&=
+A(Ax+B)+B\\
+&=
+A^2x+AB+B,
+\end{aligned}
+$$
+
+and
+
+$$
+\begin{aligned}
+T^3(x)
+&=
+T(T^2x)\\
+&=
+A(A^2x+AB+B)+B\\
+&=
+A^3x+A^2B+AB+B.
+\end{aligned}
+$$
+
+This suggests
+
+$$
+T^n(x)
+=
+A^n x+
+\left(
+\sum_{j=0}^{n-1}A^j
+\right)B.
+$$
+
+We prove this by induction.
+
+Suppose
+
+$$
+T^n(x)
+=
+A^n x+
+\left(
+\sum_{j=0}^{n-1}A^j
+\right)B.
+$$
+
+Then
+
+$$
+\begin{aligned}
+T^{n+1}(x)
+&=
+T(T^n(x))\\
+&=
+A\left[
+A^n x+
+\left(
+\sum_{j=0}^{n-1}A^j
+\right)B
+\right]+B\\
+&=
+A^{n+1}x+
+\left(
+\sum_{j=1}^{n}A^j
+\right)B+B\\
+&=
+A^{n+1}x+
+\left(
+\sum_{j=0}^{n}A^j
+\right)B.
+\end{aligned}
+$$
+
+Therefore, by induction,
+
+$$
+\boxed{
+T^n(x)
+=
+A^n x+
+\left(
+\sum_{j=0}^{n-1}A^j
+\right)B.
+}
+$$
+
+Now suppose
+
+$$
+A\neq1.
+$$
+
+We solve for the fixed point $x_0$ of $T$:
+
+$$
+T(x_0)=x_0.
+$$
+
+That is,
+
+$$
+Ax_0+B=x_0,
+$$
+
+so
+
+$$
+x_0=\frac{B}{1-A}.
+$$
+
+Since
+
+$$
+T(x_0)=x_0,
+$$
+
+we have
+
+$$
+T^n(x_0)=x_0
+$$
+
+for every $n$.
+
+Using the iteration formula,
+
+$$
+T^n(x)-T^n(x_0)
+=
+A^n(x-x_0).
+$$
+
+Therefore,
+
+$$
+\boxed{
+T^n(x)-x_0
+=
+A^n(x-x_0)
+}
+$$
+
+or equivalently,
+
+$$
+\boxed{
+T^n(x)
+=
+x_0+A^n(x-x_0).
+}
+$$
+
+This form makes the behavior of the iterates clear.
+
+##### Case 1: $A>1$
+
+If
+
+$$
+x>x_0,
+$$
+
+then
+
+$$
+T^n(x)\to+\infty.
+$$
+
+Since
+
+$$
+F(x)=F(T^n(x))
+$$
+
+for every $n$,
+
+$$
+F(x)=1
+$$
+
+for every $x>x_0$.
+
+If
+
+$$
+x<x_0,
+$$
+
+then
+
+$$
+T^n(x)\to-\infty.
+$$
+
+Therefore,
+
+$$
+F(x)=0
+$$
+
+for every $x<x_0$.
+
+By right continuity,
+
+$$
+F(x_0)=1.
+$$
+
+Hence
+
+$$
+F(x)
+=
+\begin{cases}
+0, & x<x_0,\\
+1, & x\geq x_0,
+\end{cases}
+$$
+
+so $F$ concentrates all its mass at $x_0$.
+
+This contradicts the assumption that $F$ is non-degenerate.
+
+Therefore,
+
+$$
+A>1
+$$
+
+is impossible.
+
+##### Case 2: $0<A<1$
+
+In this case,
+
+$$
+T^n(x)\to x_0.
+$$
+
+If
+
+$$
+x>x_0,
+$$
+
+then
+
+$$
+T^n(x)\downarrow x_0.
+$$
+
+Since $F$ is right-continuous,
+
+$$
+F(x)
+=
+F(T^n(x))
+\to
+F(x_0).
+$$
+
+Thus
+
+$$
+F(x)=F(x_0)
+$$
+
+for every $x>x_0$.
+
+Letting $x\to+\infty$ gives
+
+$$
+F(x_0)=1.
+$$
+
+If
+
+$$
+x<x_0,
+$$
+
+then
+
+$$
+T^n(x)\uparrow x_0.
+$$
+
+Therefore,
+
+$$
+F(x)
+=
+F(T^n(x))
+\to
+F(x_0-).
+$$
+
+Thus
+
+$$
+F(x)=F(x_0-)
+$$
+
+for every $x<x_0$.
+
+Letting $x\to-\infty$ gives
+
+$$
+F(x_0-)=0.
+$$
+
+Therefore,
+
+$$
+F(x)
+=
+\begin{cases}
+0, & x<x_0,\\
+1, & x\geq x_0.
+\end{cases}
+$$
+
+Again, $F$ concentrates all its mass at $x_0$, contradicting non-degeneracy.
+
+Therefore,
+
+$$
+0<A<1
+$$
+
+is also impossible.
+
+Hence,
+
+$$
+A=1.
+$$
+
+In this case,
+
+$$
+T(x)=x+B.
+$$
+
+From the iteration formula,
+
+$$
+T^n(x)=x+nB.
+$$
+
+If $B>0$, then
+
+$$
+T^n(x)\to+\infty.
+$$
+
+Therefore,
+
+$$
+F(x)
+=
+F(T^n(x))
+\to1
+$$
+
+for every $x$, which is impossible for a proper distribution function.
+
+If $B<0$, then
+
+$$
+T^n(x)\to-\infty.
+$$
+
+Therefore,
+
+$$
+F(x)
+=
+F(T^n(x))
+\to0
+$$
+
+for every $x$, which is also impossible for a proper distribution function.
+
+Hence,
+
+$$
+B=0.
+$$
+
+Therefore,
+
+$$
+\boxed{A=1,\qquad B=0.}
+$$
+
+Finally, recall that
+
+$$
+A=\frac ca
+$$
+
+and
+
+$$
+B=d-\frac{cb}{a}.
+$$
+
+Since
+
+$$
+A=1,
+$$
+
+we get
+
+$$
+\frac ca=1,
+$$
+
+so
+
+$$
+c=a.
+$$
+
+Then
+
+$$
+B=0
+$$
+
+gives
+
+$$
+d-\frac{cb}{a}=0.
+$$
+
+Since $c=a$,
+
+$$
+d-b=0,
+$$
+
+and hence
+
+$$
+d=b.
+$$
+
+Therefore,
+
+$$
+\boxed{a=c,\qquad b=d.}
+$$
+
+### Ex 26
+::: problem
+
+Suppose $\{X_n,n\geq 1\}$ are iid random variables with common distribution $F$
+and set
+
+$$
+S_n=\sum_{i=1}^n X_i.
+$$
+
+Assume that there exist $a_n>0$, $b_n\in\mathbb{R}$ such that
+
+$$
+a_n^{-1}S_n-b_n\Rightarrow Y,
+$$
+
+where $Y$ has a non-degenerate proper distribution. Use the convergence to
+types theorem to show that
+
+$$
+a_n\to\infty,
+\qquad
+\frac{a_n}{a_{n+1}}\to1.
+$$
+
+(Symmetrize to remove $b_n$. You may want to first consider $a_{2n}/a_n$.)
+
+:::
+
+$\textbf{Answer:}$
+
+This solution uses characteristic functions as a pre-learning method. At this
+point in Chapter 8, characteristic functions have not yet been introduced, but
+they give a clean way to handle the main technical difficulty in this exercise.
+
+Let $\{X_i'\}$ be an iid copy of $\{X_i\}$, independent of $\{X_i\}$, and define
+
+$$
+S_n'=\sum_{i=1}^n X_i'.
+$$
+
+Since
+
+$$
+\frac{S_n}{a_n}-b_n\Rightarrow Y
+$$
+
+and
+
+$$
+\frac{S_n'}{a_n}-b_n\Rightarrow Y',
+$$
+
+where $Y'$ is an independent copy of $Y$, we have
+
+$$
+\frac{S_n-S_n'}{a_n}
+\Rightarrow
+Y-Y'.
+$$
+
+Let
+
+$$
+Z_i=X_i-X_i',
+\qquad
+T_n=\sum_{i=1}^n Z_i=S_n-S_n',
+$$
+
+and set
+
+$$
+W=Y-Y'.
+$$
+
+Then
+
+$$
+\boxed{
+\frac{T_n}{a_n}\Rightarrow W.
+}
+$$
+
+Notice that $\{Z_i\}$ are iid and symmetric.
+
+Also, $W$ is proper and non-degenerate. Indeed, if $W$ were degenerate, then,
+since $W=Y-Y'$ is symmetric, we would have
+
+$$
+Y-Y'=0
+\qquad\text{a.s.}
+$$
+
+Thus $Y=Y'$ a.s. But $Y$ and $Y'$ are independent copies, which would imply
+that $Y$ is degenerate, contradicting the assumption.
+
+Similarly, $Z_1$ is non-degenerate.
+
+* Step 1: The characteristic function of the symmetrized summand
+
+Let
+
+$$
+\phi_X(t)=E(e^{itX_1})
+$$
+
+and define
+
+$$
+\psi(t)=\phi_{Z_1}(t)=E(e^{itZ_1}).
+$$
+
+Since
+
+$$
+Z_1=X_1-X_1'
+$$
+
+and $X_1,X_1'$ are independent,
+
+$$
+\begin{aligned}
+\psi(t)
+&=
+E\left(e^{it(X_1-X_1')}\right)\\
+&=
+E(e^{itX_1})E(e^{-itX_1'})\\
+&=
+\phi_X(t)\phi_X(-t)\\
+&=
+|\phi_X(t)|^2.
+\end{aligned}
+$$
+
+Therefore,
+
+$$
+\boxed{
+0\leq\psi(t)\leq1
+}
+$$
+
+for every $t\in\mathbb{R}$.
+
+In particular, $\psi$ is real-valued.
+
+We now show that there exists a sequence $t_m\to0$ such that
+
+$$
+\psi(t_m)<1.
+$$
+
+Suppose not. Then there exists $\delta>0$ such that
+
+$$
+\psi(t)=1
+$$
+
+for every $|t|<\delta$.
+
+Since $Z_1$ is symmetric,
+
+$$
+\psi(t)=E\cos(tZ_1).
+$$
+
+Hence, for $|t|<\delta$,
+
+$$
+1-\psi(t)
+=
+E[1-\cos(tZ_1)]
+=
+0.
+$$
+
+Since
+
+$$
+1-\cos(tZ_1)\geq0,
+$$
+
+Tonelli's theorem gives
+
+$$
+\begin{aligned}
+0
+&=
+\int_{-\delta}^{\delta}
+[1-\psi(t)]\,dt\\
+&=
+E\left[
+\int_{-\delta}^{\delta}
+(1-\cos(tZ_1))\,dt
+\right].
+\end{aligned}
+$$
+
+Define
+
+$$
+g(z)
+=
+\int_{-\delta}^{\delta}
+(1-\cos(tz))\,dt.
+$$
+
+Clearly,
+
+$$
+g(0)=0.
+$$
+
+For $z\neq0$,
+
+$$
+\begin{aligned}
+g(z)
+&=
+2\delta-
+2\frac{\sin(\delta z)}{z}\\
+&=
+2\delta
+\left[
+1-
+\frac{\sin(\delta z)}{\delta z}
+\right].
+\end{aligned}
+$$
+
+Since
+
+$$
+|\sin u|<|u|
+\qquad
+\text{for }u\neq0,
+$$
+
+we have
+
+$$
+g(z)>0
+\qquad
+\text{for every }z\neq0.
+$$
+
+Thus
+
+$$
+E[g(Z_1)]=0
+$$
+
+and $g(Z_1)\geq0$ imply
+
+$$
+g(Z_1)=0
+\qquad\text{a.s.}
+$$
+
+Therefore,
+
+$$
+Z_1=0
+\qquad\text{a.s.},
+$$
+
+contradicting the fact that $Z_1$ is non-degenerate.
+
+Hence, for every $\delta>0$, there exists $t$ with
+
+$$
+0<|t|<\delta
+$$
+
+such that
+
+$$
+\psi(t)<1.
+$$
+
+Therefore, we can choose a sequence
+
+$$
+\boxed{
+t_m\to0
+\quad\text{such that}\quad
+0\leq\psi(t_m)<1.
+}
+$$
+
+* Step 2: Show that $a_n\to\infty$
+
+Suppose otherwise. Then there exists a bounded subsequence
+
+$$
+\{a_{n_k}\}.
+$$
+
+Since $a_{n_k}>0$ and is bounded, by taking a further subsequence if necessary,
+we may assume
+
+$$
+a_{n_k}\to a
+$$
+
+for some
+
+$$
+a\in[0,\infty).
+$$
+
+Since
+
+$$
+\frac{T_{n_k}}{a_{n_k}}\Rightarrow W,
+$$
+
+Slutsky's theorem gives
+
+$$
+T_{n_k}
+=
+a_{n_k}
+\frac{T_{n_k}}{a_{n_k}}
+\Rightarrow
+aW.
+$$
+
+Let
+
+$$
+V=aW.
+$$
+
+Thus
+
+$$
+T_{n_k}\Rightarrow V.
+$$
+
+Now, since
+
+$$
+T_n=Z_1+\cdots+Z_n
+$$
+
+and the $Z_i$ are iid,
+
+$$
+\phi_{T_n}(t)
+=
+\psi(t)^n.
+$$
+
+Therefore,
+
+$$
+\phi_{T_{n_k}}(t)
+=
+\psi(t)^{n_k}.
+$$
+
+Since
+
+$$
+T_{n_k}\Rightarrow V,
+$$
+
+the continuity theorem for characteristic functions gives, for every fixed $t$,
+
+$$
+\psi(t)^{n_k}
+\to
+\phi_V(t).
+$$
+
+Now fix $m$.
+
+Since
+
+$$
+0\leq\psi(t_m)<1,
+$$
+
+we have
+
+$$
+\psi(t_m)^{n_k}\to0
+$$
+
+as $k\to\infty$.
+
+Therefore,
+
+$$
+\phi_V(t_m)=0
+$$
+
+for every $m$.
+
+But
+
+$$
+t_m\to0.
+$$
+
+Since every characteristic function is continuous at $0$,
+
+$$
+\phi_V(t_m)
+\to
+\phi_V(0)
+=
+1.
+$$
+
+This contradicts
+
+$$
+\phi_V(t_m)=0
+$$
+
+for every $m$.
+
+Therefore, $\{a_n\}$ has no bounded subsequence.
+
+Since $a_n>0$,
+
+$$
+\boxed{
+a_n\to\infty.
+}
+$$
+
+* Step 3: Compare $a_n$ and $a_{n+1}$
+
+Since
+
+$$
+a_n\to\infty,
+$$
+
+for every $\varepsilon>0$,
+
+$$
+\begin{aligned}
+P\left(
+\left|
+\frac{Z_{n+1}}{a_n}
+\right|>\varepsilon
+\right)
+&=
+P(|Z_{n+1}|>\varepsilon a_n)\\
+&=
+P(|Z_1|>\varepsilon a_n)\\
+&\to0.
+\end{aligned}
+$$
+
+Hence,
+
+$$
+\frac{Z_{n+1}}{a_n}
+\xrightarrow{P}0.
+$$
+
+Since
+
+$$
+T_{n+1}=T_n+Z_{n+1},
+$$
+
+we have
+
+$$
+\frac{T_{n+1}}{a_n}
+=
+\frac{T_n}{a_n}
++
+\frac{Z_{n+1}}{a_n}.
+$$
+
+Since
+
+$$
+\frac{T_n}{a_n}\Rightarrow W,
+$$
+
+Slutsky's theorem gives
+
+$$
+\boxed{
+\frac{T_{n+1}}{a_n}\Rightarrow W.
+}
+$$
+
+On the other hand, replacing $n$ by $n+1$ in
+
+$$
+\frac{T_n}{a_n}\Rightarrow W,
+$$
+
+we also have
+
+$$
+\boxed{
+\frac{T_{n+1}}{a_{n+1}}\Rightarrow W.
+}
+$$
+
+Thus the same random variable $T_{n+1}$ has two normalizations:
+
+$$
+\frac{T_{n+1}}{a_n}\Rightarrow W
+$$
+
+and
+
+$$
+\frac{T_{n+1}}{a_{n+1}}\Rightarrow W.
+$$
+
+By the convergence to types theorem, there exists $A>0$ such that
+
+$$
+\frac{a_{n+1}}{a_n}\to A.
+$$
+
+Let $H$ be the df of $W$.
+
+The convergence to types theorem also gives the relation between the two limiting
+dfs. Since both limits are $H$,
+
+$$
+H(x)=H(Ax)
+$$
+
+for every $x$.
+
+Since $W$ is non-degenerate, Exercise 6 implies that the only affine
+transformation leaving its distribution unchanged is the identity.
+
+Therefore,
+
+$$
+A=1.
+$$
+
+Hence,
+
+$$
+\frac{a_{n+1}}{a_n}\to1.
+$$
+
+Taking reciprocals,
+
+$$
+\boxed{
+\frac{a_n}{a_{n+1}}\to1.
+}
+$$
+
+Therefore,
+
+$$
+\boxed{
+a_n\to\infty,
+\qquad
+\frac{a_n}{a_{n+1}}\to1.
+}
+$$
+
+
+ **Note.** There are at least two natural routes to complete this exercise: a tightness/concentration argument and a characteristic-function argument. However, neither tightness nor characteristic functions has been developed in the book up to this point; characteristic functions are introduced only in Chapter 9.  
+
+ My Chapter 8 reasoning reaches the reduction
+ \[
+ a_{n_k}\to a<\infty
+ \quad\Longrightarrow\quad
+ T_{n_k}\Rightarrow aW,
+ \]
+ so the remaining task is to rule out a proper weak limit for the unnormalized iid partial sums \(T_{n_k}\). I do not currently see how to establish this using only the tools explicitly developed before Chapter 9. I therefore treat the characteristic-function proof as a pre-learning solution and plan to revisit the exercise after studying Chapter 9.
 

@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chap 8, Convergence in Distribution | Notes on A Probability Path (Resnick)</title>
   <meta name="description" content="Chap 8, Convergence in Distribution | Notes on A Probability Path (Resnick)" />
-  <meta name="generator" content="bookdown 0.42 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.46 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chap 8, Convergence in Distribution | Notes on A Probability Path (Resnick)" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="Zhanwen Peng" />
 
 
-<meta name="date" content="2026-10-20" />
+<meta name="date" content="2026-10-25" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -618,6 +618,12 @@
 <li class="chapter" data-level="" data-path="chap-8-convergence-in-distribution.html"><a href="chap-8-convergence-in-distribution.html#normal-type"><i class="fa fa-check"></i>Normal type</a></li>
 <li class="chapter" data-level="" data-path="chap-8-convergence-in-distribution.html"><a href="chap-8-convergence-in-distribution.html#exponential-type"><i class="fa fa-check"></i>Exponential type</a></li>
 </ul></li>
+<li class="chapter" data-level="" data-path="chap-8-convergence-in-distribution.html"><a href="chap-8-convergence-in-distribution.html#ex-6-3"><i class="fa fa-check"></i>Ex 6</a>
+<ul>
+<li class="chapter" data-level="" data-path="chap-8-convergence-in-distribution.html"><a href="chap-8-convergence-in-distribution.html#i-1"><i class="fa fa-check"></i>(i)</a></li>
+<li class="chapter" data-level="" data-path="chap-8-convergence-in-distribution.html"><a href="chap-8-convergence-in-distribution.html#ii-1"><i class="fa fa-check"></i>(ii)</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="chap-8-convergence-in-distribution.html"><a href="chap-8-convergence-in-distribution.html#ex-26-4"><i class="fa fa-check"></i>Ex 26</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -4388,8 +4394,965 @@ the Poisson and Cauchy cases does not add much to this particular purpose.
 The exponential case is still worth checking because it answers a different
 structural question: unlike the normal type, the exponential type is not closed
 under convolution.</p>
-
 </div>
+</div>
+<div id="ex-6-3" class="section level3 hasAnchor">
+<h3>Ex 6<a href="chap-8-convergence-in-distribution.html#ex-6-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="problem">
+<p>Let <span class="math inline">\(F\)</span> be a non-degenerate df and suppose for <span class="math inline">\(a&gt;0\)</span>, <span class="math inline">\(c&gt;0\)</span> and <span class="math inline">\(b\in\mathbb{R}\)</span>, <span class="math inline">\(d\in\mathbb{R}\)</span>, that for all <span class="math inline">\(x\)</span></p>
+<p><span class="math display">\[
+F(ax+b)=F(cx+d).
+\]</span></p>
+<p>Prove that <span class="math inline">\(a=c\)</span> and <span class="math inline">\(b=d\)</span>. Do this 2 ways:</p>
+<ol style="list-style-type: lower-roman">
+<li><p>Considering inverse functions.</p></li>
+<li><p>Showing it is enough to prove <span class="math inline">\(F(Ax+B)=F(x)\)</span> for all <span class="math inline">\(x\)</span> implies <span class="math inline">\(A=1\)</span>, and <span class="math inline">\(B=17\)</span> (just kidding, <span class="math inline">\(B=0\)</span>). If <span class="math inline">\(Tx=Ax+B\)</span> then iterate the relation <span class="math inline">\(F(Tx)=F(x)\)</span> again and again.</p></li>
+</ol>
+</div>
+<p><span class="math inline">\(\textbf{Answer:}\)</span></p>
+<div id="i-1" class="section level4 hasAnchor">
+<h4>(i)<a href="chap-8-convergence-in-distribution.html#i-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Let</p>
+<p><span class="math display">\[
+G(x)=F(ax+b)
+\]</span></p>
+<p>and</p>
+<p><span class="math display">\[
+H(x)=F(cx+d).
+\]</span></p>
+<p>By assumption,</p>
+<p><span class="math display">\[
+G(x)=H(x)
+\]</span></p>
+<p>for every <span class="math inline">\(x\in\mathbb{R}\)</span>, so</p>
+<p><span class="math display">\[
+G^{\leftarrow}(y)=H^{\leftarrow}(y).
+\]</span></p>
+<p>By definition,</p>
+<p><span class="math display">\[
+\begin{aligned}
+G^{\leftarrow}(y)
+&amp;=
+\inf\{x:G(x)\geq y\}\\
+&amp;=
+\inf\{x:F(ax+b)\geq y\}.
+\end{aligned}
+\]</span></p>
+<p>Let</p>
+<p><span class="math display">\[
+u=ax+b.
+\]</span></p>
+<p>Since <span class="math inline">\(a&gt;0\)</span>,</p>
+<p><span class="math display">\[
+x=\frac{u-b}{a}.
+\]</span></p>
+<p>Therefore,</p>
+<p><span class="math display">\[
+\begin{aligned}
+G^{\leftarrow}(y)
+&amp;=
+\inf
+\left\{
+\frac{u-b}{a}:F(u)\geq y
+\right\}\\
+&amp;=
+\frac{F^{\leftarrow}(y)-b}{a}.
+\end{aligned}
+\]</span></p>
+<p>Similarly,</p>
+<p><span class="math display">\[
+H^{\leftarrow}(y)
+=
+\frac{F^{\leftarrow}(y)-d}{c}.
+\]</span></p>
+<p>Hence,</p>
+<p><span class="math display">\[
+\frac{F^{\leftarrow}(y)-b}{a}
+=
+\frac{F^{\leftarrow}(y)-d}{c}.
+\]</span></p>
+<p>Since <span class="math inline">\(F\)</span> is non-degenerate, <span class="math inline">\(F^{\leftarrow}\)</span> is not constant on <span class="math inline">\((0,1)\)</span>. Therefore, we can select <span class="math inline">\(y_1&lt;y_2\)</span> such that</p>
+<p><span class="math display">\[
+F^{\leftarrow}(y_1)
+\neq
+F^{\leftarrow}(y_2).
+\]</span></p>
+<p>Then</p>
+<p><span class="math display">\[
+\frac{F^{\leftarrow}(y_1)-b}{a}
+=
+\frac{F^{\leftarrow}(y_1)-d}{c}
+\]</span></p>
+<p>and</p>
+<p><span class="math display">\[
+\frac{F^{\leftarrow}(y_2)-b}{a}
+=
+\frac{F^{\leftarrow}(y_2)-d}{c}.
+\]</span></p>
+<p>Subtracting,</p>
+<p><span class="math display">\[
+\frac{
+F^{\leftarrow}(y_1)-F^{\leftarrow}(y_2)
+}{a}
+=
+\frac{
+F^{\leftarrow}(y_1)-F^{\leftarrow}(y_2)
+}{c}.
+\]</span></p>
+<p>Since</p>
+<p><span class="math display">\[
+F^{\leftarrow}(y_1)-F^{\leftarrow}(y_2)\neq0,
+\]</span></p>
+<p>we have</p>
+<p><span class="math display">\[
+a=c.
+\]</span></p>
+<p>Substituting this back into either equality gives</p>
+<p><span class="math display">\[
+b=d.
+\]</span></p>
+<p>Therefore,</p>
+<p><span class="math display">\[
+\boxed{a=c,\qquad b=d.}
+\]</span></p>
+</div>
+<div id="ii-1" class="section level4 hasAnchor">
+<h4>(ii)<a href="chap-8-convergence-in-distribution.html#ii-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>First, we show that it is enough to prove that</p>
+<p><span class="math display">\[
+F(Ax+B)=F(x),
+\qquad A&gt;0,
+\]</span></p>
+<p>for every <span class="math inline">\(x\)</span>, implies</p>
+<p><span class="math display">\[
+A=1,\qquad B=0.
+\]</span></p>
+<p>Starting from</p>
+<p><span class="math display">\[
+F(ax+b)=F(cx+d),
+\]</span></p>
+<p>let</p>
+<p><span class="math display">\[
+y=ax+b.
+\]</span></p>
+<p>Then</p>
+<p><span class="math display">\[
+x=\frac{y-b}{a},
+\]</span></p>
+<p>so</p>
+<p><span class="math display">\[
+\begin{aligned}
+F(y)
+&amp;=
+F\left(
+c\frac{y-b}{a}+d
+\right)\\
+&amp;=
+F\left(
+\frac ca y+d-\frac{cb}{a}
+\right).
+\end{aligned}
+\]</span></p>
+<p>Thus, if we set</p>
+<p><span class="math display">\[
+A=\frac ca&gt;0
+\]</span></p>
+<p>and</p>
+<p><span class="math display">\[
+B=d-\frac{cb}{a},
+\]</span></p>
+<p>then</p>
+<p><span class="math display">\[
+F(Ay+B)=F(y)
+\]</span></p>
+<p>for every <span class="math inline">\(y\in\mathbb{R}\)</span>.</p>
+<p>So it is enough to prove that</p>
+<p><span class="math display">\[
+F(Ax+B)=F(x)
+\]</span></p>
+<p>for every <span class="math inline">\(x\)</span> implies</p>
+<p><span class="math display">\[
+A=1,\qquad B=0.
+\]</span></p>
+<p>Let</p>
+<p><span class="math display">\[
+T(x)=Ax+B.
+\]</span></p>
+<p>Then</p>
+<p><span class="math display">\[
+F(Tx)=F(x).
+\]</span></p>
+<p>Therefore, by iteration,</p>
+<p><span class="math display">\[
+F(T^n x)=F(x)
+\]</span></p>
+<p>for every <span class="math inline">\(n\geq1\)</span>.</p>
+<p>First, we find the form of <span class="math inline">\(T^n(x)\)</span>.</p>
+<p>We have</p>
+<p><span class="math display">\[
+\begin{aligned}
+T^2(x)
+&amp;=
+T(Tx)\\
+&amp;=
+A(Ax+B)+B\\
+&amp;=
+A^2x+AB+B,
+\end{aligned}
+\]</span></p>
+<p>and</p>
+<p><span class="math display">\[
+\begin{aligned}
+T^3(x)
+&amp;=
+T(T^2x)\\
+&amp;=
+A(A^2x+AB+B)+B\\
+&amp;=
+A^3x+A^2B+AB+B.
+\end{aligned}
+\]</span></p>
+<p>This suggests</p>
+<p><span class="math display">\[
+T^n(x)
+=
+A^n x+
+\left(
+\sum_{j=0}^{n-1}A^j
+\right)B.
+\]</span></p>
+<p>We prove this by induction.</p>
+<p>Suppose</p>
+<p><span class="math display">\[
+T^n(x)
+=
+A^n x+
+\left(
+\sum_{j=0}^{n-1}A^j
+\right)B.
+\]</span></p>
+<p>Then</p>
+<p><span class="math display">\[
+\begin{aligned}
+T^{n+1}(x)
+&amp;=
+T(T^n(x))\\
+&amp;=
+A\left[
+A^n x+
+\left(
+\sum_{j=0}^{n-1}A^j
+\right)B
+\right]+B\\
+&amp;=
+A^{n+1}x+
+\left(
+\sum_{j=1}^{n}A^j
+\right)B+B\\
+&amp;=
+A^{n+1}x+
+\left(
+\sum_{j=0}^{n}A^j
+\right)B.
+\end{aligned}
+\]</span></p>
+<p>Therefore, by induction,</p>
+<p><span class="math display">\[
+\boxed{
+T^n(x)
+=
+A^n x+
+\left(
+\sum_{j=0}^{n-1}A^j
+\right)B.
+}
+\]</span></p>
+<p>Now suppose</p>
+<p><span class="math display">\[
+A\neq1.
+\]</span></p>
+<p>We solve for the fixed point <span class="math inline">\(x_0\)</span> of <span class="math inline">\(T\)</span>:</p>
+<p><span class="math display">\[
+T(x_0)=x_0.
+\]</span></p>
+<p>That is,</p>
+<p><span class="math display">\[
+Ax_0+B=x_0,
+\]</span></p>
+<p>so</p>
+<p><span class="math display">\[
+x_0=\frac{B}{1-A}.
+\]</span></p>
+<p>Since</p>
+<p><span class="math display">\[
+T(x_0)=x_0,
+\]</span></p>
+<p>we have</p>
+<p><span class="math display">\[
+T^n(x_0)=x_0
+\]</span></p>
+<p>for every <span class="math inline">\(n\)</span>.</p>
+<p>Using the iteration formula,</p>
+<p><span class="math display">\[
+T^n(x)-T^n(x_0)
+=
+A^n(x-x_0).
+\]</span></p>
+<p>Therefore,</p>
+<p><span class="math display">\[
+\boxed{
+T^n(x)-x_0
+=
+A^n(x-x_0)
+}
+\]</span></p>
+<p>or equivalently,</p>
+<p><span class="math display">\[
+\boxed{
+T^n(x)
+=
+x_0+A^n(x-x_0).
+}
+\]</span></p>
+<p>This form makes the behavior of the iterates clear.</p>
+<div id="case-1-a1" class="section level5 hasAnchor">
+<h5>Case 1: <span class="math inline">\(A&gt;1\)</span><a href="chap-8-convergence-in-distribution.html#case-1-a1" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<p>If</p>
+<p><span class="math display">\[
+x&gt;x_0,
+\]</span></p>
+<p>then</p>
+<p><span class="math display">\[
+T^n(x)\to+\infty.
+\]</span></p>
+<p>Since</p>
+<p><span class="math display">\[
+F(x)=F(T^n(x))
+\]</span></p>
+<p>for every <span class="math inline">\(n\)</span>,</p>
+<p><span class="math display">\[
+F(x)=1
+\]</span></p>
+<p>for every <span class="math inline">\(x&gt;x_0\)</span>.</p>
+<p>If</p>
+<p><span class="math display">\[
+x&lt;x_0,
+\]</span></p>
+<p>then</p>
+<p><span class="math display">\[
+T^n(x)\to-\infty.
+\]</span></p>
+<p>Therefore,</p>
+<p><span class="math display">\[
+F(x)=0
+\]</span></p>
+<p>for every <span class="math inline">\(x&lt;x_0\)</span>.</p>
+<p>By right continuity,</p>
+<p><span class="math display">\[
+F(x_0)=1.
+\]</span></p>
+<p>Hence</p>
+<p><span class="math display">\[
+F(x)
+=
+\begin{cases}
+0, &amp; x&lt;x_0,\\
+1, &amp; x\geq x_0,
+\end{cases}
+\]</span></p>
+<p>so <span class="math inline">\(F\)</span> concentrates all its mass at <span class="math inline">\(x_0\)</span>.</p>
+<p>This contradicts the assumption that <span class="math inline">\(F\)</span> is non-degenerate.</p>
+<p>Therefore,</p>
+<p><span class="math display">\[
+A&gt;1
+\]</span></p>
+<p>is impossible.</p>
+</div>
+<div id="case-2-0a1" class="section level5 hasAnchor">
+<h5>Case 2: <span class="math inline">\(0&lt;A&lt;1\)</span><a href="chap-8-convergence-in-distribution.html#case-2-0a1" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<p>In this case,</p>
+<p><span class="math display">\[
+T^n(x)\to x_0.
+\]</span></p>
+<p>If</p>
+<p><span class="math display">\[
+x&gt;x_0,
+\]</span></p>
+<p>then</p>
+<p><span class="math display">\[
+T^n(x)\downarrow x_0.
+\]</span></p>
+<p>Since <span class="math inline">\(F\)</span> is right-continuous,</p>
+<p><span class="math display">\[
+F(x)
+=
+F(T^n(x))
+\to
+F(x_0).
+\]</span></p>
+<p>Thus</p>
+<p><span class="math display">\[
+F(x)=F(x_0)
+\]</span></p>
+<p>for every <span class="math inline">\(x&gt;x_0\)</span>.</p>
+<p>Letting <span class="math inline">\(x\to+\infty\)</span> gives</p>
+<p><span class="math display">\[
+F(x_0)=1.
+\]</span></p>
+<p>If</p>
+<p><span class="math display">\[
+x&lt;x_0,
+\]</span></p>
+<p>then</p>
+<p><span class="math display">\[
+T^n(x)\uparrow x_0.
+\]</span></p>
+<p>Therefore,</p>
+<p><span class="math display">\[
+F(x)
+=
+F(T^n(x))
+\to
+F(x_0-).
+\]</span></p>
+<p>Thus</p>
+<p><span class="math display">\[
+F(x)=F(x_0-)
+\]</span></p>
+<p>for every <span class="math inline">\(x&lt;x_0\)</span>.</p>
+<p>Letting <span class="math inline">\(x\to-\infty\)</span> gives</p>
+<p><span class="math display">\[
+F(x_0-)=0.
+\]</span></p>
+<p>Therefore,</p>
+<p><span class="math display">\[
+F(x)
+=
+\begin{cases}
+0, &amp; x&lt;x_0,\\
+1, &amp; x\geq x_0.
+\end{cases}
+\]</span></p>
+<p>Again, <span class="math inline">\(F\)</span> concentrates all its mass at <span class="math inline">\(x_0\)</span>, contradicting non-degeneracy.</p>
+<p>Therefore,</p>
+<p><span class="math display">\[
+0&lt;A&lt;1
+\]</span></p>
+<p>is also impossible.</p>
+<p>Hence,</p>
+<p><span class="math display">\[
+A=1.
+\]</span></p>
+<p>In this case,</p>
+<p><span class="math display">\[
+T(x)=x+B.
+\]</span></p>
+<p>From the iteration formula,</p>
+<p><span class="math display">\[
+T^n(x)=x+nB.
+\]</span></p>
+<p>If <span class="math inline">\(B&gt;0\)</span>, then</p>
+<p><span class="math display">\[
+T^n(x)\to+\infty.
+\]</span></p>
+<p>Therefore,</p>
+<p><span class="math display">\[
+F(x)
+=
+F(T^n(x))
+\to1
+\]</span></p>
+<p>for every <span class="math inline">\(x\)</span>, which is impossible for a proper distribution function.</p>
+<p>If <span class="math inline">\(B&lt;0\)</span>, then</p>
+<p><span class="math display">\[
+T^n(x)\to-\infty.
+\]</span></p>
+<p>Therefore,</p>
+<p><span class="math display">\[
+F(x)
+=
+F(T^n(x))
+\to0
+\]</span></p>
+<p>for every <span class="math inline">\(x\)</span>, which is also impossible for a proper distribution function.</p>
+<p>Hence,</p>
+<p><span class="math display">\[
+B=0.
+\]</span></p>
+<p>Therefore,</p>
+<p><span class="math display">\[
+\boxed{A=1,\qquad B=0.}
+\]</span></p>
+<p>Finally, recall that</p>
+<p><span class="math display">\[
+A=\frac ca
+\]</span></p>
+<p>and</p>
+<p><span class="math display">\[
+B=d-\frac{cb}{a}.
+\]</span></p>
+<p>Since</p>
+<p><span class="math display">\[
+A=1,
+\]</span></p>
+<p>we get</p>
+<p><span class="math display">\[
+\frac ca=1,
+\]</span></p>
+<p>so</p>
+<p><span class="math display">\[
+c=a.
+\]</span></p>
+<p>Then</p>
+<p><span class="math display">\[
+B=0
+\]</span></p>
+<p>gives</p>
+<p><span class="math display">\[
+d-\frac{cb}{a}=0.
+\]</span></p>
+<p>Since <span class="math inline">\(c=a\)</span>,</p>
+<p><span class="math display">\[
+d-b=0,
+\]</span></p>
+<p>and hence</p>
+<p><span class="math display">\[
+d=b.
+\]</span></p>
+<p>Therefore,</p>
+<p><span class="math display">\[
+\boxed{a=c,\qquad b=d.}
+\]</span></p>
+</div>
+</div>
+</div>
+<div id="ex-26-4" class="section level3 hasAnchor">
+<h3>Ex 26<a href="chap-8-convergence-in-distribution.html#ex-26-4" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="problem">
+<p>Suppose <span class="math inline">\(\{X_n,n\geq 1\}\)</span> are iid random variables with common distribution <span class="math inline">\(F\)</span>
+and set</p>
+<p><span class="math display">\[
+S_n=\sum_{i=1}^n X_i.
+\]</span></p>
+<p>Assume that there exist <span class="math inline">\(a_n&gt;0\)</span>, <span class="math inline">\(b_n\in\mathbb{R}\)</span> such that</p>
+<p><span class="math display">\[
+a_n^{-1}S_n-b_n\Rightarrow Y,
+\]</span></p>
+<p>where <span class="math inline">\(Y\)</span> has a non-degenerate proper distribution. Use the convergence to
+types theorem to show that</p>
+<p><span class="math display">\[
+a_n\to\infty,
+\qquad
+\frac{a_n}{a_{n+1}}\to1.
+\]</span></p>
+<p>(Symmetrize to remove <span class="math inline">\(b_n\)</span>. You may want to first consider <span class="math inline">\(a_{2n}/a_n\)</span>.)</p>
+</div>
+<p><span class="math inline">\(\textbf{Answer:}\)</span></p>
+<p>This solution uses characteristic functions as a pre-learning method. At this
+point in Chapter 8, characteristic functions have not yet been introduced, but
+they give a clean way to handle the main technical difficulty in this exercise.</p>
+<p>Let <span class="math inline">\(\{X_i&#39;\}\)</span> be an iid copy of <span class="math inline">\(\{X_i\}\)</span>, independent of <span class="math inline">\(\{X_i\}\)</span>, and define</p>
+<p><span class="math display">\[
+S_n&#39;=\sum_{i=1}^n X_i&#39;.
+\]</span></p>
+<p>Since</p>
+<p><span class="math display">\[
+\frac{S_n}{a_n}-b_n\Rightarrow Y
+\]</span></p>
+<p>and</p>
+<p><span class="math display">\[
+\frac{S_n&#39;}{a_n}-b_n\Rightarrow Y&#39;,
+\]</span></p>
+<p>where <span class="math inline">\(Y&#39;\)</span> is an independent copy of <span class="math inline">\(Y\)</span>, we have</p>
+<p><span class="math display">\[
+\frac{S_n-S_n&#39;}{a_n}
+\Rightarrow
+Y-Y&#39;.
+\]</span></p>
+<p>Let</p>
+<p><span class="math display">\[
+Z_i=X_i-X_i&#39;,
+\qquad
+T_n=\sum_{i=1}^n Z_i=S_n-S_n&#39;,
+\]</span></p>
+<p>and set</p>
+<p><span class="math display">\[
+W=Y-Y&#39;.
+\]</span></p>
+<p>Then</p>
+<p><span class="math display">\[
+\boxed{
+\frac{T_n}{a_n}\Rightarrow W.
+}
+\]</span></p>
+<p>Notice that <span class="math inline">\(\{Z_i\}\)</span> are iid and symmetric.</p>
+<p>Also, <span class="math inline">\(W\)</span> is proper and non-degenerate. Indeed, if <span class="math inline">\(W\)</span> were degenerate, then,
+since <span class="math inline">\(W=Y-Y&#39;\)</span> is symmetric, we would have</p>
+<p><span class="math display">\[
+Y-Y&#39;=0
+\qquad\text{a.s.}
+\]</span></p>
+<p>Thus <span class="math inline">\(Y=Y&#39;\)</span> a.s. But <span class="math inline">\(Y\)</span> and <span class="math inline">\(Y&#39;\)</span> are independent copies, which would imply
+that <span class="math inline">\(Y\)</span> is degenerate, contradicting the assumption.</p>
+<p>Similarly, <span class="math inline">\(Z_1\)</span> is non-degenerate.</p>
+<ul>
+<li>Step 1: The characteristic function of the symmetrized summand</li>
+</ul>
+<p>Let</p>
+<p><span class="math display">\[
+\phi_X(t)=E(e^{itX_1})
+\]</span></p>
+<p>and define</p>
+<p><span class="math display">\[
+\psi(t)=\phi_{Z_1}(t)=E(e^{itZ_1}).
+\]</span></p>
+<p>Since</p>
+<p><span class="math display">\[
+Z_1=X_1-X_1&#39;
+\]</span></p>
+<p>and <span class="math inline">\(X_1,X_1&#39;\)</span> are independent,</p>
+<p><span class="math display">\[
+\begin{aligned}
+\psi(t)
+&amp;=
+E\left(e^{it(X_1-X_1&#39;)}\right)\\
+&amp;=
+E(e^{itX_1})E(e^{-itX_1&#39;})\\
+&amp;=
+\phi_X(t)\phi_X(-t)\\
+&amp;=
+|\phi_X(t)|^2.
+\end{aligned}
+\]</span></p>
+<p>Therefore,</p>
+<p><span class="math display">\[
+\boxed{
+0\leq\psi(t)\leq1
+}
+\]</span></p>
+<p>for every <span class="math inline">\(t\in\mathbb{R}\)</span>.</p>
+<p>In particular, <span class="math inline">\(\psi\)</span> is real-valued.</p>
+<p>We now show that there exists a sequence <span class="math inline">\(t_m\to0\)</span> such that</p>
+<p><span class="math display">\[
+\psi(t_m)&lt;1.
+\]</span></p>
+<p>Suppose not. Then there exists <span class="math inline">\(\delta&gt;0\)</span> such that</p>
+<p><span class="math display">\[
+\psi(t)=1
+\]</span></p>
+<p>for every <span class="math inline">\(|t|&lt;\delta\)</span>.</p>
+<p>Since <span class="math inline">\(Z_1\)</span> is symmetric,</p>
+<p><span class="math display">\[
+\psi(t)=E\cos(tZ_1).
+\]</span></p>
+<p>Hence, for <span class="math inline">\(|t|&lt;\delta\)</span>,</p>
+<p><span class="math display">\[
+1-\psi(t)
+=
+E[1-\cos(tZ_1)]
+=
+0.
+\]</span></p>
+<p>Since</p>
+<p><span class="math display">\[
+1-\cos(tZ_1)\geq0,
+\]</span></p>
+<p>Tonelli’s theorem gives</p>
+<p><span class="math display">\[
+\begin{aligned}
+0
+&amp;=
+\int_{-\delta}^{\delta}
+[1-\psi(t)]\,dt\\
+&amp;=
+E\left[
+\int_{-\delta}^{\delta}
+(1-\cos(tZ_1))\,dt
+\right].
+\end{aligned}
+\]</span></p>
+<p>Define</p>
+<p><span class="math display">\[
+g(z)
+=
+\int_{-\delta}^{\delta}
+(1-\cos(tz))\,dt.
+\]</span></p>
+<p>Clearly,</p>
+<p><span class="math display">\[
+g(0)=0.
+\]</span></p>
+<p>For <span class="math inline">\(z\neq0\)</span>,</p>
+<p><span class="math display">\[
+\begin{aligned}
+g(z)
+&amp;=
+2\delta-
+2\frac{\sin(\delta z)}{z}\\
+&amp;=
+2\delta
+\left[
+1-
+\frac{\sin(\delta z)}{\delta z}
+\right].
+\end{aligned}
+\]</span></p>
+<p>Since</p>
+<p><span class="math display">\[
+|\sin u|&lt;|u|
+\qquad
+\text{for }u\neq0,
+\]</span></p>
+<p>we have</p>
+<p><span class="math display">\[
+g(z)&gt;0
+\qquad
+\text{for every }z\neq0.
+\]</span></p>
+<p>Thus</p>
+<p><span class="math display">\[
+E[g(Z_1)]=0
+\]</span></p>
+<p>and <span class="math inline">\(g(Z_1)\geq0\)</span> imply</p>
+<p><span class="math display">\[
+g(Z_1)=0
+\qquad\text{a.s.}
+\]</span></p>
+<p>Therefore,</p>
+<p><span class="math display">\[
+Z_1=0
+\qquad\text{a.s.},
+\]</span></p>
+<p>contradicting the fact that <span class="math inline">\(Z_1\)</span> is non-degenerate.</p>
+<p>Hence, for every <span class="math inline">\(\delta&gt;0\)</span>, there exists <span class="math inline">\(t\)</span> with</p>
+<p><span class="math display">\[
+0&lt;|t|&lt;\delta
+\]</span></p>
+<p>such that</p>
+<p><span class="math display">\[
+\psi(t)&lt;1.
+\]</span></p>
+<p>Therefore, we can choose a sequence</p>
+<p><span class="math display">\[
+\boxed{
+t_m\to0
+\quad\text{such that}\quad
+0\leq\psi(t_m)&lt;1.
+}
+\]</span></p>
+<ul>
+<li>Step 2: Show that <span class="math inline">\(a_n\to\infty\)</span></li>
+</ul>
+<p>Suppose otherwise. Then there exists a bounded subsequence</p>
+<p><span class="math display">\[
+\{a_{n_k}\}.
+\]</span></p>
+<p>Since <span class="math inline">\(a_{n_k}&gt;0\)</span> and is bounded, by taking a further subsequence if necessary,
+we may assume</p>
+<p><span class="math display">\[
+a_{n_k}\to a
+\]</span></p>
+<p>for some</p>
+<p><span class="math display">\[
+a\in[0,\infty).
+\]</span></p>
+<p>Since</p>
+<p><span class="math display">\[
+\frac{T_{n_k}}{a_{n_k}}\Rightarrow W,
+\]</span></p>
+<p>Slutsky’s theorem gives</p>
+<p><span class="math display">\[
+T_{n_k}
+=
+a_{n_k}
+\frac{T_{n_k}}{a_{n_k}}
+\Rightarrow
+aW.
+\]</span></p>
+<p>Let</p>
+<p><span class="math display">\[
+V=aW.
+\]</span></p>
+<p>Thus</p>
+<p><span class="math display">\[
+T_{n_k}\Rightarrow V.
+\]</span></p>
+<p>Now, since</p>
+<p><span class="math display">\[
+T_n=Z_1+\cdots+Z_n
+\]</span></p>
+<p>and the <span class="math inline">\(Z_i\)</span> are iid,</p>
+<p><span class="math display">\[
+\phi_{T_n}(t)
+=
+\psi(t)^n.
+\]</span></p>
+<p>Therefore,</p>
+<p><span class="math display">\[
+\phi_{T_{n_k}}(t)
+=
+\psi(t)^{n_k}.
+\]</span></p>
+<p>Since</p>
+<p><span class="math display">\[
+T_{n_k}\Rightarrow V,
+\]</span></p>
+<p>the continuity theorem for characteristic functions gives, for every fixed <span class="math inline">\(t\)</span>,</p>
+<p><span class="math display">\[
+\psi(t)^{n_k}
+\to
+\phi_V(t).
+\]</span></p>
+<p>Now fix <span class="math inline">\(m\)</span>.</p>
+<p>Since</p>
+<p><span class="math display">\[
+0\leq\psi(t_m)&lt;1,
+\]</span></p>
+<p>we have</p>
+<p><span class="math display">\[
+\psi(t_m)^{n_k}\to0
+\]</span></p>
+<p>as <span class="math inline">\(k\to\infty\)</span>.</p>
+<p>Therefore,</p>
+<p><span class="math display">\[
+\phi_V(t_m)=0
+\]</span></p>
+<p>for every <span class="math inline">\(m\)</span>.</p>
+<p>But</p>
+<p><span class="math display">\[
+t_m\to0.
+\]</span></p>
+<p>Since every characteristic function is continuous at <span class="math inline">\(0\)</span>,</p>
+<p><span class="math display">\[
+\phi_V(t_m)
+\to
+\phi_V(0)
+=
+1.
+\]</span></p>
+<p>This contradicts</p>
+<p><span class="math display">\[
+\phi_V(t_m)=0
+\]</span></p>
+<p>for every <span class="math inline">\(m\)</span>.</p>
+<p>Therefore, <span class="math inline">\(\{a_n\}\)</span> has no bounded subsequence.</p>
+<p>Since <span class="math inline">\(a_n&gt;0\)</span>,</p>
+<p><span class="math display">\[
+\boxed{
+a_n\to\infty.
+}
+\]</span></p>
+<ul>
+<li>Step 3: Compare <span class="math inline">\(a_n\)</span> and <span class="math inline">\(a_{n+1}\)</span></li>
+</ul>
+<p>Since</p>
+<p><span class="math display">\[
+a_n\to\infty,
+\]</span></p>
+<p>for every <span class="math inline">\(\varepsilon&gt;0\)</span>,</p>
+<p><span class="math display">\[
+\begin{aligned}
+P\left(
+\left|
+\frac{Z_{n+1}}{a_n}
+\right|&gt;\varepsilon
+\right)
+&amp;=
+P(|Z_{n+1}|&gt;\varepsilon a_n)\\
+&amp;=
+P(|Z_1|&gt;\varepsilon a_n)\\
+&amp;\to0.
+\end{aligned}
+\]</span></p>
+<p>Hence,</p>
+<p><span class="math display">\[
+\frac{Z_{n+1}}{a_n}
+\xrightarrow{P}0.
+\]</span></p>
+<p>Since</p>
+<p><span class="math display">\[
+T_{n+1}=T_n+Z_{n+1},
+\]</span></p>
+<p>we have</p>
+<p><span class="math display">\[
+\frac{T_{n+1}}{a_n}
+=
+\frac{T_n}{a_n}
++
+\frac{Z_{n+1}}{a_n}.
+\]</span></p>
+<p>Since</p>
+<p><span class="math display">\[
+\frac{T_n}{a_n}\Rightarrow W,
+\]</span></p>
+<p>Slutsky’s theorem gives</p>
+<p><span class="math display">\[
+\boxed{
+\frac{T_{n+1}}{a_n}\Rightarrow W.
+}
+\]</span></p>
+<p>On the other hand, replacing <span class="math inline">\(n\)</span> by <span class="math inline">\(n+1\)</span> in</p>
+<p><span class="math display">\[
+\frac{T_n}{a_n}\Rightarrow W,
+\]</span></p>
+<p>we also have</p>
+<p><span class="math display">\[
+\boxed{
+\frac{T_{n+1}}{a_{n+1}}\Rightarrow W.
+}
+\]</span></p>
+<p>Thus the same random variable <span class="math inline">\(T_{n+1}\)</span> has two normalizations:</p>
+<p><span class="math display">\[
+\frac{T_{n+1}}{a_n}\Rightarrow W
+\]</span></p>
+<p>and</p>
+<p><span class="math display">\[
+\frac{T_{n+1}}{a_{n+1}}\Rightarrow W.
+\]</span></p>
+<p>By the convergence to types theorem, there exists <span class="math inline">\(A&gt;0\)</span> such that</p>
+<p><span class="math display">\[
+\frac{a_{n+1}}{a_n}\to A.
+\]</span></p>
+<p>Let <span class="math inline">\(H\)</span> be the df of <span class="math inline">\(W\)</span>.</p>
+<p>The convergence to types theorem also gives the relation between the two limiting
+dfs. Since both limits are <span class="math inline">\(H\)</span>,</p>
+<p><span class="math display">\[
+H(x)=H(Ax)
+\]</span></p>
+<p>for every <span class="math inline">\(x\)</span>.</p>
+<p>Since <span class="math inline">\(W\)</span> is non-degenerate, Exercise 6 implies that the only affine
+transformation leaving its distribution unchanged is the identity.</p>
+<p>Therefore,</p>
+<p><span class="math display">\[
+A=1.
+\]</span></p>
+<p>Hence,</p>
+<p><span class="math display">\[
+\frac{a_{n+1}}{a_n}\to1.
+\]</span></p>
+<p>Taking reciprocals,</p>
+<p><span class="math display">\[
+\boxed{
+\frac{a_n}{a_{n+1}}\to1.
+}
+\]</span></p>
+<p>Therefore,</p>
+<p><span class="math display">\[
+\boxed{
+a_n\to\infty,
+\qquad
+\frac{a_n}{a_{n+1}}\to1.
+}
+\]</span></p>
+<p><strong>Note.</strong> There are at least two natural routes to complete this exercise: a tightness/concentration argument and a characteristic-function argument. However, neither tightness nor characteristic functions has been developed in the book up to this point; characteristic functions are introduced only in Chapter 9.</p>
+<p>My Chapter 8 reasoning reaches the reduction
+<span class="math display">\[
+a_{n_k}\to a&lt;\infty
+\quad\Longrightarrow\quad
+T_{n_k}\Rightarrow aW,
+\]</span>
+so the remaining task is to rule out a proper weak limit for the unnormalized iid partial sums <span class="math inline">\(T_{n_k}\)</span>. I do not currently see how to establish this using only the tools explicitly developed before Chapter 9. I therefore treat the characteristic-function proof as a pre-learning solution and plan to revisit the exercise after studying Chapter 9.</p>
+
 </div>
 </div>
 </div>
