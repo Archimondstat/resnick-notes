@@ -23,7 +23,7 @@
 <meta name="author" content="Zhanwen Peng" />
 
 
-<meta name="date" content="2026-10-25" />
+<meta name="date" content="2026-10-31" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -624,6 +624,22 @@
 <li class="chapter" data-level="" data-path="chap-8-convergence-in-distribution.html"><a href="chap-8-convergence-in-distribution.html#ii-1"><i class="fa fa-check"></i>(ii)</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="chap-8-convergence-in-distribution.html"><a href="chap-8-convergence-in-distribution.html#ex-26-4"><i class="fa fa-check"></i>Ex 26</a></li>
+<li class="chapter" data-level="" data-path="chap-8-convergence-in-distribution.html"><a href="chap-8-convergence-in-distribution.html#ex-17-4"><i class="fa fa-check"></i>Ex 17</a>
+<ul>
+<li class="chapter" data-level="" data-path="chap-8-convergence-in-distribution.html"><a href="chap-8-convergence-in-distribution.html#connection-with-section-8.7.1"><i class="fa fa-check"></i>Connection with Section 8.7.1</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="chap-8-convergence-in-distribution.html"><a href="chap-8-convergence-in-distribution.html#ex-27-4"><i class="fa fa-check"></i>Ex 27</a></li>
+<li class="chapter" data-level="" data-path="chap-8-convergence-in-distribution.html"><a href="chap-8-convergence-in-distribution.html#ex-34-2"><i class="fa fa-check"></i>Ex 34</a>
+<ul>
+<li class="chapter" data-level="" data-path="chap-8-convergence-in-distribution.html"><a href="chap-8-convergence-in-distribution.html#a-moving-center-delta-method"><i class="fa fa-check"></i>A moving-center delta method</a></li>
+<li class="chapter" data-level="" data-path="chap-8-convergence-in-distribution.html"><a href="chap-8-convergence-in-distribution.html#apply-it-to-the-weibull-maximum"><i class="fa fa-check"></i>Apply it to the Weibull maximum</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="chap-8-convergence-in-distribution.html"><a href="chap-8-convergence-in-distribution.html#ex-16-4"><i class="fa fa-check"></i>Ex 16</a>
+<ul>
+<li class="chapter" data-level="" data-path="chap-8-convergence-in-distribution.html"><a href="chap-8-convergence-in-distribution.html#rightarrow-1"><i class="fa fa-check"></i><span class="math inline">\((\Rightarrow)\)</span></a></li>
+<li class="chapter" data-level="" data-path="chap-8-convergence-in-distribution.html"><a href="chap-8-convergence-in-distribution.html#leftarrow-1"><i class="fa fa-check"></i><span class="math inline">\((\Leftarrow)\)</span></a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="chap-8-convergence-in-distribution.html"><a href="chap-8-convergence-in-distribution.html#ex-28-4"><i class="fa fa-check"></i>Ex 28</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -5352,6 +5368,2024 @@ a_{n_k}\to a&lt;\infty
 T_{n_k}\Rightarrow aW,
 \]</span>
 so the remaining task is to rule out a proper weak limit for the unnormalized iid partial sums <span class="math inline">\(T_{n_k}\)</span>. I do not currently see how to establish this using only the tools explicitly developed before Chapter 9. I therefore treat the characteristic-function proof as a pre-learning solution and plan to revisit the exercise after studying Chapter 9.</p>
+</div>
+<div id="ex-17-4" class="section level3 hasAnchor">
+<h3>Ex 17<a href="chap-8-convergence-in-distribution.html#ex-17-4" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="problem">
+<p>If <span class="math inline">\(\{X_n\}\)</span> are iid <span class="math inline">\(U(0,1)\)</span> random variables, find a non-degenerate limit distribution for</p>
+<p><span class="math display">\[
+M_n=\bigvee_{i=1}^n X_i
+\]</span></p>
+<p>under suitable normalization.</p>
+</div>
+<p><span class="math inline">\(\textbf{Answer:}\)</span></p>
+<p>Let</p>
+<p><span class="math display">\[
+M_n=\max_{1\leq i\leq n}X_i,
+\]</span></p>
+<p>where <span class="math inline">\(\{X_i\}\)</span> are iid <span class="math inline">\(U(0,1)\)</span> random variables.</p>
+<p>For <span class="math inline">\(0\leq x\leq1\)</span>,</p>
+<p><span class="math display">\[
+\begin{aligned}
+P(M_n\leq x)
+&amp;=
+P(X_1\leq x,\ldots,X_n\leq x)\\
+&amp;=
+x^n.
+\end{aligned}
+\]</span></p>
+<p>First, without normalization,</p>
+<p><span class="math display">\[
+M_n\Rightarrow 1,
+\]</span></p>
+<p>whose df is</p>
+<p><span class="math display">\[
+F(x)=
+\begin{cases}
+0, &amp; x&lt;1,\\
+1, &amp; x\geq1.
+\end{cases}
+\]</span></p>
+<p>This limit is degenerate. Therefore, we need to examine the fluctuation of
+<span class="math inline">\(M_n\)</span> around the endpoint <span class="math inline">\(1\)</span>.</p>
+<p>Try</p>
+<p><span class="math display">\[
+x=1-\frac{y}{n},
+\qquad y\geq0.
+\]</span></p>
+<p>Then</p>
+<p><span class="math display">\[
+\begin{aligned}
+P\left(M_n\leq1-\frac{y}{n}\right)
+&amp;=
+\left(1-\frac{y}{n}\right)^n\\
+&amp;\longrightarrow
+e^{-y}.
+\end{aligned}
+\]</span></p>
+<p>But</p>
+<p><span class="math display">\[
+M_n\leq1-\frac{y}{n}
+\]</span></p>
+<p>is equivalent to</p>
+<p><span class="math display">\[
+n(1-M_n)\geq y.
+\]</span></p>
+<p>Therefore,</p>
+<p><span class="math display">\[
+P\left(n(1-M_n)\geq y\right)
+\longrightarrow
+e^{-y}.
+\]</span></p>
+<p>Hence,</p>
+<p><span class="math display">\[
+P\left(n(1-M_n)\leq y\right)
+\longrightarrow
+1-e^{-y},
+\qquad y\geq0.
+\]</span></p>
+<p>For <span class="math inline">\(y&lt;0\)</span>,</p>
+<p><span class="math display">\[
+P\left(n(1-M_n)\leq y\right)=0,
+\]</span></p>
+<p>since <span class="math inline">\(M_n\leq1\)</span>.</p>
+<p>Thus</p>
+<p><span class="math display">\[
+\boxed{
+n(1-M_n)\Rightarrow E,
+\qquad E\sim\operatorname{Exp}(1).
+}
+\]</span></p>
+<p>Equivalently,</p>
+<p><span class="math display">\[
+\boxed{
+n(M_n-1)\Rightarrow -E.
+}
+\]</span></p>
+<div id="connection-with-section-8.7.1" class="section level4 hasAnchor">
+<h4>Connection with Section 8.7.1<a href="chap-8-convergence-in-distribution.html#connection-with-section-8.7.1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Section 8.7.1 considers non-degenerate limits of centered and scaled maxima of
+the form</p>
+<p><span class="math display">\[
+\frac{M_n-b_n}{a_n}\Rightarrow G,
+\qquad a_n&gt;0.
+\]</span></p>
+<p>In this exercise, take</p>
+<p><span class="math display">\[
+b_n=1,
+\qquad
+a_n=\frac1n.
+\]</span></p>
+<p>Then</p>
+<p><span class="math display">\[
+\frac{M_n-b_n}{a_n}
+=
+n(M_n-1).
+\]</span></p>
+<p>Let</p>
+<p><span class="math display">\[
+Y=-E,
+\qquad E\sim\operatorname{Exp}(1).
+\]</span></p>
+<p>The df of <span class="math inline">\(Y\)</span> is, for <span class="math inline">\(x&lt;0\)</span>,</p>
+<p><span class="math display">\[
+\begin{aligned}
+P(Y\leq x)
+&amp;=
+P(-E\leq x)\\
+&amp;=
+P(E\geq -x)\\
+&amp;=
+e^x,
+\end{aligned}
+\]</span></p>
+<p>while for <span class="math inline">\(x\geq0\)</span>,</p>
+<p><span class="math display">\[
+P(Y\leq x)=1.
+\]</span></p>
+<p>Therefore,</p>
+<p><span class="math display">\[
+G(x)
+=
+\begin{cases}
+e^x, &amp; x&lt;0,\\
+1, &amp; x\geq0.
+\end{cases}
+\]</span></p>
+<p>But the Weibull extreme-value distribution in Section 8.7.1 is</p>
+<p><span class="math display">\[
+\Psi_\alpha(x)
+=
+\begin{cases}
+\exp\{-(-x)^\alpha\}, &amp; x&lt;0,\\
+1, &amp; x\geq0,
+\end{cases}
+\qquad \alpha&gt;0.
+\]</span></p>
+<p>Taking <span class="math inline">\(\alpha=1\)</span> gives</p>
+<p><span class="math display">\[
+\Psi_1(x)
+=
+\begin{cases}
+e^x, &amp; x&lt;0,\\
+1, &amp; x\geq0.
+\end{cases}
+\]</span></p>
+<p>Hence,</p>
+<p><span class="math display">\[
+\boxed{
+n(M_n-1)
+=
+\frac{M_n-1}{1/n}
+\Rightarrow
+\Psi_1.
+}
+\]</span></p>
+<p>So the exponential formulation</p>
+<p><span class="math display">\[
+n(1-M_n)\Rightarrow\operatorname{Exp}(1)
+\]</span></p>
+<p>and the extreme-value formulation</p>
+<p><span class="math display">\[
+n(M_n-1)\Rightarrow\Psi_1
+\]</span></p>
+<p>are the same limit theorem written with opposite signs.</p>
+<p><span class="math inline">\(\textbf{Note:}\)</span></p>
+<p>My first observation was that <span class="math inline">\(M_n\)</span> itself converges to the degenerate
+distribution concentrated at the right endpoint <span class="math inline">\(1\)</span>. This identifies the
+location but does not yet give a non-degenerate limit.</p>
+<p>The next step is therefore to determine the correct local scale around <span class="math inline">\(1\)</span>.
+Choosing</p>
+<p><span class="math display">\[
+1-\frac{y}{n}
+\]</span></p>
+<p>gives</p>
+<p><span class="math display">\[
+\left(1-\frac{y}{n}\right)^n\to e^{-y},
+\]</span></p>
+<p>showing that the fluctuation scale is <span class="math inline">\(1/n\)</span>.</p>
+<p>This also gives a concrete example of Section 8.7.1:</p>
+<p><span class="math display">\[
+U(0,1)
+\quad\longrightarrow\quad
+\text{finite right endpoint }1
+\quad\longrightarrow\quad
+b_n=1,\ a_n=\frac1n
+\quad\longrightarrow\quad
+\Psi_1\text{ (Weibull type)}.
+\]</span></p>
+<p>This example also provides a useful sanity check for the sign classification
+in the proof of the extreme-value theorem: a distribution with a finite upper
+endpoint produces a Weibull-type limit.</p>
+</div>
+</div>
+<div id="ex-27-4" class="section level3 hasAnchor">
+<h3>Ex 27<a href="chap-8-convergence-in-distribution.html#ex-27-4" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="problem">
+<p>Suppose <span class="math inline">\(\{X_n,n\geq1\}\)</span> are iid and non-negative random variables with common density <span class="math inline">\(f(x)\)</span> satisfying</p>
+<p><span class="math display">\[
+\lambda:=\lim_{t\downarrow0}f(t)&gt;0.
+\]</span></p>
+<p>Show</p>
+<p><span class="math display">\[
+n\bigwedge_{i=1}^n X_i
+\]</span></p>
+<p>has a limit distribution. (This is extreme value theory, but for minima not maxima.)</p>
+</div>
+<p><span class="math inline">\(\textbf{Answer:}\)</span></p>
+<p>Let</p>
+<p><span class="math display">\[
+Y_n:=n\min_{1\leq i\leq n}X_i.
+\]</span></p>
+<p>Since the <span class="math inline">\(X_i\)</span> are iid, for <span class="math inline">\(x&gt;0\)</span>,</p>
+<p><span class="math display">\[
+\begin{aligned}
+P(Y_n&gt;x)
+&amp;=
+P\left(
+n\min_{1\leq i\leq n}X_i&gt;x
+\right)\\
+&amp;=
+P\left(
+\min_{1\leq i\leq n}X_i&gt;\frac{x}{n}
+\right)\\
+&amp;=
+\prod_{i=1}^n
+P\left(X_i&gt;\frac{x}{n}\right)\\
+&amp;=
+\left(
+1-F\left(\frac{x}{n}\right)
+\right)^n.
+\end{aligned}
+\]</span></p>
+<p>Therefore,</p>
+<p><span class="math display">\[
+\begin{aligned}
+\frac{d}{dx}P(Y_n&gt;x)
+&amp;=
+n
+\left(
+1-F\left(\frac{x}{n}\right)
+\right)^{n-1}
+\left(
+-f\left(\frac{x}{n}\right)
+\right)
+\frac1n\\
+&amp;=
+-
+f\left(\frac{x}{n}\right)
+\left(
+1-F\left(\frac{x}{n}\right)
+\right)^{n-1}.
+\end{aligned}
+\]</span></p>
+<p>Hence the density of <span class="math inline">\(Y_n\)</span>, denoted by <span class="math inline">\(g_n\)</span>, is</p>
+<p><span class="math display">\[
+g_n(x)
+=
+f\left(\frac{x}{n}\right)
+\left(
+1-F\left(\frac{x}{n}\right)
+\right)^{n-1},
+\qquad x&gt;0.
+\]</span></p>
+<p>Since the <span class="math inline">\(X_i\)</span> are non-negative and have density <span class="math inline">\(f\)</span>,</p>
+<p><span class="math display">\[
+F(0)=0.
+\]</span></p>
+<p>Also,</p>
+<p><span class="math display">\[
+F(x)=\int_0^x f(t)\,dt.
+\]</span></p>
+<p>Now consider</p>
+<p><span class="math display">\[
+\frac{F(x)}{x}.
+\]</span></p>
+<p>Since</p>
+<p><span class="math display">\[
+F(x)\to0
+\]</span></p>
+<p>and</p>
+<p><span class="math display">\[
+x\to0
+\]</span></p>
+<p>as <span class="math inline">\(x\downarrow0\)</span>, by L’Hôpital’s rule,</p>
+<p><span class="math display">\[
+\lim_{x\downarrow0}\frac{F(x)}{x}
+=
+\lim_{x\downarrow0}f(x)
+=
+\lambda.
+\]</span></p>
+<p>Therefore, for fixed <span class="math inline">\(x&gt;0\)</span>,</p>
+<p><span class="math display">\[
+\frac{F(x/n)}{x/n}\to\lambda,
+\]</span></p>
+<p>and hence</p>
+<p><span class="math display">\[
+nF\left(\frac{x}{n}\right)
+=
+x\frac{F(x/n)}{x/n}
+\to
+\lambda x.
+\]</span></p>
+<p>Thus</p>
+<p><span class="math display">\[
+F\left(\frac{x}{n}\right)
+=
+\frac{nF(x/n)}{n},
+\]</span></p>
+<p>so</p>
+<p><span class="math display">\[
+\begin{aligned}
+\left(
+1-F\left(\frac{x}{n}\right)
+\right)^{n-1}
+&amp;=
+\left(
+1-\frac{nF(x/n)}{n}
+\right)^{n-1}\\
+&amp;\longrightarrow
+e^{-\lambda x}.
+\end{aligned}
+\]</span></p>
+<p>At the same time,</p>
+<p><span class="math display">\[
+f\left(\frac{x}{n}\right)\to\lambda.
+\]</span></p>
+<p>Therefore,</p>
+<p><span class="math display">\[
+g_n(x)
+\to
+\lambda e^{-\lambda x},
+\qquad x&gt;0.
+\]</span></p>
+<p>Define</p>
+<p><span class="math display">\[
+g(x)
+=
+\lambda e^{-\lambda x}
+1_{\{x&gt;0\}}.
+\]</span></p>
+<p>Then</p>
+<p><span class="math display">\[
+\int_{\mathbb R}g(x)\,dx
+=
+\int_0^\infty
+\lambda e^{-\lambda x}\,dx
+=
+1,
+\]</span></p>
+<p>so <span class="math inline">\(g\)</span> is a probability density.</p>
+<p>Since each <span class="math inline">\(g_n\)</span> is also a probability density and</p>
+<p><span class="math display">\[
+g_n(x)\to g(x)
+\]</span></p>
+<p>almost everywhere, Scheffé’s lemma gives</p>
+<p><span class="math display">\[
+\int_{\mathbb R}
+|g_n(x)-g(x)|\,dx
+\to0.
+\]</span></p>
+<p>Therefore,</p>
+<p><span class="math display">\[
+\boxed{
+n\min_{1\leq i\leq n}X_i
+\Rightarrow
+\operatorname{Exp}(\lambda).
+}
+\]</span></p>
+<p><span class="math inline">\(\textbf{Note:}\)</span></p>
+<p>The key local behavior is</p>
+<p><span class="math display">\[
+F(x)\sim\lambda x
+\qquad (x\downarrow0).
+\]</span></p>
+<p>In my proof I obtained this by L’Hôpital’s rule:</p>
+<p><span class="math display">\[
+\frac{F(x)}{x}
+\to\lambda.
+\]</span></p>
+<p>Under the usual interpretation that <span class="math inline">\(F&#39;(x)=f(x)\)</span> in a punctured neighborhood of <span class="math inline">\(0\)</span>, this is valid.</p>
+<p>If one wants to avoid the differentiability issue for an arbitrary density, the same result follows directly from</p>
+<p><span class="math display">\[
+\frac{F(x)}{x}
+=
+\frac1x\int_0^x f(t)\,dt.
+\]</span></p>
+<p>Since <span class="math inline">\(f(t)\to\lambda\)</span>, for every <span class="math inline">\(\varepsilon&gt;0\)</span>, when <span class="math inline">\(x\)</span> is sufficiently small,</p>
+<p><span class="math display">\[
+\lambda-\varepsilon
+\leq f(t)
+\leq
+\lambda+\varepsilon,
+\qquad 0&lt;t&lt;x,
+\]</span></p>
+<p>and hence</p>
+<p><span class="math display">\[
+\lambda-\varepsilon
+\leq
+\frac{F(x)}{x}
+\leq
+\lambda+\varepsilon.
+\]</span></p>
+<p>Thus again</p>
+<p><span class="math display">\[
+\frac{F(x)}{x}\to\lambda.
+\]</span></p>
+</div>
+<div id="ex-34-2" class="section level3 hasAnchor">
+<h3>Ex 34<a href="chap-8-convergence-in-distribution.html#ex-34-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="problem">
+<p>Suppose <span class="math inline">\(\{E_n,n\geq1\}\)</span> are iid unit exponential random variables. Recall from
+Example 8.1.2 that</p>
+<p><span class="math display">\[
+\bigvee_{i=1}^n E_i-\log n\Rightarrow Y,
+\]</span></p>
+<p>where <span class="math inline">\(Y\)</span> has a Gumbel distribution.</p>
+<p>Let <span class="math inline">\(\{W_n,n\geq1\}\)</span> be iid Weibull random variables satisfying</p>
+<p><span class="math display">\[
+P[W_n&gt;x]=e^{-x^\alpha},
+\qquad
+\alpha&gt;0,\ x&gt;0.
+\]</span></p>
+<p>Use the delta method to derive a weak limit theorem for</p>
+<p><span class="math display">\[
+\bigvee_{i=1}^n W_i.
+\]</span></p>
+<p>(Hint: Express <span class="math inline">\(W_i\)</span> as a function of <span class="math inline">\(E_i\)</span>, which then requires that
+<span class="math inline">\(\bigvee_{i=1}^n W_i\)</span> is a function of <span class="math inline">\(\bigvee_{i=1}^nE_i\)</span>.)</p>
+</div>
+<p><span class="math inline">\(\textbf{Answer:}\)</span></p>
+<p>For the Weibull random variable <span class="math inline">\(W_i\)</span>,</p>
+<p><span class="math display">\[
+P(W_i&gt;x)=e^{-x^\alpha},
+\qquad x&gt;0.
+\]</span></p>
+<p>Therefore, for <span class="math inline">\(x&gt;0\)</span>,</p>
+<p><span class="math display">\[
+\begin{aligned}
+P(W_i^\alpha&gt;x)
+&amp;=
+P(W_i&gt;x^{1/\alpha})\\
+&amp;=
+e^{-x}.
+\end{aligned}
+\]</span></p>
+<p>Thus</p>
+<p><span class="math display">\[
+W_i^\alpha\overset{d}=E_i,
+\qquad
+E_i\sim\operatorname{Exp}(1),
+\]</span></p>
+<p>or equivalently,</p>
+<p><span class="math display">\[
+\boxed{
+W_i\overset{d}=E_i^{1/\alpha}.
+}
+\]</span></p>
+<p>Define</p>
+<p><span class="math display">\[
+M_{E,n}:=\bigvee_{i=1}^nE_i
+\]</span></p>
+<p>and</p>
+<p><span class="math display">\[
+M_{W,n}:=\bigvee_{i=1}^nW_i.
+\]</span></p>
+<p>Since the function</p>
+<p><span class="math display">\[
+g(x)=x^{1/\alpha}
+\]</span></p>
+<p>is increasing on <span class="math inline">\((0,\infty)\)</span>,</p>
+<p><span class="math display">\[
+\boxed{
+M_{W,n}
+\overset{d}=
+g(M_{E,n})
+=
+M_{E,n}^{1/\alpha}.
+}
+\]</span></p>
+<p>From Example 8.1.2,</p>
+<p><span class="math display">\[
+M_{E,n}-\log n\Rightarrow Y,
+\]</span></p>
+<p>where <span class="math inline">\(Y\)</span> has the Gumbel distribution.</p>
+<p>We therefore want to study</p>
+<p><span class="math display">\[
+g(M_{E,n})-g(\log n).
+\]</span></p>
+<p>However, the ordinary delta method in Section 8.3.1 is stated around a fixed
+point, while here the centering point</p>
+<p><span class="math display">\[
+\theta_n=\log n
+\]</span></p>
+<p>satisfies</p>
+<p><span class="math display">\[
+\theta_n\to\infty.
+\]</span></p>
+<p>Thus we first justify the moving-center version of the delta method needed in
+this exercise.</p>
+<div id="a-moving-center-delta-method" class="section level4 hasAnchor">
+<h4>A moving-center delta method<a href="chap-8-convergence-in-distribution.html#a-moving-center-delta-method" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Suppose</p>
+<p><span class="math display">\[
+X_n-\theta_n\Rightarrow Y,
+\qquad
+\theta_n\to\infty.
+\]</span></p>
+<p>Then</p>
+<p><span class="math display">\[
+X_n-\theta_n=O_P(1).
+\]</span></p>
+<p>Since <span class="math inline">\(\theta_n\to\infty\)</span>,</p>
+<p><span class="math display">\[
+\frac{X_n-\theta_n}{\theta_n}
+\xrightarrow{P}0,
+\]</span></p>
+<p>and therefore</p>
+<p><span class="math display">\[
+\boxed{
+\frac{X_n}{\theta_n}\xrightarrow{P}1.
+}
+\]</span></p>
+<p>Let <span class="math inline">\(g\)</span> be differentiable, and suppose <span class="math inline">\(g&#39;\)</span> is eventually positive and
+regularly varying at infinity with index <span class="math inline">\(\rho\)</span>, that is,</p>
+<p><span class="math display">\[
+\frac{g&#39;(tx)}{g&#39;(x)}
+\longrightarrow
+t^\rho
+\qquad
+(x\to\infty)
+\]</span></p>
+<p>for every <span class="math inline">\(t&gt;0\)</span>.</p>
+<p>By the mean value theorem, there exists a random <span class="math inline">\(\xi_n\)</span> lying between <span class="math inline">\(X_n\)</span>
+and <span class="math inline">\(\theta_n\)</span> such that</p>
+<p><span class="math display">\[
+g(X_n)-g(\theta_n)
+=
+g&#39;(\xi_n)(X_n-\theta_n).
+\]</span></p>
+<p>Since <span class="math inline">\(\xi_n\)</span> lies between <span class="math inline">\(X_n\)</span> and <span class="math inline">\(\theta_n\)</span>,</p>
+<p><span class="math display">\[
+\left|
+\frac{\xi_n}{\theta_n}-1
+\right|
+\leq
+\left|
+\frac{X_n}{\theta_n}-1
+\right|.
+\]</span></p>
+<p>Hence</p>
+<p><span class="math display">\[
+\boxed{
+\frac{\xi_n}{\theta_n}\xrightarrow{P}1.
+}
+\]</span></p>
+<p>Now write</p>
+<p><span class="math display">\[
+T_n:=\frac{\xi_n}{\theta_n}.
+\]</span></p>
+<p>Then</p>
+<p><span class="math display">\[
+T_n\xrightarrow{P}1.
+\]</span></p>
+<p>Since <span class="math inline">\(g&#39;\)</span> is regularly varying, the uniform convergence theorem for regularly
+varying functions implies that, uniformly for <span class="math inline">\(t\)</span> in compact subsets of
+<span class="math inline">\((0,\infty)\)</span>,</p>
+<p><span class="math display">\[
+\frac{g&#39;(t\theta_n)}{g&#39;(\theta_n)}
+-
+t^\rho
+\to0.
+\]</span></p>
+<p>Because <span class="math inline">\(T_n\to_P1\)</span>, with probability tending to one <span class="math inline">\(T_n\)</span> lies in a compact
+neighborhood of <span class="math inline">\(1\)</span>. Therefore,</p>
+<p><span class="math display">\[
+\frac{g&#39;(\xi_n)}{g&#39;(\theta_n)}
+=
+\frac{g&#39;(T_n\theta_n)}{g&#39;(\theta_n)}
+\xrightarrow{P}
+1^\rho
+=
+1.
+\]</span></p>
+<p>Hence,</p>
+<p><span class="math display">\[
+\begin{aligned}
+\frac{g(X_n)-g(\theta_n)}
+{g&#39;(\theta_n)}
+&amp;=
+\frac{g&#39;(\xi_n)}
+{g&#39;(\theta_n)}
+(X_n-\theta_n).
+\end{aligned}
+\]</span></p>
+<p>Since</p>
+<p><span class="math display">\[
+\frac{g&#39;(\xi_n)}{g&#39;(\theta_n)}
+\xrightarrow{P}1
+\]</span></p>
+<p>and</p>
+<p><span class="math display">\[
+X_n-\theta_n\Rightarrow Y,
+\]</span></p>
+<p>Slutsky’s theorem gives</p>
+<p><span class="math display">\[
+\boxed{
+\frac{g(X_n)-g(\theta_n)}
+{g&#39;(\theta_n)}
+\Rightarrow Y.
+}
+\]</span></p>
+<p>Thus regular variation of <span class="math inline">\(g&#39;\)</span> is a sufficient condition for this moving-center
+delta method.</p>
+</div>
+<div id="apply-it-to-the-weibull-maximum" class="section level4 hasAnchor">
+<h4>Apply it to the Weibull maximum<a href="chap-8-convergence-in-distribution.html#apply-it-to-the-weibull-maximum" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>In the present exercise,</p>
+<p><span class="math display">\[
+X_n=M_{E,n},
+\qquad
+\theta_n=\log n,
+\]</span></p>
+<p>and</p>
+<p><span class="math display">\[
+M_{E,n}-\log n\Rightarrow Y.
+\]</span></p>
+<p>Take</p>
+<p><span class="math display">\[
+g(x)=x^{1/\alpha}.
+\]</span></p>
+<p>Then</p>
+<p><span class="math display">\[
+g&#39;(x)
+=
+\frac1\alpha x^{1/\alpha-1}.
+\]</span></p>
+<p>Therefore <span class="math inline">\(g&#39;\)</span> is regularly varying with index</p>
+<p><span class="math display">\[
+\rho=\frac1\alpha-1.
+\]</span></p>
+<p>Indeed, for every <span class="math inline">\(t&gt;0\)</span>,</p>
+<p><span class="math display">\[
+\frac{g&#39;(tx)}{g&#39;(x)}
+=
+\frac{
+\frac1\alpha(tx)^{1/\alpha-1}
+}{
+\frac1\alpha x^{1/\alpha-1}
+}
+=
+t^{1/\alpha-1}.
+\]</span></p>
+<p>Thus the moving-center delta method applies, and</p>
+<p><span class="math display">\[
+\frac{
+g(M_{E,n})-g(\log n)
+}{
+g&#39;(\log n)
+}
+\Rightarrow Y.
+\]</span></p>
+<p>Now</p>
+<p><span class="math display">\[
+g(M_{E,n})
+=
+M_{E,n}^{1/\alpha}
+\overset{d}=M_{W,n},
+\]</span></p>
+<p><span class="math display">\[
+g(\log n)
+=
+(\log n)^{1/\alpha},
+\]</span></p>
+<p>and</p>
+<p><span class="math display">\[
+g&#39;(\log n)
+=
+\frac1\alpha
+(\log n)^{1/\alpha-1}.
+\]</span></p>
+<p>Hence</p>
+<p><span class="math display">\[
+\boxed{
+\frac{
+M_{W,n}-(\log n)^{1/\alpha}
+}{
+\frac1\alpha(\log n)^{1/\alpha-1}
+}
+\Rightarrow Y.
+}
+\]</span></p>
+<p>Equivalently,</p>
+<p><span class="math display">\[
+\boxed{
+\alpha(\log n)^{1-1/\alpha}
+\left[
+M_{W,n}-(\log n)^{1/\alpha}
+\right]
+\Rightarrow Y,
+}
+\]</span></p>
+<p>where <span class="math inline">\(Y\)</span> has the Gumbel distribution.</p>
+<p><span class="math inline">\(\textbf{Note:}\)</span></p>
+<p>Section 8.3.1 proves the delta method in a fixed-center setting. The proof there
+uses local linearization around a fixed parameter.</p>
+<p>In this exercise the center is instead</p>
+<p><span class="math display">\[
+\theta_n=\log n\to\infty.
+\]</span></p>
+<p>Therefore differentiability of <span class="math inline">\(g\)</span> alone is not enough to justify</p>
+<p><span class="math display">\[
+g(M_{E,n})-g(\log n)
+\approx
+g&#39;(\log n)(M_{E,n}-\log n).
+\]</span></p>
+<p>The mean value theorem gives</p>
+<p><span class="math display">\[
+g(M_{E,n})-g(\log n)
+=
+g&#39;(\xi_n)(M_{E,n}-\log n),
+\]</span></p>
+<p>so what is really required is</p>
+<p><span class="math display">\[
+\frac{g&#39;(\xi_n)}{g&#39;(\log n)}
+\xrightarrow{P}1.
+\]</span></p>
+<p>Since</p>
+<p><span class="math display">\[
+\frac{\xi_n}{\log n}\xrightarrow{P}1,
+\]</span></p>
+<p>regular variation of <span class="math inline">\(g&#39;\)</span> provides exactly this stability.</p>
+<p>For this exercise,</p>
+<p><span class="math display">\[
+g&#39;(x)
+=
+\frac1\alpha x^{1/\alpha-1}
+\]</span></p>
+<p>is regularly varying, and therefore the required derivative ratio converges to
+<span class="math inline">\(1\)</span>.</p>
+<p>Thus the essential mechanism is</p>
+<p><span class="math display">\[
+M_{E,n}-\log n\Rightarrow Y
+\]</span></p>
+<p><span class="math display">\[
+\Downarrow
+\]</span></p>
+<p><span class="math display">\[
+\frac{M_{E,n}}{\log n}\to_P1
+\]</span></p>
+<p><span class="math display">\[
+\Downarrow
+\]</span></p>
+<p><span class="math display">\[
+\frac{\xi_n}{\log n}\to_P1
+\]</span></p>
+<p><span class="math display">\[
+\Downarrow
+\]</span></p>
+<p><span class="math display">\[
+\frac{g&#39;(\xi_n)}{g&#39;(\log n)}\to_P1
+\qquad
+\text{(regular variation)}
+\]</span></p>
+<p><span class="math display">\[
+\Downarrow
+\]</span></p>
+<p><span class="math display">\[
+\frac{
+g(M_{E,n})-g(\log n)
+}{
+g&#39;(\log n)
+}
+\Rightarrow Y.
+\]</span></p>
+<p>So the phrase ``use the delta method’’ in this exercise hides an additional
+moving-center argument that is not proved explicitly in Section 8.3.1.</p>
+<p><span class="math inline">\(\textbf{Note 2:}\)</span></p>
+<p>In the step</p>
+<p><span class="math display">\[
+\frac{g(X_n)-g(\theta_n)}{g&#39;(\theta_n)}
+=
+\frac{g&#39;(\xi_n)}{g&#39;(\theta_n)}
+(X_n-\theta_n),
+\]</span></p>
+<p>where <span class="math inline">\(\xi_n\)</span> lies between <span class="math inline">\(X_n\)</span> and <span class="math inline">\(\theta_n\)</span>, suppose</p>
+<p><span class="math display">\[
+X_n-\theta_n\Rightarrow Y.
+\]</span></p>
+<p>Then</p>
+<p><span class="math display">\[
+X_n-\theta_n=O_P(1).
+\]</span></p>
+<p>Since <span class="math inline">\(\xi_n\)</span> lies between <span class="math inline">\(X_n\)</span> and <span class="math inline">\(\theta_n\)</span>,</p>
+<p><span class="math display">\[
+\xi_n-\theta_n=O_P(1).
+\]</span></p>
+<p>Therefore, if we want</p>
+<p><span class="math display">\[
+\frac{g(X_n)-g(\theta_n)}{g&#39;(\theta_n)}
+\Rightarrow Y,
+\]</span></p>
+<p>it is enough to have</p>
+<p><span class="math display">\[
+\frac{g&#39;(\xi_n)}{g&#39;(\theta_n)}
+\xrightarrow{P}1.
+\]</span></p>
+<p>Thus we only need a local property of <span class="math inline">\(g&#39;\)</span> in a bounded neighborhood of
+<span class="math inline">\(\theta_n\)</span>, rather than a global condition such as regular variation.</p>
+<p>A convenient sufficient condition is that, for every <span class="math inline">\(M&lt;\infty\)</span>,</p>
+<p><span class="math display">\[
+\boxed{
+\sup_{|h|\leq M}
+\left|
+\frac{g&#39;(\theta_n+h)}{g&#39;(\theta_n)}-1
+\right|
+\longrightarrow0.
+}
+\]</span></p>
+<p>More generally, if <span class="math inline">\(\theta_n\to\infty\)</span>, one may write the condition as</p>
+<p><span class="math display">\[
+\boxed{
+\forall M&lt;\infty,\qquad
+\sup_{|h|\leq M}
+\left|
+\frac{g&#39;(x+h)}{g&#39;(x)}-1
+\right|
+\longrightarrow0,
+\qquad x\to\infty.
+}
+\]</span></p>
+<p>To see why this is sufficient, write</p>
+<p><span class="math display">\[
+\xi_n=\theta_n+H_n,
+\]</span></p>
+<p>where</p>
+<p><span class="math display">\[
+H_n=O_P(1).
+\]</span></p>
+<p>For any <span class="math inline">\(\varepsilon&gt;0\)</span>, choose <span class="math inline">\(M&lt;\infty\)</span> such that, for all sufficiently
+large <span class="math inline">\(n\)</span>,</p>
+<p><span class="math display">\[
+P(|H_n|&gt;M)&lt;\varepsilon.
+\]</span></p>
+<p>On the event <span class="math inline">\(\{|H_n|\leq M\}\)</span>,</p>
+<p><span class="math display">\[
+\left|
+\frac{g&#39;(\xi_n)}{g&#39;(\theta_n)}-1
+\right|
+=
+\left|
+\frac{g&#39;(\theta_n+H_n)}{g&#39;(\theta_n)}-1
+\right|
+\leq
+\sup_{|h|\leq M}
+\left|
+\frac{g&#39;(\theta_n+h)}{g&#39;(\theta_n)}-1
+\right|.
+\]</span></p>
+<p>By the local stability assumption, the right-hand side converges to <span class="math inline">\(0\)</span>.
+Therefore,</p>
+<p><span class="math display">\[
+\frac{g&#39;(\xi_n)}{g&#39;(\theta_n)}
+\xrightarrow{P}1.
+\]</span></p>
+<p>Since</p>
+<p><span class="math display">\[
+X_n-\theta_n\Rightarrow Y,
+\]</span></p>
+<p>Slutsky’s theorem gives</p>
+<p><span class="math display">\[
+\boxed{
+\frac{g(X_n)-g(\theta_n)}
+{g&#39;(\theta_n)}
+\Rightarrow Y.
+}
+\]</span></p>
+<p>So the moving-center delta method used in Exercise 34 does not require a global
+condition on <span class="math inline">\(g&#39;\)</span>. What the proof actually needs is only that <span class="math inline">\(g&#39;\)</span> be
+asymptotically stable on bounded additive neighborhoods of <span class="math inline">\(\theta_n\)</span>.</p>
+</div>
+</div>
+<div id="ex-16-4" class="section level3 hasAnchor">
+<h3>Ex 16<a href="chap-8-convergence-in-distribution.html#ex-16-4" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="problem">
+<p>Suppose <span class="math inline">\(\{X_n,n\geq1\}\)</span> are iid non-negative random variables and set</p>
+<p><span class="math display">\[
+M_n=\bigvee_{i=1}^n X_i,\qquad n\geq1.
+\]</span></p>
+<p>Show that there exists a sequence <span class="math inline">\(a_n&gt;0\)</span> such that, for <span class="math inline">\(x&gt;0\)</span>,</p>
+<p><span class="math display">\[
+\lim_{n\to\infty}
+P\left[\frac{M_n}{a_n}\leq x\right]
+=
+\exp\{-x^{-\alpha}\},
+\qquad
+x&gt;0,\ \alpha&gt;0,
+\]</span></p>
+<p>iff the regular variation condition holds:</p>
+<p><span class="math display">\[
+\lim_{t\to\infty}
+\frac{P[X_1&gt;tx]}{P[X_1&gt;t]}
+=
+x^{-\alpha},
+\qquad
+x&gt;0.
+\tag{8.30}
+\]</span></p>
+<p>In this case, what limit distribution exists for <span class="math inline">\(\log M_n\)</span>? For <span class="math inline">\(M_n^2\)</span>?</p>
+<p>Verify (8.30) for the Cauchy density and the Pareto distribution?</p>
+</div>
+<p><span class="math inline">\(\textbf{Answer:}\)</span></p>
+<p>Let</p>
+<p><span class="math display">\[
+S(x):=P(X_1&gt;x)=1-F(x)
+\]</span></p>
+<p>be the survival function.</p>
+<p>We first prove the equivalence</p>
+<p><span class="math display">\[
+\boxed{
+\frac{M_n}{a_n}\Rightarrow\Phi_\alpha
+\quad\Longleftrightarrow\quad
+S\in RV_{-\alpha},
+}
+\]</span></p>
+<p>where</p>
+<p><span class="math display">\[
+\Phi_\alpha(x)=\exp\{-x^{-\alpha}\},
+\qquad x&gt;0.
+\]</span></p>
+<div id="rightarrow-1" class="section level4 hasAnchor">
+<h4><span class="math inline">\((\Rightarrow)\)</span><a href="chap-8-convergence-in-distribution.html#rightarrow-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Suppose there exists <span class="math inline">\(a_n&gt;0\)</span> such that</p>
+<p><span class="math display">\[
+\frac{M_n}{a_n}\Rightarrow\Phi_\alpha.
+\]</span></p>
+<p>Then, for fixed <span class="math inline">\(x&gt;0\)</span>,</p>
+<p><span class="math display">\[
+\begin{aligned}
+P(M_n\leq a_nx)
+&amp;=
+F(a_nx)^n\\
+&amp;=
+[1-S(a_nx)]^n\\
+&amp;\longrightarrow
+\exp\{-x^{-\alpha}\}.
+\end{aligned}
+\]</span></p>
+<p>Therefore,</p>
+<p><span class="math display">\[
+\boxed{
+nS(a_nx)\longrightarrow x^{-\alpha}.
+}
+\tag{1}
+\]</span></p>
+<p>In particular, taking <span class="math inline">\(x=1\)</span>,</p>
+<p><span class="math display">\[
+\boxed{
+nS(a_n)\longrightarrow1.
+}
+\tag{2}
+\]</span></p>
+<p>Hence</p>
+<p><span class="math display">\[
+S(a_n)\to0,
+\]</span></p>
+<p>and from (1) and (2),</p>
+<p><span class="math display">\[
+\boxed{
+\frac{S(a_nx)}{S(a_n)}
+\longrightarrow
+x^{-\alpha}.
+}
+\tag{3}
+\]</span></p>
+<p>For now, however, (3) only tells us the behavior of <span class="math inline">\(S\)</span> along the sequence
+<span class="math inline">\(\{a_n\}\)</span>. Our real goal is</p>
+<p><span class="math display">\[
+\frac{S(tx)}{S(t)}
+\longrightarrow
+x^{-\alpha},
+\qquad t\to\infty.
+\]</span></p>
+<p>So we need a bridge from <span class="math inline">\(\{a_n\}\)</span> to arbitrary large <span class="math inline">\(t\)</span>.</p>
+<div id="step-1-a_ntoinfty" class="section level5 hasAnchor">
+<h5>Step 1: <span class="math inline">\(a_n\to\infty\)</span><a href="chap-8-convergence-in-distribution.html#step-1-a_ntoinfty" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<p>Let</p>
+<p><span class="math display">\[
+x_F:=\sup\{x:S(x)&gt;0\}
+\]</span></p>
+<p>be the right endpoint of the distribution.</p>
+<p>Suppose <span class="math inline">\(a_n\not\to\infty\)</span>. Since <span class="math inline">\(a_n&gt;0\)</span>, there exists a subsequence
+<span class="math inline">\(\{a_{n_k}\}\)</span> such that</p>
+<p><span class="math display">\[
+a_{n_k}\to a&lt;\infty.
+\]</span></p>
+<p>Since</p>
+<p><span class="math display">\[
+S(a_{n_k})\to0,
+\]</span></p>
+<p>we consider the position of <span class="math inline">\(a\)</span> relative to <span class="math inline">\(x_F\)</span>.</p>
+<p>If <span class="math inline">\(a&lt;x_F\)</span>, choose <span class="math inline">\(y\)</span> such that</p>
+<p><span class="math display">\[
+a&lt;y&lt;x_F.
+\]</span></p>
+<p>Then</p>
+<p><span class="math display">\[
+S(y)&gt;0.
+\]</span></p>
+<p>For sufficiently large <span class="math inline">\(k\)</span>,</p>
+<p><span class="math display">\[
+a_{n_k}&lt;y,
+\]</span></p>
+<p>and since <span class="math inline">\(S\)</span> is non-increasing,</p>
+<p><span class="math display">\[
+S(a_{n_k})\geq S(y)&gt;0,
+\]</span></p>
+<p>contradicting <span class="math inline">\(S(a_{n_k})\to0\)</span>.</p>
+<p>If <span class="math inline">\(a&gt;x_F\)</span>, then for sufficiently large <span class="math inline">\(k\)</span>,</p>
+<p><span class="math display">\[
+a_{n_k}&gt;x_F,
+\]</span></p>
+<p>and therefore</p>
+<p><span class="math display">\[
+S(a_{n_k})=0,
+\]</span></p>
+<p>contradicting</p>
+<p><span class="math display">\[
+n_kS(a_{n_k})\to1.
+\]</span></p>
+<p>The remaining possibility is</p>
+<p><span class="math display">\[
+a=x_F.
+\]</span></p>
+<p>Take any <span class="math inline">\(x\in(0,1)\)</span>. Then</p>
+<p><span class="math display">\[
+a_{n_k}x\to ax&lt;x_F.
+\]</span></p>
+<p>Choose <span class="math inline">\(y\)</span> such that</p>
+<p><span class="math display">\[
+ax&lt;y&lt;x_F.
+\]</span></p>
+<p>For sufficiently large <span class="math inline">\(k\)</span>,</p>
+<p><span class="math display">\[
+a_{n_k}x&lt;y,
+\]</span></p>
+<p>so</p>
+<p><span class="math display">\[
+S(a_{n_k}x)\geq S(y)&gt;0.
+\]</span></p>
+<p>But from (1),</p>
+<p><span class="math display">\[
+n_kS(a_{n_k}x)\to x^{-\alpha},
+\]</span></p>
+<p>which implies</p>
+<p><span class="math display">\[
+S(a_{n_k}x)\to0.
+\]</span></p>
+<p>This is again a contradiction.</p>
+<p>Therefore,</p>
+<p><span class="math display">\[
+\boxed{
+a_n\to\infty.
+}
+\tag{4}
+\]</span></p>
+</div>
+<div id="step-2-a_n1a_nto1" class="section level5 hasAnchor">
+<h5>Step 2: <span class="math inline">\(a_{n+1}/a_n\to1\)</span><a href="chap-8-convergence-in-distribution.html#step-2-a_n1a_nto1" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<p>By assumption,</p>
+<p><span class="math display">\[
+\frac{M_{n+1}}{a_{n+1}}
+\Rightarrow
+Z,
+\qquad
+Z\sim\Phi_\alpha.
+\]</span></p>
+<p>We also have</p>
+<p><span class="math display">\[
+\frac{M_{n+1}}{a_n}
+\Rightarrow
+Z.
+\]</span></p>
+<p>Indeed,</p>
+<p><span class="math display">\[
+\begin{aligned}
+P(M_{n+1}\leq a_nx)
+&amp;=
+F(a_nx)^{n+1}\\
+&amp;=
+F(a_nx)^nF(a_nx).
+\end{aligned}
+\]</span></p>
+<p>We know</p>
+<p><span class="math display">\[
+F(a_nx)^n\to\Phi_\alpha(x),
+\]</span></p>
+<p>and by (1),</p>
+<p><span class="math display">\[
+S(a_nx)\to0,
+\]</span></p>
+<p>so</p>
+<p><span class="math display">\[
+F(a_nx)\to1.
+\]</span></p>
+<p>Hence</p>
+<p><span class="math display">\[
+\frac{M_{n+1}}{a_n}
+\Rightarrow
+Z.
+\]</span></p>
+<p>Thus</p>
+<p><span class="math display">\[
+\frac{M_{n+1}}{a_{n+1}}
+\Rightarrow
+Z
+\]</span></p>
+<p>and</p>
+<p><span class="math display">\[
+\frac{M_{n+1}}{a_n}
+\Rightarrow
+Z.
+\]</span></p>
+<p>By the convergence to types theorem, there exists <span class="math inline">\(A&gt;0\)</span> such that</p>
+<p><span class="math display">\[
+\frac{a_{n+1}}{a_n}\to A.
+\]</span></p>
+<p>Then</p>
+<p><span class="math display">\[
+AZ\overset{d}=Z.
+\]</span></p>
+<p>Since</p>
+<p><span class="math display">\[
+P(Z\leq x)
+=
+\exp\{-x^{-\alpha}\},
+\]</span></p>
+<p>we get</p>
+<p><span class="math display">\[
+\begin{aligned}
+P(AZ\leq x)
+&amp;=
+P\left(Z\leq\frac{x}{A}\right)\\
+&amp;=
+\exp\left\{
+-\left(\frac{x}{A}\right)^{-\alpha}
+\right\}\\
+&amp;=
+\exp\{-A^\alpha x^{-\alpha}\}.
+\end{aligned}
+\]</span></p>
+<p>But <span class="math inline">\(AZ\overset d=Z\)</span>, so</p>
+<p><span class="math display">\[
+A^\alpha=1.
+\]</span></p>
+<p>Since <span class="math inline">\(A&gt;0\)</span>,</p>
+<p><span class="math display">\[
+A=1.
+\]</span></p>
+<p>Therefore,</p>
+<p><span class="math display">\[
+\boxed{
+\frac{a_{n+1}}{a_n}\to1.
+}
+\tag{5}
+\]</span></p>
+<p>So far, <span class="math inline">\(\{a_n\}\)</span> has the two properties we want:</p>
+<p><span class="math display">\[
+a_n\to\infty
+\]</span></p>
+<p>and</p>
+<p><span class="math display">\[
+\frac{a_{n+1}}{a_n}\to1.
+\]</span></p>
+<p>However, <span class="math inline">\(\{a_n\}\)</span> need not be monotone. To squeeze an arbitrary <span class="math inline">\(t\)</span> between
+neighboring normalization points, we now construct a monotone sequence which
+behaves asymptotically like <span class="math inline">\(\{a_n\}\)</span>.</p>
+</div>
+<div id="step-3-monotonization-of-a_n" class="section level5 hasAnchor">
+<h5>Step 3: Monotonization of <span class="math inline">\(\{a_n\}\)</span><a href="chap-8-convergence-in-distribution.html#step-3-monotonization-of-a_n" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<p>Define</p>
+<p><span class="math display">\[
+b_n
+:=
+F^{\leftarrow}\left(1-\frac1n\right)
+=
+\inf\left\{
+x:S(x)\leq\frac1n
+\right\}.
+\]</span></p>
+<p>Since <span class="math inline">\(1/n\)</span> decreases with <span class="math inline">\(n\)</span> and <span class="math inline">\(S\)</span> is non-increasing,</p>
+<p><span class="math display">\[
+\boxed{
+\{b_n\}\text{ is non-decreasing}.
+}
+\]</span></p>
+<p>We now show that</p>
+<p><span class="math display">\[
+\boxed{
+\frac{b_n}{a_n}\to1.
+}
+\]</span></p>
+<p>Fix <span class="math inline">\(\varepsilon\in(0,1)\)</span>.</p>
+<p>From (1),</p>
+<p><span class="math display">\[
+nS((1+\varepsilon)a_n)
+\longrightarrow
+(1+\varepsilon)^{-\alpha}&lt;1.
+\]</span></p>
+<p>Hence, for sufficiently large <span class="math inline">\(n\)</span>,</p>
+<p><span class="math display">\[
+S((1+\varepsilon)a_n)&lt;\frac1n.
+\]</span></p>
+<p>Since <span class="math inline">\(b_n\)</span> is the first point where <span class="math inline">\(S\)</span> reaches or falls below <span class="math inline">\(1/n\)</span>,</p>
+<p><span class="math display">\[
+b_n\leq(1+\varepsilon)a_n.
+\]</span></p>
+<p>Similarly,</p>
+<p><span class="math display">\[
+nS((1-\varepsilon)a_n)
+\longrightarrow
+(1-\varepsilon)^{-\alpha}&gt;1.
+\]</span></p>
+<p>Hence eventually</p>
+<p><span class="math display">\[
+S((1-\varepsilon)a_n)&gt;\frac1n.
+\]</span></p>
+<p>Therefore the <span class="math inline">\(1/n\)</span> level has not yet been crossed at <span class="math inline">\((1-\varepsilon)a_n\)</span>,
+so</p>
+<p><span class="math display">\[
+(1-\varepsilon)a_n&lt;b_n.
+\]</span></p>
+<p>Thus</p>
+<p><span class="math display">\[
+1-\varepsilon
+&lt;
+\frac{b_n}{a_n}
+\leq
+1+\varepsilon.
+\]</span></p>
+<p>Since <span class="math inline">\(\varepsilon&gt;0\)</span> is arbitrary,</p>
+<p><span class="math display">\[
+\boxed{
+\frac{b_n}{a_n}\to1.
+}
+\tag{6}
+\]</span></p>
+<p>So <span class="math inline">\(\{b_n\}\)</span> is a monotonization of <span class="math inline">\(\{a_n\}\)</span>.</p>
+<p>From (4) and (6),</p>
+<p><span class="math display">\[
+b_n\to\infty.
+\]</span></p>
+<p>Also,</p>
+<p><span class="math display">\[
+\begin{aligned}
+\frac{b_{n+1}}{b_n}
+&amp;=
+\frac{b_{n+1}}{a_{n+1}}
+\frac{a_{n+1}}{a_n}
+\frac{a_n}{b_n}\\
+&amp;\longrightarrow1.
+\end{aligned}
+\]</span></p>
+<p>Therefore,</p>
+<p><span class="math display">\[
+\boxed{
+\frac{b_{n+1}}{b_n}\to1.
+}
+\tag{7}
+\]</span></p>
+</div>
+<div id="step-4-transfer-the-tail-behavior-from-a_n-to-b_n" class="section level5 hasAnchor">
+<h5>Step 4: Transfer the tail behavior from <span class="math inline">\(a_n\)</span> to <span class="math inline">\(b_n\)</span><a href="chap-8-convergence-in-distribution.html#step-4-transfer-the-tail-behavior-from-a_n-to-b_n" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<p>From</p>
+<p><span class="math display">\[
+(1-\varepsilon)a_n&lt;b_n\leq(1+\varepsilon)a_n
+\]</span></p>
+<p>and the fact that <span class="math inline">\(S\)</span> is non-increasing,</p>
+<p><span class="math display">\[
+S((1+\varepsilon)a_n)
+\leq
+S(b_n)
+\leq
+S((1-\varepsilon)a_n).
+\]</span></p>
+<p>Divide by <span class="math inline">\(S(a_n)\)</span>:</p>
+<p><span class="math display">\[
+\frac{S((1+\varepsilon)a_n)}{S(a_n)}
+\leq
+\frac{S(b_n)}{S(a_n)}
+\leq
+\frac{S((1-\varepsilon)a_n)}{S(a_n)}.
+\]</span></p>
+<p>Using (3),</p>
+<p><span class="math display">\[
+(1+\varepsilon)^{-\alpha}
+\leq
+\liminf_{n\to\infty}
+\frac{S(b_n)}{S(a_n)}
+\]</span></p>
+<p>and</p>
+<p><span class="math display">\[
+\limsup_{n\to\infty}
+\frac{S(b_n)}{S(a_n)}
+\leq
+(1-\varepsilon)^{-\alpha}.
+\]</span></p>
+<p>Letting <span class="math inline">\(\varepsilon\downarrow0\)</span> gives</p>
+<p><span class="math display">\[
+\boxed{
+\frac{S(b_n)}{S(a_n)}\to1.
+}
+\]</span></p>
+<p>Together with (2),</p>
+<p><span class="math display">\[
+\boxed{
+nS(b_n)\to1.
+}
+\tag{8}
+\]</span></p>
+<p>Now take fixed <span class="math inline">\(x&gt;0\)</span>.</p>
+<p>Again,</p>
+<p><span class="math display">\[
+(1-\varepsilon)a_n&lt;b_n\leq(1+\varepsilon)a_n
+\]</span></p>
+<p>implies</p>
+<p><span class="math display">\[
+S((1+\varepsilon)a_nx)
+\leq
+S(b_nx)
+\leq
+S((1-\varepsilon)a_nx).
+\]</span></p>
+<p>Multiplying by <span class="math inline">\(n\)</span> and using (1),</p>
+<p><span class="math display">\[
+((1+\varepsilon)x)^{-\alpha}
+\leq
+\liminf_{n\to\infty}nS(b_nx)
+\]</span></p>
+<p>and</p>
+<p><span class="math display">\[
+\limsup_{n\to\infty}nS(b_nx)
+\leq
+((1-\varepsilon)x)^{-\alpha}.
+\]</span></p>
+<p>Letting <span class="math inline">\(\varepsilon\downarrow0\)</span>,</p>
+<p><span class="math display">\[
+\boxed{
+nS(b_nx)\to x^{-\alpha}.
+}
+\tag{9}
+\]</span></p>
+<p>Combining (8) and (9),</p>
+<p><span class="math display">\[
+\boxed{
+\frac{S(b_nx)}{S(b_n)}
+\to
+x^{-\alpha}.
+}
+\tag{10}
+\]</span></p>
+<p>Thus <span class="math inline">\(\{b_n\}\)</span> carries the same asymptotic tail behavior as <span class="math inline">\(\{a_n\}\)</span>, but it
+also has the monotonicity that we need.</p>
+</div>
+<div id="step-5-extend-the-result-from-b_n-to-arbitrary-ttoinfty" class="section level5 hasAnchor">
+<h5>Step 5: Extend the result from <span class="math inline">\(\{b_n\}\)</span> to arbitrary <span class="math inline">\(t\to\infty\)</span><a href="chap-8-convergence-in-distribution.html#step-5-extend-the-result-from-b_n-to-arbitrary-ttoinfty" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<p>For sufficiently large <span class="math inline">\(t\)</span>, define</p>
+<p><span class="math display">\[
+n(t)
+:=
+\max\{n:b_n\leq t\}.
+\]</span></p>
+<p>Since <span class="math inline">\(b_n\to\infty\)</span>, this is well-defined for sufficiently large <span class="math inline">\(t\)</span>, and</p>
+<p><span class="math display">\[
+b_{n(t)}
+\leq
+t
+&lt;
+b_{n(t)+1}.
+\]</span></p>
+<p>For simplicity, write <span class="math inline">\(n=n(t)\)</span>.</p>
+<p>Since <span class="math inline">\(S\)</span> is non-increasing,</p>
+<p><span class="math display">\[
+S(b_{n+1}x)
+\leq
+S(tx)
+\leq
+S(b_nx),
+\]</span></p>
+<p>and</p>
+<p><span class="math display">\[
+S(b_{n+1})
+\leq
+S(t)
+\leq
+S(b_n).
+\]</span></p>
+<p>Therefore,</p>
+<p><span class="math display">\[
+\frac{S(b_{n+1}x)}{S(b_n)}
+\leq
+\frac{S(tx)}{S(t)}
+\leq
+\frac{S(b_nx)}{S(b_{n+1})}.
+\]</span></p>
+<p>For the lower bound,</p>
+<p><span class="math display">\[
+\begin{aligned}
+\frac{S(b_{n+1}x)}{S(b_n)}
+&amp;=
+\frac{S(b_{n+1}x)}{S(b_{n+1})}
+\frac{S(b_{n+1})}{S(b_n)}.
+\end{aligned}
+\]</span></p>
+<p>By (10),</p>
+<p><span class="math display">\[
+\frac{S(b_{n+1}x)}{S(b_{n+1})}
+\to
+x^{-\alpha}.
+\]</span></p>
+<p>Also, from (8),</p>
+<p><span class="math display">\[
+\begin{aligned}
+\frac{S(b_{n+1})}{S(b_n)}
+&amp;=
+\frac{(n+1)S(b_{n+1})}{nS(b_n)}
+\frac{n}{n+1}\\
+&amp;\to1.
+\end{aligned}
+\]</span></p>
+<p>Hence the lower bound tends to <span class="math inline">\(x^{-\alpha}\)</span>.</p>
+<p>Similarly,</p>
+<p><span class="math display">\[
+\begin{aligned}
+\frac{S(b_nx)}{S(b_{n+1})}
+&amp;=
+\frac{S(b_nx)}{S(b_n)}
+\frac{S(b_n)}{S(b_{n+1})}\\
+&amp;\to
+x^{-\alpha}.
+\end{aligned}
+\]</span></p>
+<p>Therefore, by squeezing,</p>
+<p><span class="math display">\[
+\boxed{
+\frac{S(tx)}{S(t)}
+\to
+x^{-\alpha},
+\qquad t\to\infty.
+}
+\]</span></p>
+<p>Thus</p>
+<p><span class="math display">\[
+\boxed{
+S\in RV_{-\alpha}.
+}
+\]</span></p>
+</div>
+</div>
+<div id="leftarrow-1" class="section level4 hasAnchor">
+<h4><span class="math inline">\((\Leftarrow)\)</span><a href="chap-8-convergence-in-distribution.html#leftarrow-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Now suppose</p>
+<p><span class="math display">\[
+\boxed{
+\frac{S(tx)}{S(t)}
+\to
+x^{-\alpha},
+\qquad t\to\infty,
+}
+\tag{11}
+\]</span></p>
+<p>for every fixed <span class="math inline">\(x&gt;0\)</span>.</p>
+<p>We want to construct <span class="math inline">\(a_n&gt;0\)</span> such that</p>
+<p><span class="math display">\[
+\frac{M_n}{a_n}\Rightarrow\Phi_\alpha.
+\]</span></p>
+<p>Define</p>
+<p><span class="math display">\[
+a_n
+:=
+F^{\leftarrow}\left(1-\frac1n\right)
+=
+\inf\left\{
+x:S(x)\leq\frac1n
+\right\}.
+\]</span></p>
+<p>The regular variation condition implies that <span class="math inline">\(S\)</span> has no finite right endpoint.
+Hence, for every finite <span class="math inline">\(M\)</span>,</p>
+<p><span class="math display">\[
+S(M)&gt;0.
+\]</span></p>
+<p>For sufficiently large <span class="math inline">\(n\)</span>,</p>
+<p><span class="math display">\[
+\frac1n&lt;S(M),
+\]</span></p>
+<p>so the <span class="math inline">\(1/n\)</span> crossing occurs to the right of <span class="math inline">\(M\)</span>:</p>
+<p><span class="math display">\[
+a_n&gt;M.
+\]</span></p>
+<p>Since <span class="math inline">\(M\)</span> is arbitrary,</p>
+<p><span class="math display">\[
+\boxed{
+a_n\to\infty.
+}
+\tag{12}
+\]</span></p>
+<p>By the definition of <span class="math inline">\(a_n\)</span>, for every <span class="math inline">\(t&lt;a_n\)</span>,</p>
+<p><span class="math display">\[
+S(t)&gt;\frac1n.
+\]</span></p>
+<p>Also, since <span class="math inline">\(S\)</span> is right-continuous,</p>
+<p><span class="math display">\[
+\boxed{
+S(a_n)\leq\frac1n.
+}
+\]</span></p>
+<p>Indeed, by the definition of the infimum, there exists a sequence
+<span class="math inline">\(x_m\downarrow a_n\)</span> such that</p>
+<p><span class="math display">\[
+S(x_m)\leq\frac1n.
+\]</span></p>
+<p>Right continuity of <span class="math inline">\(S\)</span> then gives</p>
+<p><span class="math display">\[
+S(a_n)
+=
+\lim_{m\to\infty}S(x_m)
+\leq
+\frac1n.
+\]</span></p>
+<p>Thus</p>
+<p><span class="math display">\[
+\limsup_{n\to\infty}nS(a_n)\leq1.
+\]</span></p>
+<p>To obtain the lower bound, fix <span class="math inline">\(\varepsilon\in(0,1)\)</span>.</p>
+<p>Since</p>
+<p><span class="math display">\[
+(1-\varepsilon)a_n&lt;a_n,
+\]</span></p>
+<p>the definition of <span class="math inline">\(a_n\)</span> gives</p>
+<p><span class="math display">\[
+S((1-\varepsilon)a_n)&gt;\frac1n.
+\]</span></p>
+<p>Therefore,</p>
+<p><span class="math display">\[
+nS((1-\varepsilon)a_n)&gt;1.
+\]</span></p>
+<p>Now, because <span class="math inline">\(a_n\to\infty\)</span>, regular variation gives</p>
+<p><span class="math display">\[
+\frac{S((1-\varepsilon)a_n)}{S(a_n)}
+\to
+(1-\varepsilon)^{-\alpha}.
+\]</span></p>
+<p>Hence</p>
+<p><span class="math display">\[
+\begin{aligned}
+nS(a_n)
+&amp;=
+nS((1-\varepsilon)a_n)
+\frac{S(a_n)}{S((1-\varepsilon)a_n)}.
+\end{aligned}
+\]</span></p>
+<p>Therefore,</p>
+<p><span class="math display">\[
+\liminf_{n\to\infty}nS(a_n)
+\geq
+(1-\varepsilon)^\alpha.
+\]</span></p>
+<p>Letting <span class="math inline">\(\varepsilon\downarrow0\)</span>,</p>
+<p><span class="math display">\[
+\liminf_{n\to\infty}nS(a_n)\geq1.
+\]</span></p>
+<p>Together with the upper bound,</p>
+<p><span class="math display">\[
+\boxed{
+nS(a_n)\to1.
+}
+\tag{13}
+\]</span></p>
+<p>Now, for fixed <span class="math inline">\(x&gt;0\)</span>,</p>
+<p><span class="math display">\[
+\begin{aligned}
+nS(a_nx)
+&amp;=
+nS(a_n)
+\frac{S(a_nx)}{S(a_n)}\\
+&amp;\longrightarrow
+1\cdot x^{-\alpha},
+\end{aligned}
+\]</span></p>
+<p>by (11) and (13).</p>
+<p>Thus</p>
+<p><span class="math display">\[
+\boxed{
+nS(a_nx)\to x^{-\alpha}.
+}
+\]</span></p>
+<p>Finally,</p>
+<p><span class="math display">\[
+\begin{aligned}
+P\left(\frac{M_n}{a_n}\leq x\right)
+&amp;=
+P(M_n\leq a_nx)\\
+&amp;=
+F(a_nx)^n\\
+&amp;=
+[1-S(a_nx)]^n\\
+&amp;\longrightarrow
+\exp\{-x^{-\alpha}\}.
+\end{aligned}
+\]</span></p>
+<p>Therefore,</p>
+<p><span class="math display">\[
+\boxed{
+\frac{M_n}{a_n}
+\Rightarrow
+\Phi_\alpha.
+}
+\]</span></p>
+<p>Combining the two directions,</p>
+<p><span class="math display">\[
+\boxed{
+\frac{M_n}{a_n}\Rightarrow\Phi_\alpha
+\quad\Longleftrightarrow\quad
+S\in RV_{-\alpha}.
+}
+\]</span></p>
+<p><span class="math inline">\(\textbf{Note:}\)</span></p>
+<p>The difficult part of the <span class="math inline">\((\Rightarrow)\)</span> direction is the difference between</p>
+<p><span class="math display">\[
+\frac{S(a_nx)}{S(a_n)}
+\to x^{-\alpha}
+\]</span></p>
+<p>and the actual definition of regular variation,</p>
+<p><span class="math display">\[
+\frac{S(tx)}{S(t)}
+\to x^{-\alpha}
+\qquad(t\to\infty).
+\]</span></p>
+<p>The first statement only gives the asymptotic behavior along the normalization
+sequence <span class="math inline">\(\{a_n\}\)</span>.</p>
+<p>The bridge is</p>
+<p><span class="math display">\[
+\frac{M_n}{a_n}\Rightarrow\Phi_\alpha
+\]</span></p>
+<p><span class="math display">\[
+\Downarrow
+\]</span></p>
+<p><span class="math display">\[
+nS(a_nx)\to x^{-\alpha}
+\]</span></p>
+<p><span class="math display">\[
+\Downarrow
+\]</span></p>
+<p><span class="math display">\[
+a_n\to\infty,
+\qquad
+\frac{a_{n+1}}{a_n}\to1
+\]</span></p>
+<p><span class="math display">\[
+\Downarrow
+\]</span></p>
+<p><span class="math display">\[
+\text{construct the monotone sequence }
+b_n=F^{\leftarrow}\left(1-\frac1n\right)
+\]</span></p>
+<p><span class="math display">\[
+\Downarrow
+\]</span></p>
+<p><span class="math display">\[
+\frac{b_n}{a_n}\to1
+\]</span></p>
+<p><span class="math display">\[
+\Downarrow
+\]</span></p>
+<p><span class="math display">\[
+\frac{S(b_nx)}{S(b_n)}
+\to x^{-\alpha}
+\]</span></p>
+<p><span class="math display">\[
+\Downarrow
+\]</span></p>
+<p><span class="math display">\[
+\text{squeeze arbitrary }t
+\text{ between }b_n\text{ and }b_{n+1}
+\]</span></p>
+<p><span class="math display">\[
+\Downarrow
+\]</span></p>
+<p><span class="math display">\[
+S\in RV_{-\alpha}.
+\]</span></p>
+<p>Thus <span class="math inline">\(\{b_n\}\)</span> acts as a <strong>monotonization</strong> of the original normalization
+sequence <span class="math inline">\(\{a_n\}\)</span>.</p>
+<p>In the <span class="math inline">\((\Leftarrow)\)</span> direction, one should not simply assume</p>
+<p><span class="math display">\[
+S(a_n)=\frac1n,
+\]</span></p>
+<p>because the distribution may have jumps. The correct argument uses the first
+crossing definition of <span class="math inline">\(a_n\)</span>, right continuity of <span class="math inline">\(S\)</span>, and an
+<span class="math inline">\(\varepsilon\)</span>-squeeze to prove</p>
+<p><span class="math display">\[
+nS(a_n)\to1.
+\]</span></p>
+</div>
+</div>
+<div id="ex-28-4" class="section level3 hasAnchor">
+<h3>Ex 28<a href="chap-8-convergence-in-distribution.html#ex-28-4" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="problem">
+<p>Let <span class="math inline">\(x\in(0,1)\)</span> have binary expansion</p>
+<p><span class="math display">\[
+x=\sum_{n=1}^{\infty}\frac{d_n}{2^n}.
+\]</span></p>
+<p>Set</p>
+<p><span class="math display">\[
+f_n(x)=
+\begin{cases}
+2, &amp; d_n=0,\\
+1, &amp; d_n=1.
+\end{cases}
+\]</span></p>
+<p>Then show</p>
+<p><span class="math display">\[
+\int_0^1 f_n(x)\,dx=1
+\]</span></p>
+<p>so that <span class="math inline">\(f_n\)</span> is a density. The sequence <span class="math inline">\(f_n\)</span> only converges on a set of
+Lebesgue measure <span class="math inline">\(0\)</span>. If <span class="math inline">\(X_n\)</span> is a random variable with density <span class="math inline">\(f_n\)</span>, then</p>
+<p><span class="math display">\[
+X_n\Rightarrow U,
+\]</span></p>
+<p>where <span class="math inline">\(U\)</span> is <span class="math inline">\(U(0,1)\)</span>.</p>
+</div>
+<p><span class="math inline">\(\textbf{Answer:}\)</span></p>
+<p><span class="math inline">\(\textbf{Typo in the exercise:}\)</span></p>
+<p>The second branch of <span class="math inline">\(f_n\)</span> is printed as <span class="math inline">\(1\)</span>, but this cannot be correct, since
+then</p>
+<p><span class="math display">\[
+\int_0^1 f_n(x)\,dx
+=
+2\cdot\frac12+1\cdot\frac12
+=
+\frac32.
+\]</span></p>
+<p>The intended definition should be</p>
+<p><span class="math display">\[
+\boxed{
+f_n(x)=
+\begin{cases}
+2, &amp; d_n=0,\\
+0, &amp; d_n=1.
+\end{cases}
+}
+\]</span></p>
+<p>We use this corrected version below.</p>
+<p>For every fixed <span class="math inline">\(n\)</span>, the <span class="math inline">\(n\)</span>-th binary digit is <span class="math inline">\(0\)</span> on half of <span class="math inline">\((0,1)\)</span> and
+<span class="math inline">\(1\)</span> on the other half. Therefore,</p>
+<p><span class="math display">\[
+\begin{aligned}
+\int_0^1f_n(x)\,dx
+&amp;=
+2\,\lambda\{x:d_n(x)=0\}
++
+0\,\lambda\{x:d_n(x)=1\}\\
+&amp;=
+2\cdot\frac12\\
+&amp;=
+1.
+\end{aligned}
+\]</span></p>
+<p>Thus <span class="math inline">\(f_n\)</span> is a density.</p>
+<p>Now <span class="math inline">\(f_n(x)\in\{0,2\}\)</span>. Therefore, for fixed <span class="math inline">\(x\)</span>, the sequence
+<span class="math inline">\(\{f_n(x)\}\)</span> converges only if it is eventually constant, which means that the
+binary expansion of <span class="math inline">\(x\)</span> is eventually all <span class="math inline">\(0\)</span>’s or eventually all <span class="math inline">\(1\)</span>’s.</p>
+<p>The collection of such <span class="math inline">\(x\)</span> is countable. Hence</p>
+<p><span class="math display">\[
+\boxed{
+\lambda\{x:f_n(x)\text{ converges}\}=0.
+}
+\]</span></p>
+<p>It remains to show that nevertheless</p>
+<p><span class="math display">\[
+X_n\Rightarrow U(0,1).
+\]</span></p>
+<p>Define</p>
+<p><span class="math display">\[
+f_n(x)=1+h_n(x),
+\]</span></p>
+<p>where</p>
+<p><span class="math display">\[
+h_n(x)=
+\begin{cases}
+1, &amp; d_n(x)=0,\\
+-1, &amp; d_n(x)=1.
+\end{cases}
+\]</span></p>
+<p>Let <span class="math inline">\(g\)</span> be any continuous function on <span class="math inline">\([0,1]\)</span>. Since <span class="math inline">\([0,1]\)</span> is compact,
+<span class="math inline">\(g\)</span> is uniformly continuous.</p>
+<p>We have</p>
+<p><span class="math display">\[
+\begin{aligned}
+\int_0^1g(x)f_n(x)\,dx
+&amp;=
+\int_0^1g(x)\,dx
++
+\int_0^1g(x)h_n(x)\,dx.
+\end{aligned}
+\]</span></p>
+<p>Since <span class="math inline">\(1_{[0,1]}\)</span> is the density of <span class="math inline">\(U(0,1)\)</span>, it is enough to prove</p>
+<p><span class="math display">\[
+\boxed{
+\int_0^1g(x)h_n(x)\,dx\to0.
+}
+\]</span></p>
+<p>For each <span class="math inline">\(n\)</span>, divide <span class="math inline">\([0,1)\)</span> into <span class="math inline">\(2^n\)</span> subintervals</p>
+<p><span class="math display">\[
+I_{j,n}
+=
+\left[
+\frac{j}{2^n},
+\frac{j+1}{2^n}
+\right),
+\qquad
+j=0,\ldots,2^n-1.
+\]</span></p>
+<p>Each interval has length <span class="math inline">\(2^{-n}\)</span>.</p>
+<p>For <span class="math inline">\(n=1\)</span>, the binary digit <span class="math inline">\(d_1\)</span> is <span class="math inline">\(0\)</span> on the first interval and <span class="math inline">\(1\)</span> on
+the second interval, so <span class="math inline">\(h_1\)</span> takes the values</p>
+<p><span class="math display">\[
+1,-1.
+\]</span></p>
+<p>For <span class="math inline">\(n=2\)</span>, the four intervals correspond to the binary beginnings</p>
+<p><span class="math display">\[
+00,\ 01,\ 10,\ 11,
+\]</span></p>
+<p>so again the second digit alternates between <span class="math inline">\(0\)</span> and <span class="math inline">\(1\)</span>, and <span class="math inline">\(h_2\)</span> takes the
+values</p>
+<p><span class="math display">\[
+1,-1,1,-1.
+\]</span></p>
+<p>In general, <span class="math inline">\(h_n\)</span> alternates between <span class="math inline">\(1\)</span> and <span class="math inline">\(-1\)</span> on consecutive intervals:</p>
+<p><span class="math display">\[
+1,-1,1,-1,\ldots.
+\]</span></p>
+<p>Therefore we pair the intervals</p>
+<p><span class="math display">\[
+I_{2j,n},\qquad I_{2j+1,n},
+\qquad
+j=0,\ldots,2^{n-1}-1.
+\]</span></p>
+<p>On the first interval of each pair,</p>
+<p><span class="math display">\[
+h_n=1,
+\]</span></p>
+<p>while on the second,</p>
+<p><span class="math display">\[
+h_n=-1.
+\]</span></p>
+<p>Hence the contribution from one pair is</p>
+<p><span class="math display">\[
+\begin{aligned}
+&amp;\int_{I_{2j,n}}g(x)h_n(x)\,dx
++
+\int_{I_{2j+1,n}}g(x)h_n(x)\,dx\\
+&amp;=
+\int_{I_{2j,n}}g(x)\,dx
+-
+\int_{I_{2j+1,n}}g(x)\,dx.
+\end{aligned}
+\]</span></p>
+<p>By the integral mean-value theorem, there exist</p>
+<p><span class="math display">\[
+\xi_{j,0}\in I_{2j,n},
+\qquad
+\xi_{j,1}\in I_{2j+1,n},
+\]</span></p>
+<p>such that</p>
+<p><span class="math display">\[
+\int_{I_{2j,n}}g(x)\,dx
+=
+\frac1{2^n}g(\xi_{j,0}),
+\]</span></p>
+<p>and</p>
+<p><span class="math display">\[
+\int_{I_{2j+1,n}}g(x)\,dx
+=
+\frac1{2^n}g(\xi_{j,1}).
+\]</span></p>
+<p>Therefore,</p>
+<p><span class="math display">\[
+\int_{I_{2j,n}}g(x)h_n(x)\,dx
++
+\int_{I_{2j+1,n}}g(x)h_n(x)\,dx
+=
+\frac1{2^n}
+\left[
+g(\xi_{j,0})-g(\xi_{j,1})
+\right].
+\]</span></p>
+<p>There are <span class="math inline">\(2^{n-1}\)</span> such pairs.</p>
+<p>Also, since the two points lie in adjacent intervals,</p>
+<p><span class="math display">\[
+|\xi_{j,0}-\xi_{j,1}|
+\leq
+\frac{2}{2^n}
+=
+2^{1-n}.
+\]</span></p>
+<p>Since <span class="math inline">\(g\)</span> is uniformly continuous, for every <span class="math inline">\(\varepsilon&gt;0\)</span> there exists
+<span class="math inline">\(\delta&gt;0\)</span> such that</p>
+<p><span class="math display">\[
+|x-y|&lt;\delta
+\quad\Longrightarrow\quad
+|g(x)-g(y)|&lt;\varepsilon.
+\]</span></p>
+<p>For sufficiently large <span class="math inline">\(n\)</span>,</p>
+<p><span class="math display">\[
+2^{1-n}&lt;\delta.
+\]</span></p>
+<p>Thus, uniformly over all <span class="math inline">\(j\)</span>,</p>
+<p><span class="math display">\[
+|g(\xi_{j,0})-g(\xi_{j,1})|
+&lt;
+\varepsilon.
+\]</span></p>
+<p>Therefore,</p>
+<p><span class="math display">\[
+\begin{aligned}
+\left|
+\int_0^1g(x)h_n(x)\,dx
+\right|
+&amp;\leq
+\sum_{j=0}^{2^{n-1}-1}
+\frac1{2^n}
+\left|
+g(\xi_{j,0})-g(\xi_{j,1})
+\right|\\
+&amp;\leq
+2^{n-1}\frac1{2^n}\varepsilon\\
+&amp;=
+\frac{\varepsilon}{2}.
+\end{aligned}
+\]</span></p>
+<p>Since <span class="math inline">\(\varepsilon&gt;0\)</span> is arbitrary,</p>
+<p><span class="math display">\[
+\boxed{
+\int_0^1g(x)h_n(x)\,dx\to0.
+}
+\]</span></p>
+<p>Hence</p>
+<p><span class="math display">\[
+\begin{aligned}
+\int_0^1g(x)f_n(x)\,dx
+&amp;=
+\int_0^1g(x)\,dx
++
+\int_0^1g(x)h_n(x)\,dx\\
+&amp;\longrightarrow
+\int_0^1g(x)\,dx.
+\end{aligned}
+\]</span></p>
+<p>That is,</p>
+<p><span class="math display">\[
+E[g(X_n)]
+\longrightarrow
+E[g(U)]
+\]</span></p>
+<p>for every continuous <span class="math inline">\(g\)</span> on <span class="math inline">\([0,1]\)</span>.</p>
+<p>Therefore, by the Portmanteau theorem,</p>
+<p><span class="math display">\[
+\boxed{
+X_n\Rightarrow U(0,1).
+}
+\]</span></p>
+<p><span class="math inline">\(\textbf{Note:}\)</span></p>
+<p>This exercise gives an example where the densities themselves behave very
+badly pointwise:</p>
+<p><span class="math display">\[
+f_n(x)\not\to1
+\]</span></p>
+<p>for Lebesgue-a.e. <span class="math inline">\(x\)</span>.</p>
+<p>In fact,</p>
+<p><span class="math display">\[
+|f_n(x)-1|=1
+\]</span></p>
+<p>for every <span class="math inline">\(x\)</span> outside the irrelevant binary-expansion ambiguity points, so</p>
+<p><span class="math display">\[
+\int_0^1|f_n(x)-1|\,dx=1
+\]</span></p>
+<p>for every <span class="math inline">\(n\)</span>.</p>
+<p>Thus there is neither almost-everywhere convergence of the densities nor
+<span class="math inline">\(L^1\)</span> convergence to the uniform density.</p>
+<p>Nevertheless,</p>
+<p><span class="math display">\[
+\int_0^1g(x)f_n(x)\,dx
+\to
+\int_0^1g(x)\,dx
+\]</span></p>
+<p>for every continuous test function <span class="math inline">\(g\)</span>.</p>
+<p>The reason is that the <span class="math inline">\(+1\)</span> and <span class="math inline">\(-1\)</span> oscillations of <span class="math inline">\(h_n\)</span> occur on smaller and
+smaller dyadic intervals. Uniform continuity makes <span class="math inline">\(g\)</span> almost constant across
+each neighboring pair, so the two contributions cancel asymptotically.</p>
 
 </div>
 </div>

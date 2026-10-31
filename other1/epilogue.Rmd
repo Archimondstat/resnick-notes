@@ -1,0 +1,22 @@
+---
+title: "Epilogue"
+author: "Zhanwen Peng"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+By the author's recommendation, we treat Chapter 1~9 as a complete part and will leave chapter 10 as an individual study. So since we have finished Chapter 1~9, I think it is worth writing something in the end in my note.
+
+The learning of the first part of a probability path (i.e. Chap 1~9) took me a whole year,maybe more. Also in this year, we experienced that AI a make great progress in mathematics, such as it falsified the Jacobian conjecture, leave alone more than 700 math papers are published by openAI. 
+
+Even I have mentioned in the beginning of this note that I learn this book by the aid of AI, what happened around us still made me wonder that if it is still worthy learning math in this way, to figure out each theorem, to complete each exercise and to summarize the point of each chapter. I am not a smart one, even with the help of AI, there are some knowledge in this book took me 3 days or even a week to slowly, gradually understand what they mean, how the came. 
+
+The frustrating point is that, AI can always output the explanation in a very short time, why I still need to learn something that AI can output answer so quickly? But then I recalled the time that when there is no AI, I used mathoverflow to ask for answer, the answers and explanations from brilliant people there are actually not different to from AI, and according to my knowledge of history on math, at the time when there is no internet, great mathematicians discussed to each other to solve problems. There is always someone who can solve the exercises that make me struggle, but that does not mean that I don't need to learn it by my own. The answers that were spitted out by AI or provided from other people can not replace the learning process of myself.
+
+So I think the answer was already in the name of the book, a probability path. Others can provide path for us, but as Morpheus said in Matrix, there is difference between knowing the path and walking the path. The former is abundant and only requires prompt and token in AI era, but the latter takes courage and patient.
+
+And for our own path, I would like to quote Feng Ji, the producer of Black Myth: Wukong: "踏上取经路，比抵达灵山更重要。"

@@ -6294,3 +6294,2661 @@ $$
  \]
  so the remaining task is to rule out a proper weak limit for the unnormalized iid partial sums \(T_{n_k}\). I do not currently see how to establish this using only the tools explicitly developed before Chapter 9. I therefore treat the characteristic-function proof as a pre-learning solution and plan to revisit the exercise after studying Chapter 9.
 
+### Ex 17
+::: problem
+
+If $\{X_n\}$ are iid $U(0,1)$ random variables, find a non-degenerate limit distribution for
+
+$$
+M_n=\bigvee_{i=1}^n X_i
+$$
+
+under suitable normalization.
+
+:::
+
+$\textbf{Answer:}$
+
+Let
+
+$$
+M_n=\max_{1\leq i\leq n}X_i,
+$$
+
+where $\{X_i\}$ are iid $U(0,1)$ random variables.
+
+For $0\leq x\leq1$,
+
+$$
+\begin{aligned}
+P(M_n\leq x)
+&=
+P(X_1\leq x,\ldots,X_n\leq x)\\
+&=
+x^n.
+\end{aligned}
+$$
+
+First, without normalization,
+
+$$
+M_n\Rightarrow 1,
+$$
+
+whose df is
+
+$$
+F(x)=
+\begin{cases}
+0, & x<1,\\
+1, & x\geq1.
+\end{cases}
+$$
+
+This limit is degenerate. Therefore, we need to examine the fluctuation of
+$M_n$ around the endpoint $1$.
+
+Try
+
+$$
+x=1-\frac{y}{n},
+\qquad y\geq0.
+$$
+
+Then
+
+$$
+\begin{aligned}
+P\left(M_n\leq1-\frac{y}{n}\right)
+&=
+\left(1-\frac{y}{n}\right)^n\\
+&\longrightarrow
+e^{-y}.
+\end{aligned}
+$$
+
+But
+
+$$
+M_n\leq1-\frac{y}{n}
+$$
+
+is equivalent to
+
+$$
+n(1-M_n)\geq y.
+$$
+
+Therefore,
+
+$$
+P\left(n(1-M_n)\geq y\right)
+\longrightarrow
+e^{-y}.
+$$
+
+Hence,
+
+$$
+P\left(n(1-M_n)\leq y\right)
+\longrightarrow
+1-e^{-y},
+\qquad y\geq0.
+$$
+
+For $y<0$,
+
+$$
+P\left(n(1-M_n)\leq y\right)=0,
+$$
+
+since $M_n\leq1$.
+
+Thus
+
+$$
+\boxed{
+n(1-M_n)\Rightarrow E,
+\qquad E\sim\operatorname{Exp}(1).
+}
+$$
+
+Equivalently,
+
+$$
+\boxed{
+n(M_n-1)\Rightarrow -E.
+}
+$$
+
+#### Connection with Section 8.7.1
+
+Section 8.7.1 considers non-degenerate limits of centered and scaled maxima of
+the form
+
+$$
+\frac{M_n-b_n}{a_n}\Rightarrow G,
+\qquad a_n>0.
+$$
+
+In this exercise, take
+
+$$
+b_n=1,
+\qquad
+a_n=\frac1n.
+$$
+
+Then
+
+$$
+\frac{M_n-b_n}{a_n}
+=
+n(M_n-1).
+$$
+
+Let
+
+$$
+Y=-E,
+\qquad E\sim\operatorname{Exp}(1).
+$$
+
+The df of $Y$ is, for $x<0$,
+
+$$
+\begin{aligned}
+P(Y\leq x)
+&=
+P(-E\leq x)\\
+&=
+P(E\geq -x)\\
+&=
+e^x,
+\end{aligned}
+$$
+
+while for $x\geq0$,
+
+$$
+P(Y\leq x)=1.
+$$
+
+Therefore,
+
+$$
+G(x)
+=
+\begin{cases}
+e^x, & x<0,\\
+1, & x\geq0.
+\end{cases}
+$$
+
+But the Weibull extreme-value distribution in Section 8.7.1 is
+
+$$
+\Psi_\alpha(x)
+=
+\begin{cases}
+\exp\{-(-x)^\alpha\}, & x<0,\\
+1, & x\geq0,
+\end{cases}
+\qquad \alpha>0.
+$$
+
+Taking $\alpha=1$ gives
+
+$$
+\Psi_1(x)
+=
+\begin{cases}
+e^x, & x<0,\\
+1, & x\geq0.
+\end{cases}
+$$
+
+Hence,
+
+$$
+\boxed{
+n(M_n-1)
+=
+\frac{M_n-1}{1/n}
+\Rightarrow
+\Psi_1.
+}
+$$
+
+So the exponential formulation
+
+$$
+n(1-M_n)\Rightarrow\operatorname{Exp}(1)
+$$
+
+and the extreme-value formulation
+
+$$
+n(M_n-1)\Rightarrow\Psi_1
+$$
+
+are the same limit theorem written with opposite signs.
+
+$\textbf{Note:}$
+
+My first observation was that $M_n$ itself converges to the degenerate
+distribution concentrated at the right endpoint $1$. This identifies the
+location but does not yet give a non-degenerate limit.
+
+The next step is therefore to determine the correct local scale around $1$.
+Choosing
+
+$$
+1-\frac{y}{n}
+$$
+
+gives
+
+$$
+\left(1-\frac{y}{n}\right)^n\to e^{-y},
+$$
+
+showing that the fluctuation scale is $1/n$.
+
+This also gives a concrete example of Section 8.7.1:
+
+$$
+U(0,1)
+\quad\longrightarrow\quad
+\text{finite right endpoint }1
+\quad\longrightarrow\quad
+b_n=1,\ a_n=\frac1n
+\quad\longrightarrow\quad
+\Psi_1\text{ (Weibull type)}.
+$$
+
+This example also provides a useful sanity check for the sign classification
+in the proof of the extreme-value theorem: a distribution with a finite upper
+endpoint produces a Weibull-type limit.
+
+### Ex 27
+::: problem
+
+Suppose $\{X_n,n\geq1\}$ are iid and non-negative random variables with common density $f(x)$ satisfying
+
+$$
+\lambda:=\lim_{t\downarrow0}f(t)>0.
+$$
+
+Show
+
+$$
+n\bigwedge_{i=1}^n X_i
+$$
+
+has a limit distribution. (This is extreme value theory, but for minima not maxima.)
+
+:::
+
+$\textbf{Answer:}$
+
+Let
+
+$$
+Y_n:=n\min_{1\leq i\leq n}X_i.
+$$
+
+Since the $X_i$ are iid, for $x>0$,
+
+$$
+\begin{aligned}
+P(Y_n>x)
+&=
+P\left(
+n\min_{1\leq i\leq n}X_i>x
+\right)\\
+&=
+P\left(
+\min_{1\leq i\leq n}X_i>\frac{x}{n}
+\right)\\
+&=
+\prod_{i=1}^n
+P\left(X_i>\frac{x}{n}\right)\\
+&=
+\left(
+1-F\left(\frac{x}{n}\right)
+\right)^n.
+\end{aligned}
+$$
+
+Therefore,
+
+$$
+\begin{aligned}
+\frac{d}{dx}P(Y_n>x)
+&=
+n
+\left(
+1-F\left(\frac{x}{n}\right)
+\right)^{n-1}
+\left(
+-f\left(\frac{x}{n}\right)
+\right)
+\frac1n\\
+&=
+-
+f\left(\frac{x}{n}\right)
+\left(
+1-F\left(\frac{x}{n}\right)
+\right)^{n-1}.
+\end{aligned}
+$$
+
+Hence the density of $Y_n$, denoted by $g_n$, is
+
+$$
+g_n(x)
+=
+f\left(\frac{x}{n}\right)
+\left(
+1-F\left(\frac{x}{n}\right)
+\right)^{n-1},
+\qquad x>0.
+$$
+
+Since the $X_i$ are non-negative and have density $f$,
+
+$$
+F(0)=0.
+$$
+
+Also,
+
+$$
+F(x)=\int_0^x f(t)\,dt.
+$$
+
+Now consider
+
+$$
+\frac{F(x)}{x}.
+$$
+
+Since
+
+$$
+F(x)\to0
+$$
+
+and
+
+$$
+x\to0
+$$
+
+as $x\downarrow0$, by L'Hôpital's rule,
+
+$$
+\lim_{x\downarrow0}\frac{F(x)}{x}
+=
+\lim_{x\downarrow0}f(x)
+=
+\lambda.
+$$
+
+Therefore, for fixed $x>0$,
+
+$$
+\frac{F(x/n)}{x/n}\to\lambda,
+$$
+
+and hence
+
+$$
+nF\left(\frac{x}{n}\right)
+=
+x\frac{F(x/n)}{x/n}
+\to
+\lambda x.
+$$
+
+Thus
+
+$$
+F\left(\frac{x}{n}\right)
+=
+\frac{nF(x/n)}{n},
+$$
+
+so
+
+$$
+\begin{aligned}
+\left(
+1-F\left(\frac{x}{n}\right)
+\right)^{n-1}
+&=
+\left(
+1-\frac{nF(x/n)}{n}
+\right)^{n-1}\\
+&\longrightarrow
+e^{-\lambda x}.
+\end{aligned}
+$$
+
+At the same time,
+
+$$
+f\left(\frac{x}{n}\right)\to\lambda.
+$$
+
+Therefore,
+
+$$
+g_n(x)
+\to
+\lambda e^{-\lambda x},
+\qquad x>0.
+$$
+
+Define
+
+$$
+g(x)
+=
+\lambda e^{-\lambda x}
+1_{\{x>0\}}.
+$$
+
+Then
+
+$$
+\int_{\mathbb R}g(x)\,dx
+=
+\int_0^\infty
+\lambda e^{-\lambda x}\,dx
+=
+1,
+$$
+
+so $g$ is a probability density.
+
+Since each $g_n$ is also a probability density and
+
+$$
+g_n(x)\to g(x)
+$$
+
+almost everywhere, Scheffé's lemma gives
+
+$$
+\int_{\mathbb R}
+|g_n(x)-g(x)|\,dx
+\to0.
+$$
+
+Therefore,
+
+$$
+\boxed{
+n\min_{1\leq i\leq n}X_i
+\Rightarrow
+\operatorname{Exp}(\lambda).
+}
+$$
+
+$\textbf{Note:}$
+
+The key local behavior is
+
+$$
+F(x)\sim\lambda x
+\qquad (x\downarrow0).
+$$
+
+In my proof I obtained this by L'Hôpital's rule:
+
+$$
+\frac{F(x)}{x}
+\to\lambda.
+$$
+
+Under the usual interpretation that $F'(x)=f(x)$ in a punctured neighborhood of $0$, this is valid.
+
+If one wants to avoid the differentiability issue for an arbitrary density, the same result follows directly from
+
+$$
+\frac{F(x)}{x}
+=
+\frac1x\int_0^x f(t)\,dt.
+$$
+
+Since $f(t)\to\lambda$, for every $\varepsilon>0$, when $x$ is sufficiently small,
+
+$$
+\lambda-\varepsilon
+\leq f(t)
+\leq
+\lambda+\varepsilon,
+\qquad 0<t<x,
+$$
+
+and hence
+
+$$
+\lambda-\varepsilon
+\leq
+\frac{F(x)}{x}
+\leq
+\lambda+\varepsilon.
+$$
+
+Thus again
+
+$$
+\frac{F(x)}{x}\to\lambda.
+$$
+
+### Ex 34
+::: problem
+
+Suppose $\{E_n,n\geq1\}$ are iid unit exponential random variables. Recall from
+Example 8.1.2 that
+
+$$
+\bigvee_{i=1}^n E_i-\log n\Rightarrow Y,
+$$
+
+where $Y$ has a Gumbel distribution.
+
+Let $\{W_n,n\geq1\}$ be iid Weibull random variables satisfying
+
+$$
+P[W_n>x]=e^{-x^\alpha},
+\qquad
+\alpha>0,\ x>0.
+$$
+
+Use the delta method to derive a weak limit theorem for
+
+$$
+\bigvee_{i=1}^n W_i.
+$$
+
+(Hint: Express $W_i$ as a function of $E_i$, which then requires that
+$\bigvee_{i=1}^n W_i$ is a function of $\bigvee_{i=1}^nE_i$.)
+
+:::
+
+$\textbf{Answer:}$
+
+For the Weibull random variable $W_i$,
+
+$$
+P(W_i>x)=e^{-x^\alpha},
+\qquad x>0.
+$$
+
+Therefore, for $x>0$,
+
+$$
+\begin{aligned}
+P(W_i^\alpha>x)
+&=
+P(W_i>x^{1/\alpha})\\
+&=
+e^{-x}.
+\end{aligned}
+$$
+
+Thus
+
+$$
+W_i^\alpha\overset{d}=E_i,
+\qquad
+E_i\sim\operatorname{Exp}(1),
+$$
+
+or equivalently,
+
+$$
+\boxed{
+W_i\overset{d}=E_i^{1/\alpha}.
+}
+$$
+
+Define
+
+$$
+M_{E,n}:=\bigvee_{i=1}^nE_i
+$$
+
+and
+
+$$
+M_{W,n}:=\bigvee_{i=1}^nW_i.
+$$
+
+Since the function
+
+$$
+g(x)=x^{1/\alpha}
+$$
+
+is increasing on $(0,\infty)$,
+
+$$
+\boxed{
+M_{W,n}
+\overset{d}=
+g(M_{E,n})
+=
+M_{E,n}^{1/\alpha}.
+}
+$$
+
+From Example 8.1.2,
+
+$$
+M_{E,n}-\log n\Rightarrow Y,
+$$
+
+where $Y$ has the Gumbel distribution.
+
+We therefore want to study
+
+$$
+g(M_{E,n})-g(\log n).
+$$
+
+However, the ordinary delta method in Section 8.3.1 is stated around a fixed
+point, while here the centering point
+
+$$
+\theta_n=\log n
+$$
+
+satisfies
+
+$$
+\theta_n\to\infty.
+$$
+
+Thus we first justify the moving-center version of the delta method needed in
+this exercise.
+
+#### A moving-center delta method
+
+Suppose
+
+$$
+X_n-\theta_n\Rightarrow Y,
+\qquad
+\theta_n\to\infty.
+$$
+
+Then
+
+$$
+X_n-\theta_n=O_P(1).
+$$
+
+Since $\theta_n\to\infty$,
+
+$$
+\frac{X_n-\theta_n}{\theta_n}
+\xrightarrow{P}0,
+$$
+
+and therefore
+
+$$
+\boxed{
+\frac{X_n}{\theta_n}\xrightarrow{P}1.
+}
+$$
+
+Let $g$ be differentiable, and suppose $g'$ is eventually positive and
+regularly varying at infinity with index $\rho$, that is,
+
+$$
+\frac{g'(tx)}{g'(x)}
+\longrightarrow
+t^\rho
+\qquad
+(x\to\infty)
+$$
+
+for every $t>0$.
+
+By the mean value theorem, there exists a random $\xi_n$ lying between $X_n$
+and $\theta_n$ such that
+
+$$
+g(X_n)-g(\theta_n)
+=
+g'(\xi_n)(X_n-\theta_n).
+$$
+
+Since $\xi_n$ lies between $X_n$ and $\theta_n$,
+
+$$
+\left|
+\frac{\xi_n}{\theta_n}-1
+\right|
+\leq
+\left|
+\frac{X_n}{\theta_n}-1
+\right|.
+$$
+
+Hence
+
+$$
+\boxed{
+\frac{\xi_n}{\theta_n}\xrightarrow{P}1.
+}
+$$
+
+Now write
+
+$$
+T_n:=\frac{\xi_n}{\theta_n}.
+$$
+
+Then
+
+$$
+T_n\xrightarrow{P}1.
+$$
+
+Since $g'$ is regularly varying, the uniform convergence theorem for regularly
+varying functions implies that, uniformly for $t$ in compact subsets of
+$(0,\infty)$,
+
+$$
+\frac{g'(t\theta_n)}{g'(\theta_n)}
+-
+t^\rho
+\to0.
+$$
+
+Because $T_n\to_P1$, with probability tending to one $T_n$ lies in a compact
+neighborhood of $1$. Therefore,
+
+$$
+\frac{g'(\xi_n)}{g'(\theta_n)}
+=
+\frac{g'(T_n\theta_n)}{g'(\theta_n)}
+\xrightarrow{P}
+1^\rho
+=
+1.
+$$
+
+Hence,
+
+$$
+\begin{aligned}
+\frac{g(X_n)-g(\theta_n)}
+{g'(\theta_n)}
+&=
+\frac{g'(\xi_n)}
+{g'(\theta_n)}
+(X_n-\theta_n).
+\end{aligned}
+$$
+
+Since
+
+$$
+\frac{g'(\xi_n)}{g'(\theta_n)}
+\xrightarrow{P}1
+$$
+
+and
+
+$$
+X_n-\theta_n\Rightarrow Y,
+$$
+
+Slutsky's theorem gives
+
+$$
+\boxed{
+\frac{g(X_n)-g(\theta_n)}
+{g'(\theta_n)}
+\Rightarrow Y.
+}
+$$
+
+Thus regular variation of $g'$ is a sufficient condition for this moving-center
+delta method.
+
+#### Apply it to the Weibull maximum
+
+In the present exercise,
+
+$$
+X_n=M_{E,n},
+\qquad
+\theta_n=\log n,
+$$
+
+and
+
+$$
+M_{E,n}-\log n\Rightarrow Y.
+$$
+
+Take
+
+$$
+g(x)=x^{1/\alpha}.
+$$
+
+Then
+
+$$
+g'(x)
+=
+\frac1\alpha x^{1/\alpha-1}.
+$$
+
+Therefore $g'$ is regularly varying with index
+
+$$
+\rho=\frac1\alpha-1.
+$$
+
+Indeed, for every $t>0$,
+
+$$
+\frac{g'(tx)}{g'(x)}
+=
+\frac{
+\frac1\alpha(tx)^{1/\alpha-1}
+}{
+\frac1\alpha x^{1/\alpha-1}
+}
+=
+t^{1/\alpha-1}.
+$$
+
+Thus the moving-center delta method applies, and
+
+$$
+\frac{
+g(M_{E,n})-g(\log n)
+}{
+g'(\log n)
+}
+\Rightarrow Y.
+$$
+
+Now
+
+$$
+g(M_{E,n})
+=
+M_{E,n}^{1/\alpha}
+\overset{d}=M_{W,n},
+$$
+
+$$
+g(\log n)
+=
+(\log n)^{1/\alpha},
+$$
+
+and
+
+$$
+g'(\log n)
+=
+\frac1\alpha
+(\log n)^{1/\alpha-1}.
+$$
+
+Hence
+
+$$
+\boxed{
+\frac{
+M_{W,n}-(\log n)^{1/\alpha}
+}{
+\frac1\alpha(\log n)^{1/\alpha-1}
+}
+\Rightarrow Y.
+}
+$$
+
+Equivalently,
+
+$$
+\boxed{
+\alpha(\log n)^{1-1/\alpha}
+\left[
+M_{W,n}-(\log n)^{1/\alpha}
+\right]
+\Rightarrow Y,
+}
+$$
+
+where $Y$ has the Gumbel distribution.
+
+$\textbf{Note:}$
+
+Section 8.3.1 proves the delta method in a fixed-center setting. The proof there
+uses local linearization around a fixed parameter.
+
+In this exercise the center is instead
+
+$$
+\theta_n=\log n\to\infty.
+$$
+
+Therefore differentiability of $g$ alone is not enough to justify
+
+$$
+g(M_{E,n})-g(\log n)
+\approx
+g'(\log n)(M_{E,n}-\log n).
+$$
+
+The mean value theorem gives
+
+$$
+g(M_{E,n})-g(\log n)
+=
+g'(\xi_n)(M_{E,n}-\log n),
+$$
+
+so what is really required is
+
+$$
+\frac{g'(\xi_n)}{g'(\log n)}
+\xrightarrow{P}1.
+$$
+
+Since
+
+$$
+\frac{\xi_n}{\log n}\xrightarrow{P}1,
+$$
+
+regular variation of $g'$ provides exactly this stability.
+
+For this exercise,
+
+$$
+g'(x)
+=
+\frac1\alpha x^{1/\alpha-1}
+$$
+
+is regularly varying, and therefore the required derivative ratio converges to
+$1$.
+
+Thus the essential mechanism is
+
+$$
+M_{E,n}-\log n\Rightarrow Y
+$$
+
+$$
+\Downarrow
+$$
+
+$$
+\frac{M_{E,n}}{\log n}\to_P1
+$$
+
+$$
+\Downarrow
+$$
+
+$$
+\frac{\xi_n}{\log n}\to_P1
+$$
+
+$$
+\Downarrow
+$$
+
+$$
+\frac{g'(\xi_n)}{g'(\log n)}\to_P1
+\qquad
+\text{(regular variation)}
+$$
+
+$$
+\Downarrow
+$$
+
+$$
+\frac{
+g(M_{E,n})-g(\log n)
+}{
+g'(\log n)
+}
+\Rightarrow Y.
+$$
+
+So the phrase ``use the delta method'' in this exercise hides an additional
+moving-center argument that is not proved explicitly in Section 8.3.1.
+
+
+$\textbf{Note 2:}$
+
+In the step
+
+$$
+\frac{g(X_n)-g(\theta_n)}{g'(\theta_n)}
+=
+\frac{g'(\xi_n)}{g'(\theta_n)}
+(X_n-\theta_n),
+$$
+
+where $\xi_n$ lies between $X_n$ and $\theta_n$, suppose
+
+$$
+X_n-\theta_n\Rightarrow Y.
+$$
+
+Then
+
+$$
+X_n-\theta_n=O_P(1).
+$$
+
+Since $\xi_n$ lies between $X_n$ and $\theta_n$,
+
+$$
+\xi_n-\theta_n=O_P(1).
+$$
+
+Therefore, if we want
+
+$$
+\frac{g(X_n)-g(\theta_n)}{g'(\theta_n)}
+\Rightarrow Y,
+$$
+
+it is enough to have
+
+$$
+\frac{g'(\xi_n)}{g'(\theta_n)}
+\xrightarrow{P}1.
+$$
+
+Thus we only need a local property of $g'$ in a bounded neighborhood of
+$\theta_n$, rather than a global condition such as regular variation.
+
+A convenient sufficient condition is that, for every $M<\infty$,
+
+$$
+\boxed{
+\sup_{|h|\leq M}
+\left|
+\frac{g'(\theta_n+h)}{g'(\theta_n)}-1
+\right|
+\longrightarrow0.
+}
+$$
+
+More generally, if $\theta_n\to\infty$, one may write the condition as
+
+$$
+\boxed{
+\forall M<\infty,\qquad
+\sup_{|h|\leq M}
+\left|
+\frac{g'(x+h)}{g'(x)}-1
+\right|
+\longrightarrow0,
+\qquad x\to\infty.
+}
+$$
+
+To see why this is sufficient, write
+
+$$
+\xi_n=\theta_n+H_n,
+$$
+
+where
+
+$$
+H_n=O_P(1).
+$$
+
+For any $\varepsilon>0$, choose $M<\infty$ such that, for all sufficiently
+large $n$,
+
+$$
+P(|H_n|>M)<\varepsilon.
+$$
+
+On the event $\{|H_n|\leq M\}$,
+
+$$
+\left|
+\frac{g'(\xi_n)}{g'(\theta_n)}-1
+\right|
+=
+\left|
+\frac{g'(\theta_n+H_n)}{g'(\theta_n)}-1
+\right|
+\leq
+\sup_{|h|\leq M}
+\left|
+\frac{g'(\theta_n+h)}{g'(\theta_n)}-1
+\right|.
+$$
+
+By the local stability assumption, the right-hand side converges to $0$.
+Therefore,
+
+$$
+\frac{g'(\xi_n)}{g'(\theta_n)}
+\xrightarrow{P}1.
+$$
+
+Since
+
+$$
+X_n-\theta_n\Rightarrow Y,
+$$
+
+Slutsky's theorem gives
+
+$$
+\boxed{
+\frac{g(X_n)-g(\theta_n)}
+{g'(\theta_n)}
+\Rightarrow Y.
+}
+$$
+
+So the moving-center delta method used in Exercise 34 does not require a global
+condition on $g'$. What the proof actually needs is only that $g'$ be
+asymptotically stable on bounded additive neighborhoods of $\theta_n$.
+
+### Ex 16
+::: problem
+
+Suppose $\{X_n,n\geq1\}$ are iid non-negative random variables and set
+
+$$
+M_n=\bigvee_{i=1}^n X_i,\qquad n\geq1.
+$$
+
+Show that there exists a sequence $a_n>0$ such that, for $x>0$,
+
+$$
+\lim_{n\to\infty}
+P\left[\frac{M_n}{a_n}\leq x\right]
+=
+\exp\{-x^{-\alpha}\},
+\qquad
+x>0,\ \alpha>0,
+$$
+
+iff the regular variation condition holds:
+
+$$
+\lim_{t\to\infty}
+\frac{P[X_1>tx]}{P[X_1>t]}
+=
+x^{-\alpha},
+\qquad
+x>0.
+\tag{8.30}
+$$
+
+In this case, what limit distribution exists for $\log M_n$? For $M_n^2$?
+
+Verify (8.30) for the Cauchy density and the Pareto distribution?
+
+:::
+
+$\textbf{Answer:}$
+
+Let
+
+$$
+S(x):=P(X_1>x)=1-F(x)
+$$
+
+be the survival function.
+
+We first prove the equivalence
+
+$$
+\boxed{
+\frac{M_n}{a_n}\Rightarrow\Phi_\alpha
+\quad\Longleftrightarrow\quad
+S\in RV_{-\alpha},
+}
+$$
+
+where
+
+$$
+\Phi_\alpha(x)=\exp\{-x^{-\alpha}\},
+\qquad x>0.
+$$
+
+#### $(\Rightarrow)$
+
+Suppose there exists $a_n>0$ such that
+
+$$
+\frac{M_n}{a_n}\Rightarrow\Phi_\alpha.
+$$
+
+Then, for fixed $x>0$,
+
+$$
+\begin{aligned}
+P(M_n\leq a_nx)
+&=
+F(a_nx)^n\\
+&=
+[1-S(a_nx)]^n\\
+&\longrightarrow
+\exp\{-x^{-\alpha}\}.
+\end{aligned}
+$$
+
+Therefore,
+
+$$
+\boxed{
+nS(a_nx)\longrightarrow x^{-\alpha}.
+}
+\tag{1}
+$$
+
+In particular, taking $x=1$,
+
+$$
+\boxed{
+nS(a_n)\longrightarrow1.
+}
+\tag{2}
+$$
+
+Hence
+
+$$
+S(a_n)\to0,
+$$
+
+and from (1) and (2),
+
+$$
+\boxed{
+\frac{S(a_nx)}{S(a_n)}
+\longrightarrow
+x^{-\alpha}.
+}
+\tag{3}
+$$
+
+For now, however, (3) only tells us the behavior of $S$ along the sequence
+$\{a_n\}$. Our real goal is
+
+$$
+\frac{S(tx)}{S(t)}
+\longrightarrow
+x^{-\alpha},
+\qquad t\to\infty.
+$$
+
+So we need a bridge from $\{a_n\}$ to arbitrary large $t$.
+
+##### Step 1: $a_n\to\infty$
+
+Let
+
+$$
+x_F:=\sup\{x:S(x)>0\}
+$$
+
+be the right endpoint of the distribution.
+
+Suppose $a_n\not\to\infty$. Since $a_n>0$, there exists a subsequence
+$\{a_{n_k}\}$ such that
+
+$$
+a_{n_k}\to a<\infty.
+$$
+
+Since
+
+$$
+S(a_{n_k})\to0,
+$$
+
+we consider the position of $a$ relative to $x_F$.
+
+If $a<x_F$, choose $y$ such that
+
+$$
+a<y<x_F.
+$$
+
+Then
+
+$$
+S(y)>0.
+$$
+
+For sufficiently large $k$,
+
+$$
+a_{n_k}<y,
+$$
+
+and since $S$ is non-increasing,
+
+$$
+S(a_{n_k})\geq S(y)>0,
+$$
+
+contradicting $S(a_{n_k})\to0$.
+
+If $a>x_F$, then for sufficiently large $k$,
+
+$$
+a_{n_k}>x_F,
+$$
+
+and therefore
+
+$$
+S(a_{n_k})=0,
+$$
+
+contradicting
+
+$$
+n_kS(a_{n_k})\to1.
+$$
+
+The remaining possibility is
+
+$$
+a=x_F.
+$$
+
+Take any $x\in(0,1)$. Then
+
+$$
+a_{n_k}x\to ax<x_F.
+$$
+
+Choose $y$ such that
+
+$$
+ax<y<x_F.
+$$
+
+For sufficiently large $k$,
+
+$$
+a_{n_k}x<y,
+$$
+
+so
+
+$$
+S(a_{n_k}x)\geq S(y)>0.
+$$
+
+But from (1),
+
+$$
+n_kS(a_{n_k}x)\to x^{-\alpha},
+$$
+
+which implies
+
+$$
+S(a_{n_k}x)\to0.
+$$
+
+This is again a contradiction.
+
+Therefore,
+
+$$
+\boxed{
+a_n\to\infty.
+}
+\tag{4}
+$$
+
+##### Step 2: $a_{n+1}/a_n\to1$
+
+By assumption,
+
+$$
+\frac{M_{n+1}}{a_{n+1}}
+\Rightarrow
+Z,
+\qquad
+Z\sim\Phi_\alpha.
+$$
+
+We also have
+
+$$
+\frac{M_{n+1}}{a_n}
+\Rightarrow
+Z.
+$$
+
+Indeed,
+
+$$
+\begin{aligned}
+P(M_{n+1}\leq a_nx)
+&=
+F(a_nx)^{n+1}\\
+&=
+F(a_nx)^nF(a_nx).
+\end{aligned}
+$$
+
+We know
+
+$$
+F(a_nx)^n\to\Phi_\alpha(x),
+$$
+
+and by (1),
+
+$$
+S(a_nx)\to0,
+$$
+
+so
+
+$$
+F(a_nx)\to1.
+$$
+
+Hence
+
+$$
+\frac{M_{n+1}}{a_n}
+\Rightarrow
+Z.
+$$
+
+Thus
+
+$$
+\frac{M_{n+1}}{a_{n+1}}
+\Rightarrow
+Z
+$$
+
+and
+
+$$
+\frac{M_{n+1}}{a_n}
+\Rightarrow
+Z.
+$$
+
+By the convergence to types theorem, there exists $A>0$ such that
+
+$$
+\frac{a_{n+1}}{a_n}\to A.
+$$
+
+Then
+
+$$
+AZ\overset{d}=Z.
+$$
+
+Since
+
+$$
+P(Z\leq x)
+=
+\exp\{-x^{-\alpha}\},
+$$
+
+we get
+
+$$
+\begin{aligned}
+P(AZ\leq x)
+&=
+P\left(Z\leq\frac{x}{A}\right)\\
+&=
+\exp\left\{
+-\left(\frac{x}{A}\right)^{-\alpha}
+\right\}\\
+&=
+\exp\{-A^\alpha x^{-\alpha}\}.
+\end{aligned}
+$$
+
+But $AZ\overset d=Z$, so
+
+$$
+A^\alpha=1.
+$$
+
+Since $A>0$,
+
+$$
+A=1.
+$$
+
+Therefore,
+
+$$
+\boxed{
+\frac{a_{n+1}}{a_n}\to1.
+}
+\tag{5}
+$$
+
+So far, $\{a_n\}$ has the two properties we want:
+
+$$
+a_n\to\infty
+$$
+
+and
+
+$$
+\frac{a_{n+1}}{a_n}\to1.
+$$
+
+However, $\{a_n\}$ need not be monotone. To squeeze an arbitrary $t$ between
+neighboring normalization points, we now construct a monotone sequence which
+behaves asymptotically like $\{a_n\}$.
+
+##### Step 3: Monotonization of $\{a_n\}$
+
+Define
+
+$$
+b_n
+:=
+F^{\leftarrow}\left(1-\frac1n\right)
+=
+\inf\left\{
+x:S(x)\leq\frac1n
+\right\}.
+$$
+
+Since $1/n$ decreases with $n$ and $S$ is non-increasing,
+
+$$
+\boxed{
+\{b_n\}\text{ is non-decreasing}.
+}
+$$
+
+We now show that
+
+$$
+\boxed{
+\frac{b_n}{a_n}\to1.
+}
+$$
+
+Fix $\varepsilon\in(0,1)$.
+
+From (1),
+
+$$
+nS((1+\varepsilon)a_n)
+\longrightarrow
+(1+\varepsilon)^{-\alpha}<1.
+$$
+
+Hence, for sufficiently large $n$,
+
+$$
+S((1+\varepsilon)a_n)<\frac1n.
+$$
+
+Since $b_n$ is the first point where $S$ reaches or falls below $1/n$,
+
+$$
+b_n\leq(1+\varepsilon)a_n.
+$$
+
+Similarly,
+
+$$
+nS((1-\varepsilon)a_n)
+\longrightarrow
+(1-\varepsilon)^{-\alpha}>1.
+$$
+
+Hence eventually
+
+$$
+S((1-\varepsilon)a_n)>\frac1n.
+$$
+
+Therefore the $1/n$ level has not yet been crossed at $(1-\varepsilon)a_n$,
+so
+
+$$
+(1-\varepsilon)a_n<b_n.
+$$
+
+Thus
+
+$$
+1-\varepsilon
+<
+\frac{b_n}{a_n}
+\leq
+1+\varepsilon.
+$$
+
+Since $\varepsilon>0$ is arbitrary,
+
+$$
+\boxed{
+\frac{b_n}{a_n}\to1.
+}
+\tag{6}
+$$
+
+So $\{b_n\}$ is a monotonization of $\{a_n\}$.
+
+From (4) and (6),
+
+$$
+b_n\to\infty.
+$$
+
+Also,
+
+$$
+\begin{aligned}
+\frac{b_{n+1}}{b_n}
+&=
+\frac{b_{n+1}}{a_{n+1}}
+\frac{a_{n+1}}{a_n}
+\frac{a_n}{b_n}\\
+&\longrightarrow1.
+\end{aligned}
+$$
+
+Therefore,
+
+$$
+\boxed{
+\frac{b_{n+1}}{b_n}\to1.
+}
+\tag{7}
+$$
+
+##### Step 4: Transfer the tail behavior from $a_n$ to $b_n$
+
+From
+
+$$
+(1-\varepsilon)a_n<b_n\leq(1+\varepsilon)a_n
+$$
+
+and the fact that $S$ is non-increasing,
+
+$$
+S((1+\varepsilon)a_n)
+\leq
+S(b_n)
+\leq
+S((1-\varepsilon)a_n).
+$$
+
+Divide by $S(a_n)$:
+
+$$
+\frac{S((1+\varepsilon)a_n)}{S(a_n)}
+\leq
+\frac{S(b_n)}{S(a_n)}
+\leq
+\frac{S((1-\varepsilon)a_n)}{S(a_n)}.
+$$
+
+Using (3),
+
+$$
+(1+\varepsilon)^{-\alpha}
+\leq
+\liminf_{n\to\infty}
+\frac{S(b_n)}{S(a_n)}
+$$
+
+and
+
+$$
+\limsup_{n\to\infty}
+\frac{S(b_n)}{S(a_n)}
+\leq
+(1-\varepsilon)^{-\alpha}.
+$$
+
+Letting $\varepsilon\downarrow0$ gives
+
+$$
+\boxed{
+\frac{S(b_n)}{S(a_n)}\to1.
+}
+$$
+
+Together with (2),
+
+$$
+\boxed{
+nS(b_n)\to1.
+}
+\tag{8}
+$$
+
+Now take fixed $x>0$.
+
+Again,
+
+$$
+(1-\varepsilon)a_n<b_n\leq(1+\varepsilon)a_n
+$$
+
+implies
+
+$$
+S((1+\varepsilon)a_nx)
+\leq
+S(b_nx)
+\leq
+S((1-\varepsilon)a_nx).
+$$
+
+Multiplying by $n$ and using (1),
+
+$$
+((1+\varepsilon)x)^{-\alpha}
+\leq
+\liminf_{n\to\infty}nS(b_nx)
+$$
+
+and
+
+$$
+\limsup_{n\to\infty}nS(b_nx)
+\leq
+((1-\varepsilon)x)^{-\alpha}.
+$$
+
+Letting $\varepsilon\downarrow0$,
+
+$$
+\boxed{
+nS(b_nx)\to x^{-\alpha}.
+}
+\tag{9}
+$$
+
+Combining (8) and (9),
+
+$$
+\boxed{
+\frac{S(b_nx)}{S(b_n)}
+\to
+x^{-\alpha}.
+}
+\tag{10}
+$$
+
+Thus $\{b_n\}$ carries the same asymptotic tail behavior as $\{a_n\}$, but it
+also has the monotonicity that we need.
+
+##### Step 5: Extend the result from $\{b_n\}$ to arbitrary $t\to\infty$
+
+For sufficiently large $t$, define
+
+$$
+n(t)
+:=
+\max\{n:b_n\leq t\}.
+$$
+
+Since $b_n\to\infty$, this is well-defined for sufficiently large $t$, and
+
+$$
+b_{n(t)}
+\leq
+t
+<
+b_{n(t)+1}.
+$$
+
+For simplicity, write $n=n(t)$.
+
+Since $S$ is non-increasing,
+
+$$
+S(b_{n+1}x)
+\leq
+S(tx)
+\leq
+S(b_nx),
+$$
+
+and
+
+$$
+S(b_{n+1})
+\leq
+S(t)
+\leq
+S(b_n).
+$$
+
+Therefore,
+
+$$
+\frac{S(b_{n+1}x)}{S(b_n)}
+\leq
+\frac{S(tx)}{S(t)}
+\leq
+\frac{S(b_nx)}{S(b_{n+1})}.
+$$
+
+For the lower bound,
+
+$$
+\begin{aligned}
+\frac{S(b_{n+1}x)}{S(b_n)}
+&=
+\frac{S(b_{n+1}x)}{S(b_{n+1})}
+\frac{S(b_{n+1})}{S(b_n)}.
+\end{aligned}
+$$
+
+By (10),
+
+$$
+\frac{S(b_{n+1}x)}{S(b_{n+1})}
+\to
+x^{-\alpha}.
+$$
+
+Also, from (8),
+
+$$
+\begin{aligned}
+\frac{S(b_{n+1})}{S(b_n)}
+&=
+\frac{(n+1)S(b_{n+1})}{nS(b_n)}
+\frac{n}{n+1}\\
+&\to1.
+\end{aligned}
+$$
+
+Hence the lower bound tends to $x^{-\alpha}$.
+
+Similarly,
+
+$$
+\begin{aligned}
+\frac{S(b_nx)}{S(b_{n+1})}
+&=
+\frac{S(b_nx)}{S(b_n)}
+\frac{S(b_n)}{S(b_{n+1})}\\
+&\to
+x^{-\alpha}.
+\end{aligned}
+$$
+
+Therefore, by squeezing,
+
+$$
+\boxed{
+\frac{S(tx)}{S(t)}
+\to
+x^{-\alpha},
+\qquad t\to\infty.
+}
+$$
+
+Thus
+
+$$
+\boxed{
+S\in RV_{-\alpha}.
+}
+$$
+
+#### $(\Leftarrow)$
+
+Now suppose
+
+$$
+\boxed{
+\frac{S(tx)}{S(t)}
+\to
+x^{-\alpha},
+\qquad t\to\infty,
+}
+\tag{11}
+$$
+
+for every fixed $x>0$.
+
+We want to construct $a_n>0$ such that
+
+$$
+\frac{M_n}{a_n}\Rightarrow\Phi_\alpha.
+$$
+
+Define
+
+$$
+a_n
+:=
+F^{\leftarrow}\left(1-\frac1n\right)
+=
+\inf\left\{
+x:S(x)\leq\frac1n
+\right\}.
+$$
+
+The regular variation condition implies that $S$ has no finite right endpoint.
+Hence, for every finite $M$,
+
+$$
+S(M)>0.
+$$
+
+For sufficiently large $n$,
+
+$$
+\frac1n<S(M),
+$$
+
+so the $1/n$ crossing occurs to the right of $M$:
+
+$$
+a_n>M.
+$$
+
+Since $M$ is arbitrary,
+
+$$
+\boxed{
+a_n\to\infty.
+}
+\tag{12}
+$$
+
+By the definition of $a_n$, for every $t<a_n$,
+
+$$
+S(t)>\frac1n.
+$$
+
+Also, since $S$ is right-continuous,
+
+$$
+\boxed{
+S(a_n)\leq\frac1n.
+}
+$$
+
+Indeed, by the definition of the infimum, there exists a sequence
+$x_m\downarrow a_n$ such that
+
+$$
+S(x_m)\leq\frac1n.
+$$
+
+Right continuity of $S$ then gives
+
+$$
+S(a_n)
+=
+\lim_{m\to\infty}S(x_m)
+\leq
+\frac1n.
+$$
+
+Thus
+
+$$
+\limsup_{n\to\infty}nS(a_n)\leq1.
+$$
+
+To obtain the lower bound, fix $\varepsilon\in(0,1)$.
+
+Since
+
+$$
+(1-\varepsilon)a_n<a_n,
+$$
+
+the definition of $a_n$ gives
+
+$$
+S((1-\varepsilon)a_n)>\frac1n.
+$$
+
+Therefore,
+
+$$
+nS((1-\varepsilon)a_n)>1.
+$$
+
+Now, because $a_n\to\infty$, regular variation gives
+
+$$
+\frac{S((1-\varepsilon)a_n)}{S(a_n)}
+\to
+(1-\varepsilon)^{-\alpha}.
+$$
+
+Hence
+
+$$
+\begin{aligned}
+nS(a_n)
+&=
+nS((1-\varepsilon)a_n)
+\frac{S(a_n)}{S((1-\varepsilon)a_n)}.
+\end{aligned}
+$$
+
+Therefore,
+
+$$
+\liminf_{n\to\infty}nS(a_n)
+\geq
+(1-\varepsilon)^\alpha.
+$$
+
+Letting $\varepsilon\downarrow0$,
+
+$$
+\liminf_{n\to\infty}nS(a_n)\geq1.
+$$
+
+Together with the upper bound,
+
+$$
+\boxed{
+nS(a_n)\to1.
+}
+\tag{13}
+$$
+
+Now, for fixed $x>0$,
+
+$$
+\begin{aligned}
+nS(a_nx)
+&=
+nS(a_n)
+\frac{S(a_nx)}{S(a_n)}\\
+&\longrightarrow
+1\cdot x^{-\alpha},
+\end{aligned}
+$$
+
+by (11) and (13).
+
+Thus
+
+$$
+\boxed{
+nS(a_nx)\to x^{-\alpha}.
+}
+$$
+
+Finally,
+
+$$
+\begin{aligned}
+P\left(\frac{M_n}{a_n}\leq x\right)
+&=
+P(M_n\leq a_nx)\\
+&=
+F(a_nx)^n\\
+&=
+[1-S(a_nx)]^n\\
+&\longrightarrow
+\exp\{-x^{-\alpha}\}.
+\end{aligned}
+$$
+
+Therefore,
+
+$$
+\boxed{
+\frac{M_n}{a_n}
+\Rightarrow
+\Phi_\alpha.
+}
+$$
+
+Combining the two directions,
+
+$$
+\boxed{
+\frac{M_n}{a_n}\Rightarrow\Phi_\alpha
+\quad\Longleftrightarrow\quad
+S\in RV_{-\alpha}.
+}
+$$
+
+$\textbf{Note:}$
+
+The difficult part of the $(\Rightarrow)$ direction is the difference between
+
+$$
+\frac{S(a_nx)}{S(a_n)}
+\to x^{-\alpha}
+$$
+
+and the actual definition of regular variation,
+
+$$
+\frac{S(tx)}{S(t)}
+\to x^{-\alpha}
+\qquad(t\to\infty).
+$$
+
+The first statement only gives the asymptotic behavior along the normalization
+sequence $\{a_n\}$.
+
+The bridge is
+
+$$
+\frac{M_n}{a_n}\Rightarrow\Phi_\alpha
+$$
+
+$$
+\Downarrow
+$$
+
+$$
+nS(a_nx)\to x^{-\alpha}
+$$
+
+$$
+\Downarrow
+$$
+
+$$
+a_n\to\infty,
+\qquad
+\frac{a_{n+1}}{a_n}\to1
+$$
+
+$$
+\Downarrow
+$$
+
+$$
+\text{construct the monotone sequence }
+b_n=F^{\leftarrow}\left(1-\frac1n\right)
+$$
+
+$$
+\Downarrow
+$$
+
+$$
+\frac{b_n}{a_n}\to1
+$$
+
+$$
+\Downarrow
+$$
+
+$$
+\frac{S(b_nx)}{S(b_n)}
+\to x^{-\alpha}
+$$
+
+$$
+\Downarrow
+$$
+
+$$
+\text{squeeze arbitrary }t
+\text{ between }b_n\text{ and }b_{n+1}
+$$
+
+$$
+\Downarrow
+$$
+
+$$
+S\in RV_{-\alpha}.
+$$
+
+Thus $\{b_n\}$ acts as a **monotonization** of the original normalization
+sequence $\{a_n\}$.
+
+In the $(\Leftarrow)$ direction, one should not simply assume
+
+$$
+S(a_n)=\frac1n,
+$$
+
+because the distribution may have jumps. The correct argument uses the first
+crossing definition of $a_n$, right continuity of $S$, and an
+$\varepsilon$-squeeze to prove
+
+$$
+nS(a_n)\to1.
+$$
+
+
+### Ex 28
+::: problem
+
+Let $x\in(0,1)$ have binary expansion
+
+$$
+x=\sum_{n=1}^{\infty}\frac{d_n}{2^n}.
+$$
+
+Set
+
+$$
+f_n(x)=
+\begin{cases}
+2, & d_n=0,\\
+1, & d_n=1.
+\end{cases}
+$$
+
+Then show
+
+$$
+\int_0^1 f_n(x)\,dx=1
+$$
+
+so that $f_n$ is a density. The sequence $f_n$ only converges on a set of
+Lebesgue measure $0$. If $X_n$ is a random variable with density $f_n$, then
+
+$$
+X_n\Rightarrow U,
+$$
+
+where $U$ is $U(0,1)$.
+
+:::
+
+$\textbf{Answer:}$
+
+$\textbf{Typo in the exercise:}$
+
+The second branch of $f_n$ is printed as $1$, but this cannot be correct, since
+then
+
+$$
+\int_0^1 f_n(x)\,dx
+=
+2\cdot\frac12+1\cdot\frac12
+=
+\frac32.
+$$
+
+The intended definition should be
+
+$$
+\boxed{
+f_n(x)=
+\begin{cases}
+2, & d_n=0,\\
+0, & d_n=1.
+\end{cases}
+}
+$$
+
+We use this corrected version below.
+
+For every fixed $n$, the $n$-th binary digit is $0$ on half of $(0,1)$ and
+$1$ on the other half. Therefore,
+
+$$
+\begin{aligned}
+\int_0^1f_n(x)\,dx
+&=
+2\,\lambda\{x:d_n(x)=0\}
++
+0\,\lambda\{x:d_n(x)=1\}\\
+&=
+2\cdot\frac12\\
+&=
+1.
+\end{aligned}
+$$
+
+Thus $f_n$ is a density.
+
+Now $f_n(x)\in\{0,2\}$. Therefore, for fixed $x$, the sequence
+$\{f_n(x)\}$ converges only if it is eventually constant, which means that the
+binary expansion of $x$ is eventually all $0$'s or eventually all $1$'s.
+
+The collection of such $x$ is countable. Hence
+
+$$
+\boxed{
+\lambda\{x:f_n(x)\text{ converges}\}=0.
+}
+$$
+
+It remains to show that nevertheless
+
+$$
+X_n\Rightarrow U(0,1).
+$$
+
+Define
+
+$$
+f_n(x)=1+h_n(x),
+$$
+
+where
+
+$$
+h_n(x)=
+\begin{cases}
+1, & d_n(x)=0,\\
+-1, & d_n(x)=1.
+\end{cases}
+$$
+
+Let $g$ be any continuous function on $[0,1]$. Since $[0,1]$ is compact,
+$g$ is uniformly continuous.
+
+We have
+
+$$
+\begin{aligned}
+\int_0^1g(x)f_n(x)\,dx
+&=
+\int_0^1g(x)\,dx
++
+\int_0^1g(x)h_n(x)\,dx.
+\end{aligned}
+$$
+
+Since $1_{[0,1]}$ is the density of $U(0,1)$, it is enough to prove
+
+$$
+\boxed{
+\int_0^1g(x)h_n(x)\,dx\to0.
+}
+$$
+
+For each $n$, divide $[0,1)$ into $2^n$ subintervals
+
+$$
+I_{j,n}
+=
+\left[
+\frac{j}{2^n},
+\frac{j+1}{2^n}
+\right),
+\qquad
+j=0,\ldots,2^n-1.
+$$
+
+Each interval has length $2^{-n}$.
+
+For $n=1$, the binary digit $d_1$ is $0$ on the first interval and $1$ on
+the second interval, so $h_1$ takes the values
+
+$$
+1,-1.
+$$
+
+For $n=2$, the four intervals correspond to the binary beginnings
+
+$$
+00,\ 01,\ 10,\ 11,
+$$
+
+so again the second digit alternates between $0$ and $1$, and $h_2$ takes the
+values
+
+$$
+1,-1,1,-1.
+$$
+
+In general, $h_n$ alternates between $1$ and $-1$ on consecutive intervals:
+
+$$
+1,-1,1,-1,\ldots.
+$$
+
+Therefore we pair the intervals
+
+$$
+I_{2j,n},\qquad I_{2j+1,n},
+\qquad
+j=0,\ldots,2^{n-1}-1.
+$$
+
+On the first interval of each pair,
+
+$$
+h_n=1,
+$$
+
+while on the second,
+
+$$
+h_n=-1.
+$$
+
+Hence the contribution from one pair is
+
+$$
+\begin{aligned}
+&\int_{I_{2j,n}}g(x)h_n(x)\,dx
++
+\int_{I_{2j+1,n}}g(x)h_n(x)\,dx\\
+&=
+\int_{I_{2j,n}}g(x)\,dx
+-
+\int_{I_{2j+1,n}}g(x)\,dx.
+\end{aligned}
+$$
+
+By the integral mean-value theorem, there exist
+
+$$
+\xi_{j,0}\in I_{2j,n},
+\qquad
+\xi_{j,1}\in I_{2j+1,n},
+$$
+
+such that
+
+$$
+\int_{I_{2j,n}}g(x)\,dx
+=
+\frac1{2^n}g(\xi_{j,0}),
+$$
+
+and
+
+$$
+\int_{I_{2j+1,n}}g(x)\,dx
+=
+\frac1{2^n}g(\xi_{j,1}).
+$$
+
+Therefore,
+
+$$
+\int_{I_{2j,n}}g(x)h_n(x)\,dx
++
+\int_{I_{2j+1,n}}g(x)h_n(x)\,dx
+=
+\frac1{2^n}
+\left[
+g(\xi_{j,0})-g(\xi_{j,1})
+\right].
+$$
+
+There are $2^{n-1}$ such pairs.
+
+Also, since the two points lie in adjacent intervals,
+
+$$
+|\xi_{j,0}-\xi_{j,1}|
+\leq
+\frac{2}{2^n}
+=
+2^{1-n}.
+$$
+
+Since $g$ is uniformly continuous, for every $\varepsilon>0$ there exists
+$\delta>0$ such that
+
+$$
+|x-y|<\delta
+\quad\Longrightarrow\quad
+|g(x)-g(y)|<\varepsilon.
+$$
+
+For sufficiently large $n$,
+
+$$
+2^{1-n}<\delta.
+$$
+
+Thus, uniformly over all $j$,
+
+$$
+|g(\xi_{j,0})-g(\xi_{j,1})|
+<
+\varepsilon.
+$$
+
+Therefore,
+
+$$
+\begin{aligned}
+\left|
+\int_0^1g(x)h_n(x)\,dx
+\right|
+&\leq
+\sum_{j=0}^{2^{n-1}-1}
+\frac1{2^n}
+\left|
+g(\xi_{j,0})-g(\xi_{j,1})
+\right|\\
+&\leq
+2^{n-1}\frac1{2^n}\varepsilon\\
+&=
+\frac{\varepsilon}{2}.
+\end{aligned}
+$$
+
+Since $\varepsilon>0$ is arbitrary,
+
+$$
+\boxed{
+\int_0^1g(x)h_n(x)\,dx\to0.
+}
+$$
+
+Hence
+
+$$
+\begin{aligned}
+\int_0^1g(x)f_n(x)\,dx
+&=
+\int_0^1g(x)\,dx
++
+\int_0^1g(x)h_n(x)\,dx\\
+&\longrightarrow
+\int_0^1g(x)\,dx.
+\end{aligned}
+$$
+
+That is,
+
+$$
+E[g(X_n)]
+\longrightarrow
+E[g(U)]
+$$
+
+for every continuous $g$ on $[0,1]$.
+
+Therefore, by the Portmanteau theorem,
+
+$$
+\boxed{
+X_n\Rightarrow U(0,1).
+}
+$$
+
+$\textbf{Note:}$
+
+This exercise gives an example where the densities themselves behave very
+badly pointwise:
+
+$$
+f_n(x)\not\to1
+$$
+
+for Lebesgue-a.e. $x$.
+
+In fact,
+
+$$
+|f_n(x)-1|=1
+$$
+
+for every $x$ outside the irrelevant binary-expansion ambiguity points, so
+
+$$
+\int_0^1|f_n(x)-1|\,dx=1
+$$
+
+for every $n$.
+
+Thus there is neither almost-everywhere convergence of the densities nor
+$L^1$ convergence to the uniform density.
+
+Nevertheless,
+
+$$
+\int_0^1g(x)f_n(x)\,dx
+\to
+\int_0^1g(x)\,dx
+$$
+
+for every continuous test function $g$.
+
+The reason is that the $+1$ and $-1$ oscillations of $h_n$ occur on smaller and
+smaller dyadic intervals. Uniform continuity makes $g$ almost constant across
+each neighboring pair, so the two contributions cancel asymptotically.
+
