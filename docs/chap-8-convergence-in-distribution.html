@@ -23,7 +23,7 @@
 <meta name="author" content="Zhanwen Peng" />
 
 
-<meta name="date" content="2026-10-31" />
+<meta name="date" content="2026-11-09" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -640,6 +640,19 @@
 <li class="chapter" data-level="" data-path="chap-8-convergence-in-distribution.html"><a href="chap-8-convergence-in-distribution.html#leftarrow-1"><i class="fa fa-check"></i><span class="math inline">\((\Leftarrow)\)</span></a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="chap-8-convergence-in-distribution.html"><a href="chap-8-convergence-in-distribution.html#ex-28-4"><i class="fa fa-check"></i>Ex 28</a></li>
+<li class="chapter" data-level="" data-path="chap-8-convergence-in-distribution.html"><a href="chap-8-convergence-in-distribution.html#ex-11-4"><i class="fa fa-check"></i>Ex 11</a>
+<ul>
+<li class="chapter" data-level="" data-path="chap-8-convergence-in-distribution.html"><a href="chap-8-convergence-in-distribution.html#part-1-d-is-a-metric"><i class="fa fa-check"></i>Part 1: <span class="math inline">\(d\)</span> is a metric</a></li>
+<li class="chapter" data-level="" data-path="chap-8-convergence-in-distribution.html"><a href="chap-8-convergence-in-distribution.html#part-2-d-metrizes-weak-convergence"><i class="fa fa-check"></i>Part 2: <span class="math inline">\(d\)</span> metrizes weak convergence</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="chap-8-convergence-in-distribution.html"><a href="chap-8-convergence-in-distribution.html#ex-35-2"><i class="fa fa-check"></i>Ex 35</a>
+<ul>
+<li class="chapter" data-level="" data-path="chap-8-convergence-in-distribution.html"><a href="chap-8-convergence-in-distribution.html#step-1-control-the-tails"><i class="fa fa-check"></i>Step 1: Control the tails</a></li>
+<li class="chapter" data-level="" data-path="chap-8-convergence-in-distribution.html"><a href="chap-8-convergence-in-distribution.html#step-2-partition-the-compact-middle-part"><i class="fa fa-check"></i>Step 2: Partition the compact middle part</a></li>
+<li class="chapter" data-level="" data-path="chap-8-convergence-in-distribution.html"><a href="chap-8-convergence-in-distribution.html#step-3-compare-the-finite-approximations"><i class="fa fa-check"></i>Step 3: Compare the finite approximations</a></li>
+<li class="chapter" data-level="" data-path="chap-8-convergence-in-distribution.html"><a href="chap-8-convergence-in-distribution.html#step-4-combine-the-three-parts"><i class="fa fa-check"></i>Step 4: Combine the three parts</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="chap-8-convergence-in-distribution.html"><a href="chap-8-convergence-in-distribution.html#ex-15-4"><i class="fa fa-check"></i>Ex 15</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -7386,7 +7399,1749 @@ f_n(x)\not\to1
 <p>The reason is that the <span class="math inline">\(+1\)</span> and <span class="math inline">\(-1\)</span> oscillations of <span class="math inline">\(h_n\)</span> occur on smaller and
 smaller dyadic intervals. Uniform continuity makes <span class="math inline">\(g\)</span> almost constant across
 each neighboring pair, so the two contributions cancel asymptotically.</p>
+</div>
+<div id="ex-11-4" class="section level3 hasAnchor">
+<h3>Ex 11<a href="chap-8-convergence-in-distribution.html#ex-11-4" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="problem">
+<p><strong>Lévy metric.</strong> For two probability distributions <span class="math inline">\(F,G\)</span>, define</p>
+<p><span class="math display">\[
+d(F,G)
+:=
+\inf\left\{
+\delta&gt;0:
+\forall x\in\mathbb R,\
+F(x-\delta)-\delta
+\leq G(x)
+\leq F(x+\delta)+\delta
+\right\}.
+\]</span></p>
+<p>Show this is a metric on the space of probability distribution functions
+which metrizes weak convergence; that is,</p>
+<p><span class="math display">\[
+F_n\Rightarrow F_0
+\qquad\Longleftrightarrow\qquad
+d(F_n,F_0)\to0.
+\]</span></p>
+</div>
+<p><span class="math inline">\(\textbf{Answer:}\)</span></p>
+<p>For convenience, define the set of admissible values</p>
+<p><span class="math display">\[
+D(F,G)
+:=
+\left\{
+\delta&gt;0:
+\forall x\in\mathbb R,\
+F(x-\delta)-\delta
+\leq G(x)
+\leq F(x+\delta)+\delta
+\right\}.
+\]</span></p>
+<p>Then</p>
+<p><span class="math display">\[
+d(F,G)=\inf D(F,G).
+\]</span></p>
+<p>Notice first that <span class="math inline">\(D(F,G)\)</span> is non-empty. For example, every <span class="math inline">\(\delta&gt;1\)</span> is
+admissible, since all distribution functions take values in <span class="math inline">\([0,1]\)</span>.
+Therefore <span class="math inline">\(d(F,G)\)</span> is well-defined and non-negative.</p>
+<div id="part-1-d-is-a-metric" class="section level4 hasAnchor">
+<h4>Part 1: <span class="math inline">\(d\)</span> is a metric<a href="chap-8-convergence-in-distribution.html#part-1-d-is-a-metric" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div id="i-symmetry" class="section level5 hasAnchor">
+<h5>(i) Symmetry<a href="chap-8-convergence-in-distribution.html#i-symmetry" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<p>Let</p>
+<p><span class="math display">\[
+\delta\in D(F,G).
+\]</span></p>
+<p>Then, for every <span class="math inline">\(x\in\mathbb R\)</span>,</p>
+<p><span class="math display">\[
+F(x-\delta)-\delta
+\leq
+G(x)
+\leq
+F(x+\delta)+\delta.
+\tag{1}
+\]</span></p>
+<p>We want to show that the same <span class="math inline">\(\delta\)</span> is also admissible for <span class="math inline">\(d(G,F)\)</span>.</p>
+<p>From the upper inequality in (1), replace <span class="math inline">\(x\)</span> by <span class="math inline">\(x-\delta\)</span>:</p>
+<p><span class="math display">\[
+G(x-\delta)
+\leq
+F(x)+\delta.
+\]</span></p>
+<p>Hence</p>
+<p><span class="math display">\[
+G(x-\delta)-\delta
+\leq
+F(x).
+\]</span></p>
+<p>From the lower inequality in (1), replace <span class="math inline">\(x\)</span> by <span class="math inline">\(x+\delta\)</span>:</p>
+<p><span class="math display">\[
+F(x)-\delta
+\leq
+G(x+\delta).
+\]</span></p>
+<p>Therefore,</p>
+<p><span class="math display">\[
+F(x)
+\leq
+G(x+\delta)+\delta.
+\]</span></p>
+<p>Thus</p>
+<p><span class="math display">\[
+G(x-\delta)-\delta
+\leq
+F(x)
+\leq
+G(x+\delta)+\delta,
+\]</span></p>
+<p>so</p>
+<p><span class="math display">\[
+\delta\in D(G,F).
+\]</span></p>
+<p>Therefore,</p>
+<p><span class="math display">\[
+D(F,G)\subseteq D(G,F).
+\]</span></p>
+<p>By reversing the roles of <span class="math inline">\(F\)</span> and <span class="math inline">\(G\)</span>,</p>
+<p><span class="math display">\[
+D(G,F)\subseteq D(F,G).
+\]</span></p>
+<p>Hence</p>
+<p><span class="math display">\[
+D(F,G)=D(G,F),
+\]</span></p>
+<p>and therefore</p>
+<p><span class="math display">\[
+\boxed{
+d(F,G)=d(G,F).
+}
+\]</span></p>
+</div>
+<div id="ii-identity-of-indiscernibles" class="section level5 hasAnchor">
+<h5>(ii) Identity of indiscernibles<a href="chap-8-convergence-in-distribution.html#ii-identity-of-indiscernibles" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<p>First suppose</p>
+<p><span class="math display">\[
+F=G.
+\]</span></p>
+<p>For every <span class="math inline">\(\delta&gt;0\)</span>, since <span class="math inline">\(F\)</span> is non-decreasing,</p>
+<p><span class="math display">\[
+F(x-\delta)-\delta
+\leq
+F(x)
+\leq
+F(x+\delta)+\delta.
+\]</span></p>
+<p>Thus every <span class="math inline">\(\delta&gt;0\)</span> is admissible, so</p>
+<p><span class="math display">\[
+\boxed{
+d(F,F)=0.
+}
+\]</span></p>
+<p>Conversely, suppose</p>
+<p><span class="math display">\[
+d(F,G)=0.
+\]</span></p>
+<p>Since the infimum of <span class="math inline">\(D(F,G)\)</span> is <span class="math inline">\(0\)</span>, we can choose a sequence
+<span class="math inline">\(\delta_k\in D(F,G)\)</span> such that</p>
+<p><span class="math display">\[
+\delta_k\downarrow0.
+\]</span></p>
+<p>For every <span class="math inline">\(x\)</span>,</p>
+<p><span class="math display">\[
+G(x)
+\leq
+F(x+\delta_k)+\delta_k.
+\]</span></p>
+<p>Since <span class="math inline">\(F\)</span> is right-continuous,</p>
+<p><span class="math display">\[
+F(x+\delta_k)\to F(x),
+\]</span></p>
+<p>so</p>
+<p><span class="math display">\[
+G(x)\leq F(x).
+\]</span></p>
+<p>By symmetry,</p>
+<p><span class="math display">\[
+d(G,F)=0.
+\]</span></p>
+<p>Thus we may similarly choose admissible values tending to <span class="math inline">\(0\)</span> for <span class="math inline">\((G,F)\)</span>,
+which gives</p>
+<p><span class="math display">\[
+F(x)\leq G(x).
+\]</span></p>
+<p>Therefore,</p>
+<p><span class="math display">\[
+F(x)=G(x)
+\qquad
+\forall x\in\mathbb R.
+\]</span></p>
+<p>Hence</p>
+<p><span class="math display">\[
+\boxed{
+d(F,G)=0
+\quad\Longleftrightarrow\quad
+F=G.
+}
+\]</span></p>
+</div>
+<div id="iii-triangle-inequality" class="section level5 hasAnchor">
+<h5>(iii) Triangle inequality<a href="chap-8-convergence-in-distribution.html#iii-triangle-inequality" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<p>Let <span class="math inline">\(F,G,H\)</span> be probability distribution functions.</p>
+<p>Fix <span class="math inline">\(\varepsilon&gt;0\)</span>. Choose admissible <span class="math inline">\(\delta_1,\delta_2\)</span> such that</p>
+<p><span class="math display">\[
+\delta_1
+&lt;
+d(F,G)+\frac{\varepsilon}{2},
+\]</span></p>
+<p>and</p>
+<p><span class="math display">\[
+\delta_2
+&lt;
+d(G,H)+\frac{\varepsilon}{2}.
+\]</span></p>
+<p>Since <span class="math inline">\(\delta_1\in D(F,G)\)</span>,</p>
+<p><span class="math display">\[
+F(x-\delta_1)-\delta_1
+\leq
+G(x)
+\leq
+F(x+\delta_1)+\delta_1.
+\tag{2}
+\]</span></p>
+<p>Since <span class="math inline">\(\delta_2\in D(G,H)\)</span>,</p>
+<p><span class="math display">\[
+G(x-\delta_2)-\delta_2
+\leq
+H(x)
+\leq
+G(x+\delta_2)+\delta_2.
+\tag{3}
+\]</span></p>
+<p>For the upper bound, substitute <span class="math inline">\(x+\delta_2\)</span> into the upper inequality of
+(2):</p>
+<p><span class="math display">\[
+G(x+\delta_2)
+\leq
+F(x+\delta_2+\delta_1)+\delta_1.
+\]</span></p>
+<p>Using (3),</p>
+<p><span class="math display">\[
+\begin{aligned}
+H(x)
+&amp;\leq
+G(x+\delta_2)+\delta_2\\
+&amp;\leq
+F(x+\delta_1+\delta_2)
++\delta_1+\delta_2.
+\end{aligned}
+\]</span></p>
+<p>For the lower bound, substitute <span class="math inline">\(x-\delta_2\)</span> into the lower inequality of
+(2):</p>
+<p><span class="math display">\[
+F(x-\delta_2-\delta_1)-\delta_1
+\leq
+G(x-\delta_2).
+\]</span></p>
+<p>Using (3),</p>
+<p><span class="math display">\[
+\begin{aligned}
+H(x)
+&amp;\geq
+G(x-\delta_2)-\delta_2\\
+&amp;\geq
+F(x-\delta_1-\delta_2)
+-(\delta_1+\delta_2).
+\end{aligned}
+\]</span></p>
+<p>Therefore,</p>
+<p><span class="math display">\[
+F(x-(\delta_1+\delta_2))
+-(\delta_1+\delta_2)
+\leq
+H(x)
+\leq
+F(x+(\delta_1+\delta_2))
++(\delta_1+\delta_2).
+\]</span></p>
+<p>Thus</p>
+<p><span class="math display">\[
+\delta_1+\delta_2\in D(F,H),
+\]</span></p>
+<p>and hence</p>
+<p><span class="math display">\[
+d(F,H)
+\leq
+\delta_1+\delta_2.
+\]</span></p>
+<p>Therefore,</p>
+<p><span class="math display">\[
+d(F,H)
+&lt;
+d(F,G)+d(G,H)+\varepsilon.
+\]</span></p>
+<p>Since <span class="math inline">\(\varepsilon&gt;0\)</span> is arbitrary,</p>
+<p><span class="math display">\[
+\boxed{
+d(F,H)
+\leq
+d(F,G)+d(G,H).
+}
+\]</span></p>
+<p>Thus <span class="math inline">\(d\)</span> is a metric.</p>
+<hr />
+</div>
+</div>
+<div id="part-2-d-metrizes-weak-convergence" class="section level4 hasAnchor">
+<h4>Part 2: <span class="math inline">\(d\)</span> metrizes weak convergence<a href="chap-8-convergence-in-distribution.html#part-2-d-metrizes-weak-convergence" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>We prove</p>
+<p><span class="math display">\[
+F_n\Rightarrow F
+\qquad\Longleftrightarrow\qquad
+d(F_n,F)\to0.
+\]</span></p>
+<div id="rightarrow-suppose-f_nrightarrow-f" class="section level5 hasAnchor">
+<h5><span class="math inline">\((\Rightarrow)\)</span> Suppose <span class="math inline">\(F_n\Rightarrow F\)</span><a href="chap-8-convergence-in-distribution.html#rightarrow-suppose-f_nrightarrow-f" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<p>We want to prove</p>
+<p><span class="math display">\[
+d(F_n,F)\to0.
+\]</span></p>
+<p>Fix</p>
+<p><span class="math display">\[
+0&lt;\varepsilon&lt;1.
+\]</span></p>
+<p>We need to show that, for all sufficiently large <span class="math inline">\(n\)</span>,</p>
+<p><span class="math display">\[
+F(x-\varepsilon)-\varepsilon
+\leq
+F_n(x)
+\leq
+F(x+\varepsilon)+\varepsilon
+\tag{4}
+\]</span></p>
+<p>for <strong>all</strong> <span class="math inline">\(x\in\mathbb R\)</span> simultaneously.</p>
+<p>The difficulty is that weak convergence only gives</p>
+<p><span class="math display">\[
+F_n(x)\to F(x)
+\]</span></p>
+<p>at individual continuity points of <span class="math inline">\(F\)</span>. Therefore we need to turn the
+pointwise information into a finite collection of conditions.</p>
+<p>First choose continuity points</p>
+<p><span class="math display">\[
+A&lt;B
+\]</span></p>
+<p>of <span class="math inline">\(F\)</span> such that</p>
+<p><span class="math display">\[
+F(A)&lt;\frac{\varepsilon}{4},
+\qquad
+F(B)&gt;1-\frac{\varepsilon}{4}.
+\]</span></p>
+<p>This is possible because</p>
+<p><span class="math display">\[
+F(x)\to0
+\qquad (x\to-\infty),
+\]</span></p>
+<p>and</p>
+<p><span class="math display">\[
+F(x)\to1
+\qquad (x\to+\infty),
+\]</span></p>
+<p>while the set of discontinuities of a distribution function is at most
+countable.</p>
+<p>Inside the compact interval <span class="math inline">\([A,B]\)</span>, choose finitely many continuity points</p>
+<p><span class="math display">\[
+A=x_0&lt;x_1&lt;\cdots&lt;x_m=B
+\]</span></p>
+<p>such that</p>
+<p><span class="math display">\[
+x_{j+1}-x_j&lt;\frac{\varepsilon}{2}
+\qquad
+(j=0,\ldots,m-1).
+\]</span></p>
+<p>Since</p>
+<p><span class="math display">\[
+F_n(x_j)\to F(x_j)
+\]</span></p>
+<p>for every <span class="math inline">\(j\)</span>, and there are only finitely many <span class="math inline">\(x_j\)</span>’s, there exists one
+common <span class="math inline">\(N\)</span> such that, whenever <span class="math inline">\(n\geq N\)</span>,</p>
+<p><span class="math display">\[
+|F_n(x_j)-F(x_j)|
+&lt;
+\frac{\varepsilon}{4}
+\qquad
+(j=0,\ldots,m).
+\tag{5}
+\]</span></p>
+<p>We now verify (4) in three regions.</p>
+</div>
+<div id="middle-region-aleq-xleq-b" class="section level5 hasAnchor">
+<h5>Middle region: <span class="math inline">\(A\leq x\leq B\)</span><a href="chap-8-convergence-in-distribution.html#middle-region-aleq-xleq-b" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<p>Choose <span class="math inline">\(j\)</span> such that</p>
+<p><span class="math display">\[
+x_j\leq x\leq x_{j+1}.
+\]</span></p>
+<p>Since <span class="math inline">\(F_n\)</span> is non-decreasing,</p>
+<p><span class="math display">\[
+F_n(x_j)
+\leq
+F_n(x)
+\leq
+F_n(x_{j+1}).
+\]</span></p>
+<p>For the lower bound, by (5),</p>
+<p><span class="math display">\[
+F_n(x)
+\geq
+F_n(x_j)
+&gt;
+F(x_j)-\frac{\varepsilon}{4}.
+\]</span></p>
+<p>Since</p>
+<p><span class="math display">\[
+x-x_j&lt;\frac{\varepsilon}{2}&lt;\varepsilon,
+\]</span></p>
+<p>we have</p>
+<p><span class="math display">\[
+x-\varepsilon&lt;x_j.
+\]</span></p>
+<p>Hence, by monotonicity of <span class="math inline">\(F\)</span>,</p>
+<p><span class="math display">\[
+F(x-\varepsilon)
+\leq
+F(x_j).
+\]</span></p>
+<p>Therefore,</p>
+<p><span class="math display">\[
+\begin{aligned}
+F_n(x)
+&amp;&gt;
+F(x_j)-\frac{\varepsilon}{4}\\
+&amp;\geq
+F(x-\varepsilon)-\frac{\varepsilon}{4}\\
+&amp;\geq
+F(x-\varepsilon)-\varepsilon.
+\end{aligned}
+\]</span></p>
+<p>For the upper bound, again by (5),</p>
+<p><span class="math display">\[
+F_n(x)
+\leq
+F_n(x_{j+1})
+&lt;
+F(x_{j+1})+\frac{\varepsilon}{4}.
+\]</span></p>
+<p>Since</p>
+<p><span class="math display">\[
+x_{j+1}-x&lt;\frac{\varepsilon}{2}&lt;\varepsilon,
+\]</span></p>
+<p>we have</p>
+<p><span class="math display">\[
+x_{j+1}&lt;x+\varepsilon.
+\]</span></p>
+<p>Thus</p>
+<p><span class="math display">\[
+F(x_{j+1})
+\leq
+F(x+\varepsilon).
+\]</span></p>
+<p>Hence</p>
+<p><span class="math display">\[
+\begin{aligned}
+F_n(x)
+&amp;&lt;
+F(x_{j+1})+\frac{\varepsilon}{4}\\
+&amp;\leq
+F(x+\varepsilon)+\frac{\varepsilon}{4}\\
+&amp;\leq
+F(x+\varepsilon)+\varepsilon.
+\end{aligned}
+\]</span></p>
+<p>Therefore (4) holds for every <span class="math inline">\(x\in[A,B]\)</span>.</p>
+</div>
+<div id="left-tail-xa" class="section level5 hasAnchor">
+<h5>Left tail: <span class="math inline">\(x&lt;A\)</span><a href="chap-8-convergence-in-distribution.html#left-tail-xa" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<p>For the lower bound,</p>
+<p><span class="math display">\[
+F(x-\varepsilon)-\varepsilon
+\leq
+F(A)-\varepsilon
+&lt;
+0
+\leq
+F_n(x).
+\]</span></p>
+<p>For the upper bound,</p>
+<p><span class="math display">\[
+F_n(x)
+\leq
+F_n(A).
+\]</span></p>
+<p>By (5),</p>
+<p><span class="math display">\[
+F_n(A)
+&lt;
+F(A)+\frac{\varepsilon}{4}
+&lt;
+\frac{\varepsilon}{2}.
+\]</span></p>
+<p>Since</p>
+<p><span class="math display">\[
+F(x+\varepsilon)\geq0,
+\]</span></p>
+<p>we get</p>
+<p><span class="math display">\[
+F_n(x)
+&lt;
+\frac{\varepsilon}{2}
+\leq
+F(x+\varepsilon)+\varepsilon.
+\]</span></p>
+<p>Thus (4) also holds for <span class="math inline">\(x&lt;A\)</span>.</p>
+</div>
+<div id="right-tail-xb" class="section level5 hasAnchor">
+<h5>Right tail: <span class="math inline">\(x&gt;B\)</span><a href="chap-8-convergence-in-distribution.html#right-tail-xb" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<p>For the upper bound,</p>
+<p><span class="math display">\[
+F_n(x)\leq1.
+\]</span></p>
+<p>Since</p>
+<p><span class="math display">\[
+F(x+\varepsilon)
+\geq
+F(B)
+&gt;
+1-\frac{\varepsilon}{4},
+\]</span></p>
+<p>we certainly have</p>
+<p><span class="math display">\[
+F_n(x)
+\leq
+F(x+\varepsilon)+\varepsilon.
+\]</span></p>
+<p>For the lower bound,</p>
+<p><span class="math display">\[
+F_n(x)
+\geq
+F_n(B).
+\]</span></p>
+<p>By (5),</p>
+<p><span class="math display">\[
+F_n(B)
+&gt;
+F(B)-\frac{\varepsilon}{4}
+&gt;
+1-\frac{\varepsilon}{2}.
+\]</span></p>
+<p>On the other hand,</p>
+<p><span class="math display">\[
+F(x-\varepsilon)-\varepsilon
+\leq
+1-\varepsilon
+&lt;
+1-\frac{\varepsilon}{2}.
+\]</span></p>
+<p>Therefore,</p>
+<p><span class="math display">\[
+F(x-\varepsilon)-\varepsilon
+&lt;
+F_n(x).
+\]</span></p>
+<p>Thus (4) holds also for <span class="math inline">\(x&gt;B\)</span>.</p>
+<p>We have therefore shown that, for all <span class="math inline">\(n\geq N\)</span>,</p>
+<p><span class="math display">\[
+F(x-\varepsilon)-\varepsilon
+\leq
+F_n(x)
+\leq
+F(x+\varepsilon)+\varepsilon
+\qquad
+\forall x\in\mathbb R.
+\]</span></p>
+<p>Hence <span class="math inline">\(\varepsilon\)</span> is admissible for <span class="math inline">\(d(F_n,F)\)</span>, so</p>
+<p><span class="math display">\[
+d(F_n,F)\leq\varepsilon.
+\]</span></p>
+<p>Since <span class="math inline">\(\varepsilon&gt;0\)</span> is arbitrary,</p>
+<p><span class="math display">\[
+\boxed{
+d(F_n,F)\to0.
+}
+\]</span></p>
+</div>
+<div id="leftarrow-suppose-df_nfto0" class="section level5 hasAnchor">
+<h5><span class="math inline">\((\Leftarrow)\)</span> Suppose <span class="math inline">\(d(F_n,F)\to0\)</span><a href="chap-8-convergence-in-distribution.html#leftarrow-suppose-df_nfto0" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<p>For each <span class="math inline">\(n\)</span>, choose an admissible <span class="math inline">\(\delta_n\)</span> such that</p>
+<p><span class="math display">\[
+\delta_n
+&lt;
+d(F_n,F)+\frac1n.
+\]</span></p>
+<p>Then</p>
+<p><span class="math display">\[
+\delta_n\to0.
+\]</span></p>
+<p>Since <span class="math inline">\(\delta_n\)</span> is admissible,</p>
+<p><span class="math display">\[
+F(x-\delta_n)-\delta_n
+\leq
+F_n(x)
+\leq
+F(x+\delta_n)+\delta_n
+\qquad
+\forall x\in\mathbb R.
+\tag{6}
+\]</span></p>
+<p>Now fix</p>
+<p><span class="math display">\[
+x\in C(F),
+\]</span></p>
+<p>where <span class="math inline">\(C(F)\)</span> denotes the set of continuity points of <span class="math inline">\(F\)</span>.</p>
+<p>Since</p>
+<p><span class="math display">\[
+\delta_n\to0
+\]</span></p>
+<p>and <span class="math inline">\(F\)</span> is continuous at <span class="math inline">\(x\)</span>,</p>
+<p><span class="math display">\[
+F(x-\delta_n)\to F(x)
+\]</span></p>
+<p>and</p>
+<p><span class="math display">\[
+F(x+\delta_n)\to F(x).
+\]</span></p>
+<p>Therefore the lower and upper bounds in (6) both converge to <span class="math inline">\(F(x)\)</span>.</p>
+<p>By squeezing,</p>
+<p><span class="math display">\[
+F_n(x)\to F(x).
+\]</span></p>
+<p>Thus</p>
+<p><span class="math display">\[
+F_n(x)\to F(x)
+\qquad
+\forall x\in C(F),
+\]</span></p>
+<p>which is exactly</p>
+<p><span class="math display">\[
+\boxed{
+F_n\Rightarrow F.
+}
+\]</span></p>
+<p>Therefore,</p>
+<p><span class="math display">\[
+\boxed{
+F_n\Rightarrow F
+\qquad\Longleftrightarrow\qquad
+d(F_n,F)\to0.
+}
+\]</span></p>
+<p>Hence the Lévy metric metrizes weak convergence.</p>
+<p><span class="math inline">\(\textbf{Note:}\)</span></p>
+<p>The main difficulty in the direction</p>
+<p><span class="math display">\[
+F_n\Rightarrow F
+\quad\Longrightarrow\quad
+d(F_n,F)\to0
+\]</span></p>
+<p>is the difference between a pointwise statement and the requirement in the
+definition of the Lévy metric.</p>
+<p>Weak convergence gives</p>
+<p><span class="math display">\[
+F_n(x)\to F(x)
+\]</span></p>
+<p>only for each fixed <span class="math inline">\(x\in C(F)\)</span>, whereas the Lévy metric requires one
+<span class="math inline">\(\varepsilon\)</span>-inequality that holds for</p>
+<p><span class="math display">\[
+\forall x\in\mathbb R
+\]</span></p>
+<p>simultaneously.</p>
+<p>Choosing <span class="math inline">\(x_L,x_R\)</span> separately for each <span class="math inline">\(x\)</span> therefore gives an
+<span class="math inline">\(N=N(x,\varepsilon)\)</span>, which is not enough.</p>
+<p>The repair is to choose finitely many continuity points on a compact middle
+interval. Since there are only finitely many of them, one common <span class="math inline">\(N\)</span> works at
+all grid points. Monotonicity then fills the gaps between grid points, while
+the two tails are controlled by choosing <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> sufficiently far out.</p>
+<p>Thus the key bridge is</p>
+<p><span class="math display">\[
+\text{pointwise convergence at continuity points}
+\]</span></p>
+<p><span class="math display">\[
+\Downarrow
+\]</span></p>
+<p><span class="math display">\[
+\text{finite continuity grid}
+\]</span></p>
+<p><span class="math display">\[
+\Downarrow
+\]</span></p>
+<p><span class="math display">\[
+\text{one common }N
+\]</span></p>
+<p><span class="math display">\[
+\Downarrow
+\]</span></p>
+<p><span class="math display">\[
+\text{uniform Lévy inequalities for all }x.
+\]</span></p>
+</div>
+</div>
+</div>
+<div id="ex-35-2" class="section level3 hasAnchor">
+<h3>Ex 35<a href="chap-8-convergence-in-distribution.html#ex-35-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="problem">
+<p>Suppose <span class="math inline">\(\{F_n,n\geq 0\}\)</span> are probability distributions such that</p>
+<p><span class="math display">\[
+F_n\Rightarrow F_0.
+\]</span></p>
+<p>For <span class="math inline">\(t&gt;0\)</span>, let</p>
+<p><span class="math display">\[
+u_t(\cdot):\mathbb R\to\mathbb R
+\]</span></p>
+<p>be an equicontinuous family of functions that are uniformly bounded; that is,</p>
+<p><span class="math display">\[
+\sup_{t&gt;0,\ x\in\mathbb R}|u_t(x)|\leq M
+\]</span></p>
+<p>for some constant <span class="math inline">\(M\)</span>. Then show</p>
+<p><span class="math display">\[
+\lim_{n\to\infty}
+\int_{\mathbb R}u_t(x)F_n(dx)
+=
+\int_{\mathbb R}u_t(x)F_0(dx)
+\]</span></p>
+<p>uniformly in <span class="math inline">\(t\)</span>.</p>
+</div>
+<p><span class="math inline">\(\textbf{Answer:}\)</span></p>
+<p>What we want to show is</p>
+<p><span class="math display">\[
+\boxed{
+\sup_{t&gt;0}
+\left|
+\int_{\mathbb R}u_t(x)F_n(dx)
+-
+\int_{\mathbb R}u_t(x)F_0(dx)
+\right|
+\to0.
+}
+\]</span></p>
+<p>The idea is to first control the tails by uniform boundedness, and then use
+equicontinuity to reduce the compact middle part to finitely many interval
+probabilities.</p>
+<p>Fix <span class="math inline">\(\eta&gt;0\)</span>.</p>
+<div id="step-1-control-the-tails" class="section level4 hasAnchor">
+<h4>Step 1: Control the tails<a href="chap-8-convergence-in-distribution.html#step-1-control-the-tails" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Since</p>
+<p><span class="math display">\[
+F_n\Rightarrow F_0,
+\]</span></p>
+<p>choose <span class="math inline">\(K&gt;0\)</span> sufficiently large such that</p>
+<p><span class="math display">\[
+-K,K\in C(F_0)
+\]</span></p>
+<p>and</p>
+<p><span class="math display">\[
+F_0([-K,K])&gt;1-\eta.
+\]</span></p>
+<p>Since <span class="math inline">\([-K,K]\)</span> is a continuity set of <span class="math inline">\(F_0\)</span>,</p>
+<p><span class="math display">\[
+F_n([-K,K])
+\to
+F_0([-K,K]).
+\]</span></p>
+<p>Therefore, for all sufficiently large <span class="math inline">\(n\)</span>,</p>
+<p><span class="math display">\[
+F_n([-K,K])&gt;1-2\eta.
+\]</span></p>
+<p>Hence</p>
+<p><span class="math display">\[
+F_0(|x|&gt;K)&lt;\eta
+\]</span></p>
+<p>and eventually</p>
+<p><span class="math display">\[
+F_n(|x|&gt;K)&lt;2\eta.
+\]</span></p>
+<p>Since the family <span class="math inline">\(\{u_t\}\)</span> is uniformly bounded,</p>
+<p><span class="math display">\[
+|u_t(x)|\leq M
+\]</span></p>
+<p>for all <span class="math inline">\(t&gt;0\)</span> and <span class="math inline">\(x\in\mathbb R\)</span>.</p>
+<p>Thus, uniformly in <span class="math inline">\(t\)</span>,</p>
+<p><span class="math display">\[
+\begin{aligned}
+&amp;
+\left|
+\int_{|x|&gt;K}u_t(x)F_n(dx)
+-
+\int_{|x|&gt;K}u_t(x)F_0(dx)
+\right|\\
+&amp;\qquad\leq
+\left|
+\int_{|x|&gt;K}u_t(x)F_n(dx)
+\right|
++
+\left|
+\int_{|x|&gt;K}u_t(x)F_0(dx)
+\right|\\
+&amp;\qquad\leq
+M F_n(|x|&gt;K)
++
+M F_0(|x|&gt;K)\\
+&amp;\qquad&lt;
+3M\eta.
+\end{aligned}
+\tag{1}
+\]</span></p>
+<p>So the tail part has been controlled uniformly in <span class="math inline">\(t\)</span>.</p>
+</div>
+<div id="step-2-partition-the-compact-middle-part" class="section level4 hasAnchor">
+<h4>Step 2: Partition the compact middle part<a href="chap-8-convergence-in-distribution.html#step-2-partition-the-compact-middle-part" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Now consider the compact interval <span class="math inline">\([-K,K]\)</span>.</p>
+<p>Since the family <span class="math inline">\(\{u_t\}_{t&gt;0}\)</span> is equicontinuous, there exists
+<span class="math inline">\(\delta&gt;0\)</span>, independent of <span class="math inline">\(t\)</span>, such that</p>
+<p><span class="math display">\[
+|x-y|&lt;\delta
+\quad\Longrightarrow\quad
+|u_t(x)-u_t(y)|&lt;\eta
+\]</span></p>
+<p>for every <span class="math inline">\(t&gt;0\)</span>.</p>
+<p>The continuity set <span class="math inline">\(C(F_0)\)</span> is dense in <span class="math inline">\(\mathbb R\)</span>, since the set of
+discontinuities of a distribution function is at most countable.</p>
+<p>Therefore, we can choose a finite partition</p>
+<p><span class="math display">\[
+-K=x_0&lt;x_1&lt;\cdots&lt;x_m=K
+\]</span></p>
+<p>such that</p>
+<p><span class="math display">\[
+x_j\in C(F_0),
+\qquad j=0,\ldots,m,
+\]</span></p>
+<p>and</p>
+<p><span class="math display">\[
+x_j-x_{j-1}&lt;\delta,
+\qquad j=1,\ldots,m.
+\]</span></p>
+<p>Define</p>
+<p><span class="math display">\[
+I_j=(x_{j-1},x_j],
+\qquad j=1,\ldots,m.
+\]</span></p>
+<p>Then</p>
+<p><span class="math display">\[
+[-K,K]
+\]</span></p>
+<p>is partitioned by the finitely many intervals <span class="math inline">\(I_1,\ldots,I_m\)</span>, up to the
+single endpoint <span class="math inline">\(-K\)</span>, which causes no problem since <span class="math inline">\(-K\in C(F_0)\)</span>.</p>
+<p>For each <span class="math inline">\(I_j\)</span>, choose some</p>
+<p><span class="math display">\[
+\xi_j\in I_j.
+\]</span></p>
+<p>Since the diameter of <span class="math inline">\(I_j\)</span> is less than <span class="math inline">\(\delta\)</span>, for every <span class="math inline">\(x\in I_j\)</span>,</p>
+<p><span class="math display">\[
+|u_t(x)-u_t(\xi_j)|&lt;\eta
+\]</span></p>
+<p>uniformly in <span class="math inline">\(t\)</span>.</p>
+<p>Therefore,</p>
+<p><span class="math display">\[
+\begin{aligned}
+&amp;
+\left|
+\int_{I_j}u_t(x)F_n(dx)
+-
+u_t(\xi_j)F_n(I_j)
+\right|\\
+&amp;=
+\left|
+\int_{I_j}
+\left[u_t(x)-u_t(\xi_j)\right]F_n(dx)
+\right|\\
+&amp;\leq
+\eta F_n(I_j).
+\end{aligned}
+\]</span></p>
+<p>Summing over <span class="math inline">\(j\)</span>,</p>
+<p><span class="math display">\[
+\begin{aligned}
+&amp;
+\left|
+\int_{[-K,K]}u_t(x)F_n(dx)
+-
+\sum_{j=1}^m u_t(\xi_j)F_n(I_j)
+\right|\\
+&amp;\leq
+\eta\sum_{j=1}^mF_n(I_j)\\
+&amp;\leq
+\eta.
+\end{aligned}
+\tag{2}
+\]</span></p>
+<p>The same argument gives</p>
+<p><span class="math display">\[
+\left|
+\int_{[-K,K]}u_t(x)F_0(dx)
+-
+\sum_{j=1}^m u_t(\xi_j)F_0(I_j)
+\right|
+\leq
+\eta.
+\tag{3}
+\]</span></p>
+<p>Again, both bounds are independent of <span class="math inline">\(t\)</span>.</p>
+</div>
+<div id="step-3-compare-the-finite-approximations" class="section level4 hasAnchor">
+<h4>Step 3: Compare the finite approximations<a href="chap-8-convergence-in-distribution.html#step-3-compare-the-finite-approximations" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>We now consider</p>
+<p><span class="math display">\[
+\begin{aligned}
+&amp;
+\left|
+\sum_{j=1}^m
+u_t(\xi_j)F_n(I_j)
+-
+\sum_{j=1}^m
+u_t(\xi_j)F_0(I_j)
+\right|\\
+&amp;=
+\left|
+\sum_{j=1}^m
+u_t(\xi_j)
+\left[
+F_n(I_j)-F_0(I_j)
+\right]
+\right|.
+\end{aligned}
+\]</span></p>
+<p>By uniform boundedness,</p>
+<p><span class="math display">\[
+\begin{aligned}
+&amp;
+\left|
+\sum_{j=1}^m
+u_t(\xi_j)
+\left[
+F_n(I_j)-F_0(I_j)
+\right]
+\right|\\
+&amp;\leq
+M\sum_{j=1}^m
+\left|
+F_n(I_j)-F_0(I_j)
+\right|.
+\end{aligned}
+\tag{4}
+\]</span></p>
+<p>The endpoints of each <span class="math inline">\(I_j\)</span> lie in <span class="math inline">\(C(F_0)\)</span>, so every <span class="math inline">\(I_j\)</span> is a continuity
+set of <span class="math inline">\(F_0\)</span>. Hence, by weak convergence,</p>
+<p><span class="math display">\[
+F_n(I_j)\to F_0(I_j)
+\]</span></p>
+<p>for every <span class="math inline">\(j=1,\ldots,m\)</span>.</p>
+<p>There are only finitely many intervals. Therefore,</p>
+<p><span class="math display">\[
+\sum_{j=1}^m
+\left|
+F_n(I_j)-F_0(I_j)
+\right|
+\to0.
+\]</span></p>
+<p>Thus, for sufficiently large <span class="math inline">\(n\)</span>,</p>
+<p><span class="math display">\[
+M\sum_{j=1}^m
+\left|
+F_n(I_j)-F_0(I_j)
+\right|
+&lt;
+\eta.
+\tag{5}
+\]</span></p>
+<p>Importantly, the right-hand side of (4) does not depend on <span class="math inline">\(t\)</span>.</p>
+</div>
+<div id="step-4-combine-the-three-parts" class="section level4 hasAnchor">
+<h4>Step 4: Combine the three parts<a href="chap-8-convergence-in-distribution.html#step-4-combine-the-three-parts" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Using (1)–(5), for sufficiently large <span class="math inline">\(n\)</span>,</p>
+<p><span class="math display">\[
+\begin{aligned}
+&amp;
+\left|
+\int_{\mathbb R}u_t(x)F_n(dx)
+-
+\int_{\mathbb R}u_t(x)F_0(dx)
+\right|\\
+&amp;\leq
+\left|
+\int_{|x|&gt;K}u_t(x)F_n(dx)
+-
+\int_{|x|&gt;K}u_t(x)F_0(dx)
+\right|\\
+&amp;\quad+
+\left|
+\int_{[-K,K]}u_t(x)F_n(dx)
+-
+\sum_{j=1}^m u_t(\xi_j)F_n(I_j)
+\right|\\
+&amp;\quad+
+\left|
+\sum_{j=1}^m
+u_t(\xi_j)
+\left[
+F_n(I_j)-F_0(I_j)
+\right]
+\right|\\
+&amp;\quad+
+\left|
+\sum_{j=1}^m u_t(\xi_j)F_0(I_j)
+-
+\int_{[-K,K]}u_t(x)F_0(dx)
+\right|\\
+&amp;&lt;
+3M\eta+\eta+\eta+\eta\\
+&amp;=
+3M\eta+3\eta.
+\end{aligned}
+\]</span></p>
+<p>Every bound above is independent of <span class="math inline">\(t\)</span>. Therefore,</p>
+<p><span class="math display">\[
+\sup_{t&gt;0}
+\left|
+\int_{\mathbb R}u_t(x)F_n(dx)
+-
+\int_{\mathbb R}u_t(x)F_0(dx)
+\right|
+&lt;
+3M\eta+3\eta
+\]</span></p>
+<p>for all sufficiently large <span class="math inline">\(n\)</span>.</p>
+<p>Since <span class="math inline">\(\eta&gt;0\)</span> is arbitrary,</p>
+<p><span class="math display">\[
+\boxed{
+\sup_{t&gt;0}
+\left|
+\int_{\mathbb R}u_t(x)F_n(dx)
+-
+\int_{\mathbb R}u_t(x)F_0(dx)
+\right|
+\longrightarrow0.
+}
+\]</span></p>
+<p>Therefore,</p>
+<p><span class="math display">\[
+\boxed{
+\int_{\mathbb R}u_t(x)F_n(dx)
+\longrightarrow
+\int_{\mathbb R}u_t(x)F_0(dx)
+}
+\]</span></p>
+<p>uniformly in <span class="math inline">\(t\)</span>.</p>
+<p><span class="math inline">\(\textbf{Note:}\)</span></p>
+<p>Ordinary weak convergence tells us that for each fixed bounded continuous
+function <span class="math inline">\(u_t\)</span>,</p>
+<p><span class="math display">\[
+\int u_t\,dF_n
+\to
+\int u_t\,dF_0.
+\]</span></p>
+<p>The problem here is that <span class="math inline">\(t\)</span> ranges over an arbitrary, possibly uncountable,
+family, so pointwise convergence in <span class="math inline">\(t\)</span> is not enough.</p>
+<p>The two assumptions on <span class="math inline">\(\{u_t\}\)</span> play different roles.</p>
+<p>Uniform boundedness,</p>
+<p><span class="math display">\[
+\sup_{t,x}|u_t(x)|\leq M,
+\]</span></p>
+<p>allows us to make the contribution outside a large compact interval uniformly
+small.</p>
+<p>Equicontinuity allows us, on that compact interval, to replace every <span class="math inline">\(u_t\)</span> by
+its values at finitely many spatial points with an error that is uniform in
+<span class="math inline">\(t\)</span>.</p>
+<p>Thus the proof reduces the whole uncountable family to finitely many
+probability masses</p>
+<p><span class="math display">\[
+F_n(I_1),\ldots,F_n(I_m),
+\]</span></p>
+<p>and weak convergence handles these finitely many quantities simultaneously.</p>
+<p>The structure is therefore</p>
+<p><span class="math display">\[
+\text{weak convergence}
+\]</span></p>
+<p><span class="math display">\[
+\Downarrow
+\]</span></p>
+<p><span class="math display">\[
+\text{tightness / compact truncation}
+\]</span></p>
+<p><span class="math display">\[
+\Downarrow
+\]</span></p>
+<p><span class="math display">\[
+\text{equicontinuity gives a finite spatial approximation}
+\]</span></p>
+<p><span class="math display">\[
+\Downarrow
+\]</span></p>
+<p><span class="math display">\[
+\text{weak convergence on finitely many continuity intervals}
+\]</span></p>
+<p><span class="math display">\[
+\Downarrow
+\]</span></p>
+<p><span class="math display">\[
+\text{uniform convergence in }t.
+\]</span></p>
+<p>This is similar to the finite-grid argument in Ex 11: the main technical move
+is to turn an infinite uniform requirement into finitely many conditions for
+which one common <span class="math inline">\(N\)</span> can be chosen.</p>
+</div>
+</div>
+<div id="ex-15-4" class="section level3 hasAnchor">
+<h3>Ex 15<a href="chap-8-convergence-in-distribution.html#ex-15-4" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="problem">
+<p><strong>(Weissman)</strong> Suppose <span class="math inline">\(Y_n\)</span>, <span class="math inline">\(n\geq 1\)</span> are random variables such that there
+exist <span class="math inline">\(a_n&gt;0\)</span>, <span class="math inline">\(b_n\in\mathbb R\)</span> and
+<span class="math display">\[
+P[Y_n\leq a_nx+b_n]\longrightarrow G(x),
+\]</span>
+non-degenerate, and for each <span class="math inline">\(t&gt;0\)</span>
+<span class="math display">\[
+P[Y_{[nt]}\leq a_nx+b_n]\longrightarrow G_t(x),
+\]</span>
+non-degenerate. Then there exists <span class="math inline">\(\alpha(t)&gt;0\)</span>, <span class="math inline">\(\beta(t)\in\mathbb R\)</span> such
+that
+<span class="math display">\[
+G(x)=G_t(\alpha(t)x+\alpha(t))
+\]</span>
+and <span class="math inline">\(\alpha(t)=t^\theta\)</span>. If <span class="math inline">\(\theta=0\)</span>, then
+<span class="math display">\[
+\beta(t)=c\log t,
+\]</span>
+and if <span class="math inline">\(\theta\neq0\)</span>, then
+<span class="math display">\[
+\beta(t)=c(1-t^\theta).
+\]</span></p>
+</div>
+<p><span class="math inline">\(\textbf{Answer:}\)</span>
+<span class="math inline">\(\textbf{Typo in the exercise statement:}\)</span>
+The book introduces both <span class="math inline">\(\alpha(t)\)</span> and <span class="math inline">\(\beta(t)\)</span>, but the displayed type
+relation is printed as
+<span class="math display">\[
+G(x)=G_t(\alpha(t)x+\alpha(t)).
+\]</span>
+The second <span class="math inline">\(\alpha(t)\)</span> should be <span class="math inline">\(\beta(t)\)</span>. We therefore prove
+<span class="math display">\[
+\boxed{
+G(x)=G_t(\alpha(t)x+\beta(t)).
+}
+\]</span></p>
+<ul>
+<li>Step 1: Put the normalizations into the affine group
+Let <span class="math inline">\(H\)</span> be the group of positive affine transformations
+<span class="math display">\[
+H
+=
+\left\{
+h:x\mapsto ax+b:
+a&gt;0,\ b\in\mathbb R
+\right\},
+\]</span>
+with group operation given by composition.
+Let <span class="math inline">\(e\)</span> denote the identity transformation,
+<span class="math display">\[
+e(x)=x.
+\]</span>
+For each <span class="math inline">\(n\)</span>, define
+<span class="math display">\[
+h_n(x)
+=
+\frac{x-b_n}{a_n}.
+\]</span>
+Then the first assumption can be written as
+<span class="math display">\[
+h_n(Y_n)\Rightarrow Z,
+\]</span>
+where <span class="math inline">\(Z\)</span> has the non-degenerate distribution function <span class="math inline">\(G\)</span>.
+For fixed <span class="math inline">\(t&gt;0\)</span>, since <span class="math inline">\([nt]\to\infty\)</span>,
+<span class="math display">\[
+h_{[nt]}(Y_{[nt]})
+\Rightarrow Z,
+\]</span>
+while the second assumption gives
+<span class="math display">\[
+h_n(Y_{[nt]})
+\Rightarrow Z_t,
+\]</span>
+where <span class="math inline">\(Z_t\)</span> has the non-degenerate distribution function <span class="math inline">\(G_t\)</span>.
+Define
+<span class="math display">\[
+\gamma_n(t)
+:=
+h_nh_{[nt]}^{-1}.
+\]</span>
+Then
+<span class="math display">\[
+h_n(Y_{[nt]})
+=
+\gamma_n(t)
+\left(
+h_{[nt]}(Y_{[nt]})
+\right).
+\]</span>
+Both limiting distributions are non-degenerate. Therefore, by the convergence
+to types theorem, for every fixed <span class="math inline">\(t&gt;0\)</span> there exists
+<span class="math display">\[
+\gamma(t)\in H
+\]</span>
+such that
+<span class="math display">\[
+\boxed{
+\gamma_n(t)\longrightarrow\gamma(t).
+}
+\tag{1}
+\]</span>
+Write
+<span class="math display">\[
+\gamma(t)(x)
+=
+\alpha(t)x+\beta(t),
+\qquad
+\alpha(t)&gt;0.
+\]</span>
+Since
+<span class="math display">\[
+h_{[nt]}^{-1}(x)
+=
+a_{[nt]}x+b_{[nt]},
+\]</span>
+we have</li>
+</ul>
+<p><span class="math display">\[
+\begin{aligned}
+\gamma_n(t)(x)
+&amp;=
+h_nh_{[nt]}^{-1}(x)\\
+&amp;=
+\frac{a_{[nt]}}{a_n}x
++
+\frac{b_{[nt]}-b_n}{a_n}.
+\end{aligned}
+\]</span></p>
+<p>Hence
+<span class="math display">\[
+\frac{a_{[nt]}}{a_n}
+\longrightarrow
+\alpha(t)
+\]</span>
+and
+<span class="math display">\[
+\frac{b_{[nt]}-b_n}{a_n}
+\longrightarrow
+\beta(t).
+\]</span>
+Also,
+<span class="math display">\[
+Z_t
+\overset{d}{=}
+\gamma(t)Z
+=
+\alpha(t)Z+\beta(t).
+\]</span>
+Therefore,
+<span class="math display">\[
+\begin{aligned}
+G_t(\alpha(t)x+\beta(t))
+&amp;=
+P\left(
+\alpha(t)Z+\beta(t)
+\leq
+\alpha(t)x+\beta(t)
+\right)\\
+&amp;=
+P(Z\leq x)\\
+&amp;=
+G(x).
+\end{aligned}
+\]</span>
+Thus
+<span class="math display">\[
+\boxed{
+G(x)
+=
+G_t(\alpha(t)x+\beta(t)).
+}
+\tag{2}
+\]</span>
+As in the proof on p. 280, <span class="math inline">\(\alpha(\cdot)\)</span> and <span class="math inline">\(\beta(\cdot)\)</span> are Lebesgue
+measurable, since they are pointwise limits of measurable step functions of
+<span class="math inline">\(t\)</span>.</p>
+<ul>
+<li><p>Step 2: In this exercise, <span class="math inline">\(T=(0,\infty)\)</span> immediately
+Following Weissman, define
+<span class="math display">\[
+T
+:=
+\left\{
+t&gt;0:
+\gamma_n(t)
+\text{ converges to an element of }H
+\right\}.
+\]</span>
+In the original argument, establishing the size of <span class="math inline">\(T\)</span> is one of the technical
+parts of the proof.
+However, in this exercise, <span class="math inline">\(G_t\)</span> is assumed to be non-degenerate for every
+<span class="math inline">\(t&gt;0\)</span>.
+Therefore the convergence to types argument in Step 1 applies to every
+<span class="math inline">\(t&gt;0\)</span>, and hence
+<span class="math display">\[
+\boxed{
+T=(0,\infty).
+}
+\tag{3}
+\]</span>
+In particular, for every <span class="math inline">\(t&gt;0\)</span>,
+<span class="math display">\[
+t,\ t^{-1}\in T.
+\]</span></p></li>
+<li><p>Step 3: Prove that neighboring normalizations are asymptotically equivalent
+For fixed <span class="math inline">\(t&gt;0\)</span>, define
+<span class="math display">\[
+\delta_n(t)
+:=
+h_n
+h_{\left[
+\frac{[nt]}{t}
+\right]}^{-1}.
+\]</span>
+We can factor this as
+<span class="math display">\[
+\begin{aligned}
+\delta_n(t)
+&amp;=
+h_nh_{[nt]}^{-1}
+\,
+h_{[nt]}
+h_{\left[
+\frac{[nt]}t
+\right]}^{-1}\\
+&amp;=
+\gamma_n(t)
+\gamma_{[nt]}(t^{-1}).
+\end{aligned}
+\]</span>
+By (3),
+<span class="math display">\[
+\gamma_n(t)\to\gamma(t)
+\]</span>
+and, since <span class="math inline">\([nt]\to\infty\)</span>,
+<span class="math display">\[
+\gamma_{[nt]}(t^{-1})
+\to
+\gamma(t^{-1}).
+\]</span>
+Therefore
+<span class="math display">\[
+\boxed{
+\delta_n(t)
+\longrightarrow
+\gamma(t)\gamma(t^{-1}).
+}
+\tag{4}
+\]</span>
+Now take
+<span class="math display">\[
+t=\frac12.
+\]</span>
+Then
+<span class="math display">\[
+\delta_n(1/2)
+=
+h_n
+h_{\left[2[n/2]\right]}^{-1}.
+\]</span>
+If <span class="math inline">\(n=2m\)</span> is even,
+<span class="math display">\[
+2[n/2]=2m=n,
+\]</span>
+so</p></li>
+</ul>
+<p><span class="math display">\[
+\delta_{2m}(1/2)
+=
+h_{2m}h_{2m}^{-1}
+=
+e.
+\]</span>
+Thus <span class="math inline">\(e\)</span> is a limit point of the sequence <span class="math inline">\(\{\delta_n(1/2)\}\)</span>.
+But by (4), the whole sequence <span class="math inline">\(\delta_n(1/2)\)</span> already converges. Therefore
+its limit must equal the limit of the even subsequence, namely <span class="math inline">\(e\)</span>:
+<span class="math display">\[
+\boxed{
+\delta_n(1/2)\to e.
+}
+\tag{5}
+\]</span>
+Equivalently,
+<span class="math display">\[
+\gamma(1/2)\gamma(2)=e.
+\]</span>
+Now suppose <span class="math inline">\(n=2m+1\)</span> is odd. Then
+<span class="math display">\[
+2[n/2]=2m=n-1,
+\]</span>
+and therefore
+<span class="math display">\[
+\delta_n(1/2)
+=
+h_nh_{n-1}^{-1}.
+\]</span>
+Using (5),
+<span class="math display">\[
+\boxed{
+h_nh_{n-1}^{-1}\to e.
+}
+\tag{6}
+\]</span>
+By taking finite products, for every fixed integer <span class="math inline">\(g\)</span>,
+<span class="math display">\[
+\boxed{
+h_nh_{n+g}^{-1}\to e.
+}
+\tag{7}
+\]</span>
+This is the key fact which allows us to ignore bounded errors created by the
+integer-part operation.</p>
+<ul>
+<li><p>Step 4: Prove that <span class="math inline">\(\gamma\)</span> is a homomorphism
+Fix <span class="math inline">\(s,t&gt;0\)</span>.
+We have
+<span class="math display">\[
+\gamma_n(ts)
+=
+h_nh_{[nts]}^{-1}.
+\]</span>
+Insert the intermediate normalizations <span class="math inline">\(h_{[nt]}\)</span> and
+<span class="math inline">\(h_{[[nt]s]}\)</span>:
+<span class="math display">\[
+\begin{aligned}
+\gamma_n(ts)
+&amp;=
+h_nh_{[nt]}^{-1}
+\,
+h_{[nt]}h_{[[nt]s]}^{-1}
+\,
+h_{[[nt]s]}h_{[nts]}^{-1}\\
+&amp;=
+\gamma_n(t)
+\gamma_{[nt]}(s)
+R_n,
+\end{aligned}
+\tag{8}
+\]</span>
+where
+<span class="math display">\[
+R_n
+:=
+h_{[[nt]s]}h_{[nts]}^{-1}.
+\]</span>
+For the first two terms,
+<span class="math display">\[
+\gamma_n(t)\to\gamma(t)
+\]</span>
+and, since <span class="math inline">\([nt]\to\infty\)</span>,
+<span class="math display">\[
+\gamma_{[nt]}(s)\to\gamma(s).
+\]</span>
+It remains to show
+<span class="math display">\[
+R_n\to e.
+\]</span>
+Since
+<span class="math display">\[
+[nt]\leq nt&lt;[nt]+1,
+\]</span>
+multiplying by <span class="math inline">\(s&gt;0\)</span> gives
+<span class="math display">\[
+[nt]s
+\leq
+nts
+&lt;
+[nt]s+s.
+\]</span>
+Therefore
+<span class="math display">\[
+0
+\leq
+[nts]-[[nt]s]
+\leq
+\lceil s\rceil.
+\]</span>
+Thus the difference between the two indices is bounded by a fixed integer
+independent of <span class="math inline">\(n\)</span>.
+By (7),
+<span class="math display">\[
+\boxed{
+R_n
+=
+h_{[[nt]s]}h_{[nts]}^{-1}
+\longrightarrow e.
+}
+\]</span>
+Taking limits in (8),
+<span class="math display">\[
+\boxed{
+\gamma(ts)
+=
+\gamma(t)\gamma(s).
+}
+\tag{9}
+\]</span>
+Thus
+<span class="math display">\[
+\gamma:(0,\infty)\to H
+\]</span>
+is a group homomorphism.
+Since
+<span class="math display">\[
+ts=st,
+\]</span>
+we also have
+<span class="math display">\[
+\gamma(t)\gamma(s)
+=
+\gamma(s)\gamma(t).
+\]</span>
+Thus the image of <span class="math inline">\(\gamma\)</span> is a commutative subgroup of <span class="math inline">\(H\)</span>.</p></li>
+<li><p>Step 5: Obtain the functional equations for <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span>
+Recall
+<span class="math display">\[
+\gamma(t)(x)
+=
+\alpha(t)x+\beta(t).
+\]</span>
+By (9),
+<span class="math display">\[
+\gamma(ts)
+=
+\gamma(t)\gamma(s).
+\]</span>
+The right-hand side is</p></li>
+</ul>
+<p><span class="math display">\[
+\begin{aligned}
+\gamma(t)(\gamma(s)(x))
+&amp;=
+\alpha(t)
+\left[
+\alpha(s)x+\beta(s)
+\right]
++
+\beta(t)\\
+&amp;=
+\alpha(t)\alpha(s)x
++
+\alpha(t)\beta(s)
++
+\beta(t).
+\end{aligned}
+\]</span>
+Comparing this with</p>
+<p><span class="math display">\[
+\gamma(ts)(x)
+=
+\alpha(ts)x+\beta(ts),
+\]</span>
+we obtain</p>
+<p><span class="math display">\[
+\boxed{
+\alpha(ts)
+=
+\alpha(t)\alpha(s)
+}
+\tag{10}
+\]</span>
+and</p>
+<p><span class="math display">\[
+\boxed{
+\beta(ts)
+=
+\alpha(t)\beta(s)+\beta(t).
+}
+\tag{11}
+\]</span>
+Since <span class="math inline">\(ts=st\)</span>,
+<span class="math display">\[
+\boxed{
+\beta(ts)
+=
+\alpha(s)\beta(t)+\beta(s).
+}
+\tag{12}
+\]</span>
+These are exactly the functional equations used on p. 281.</p>
+<ul>
+<li>Step 6: Solve the functional equations
+Since <span class="math inline">\(\alpha\)</span> is positive, measurable, and satisfies
+<span class="math display">\[
+\alpha(ts)
+=
+\alpha(t)\alpha(s),
+\]</span>
+the measurable Hamel equation gives
+<span class="math display">\[
+\boxed{
+\alpha(t)=t^\theta
+}
+\]</span>
+for some <span class="math inline">\(\theta\in\mathbb R\)</span>.
+We now consider two cases.</li>
+</ul>
+<div id="case-1-theta0" class="section level5 hasAnchor">
+<h5>Case 1: <span class="math inline">\(\theta=0\)</span><a href="chap-8-convergence-in-distribution.html#case-1-theta0" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<p>Then
+<span class="math display">\[
+\alpha(t)\equiv1.
+\]</span>
+Equation (11) becomes
+<span class="math display">\[
+\beta(ts)
+=
+\beta(t)+\beta(s).
+\]</span>
+Define
+<span class="math display">\[
+q(x)
+:=
+\beta(e^x).
+\]</span>
+Then
+<span class="math display">\[
+q(x+y)
+=
+q(x)+q(y).
+\]</span>
+Since <span class="math inline">\(q\)</span> is measurable, the measurable Cauchy equation gives
+<span class="math display">\[
+q(x)=cx
+\]</span>
+for some <span class="math inline">\(c\in\mathbb R\)</span>.
+Therefore
+<span class="math display">\[
+\boxed{
+\beta(t)=c\log t.
+}
+\]</span></p>
+</div>
+<div id="case-2-thetaneq0" class="section level5 hasAnchor">
+<h5>Case 2: <span class="math inline">\(\theta\neq0\)</span><a href="chap-8-convergence-in-distribution.html#case-2-thetaneq0" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<p>Since
+<span class="math display">\[
+\alpha(t)=t^\theta,
+\]</span>
+equations (11) and (12) give
+<span class="math display">\[
+\alpha(t)\beta(s)+\beta(t)
+=
+\alpha(s)\beta(t)+\beta(s).
+\]</span>
+Thus
+<span class="math display">\[
+\beta(t)(1-\alpha(s))
+=
+\beta(s)(1-\alpha(t)).
+\]</span>
+Choose some <span class="math inline">\(s_0\neq1\)</span>. Since <span class="math inline">\(\theta\neq0\)</span>,
+<span class="math display">\[
+\alpha(s_0)=s_0^\theta\neq1.
+\]</span>
+Therefore
+<span class="math display">\[
+\beta(t)
+=
+\frac{\beta(s_0)}
+{1-\alpha(s_0)}
+\left(
+1-\alpha(t)
+\right).
+\]</span>
+Writing
+<span class="math display">\[
+c
+:=
+\frac{\beta(s_0)}
+{1-\alpha(s_0)},
+\]</span>
+we obtain
+<span class="math display">\[
+\boxed{
+\beta(t)
+=
+c(1-t^\theta).
+}
+\]</span>
+Therefore
+<span class="math display">\[
+\boxed{
+\alpha(t)=t^\theta,
+}
+\]</span>
+and
+<span class="math display">\[
+\boxed{
+\beta(t)
+=
+\begin{cases}
+c\log t, &amp; \theta=0,\\[1mm]
+c(1-t^\theta), &amp; \theta\neq0.
+\end{cases}
+}
+\]</span>
+Together with (2),
+<span class="math display">\[
+\boxed{
+G(x)
+=
+G_t(\alpha(t)x+\beta(t)).
+}
+\]</span>
+This proves the result.</p>
+<p><span class="math inline">\(\textbf{Note:}\)</span>
+This exercise is a special case of Weissman’s result.
+In the original paper, Weissman does not assume that every limiting
+distribution <span class="math inline">\(G_t\)</span> (or, in his notation, every <span class="math inline">\(Z_t\)</span>) is non-degenerate.
+In our exercise, however, non-degeneracy of <span class="math inline">\(G_t\)</span> is assumed for every
+<span class="math inline">\(t&gt;0\)</span>.
+Because of this stronger assumption, convergence to types immediately gives
+<span class="math display">\[
+T=(0,\infty),
+\]</span>
+whereas Weissman’s original proof needs additional facts to establish which
+<span class="math inline">\(t\)</span> belong to <span class="math inline">\(T\)</span>.
+If we try to solve this problem only by separately tracking the scale and
+location terms, the error produced by
+<span class="math display">\[
+[[nt]s]
+\qquad\text{and}\qquad
+[nts]
+\]</span>
+is difficult to organize.
+Weissman’s useful idea is to package the scale and location normalizations
+together into the positive affine group <span class="math inline">\(H\)</span>:
+<span class="math display">\[
+\gamma_n(t)
+=
+h_nh_{[nt]}^{-1}.
+\]</span>
+Then the floor error is itself represented by a group element,
+<span class="math display">\[
+h_{[[nt]s]}h_{[nts]}^{-1},
+\]</span>
+and the statement
+<span class="math display">\[
+h_nh_{n+g}^{-1}\to e
+\]</span>
+for bounded integer shifts <span class="math inline">\(g\)</span> makes this error disappear asymptotically.
+Thus the abstraction is not only notation. It packages two coupled
+normalization errors into one object for which composition and inversion are
+natural.
+It is a fantastic experience that an exercise in the book may require us to
+read the original paper in order to understand the method properly.
+It also reminds us that we should not have the fantasy that all exercises in
+an advanced book must be solvable using only the knowledge explicitly
+developed in that book. Some exercises may come from deeper results or
+original papers, and part of studying them is learning when additional
+mathematical machinery is genuinely needed.</p>
 
+</div>
 </div>
 </div>
 </div>

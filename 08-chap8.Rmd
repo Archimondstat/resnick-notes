@@ -8952,3 +8952,2060 @@ The reason is that the $+1$ and $-1$ oscillations of $h_n$ occur on smaller and
 smaller dyadic intervals. Uniform continuity makes $g$ almost constant across
 each neighboring pair, so the two contributions cancel asymptotically.
 
+### Ex 11
+::: problem
+
+**Lévy metric.** For two probability distributions $F,G$, define
+
+$$
+d(F,G)
+:=
+\inf\left\{
+\delta>0:
+\forall x\in\mathbb R,\ 
+F(x-\delta)-\delta
+\leq G(x)
+\leq F(x+\delta)+\delta
+\right\}.
+$$
+
+Show this is a metric on the space of probability distribution functions
+which metrizes weak convergence; that is,
+
+$$
+F_n\Rightarrow F_0
+\qquad\Longleftrightarrow\qquad
+d(F_n,F_0)\to0.
+$$
+
+:::
+
+$\textbf{Answer:}$
+
+For convenience, define the set of admissible values
+
+$$
+D(F,G)
+:=
+\left\{
+\delta>0:
+\forall x\in\mathbb R,\ 
+F(x-\delta)-\delta
+\leq G(x)
+\leq F(x+\delta)+\delta
+\right\}.
+$$
+
+Then
+
+$$
+d(F,G)=\inf D(F,G).
+$$
+
+Notice first that $D(F,G)$ is non-empty. For example, every $\delta>1$ is
+admissible, since all distribution functions take values in $[0,1]$.
+Therefore $d(F,G)$ is well-defined and non-negative.
+
+#### Part 1: $d$ is a metric
+
+##### (i) Symmetry
+
+Let
+
+$$
+\delta\in D(F,G).
+$$
+
+Then, for every $x\in\mathbb R$,
+
+$$
+F(x-\delta)-\delta
+\leq
+G(x)
+\leq
+F(x+\delta)+\delta.
+\tag{1}
+$$
+
+We want to show that the same $\delta$ is also admissible for $d(G,F)$.
+
+From the upper inequality in (1), replace $x$ by $x-\delta$:
+
+$$
+G(x-\delta)
+\leq
+F(x)+\delta.
+$$
+
+Hence
+
+$$
+G(x-\delta)-\delta
+\leq
+F(x).
+$$
+
+From the lower inequality in (1), replace $x$ by $x+\delta$:
+
+$$
+F(x)-\delta
+\leq
+G(x+\delta).
+$$
+
+Therefore,
+
+$$
+F(x)
+\leq
+G(x+\delta)+\delta.
+$$
+
+Thus
+
+$$
+G(x-\delta)-\delta
+\leq
+F(x)
+\leq
+G(x+\delta)+\delta,
+$$
+
+so
+
+$$
+\delta\in D(G,F).
+$$
+
+Therefore,
+
+$$
+D(F,G)\subseteq D(G,F).
+$$
+
+By reversing the roles of $F$ and $G$,
+
+$$
+D(G,F)\subseteq D(F,G).
+$$
+
+Hence
+
+$$
+D(F,G)=D(G,F),
+$$
+
+and therefore
+
+$$
+\boxed{
+d(F,G)=d(G,F).
+}
+$$
+
+##### (ii) Identity of indiscernibles
+
+First suppose
+
+$$
+F=G.
+$$
+
+For every $\delta>0$, since $F$ is non-decreasing,
+
+$$
+F(x-\delta)-\delta
+\leq
+F(x)
+\leq
+F(x+\delta)+\delta.
+$$
+
+Thus every $\delta>0$ is admissible, so
+
+$$
+\boxed{
+d(F,F)=0.
+}
+$$
+
+Conversely, suppose
+
+$$
+d(F,G)=0.
+$$
+
+Since the infimum of $D(F,G)$ is $0$, we can choose a sequence
+$\delta_k\in D(F,G)$ such that
+
+$$
+\delta_k\downarrow0.
+$$
+
+For every $x$,
+
+$$
+G(x)
+\leq
+F(x+\delta_k)+\delta_k.
+$$
+
+Since $F$ is right-continuous,
+
+$$
+F(x+\delta_k)\to F(x),
+$$
+
+so
+
+$$
+G(x)\leq F(x).
+$$
+
+By symmetry,
+
+$$
+d(G,F)=0.
+$$
+
+Thus we may similarly choose admissible values tending to $0$ for $(G,F)$,
+which gives
+
+$$
+F(x)\leq G(x).
+$$
+
+Therefore,
+
+$$
+F(x)=G(x)
+\qquad
+\forall x\in\mathbb R.
+$$
+
+Hence
+
+$$
+\boxed{
+d(F,G)=0
+\quad\Longleftrightarrow\quad
+F=G.
+}
+$$
+
+##### (iii) Triangle inequality
+
+Let $F,G,H$ be probability distribution functions.
+
+Fix $\varepsilon>0$. Choose admissible $\delta_1,\delta_2$ such that
+
+$$
+\delta_1
+<
+d(F,G)+\frac{\varepsilon}{2},
+$$
+
+and
+
+$$
+\delta_2
+<
+d(G,H)+\frac{\varepsilon}{2}.
+$$
+
+Since $\delta_1\in D(F,G)$,
+
+$$
+F(x-\delta_1)-\delta_1
+\leq
+G(x)
+\leq
+F(x+\delta_1)+\delta_1.
+\tag{2}
+$$
+
+Since $\delta_2\in D(G,H)$,
+
+$$
+G(x-\delta_2)-\delta_2
+\leq
+H(x)
+\leq
+G(x+\delta_2)+\delta_2.
+\tag{3}
+$$
+
+For the upper bound, substitute $x+\delta_2$ into the upper inequality of
+(2):
+
+$$
+G(x+\delta_2)
+\leq
+F(x+\delta_2+\delta_1)+\delta_1.
+$$
+
+Using (3),
+
+$$
+\begin{aligned}
+H(x)
+&\leq
+G(x+\delta_2)+\delta_2\\
+&\leq
+F(x+\delta_1+\delta_2)
++\delta_1+\delta_2.
+\end{aligned}
+$$
+
+For the lower bound, substitute $x-\delta_2$ into the lower inequality of
+(2):
+
+$$
+F(x-\delta_2-\delta_1)-\delta_1
+\leq
+G(x-\delta_2).
+$$
+
+Using (3),
+
+$$
+\begin{aligned}
+H(x)
+&\geq
+G(x-\delta_2)-\delta_2\\
+&\geq
+F(x-\delta_1-\delta_2)
+-(\delta_1+\delta_2).
+\end{aligned}
+$$
+
+Therefore,
+
+$$
+F(x-(\delta_1+\delta_2))
+-(\delta_1+\delta_2)
+\leq
+H(x)
+\leq
+F(x+(\delta_1+\delta_2))
++(\delta_1+\delta_2).
+$$
+
+Thus
+
+$$
+\delta_1+\delta_2\in D(F,H),
+$$
+
+and hence
+
+$$
+d(F,H)
+\leq
+\delta_1+\delta_2.
+$$
+
+Therefore,
+
+$$
+d(F,H)
+<
+d(F,G)+d(G,H)+\varepsilon.
+$$
+
+Since $\varepsilon>0$ is arbitrary,
+
+$$
+\boxed{
+d(F,H)
+\leq
+d(F,G)+d(G,H).
+}
+$$
+
+Thus $d$ is a metric.
+
+---
+
+#### Part 2: $d$ metrizes weak convergence
+
+We prove
+
+$$
+F_n\Rightarrow F
+\qquad\Longleftrightarrow\qquad
+d(F_n,F)\to0.
+$$
+
+##### $(\Rightarrow)$ Suppose $F_n\Rightarrow F$
+
+We want to prove
+
+$$
+d(F_n,F)\to0.
+$$
+
+Fix
+
+$$
+0<\varepsilon<1.
+$$
+
+We need to show that, for all sufficiently large $n$,
+
+$$
+F(x-\varepsilon)-\varepsilon
+\leq
+F_n(x)
+\leq
+F(x+\varepsilon)+\varepsilon
+\tag{4}
+$$
+
+for **all** $x\in\mathbb R$ simultaneously.
+
+The difficulty is that weak convergence only gives
+
+$$
+F_n(x)\to F(x)
+$$
+
+at individual continuity points of $F$. Therefore we need to turn the
+pointwise information into a finite collection of conditions.
+
+First choose continuity points
+
+$$
+A<B
+$$
+
+of $F$ such that
+
+$$
+F(A)<\frac{\varepsilon}{4},
+\qquad
+F(B)>1-\frac{\varepsilon}{4}.
+$$
+
+This is possible because
+
+$$
+F(x)\to0
+\qquad (x\to-\infty),
+$$
+
+and
+
+$$
+F(x)\to1
+\qquad (x\to+\infty),
+$$
+
+while the set of discontinuities of a distribution function is at most
+countable.
+
+Inside the compact interval $[A,B]$, choose finitely many continuity points
+
+$$
+A=x_0<x_1<\cdots<x_m=B
+$$
+
+such that
+
+$$
+x_{j+1}-x_j<\frac{\varepsilon}{2}
+\qquad
+(j=0,\ldots,m-1).
+$$
+
+Since
+
+$$
+F_n(x_j)\to F(x_j)
+$$
+
+for every $j$, and there are only finitely many $x_j$'s, there exists one
+common $N$ such that, whenever $n\geq N$,
+
+$$
+|F_n(x_j)-F(x_j)|
+<
+\frac{\varepsilon}{4}
+\qquad
+(j=0,\ldots,m).
+\tag{5}
+$$
+
+We now verify (4) in three regions.
+
+##### Middle region: $A\leq x\leq B$
+
+Choose $j$ such that
+
+$$
+x_j\leq x\leq x_{j+1}.
+$$
+
+Since $F_n$ is non-decreasing,
+
+$$
+F_n(x_j)
+\leq
+F_n(x)
+\leq
+F_n(x_{j+1}).
+$$
+
+For the lower bound, by (5),
+
+$$
+F_n(x)
+\geq
+F_n(x_j)
+>
+F(x_j)-\frac{\varepsilon}{4}.
+$$
+
+Since
+
+$$
+x-x_j<\frac{\varepsilon}{2}<\varepsilon,
+$$
+
+we have
+
+$$
+x-\varepsilon<x_j.
+$$
+
+Hence, by monotonicity of $F$,
+
+$$
+F(x-\varepsilon)
+\leq
+F(x_j).
+$$
+
+Therefore,
+
+$$
+\begin{aligned}
+F_n(x)
+&>
+F(x_j)-\frac{\varepsilon}{4}\\
+&\geq
+F(x-\varepsilon)-\frac{\varepsilon}{4}\\
+&\geq
+F(x-\varepsilon)-\varepsilon.
+\end{aligned}
+$$
+
+For the upper bound, again by (5),
+
+$$
+F_n(x)
+\leq
+F_n(x_{j+1})
+<
+F(x_{j+1})+\frac{\varepsilon}{4}.
+$$
+
+Since
+
+$$
+x_{j+1}-x<\frac{\varepsilon}{2}<\varepsilon,
+$$
+
+we have
+
+$$
+x_{j+1}<x+\varepsilon.
+$$
+
+Thus
+
+$$
+F(x_{j+1})
+\leq
+F(x+\varepsilon).
+$$
+
+Hence
+
+$$
+\begin{aligned}
+F_n(x)
+&<
+F(x_{j+1})+\frac{\varepsilon}{4}\\
+&\leq
+F(x+\varepsilon)+\frac{\varepsilon}{4}\\
+&\leq
+F(x+\varepsilon)+\varepsilon.
+\end{aligned}
+$$
+
+Therefore (4) holds for every $x\in[A,B]$.
+
+##### Left tail: $x<A$
+
+For the lower bound,
+
+$$
+F(x-\varepsilon)-\varepsilon
+\leq
+F(A)-\varepsilon
+<
+0
+\leq
+F_n(x).
+$$
+
+For the upper bound,
+
+$$
+F_n(x)
+\leq
+F_n(A).
+$$
+
+By (5),
+
+$$
+F_n(A)
+<
+F(A)+\frac{\varepsilon}{4}
+<
+\frac{\varepsilon}{2}.
+$$
+
+Since
+
+$$
+F(x+\varepsilon)\geq0,
+$$
+
+we get
+
+$$
+F_n(x)
+<
+\frac{\varepsilon}{2}
+\leq
+F(x+\varepsilon)+\varepsilon.
+$$
+
+Thus (4) also holds for $x<A$.
+
+##### Right tail: $x>B$
+
+For the upper bound,
+
+$$
+F_n(x)\leq1.
+$$
+
+Since
+
+$$
+F(x+\varepsilon)
+\geq
+F(B)
+>
+1-\frac{\varepsilon}{4},
+$$
+
+we certainly have
+
+$$
+F_n(x)
+\leq
+F(x+\varepsilon)+\varepsilon.
+$$
+
+For the lower bound,
+
+$$
+F_n(x)
+\geq
+F_n(B).
+$$
+
+By (5),
+
+$$
+F_n(B)
+>
+F(B)-\frac{\varepsilon}{4}
+>
+1-\frac{\varepsilon}{2}.
+$$
+
+On the other hand,
+
+$$
+F(x-\varepsilon)-\varepsilon
+\leq
+1-\varepsilon
+<
+1-\frac{\varepsilon}{2}.
+$$
+
+Therefore,
+
+$$
+F(x-\varepsilon)-\varepsilon
+<
+F_n(x).
+$$
+
+Thus (4) holds also for $x>B$.
+
+We have therefore shown that, for all $n\geq N$,
+
+$$
+F(x-\varepsilon)-\varepsilon
+\leq
+F_n(x)
+\leq
+F(x+\varepsilon)+\varepsilon
+\qquad
+\forall x\in\mathbb R.
+$$
+
+Hence $\varepsilon$ is admissible for $d(F_n,F)$, so
+
+$$
+d(F_n,F)\leq\varepsilon.
+$$
+
+Since $\varepsilon>0$ is arbitrary,
+
+$$
+\boxed{
+d(F_n,F)\to0.
+}
+$$
+
+##### $(\Leftarrow)$ Suppose $d(F_n,F)\to0$
+
+For each $n$, choose an admissible $\delta_n$ such that
+
+$$
+\delta_n
+<
+d(F_n,F)+\frac1n.
+$$
+
+Then
+
+$$
+\delta_n\to0.
+$$
+
+Since $\delta_n$ is admissible,
+
+$$
+F(x-\delta_n)-\delta_n
+\leq
+F_n(x)
+\leq
+F(x+\delta_n)+\delta_n
+\qquad
+\forall x\in\mathbb R.
+\tag{6}
+$$
+
+Now fix
+
+$$
+x\in C(F),
+$$
+
+where $C(F)$ denotes the set of continuity points of $F$.
+
+Since
+
+$$
+\delta_n\to0
+$$
+
+and $F$ is continuous at $x$,
+
+$$
+F(x-\delta_n)\to F(x)
+$$
+
+and
+
+$$
+F(x+\delta_n)\to F(x).
+$$
+
+Therefore the lower and upper bounds in (6) both converge to $F(x)$.
+
+By squeezing,
+
+$$
+F_n(x)\to F(x).
+$$
+
+Thus
+
+$$
+F_n(x)\to F(x)
+\qquad
+\forall x\in C(F),
+$$
+
+which is exactly
+
+$$
+\boxed{
+F_n\Rightarrow F.
+}
+$$
+
+Therefore,
+
+$$
+\boxed{
+F_n\Rightarrow F
+\qquad\Longleftrightarrow\qquad
+d(F_n,F)\to0.
+}
+$$
+
+Hence the Lévy metric metrizes weak convergence.
+
+$\textbf{Note:}$
+
+The main difficulty in the direction
+
+$$
+F_n\Rightarrow F
+\quad\Longrightarrow\quad
+d(F_n,F)\to0
+$$
+
+is the difference between a pointwise statement and the requirement in the
+definition of the Lévy metric.
+
+Weak convergence gives
+
+$$
+F_n(x)\to F(x)
+$$
+
+only for each fixed $x\in C(F)$, whereas the Lévy metric requires one
+$\varepsilon$-inequality that holds for
+
+$$
+\forall x\in\mathbb R
+$$
+
+simultaneously.
+
+Choosing $x_L,x_R$ separately for each $x$ therefore gives an
+$N=N(x,\varepsilon)$, which is not enough.
+
+The repair is to choose finitely many continuity points on a compact middle
+interval. Since there are only finitely many of them, one common $N$ works at
+all grid points. Monotonicity then fills the gaps between grid points, while
+the two tails are controlled by choosing $A$ and $B$ sufficiently far out.
+
+Thus the key bridge is
+
+$$
+\text{pointwise convergence at continuity points}
+$$
+
+$$
+\Downarrow
+$$
+
+$$
+\text{finite continuity grid}
+$$
+
+$$
+\Downarrow
+$$
+
+$$
+\text{one common }N
+$$
+
+$$
+\Downarrow
+$$
+
+$$
+\text{uniform Lévy inequalities for all }x.
+$$
+
+
+### Ex 35
+::: problem
+
+Suppose $\{F_n,n\geq 0\}$ are probability distributions such that
+
+$$
+F_n\Rightarrow F_0.
+$$
+
+For $t>0$, let
+
+$$
+u_t(\cdot):\mathbb R\to\mathbb R
+$$
+
+be an equicontinuous family of functions that are uniformly bounded; that is,
+
+$$
+\sup_{t>0,\ x\in\mathbb R}|u_t(x)|\leq M
+$$
+
+for some constant $M$. Then show
+
+$$
+\lim_{n\to\infty}
+\int_{\mathbb R}u_t(x)F_n(dx)
+=
+\int_{\mathbb R}u_t(x)F_0(dx)
+$$
+
+uniformly in $t$.
+
+:::
+
+$\textbf{Answer:}$
+
+What we want to show is
+
+$$
+\boxed{
+\sup_{t>0}
+\left|
+\int_{\mathbb R}u_t(x)F_n(dx)
+-
+\int_{\mathbb R}u_t(x)F_0(dx)
+\right|
+\to0.
+}
+$$
+
+The idea is to first control the tails by uniform boundedness, and then use
+equicontinuity to reduce the compact middle part to finitely many interval
+probabilities.
+
+Fix $\eta>0$.
+
+#### Step 1: Control the tails
+
+Since
+
+$$
+F_n\Rightarrow F_0,
+$$
+
+choose $K>0$ sufficiently large such that
+
+$$
+-K,K\in C(F_0)
+$$
+
+and
+
+$$
+F_0([-K,K])>1-\eta.
+$$
+
+Since $[-K,K]$ is a continuity set of $F_0$,
+
+$$
+F_n([-K,K])
+\to
+F_0([-K,K]).
+$$
+
+Therefore, for all sufficiently large $n$,
+
+$$
+F_n([-K,K])>1-2\eta.
+$$
+
+Hence
+
+$$
+F_0(|x|>K)<\eta
+$$
+
+and eventually
+
+$$
+F_n(|x|>K)<2\eta.
+$$
+
+Since the family $\{u_t\}$ is uniformly bounded,
+
+$$
+|u_t(x)|\leq M
+$$
+
+for all $t>0$ and $x\in\mathbb R$.
+
+Thus, uniformly in $t$,
+
+$$
+\begin{aligned}
+&
+\left|
+\int_{|x|>K}u_t(x)F_n(dx)
+-
+\int_{|x|>K}u_t(x)F_0(dx)
+\right|\\
+&\qquad\leq
+\left|
+\int_{|x|>K}u_t(x)F_n(dx)
+\right|
++
+\left|
+\int_{|x|>K}u_t(x)F_0(dx)
+\right|\\
+&\qquad\leq
+M F_n(|x|>K)
++
+M F_0(|x|>K)\\
+&\qquad<
+3M\eta.
+\end{aligned}
+\tag{1}
+$$
+
+So the tail part has been controlled uniformly in $t$.
+
+#### Step 2: Partition the compact middle part
+
+Now consider the compact interval $[-K,K]$.
+
+Since the family $\{u_t\}_{t>0}$ is equicontinuous, there exists
+$\delta>0$, independent of $t$, such that
+
+$$
+|x-y|<\delta
+\quad\Longrightarrow\quad
+|u_t(x)-u_t(y)|<\eta
+$$
+
+for every $t>0$.
+
+The continuity set $C(F_0)$ is dense in $\mathbb R$, since the set of
+discontinuities of a distribution function is at most countable.
+
+Therefore, we can choose a finite partition
+
+$$
+-K=x_0<x_1<\cdots<x_m=K
+$$
+
+such that
+
+$$
+x_j\in C(F_0),
+\qquad j=0,\ldots,m,
+$$
+
+and
+
+$$
+x_j-x_{j-1}<\delta,
+\qquad j=1,\ldots,m.
+$$
+
+Define
+
+$$
+I_j=(x_{j-1},x_j],
+\qquad j=1,\ldots,m.
+$$
+
+Then
+
+$$
+[-K,K]
+$$
+
+is partitioned by the finitely many intervals $I_1,\ldots,I_m$, up to the
+single endpoint $-K$, which causes no problem since $-K\in C(F_0)$.
+
+For each $I_j$, choose some
+
+$$
+\xi_j\in I_j.
+$$
+
+Since the diameter of $I_j$ is less than $\delta$, for every $x\in I_j$,
+
+$$
+|u_t(x)-u_t(\xi_j)|<\eta
+$$
+
+uniformly in $t$.
+
+Therefore,
+
+$$
+\begin{aligned}
+&
+\left|
+\int_{I_j}u_t(x)F_n(dx)
+-
+u_t(\xi_j)F_n(I_j)
+\right|\\
+&=
+\left|
+\int_{I_j}
+\left[u_t(x)-u_t(\xi_j)\right]F_n(dx)
+\right|\\
+&\leq
+\eta F_n(I_j).
+\end{aligned}
+$$
+
+Summing over $j$,
+
+$$
+\begin{aligned}
+&
+\left|
+\int_{[-K,K]}u_t(x)F_n(dx)
+-
+\sum_{j=1}^m u_t(\xi_j)F_n(I_j)
+\right|\\
+&\leq
+\eta\sum_{j=1}^mF_n(I_j)\\
+&\leq
+\eta.
+\end{aligned}
+\tag{2}
+$$
+
+The same argument gives
+
+$$
+\left|
+\int_{[-K,K]}u_t(x)F_0(dx)
+-
+\sum_{j=1}^m u_t(\xi_j)F_0(I_j)
+\right|
+\leq
+\eta.
+\tag{3}
+$$
+
+Again, both bounds are independent of $t$.
+
+#### Step 3: Compare the finite approximations
+
+We now consider
+
+$$
+\begin{aligned}
+&
+\left|
+\sum_{j=1}^m
+u_t(\xi_j)F_n(I_j)
+-
+\sum_{j=1}^m
+u_t(\xi_j)F_0(I_j)
+\right|\\
+&=
+\left|
+\sum_{j=1}^m
+u_t(\xi_j)
+\left[
+F_n(I_j)-F_0(I_j)
+\right]
+\right|.
+\end{aligned}
+$$
+
+By uniform boundedness,
+
+$$
+\begin{aligned}
+&
+\left|
+\sum_{j=1}^m
+u_t(\xi_j)
+\left[
+F_n(I_j)-F_0(I_j)
+\right]
+\right|\\
+&\leq
+M\sum_{j=1}^m
+\left|
+F_n(I_j)-F_0(I_j)
+\right|.
+\end{aligned}
+\tag{4}
+$$
+
+The endpoints of each $I_j$ lie in $C(F_0)$, so every $I_j$ is a continuity
+set of $F_0$. Hence, by weak convergence,
+
+$$
+F_n(I_j)\to F_0(I_j)
+$$
+
+for every $j=1,\ldots,m$.
+
+There are only finitely many intervals. Therefore,
+
+$$
+\sum_{j=1}^m
+\left|
+F_n(I_j)-F_0(I_j)
+\right|
+\to0.
+$$
+
+Thus, for sufficiently large $n$,
+
+$$
+M\sum_{j=1}^m
+\left|
+F_n(I_j)-F_0(I_j)
+\right|
+<
+\eta.
+\tag{5}
+$$
+
+Importantly, the right-hand side of (4) does not depend on $t$.
+
+#### Step 4: Combine the three parts
+
+Using (1)--(5), for sufficiently large $n$,
+
+$$
+\begin{aligned}
+&
+\left|
+\int_{\mathbb R}u_t(x)F_n(dx)
+-
+\int_{\mathbb R}u_t(x)F_0(dx)
+\right|\\
+&\leq
+\left|
+\int_{|x|>K}u_t(x)F_n(dx)
+-
+\int_{|x|>K}u_t(x)F_0(dx)
+\right|\\
+&\quad+
+\left|
+\int_{[-K,K]}u_t(x)F_n(dx)
+-
+\sum_{j=1}^m u_t(\xi_j)F_n(I_j)
+\right|\\
+&\quad+
+\left|
+\sum_{j=1}^m
+u_t(\xi_j)
+\left[
+F_n(I_j)-F_0(I_j)
+\right]
+\right|\\
+&\quad+
+\left|
+\sum_{j=1}^m u_t(\xi_j)F_0(I_j)
+-
+\int_{[-K,K]}u_t(x)F_0(dx)
+\right|\\
+&<
+3M\eta+\eta+\eta+\eta\\
+&=
+3M\eta+3\eta.
+\end{aligned}
+$$
+
+Every bound above is independent of $t$. Therefore,
+
+$$
+\sup_{t>0}
+\left|
+\int_{\mathbb R}u_t(x)F_n(dx)
+-
+\int_{\mathbb R}u_t(x)F_0(dx)
+\right|
+<
+3M\eta+3\eta
+$$
+
+for all sufficiently large $n$.
+
+Since $\eta>0$ is arbitrary,
+
+$$
+\boxed{
+\sup_{t>0}
+\left|
+\int_{\mathbb R}u_t(x)F_n(dx)
+-
+\int_{\mathbb R}u_t(x)F_0(dx)
+\right|
+\longrightarrow0.
+}
+$$
+
+Therefore,
+
+$$
+\boxed{
+\int_{\mathbb R}u_t(x)F_n(dx)
+\longrightarrow
+\int_{\mathbb R}u_t(x)F_0(dx)
+}
+$$
+
+uniformly in $t$.
+
+$\textbf{Note:}$
+
+Ordinary weak convergence tells us that for each fixed bounded continuous
+function $u_t$,
+
+$$
+\int u_t\,dF_n
+\to
+\int u_t\,dF_0.
+$$
+
+The problem here is that $t$ ranges over an arbitrary, possibly uncountable,
+family, so pointwise convergence in $t$ is not enough.
+
+The two assumptions on $\{u_t\}$ play different roles.
+
+Uniform boundedness,
+
+$$
+\sup_{t,x}|u_t(x)|\leq M,
+$$
+
+allows us to make the contribution outside a large compact interval uniformly
+small.
+
+Equicontinuity allows us, on that compact interval, to replace every $u_t$ by
+its values at finitely many spatial points with an error that is uniform in
+$t$.
+
+Thus the proof reduces the whole uncountable family to finitely many
+probability masses
+
+$$
+F_n(I_1),\ldots,F_n(I_m),
+$$
+
+and weak convergence handles these finitely many quantities simultaneously.
+
+The structure is therefore
+
+$$
+\text{weak convergence}
+$$
+
+$$
+\Downarrow
+$$
+
+$$
+\text{tightness / compact truncation}
+$$
+
+$$
+\Downarrow
+$$
+
+$$
+\text{equicontinuity gives a finite spatial approximation}
+$$
+
+$$
+\Downarrow
+$$
+
+$$
+\text{weak convergence on finitely many continuity intervals}
+$$
+
+$$
+\Downarrow
+$$
+
+$$
+\text{uniform convergence in }t.
+$$
+
+This is similar to the finite-grid argument in Ex 11: the main technical move
+is to turn an infinite uniform requirement into finitely many conditions for
+which one common $N$ can be chosen.
+
+### Ex 15
+::: problem
+**(Weissman)** Suppose $Y_n$, $n\geq 1$ are random variables such that there
+exist $a_n>0$, $b_n\in\mathbb R$ and
+$$
+P[Y_n\leq a_nx+b_n]\longrightarrow G(x),
+$$
+non-degenerate, and for each $t>0$
+$$
+P[Y_{[nt]}\leq a_nx+b_n]\longrightarrow G_t(x),
+$$
+non-degenerate. Then there exists $\alpha(t)>0$, $\beta(t)\in\mathbb R$ such
+that
+$$
+G(x)=G_t(\alpha(t)x+\alpha(t))
+$$
+and $\alpha(t)=t^\theta$. If $\theta=0$, then
+$$
+\beta(t)=c\log t,
+$$
+and if $\theta\neq0$, then
+$$
+\beta(t)=c(1-t^\theta).
+$$
+:::
+$\textbf{Answer:}$
+$\textbf{Typo in the exercise statement:}$
+The book introduces both $\alpha(t)$ and $\beta(t)$, but the displayed type
+relation is printed as
+$$
+G(x)=G_t(\alpha(t)x+\alpha(t)).
+$$
+The second $\alpha(t)$ should be $\beta(t)$. We therefore prove
+$$
+\boxed{
+G(x)=G_t(\alpha(t)x+\beta(t)).
+}
+$$
+
+* Step 1: Put the normalizations into the affine group
+Let $H$ be the group of positive affine transformations
+$$
+H
+=
+\left\{
+h:x\mapsto ax+b:
+a>0,\ b\in\mathbb R
+\right\},
+$$
+with group operation given by composition.
+Let $e$ denote the identity transformation,
+$$
+e(x)=x.
+$$
+For each $n$, define
+$$
+h_n(x)
+=
+\frac{x-b_n}{a_n}.
+$$
+Then the first assumption can be written as
+$$
+h_n(Y_n)\Rightarrow Z,
+$$
+where $Z$ has the non-degenerate distribution function $G$.
+For fixed $t>0$, since $[nt]\to\infty$,
+$$
+h_{[nt]}(Y_{[nt]})
+\Rightarrow Z,
+$$
+while the second assumption gives
+$$
+h_n(Y_{[nt]})
+\Rightarrow Z_t,
+$$
+where $Z_t$ has the non-degenerate distribution function $G_t$.
+Define
+$$
+\gamma_n(t)
+:=
+h_nh_{[nt]}^{-1}.
+$$
+Then
+$$
+h_n(Y_{[nt]})
+=
+\gamma_n(t)
+\left(
+h_{[nt]}(Y_{[nt]})
+\right).
+$$
+Both limiting distributions are non-degenerate. Therefore, by the convergence
+to types theorem, for every fixed $t>0$ there exists
+$$
+\gamma(t)\in H
+$$
+such that
+$$
+\boxed{
+\gamma_n(t)\longrightarrow\gamma(t).
+}
+\tag{1}
+$$
+Write
+$$
+\gamma(t)(x)
+=
+\alpha(t)x+\beta(t),
+\qquad
+\alpha(t)>0.
+$$
+Since
+$$
+h_{[nt]}^{-1}(x)
+=
+a_{[nt]}x+b_{[nt]},
+$$
+we have
+
+$$
+\begin{aligned}
+\gamma_n(t)(x)
+&=
+h_nh_{[nt]}^{-1}(x)\\
+&=
+\frac{a_{[nt]}}{a_n}x
++
+\frac{b_{[nt]}-b_n}{a_n}.
+\end{aligned}
+$$
+
+Hence
+$$
+\frac{a_{[nt]}}{a_n}
+\longrightarrow
+\alpha(t)
+$$
+and
+$$
+\frac{b_{[nt]}-b_n}{a_n}
+\longrightarrow
+\beta(t).
+$$
+Also,
+$$
+Z_t
+\overset{d}{=}
+\gamma(t)Z
+=
+\alpha(t)Z+\beta(t).
+$$
+Therefore,
+$$
+\begin{aligned}
+G_t(\alpha(t)x+\beta(t))
+&=
+P\left(
+\alpha(t)Z+\beta(t)
+\leq
+\alpha(t)x+\beta(t)
+\right)\\
+&=
+P(Z\leq x)\\
+&=
+G(x).
+\end{aligned}
+$$
+Thus
+$$
+\boxed{
+G(x)
+=
+G_t(\alpha(t)x+\beta(t)).
+}
+\tag{2}
+$$
+As in the proof on p. 280, $\alpha(\cdot)$ and $\beta(\cdot)$ are Lebesgue
+measurable, since they are pointwise limits of measurable step functions of
+$t$.
+
+* Step 2: In this exercise, $T=(0,\infty)$ immediately
+Following Weissman, define
+$$
+T
+:=
+\left\{
+t>0:
+\gamma_n(t)
+\text{ converges to an element of }H
+\right\}.
+$$
+In the original argument, establishing the size of $T$ is one of the technical
+parts of the proof.
+However, in this exercise, $G_t$ is assumed to be non-degenerate for every
+$t>0$.
+Therefore the convergence to types argument in Step 1 applies to every
+$t>0$, and hence
+$$
+\boxed{
+T=(0,\infty).
+}
+\tag{3}
+$$
+In particular, for every $t>0$,
+$$
+t,\ t^{-1}\in T.
+$$
+
+* Step 3: Prove that neighboring normalizations are asymptotically equivalent
+For fixed $t>0$, define
+$$
+\delta_n(t)
+:=
+h_n
+h_{\left[
+\frac{[nt]}{t}
+\right]}^{-1}.
+$$
+We can factor this as
+$$
+\begin{aligned}
+\delta_n(t)
+&=
+h_nh_{[nt]}^{-1}
+\,
+h_{[nt]}
+h_{\left[
+\frac{[nt]}t
+\right]}^{-1}\\
+&=
+\gamma_n(t)
+\gamma_{[nt]}(t^{-1}).
+\end{aligned}
+$$
+By (3),
+$$
+\gamma_n(t)\to\gamma(t)
+$$
+and, since $[nt]\to\infty$,
+$$
+\gamma_{[nt]}(t^{-1})
+\to
+\gamma(t^{-1}).
+$$
+Therefore
+$$
+\boxed{
+\delta_n(t)
+\longrightarrow
+\gamma(t)\gamma(t^{-1}).
+}
+\tag{4}
+$$
+Now take
+$$
+t=\frac12.
+$$
+Then
+$$
+\delta_n(1/2)
+=
+h_n
+h_{\left[2[n/2]\right]}^{-1}.
+$$
+If $n=2m$ is even,
+$$
+2[n/2]=2m=n,
+$$
+so
+
+$$
+\delta_{2m}(1/2)
+=
+h_{2m}h_{2m}^{-1}
+=
+e.
+$$
+Thus $e$ is a limit point of the sequence $\{\delta_n(1/2)\}$.
+But by (4), the whole sequence $\delta_n(1/2)$ already converges. Therefore
+its limit must equal the limit of the even subsequence, namely $e$:
+$$
+\boxed{
+\delta_n(1/2)\to e.
+}
+\tag{5}
+$$
+Equivalently,
+$$
+\gamma(1/2)\gamma(2)=e.
+$$
+Now suppose $n=2m+1$ is odd. Then
+$$
+2[n/2]=2m=n-1,
+$$
+and therefore
+$$
+\delta_n(1/2)
+=
+h_nh_{n-1}^{-1}.
+$$
+Using (5),
+$$
+\boxed{
+h_nh_{n-1}^{-1}\to e.
+}
+\tag{6}
+$$
+By taking finite products, for every fixed integer $g$,
+$$
+\boxed{
+h_nh_{n+g}^{-1}\to e.
+}
+\tag{7}
+$$
+This is the key fact which allows us to ignore bounded errors created by the
+integer-part operation.
+
+* Step 4: Prove that $\gamma$ is a homomorphism
+Fix $s,t>0$.
+We have
+$$
+\gamma_n(ts)
+=
+h_nh_{[nts]}^{-1}.
+$$
+Insert the intermediate normalizations $h_{[nt]}$ and
+$h_{[[nt]s]}$:
+$$
+\begin{aligned}
+\gamma_n(ts)
+&=
+h_nh_{[nt]}^{-1}
+\,
+h_{[nt]}h_{[[nt]s]}^{-1}
+\,
+h_{[[nt]s]}h_{[nts]}^{-1}\\
+&=
+\gamma_n(t)
+\gamma_{[nt]}(s)
+R_n,
+\end{aligned}
+\tag{8}
+$$
+where
+$$
+R_n
+:=
+h_{[[nt]s]}h_{[nts]}^{-1}.
+$$
+For the first two terms,
+$$
+\gamma_n(t)\to\gamma(t)
+$$
+and, since $[nt]\to\infty$,
+$$
+\gamma_{[nt]}(s)\to\gamma(s).
+$$
+It remains to show
+$$
+R_n\to e.
+$$
+Since
+$$
+[nt]\leq nt<[nt]+1,
+$$
+multiplying by $s>0$ gives
+$$
+[nt]s
+\leq
+nts
+<
+[nt]s+s.
+$$
+Therefore
+$$
+0
+\leq
+[nts]-[[nt]s]
+\leq
+\lceil s\rceil.
+$$
+Thus the difference between the two indices is bounded by a fixed integer
+independent of $n$.
+By (7),
+$$
+\boxed{
+R_n
+=
+h_{[[nt]s]}h_{[nts]}^{-1}
+\longrightarrow e.
+}
+$$
+Taking limits in (8),
+$$
+\boxed{
+\gamma(ts)
+=
+\gamma(t)\gamma(s).
+}
+\tag{9}
+$$
+Thus
+$$
+\gamma:(0,\infty)\to H
+$$
+is a group homomorphism.
+Since
+$$
+ts=st,
+$$
+we also have
+$$
+\gamma(t)\gamma(s)
+=
+\gamma(s)\gamma(t).
+$$
+Thus the image of $\gamma$ is a commutative subgroup of $H$.
+
+* Step 5: Obtain the functional equations for $\alpha$ and $\beta$
+Recall
+$$
+\gamma(t)(x)
+=
+\alpha(t)x+\beta(t).
+$$
+By (9),
+$$
+\gamma(ts)
+=
+\gamma(t)\gamma(s).
+$$
+The right-hand side is
+
+$$
+\begin{aligned}
+\gamma(t)(\gamma(s)(x))
+&=
+\alpha(t)
+\left[
+\alpha(s)x+\beta(s)
+\right]
++
+\beta(t)\\
+&=
+\alpha(t)\alpha(s)x
++
+\alpha(t)\beta(s)
++
+\beta(t).
+\end{aligned}
+$$
+Comparing this with
+
+$$
+\gamma(ts)(x)
+=
+\alpha(ts)x+\beta(ts),
+$$
+we obtain
+
+$$
+\boxed{
+\alpha(ts)
+=
+\alpha(t)\alpha(s)
+}
+\tag{10}
+$$
+and
+
+$$
+\boxed{
+\beta(ts)
+=
+\alpha(t)\beta(s)+\beta(t).
+}
+\tag{11}
+$$
+Since $ts=st$,
+$$
+\boxed{
+\beta(ts)
+=
+\alpha(s)\beta(t)+\beta(s).
+}
+\tag{12}
+$$
+These are exactly the functional equations used on p. 281.
+
+* Step 6: Solve the functional equations
+Since $\alpha$ is positive, measurable, and satisfies
+$$
+\alpha(ts)
+=
+\alpha(t)\alpha(s),
+$$
+the measurable Hamel equation gives
+$$
+\boxed{
+\alpha(t)=t^\theta
+}
+$$
+for some $\theta\in\mathbb R$.
+We now consider two cases.
+
+##### Case 1: $\theta=0$
+Then
+$$
+\alpha(t)\equiv1.
+$$
+Equation (11) becomes
+$$
+\beta(ts)
+=
+\beta(t)+\beta(s).
+$$
+Define
+$$
+q(x)
+:=
+\beta(e^x).
+$$
+Then
+$$
+q(x+y)
+=
+q(x)+q(y).
+$$
+Since $q$ is measurable, the measurable Cauchy equation gives
+$$
+q(x)=cx
+$$
+for some $c\in\mathbb R$.
+Therefore
+$$
+\boxed{
+\beta(t)=c\log t.
+}
+$$
+
+##### Case 2: $\theta\neq0$
+Since
+$$
+\alpha(t)=t^\theta,
+$$
+equations (11) and (12) give
+$$
+\alpha(t)\beta(s)+\beta(t)
+=
+\alpha(s)\beta(t)+\beta(s).
+$$
+Thus
+$$
+\beta(t)(1-\alpha(s))
+=
+\beta(s)(1-\alpha(t)).
+$$
+Choose some $s_0\neq1$. Since $\theta\neq0$,
+$$
+\alpha(s_0)=s_0^\theta\neq1.
+$$
+Therefore
+$$
+\beta(t)
+=
+\frac{\beta(s_0)}
+{1-\alpha(s_0)}
+\left(
+1-\alpha(t)
+\right).
+$$
+Writing
+$$
+c
+:=
+\frac{\beta(s_0)}
+{1-\alpha(s_0)},
+$$
+we obtain
+$$
+\boxed{
+\beta(t)
+=
+c(1-t^\theta).
+}
+$$
+Therefore
+$$
+\boxed{
+\alpha(t)=t^\theta,
+}
+$$
+and
+$$
+\boxed{
+\beta(t)
+=
+\begin{cases}
+c\log t, & \theta=0,\\[1mm]
+c(1-t^\theta), & \theta\neq0.
+\end{cases}
+}
+$$
+Together with (2),
+$$
+\boxed{
+G(x)
+=
+G_t(\alpha(t)x+\beta(t)).
+}
+$$
+This proves the result.
+
+$\textbf{Note:}$
+This exercise is a special case of Weissman's result.
+In the original paper, Weissman does not assume that every limiting
+distribution $G_t$ (or, in his notation, every $Z_t$) is non-degenerate.
+In our exercise, however, non-degeneracy of $G_t$ is assumed for every
+$t>0$.
+Because of this stronger assumption, convergence to types immediately gives
+$$
+T=(0,\infty),
+$$
+whereas Weissman's original proof needs additional facts to establish which
+$t$ belong to $T$.
+If we try to solve this problem only by separately tracking the scale and
+location terms, the error produced by
+$$
+[[nt]s]
+\qquad\text{and}\qquad
+[nts]
+$$
+is difficult to organize.
+Weissman's useful idea is to package the scale and location normalizations
+together into the positive affine group $H$:
+$$
+\gamma_n(t)
+=
+h_nh_{[nt]}^{-1}.
+$$
+Then the floor error is itself represented by a group element,
+$$
+h_{[[nt]s]}h_{[nts]}^{-1},
+$$
+and the statement
+$$
+h_nh_{n+g}^{-1}\to e
+$$
+for bounded integer shifts $g$ makes this error disappear asymptotically.
+Thus the abstraction is not only notation. It packages two coupled
+normalization errors into one object for which composition and inversion are
+natural.
+It is a fantastic experience that an exercise in the book may require us to
+read the original paper in order to understand the method properly.
+It also reminds us that we should not have the fantasy that all exercises in
+an advanced book must be solvable using only the knowledge explicitly
+developed in that book. Some exercises may come from deeper results or
+original papers, and part of studying them is learning when additional
+mathematical machinery is genuinely needed.
