@@ -11009,3 +11009,546 @@ an advanced book must be solvable using only the knowledge explicitly
 developed in that book. Some exercises may come from deeper results or
 original papers, and part of studying them is learning when additional
 mathematical machinery is genuinely needed.
+
+### Ex 29
+::: problem
+
+Suppose $\{X_t,t\geq0\}$ is a family of random variables parameterized by a
+continuous variable $t$ and assume there exist normalizing constants
+$a(t)>0$, $b(t)\in\mathbb R$ such that as $t\to\infty$
+
+$$
+\frac{X_t-b(t)}{a(t)}
+\Rightarrow Y,
+$$
+
+where $Y$ is non-degenerate. Show the normalizing functions can always be
+assumed continuous; that is, there exist continuous functions
+$\alpha(t)>0$, $\beta(t)\in\mathbb R$ such that
+
+$$
+\frac{X_t-\beta(t)}{\alpha(t)}
+\Rightarrow Y',
+$$
+
+where $Y'$ has a non-degenerate distribution.
+
+(Hint: The convergence to types theorem provides normalizing constants which
+can be smoothed by integration.)
+
+:::
+
+$\textbf{Answer:}$
+
+As stated, the exercise appears to be false.
+
+Let
+
+$$
+Z\sim N(0,1),
+$$
+
+and define
+
+$$
+c(t)
+=
+\begin{cases}
+1, & t\in\mathbb Q,\\
+2, & t\notin\mathbb Q.
+\end{cases}
+$$
+
+Set
+
+$$
+X_t=c(t)Z.
+$$
+
+Take
+
+$$
+a(t)=c(t),
+\qquad
+b(t)=0.
+$$
+
+Then, for every $t\geq0$,
+
+$$
+\frac{X_t-b(t)}{a(t)}
+=
+\frac{c(t)Z}{c(t)}
+=
+Z.
+$$
+
+Therefore
+
+$$
+\frac{X_t-b(t)}{a(t)}
+\Rightarrow Z
+$$
+
+as $t\to\infty$, where $Z$ is non-degenerate. Thus all the assumptions of the
+exercise are satisfied.
+
+We now show that continuous normalizing functions cannot exist.
+
+Suppose, to the contrary, that there exist continuous functions
+
+$$
+\alpha(t)>0,
+\qquad
+\beta(t)\in\mathbb R
+$$
+
+such that
+
+$$
+\frac{X_t-\beta(t)}{\alpha(t)}
+\Rightarrow Y'
+$$
+
+for some non-degenerate random variable $Y'$.
+
+Choose a sequence of rational numbers
+
+$$
+r_n\to\infty.
+$$
+
+Since $r_n\in\mathbb Q$,
+
+$$
+X_{r_n}=Z,
+$$
+
+and hence
+
+$$
+\frac{Z-\beta(r_n)}{\alpha(r_n)}
+\Rightarrow Y'.
+\tag{1}
+$$
+
+Since $Z$ is non-degenerate and $Y'$ is non-degenerate, the convergence to
+types theorem applied to (1) implies that there exist constants
+
+$$
+A>0,
+\qquad
+B\in\mathbb R
+$$
+
+such that
+
+$$
+\alpha(r_n)\to A
+$$
+
+and
+
+$$
+\beta(r_n)\to B.
+\tag{2}
+$$
+
+Moreover,
+
+$$
+Y'
+\overset{d}{=}
+\frac{Z-B}{A}.
+\tag{3}
+$$
+
+Now use the continuity of $\alpha$ and $\beta$.
+
+For each $n$, since both functions are continuous at $r_n$, there exists
+$\delta_n>0$ such that whenever
+
+$$
+|s-r_n|<\delta_n,
+$$
+
+we have
+
+$$
+|\alpha(s)-\alpha(r_n)|<\frac1n
+$$
+
+and
+
+$$
+|\beta(s)-\beta(r_n)|<\frac1n.
+$$
+
+Because the irrational numbers are dense in $\mathbb R$, we can choose an
+irrational number $s_n$ satisfying
+
+$$
+|s_n-r_n|
+<
+\min\left(\delta_n,\frac1n\right).
+$$
+
+Then
+
+$$
+s_n\to\infty,
+$$
+
+and, by construction,
+
+$$
+\alpha(s_n)-\alpha(r_n)\to0,
+$$
+
+and
+
+$$
+\beta(s_n)-\beta(r_n)\to0.
+$$
+
+Together with (2),
+
+$$
+\alpha(s_n)\to A
+$$
+
+and
+
+$$
+\beta(s_n)\to B.
+\tag{4}
+$$
+
+However, $s_n$ is irrational, so
+
+$$
+X_{s_n}=2Z.
+$$
+
+Therefore
+
+$$
+\frac{X_{s_n}-\beta(s_n)}{\alpha(s_n)}
+=
+\frac{2Z-\beta(s_n)}{\alpha(s_n)}
+\Rightarrow
+\frac{2Z-B}{A}.
+$$
+
+But by the assumed convergence along all $t\to\infty$, the same sequence must
+converge to $Y'$. Hence
+
+$$
+Y'
+\overset{d}{=}
+\frac{2Z-B}{A}.
+\tag{5}
+$$
+
+Combining (3) and (5),
+
+$$
+\frac{Z-B}{A}
+\overset{d}{=}
+\frac{2Z-B}{A}.
+$$
+
+This is impossible. Indeed,
+
+$$
+\operatorname{Var}
+\left(
+\frac{Z-B}{A}
+\right)
+=
+\frac1{A^2},
+$$
+
+whereas
+
+$$
+\operatorname{Var}
+\left(
+\frac{2Z-B}{A}
+\right)
+=
+\frac4{A^2}.
+$$
+
+Since $A>0$, the two distributions cannot be equal.
+
+Therefore,
+
+$$
+\boxed{
+\text{Exercise 29 is false under the assumptions as printed.}
+}
+$$
+
+$\textbf{Note:}$
+
+The hint suggests smoothing the original normalizers by integration, for
+example,
+
+$$
+\alpha(t)
+=
+\int_t^{t+1}a(s)\,ds,
+\qquad
+\beta(t)
+=
+\int_t^{t+1}b(s)\,ds.
+$$
+
+However, under the assumptions stated in the exercise, there is no reason
+that these smoothed normalizers should be asymptotically equivalent to the
+original normalizers.
+
+The counterexample above shows that this is not merely a missing step in the
+proof. Some additional regularity condition would be needed to make the
+conclusion true.
+
+Rather than adding such a condition ourselves, we leave the exercise in its
+printed form and record the counterexample.
+
+
+### Ex 3
+::: problem
+
+Suppose $\{U_n,n\geq1\}$ are iid $U(0,1)$ random variables so that
+
+$$
+P[U_j\leq x]=x,\qquad 0\leq x\leq1.
+$$
+
+(a) Show
+
+$$
+\prod_{j=1}^n U_j^{1/n}
+$$
+
+converges almost surely. What is the limit?
+
+(b) Center and scale the sequence
+
+$$
+\left\{
+\prod_{j=1}^n U_j^{1/n},\ n\geq1
+\right\}
+$$
+
+and show the resulting sequence converges in distribution to a non-degenerate limit. To which one?
+
+:::
+
+$\textbf{Answer:}$
+
+#### (a)
+
+Take logarithms:
+
+$$
+\log\left(
+\prod_{j=1}^n U_j^{1/n}
+\right)
+=
+\frac1n\sum_{j=1}^n\log U_j.
+$$
+
+Since $\{U_j\}$ are iid, so are $\{\log U_j\}$.
+
+Also,
+
+$$
+E|\log U_1|
+=
+\int_0^1 |\log x|\,dx
+<
+\infty.
+$$
+
+Therefore, by the SLLN,
+
+$$
+\frac1n\sum_{j=1}^n\log U_j
+\overset{a.s.}{\longrightarrow}
+E(\log U_1).
+$$
+
+Now
+
+$$
+E(\log U_1)
+=
+\int_0^1\log x\,dx.
+$$
+
+Using integration by parts,
+
+$$
+\int \log x\,dx
+=
+x\log x-x,
+$$
+
+so
+
+$$
+E(\log U_1)
+=
+\left[x\log x-x\right]_0^1
+=
+-1.
+$$
+
+Hence
+
+$$
+\log\left(
+\prod_{j=1}^n U_j^{1/n}
+\right)
+\overset{a.s.}{\longrightarrow}
+-1.
+$$
+
+Since the exponential function is continuous,
+
+$$
+\boxed{
+\prod_{j=1}^n U_j^{1/n}
+\overset{a.s.}{\longrightarrow}
+e^{-1}.
+}
+$$
+
+#### (b)
+
+Let
+
+$$
+L_n
+=
+\frac1n\sum_{j=1}^n\log U_j.
+$$
+
+From part (a),
+
+$$
+E(\log U_1)=-1.
+$$
+
+We also have
+
+$$
+E\left[(\log U_1)^2\right]
+=
+\int_0^1(\log x)^2\,dx.
+$$
+
+Using integration by parts,
+
+$$
+\int (\log x)^2\,dx
+=
+x(\log x)^2
+-
+2x\log x
++
+2x,
+$$
+
+and therefore
+
+$$
+E\left[(\log U_1)^2\right]
+=
+2.
+$$
+
+Thus
+
+$$
+\operatorname{Var}(\log U_1)
+=
+2-(-1)^2
+=
+1.
+$$
+
+By the CLT,
+
+$$
+\frac{
+\sqrt n\left(L_n-(-1)\right)
+}{
+\sqrt{\operatorname{Var}(\log U_1)}
+}
+\Rightarrow
+N(0,1).
+$$
+
+Since $\operatorname{Var}(\log U_1)=1$,
+
+$$
+\boxed{
+\sqrt n(L_n+1)
+\Rightarrow
+N(0,1).
+}
+\tag{1}
+$$
+
+Now define
+
+$$
+g(x)=e^x.
+$$
+
+Then
+
+$$
+\prod_{j=1}^n U_j^{1/n}
+=
+e^{L_n}
+=
+g(L_n),
+$$
+
+and
+
+$$
+g(-1)=e^{-1},
+\qquad
+g'(-1)=e^{-1}.
+$$
+
+Applying the delta method to (1),
+
+$$
+\sqrt n
+\left(
+e^{L_n}-e^{-1}
+\right)
+\Rightarrow
+e^{-1}N(0,1).
+$$
+
+Equivalently,
+
+$$
+\boxed{
+\frac{
+\displaystyle
+\prod_{j=1}^n U_j^{1/n}-e^{-1}
+}{
+e^{-1}/\sqrt n
+}
+\Rightarrow
+N(0,1).
+}
+$$

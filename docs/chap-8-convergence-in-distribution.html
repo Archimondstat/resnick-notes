@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chap 8, Convergence in Distribution | Notes on A Probability Path (Resnick)</title>
   <meta name="description" content="Chap 8, Convergence in Distribution | Notes on A Probability Path (Resnick)" />
-  <meta name="generator" content="bookdown 0.46 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.42 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chap 8, Convergence in Distribution | Notes on A Probability Path (Resnick)" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="Zhanwen Peng" />
 
 
-<meta name="date" content="2026-11-09" />
+<meta name="date" content="2026-11-10" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -653,6 +653,12 @@
 <li class="chapter" data-level="" data-path="chap-8-convergence-in-distribution.html"><a href="chap-8-convergence-in-distribution.html#step-4-combine-the-three-parts"><i class="fa fa-check"></i>Step 4: Combine the three parts</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="chap-8-convergence-in-distribution.html"><a href="chap-8-convergence-in-distribution.html#ex-15-4"><i class="fa fa-check"></i>Ex 15</a></li>
+<li class="chapter" data-level="" data-path="chap-8-convergence-in-distribution.html"><a href="chap-8-convergence-in-distribution.html#ex-29-4"><i class="fa fa-check"></i>Ex 29</a></li>
+<li class="chapter" data-level="" data-path="chap-8-convergence-in-distribution.html"><a href="chap-8-convergence-in-distribution.html#ex-3-3"><i class="fa fa-check"></i>Ex 3</a>
+<ul>
+<li class="chapter" data-level="" data-path="chap-8-convergence-in-distribution.html"><a href="chap-8-convergence-in-distribution.html#a-39"><i class="fa fa-check"></i>(a)</a></li>
+<li class="chapter" data-level="" data-path="chap-8-convergence-in-distribution.html"><a href="chap-8-convergence-in-distribution.html#b-39"><i class="fa fa-check"></i>(b)</a></li>
+</ul></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -9140,6 +9146,421 @@ an advanced book must be solvable using only the knowledge explicitly
 developed in that book. Some exercises may come from deeper results or
 original papers, and part of studying them is learning when additional
 mathematical machinery is genuinely needed.</p>
+</div>
+</div>
+<div id="ex-29-4" class="section level3 hasAnchor">
+<h3>Ex 29<a href="chap-8-convergence-in-distribution.html#ex-29-4" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="problem">
+<p>Suppose <span class="math inline">\(\{X_t,t\geq0\}\)</span> is a family of random variables parameterized by a
+continuous variable <span class="math inline">\(t\)</span> and assume there exist normalizing constants
+<span class="math inline">\(a(t)&gt;0\)</span>, <span class="math inline">\(b(t)\in\mathbb R\)</span> such that as <span class="math inline">\(t\to\infty\)</span></p>
+<p><span class="math display">\[
+\frac{X_t-b(t)}{a(t)}
+\Rightarrow Y,
+\]</span></p>
+<p>where <span class="math inline">\(Y\)</span> is non-degenerate. Show the normalizing functions can always be
+assumed continuous; that is, there exist continuous functions
+<span class="math inline">\(\alpha(t)&gt;0\)</span>, <span class="math inline">\(\beta(t)\in\mathbb R\)</span> such that</p>
+<p><span class="math display">\[
+\frac{X_t-\beta(t)}{\alpha(t)}
+\Rightarrow Y&#39;,
+\]</span></p>
+<p>where <span class="math inline">\(Y&#39;\)</span> has a non-degenerate distribution.</p>
+<p>(Hint: The convergence to types theorem provides normalizing constants which
+can be smoothed by integration.)</p>
+</div>
+<p><span class="math inline">\(\textbf{Answer:}\)</span></p>
+<p>As stated, the exercise appears to be false.</p>
+<p>Let</p>
+<p><span class="math display">\[
+Z\sim N(0,1),
+\]</span></p>
+<p>and define</p>
+<p><span class="math display">\[
+c(t)
+=
+\begin{cases}
+1, &amp; t\in\mathbb Q,\\
+2, &amp; t\notin\mathbb Q.
+\end{cases}
+\]</span></p>
+<p>Set</p>
+<p><span class="math display">\[
+X_t=c(t)Z.
+\]</span></p>
+<p>Take</p>
+<p><span class="math display">\[
+a(t)=c(t),
+\qquad
+b(t)=0.
+\]</span></p>
+<p>Then, for every <span class="math inline">\(t\geq0\)</span>,</p>
+<p><span class="math display">\[
+\frac{X_t-b(t)}{a(t)}
+=
+\frac{c(t)Z}{c(t)}
+=
+Z.
+\]</span></p>
+<p>Therefore</p>
+<p><span class="math display">\[
+\frac{X_t-b(t)}{a(t)}
+\Rightarrow Z
+\]</span></p>
+<p>as <span class="math inline">\(t\to\infty\)</span>, where <span class="math inline">\(Z\)</span> is non-degenerate. Thus all the assumptions of the
+exercise are satisfied.</p>
+<p>We now show that continuous normalizing functions cannot exist.</p>
+<p>Suppose, to the contrary, that there exist continuous functions</p>
+<p><span class="math display">\[
+\alpha(t)&gt;0,
+\qquad
+\beta(t)\in\mathbb R
+\]</span></p>
+<p>such that</p>
+<p><span class="math display">\[
+\frac{X_t-\beta(t)}{\alpha(t)}
+\Rightarrow Y&#39;
+\]</span></p>
+<p>for some non-degenerate random variable <span class="math inline">\(Y&#39;\)</span>.</p>
+<p>Choose a sequence of rational numbers</p>
+<p><span class="math display">\[
+r_n\to\infty.
+\]</span></p>
+<p>Since <span class="math inline">\(r_n\in\mathbb Q\)</span>,</p>
+<p><span class="math display">\[
+X_{r_n}=Z,
+\]</span></p>
+<p>and hence</p>
+<p><span class="math display">\[
+\frac{Z-\beta(r_n)}{\alpha(r_n)}
+\Rightarrow Y&#39;.
+\tag{1}
+\]</span></p>
+<p>Since <span class="math inline">\(Z\)</span> is non-degenerate and <span class="math inline">\(Y&#39;\)</span> is non-degenerate, the convergence to
+types theorem applied to (1) implies that there exist constants</p>
+<p><span class="math display">\[
+A&gt;0,
+\qquad
+B\in\mathbb R
+\]</span></p>
+<p>such that</p>
+<p><span class="math display">\[
+\alpha(r_n)\to A
+\]</span></p>
+<p>and</p>
+<p><span class="math display">\[
+\beta(r_n)\to B.
+\tag{2}
+\]</span></p>
+<p>Moreover,</p>
+<p><span class="math display">\[
+Y&#39;
+\overset{d}{=}
+\frac{Z-B}{A}.
+\tag{3}
+\]</span></p>
+<p>Now use the continuity of <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span>.</p>
+<p>For each <span class="math inline">\(n\)</span>, since both functions are continuous at <span class="math inline">\(r_n\)</span>, there exists
+<span class="math inline">\(\delta_n&gt;0\)</span> such that whenever</p>
+<p><span class="math display">\[
+|s-r_n|&lt;\delta_n,
+\]</span></p>
+<p>we have</p>
+<p><span class="math display">\[
+|\alpha(s)-\alpha(r_n)|&lt;\frac1n
+\]</span></p>
+<p>and</p>
+<p><span class="math display">\[
+|\beta(s)-\beta(r_n)|&lt;\frac1n.
+\]</span></p>
+<p>Because the irrational numbers are dense in <span class="math inline">\(\mathbb R\)</span>, we can choose an
+irrational number <span class="math inline">\(s_n\)</span> satisfying</p>
+<p><span class="math display">\[
+|s_n-r_n|
+&lt;
+\min\left(\delta_n,\frac1n\right).
+\]</span></p>
+<p>Then</p>
+<p><span class="math display">\[
+s_n\to\infty,
+\]</span></p>
+<p>and, by construction,</p>
+<p><span class="math display">\[
+\alpha(s_n)-\alpha(r_n)\to0,
+\]</span></p>
+<p>and</p>
+<p><span class="math display">\[
+\beta(s_n)-\beta(r_n)\to0.
+\]</span></p>
+<p>Together with (2),</p>
+<p><span class="math display">\[
+\alpha(s_n)\to A
+\]</span></p>
+<p>and</p>
+<p><span class="math display">\[
+\beta(s_n)\to B.
+\tag{4}
+\]</span></p>
+<p>However, <span class="math inline">\(s_n\)</span> is irrational, so</p>
+<p><span class="math display">\[
+X_{s_n}=2Z.
+\]</span></p>
+<p>Therefore</p>
+<p><span class="math display">\[
+\frac{X_{s_n}-\beta(s_n)}{\alpha(s_n)}
+=
+\frac{2Z-\beta(s_n)}{\alpha(s_n)}
+\Rightarrow
+\frac{2Z-B}{A}.
+\]</span></p>
+<p>But by the assumed convergence along all <span class="math inline">\(t\to\infty\)</span>, the same sequence must
+converge to <span class="math inline">\(Y&#39;\)</span>. Hence</p>
+<p><span class="math display">\[
+Y&#39;
+\overset{d}{=}
+\frac{2Z-B}{A}.
+\tag{5}
+\]</span></p>
+<p>Combining (3) and (5),</p>
+<p><span class="math display">\[
+\frac{Z-B}{A}
+\overset{d}{=}
+\frac{2Z-B}{A}.
+\]</span></p>
+<p>This is impossible. Indeed,</p>
+<p><span class="math display">\[
+\operatorname{Var}
+\left(
+\frac{Z-B}{A}
+\right)
+=
+\frac1{A^2},
+\]</span></p>
+<p>whereas</p>
+<p><span class="math display">\[
+\operatorname{Var}
+\left(
+\frac{2Z-B}{A}
+\right)
+=
+\frac4{A^2}.
+\]</span></p>
+<p>Since <span class="math inline">\(A&gt;0\)</span>, the two distributions cannot be equal.</p>
+<p>Therefore,</p>
+<p><span class="math display">\[
+\boxed{
+\text{Exercise 29 is false under the assumptions as printed.}
+}
+\]</span></p>
+<p><span class="math inline">\(\textbf{Note:}\)</span></p>
+<p>The hint suggests smoothing the original normalizers by integration, for
+example,</p>
+<p><span class="math display">\[
+\alpha(t)
+=
+\int_t^{t+1}a(s)\,ds,
+\qquad
+\beta(t)
+=
+\int_t^{t+1}b(s)\,ds.
+\]</span></p>
+<p>However, under the assumptions stated in the exercise, there is no reason
+that these smoothed normalizers should be asymptotically equivalent to the
+original normalizers.</p>
+<p>The counterexample above shows that this is not merely a missing step in the
+proof. Some additional regularity condition would be needed to make the
+conclusion true.</p>
+<p>Rather than adding such a condition ourselves, we leave the exercise in its
+printed form and record the counterexample.</p>
+</div>
+<div id="ex-3-3" class="section level3 hasAnchor">
+<h3>Ex 3<a href="chap-8-convergence-in-distribution.html#ex-3-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="problem">
+<p>Suppose <span class="math inline">\(\{U_n,n\geq1\}\)</span> are iid <span class="math inline">\(U(0,1)\)</span> random variables so that</p>
+<p><span class="math display">\[
+P[U_j\leq x]=x,\qquad 0\leq x\leq1.
+\]</span></p>
+<ol style="list-style-type: lower-alpha">
+<li>Show</li>
+</ol>
+<p><span class="math display">\[
+\prod_{j=1}^n U_j^{1/n}
+\]</span></p>
+<p>converges almost surely. What is the limit?</p>
+<ol start="2" style="list-style-type: lower-alpha">
+<li>Center and scale the sequence</li>
+</ol>
+<p><span class="math display">\[
+\left\{
+\prod_{j=1}^n U_j^{1/n},\ n\geq1
+\right\}
+\]</span></p>
+<p>and show the resulting sequence converges in distribution to a non-degenerate limit. To which one?</p>
+</div>
+<p><span class="math inline">\(\textbf{Answer:}\)</span></p>
+<div id="a-39" class="section level4 hasAnchor">
+<h4>(a)<a href="chap-8-convergence-in-distribution.html#a-39" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Take logarithms:</p>
+<p><span class="math display">\[
+\log\left(
+\prod_{j=1}^n U_j^{1/n}
+\right)
+=
+\frac1n\sum_{j=1}^n\log U_j.
+\]</span></p>
+<p>Since <span class="math inline">\(\{U_j\}\)</span> are iid, so are <span class="math inline">\(\{\log U_j\}\)</span>.</p>
+<p>Also,</p>
+<p><span class="math display">\[
+E|\log U_1|
+=
+\int_0^1 |\log x|\,dx
+&lt;
+\infty.
+\]</span></p>
+<p>Therefore, by the SLLN,</p>
+<p><span class="math display">\[
+\frac1n\sum_{j=1}^n\log U_j
+\overset{a.s.}{\longrightarrow}
+E(\log U_1).
+\]</span></p>
+<p>Now</p>
+<p><span class="math display">\[
+E(\log U_1)
+=
+\int_0^1\log x\,dx.
+\]</span></p>
+<p>Using integration by parts,</p>
+<p><span class="math display">\[
+\int \log x\,dx
+=
+x\log x-x,
+\]</span></p>
+<p>so</p>
+<p><span class="math display">\[
+E(\log U_1)
+=
+\left[x\log x-x\right]_0^1
+=
+-1.
+\]</span></p>
+<p>Hence</p>
+<p><span class="math display">\[
+\log\left(
+\prod_{j=1}^n U_j^{1/n}
+\right)
+\overset{a.s.}{\longrightarrow}
+-1.
+\]</span></p>
+<p>Since the exponential function is continuous,</p>
+<p><span class="math display">\[
+\boxed{
+\prod_{j=1}^n U_j^{1/n}
+\overset{a.s.}{\longrightarrow}
+e^{-1}.
+}
+\]</span></p>
+</div>
+<div id="b-39" class="section level4 hasAnchor">
+<h4>(b)<a href="chap-8-convergence-in-distribution.html#b-39" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Let</p>
+<p><span class="math display">\[
+L_n
+=
+\frac1n\sum_{j=1}^n\log U_j.
+\]</span></p>
+<p>From part (a),</p>
+<p><span class="math display">\[
+E(\log U_1)=-1.
+\]</span></p>
+<p>We also have</p>
+<p><span class="math display">\[
+E\left[(\log U_1)^2\right]
+=
+\int_0^1(\log x)^2\,dx.
+\]</span></p>
+<p>Using integration by parts,</p>
+<p><span class="math display">\[
+\int (\log x)^2\,dx
+=
+x(\log x)^2
+-
+2x\log x
++
+2x,
+\]</span></p>
+<p>and therefore</p>
+<p><span class="math display">\[
+E\left[(\log U_1)^2\right]
+=
+2.
+\]</span></p>
+<p>Thus</p>
+<p><span class="math display">\[
+\operatorname{Var}(\log U_1)
+=
+2-(-1)^2
+=
+1.
+\]</span></p>
+<p>By the CLT,</p>
+<p><span class="math display">\[
+\frac{
+\sqrt n\left(L_n-(-1)\right)
+}{
+\sqrt{\operatorname{Var}(\log U_1)}
+}
+\Rightarrow
+N(0,1).
+\]</span></p>
+<p>Since <span class="math inline">\(\operatorname{Var}(\log U_1)=1\)</span>,</p>
+<p><span class="math display">\[
+\boxed{
+\sqrt n(L_n+1)
+\Rightarrow
+N(0,1).
+}
+\tag{1}
+\]</span></p>
+<p>Now define</p>
+<p><span class="math display">\[
+g(x)=e^x.
+\]</span></p>
+<p>Then</p>
+<p><span class="math display">\[
+\prod_{j=1}^n U_j^{1/n}
+=
+e^{L_n}
+=
+g(L_n),
+\]</span></p>
+<p>and</p>
+<p><span class="math display">\[
+g(-1)=e^{-1},
+\qquad
+g&#39;(-1)=e^{-1}.
+\]</span></p>
+<p>Applying the delta method to (1),</p>
+<p><span class="math display">\[
+\sqrt n
+\left(
+e^{L_n}-e^{-1}
+\right)
+\Rightarrow
+e^{-1}N(0,1).
+\]</span></p>
+<p>Equivalently,</p>
+<p><span class="math display">\[
+\boxed{
+\frac{
+\displaystyle
+\prod_{j=1}^n U_j^{1/n}-e^{-1}
+}{
+e^{-1}/\sqrt n
+}
+\Rightarrow
+N(0,1).
+}
+\]</span></p>
 
 </div>
 </div>
