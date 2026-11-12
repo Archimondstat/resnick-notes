@@ -11552,3 +11552,981 @@ e^{-1}/\sqrt n
 N(0,1).
 }
 $$
+
+
+### Ex 25
+::: problem
+
+(i) Suppose $F$ is a distribution function and $u$ is a bounded continuous function on $\mathbb R$. Define the convolution transform as
+
+$$
+F*u(t)=\int_{\mathbb R}u(t-y)F(dy).
+$$
+
+Let $\{F_n,n\geq0\}$ be a sequence of probability distribution functions. Let
+$C[-\infty,\infty]$ be the class of bounded, continuous functions on $\mathbb R$
+with finite limits existing at $\pm\infty$. Prove that $F_n\Rightarrow F_0$ iff
+for each $u\in C[-\infty,\infty]$,
+
+$$
+U_n:=F_n*u
+$$
+
+converges uniformly to a limit $U$. In this case, $U=F_0*u$.
+
+(ii) Suppose $X$ is a random variable and set
+
+$$
+F_n(x)=P[X/n\leq x].
+$$
+
+Prove
+
+$$
+F_n*u\longrightarrow u
+$$
+
+uniformly.
+
+(iii) Specialize (ii) to the case where $F$ is the standard normal distribution
+and verify the approximation lemma: Given any $\epsilon>0$ and any
+$u\in C[-\infty,\infty]$, there exists an infinitely differentiable
+$v\in C[-\infty,\infty]$ such that
+
+$$
+\sup_{x\in\mathbb R}|v(x)-u(x)|<\epsilon.
+$$
+
+(iv) Suppose that $u(x,y)$ is a function on $\mathbb R^2$ vanishing at the
+infinities. Then $u$ can be approximated uniformly by finite linear combinations
+
+$$
+\sum_k c_k g_k(x)h_k(y)
+$$
+
+with infinitely differentiable $g_k,h_k$. (Hint: Use normal distributions.)
+
+(v) Suppose $F_n$ is discrete with equal atoms at $-n,0,n$. What is the vague
+limit of $F_n$ as $n\to\infty$? What is the vague limit of $F_n*F_n$?
+
+(vi) Suppose $F_n$ concentrates all mass at $1/n$ and
+
+$$
+u(x)=\sin(x^2).
+$$
+
+Then $F_n*u$ converges pointwise but not uniformly.
+(Is $u\in C[-\infty,\infty]$?)
+
+:::
+
+$\textbf{Answer:}$
+
+#### (i)
+
+Suppose first that
+
+$$
+F_n\Rightarrow F_0.
+$$
+
+For fixed $t\in\mathbb R$, the function
+
+$$
+y\mapsto u(t-y)
+$$
+
+is bounded and continuous. Hence, by weak convergence,
+
+$$
+U_n(t)
+=
+\int_{\mathbb R}u(t-y)F_n(dy)
+\longrightarrow
+\int_{\mathbb R}u(t-y)F_0(dy)
+=
+U_0(t).
+$$
+
+Thus
+
+$$
+U_n(t)\to U_0(t)
+$$
+
+pointwise.
+
+Since $u\in C[-\infty,\infty]$, the limits
+
+$$
+L_-:=u(-\infty),
+\qquad
+L_+:=u(+\infty)
+$$
+
+exist and are finite. Therefore $u$ is uniformly continuous on $\mathbb R$.
+
+Hence, for every $\epsilon>0$, there exists $\delta>0$ such that
+
+$$
+|x-y|<\delta
+\quad\Longrightarrow\quad
+|u(x)-u(y)|<\epsilon.
+$$
+
+For any $s,t\in\mathbb R$,
+
+$$
+\begin{aligned}
+|U_n(t)-U_n(s)|
+&=
+\left|
+\int_{\mathbb R}
+\{u(t-y)-u(s-y)\}
+F_n(dy)
+\right|\\
+&\leq
+\int_{\mathbb R}
+|u(t-y)-u(s-y)|
+F_n(dy).
+\end{aligned}
+$$
+
+Since
+
+$$
+|(t-y)-(s-y)|=|t-s|,
+$$
+
+we obtain, whenever $|t-s|<\delta$,
+
+$$
+|U_n(t)-U_n(s)|<\epsilon
+$$
+
+for every $n\geq0$.
+
+Thus $\{U_n:n\geq0\}$ is equicontinuous.
+
+Fix $T>0$. Divide $[-T,T]$ into finitely many points
+
+$$
+-T=t_0<t_1<\cdots<t_m=T
+$$
+
+with
+
+$$
+t_{j+1}-t_j<\delta.
+$$
+
+For every $t\in[-T,T]$, choose $t_j$ such that
+
+$$
+|t-t_j|<\delta.
+$$
+
+Then
+
+$$
+\begin{aligned}
+|U_n(t)-U_0(t)|
+\leq {}&
+|U_n(t)-U_n(t_j)|\\
+&+
+|U_n(t_j)-U_0(t_j)|\\
+&+
+|U_0(t_j)-U_0(t)|.
+\end{aligned}
+$$
+
+The first and third terms are smaller than $\epsilon$ by equicontinuity.
+
+Also, for each fixed $t_j$,
+
+$$
+U_n(t_j)\to U_0(t_j).
+$$
+
+Since there are only finitely many $t_j$'s, for sufficiently large $n$,
+
+$$
+\max_{0\leq j\leq m}
+|U_n(t_j)-U_0(t_j)|
+<\epsilon.
+$$
+
+Therefore
+
+$$
+\sup_{|t|\leq T}
+|U_n(t)-U_0(t)|
+<3\epsilon
+$$
+
+for sufficiently large $n$.
+
+It remains to control the tails.
+
+Since $F_n\Rightarrow F_0$, the family is tight. Hence, for a given
+$\epsilon>0$, we can choose $K>0$ such that, for all sufficiently large $n$,
+
+$$
+F_n([-K,K]^c)<\epsilon
+$$
+
+and
+
+$$
+F_0([-K,K]^c)<\epsilon.
+$$
+
+Let
+
+$$
+M:=\sup_{x\in\mathbb R}|u(x)|.
+$$
+
+Choose $T$ sufficiently large so that, for $t>T$ and $y\in[-K,K]$,
+
+$$
+|u(t-y)-L_+|<\epsilon.
+$$
+
+Then
+
+$$
+\begin{aligned}
+|U_n(t)-L_+|
+&\leq
+\int_{[-K,K]}
+|u(t-y)-L_+|F_n(dy)\\
+&\qquad+
+\int_{[-K,K]^c}
+|u(t-y)-L_+|F_n(dy)\\
+&\leq
+\epsilon
++
+(M+|L_+|)\epsilon.
+\end{aligned}
+$$
+
+The same estimate holds for $U_0(t)$. Hence
+
+$$
+\sup_{t>T}|U_n(t)-U_0(t)|
+\leq
+2(1+M+|L_+|)\epsilon.
+$$
+
+Similarly, using $L_-=u(-\infty)$,
+
+$$
+\sup_{t<-T}|U_n(t)-U_0(t)|
+\leq
+2(1+M+|L_-|)\epsilon.
+$$
+
+Combining the compact part and the two tails,
+
+$$
+\sup_{t\in\mathbb R}
+|U_n(t)-U_0(t)|
+\longrightarrow0.
+$$
+
+Thus
+
+$$
+\boxed{
+F_n*u\longrightarrow F_0*u
+\quad\text{uniformly}.
+}
+$$
+
+Conversely, suppose that for each $u\in C[-\infty,\infty]$ the asserted
+uniform limit is
+
+$$
+F_0*u.
+$$
+
+Taking $t=0$,
+
+$$
+\int_{\mathbb R}u(-y)F_n(dy)
+\longrightarrow
+\int_{\mathbb R}u(-y)F_0(dy).
+$$
+
+For any $f\in C_c(\mathbb R)$, define
+
+$$
+u(x)=f(-x).
+$$
+
+Then $u\in C_c(\mathbb R)\subset C[-\infty,\infty]$, and therefore
+
+$$
+\int_{\mathbb R}f(y)F_n(dy)
+\longrightarrow
+\int_{\mathbb R}f(y)F_0(dy).
+$$
+
+Thus $F_n$ converges vaguely to $F_0$. Since $F_0$ is a probability measure,
+vague convergence to $F_0$ implies weak convergence. Hence
+
+$$
+\boxed{
+F_n\Rightarrow F_0.
+}
+$$
+
+#### (ii)
+
+Let
+
+$$
+F_n(x)=P[X/n\leq x].
+$$
+
+For $x>0$,
+
+$$
+F_n(x)
+=
+P(X\leq nx)
+\longrightarrow1,
+$$
+
+while for $x<0$,
+
+$$
+F_n(x)
+=
+P(X\leq nx)
+\longrightarrow0.
+$$
+
+Therefore
+
+$$
+F_n\Rightarrow\delta_0,
+$$
+
+where $\delta_0$ is the probability measure concentrated at $0$.
+
+By part (i),
+
+$$
+F_n*u
+\longrightarrow
+\delta_0*u
+$$
+
+uniformly.
+
+But
+
+$$
+(\delta_0*u)(t)
+=
+\int_{\mathbb R}u(t-y)\delta_0(dy)
+=
+u(t).
+$$
+
+Hence
+
+$$
+\boxed{
+F_n*u\longrightarrow u
+\quad\text{uniformly}.
+}
+$$
+
+#### (iii)
+
+Let
+
+$$
+Z\sim N(0,1)
+$$
+
+and define
+
+$$
+Z_n=\frac{Z}{n}.
+$$
+
+Let $F_n$ be the distribution of $Z_n$. Then $Z_n\to0$ almost surely, so by
+part (ii),
+
+$$
+F_n*u\longrightarrow u
+$$
+
+uniformly.
+
+The density of $Z_n$ is
+
+$$
+\phi_n(y)
+=
+\frac{n}{\sqrt{2\pi}}
+\exp\left\{-\frac{n^2y^2}{2}\right\}.
+$$
+
+Define
+
+$$
+v_n(t)
+=
+(F_n*u)(t)
+=
+\int_{\mathbb R}u(t-y)\phi_n(y)\,dy.
+$$
+
+Changing variables,
+
+$$
+v_n(t)
+=
+\int_{\mathbb R}u(x)\phi_n(t-x)\,dx.
+$$
+
+Since $u$ is bounded and every derivative $\phi_n^{(k)}$ is integrable,
+
+$$
+v_n^{(k)}(t)
+=
+\int_{\mathbb R}
+u(x)\phi_n^{(k)}(t-x)\,dx,
+\qquad
+k\geq1.
+$$
+
+Therefore
+
+$$
+v_n\in C^\infty(\mathbb R).
+$$
+
+Now return to the original representation
+
+$$
+v_n(t)
+=
+\int_{\mathbb R}u(t-y)\phi_n(y)\,dy.
+$$
+
+Let
+
+$$
+L_+=u(+\infty),
+\qquad
+L_-=u(-\infty).
+$$
+
+For fixed $y$,
+
+$$
+u(t-y)\to L_+
+\qquad
+(t\to+\infty).
+$$
+
+Since $u$ is bounded and $\phi_n$ is a density, DCT gives
+
+$$
+v_n(t)\to L_+.
+$$
+
+Similarly,
+
+$$
+v_n(t)\to L_-
+\qquad
+(t\to-\infty).
+$$
+
+Thus
+
+$$
+v_n\in C^\infty(\mathbb R)\cap C[-\infty,\infty].
+$$
+
+Finally,
+
+$$
+\|v_n-u\|_\infty\to0.
+$$
+
+Hence, given $\epsilon>0$, choose $n$ sufficiently large and set
+
+$$
+v=v_n.
+$$
+
+Then
+
+$$
+\boxed{
+\sup_{x\in\mathbb R}|v(x)-u(x)|<\epsilon.
+}
+$$
+
+#### (iv)
+
+Let
+
+$$
+\phi_n(x)
+=
+\frac{n}{\sqrt{2\pi}}
+\exp\left\{-\frac{n^2x^2}{2}\right\}.
+$$
+
+Define the two-dimensional Gaussian mollification
+
+$$
+v_n(x,y)
+=
+\iint_{\mathbb R^2}
+u(\xi,s)
+\phi_n(x-\xi)
+\phi_n(y-s)
+\,d\xi\,ds.
+$$
+
+As in part (iii),
+
+$$
+v_n\longrightarrow u
+$$
+
+uniformly on $\mathbb R^2$.
+
+Fix $\epsilon>0$ and choose $n$ sufficiently large that
+
+$$
+\|v_n-u\|_\infty<\epsilon.
+$$
+
+Since $u$ vanishes at infinity, choose $Q>0$ and let
+
+$$
+A=[-Q,Q]\times[-Q,Q]
+$$
+
+such that
+
+$$
+|u(\xi,s)|<\epsilon
+$$
+
+for $(\xi,s)\in A^c$.
+
+Therefore, uniformly in $(x,y)$,
+
+$$
+\begin{aligned}
+&
+\left|
+\iint_{A^c}
+u(\xi,s)
+\phi_n(x-\xi)
+\phi_n(y-s)
+\,d\xi\,ds
+\right|\\
+&\leq
+\epsilon
+\iint_{\mathbb R^2}
+\phi_n(x-\xi)
+\phi_n(y-s)
+\,d\xi\,ds\\
+&=
+\epsilon.
+\end{aligned}
+$$
+
+It remains to approximate the integral over $A$.
+
+Partition $A$ into finitely many small rectangles $R_j$, and choose a
+representative point
+
+$$
+(\xi_j,s_j)\in R_j.
+$$
+
+Let
+
+$$
+M_u=\sup_{\mathbb R^2}|u|,
+\qquad
+M_\phi=\|\phi_n\|_\infty.
+$$
+
+For $(\xi,s)\in R_j$,
+
+$$
+\begin{aligned}
+&
+\left|
+u(\xi,s)\phi_n(x-\xi)\phi_n(y-s)
+-
+u(\xi_j,s_j)
+\phi_n(x-\xi_j)\phi_n(y-s_j)
+\right|\\
+&\leq
+M_\phi^2
+|u(\xi,s)-u(\xi_j,s_j)|\\
+&\quad+
+M_uM_\phi
+|\phi_n(x-\xi)-\phi_n(x-\xi_j)|\\
+&\quad+
+M_uM_\phi
+|\phi_n(y-s)-\phi_n(y-s_j)|.
+\end{aligned}
+$$
+
+The function $u$ is uniformly continuous on the compact set $A$, while
+$\phi_n$ is uniformly continuous on $\mathbb R$. Hence, if the partition is
+sufficiently fine, the right-hand side is smaller than some $\eta>0$,
+uniformly in $(x,y)$ and uniformly over all rectangles $R_j$.
+
+Define
+
+$$
+f(x,y)
+=
+\sum_j
+u(\xi_j,s_j)
+\phi_n(x-\xi_j)
+\phi_n(y-s_j)
+|R_j|.
+$$
+
+Then
+
+$$
+\begin{aligned}
+&
+\left|
+\iint_A
+u(\xi,s)
+\phi_n(x-\xi)
+\phi_n(y-s)
+\,d\xi\,ds
+-
+f(x,y)
+\right|\\
+&\leq
+\sum_j
+\int_{R_j}
+\eta\,d\xi\,ds\\
+&=
+\eta|A|.
+\end{aligned}
+$$
+
+Choose the mesh sufficiently fine that
+
+$$
+\eta|A|<\epsilon.
+$$
+
+Therefore
+
+$$
+\sup_{(x,y)\in\mathbb R^2}
+|u(x,y)-f(x,y)|
+<3\epsilon.
+$$
+
+Finally,
+
+$$
+f(x,y)
+=
+\sum_j c_jg_j(x)h_j(y),
+$$
+
+where
+
+$$
+c_j
+=
+u(\xi_j,s_j)|R_j|,
+$$
+
+$$
+g_j(x)
+=
+\phi_n(x-\xi_j),
+$$
+
+and
+
+$$
+h_j(y)
+=
+\phi_n(y-s_j).
+$$
+
+Each $g_j$ and $h_j$ is infinitely differentiable. Hence $u$ can be
+approximated uniformly by finite linear combinations of the required form.
+
+#### (v)
+
+Let
+
+$$
+F_n
+=
+\frac13\delta_{-n}
++
+\frac13\delta_0
++
+\frac13\delta_n.
+$$
+
+For $f\in C_c(\mathbb R)$,
+
+$$
+\int_{\mathbb R}f\,dF_n
+=
+\frac13f(-n)
++
+\frac13f(0)
++
+\frac13f(n).
+$$
+
+Since $f$ has compact support,
+
+$$
+f(-n)=f(n)=0
+$$
+
+for all sufficiently large $n$. Hence
+
+$$
+\int_{\mathbb R}f\,dF_n
+\longrightarrow
+\frac13f(0).
+$$
+
+Therefore
+
+$$
+\boxed{
+F_n\xrightarrow{v}\frac13\delta_0.
+}
+$$
+
+Now let $X_n,X_n'$ be iid with distribution $F_n$. Then
+
+$$
+X_n+X_n'
+$$
+
+takes the values
+
+$$
+-2n,-n,0,n,2n
+$$
+
+with respective probabilities
+
+$$
+\frac19,\frac29,\frac39,\frac29,\frac19.
+$$
+
+Thus
+
+$$
+F_n*F_n
+=
+\frac19\delta_{-2n}
++
+\frac29\delta_{-n}
++
+\frac13\delta_0
++
+\frac29\delta_n
++
+\frac19\delta_{2n}.
+$$
+
+For $f\in C_c(\mathbb R)$,
+
+$$
+\begin{aligned}
+\int f\,d(F_n*F_n)
+={}&
+\frac19f(-2n)
++
+\frac29f(-n)
++
+\frac13f(0)\\
+&+
+\frac29f(n)
++
+\frac19f(2n).
+\end{aligned}
+$$
+
+All terms except the one at $0$ vanish eventually. Hence
+
+$$
+\boxed{
+F_n*F_n
+\xrightarrow{v}
+\frac13\delta_0.
+}
+$$
+
+#### (vi)
+
+Since $F_n$ concentrates all its mass at $1/n$,
+
+$$
+(F_n*u)(t)
+=
+u\left(t-\frac1n\right)
+=
+\sin\left(t-\frac1n\right)^2.
+$$
+
+For every fixed $t$,
+
+$$
+\sin\left(t-\frac1n\right)^2
+\longrightarrow
+\sin(t^2),
+$$
+
+so the convergence is pointwise.
+
+To show that the convergence is not uniform, let
+
+$$
+k_n
+=
+\left\lfloor
+\frac{\pi}{8}n^2
+\right\rfloor
+$$
+
+and define $t_n>0$ by
+
+$$
+t_n^2
+=
+\frac{\pi}{2}
++
+2\pi k_n.
+$$
+
+Then
+
+$$
+\sin(t_n^2)=1.
+$$
+
+Also,
+
+$$
+\frac{t_n^2}{n^2}
+=
+\frac{\pi}{2n^2}
++
+2\pi\frac{k_n}{n^2}
+\longrightarrow
+\frac{\pi^2}{4}.
+$$
+
+Hence
+
+$$
+\frac{t_n}{n}
+\longrightarrow
+\frac{\pi}{2}
+$$
+
+and therefore
+
+$$
+\frac{2t_n}{n}
+\longrightarrow
+\pi.
+$$
+
+Now
+
+$$
+\left(t_n-\frac1n\right)^2
+=
+t_n^2
+-
+\frac{2t_n}{n}
++
+\frac1{n^2}.
+$$
+
+Thus, modulo $2\pi$,
+
+$$
+\left(t_n-\frac1n\right)^2
+\longrightarrow
+\frac{\pi}{2}-\pi
+=
+-\frac{\pi}{2}.
+$$
+
+Therefore
+
+$$
+\sin\left(t_n-\frac1n\right)^2
+\longrightarrow
+-1.
+$$
+
+Consequently,
+
+$$
+\left|
+\sin\left(t_n-\frac1n\right)^2
+-
+\sin(t_n^2)
+\right|
+\longrightarrow
+2.
+$$
+
+Hence
+
+$$
+\sup_{t\in\mathbb R}
+\left|
+(F_n*u)(t)-u(t)
+\right|
+\not\longrightarrow0.
+$$
+
+Thus the convergence is not uniform.
+
+Finally,
+
+$$
+u(x)=\sin(x^2)
+$$
+
+does not have finite limits as $x\to\pm\infty$. Therefore
+
+$$
+\boxed{
+u\notin C[-\infty,\infty].
+}
+$$

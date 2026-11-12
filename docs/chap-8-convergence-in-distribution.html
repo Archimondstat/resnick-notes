@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chap 8, Convergence in Distribution | Notes on A Probability Path (Resnick)</title>
   <meta name="description" content="Chap 8, Convergence in Distribution | Notes on A Probability Path (Resnick)" />
-  <meta name="generator" content="bookdown 0.42 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.46 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chap 8, Convergence in Distribution | Notes on A Probability Path (Resnick)" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="Zhanwen Peng" />
 
 
-<meta name="date" content="2026-11-10" />
+<meta name="date" content="2026-11-12" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -658,6 +658,15 @@
 <ul>
 <li class="chapter" data-level="" data-path="chap-8-convergence-in-distribution.html"><a href="chap-8-convergence-in-distribution.html#a-39"><i class="fa fa-check"></i>(a)</a></li>
 <li class="chapter" data-level="" data-path="chap-8-convergence-in-distribution.html"><a href="chap-8-convergence-in-distribution.html#b-39"><i class="fa fa-check"></i>(b)</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="chap-8-convergence-in-distribution.html"><a href="chap-8-convergence-in-distribution.html#ex-25-4"><i class="fa fa-check"></i>Ex 25</a>
+<ul>
+<li class="chapter" data-level="" data-path="chap-8-convergence-in-distribution.html"><a href="chap-8-convergence-in-distribution.html#i-2"><i class="fa fa-check"></i>(i)</a></li>
+<li class="chapter" data-level="" data-path="chap-8-convergence-in-distribution.html"><a href="chap-8-convergence-in-distribution.html#ii-2"><i class="fa fa-check"></i>(ii)</a></li>
+<li class="chapter" data-level="" data-path="chap-8-convergence-in-distribution.html"><a href="chap-8-convergence-in-distribution.html#iii-1"><i class="fa fa-check"></i>(iii)</a></li>
+<li class="chapter" data-level="" data-path="chap-8-convergence-in-distribution.html"><a href="chap-8-convergence-in-distribution.html#iv-2"><i class="fa fa-check"></i>(iv)</a></li>
+<li class="chapter" data-level="" data-path="chap-8-convergence-in-distribution.html"><a href="chap-8-convergence-in-distribution.html#v-2"><i class="fa fa-check"></i>(v)</a></li>
+<li class="chapter" data-level="" data-path="chap-8-convergence-in-distribution.html"><a href="chap-8-convergence-in-distribution.html#vi"><i class="fa fa-check"></i>(vi)</a></li>
 </ul></li>
 </ul></li>
 </ul></li>
@@ -9559,6 +9568,769 @@ e^{-1}/\sqrt n
 }
 \Rightarrow
 N(0,1).
+}
+\]</span></p>
+</div>
+</div>
+<div id="ex-25-4" class="section level3 hasAnchor">
+<h3>Ex 25<a href="chap-8-convergence-in-distribution.html#ex-25-4" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="problem">
+<ol style="list-style-type: lower-roman">
+<li>Suppose <span class="math inline">\(F\)</span> is a distribution function and <span class="math inline">\(u\)</span> is a bounded continuous function on <span class="math inline">\(\mathbb R\)</span>. Define the convolution transform as</li>
+</ol>
+<p><span class="math display">\[
+F*u(t)=\int_{\mathbb R}u(t-y)F(dy).
+\]</span></p>
+<p>Let <span class="math inline">\(\{F_n,n\geq0\}\)</span> be a sequence of probability distribution functions. Let
+<span class="math inline">\(C[-\infty,\infty]\)</span> be the class of bounded, continuous functions on <span class="math inline">\(\mathbb R\)</span>
+with finite limits existing at <span class="math inline">\(\pm\infty\)</span>. Prove that <span class="math inline">\(F_n\Rightarrow F_0\)</span> iff
+for each <span class="math inline">\(u\in C[-\infty,\infty]\)</span>,</p>
+<p><span class="math display">\[
+U_n:=F_n*u
+\]</span></p>
+<p>converges uniformly to a limit <span class="math inline">\(U\)</span>. In this case, <span class="math inline">\(U=F_0*u\)</span>.</p>
+<ol start="2" style="list-style-type: lower-roman">
+<li>Suppose <span class="math inline">\(X\)</span> is a random variable and set</li>
+</ol>
+<p><span class="math display">\[
+F_n(x)=P[X/n\leq x].
+\]</span></p>
+<p>Prove</p>
+<p><span class="math display">\[
+F_n*u\longrightarrow u
+\]</span></p>
+<p>uniformly.</p>
+<ol start="3" style="list-style-type: lower-roman">
+<li>Specialize (ii) to the case where <span class="math inline">\(F\)</span> is the standard normal distribution
+and verify the approximation lemma: Given any <span class="math inline">\(\epsilon&gt;0\)</span> and any
+<span class="math inline">\(u\in C[-\infty,\infty]\)</span>, there exists an infinitely differentiable
+<span class="math inline">\(v\in C[-\infty,\infty]\)</span> such that</li>
+</ol>
+<p><span class="math display">\[
+\sup_{x\in\mathbb R}|v(x)-u(x)|&lt;\epsilon.
+\]</span></p>
+<ol start="4" style="list-style-type: lower-roman">
+<li>Suppose that <span class="math inline">\(u(x,y)\)</span> is a function on <span class="math inline">\(\mathbb R^2\)</span> vanishing at the
+infinities. Then <span class="math inline">\(u\)</span> can be approximated uniformly by finite linear combinations</li>
+</ol>
+<p><span class="math display">\[
+\sum_k c_k g_k(x)h_k(y)
+\]</span></p>
+<p>with infinitely differentiable <span class="math inline">\(g_k,h_k\)</span>. (Hint: Use normal distributions.)</p>
+<ol start="22" style="list-style-type: lower-alpha">
+<li>Suppose <span class="math inline">\(F_n\)</span> is discrete with equal atoms at <span class="math inline">\(-n,0,n\)</span>. What is the vague
+limit of <span class="math inline">\(F_n\)</span> as <span class="math inline">\(n\to\infty\)</span>? What is the vague limit of <span class="math inline">\(F_n*F_n\)</span>?</li>
+</ol>
+<ol start="6" style="list-style-type: lower-roman">
+<li>Suppose <span class="math inline">\(F_n\)</span> concentrates all mass at <span class="math inline">\(1/n\)</span> and</li>
+</ol>
+<p><span class="math display">\[
+u(x)=\sin(x^2).
+\]</span></p>
+<p>Then <span class="math inline">\(F_n*u\)</span> converges pointwise but not uniformly.
+(Is <span class="math inline">\(u\in C[-\infty,\infty]\)</span>?)</p>
+</div>
+<p><span class="math inline">\(\textbf{Answer:}\)</span></p>
+<div id="i-2" class="section level4 hasAnchor">
+<h4>(i)<a href="chap-8-convergence-in-distribution.html#i-2" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Suppose first that</p>
+<p><span class="math display">\[
+F_n\Rightarrow F_0.
+\]</span></p>
+<p>For fixed <span class="math inline">\(t\in\mathbb R\)</span>, the function</p>
+<p><span class="math display">\[
+y\mapsto u(t-y)
+\]</span></p>
+<p>is bounded and continuous. Hence, by weak convergence,</p>
+<p><span class="math display">\[
+U_n(t)
+=
+\int_{\mathbb R}u(t-y)F_n(dy)
+\longrightarrow
+\int_{\mathbb R}u(t-y)F_0(dy)
+=
+U_0(t).
+\]</span></p>
+<p>Thus</p>
+<p><span class="math display">\[
+U_n(t)\to U_0(t)
+\]</span></p>
+<p>pointwise.</p>
+<p>Since <span class="math inline">\(u\in C[-\infty,\infty]\)</span>, the limits</p>
+<p><span class="math display">\[
+L_-:=u(-\infty),
+\qquad
+L_+:=u(+\infty)
+\]</span></p>
+<p>exist and are finite. Therefore <span class="math inline">\(u\)</span> is uniformly continuous on <span class="math inline">\(\mathbb R\)</span>.</p>
+<p>Hence, for every <span class="math inline">\(\epsilon&gt;0\)</span>, there exists <span class="math inline">\(\delta&gt;0\)</span> such that</p>
+<p><span class="math display">\[
+|x-y|&lt;\delta
+\quad\Longrightarrow\quad
+|u(x)-u(y)|&lt;\epsilon.
+\]</span></p>
+<p>For any <span class="math inline">\(s,t\in\mathbb R\)</span>,</p>
+<p><span class="math display">\[
+\begin{aligned}
+|U_n(t)-U_n(s)|
+&amp;=
+\left|
+\int_{\mathbb R}
+\{u(t-y)-u(s-y)\}
+F_n(dy)
+\right|\\
+&amp;\leq
+\int_{\mathbb R}
+|u(t-y)-u(s-y)|
+F_n(dy).
+\end{aligned}
+\]</span></p>
+<p>Since</p>
+<p><span class="math display">\[
+|(t-y)-(s-y)|=|t-s|,
+\]</span></p>
+<p>we obtain, whenever <span class="math inline">\(|t-s|&lt;\delta\)</span>,</p>
+<p><span class="math display">\[
+|U_n(t)-U_n(s)|&lt;\epsilon
+\]</span></p>
+<p>for every <span class="math inline">\(n\geq0\)</span>.</p>
+<p>Thus <span class="math inline">\(\{U_n:n\geq0\}\)</span> is equicontinuous.</p>
+<p>Fix <span class="math inline">\(T&gt;0\)</span>. Divide <span class="math inline">\([-T,T]\)</span> into finitely many points</p>
+<p><span class="math display">\[
+-T=t_0&lt;t_1&lt;\cdots&lt;t_m=T
+\]</span></p>
+<p>with</p>
+<p><span class="math display">\[
+t_{j+1}-t_j&lt;\delta.
+\]</span></p>
+<p>For every <span class="math inline">\(t\in[-T,T]\)</span>, choose <span class="math inline">\(t_j\)</span> such that</p>
+<p><span class="math display">\[
+|t-t_j|&lt;\delta.
+\]</span></p>
+<p>Then</p>
+<p><span class="math display">\[
+\begin{aligned}
+|U_n(t)-U_0(t)|
+\leq {}&amp;
+|U_n(t)-U_n(t_j)|\\
+&amp;+
+|U_n(t_j)-U_0(t_j)|\\
+&amp;+
+|U_0(t_j)-U_0(t)|.
+\end{aligned}
+\]</span></p>
+<p>The first and third terms are smaller than <span class="math inline">\(\epsilon\)</span> by equicontinuity.</p>
+<p>Also, for each fixed <span class="math inline">\(t_j\)</span>,</p>
+<p><span class="math display">\[
+U_n(t_j)\to U_0(t_j).
+\]</span></p>
+<p>Since there are only finitely many <span class="math inline">\(t_j\)</span>’s, for sufficiently large <span class="math inline">\(n\)</span>,</p>
+<p><span class="math display">\[
+\max_{0\leq j\leq m}
+|U_n(t_j)-U_0(t_j)|
+&lt;\epsilon.
+\]</span></p>
+<p>Therefore</p>
+<p><span class="math display">\[
+\sup_{|t|\leq T}
+|U_n(t)-U_0(t)|
+&lt;3\epsilon
+\]</span></p>
+<p>for sufficiently large <span class="math inline">\(n\)</span>.</p>
+<p>It remains to control the tails.</p>
+<p>Since <span class="math inline">\(F_n\Rightarrow F_0\)</span>, the family is tight. Hence, for a given
+<span class="math inline">\(\epsilon&gt;0\)</span>, we can choose <span class="math inline">\(K&gt;0\)</span> such that, for all sufficiently large <span class="math inline">\(n\)</span>,</p>
+<p><span class="math display">\[
+F_n([-K,K]^c)&lt;\epsilon
+\]</span></p>
+<p>and</p>
+<p><span class="math display">\[
+F_0([-K,K]^c)&lt;\epsilon.
+\]</span></p>
+<p>Let</p>
+<p><span class="math display">\[
+M:=\sup_{x\in\mathbb R}|u(x)|.
+\]</span></p>
+<p>Choose <span class="math inline">\(T\)</span> sufficiently large so that, for <span class="math inline">\(t&gt;T\)</span> and <span class="math inline">\(y\in[-K,K]\)</span>,</p>
+<p><span class="math display">\[
+|u(t-y)-L_+|&lt;\epsilon.
+\]</span></p>
+<p>Then</p>
+<p><span class="math display">\[
+\begin{aligned}
+|U_n(t)-L_+|
+&amp;\leq
+\int_{[-K,K]}
+|u(t-y)-L_+|F_n(dy)\\
+&amp;\qquad+
+\int_{[-K,K]^c}
+|u(t-y)-L_+|F_n(dy)\\
+&amp;\leq
+\epsilon
++
+(M+|L_+|)\epsilon.
+\end{aligned}
+\]</span></p>
+<p>The same estimate holds for <span class="math inline">\(U_0(t)\)</span>. Hence</p>
+<p><span class="math display">\[
+\sup_{t&gt;T}|U_n(t)-U_0(t)|
+\leq
+2(1+M+|L_+|)\epsilon.
+\]</span></p>
+<p>Similarly, using <span class="math inline">\(L_-=u(-\infty)\)</span>,</p>
+<p><span class="math display">\[
+\sup_{t&lt;-T}|U_n(t)-U_0(t)|
+\leq
+2(1+M+|L_-|)\epsilon.
+\]</span></p>
+<p>Combining the compact part and the two tails,</p>
+<p><span class="math display">\[
+\sup_{t\in\mathbb R}
+|U_n(t)-U_0(t)|
+\longrightarrow0.
+\]</span></p>
+<p>Thus</p>
+<p><span class="math display">\[
+\boxed{
+F_n*u\longrightarrow F_0*u
+\quad\text{uniformly}.
+}
+\]</span></p>
+<p>Conversely, suppose that for each <span class="math inline">\(u\in C[-\infty,\infty]\)</span> the asserted
+uniform limit is</p>
+<p><span class="math display">\[
+F_0*u.
+\]</span></p>
+<p>Taking <span class="math inline">\(t=0\)</span>,</p>
+<p><span class="math display">\[
+\int_{\mathbb R}u(-y)F_n(dy)
+\longrightarrow
+\int_{\mathbb R}u(-y)F_0(dy).
+\]</span></p>
+<p>For any <span class="math inline">\(f\in C_c(\mathbb R)\)</span>, define</p>
+<p><span class="math display">\[
+u(x)=f(-x).
+\]</span></p>
+<p>Then <span class="math inline">\(u\in C_c(\mathbb R)\subset C[-\infty,\infty]\)</span>, and therefore</p>
+<p><span class="math display">\[
+\int_{\mathbb R}f(y)F_n(dy)
+\longrightarrow
+\int_{\mathbb R}f(y)F_0(dy).
+\]</span></p>
+<p>Thus <span class="math inline">\(F_n\)</span> converges vaguely to <span class="math inline">\(F_0\)</span>. Since <span class="math inline">\(F_0\)</span> is a probability measure,
+vague convergence to <span class="math inline">\(F_0\)</span> implies weak convergence. Hence</p>
+<p><span class="math display">\[
+\boxed{
+F_n\Rightarrow F_0.
+}
+\]</span></p>
+</div>
+<div id="ii-2" class="section level4 hasAnchor">
+<h4>(ii)<a href="chap-8-convergence-in-distribution.html#ii-2" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Let</p>
+<p><span class="math display">\[
+F_n(x)=P[X/n\leq x].
+\]</span></p>
+<p>For <span class="math inline">\(x&gt;0\)</span>,</p>
+<p><span class="math display">\[
+F_n(x)
+=
+P(X\leq nx)
+\longrightarrow1,
+\]</span></p>
+<p>while for <span class="math inline">\(x&lt;0\)</span>,</p>
+<p><span class="math display">\[
+F_n(x)
+=
+P(X\leq nx)
+\longrightarrow0.
+\]</span></p>
+<p>Therefore</p>
+<p><span class="math display">\[
+F_n\Rightarrow\delta_0,
+\]</span></p>
+<p>where <span class="math inline">\(\delta_0\)</span> is the probability measure concentrated at <span class="math inline">\(0\)</span>.</p>
+<p>By part (i),</p>
+<p><span class="math display">\[
+F_n*u
+\longrightarrow
+\delta_0*u
+\]</span></p>
+<p>uniformly.</p>
+<p>But</p>
+<p><span class="math display">\[
+(\delta_0*u)(t)
+=
+\int_{\mathbb R}u(t-y)\delta_0(dy)
+=
+u(t).
+\]</span></p>
+<p>Hence</p>
+<p><span class="math display">\[
+\boxed{
+F_n*u\longrightarrow u
+\quad\text{uniformly}.
+}
+\]</span></p>
+</div>
+<div id="iii-1" class="section level4 hasAnchor">
+<h4>(iii)<a href="chap-8-convergence-in-distribution.html#iii-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Let</p>
+<p><span class="math display">\[
+Z\sim N(0,1)
+\]</span></p>
+<p>and define</p>
+<p><span class="math display">\[
+Z_n=\frac{Z}{n}.
+\]</span></p>
+<p>Let <span class="math inline">\(F_n\)</span> be the distribution of <span class="math inline">\(Z_n\)</span>. Then <span class="math inline">\(Z_n\to0\)</span> almost surely, so by
+part (ii),</p>
+<p><span class="math display">\[
+F_n*u\longrightarrow u
+\]</span></p>
+<p>uniformly.</p>
+<p>The density of <span class="math inline">\(Z_n\)</span> is</p>
+<p><span class="math display">\[
+\phi_n(y)
+=
+\frac{n}{\sqrt{2\pi}}
+\exp\left\{-\frac{n^2y^2}{2}\right\}.
+\]</span></p>
+<p>Define</p>
+<p><span class="math display">\[
+v_n(t)
+=
+(F_n*u)(t)
+=
+\int_{\mathbb R}u(t-y)\phi_n(y)\,dy.
+\]</span></p>
+<p>Changing variables,</p>
+<p><span class="math display">\[
+v_n(t)
+=
+\int_{\mathbb R}u(x)\phi_n(t-x)\,dx.
+\]</span></p>
+<p>Since <span class="math inline">\(u\)</span> is bounded and every derivative <span class="math inline">\(\phi_n^{(k)}\)</span> is integrable,</p>
+<p><span class="math display">\[
+v_n^{(k)}(t)
+=
+\int_{\mathbb R}
+u(x)\phi_n^{(k)}(t-x)\,dx,
+\qquad
+k\geq1.
+\]</span></p>
+<p>Therefore</p>
+<p><span class="math display">\[
+v_n\in C^\infty(\mathbb R).
+\]</span></p>
+<p>Now return to the original representation</p>
+<p><span class="math display">\[
+v_n(t)
+=
+\int_{\mathbb R}u(t-y)\phi_n(y)\,dy.
+\]</span></p>
+<p>Let</p>
+<p><span class="math display">\[
+L_+=u(+\infty),
+\qquad
+L_-=u(-\infty).
+\]</span></p>
+<p>For fixed <span class="math inline">\(y\)</span>,</p>
+<p><span class="math display">\[
+u(t-y)\to L_+
+\qquad
+(t\to+\infty).
+\]</span></p>
+<p>Since <span class="math inline">\(u\)</span> is bounded and <span class="math inline">\(\phi_n\)</span> is a density, DCT gives</p>
+<p><span class="math display">\[
+v_n(t)\to L_+.
+\]</span></p>
+<p>Similarly,</p>
+<p><span class="math display">\[
+v_n(t)\to L_-
+\qquad
+(t\to-\infty).
+\]</span></p>
+<p>Thus</p>
+<p><span class="math display">\[
+v_n\in C^\infty(\mathbb R)\cap C[-\infty,\infty].
+\]</span></p>
+<p>Finally,</p>
+<p><span class="math display">\[
+\|v_n-u\|_\infty\to0.
+\]</span></p>
+<p>Hence, given <span class="math inline">\(\epsilon&gt;0\)</span>, choose <span class="math inline">\(n\)</span> sufficiently large and set</p>
+<p><span class="math display">\[
+v=v_n.
+\]</span></p>
+<p>Then</p>
+<p><span class="math display">\[
+\boxed{
+\sup_{x\in\mathbb R}|v(x)-u(x)|&lt;\epsilon.
+}
+\]</span></p>
+</div>
+<div id="iv-2" class="section level4 hasAnchor">
+<h4>(iv)<a href="chap-8-convergence-in-distribution.html#iv-2" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Let</p>
+<p><span class="math display">\[
+\phi_n(x)
+=
+\frac{n}{\sqrt{2\pi}}
+\exp\left\{-\frac{n^2x^2}{2}\right\}.
+\]</span></p>
+<p>Define the two-dimensional Gaussian mollification</p>
+<p><span class="math display">\[
+v_n(x,y)
+=
+\iint_{\mathbb R^2}
+u(\xi,s)
+\phi_n(x-\xi)
+\phi_n(y-s)
+\,d\xi\,ds.
+\]</span></p>
+<p>As in part (iii),</p>
+<p><span class="math display">\[
+v_n\longrightarrow u
+\]</span></p>
+<p>uniformly on <span class="math inline">\(\mathbb R^2\)</span>.</p>
+<p>Fix <span class="math inline">\(\epsilon&gt;0\)</span> and choose <span class="math inline">\(n\)</span> sufficiently large that</p>
+<p><span class="math display">\[
+\|v_n-u\|_\infty&lt;\epsilon.
+\]</span></p>
+<p>Since <span class="math inline">\(u\)</span> vanishes at infinity, choose <span class="math inline">\(Q&gt;0\)</span> and let</p>
+<p><span class="math display">\[
+A=[-Q,Q]\times[-Q,Q]
+\]</span></p>
+<p>such that</p>
+<p><span class="math display">\[
+|u(\xi,s)|&lt;\epsilon
+\]</span></p>
+<p>for <span class="math inline">\((\xi,s)\in A^c\)</span>.</p>
+<p>Therefore, uniformly in <span class="math inline">\((x,y)\)</span>,</p>
+<p><span class="math display">\[
+\begin{aligned}
+&amp;
+\left|
+\iint_{A^c}
+u(\xi,s)
+\phi_n(x-\xi)
+\phi_n(y-s)
+\,d\xi\,ds
+\right|\\
+&amp;\leq
+\epsilon
+\iint_{\mathbb R^2}
+\phi_n(x-\xi)
+\phi_n(y-s)
+\,d\xi\,ds\\
+&amp;=
+\epsilon.
+\end{aligned}
+\]</span></p>
+<p>It remains to approximate the integral over <span class="math inline">\(A\)</span>.</p>
+<p>Partition <span class="math inline">\(A\)</span> into finitely many small rectangles <span class="math inline">\(R_j\)</span>, and choose a
+representative point</p>
+<p><span class="math display">\[
+(\xi_j,s_j)\in R_j.
+\]</span></p>
+<p>Let</p>
+<p><span class="math display">\[
+M_u=\sup_{\mathbb R^2}|u|,
+\qquad
+M_\phi=\|\phi_n\|_\infty.
+\]</span></p>
+<p>For <span class="math inline">\((\xi,s)\in R_j\)</span>,</p>
+<p><span class="math display">\[
+\begin{aligned}
+&amp;
+\left|
+u(\xi,s)\phi_n(x-\xi)\phi_n(y-s)
+-
+u(\xi_j,s_j)
+\phi_n(x-\xi_j)\phi_n(y-s_j)
+\right|\\
+&amp;\leq
+M_\phi^2
+|u(\xi,s)-u(\xi_j,s_j)|\\
+&amp;\quad+
+M_uM_\phi
+|\phi_n(x-\xi)-\phi_n(x-\xi_j)|\\
+&amp;\quad+
+M_uM_\phi
+|\phi_n(y-s)-\phi_n(y-s_j)|.
+\end{aligned}
+\]</span></p>
+<p>The function <span class="math inline">\(u\)</span> is uniformly continuous on the compact set <span class="math inline">\(A\)</span>, while
+<span class="math inline">\(\phi_n\)</span> is uniformly continuous on <span class="math inline">\(\mathbb R\)</span>. Hence, if the partition is
+sufficiently fine, the right-hand side is smaller than some <span class="math inline">\(\eta&gt;0\)</span>,
+uniformly in <span class="math inline">\((x,y)\)</span> and uniformly over all rectangles <span class="math inline">\(R_j\)</span>.</p>
+<p>Define</p>
+<p><span class="math display">\[
+f(x,y)
+=
+\sum_j
+u(\xi_j,s_j)
+\phi_n(x-\xi_j)
+\phi_n(y-s_j)
+|R_j|.
+\]</span></p>
+<p>Then</p>
+<p><span class="math display">\[
+\begin{aligned}
+&amp;
+\left|
+\iint_A
+u(\xi,s)
+\phi_n(x-\xi)
+\phi_n(y-s)
+\,d\xi\,ds
+-
+f(x,y)
+\right|\\
+&amp;\leq
+\sum_j
+\int_{R_j}
+\eta\,d\xi\,ds\\
+&amp;=
+\eta|A|.
+\end{aligned}
+\]</span></p>
+<p>Choose the mesh sufficiently fine that</p>
+<p><span class="math display">\[
+\eta|A|&lt;\epsilon.
+\]</span></p>
+<p>Therefore</p>
+<p><span class="math display">\[
+\sup_{(x,y)\in\mathbb R^2}
+|u(x,y)-f(x,y)|
+&lt;3\epsilon.
+\]</span></p>
+<p>Finally,</p>
+<p><span class="math display">\[
+f(x,y)
+=
+\sum_j c_jg_j(x)h_j(y),
+\]</span></p>
+<p>where</p>
+<p><span class="math display">\[
+c_j
+=
+u(\xi_j,s_j)|R_j|,
+\]</span></p>
+<p><span class="math display">\[
+g_j(x)
+=
+\phi_n(x-\xi_j),
+\]</span></p>
+<p>and</p>
+<p><span class="math display">\[
+h_j(y)
+=
+\phi_n(y-s_j).
+\]</span></p>
+<p>Each <span class="math inline">\(g_j\)</span> and <span class="math inline">\(h_j\)</span> is infinitely differentiable. Hence <span class="math inline">\(u\)</span> can be
+approximated uniformly by finite linear combinations of the required form.</p>
+</div>
+<div id="v-2" class="section level4 hasAnchor">
+<h4>(v)<a href="chap-8-convergence-in-distribution.html#v-2" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Let</p>
+<p><span class="math display">\[
+F_n
+=
+\frac13\delta_{-n}
++
+\frac13\delta_0
++
+\frac13\delta_n.
+\]</span></p>
+<p>For <span class="math inline">\(f\in C_c(\mathbb R)\)</span>,</p>
+<p><span class="math display">\[
+\int_{\mathbb R}f\,dF_n
+=
+\frac13f(-n)
++
+\frac13f(0)
++
+\frac13f(n).
+\]</span></p>
+<p>Since <span class="math inline">\(f\)</span> has compact support,</p>
+<p><span class="math display">\[
+f(-n)=f(n)=0
+\]</span></p>
+<p>for all sufficiently large <span class="math inline">\(n\)</span>. Hence</p>
+<p><span class="math display">\[
+\int_{\mathbb R}f\,dF_n
+\longrightarrow
+\frac13f(0).
+\]</span></p>
+<p>Therefore</p>
+<p><span class="math display">\[
+\boxed{
+F_n\xrightarrow{v}\frac13\delta_0.
+}
+\]</span></p>
+<p>Now let <span class="math inline">\(X_n,X_n&#39;\)</span> be iid with distribution <span class="math inline">\(F_n\)</span>. Then</p>
+<p><span class="math display">\[
+X_n+X_n&#39;
+\]</span></p>
+<p>takes the values</p>
+<p><span class="math display">\[
+-2n,-n,0,n,2n
+\]</span></p>
+<p>with respective probabilities</p>
+<p><span class="math display">\[
+\frac19,\frac29,\frac39,\frac29,\frac19.
+\]</span></p>
+<p>Thus</p>
+<p><span class="math display">\[
+F_n*F_n
+=
+\frac19\delta_{-2n}
++
+\frac29\delta_{-n}
++
+\frac13\delta_0
++
+\frac29\delta_n
++
+\frac19\delta_{2n}.
+\]</span></p>
+<p>For <span class="math inline">\(f\in C_c(\mathbb R)\)</span>,</p>
+<p><span class="math display">\[
+\begin{aligned}
+\int f\,d(F_n*F_n)
+={}&amp;
+\frac19f(-2n)
++
+\frac29f(-n)
++
+\frac13f(0)\\
+&amp;+
+\frac29f(n)
++
+\frac19f(2n).
+\end{aligned}
+\]</span></p>
+<p>All terms except the one at <span class="math inline">\(0\)</span> vanish eventually. Hence</p>
+<p><span class="math display">\[
+\boxed{
+F_n*F_n
+\xrightarrow{v}
+\frac13\delta_0.
+}
+\]</span></p>
+</div>
+<div id="vi" class="section level4 hasAnchor">
+<h4>(vi)<a href="chap-8-convergence-in-distribution.html#vi" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Since <span class="math inline">\(F_n\)</span> concentrates all its mass at <span class="math inline">\(1/n\)</span>,</p>
+<p><span class="math display">\[
+(F_n*u)(t)
+=
+u\left(t-\frac1n\right)
+=
+\sin\left(t-\frac1n\right)^2.
+\]</span></p>
+<p>For every fixed <span class="math inline">\(t\)</span>,</p>
+<p><span class="math display">\[
+\sin\left(t-\frac1n\right)^2
+\longrightarrow
+\sin(t^2),
+\]</span></p>
+<p>so the convergence is pointwise.</p>
+<p>To show that the convergence is not uniform, let</p>
+<p><span class="math display">\[
+k_n
+=
+\left\lfloor
+\frac{\pi}{8}n^2
+\right\rfloor
+\]</span></p>
+<p>and define <span class="math inline">\(t_n&gt;0\)</span> by</p>
+<p><span class="math display">\[
+t_n^2
+=
+\frac{\pi}{2}
++
+2\pi k_n.
+\]</span></p>
+<p>Then</p>
+<p><span class="math display">\[
+\sin(t_n^2)=1.
+\]</span></p>
+<p>Also,</p>
+<p><span class="math display">\[
+\frac{t_n^2}{n^2}
+=
+\frac{\pi}{2n^2}
++
+2\pi\frac{k_n}{n^2}
+\longrightarrow
+\frac{\pi^2}{4}.
+\]</span></p>
+<p>Hence</p>
+<p><span class="math display">\[
+\frac{t_n}{n}
+\longrightarrow
+\frac{\pi}{2}
+\]</span></p>
+<p>and therefore</p>
+<p><span class="math display">\[
+\frac{2t_n}{n}
+\longrightarrow
+\pi.
+\]</span></p>
+<p>Now</p>
+<p><span class="math display">\[
+\left(t_n-\frac1n\right)^2
+=
+t_n^2
+-
+\frac{2t_n}{n}
++
+\frac1{n^2}.
+\]</span></p>
+<p>Thus, modulo <span class="math inline">\(2\pi\)</span>,</p>
+<p><span class="math display">\[
+\left(t_n-\frac1n\right)^2
+\longrightarrow
+\frac{\pi}{2}-\pi
+=
+-\frac{\pi}{2}.
+\]</span></p>
+<p>Therefore</p>
+<p><span class="math display">\[
+\sin\left(t_n-\frac1n\right)^2
+\longrightarrow
+-1.
+\]</span></p>
+<p>Consequently,</p>
+<p><span class="math display">\[
+\left|
+\sin\left(t_n-\frac1n\right)^2
+-
+\sin(t_n^2)
+\right|
+\longrightarrow
+2.
+\]</span></p>
+<p>Hence</p>
+<p><span class="math display">\[
+\sup_{t\in\mathbb R}
+\left|
+(F_n*u)(t)-u(t)
+\right|
+\not\longrightarrow0.
+\]</span></p>
+<p>Thus the convergence is not uniform.</p>
+<p>Finally,</p>
+<p><span class="math display">\[
+u(x)=\sin(x^2)
+\]</span></p>
+<p>does not have finite limits as <span class="math inline">\(x\to\pm\infty\)</span>. Therefore</p>
+<p><span class="math display">\[
+\boxed{
+u\notin C[-\infty,\infty].
 }
 \]</span></p>
 
